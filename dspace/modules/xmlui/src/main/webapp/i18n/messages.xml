@@ -697,12 +697,12 @@
 	<message key="xmlui.Submission.Submissions.progress_column3">Status</message>
 	<!-- Same transformer, workflow status -->
 	<message key="xmlui.Submission.Submissions.status_0">Submitted</message>
-	<message key="xmlui.Submission.Submissions.status_1">Awaiting reviewer's attention</message>
-	<message key="xmlui.Submission.Submissions.status_2">Submission being reviewed</message>
-	<message key="xmlui.Submission.Submissions.status_3">Awaiting editor's attention</message>
-	<message key="xmlui.Submission.Submissions.status_4">Submission being edited</message>
-	<message key="xmlui.Submission.Submissions.status_5">Awaiting final editor's attention</message>
-	<message key="xmlui.Submission.Submissions.status_6">Submission being edited</message>
+	<message key="xmlui.Submission.Submissions.status_1">Awaiting pedagogical review</message>
+	<message key="xmlui.Submission.Submissions.status_2">Submission in pedagogical review</message>
+	<message key="xmlui.Submission.Submissions.status_3">Awaiting copyright check</message>
+	<message key="xmlui.Submission.Submissions.status_4">Submission in copyright check</message>
+	<message key="xmlui.Submission.Submissions.status_5">Awaiting metadata review</message>
+	<message key="xmlui.Submission.Submissions.status_6">Submission in metadata review</message>
 	<message key="xmlui.Submission.Submissions.status_7">Submission has been archived</message>
 	<message key="xmlui.Submission.Submissions.status_unknown">Unknown state</message>
         <!-- Same transformer, completed submissions section -->
