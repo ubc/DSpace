@@ -14,7 +14,7 @@
  <!-- the mapping for handle "default".                                    -->
 
  <form-map>
-   <name-map collection-handle="default" form-name="traditional" />
+   <name-map collection-handle="default" form-name="statspace" />
  </form-map>
 
 
@@ -36,6 +36,113 @@
 
  <form-definitions>
 
+   <form name="statspace">
+     <page number="1">
+       
+       <!-- Author(s) -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>contributor</dc-element>
+         <dc-qualifier>author</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Authors</label>
+         <input-type>name</input-type>
+         <hint>Enter the names of the authors of this item.</hint>
+         <required></required>
+       </field>
+       
+       <!-- Title -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>title</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Title</label>
+         <input-type>onebox</input-type>
+         <hint>Enter the main title of the item.</hint>
+         <required>You must enter a main title for this item.</required>
+       </field>
+       
+       <!-- Date -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>date</dc-element>
+         <dc-qualifier>issued</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Publication Date</label>
+         <input-type>date</input-type>
+         <hint>Please give the date of previous publication or public distribution.
+                        You can leave out the day and/or month if they aren't
+                        applicable.</hint>
+         <required>You must enter at least the year.</required>
+       </field>
+
+       <!-- Publisher -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>publisher</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Publisher</label>
+         <input-type>onebox</input-type>
+         <hint>Enter the name of the publisher of the previously issued instance of this item.</hint>
+         <required></required>
+       </field>
+
+       <!-- Subject -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>subject</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Subject(s)</label>
+         <input-type value-pairs-name="statspace_subjects">dropdown</input-type>
+         <hint>Select the subject of the main content of the item.  If the subject does not appear in the list, please select 'Other'.</hint>
+         <required>You must choose a subject.</required>
+       </field>
+
+       <!-- Abstract -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>description</dc-element>
+         <dc-qualifier>abstract</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Abstract</label>
+         <input-type>textarea</input-type>
+         <hint>Enter the abstract of the item. </hint>
+         <required></required>
+       </field>
+       
+       <!-- Copyright / Licensing -->
+       <field>
+         <dc-schema>dcterms</dc-schema>
+         <dc-element>license</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Copyright/Licensing</label>
+         <input-type
+             value-pairs-name="statspace_licenses">dropdown</input-type>
+         <hint>
+           See https://creativecommons.org/licenses/ for explanation
+           of licenses.
+         </hint>
+         <required></required>
+       </field>
+       
+       <!-- Course taught in -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Course(s) taught in</label>
+         <input-type value-pairs-name="statspace_courses">dropdown</input-type>
+         <required></required>
+       </field>
+     </page>
+
+   </form>
+   
    <form name="traditional">
      <page number="1">
        <field>
@@ -257,6 +364,199 @@ it, please enter the types and the actual numbers or codes.</hint>
      <pair>
        <displayed-value>ISBN</displayed-value>
        <stored-value>isbn</stored-value>
+     </pair>
+   </value-pairs>
+
+   <value-pairs value-pairs-name="statspace_subjects" dc-term="subject">
+     <pair>
+       <displayed-value>Displaying and summarizing categorical data</displayed-value>
+       <stored-value>Displaying and summarizing categorical data</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Displaying and summarizing quantitative data</displayed-value>
+       <stored-value>Displaying and summarizing quantitative data</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Correlation</displayed-value>
+       <stored-value>Correlation</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Covariance</displayed-value>
+       <stored-value>Covariance</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Linear regression</displayed-value>
+       <stored-value>Linear regression</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Population vs sample; parameters vs statistics</displayed-value>
+       <stored-value>Population vs sample; parameters vs statistics</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Sampling methods</displayed-value>
+       <stored-value>Sampling methods</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Observational studies and sample surveys</displayed-value>
+       <stored-value>Observational studies and sample surveys</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Design of experiments</displayed-value>
+       <stored-value>Design of experiments</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Counting rules</displayed-value>
+       <stored-value>Counting rules</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Probability rules</displayed-value>
+       <stored-value>Probability rules</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Conditional probabilities</displayed-value>
+       <stored-value>Conditional probabilities</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Bivariate probabilities</displayed-value>
+       <stored-value>Bivariate probabilities</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Bayes theorem</displayed-value>
+       <stored-value>Bayes theorem</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Independence of events</displayed-value>
+       <stored-value>Independence of events</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Random variables</displayed-value>
+       <stored-value>Random variables</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Mean and variance of random variables</displayed-value>
+       <stored-value>Mean and variance of random variables</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Binomial distribution</displayed-value>
+       <stored-value>Binomial distribution</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Joint distribution of discrete random variables</displayed-value>
+       <stored-value>Joint distribution of discrete random variables</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Covariance of random variance</displayed-value>
+       <stored-value>Covariance of random variance</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Normal distribution</displayed-value>
+       <stored-value>Normal distribution</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Sampling distributions of proportions</displayed-value>
+       <stored-value>Sampling distributions of proportions</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Sampling distributions of means</displayed-value>
+       <stored-value>Sampling distributions of proportions</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>One-sample inference for proportions</displayed-value>
+       <stored-value>One-sample inference for proportions</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>One-sample inference for means</displayed-value>
+       <stored-value>One-sample inference for means</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Two-sample inference for proportions</displayed-value>
+       <stored-value>Two-sample inference for proportions</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Two-sample inference for means</displayed-value>
+       <stored-value>Two-sample inference for means</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>One-way analysis of variance</displayed-value>
+       <stored-value>One-way analysis of variance</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Other</displayed-value>
+       <stored-value>Other</stored-value>
+     </pair>
+   </value-pairs>
+
+   <value-pairs value-pairs-name="statspace_licenses" dc-term="license">
+     <pair>
+       <displayed-value>Attribution (CC BY)</displayed-value>
+       <stored-value>CC BY</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Attribution-ShareAlike (CC BY-SA)</displayed-value>
+       <stored-value>CC BY-SA</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Attribution-NoDerivs (CC BY-ND)</displayed-value>
+       <stored-value>CC BY-ND</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Attribution-NonCommercial (CC BY-NC)</displayed-value>
+       <stored-value>CC BY-NC</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Attribution-NonCommercial-ShareAlike (CC BY-NC-SA)</displayed-value>
+       <stored-value>CC BY-NC-SA</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Attribution-NonCommercial-NoDerivs (CC BY-NC-ND)</displayed-value>
+       <stored-value>CC BY-NC-ND</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>YouTube Standard License</displayed-value>
+       <stored-value>YouTube Standard License</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Other</displayed-value>
+       <stored-value>Other</stored-value>
+     </pair>
+   </value-pairs>
+   
+   <value-pairs value-pairs-name="statspace_courses" dc-term="relation">
+     <pair>
+       <displayed-value>STAT 200</displayed-value>
+       <stored-value>STAT 200</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>STAT 203</displayed-value>
+       <stored-value>STAT 203</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>STAT 241/251</displayed-value>
+       <stored-value>STAT 241/251</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>BIOL 300</displayed-value>
+       <stored-value>BIOL 300</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>ECON 325</displayed-value>
+       <stored-value>ECON 325</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>PHIL 125</displayed-value>
+       <stored-value>PHIL 125</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>POLI 380</displayed-value>
+       <stored-value>POLI 380</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>SPPH 400</displayed-value>
+       <stored-value>SPPH 400</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Other</displayed-value>
+       <stored-value>Other</stored-value>
      </pair>
    </value-pairs>
 
