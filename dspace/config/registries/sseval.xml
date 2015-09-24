@@ -1,0 +1,84 @@
+<dspace-dc-types>
+
+    <dspace-header>
+        <title>StatSpace Evaluation</title>
+        <contributor.author>Melissa Lee</contributor.author>
+        <contributor.author>Noureddine</contributor.author>
+        <contributor.author>Davor Cubranic</contributor.author>
+    </dspace-header>
+
+    <dc-schema>
+        <name>sseval</name>
+        <namespace>http://ubc.ca/statspace/evaluation</namespace>
+    </dc-schema>
+
+    <dc-type>
+        <schema>sseval</schema>
+        <element>content</element>
+        <scope_note>Accuracy, balanced presentation of ideas, and appropriate level of detail.</scope_note>
+    </dc-type>
+
+    <dc-type>
+        <schema>sseval</schema>
+        <element>interaction</element>
+        <scope_note>Inviting students to engage with the content and providing effective feedback</scope_note>
+    </dc-type>
+    
+    <dc-type>
+        <schema>sseval</schema>
+        <element>bloom</element>
+        <scope_note>Bloom's taxonomy addressed with this object</scope_note>
+    </dc-type>
+    
+    <dc-type>
+        <schema>sseval</schema>
+        <element>usability</element>
+        <scope_note>How easy or difficult is it for the learner to move around in the learning object</scope_note>
+    </dc-type>
+    
+    <dc-type>
+        <schema>sseval</schema>
+        <element>reusability</element>
+        <scope_note>Potential for reuse in or adaptation for other courses and contexts</scope_note>
+    </dc-type>
+
+    <dc-type>
+        <schema>sseval</schema>
+        <element>goals</element>
+        <qualifier>identified</qualifier>
+        <scope_note>Learning goals are identified</scope_note>
+    </dc-type>
+
+    <dc-type>
+        <schema>sseval</schema>
+        <element>goals</element>
+        <qualifier>aligned</qualifier>
+        <scope_note>Object content aligns with learning goals</scope_note>
+    </dc-type>
+
+    <dc-type>
+        <schema>sseval</schema>
+        <element>goals</element>
+        <qualifier>appropriate</qualifier>
+        <scope_note>Learning goals are appropriate for Introductory Statistics learners</scope_note>
+    </dc-type>
+    
+    <dc-type>
+        <schema>sseval</schema>
+        <element>relevance</element>
+        <scope_note>Will students see the connection and/or application of the material to their discipline or area of study</scope_note>
+    </dc-type>
+
+    <dc-type>
+        <schema>sseval</schema>
+        <element>overall</element>
+        <scope_note>Overall rating</scope_note>
+    </dc-type>
+
+    <dc-type>
+        <schema>sseval</schema>
+        <element>comment</element>
+        <scope_note>General comment(s)</scope_note>
+    </dc-type>
+
+</dspace-dc-types>
