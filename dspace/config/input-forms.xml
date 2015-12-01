@@ -96,7 +96,7 @@
          <repeatable>true</repeatable>
          <label>Subject(s)</label>
          <input-type value-pairs-name="statspace_subjects">dropdown</input-type>
-         <hint>Select the subject of the main content of the item.  If the subject does not appear in the list, please select 'Other'.</hint>
+         <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
          <required>You must choose a subject.</required>
        </field>
 
