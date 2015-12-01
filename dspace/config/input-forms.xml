@@ -100,15 +100,15 @@
          <required>You must choose a subject.</required>
        </field>
 
-       <!-- Abstract -->
+       <!-- Abstract / Description -->
        <field>
          <dc-schema>dc</dc-schema>
          <dc-element>description</dc-element>
          <dc-qualifier>abstract</dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Abstract</label>
+         <label>Description</label>
          <input-type>textarea</input-type>
-         <hint>Enter the abstract of the item. </hint>
+         <hint>Enter the description of the item. </hint>
          <required></required>
        </field>
        
