@@ -53,7 +53,7 @@
     <dc-type>
         <schema>eperson</schema>
         <element>institution</element>
-        <scope_note>Metadata field used for the</scope_note>
+        <scope_note>Metadata field used for the institution</scope_note>
     </dc-type>
 
 </dspace-dc-types>

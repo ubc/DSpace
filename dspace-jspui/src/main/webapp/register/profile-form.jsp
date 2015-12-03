@@ -29,6 +29,7 @@
 <%@ page import="org.dspace.core.I18nUtil" %>
 <%@ page import="org.dspace.app.webui.util.UIUtil" %>
 <%@ page import="org.dspace.eperson.EPerson" %>
+<%@ page import="org.dspace.content.Metadatum" %>
 <%@ page import="org.dspace.core.Utils" %>
 
 <%
@@ -38,6 +39,9 @@
     String lastName = "";
     String firstName = "";
     String phone = "";
+    String role = "";
+    String unit = "";
+    String institution = "";
     String language = "";
 
     if (epersonForm != null)
@@ -51,6 +55,30 @@
 
         phone = epersonForm.getMetadata("phone");
         if (phone == null) phone = "";
+
+        Metadatum[] roles = epersonForm.getMetadata("eperson", "role", null, "*");
+        if (roles.length > 0) {
+            role = roles[0].value;
+        }
+        else {
+            role = "";
+        }
+
+        Metadatum[] units = epersonForm.getMetadata("eperson", "unit", null, "*");
+        if (units.length > 0) {
+            unit = units[0].value;
+        }
+        else {
+            unit = "";
+        }
+
+        Metadatum[] institutions = epersonForm.getMetadata("eperson", "institution", null, "*");
+        if (institutions.length > 0) {
+            institution = institutions[0].value;
+        }
+        else {
+            institution = "";
+        }
 
         language = epersonForm.getMetadata("language");
         if (language == null) language = "";
@@ -68,6 +96,18 @@
 	<div class="form-group">
 		<label class="col-md-offset-3 col-md-2 control-label" for="tphone"><fmt:message key="jsp.register.profile-form.phone.field"/></label>
         <div class="col-md-3"><input class="form-control" type="text" name="phone" id="tphone" size="40" maxlength="32" value="<%= Utils.addEntities(phone) %>"/></div>
+    </div>
+	<div class="form-group">
+		<label class="col-md-offset-3 col-md-2 control-label" for="trole"><fmt:message key="jsp.register.profile-form.role.field"/></label>
+        <div class="col-md-3"><input class="form-control" type="text" name="role" id="trole" size="40" value="<%= Utils.addEntities(role) %>"/></div>
+    </div>
+	<div class="form-group">
+		<label class="col-md-offset-3 col-md-2 control-label" for="tunit"><fmt:message key="jsp.register.profile-form.unit.field"/></label>
+        <div class="col-md-3"><input class="form-control" type="text" name="unit" id="tunit" size="40" value="<%= Utils.addEntities(unit) %>"/></div>
+    </div>
+	<div class="form-group">
+		<label class="col-md-offset-3 col-md-2 control-label" for="tinstitution"><fmt:message key="jsp.register.profile-form.institution.field"/></label>
+        <div class="col-md-3"><input class="form-control" type="text" name="institution" id="tinstitution" maxlength="32" value="<%= Utils.addEntities(institution) %>"/></div>
     </div>
     <div class="form-group">
 		<label class="col-md-offset-3 col-md-2 control-label" for="tlanguage"><strong><fmt:message key="jsp.register.profile-form.language.field"/></strong></label>
