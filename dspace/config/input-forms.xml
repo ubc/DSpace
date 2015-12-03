@@ -112,22 +112,6 @@
          <required></required>
        </field>
        
-       <!-- Copyright / Licensing -->
-       <field>
-         <dc-schema>dcterms</dc-schema>
-         <dc-element>license</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Copyright/Licensing</label>
-         <input-type
-             value-pairs-name="statspace_licenses">dropdown</input-type>
-         <hint>
-           See https://creativecommons.org/licenses/ for explanation
-           of licenses.
-         </hint>
-         <required></required>
-       </field>
-       
        <!-- Course taught in -->
        <field>
          <dc-schema>dc</dc-schema>
