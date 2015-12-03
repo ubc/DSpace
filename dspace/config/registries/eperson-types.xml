@@ -38,4 +38,22 @@
         <scope_note>Metadata field used for the language</scope_note>
     </dc-type>
 
+    <dc-type>
+        <schema>eperson</schema>
+        <element>role</element>
+        <scope_note>Metadata field used for the role within the institution</scope_note>
+    </dc-type>
+
+    <dc-type>
+        <schema>eperson</schema>
+        <element>unit</element>
+        <scope_note>Metadata field used for the unit within the institution</scope_note>
+    </dc-type>
+
+    <dc-type>
+        <schema>eperson</schema>
+        <element>institution</element>
+        <scope_note>Metadata field used for the</scope_note>
+    </dc-type>
+
 </dspace-dc-types>
