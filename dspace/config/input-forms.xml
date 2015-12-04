@@ -99,6 +99,17 @@
          <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
          <required>You must choose a subject.</required>
        </field>
+       <!-- Subject Other -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>subject</dc-element>
+         <dc-qualifier>other</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Other Subject(s)</label>
+         <input-type>onebox</input-type>
+         <hint>If you choose 'Other' subject, please enter details here.</hint>
+         <required></required>
+       </field>
 
        <!-- Abstract / Description -->
        <field>
@@ -120,6 +131,17 @@
          <repeatable>true</repeatable>
          <label>Course(s) taught in</label>
          <input-type value-pairs-name="statspace_courses">dropdown</input-type>
+         <required></required>
+       </field>
+       <!-- Course Other -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Other Course(s)</label>
+         <input-type>onebox</input-type>
+         <hint>If you choose 'Other' course, please enter details here.</hint>
          <required></required>
        </field>
      </page>
