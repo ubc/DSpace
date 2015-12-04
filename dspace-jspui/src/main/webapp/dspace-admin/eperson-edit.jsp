@@ -46,6 +46,7 @@
 <%@ page import="org.dspace.core.I18nUtil" %>
 <%@ page import="org.dspace.eperson.EPerson, org.dspace.core.ConfigurationManager" %>
 <%@ page import="org.dspace.eperson.Group"   %>
+<%@ page import="org.dspace.content.Metadatum" %>
 <%@ page import="org.dspace.core.Utils" %>
 
 <%
@@ -64,6 +65,25 @@
     String netid = eperson.getNetid();
     String language     = eperson.getMetadata("language");
     boolean emailExists = (request.getAttribute("email_exists") != null);
+
+    String role = "";
+    Metadatum[] roles = eperson.getMetadata("eperson", "role", null, "*");
+    if (roles.length > 0) {
+        role = roles[0].value;
+    }
+
+    String unit = "";
+    Metadatum[] units = eperson.getMetadata("eperson", "unit", null, "*");
+    if (units.length > 0) {
+        unit = units[0].value;
+    }
+
+    String institution = "";
+    Metadatum[] institutions = eperson.getMetadata("eperson", "institution", null, "*");
+    if (institutions.length > 0) {
+        institution = institutions[0].value;
+    }
+
 
     boolean ldap_enabled = ConfigurationManager.getBooleanProperty("authentication-ldap", "enable");
 %>
@@ -135,6 +155,30 @@
 			</div>  
   		</div>
   		
+        <div class="row">           
+            <%-- <td>Role:</td> --%>
+            <label class="col-md-2" for="trole"><fmt:message key="jsp.register.profile-form.role.field"/></label>
+            <div class="col-md-6">
+                <input class="form-control" name="role" id="trole" size="24" value="<%= Utils.addEntities(role) %>"/>
+            </div>
+        </div>
+         
+        <div class="row">           
+            <%-- <td>Unit:</td> --%>
+            <label class="col-md-2" for="tunit"><fmt:message key="jsp.register.profile-form.unit.field"/></label>
+            <div class="col-md-6">
+                <input class="form-control" name="unit" id="tunit" size="24" value="<%= Utils.addEntities(unit) %>"/>
+            </div>
+        </div>
+         
+        <div class="row">           
+            <%-- <td>Institution:</td> --%>
+            <label class="col-md-2" for="tinstitution"><fmt:message key="jsp.register.profile-form.institution.field"/></label>
+            <div class="col-md-6">
+                <input class="form-control" name="institution" id="tinstitution" size="24" value="<%= Utils.addEntities(institution) %>"/>
+            </div>
+        </div>
+         
   		<div class="row">          
             <label class="col-md-2" for="tlanguage"><fmt:message key="jsp.register.profile-form.language.field"/></label>
             <div class="col-md-6">            
