@@ -212,18 +212,15 @@ public class EPersonAdminServlet extends DSpaceServlet
                 // FIXME: More data-driven?
                 String role = request.getParameter("role");
                 e.clearMetadata("eperson", "role", null, "*");
-                e.addMetadata("eperson", "role", null, "*",
-                              role.equals("") ? null : role);
+                e.addMetadata("eperson", "role", null, "*", role);
         
                 String unit = request.getParameter("unit");
                 e.clearMetadata("eperson", "unit", null, "*");
-                e.addMetadata("eperson", "unit", null, "*",
-                              unit.equals("") ? null : unit);
+                e.addMetadata("eperson", "unit", null, "*", unit);
         
                 String institution = request.getParameter("institution");
                 e.clearMetadata("eperson", "institution", null, "*");
-                e.addMetadata("eperson", "institution", null, "*",
-                              institution.equals("") ? null : institution);
+                e.addMetadata("eperson", "institution", null, "*", institution);
         
                 e.setMetadata("phone",
                         request.getParameter("phone").equals("") ? null
