@@ -30,12 +30,12 @@ import org.dspace.statistics.content.DatasetDSpaceObjectGenerator;
 import org.dspace.statistics.content.DatasetTimeGenerator;
 import org.dspace.statistics.content.DatasetTypeGenerator;
 import org.dspace.statistics.content.StatisticsDataVisits;
+import org.dspace.statistics.content.StatisticsDisplay;
 import org.dspace.statistics.content.StatisticsListing;
 import org.dspace.statistics.content.StatisticsTable;
 
 import org.dspace.app.webui.components.StatisticsBean;
 import org.dspace.app.webui.util.JSPManager;
-
 
 /**
  *
@@ -120,28 +120,8 @@ public class DisplayStatisticsServlet extends DSpaceServlet
             DatasetDSpaceObjectGenerator dsoAxis = new DatasetDSpaceObjectGenerator();
             dsoAxis.addDsoChild(dso.getType(), 10, false, -1);
             statListing.addDatasetGenerator(dsoAxis);
-            Dataset dataset = statListing.getDataset(context);
-
-            dataset = statListing.getDataset();
-
-            if (dataset == null)
-            {
-		
-		dataset = statListing.getDataset(context);
-            }
-
-            if (dataset != null)
-            {
-                String[][] matrix = dataset.getMatrix();
-                List<String> colLabels = dataset.getColLabels();
-                List<String> rowLabels = dataset.getRowLabels();
-
-                statsVisits.setMatrix(matrix);
-                statsVisits.setColLabels(colLabels);
-                statsVisits.setRowLabels(rowLabels);
-            }
-
-
+            
+            statsVisits = makeStatisticsBean(context, statListing);
 	} catch (Exception e)
         {
 		log.error(
@@ -166,26 +146,8 @@ public class DisplayStatisticsServlet extends DSpaceServlet
             DatasetDSpaceObjectGenerator dsoAxis = new DatasetDSpaceObjectGenerator();
             dsoAxis.addDsoChild(dso.getType(), 10, false, -1);
             statisticsTable.addDatasetGenerator(dsoAxis);
-            Dataset dataset = statisticsTable.getDataset(context);
-
-            dataset = statisticsTable.getDataset();
-
-            if (dataset == null)
-            {
-		
-		dataset = statisticsTable.getDataset(context);
-            }
-
-            if (dataset != null)
-            {
-                String[][] matrix = dataset.getMatrix();
-                List<String> colLabels = dataset.getColLabels();
-                List<String> rowLabels = dataset.getRowLabels();
-
-                statsMonthlyVisits.setMatrix(matrix);
-                statsMonthlyVisits.setColLabels(colLabels);
-                statsMonthlyVisits.setRowLabels(rowLabels);
-            }
+            
+            statsMonthlyVisits = makeStatisticsBean(context, statisticsTable);
 	} catch (Exception e)
         {
             log.error(
@@ -208,27 +170,8 @@ public class DisplayStatisticsServlet extends DSpaceServlet
                 DatasetDSpaceObjectGenerator dsoAxis = new DatasetDSpaceObjectGenerator();
                 dsoAxis.addDsoChild(Constants.BITSTREAM, 10, false, -1);
                 statisticsTable.addDatasetGenerator(dsoAxis);
-
-                Dataset dataset = statisticsTable.getDataset(context);
-
-                dataset = statisticsTable.getDataset();
-
-                if (dataset == null)
-                {
-
-                    dataset = statisticsTable.getDataset(context);
-                }
-
-                if (dataset != null)
-                {
-                    String[][] matrix = dataset.getMatrix();
-                    List<String> colLabels = dataset.getColLabels();
-                    List<String> rowLabels = dataset.getRowLabels();
-
-                    statsFileDownloads.setMatrix(matrix);
-                    statsFileDownloads.setColLabels(colLabels);
-                    statsFileDownloads.setRowLabels(rowLabels);
-                }
+            
+                statsFileDownloads = makeStatisticsBean(context, statisticsTable);
             }
             catch (Exception e)
             {
@@ -251,27 +194,8 @@ public class DisplayStatisticsServlet extends DSpaceServlet
                 typeAxis.setType("countryCode");
                 typeAxis.setMax(10);
                 statisticsTable.addDatasetGenerator(typeAxis);
-
-                Dataset dataset = statisticsTable.getDataset(context);
-
-                dataset = statisticsTable.getDataset();
-
-                if (dataset == null)
-                {
-
-                    dataset = statisticsTable.getDataset(context);
-                }
-
-                if (dataset != null)
-                {
-                    String[][] matrix = dataset.getMatrix();
-                    List<String> colLabels = dataset.getColLabels();
-                    List<String> rowLabels = dataset.getRowLabels();
-
-                    statsCountryVisits.setMatrix(matrix);
-                    statsCountryVisits.setColLabels(colLabels);
-                    statsCountryVisits.setRowLabels(rowLabels);
-                }
+                
+                statsCountryVisits = makeStatisticsBean(context, statisticsTable);
             }
             catch (Exception e)
             {
@@ -293,27 +217,8 @@ public class DisplayStatisticsServlet extends DSpaceServlet
                 typeAxis.setType("city");
                 typeAxis.setMax(10);
                 statisticsTable.addDatasetGenerator(typeAxis);
-
-                Dataset dataset = statisticsTable.getDataset(context);
-
-                dataset = statisticsTable.getDataset();
-
-                if (dataset == null)
-                {
-
-                    dataset = statisticsTable.getDataset(context);
-                }
-
-                if (dataset != null)
-                {
-                    String[][] matrix = dataset.getMatrix();
-                    List<String> colLabels = dataset.getColLabels();
-                    List<String> rowLabels = dataset.getRowLabels();
-
-                    statsCityVisits.setMatrix(matrix);
-                    statsCityVisits.setColLabels(colLabels);
-                    statsCityVisits.setRowLabels(rowLabels);
-                }
+                
+                statsCityVisits = makeStatisticsBean(context, statisticsTable);
             }
             catch (Exception e)
             {
@@ -335,4 +240,24 @@ public class DisplayStatisticsServlet extends DSpaceServlet
         
     }
 
+    private StatisticsBean makeStatisticsBean(Context context,
+            StatisticsDisplay statisticsTable) throws Exception {
+        Dataset dataset = statisticsTable.getDataset();
+
+        if (dataset == null) {
+            dataset = statisticsTable.getDataset(context);
+        }
+
+        StatisticsBean stats = new StatisticsBean();
+        if (dataset != null) {
+            String[][] matrix = dataset.getMatrix();
+            List<String> colLabels = dataset.getColLabels();
+            List<String> rowLabels = dataset.getRowLabels();
+
+            stats.setMatrix(matrix);
+            stats.setColLabels(colLabels);
+            stats.setRowLabels(rowLabels);
+        }
+        return stats;
+    }
 }
