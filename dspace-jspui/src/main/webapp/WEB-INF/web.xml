@@ -723,7 +723,7 @@
   </servlet-mapping>
 
   <servlet-mapping>
-    <servlet-name>statistics</servlet-name>
+    <servlet-name>displaystats</servlet-name>
     <url-pattern>/statistics</url-pattern>
   </servlet-mapping>
 
