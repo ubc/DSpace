@@ -96,11 +96,17 @@ public class DisplayStatisticsServlet extends DSpaceServlet
         {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
                 JSPManager.showJSP(request, response, "/error/404.jsp");
-                    return;
         }
+        else {
+            displayDsoStats(dso, context, request, response);
+        }
+    }
 
 
-
+    private void displayDsoStats(DSpaceObject dso, Context context, HttpServletRequest request,
+            HttpServletResponse response) throws ServletException, IOException,
+            SQLException, AuthorizeException
+    {
         boolean isItem = false;
 
         StatisticsBean statsVisits = new StatisticsBean();
