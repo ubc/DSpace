@@ -60,6 +60,7 @@
 </c:forEach>
 </table>
 
+<% if (request.getAttribute("statsMonthlyVisits") != null) { %>
 <h2><fmt:message key="jsp.statistics.heading.monthlyvisits"/></h2>
 <table class="statsTable">
 <tr>
@@ -91,6 +92,7 @@
 </tr>
 </c:forEach>
 </table>
+<% } %>
 
 <% if(isItem) { %>
 
@@ -123,6 +125,7 @@
 
 <% } %>
 
+<% if (request.getAttribute("statsCountryVisits") != null) { %>
 <h2><fmt:message key="jsp.statistics.heading.countryvisits"/></h2>
 <table class="statsTable">
 <tr>
@@ -149,7 +152,9 @@
 </c:forEach>
 </c:forEach>
 </table>
+<% } %>
 
+<% if (request.getAttribute("statsCityVisits") != null) { %>
 <h2><fmt:message key="jsp.statistics.heading.cityvisits"/></h2>
 <table class="statsTable">
 <tr>
@@ -176,7 +181,7 @@
 </c:forEach>
 </c:forEach>
 </table>
-
+<% } %>
 
 </dspace:layout>
 

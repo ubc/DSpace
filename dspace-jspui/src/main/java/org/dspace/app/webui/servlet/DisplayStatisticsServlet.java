@@ -94,8 +94,7 @@ public class DisplayStatisticsServlet extends DSpaceServlet
 
         if(dso == null)
         {
-            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-                JSPManager.showJSP(request, response, "/error/404.jsp");
+            displayHomeStats(context, request, response);
         }
         else {
             displayDsoStats(dso, context, request, response);
@@ -103,6 +102,37 @@ public class DisplayStatisticsServlet extends DSpaceServlet
     }
 
 
+    private void displayHomeStats(Context context, HttpServletRequest request,
+            HttpServletResponse response) throws ServletException, IOException,
+            SQLException, AuthorizeException {
+        StatisticsBean statsVisits = new StatisticsBean();
+
+        try {
+            /** List of the top 10 items for the entire repository **/
+			StatisticsListing statListing = new StatisticsListing(
+                new StatisticsDataVisits());
+
+			statListing.setTitle("Total Visits");
+			statListing.setId("list1");
+
+            //Adding a new generator for our top 10 items without a name length delimiter
+            DatasetDSpaceObjectGenerator dsoAxis = new DatasetDSpaceObjectGenerator();
+            dsoAxis.addDsoChild(Constants.ITEM, 10, false, -1);
+            statListing.addDatasetGenerator(dsoAxis);
+
+            statsVisits = makeStatisticsBean(context, statListing);
+
+		} catch (Exception e) {
+			log.error("Error occurred while creating statistics for home page", e);
+		}
+
+        request.setAttribute("statsVisits", statsVisits);
+        request.setAttribute("isItem", false);
+
+        JSPManager.showJSP(request, response, "display-statistics.jsp");
+
+    }
+    
     private void displayDsoStats(DSpaceObject dso, Context context, HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException,
             SQLException, AuthorizeException
