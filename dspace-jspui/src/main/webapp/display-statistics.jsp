@@ -34,22 +34,14 @@
 <dspace:layout titlekey="jsp.statistics.title">
 <h1><fmt:message key="jsp.statistics.title"/></h1>
 <h2><fmt:message key="jsp.statistics.heading.visits"/></h2>
-<table class="statsTable">
+<table class="table table-striped">
 <tr>
 <th><!-- spacer cell --></th>
 <th><fmt:message key="jsp.statistics.heading.views"/></th>
 </tr>
 <c:forEach items="${statsVisits.matrix}" var="row" varStatus="counter">
 <c:forEach items="${row}" var="cell" varStatus="rowcounter">
-<c:choose>
-<c:when test="${rowcounter.index % 2 == 0}">
-<c:set var="rowClass" value="evenRowOddCol"/>
-</c:when>
-<c:otherwise>
-<c:set var="rowClass" value="oddRowOddCol"/>
-</c:otherwise>
-</c:choose>
-<tr class="${rowClass}">
+<tr>
 <td>
 <c:out value="${statsVisits.colLabels[counter.index]}"/>
 <td>
@@ -62,7 +54,7 @@
 
 <% if (request.getAttribute("statsMonthlyVisits") != null) { %>
 <h2><fmt:message key="jsp.statistics.heading.monthlyvisits"/></h2>
-<table class="statsTable">
+<table class="table table-striped">
 <tr>
 <th><!-- spacer cell --></th>
 <c:forEach items="${statsMonthlyVisits.colLabels}" var="headerlabel" varStatus="counter">
@@ -72,15 +64,7 @@
 </c:forEach>
 </tr>
 <c:forEach items="${statsMonthlyVisits.matrix}" var="row" varStatus="counter">
-<c:choose>
-<c:when test="${counter.index % 2 == 0}">
-<c:set var="rowClass" value="evenRowOddCol"/>
-</c:when>
-<c:otherwise>
-<c:set var="rowClass" value="oddRowOddCol"/>
-</c:otherwise>
-</c:choose>
-<tr class="${rowClass}">
+<tr>
 <td>
 <c:out value="${statsMonthlyVisits.rowLabels[counter.index]}"/>
 </td>
@@ -97,22 +81,14 @@
 <% if(isItem) { %>
 
 <h2><fmt:message key="jsp.statistics.heading.filedownloads"/></h2>
-<table class="statsTable">
+<table class="table table-striped">
 <tr>
 <th><!-- spacer cell --></th>
 <th><fmt:message key="jsp.statistics.heading.views"/></th>
 </tr>
 <c:forEach items="${statsFileDownloads.matrix}" var="row" varStatus="counter">
 <c:forEach items="${row}" var="cell" varStatus="rowcounter">
-<c:choose>
-<c:when test="${rowcounter.index % 2 == 0}">
-<c:set var="rowClass" value="evenRowOddCol"/>
-</c:when>
-<c:otherwise>
-<c:set var="rowClass" value="oddRowOddCol"/>
-</c:otherwise>
-</c:choose>
-<tr class="${rowClass}">
+<tr>
 <td>
 <c:out value="${statsFileDownloads.colLabels[rowcounter.index]}"/>
 <td>
@@ -127,22 +103,14 @@
 
 <% if (request.getAttribute("statsCountryVisits") != null) { %>
 <h2><fmt:message key="jsp.statistics.heading.countryvisits"/></h2>
-<table class="statsTable">
+<table class="table table-striped">
 <tr>
 <th><!-- spacer cell --></th>
 <th><fmt:message key="jsp.statistics.heading.views"/></th>
 </tr>
 <c:forEach items="${statsCountryVisits.matrix}" var="row" varStatus="counter">
 <c:forEach items="${row}" var="cell" varStatus="rowcounter">
-<c:choose>
-<c:when test="${rowcounter.index % 2 == 0}">
-<c:set var="rowClass" value="evenRowOddCol"/>
-</c:when>
-<c:otherwise>
-<c:set var="rowClass" value="oddRowOddCol"/>
-</c:otherwise>
-</c:choose>
-<tr class="${rowClass}">
+<tr>
 <td>
 <c:out value="${statsCountryVisits.colLabels[rowcounter.index]}"/>
 <td>
@@ -156,22 +124,14 @@
 
 <% if (request.getAttribute("statsCityVisits") != null) { %>
 <h2><fmt:message key="jsp.statistics.heading.cityvisits"/></h2>
-<table class="statsTable">
+<table class="table table-striped">
 <tr>
 <th><!-- spacer cell --></th>
 <th><fmt:message key="jsp.statistics.heading.views"/></th>
 </tr>
 <c:forEach items="${statsCityVisits.matrix}" var="row" varStatus="counter">
 <c:forEach items="${row}" var="cell" varStatus="rowcounter">
-<c:choose>
-<c:when test="${rowcounter.index % 2 == 0}">
-<c:set var="rowClass" value="evenRowOddCol"/>
-</c:when>
-<c:otherwise>
-<c:set var="rowClass" value="oddRowOddCol"/>
-</c:otherwise>
-</c:choose>
-<tr class="${rowClass}">
+<tr>
 <td>
 <c:out value="${statsCityVisits.colLabels[rowcounter.index]}"/>
 <td>
