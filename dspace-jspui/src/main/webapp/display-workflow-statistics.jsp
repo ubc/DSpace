@@ -33,11 +33,12 @@
 </tr>
 <c:forEach items="${statsActions.matrix}" var="row" varStatus="counter">
     <tr>
-        <c:forEach items="${row}" var="cell" varStatus="rowcounter">
-            <td>
-                <c:out value="${cell}"/>
-            </td>
-        </c:forEach>
+        <td>
+            <fmt:message key="jsp.workflow-statistics.step.${row[0]}"/>
+        </td>
+        <td>
+            <c:out value="${row[1]}"/>
+        </td>
     </tr>
 </c:forEach>
 </table>
