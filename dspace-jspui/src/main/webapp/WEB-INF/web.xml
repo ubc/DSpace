@@ -390,6 +390,11 @@
   </servlet>
 
   <servlet>
+    <servlet-name>display-workflow-stats</servlet-name>
+    <servlet-class>org.dspace.app.webui.servlet.WorkflowStatisticsServlet</servlet-class>
+  </servlet>
+
+  <servlet>
     <servlet-name>statistics</servlet-name>
     <servlet-class>org.dspace.app.webui.servlet.StatisticsServlet</servlet-class>
   </servlet>
@@ -725,6 +730,11 @@
   <servlet-mapping>
     <servlet-name>displaystats</servlet-name>
     <url-pattern>/statistics</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>display-workflow-stats</servlet-name>
+    <url-pattern>/workflow-statistics</url-pattern>
   </servlet-mapping>
 
   <servlet-mapping>

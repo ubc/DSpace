@@ -152,8 +152,32 @@ public class HandleServlet extends DSpaceServlet
             // and firing a usage event for the DSO we're reporting for
             return;
 
+        }
+        else if("/workflow-statistics".equals(extraPathInfo)) {
+            // Check configuration properties, auth, etc.
+            // Inject handle attribute
+            log.info(LogManager.getHeader(context, "workflow_statistics", "handle=" + handle + ", path=" + extraPathInfo));
+            request.setAttribute("handle", handle);
+
+            // Forward to WorkflowStatisticsServlet without changing path.
+            RequestDispatcher dispatch = getServletContext().getNamedDispatcher("display-workflow-stats");
+            log.info("dispatch");
+            dispatch.forward(request, response);
+
+            // If we don't return here, we keep processing and end up
+            // throwing a NPE when checking community authorization
+            // and firing a usage event for the DSO we're reporting for
+            return;
+
         } else if ("/display-statistics.jsp".equals(extraPathInfo))
         {
+            request.getRequestDispatcher(extraPathInfo).forward(request, response);
+            // If we don't return here, we keep processing and end up
+            // throwing a NPE when checking community authorization
+            // and firing a usage event for the DSO we're reporting for
+            return;
+        }
+        else if ("/display-workflow-statistics.jsp".equals(extraPathInfo)) {
             request.getRequestDispatcher(extraPathInfo).forward(request, response);
             // If we don't return here, we keep processing and end up
             // throwing a NPE when checking community authorization
