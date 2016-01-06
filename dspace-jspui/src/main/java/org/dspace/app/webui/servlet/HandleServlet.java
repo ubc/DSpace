@@ -169,6 +169,23 @@ public class HandleServlet extends DSpaceServlet
             // and firing a usage event for the DSO we're reporting for
             return;
 
+        }
+        else if("/search-statistics".equals(extraPathInfo)) {
+            // Check configuration properties, auth, etc.
+            // Inject handle attribute
+            log.info(LogManager.getHeader(context, "search_statistics", "handle=" + handle + ", path=" + extraPathInfo));
+            request.setAttribute("handle", handle);
+
+            // Forward to SearchStatisticsServlet without changing path.
+            RequestDispatcher dispatch = getServletContext().getNamedDispatcher("display-search-stats");
+            log.info("dispatch");
+            dispatch.forward(request, response);
+
+            // If we don't return here, we keep processing and end up
+            // throwing a NPE when checking community authorization
+            // and firing a usage event for the DSO we're reporting for
+            return;
+
         } else if ("/display-statistics.jsp".equals(extraPathInfo))
         {
             request.getRequestDispatcher(extraPathInfo).forward(request, response);
@@ -178,6 +195,13 @@ public class HandleServlet extends DSpaceServlet
             return;
         }
         else if ("/display-workflow-statistics.jsp".equals(extraPathInfo)) {
+            request.getRequestDispatcher(extraPathInfo).forward(request, response);
+            // If we don't return here, we keep processing and end up
+            // throwing a NPE when checking community authorization
+            // and firing a usage event for the DSO we're reporting for
+            return;
+        }
+        else if ("/display-search-statistics.jsp".equals(extraPathInfo)) {
             request.getRequestDispatcher(extraPathInfo).forward(request, response);
             // If we don't return here, we keep processing and end up
             // throwing a NPE when checking community authorization
