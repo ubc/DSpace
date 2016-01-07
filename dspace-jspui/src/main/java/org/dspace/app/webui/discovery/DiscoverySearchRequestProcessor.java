@@ -54,6 +54,9 @@ import org.dspace.discovery.configuration.DiscoveryConfiguration;
 import org.dspace.discovery.configuration.DiscoverySearchFilter;
 import org.dspace.discovery.configuration.DiscoverySearchFilterFacet;
 import org.dspace.discovery.configuration.DiscoverySortFieldConfiguration;
+import org.dspace.usage.UsageEvent;
+import org.dspace.usage.UsageSearchEvent;
+import org.dspace.utils.DSpace;
 import org.w3c.dom.Document;
 
 public class DiscoverySearchRequestProcessor implements SearchRequestProcessor
@@ -395,6 +398,8 @@ public class DiscoverySearchRequestProcessor implements SearchRequestProcessor
             // pageFirst = max(1,pageCurrent-3)
             long pageFirst = ((pageCurrent - 3) > 1) ? (pageCurrent - 3) : 1;
 
+            logSearch(context, request, query, pageCurrent, scope);
+            
             // Pass the results to the display JSP
             request.setAttribute("items", resultsItems);
             request.setAttribute("communities", resultsCommunities);
@@ -437,6 +442,31 @@ public class DiscoverySearchRequestProcessor implements SearchRequestProcessor
         }
 
         JSPManager.showJSP(request, response, "/search/discovery.jsp");
+    }
+
+    protected void logSearch(Context context, HttpServletRequest request, String query, long start, DSpaceObject scope) {
+        UsageSearchEvent searchEvent = new UsageSearchEvent(
+                UsageEvent.Action.SEARCH,
+                request,
+                context,
+                null, java.util.Arrays.asList(query), scope);
+
+
+        if(!StringUtils.isBlank(request.getParameter("rpp"))){
+            searchEvent.setRpp(Integer.parseInt(request.getParameter("rpp")));
+        }
+        if(!StringUtils.isBlank(request.getParameter("sort_by"))){
+            searchEvent.setSortBy(request.getParameter("sort_by"));
+        }
+        if(!StringUtils.isBlank(request.getParameter("order"))){
+            searchEvent.setSortOrder(request.getParameter("order"));
+        }
+        if(!StringUtils.isBlank(request.getParameter("start"))){
+            searchEvent.setPage(new Long(start).intValue());
+        }
+
+        //Fire our event
+        new DSpace().getEventService().fireEvent(searchEvent);
     }
 
     /**
