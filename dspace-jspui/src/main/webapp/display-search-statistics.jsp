@@ -46,4 +46,22 @@
 </c:forEach>
 </table>
 
+<h2><fmt:message key="jsp.search-statistics.heading.total"/></h2>
+<table class="table table-striped">
+<tr>
+    <th><fmt:message key="jsp.search-statistics.heading.searches"/></th>
+    <th><fmt:message key="jsp.search-statistics.heading.pct-total"/></th>
+    <th><fmt:message key="jsp.search-statistics.heading.views-search"/></th>
+</tr>
+<c:forEach items="${statsTotal.matrix}" var="row" varStatus="counter">
+    <tr>
+        <c:forEach items="${row}" var="cell" varStatus="rowcounter">
+            <td>
+                <c:out value="${cell}"/>
+            </td>
+        </c:forEach>
+    </tr>
+</c:forEach>
+</table>
+
 </dspace:layout>

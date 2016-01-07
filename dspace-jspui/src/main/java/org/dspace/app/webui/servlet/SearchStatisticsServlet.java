@@ -97,6 +97,7 @@ public class SearchStatisticsServlet extends DSpaceServlet
         throws ServletException, IOException, SQLException, AuthorizeException
     {
         StatisticsBean statsTerms = new StatisticsBean();
+        StatisticsBean statsTotal = new StatisticsBean();
 
         try {
             // Handle the optional time filter
@@ -121,6 +122,19 @@ public class SearchStatisticsServlet extends DSpaceServlet
                 statisticsTable.addFilter(dateFilter);
             }
             statsTerms = makeStatisticsBean(context, statisticsTable);
+
+            // Total search count
+            statisticsTable = new StatisticsTable(new StatisticsDataSearches(dso));
+            queryGenerator = new DatasetSearchGenerator();
+            queryGenerator.setMode(DatasetSearchGenerator.Mode.SEARCH_OVERVIEW_TOTAL);
+            queryGenerator.setPercentage(true);
+            queryGenerator.setRetrievePageViews(true);
+            statisticsTable.addDatasetGenerator(queryGenerator);
+
+            if (dateFilter != null) {
+                statisticsTable.addFilter(dateFilter);
+            }
+            statsTotal = makeStatisticsBean(context, statisticsTable);
         } catch (Exception e) {
             log.error(
                       "Error occurred while creating statistics for dso with ID: "
@@ -129,6 +143,7 @@ public class SearchStatisticsServlet extends DSpaceServlet
         }
         
         request.setAttribute("statsTerms", statsTerms);
+        request.setAttribute("statsTotal", statsTotal);
         
         JSPManager.showJSP(request, response, "display-search-statistics.jsp");
     }
