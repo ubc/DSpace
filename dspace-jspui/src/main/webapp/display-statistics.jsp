@@ -43,7 +43,7 @@
 <c:forEach items="${row}" var="cell" varStatus="rowcounter">
 <tr>
 <td>
-<c:out value="${statsVisits.colLabels[counter.index]}"/>
+<c:out value="${statsVisits.colLabels[rowcounter.index]}"/>
 <td>
 <c:out value="${cell}"/>
 </td>
