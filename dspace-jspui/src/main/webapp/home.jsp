@@ -88,7 +88,7 @@
         %> --%>
 
 	</form>
-    
+
 <div class="row">
 <%
 if (submissions != null && submissions.count() > 0)
@@ -182,6 +182,25 @@ if (submissions != null && submissions.count() > 0)
     <%= sideNews %>
 </div>
 </div>
+<div class="row">
+    <div class="col-md-8">
+        <h3>Support Documents</h3>
+        <ul>
+            <li>Elementum curabitur vitae nunc sed velit!</li>
+            <li>Ornare lectus sit amet est placerat.</li>
+            <li>Nunc id cursus metus aliquam eleifend.</li>
+        </ul>
+    </div>
+    <div class="col-md-4">
+        <h3>Pedagogical info</h3>
+        <ul>
+            <li>Viverra vitae congue eu, consequat ac.</li>
+            <li>Nunc congue nisi, vitae suscipit tellus.</li>
+            <li>Molestie lorem ipsum dolor sit amet.</li>
+        </ul>
+    </div>
+</div>
+
 <div class="container row">
 <%
 if (communities != null && communities.length != 0)
