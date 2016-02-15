@@ -64,6 +64,31 @@
         <%= topNews %>
 	</div>
 
+	<%-- Search Box --%>
+	<form method="get" action="<%= request.getContextPath() %>/simple-search">
+
+        <div class="form-group col-md-8 col-md-offset-2" >
+            <div class="input-group">
+                <input type="text" class="form-control input-xxlarge" placeholder="<fmt:message key="jsp.layout.navbar-default.search"/>" name="query" id="tequery"/>
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                </span>
+            </div>
+        </div>
+        <%--               <br/><a href="<%= request.getContextPath() %>/advanced-search"><fmt:message key="jsp.layout.navbar-default.advanced"/></a>
+        <%
+		if (ConfigurationManager.getBooleanProperty("webui.controlledvocabulary.enable"))
+		{
+        %>
+        <br/><a href="<%= request.getContextPath() %>/subject-search"><fmt:message key="jsp.layout.navbar-default.subjectsearch"/></a>
+        <%
+        }
+        %> --%>
+
+	</form>
+    
 <div class="row">
 <%
 if (submissions != null && submissions.count() > 0)
