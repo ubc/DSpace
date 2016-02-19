@@ -42,13 +42,13 @@
        <!-- Author(s) -->
        <field>
          <dc-schema>dc</dc-schema>
-         <dc-element>contributor</dc-element>
-         <dc-qualifier>author</dc-qualifier>
+         <dc-element>creator</dc-element>
+         <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
-         <label>Author(s)</label>
+         <label>Creator(s)</label>
          <input-type>name</input-type>
-         <hint>Enter the name(s) of the author(s) of this item.</hint>
-         <required></required>
+         <hint>Enter the name(s) of the creator(s) of this item.</hint>
+         <required>You must enter the creator of the item</required>
        </field>
        
        <!-- Title -->
@@ -63,6 +63,17 @@
          <required>You must enter a main title for this item.</required>
        </field>
        
+       <!-- DOI -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>identifier</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <label>DOI</label>
+         <input-type>onebox</input-type>
+         <hint>The item's digital object identifier code, if available.</hint>
+         <required></required>
+       </field>
+
        <!-- Date -->
        <field>
          <dc-schema>dc</dc-schema>
@@ -71,6 +82,7 @@
          <repeatable>false</repeatable>
          <label>Publication Date</label>
          <input-type>date</input-type>
+         <visibility>workflow</visibility>
          <hint>Please give the date of previous publication or public distribution.
                         You can leave out the day and/or month if they aren't
                         applicable.</hint>
@@ -84,8 +96,23 @@
          <repeatable>false</repeatable>
          <label>Publisher</label>
          <input-type>onebox</input-type>
+         <visibility>workflow</visibility>
          <hint>Enter the name of the publisher of the previously issued instance of this item.</hint>
          <required></required>
+       </field>
+       
+       <!-- Revision Date -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>date</dc-element>
+         <dc-qualifier>updated</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Revision Date</label>
+         <input-type>date</input-type>
+         <hint>Please give the date the item was last modified. You
+         can leave out the day and/or month if they aren't
+         applicable.</hint>
+         <required>You must choose a revision date.</required>
        </field>
 
        <!-- Subject -->
@@ -120,6 +147,17 @@
          <label>Description</label>
          <input-type>textarea</input-type>
          <hint>Enter the description of the item. </hint>
+         <required></required>
+       </field>
+
+       <!-- Audience level -->
+       <field>
+         <dc-schema>dcterms</dc-schema>
+         <dc-element>audience</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Audience Level</label>
+         <input-type value-pairs-name="statspace_audience">dropdown</input-type>
          <required></required>
        </field>
        
@@ -523,6 +561,17 @@ it, please enter the types and the actual numbers or codes.</hint>
      <pair>
        <displayed-value>Other</displayed-value>
        <stored-value>Other</stored-value>
+     </pair>
+   </value-pairs>
+   
+   <value-pairs value-pairs-name="statspace_audience" dc-term="audience">
+     <pair>
+       <displayed-value>Graduate</displayed-value>
+       <stored-value>Graduate</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Undergraduate</displayed-value>
+       <stored-value>Undergraduate</stored-value>
      </pair>
    </value-pairs>
    
