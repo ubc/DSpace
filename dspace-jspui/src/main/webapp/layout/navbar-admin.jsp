@@ -84,7 +84,14 @@
                <li><a href="<%= request.getContextPath() %>/tools/authorize"><fmt:message key="jsp.layout.navbar-admin.authorization"/></a></li>
             </ul>
           </li>
-          <li><a href="<%= request.getContextPath() %>/statistics"><fmt:message key="jsp.layout.navbar-admin.statistics"/></a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="jsp.layout.navbar-admin.statistics"/> <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="<%= request.getContextPath() %>/statistics"><fmt:message key="jsp.layout.navbar-admin.statistics"/></a></li>
+              <li><a href="<%= request.getContextPath() %>/workflow-statistics"><fmt:message key="jsp.layout.navbar-admin.workflow-statistics"/></a></li>
+              <li><a href="<%= request.getContextPath() %>/search-statistics"><fmt:message key="jsp.layout.navbar-admin.search-statistics"/></a></li>
+            </ul>
+          </li>
 		  <li class="dropdown">
              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="jsp.layout.navbar-admin.settings"/> <b class="caret"></b></a>
              <ul class="dropdown-menu">
