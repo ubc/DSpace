@@ -37,6 +37,7 @@ import org.dspace.content.Collection;
 import org.dspace.content.Community;
 import org.dspace.content.Item;
 import org.dspace.content.ItemIterator;
+import org.dspace.content.Metadatum;
 import org.dspace.content.SupervisedItem;
 import org.dspace.content.WorkspaceItem;
 import org.dspace.core.ConfigurationManager;
@@ -617,7 +618,28 @@ public class MyDSpaceServlet extends DSpaceServlet
 		            return;
 				}
 			}
-			
+            
+            // Record the export
+            try {
+                String item_id = request.getParameter("item_id");
+                EPerson eperson = context.getCurrentUser();
+                Metadatum[] exported_ids = eperson.getMetadataByMetadataString("statspace.activity.exported");
+                boolean found = false;
+                for (Metadatum exported_id : exported_ids) {
+                    if (exported_id.value.equals(item_id)) {
+                        found = true;
+                    }
+                }
+                if (!found) {
+                    eperson.addMetadata("statspace", "activity", "exported", null,
+                                        item_id);
+                    eperson.update();
+                    context.complete();
+                }
+            } catch (Exception e) {
+                throw new ServletException(e);
+            }
+
 			// success
 			JSPManager.showJSP(request, response, "/mydspace/task-complete.jsp");
 		} else if (request.getParameter("collection_id") != null) {
