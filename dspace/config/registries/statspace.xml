@@ -1,0 +1,19 @@
+<dspace-dc-types>
+
+    <dspace-header>
+        <title>StatSpace</title>
+        <contributor.author>Davor Cubranic</contributor.author>
+    </dspace-header>
+
+    <dc-schema>
+        <name>statspace</name>
+        <namespace>http://ubc.ca/statspace</namespace>
+    </dc-schema>
+
+    <dc-type>
+        <schema>statspace</schema>
+        <element>activity</element>
+        <qualifier>exported</qualifier>
+        <scope_note>ID of a DSpace item that the user exported.</scope_note>
+    </dc-type>
+</dspace-dc-types>
