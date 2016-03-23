@@ -204,6 +204,12 @@ public class MyDSpaceServlet extends DSpaceServlet
             showPreviousSubmissions(context, request, response);
             ok = true;
         }
+        else if (buttonPressed.equals("submit_downloads"))
+        {
+            // Review/evaluate own downloads
+            showPreviousDownloads(context, request, response);
+            ok = true;
+        }
         else if (buttonPressed.equals("submit_resume"))
         {
             // User clicked on a "Resume" button for a workspace item.
@@ -923,4 +929,47 @@ public class MyDSpaceServlet extends DSpaceServlet
 
         JSPManager.showJSP(request, response, "/mydspace/own-submissions.jsp");
     }
+
+    /**
+     * Show the user's previous downloads.
+     * 
+     * @param context
+     *            current context
+     * @param request
+     *            current servlet request object
+     * @param response
+     *            current servlet response object
+     */
+    private void showPreviousDownloads(Context context,
+            HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, SQLException,
+            AuthorizeException
+    {
+        EPerson eperson = context.getCurrentUser();
+        Metadatum[] exported_ids = eperson.getMetadataByMetadataString("statspace.activity.exported");
+        
+        Item[] items = new Item[exported_ids.length];
+        for (int i = 0; i < exported_ids.length; i++) {
+            Item item = Item.find(context, Integer.parseInt(exported_ids[i].value));
+            if (item == null) {
+                log.warn(LogManager.getHeader(context, "integrity_error",
+                                              UIUtil.getRequestLogInfo(request)));
+                JSPManager.showIntegrityError(request, response);
+
+                return;
+            }
+
+
+            items[i] = item;
+        }
+
+        log.info(LogManager.getHeader(context, "view_own_evaluations",
+                                      "count=" + items.length));
+
+        request.setAttribute("user", eperson);
+        request.setAttribute("items", items);
+
+        JSPManager.showJSP(request, response, "/mydspace/own-evaluations.jsp");
+    }
 }
+
