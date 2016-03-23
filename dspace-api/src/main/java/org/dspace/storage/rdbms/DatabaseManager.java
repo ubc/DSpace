@@ -1234,21 +1234,40 @@ public class DatabaseManager
 
         try
         {
-            String catalog = null;
-
-            int dotIndex = table.indexOf('.');
-            if (dotIndex > 0)
-            {
-                catalog = table.substring(0, dotIndex);
-                table = table.substring(dotIndex + 1, table.length());
-                log.warn("catalog: " + catalog);
-                log.warn("table: " + table);
+            String catalog;
+            String schema;
+            
+            String[] tableComponents = table.split("\\.");
+            switch (tableComponents.length) {
+                case 1:
+                    catalog = null;
+                    schema = catalog;
+                    break;
+                case 2:
+                    catalog = null;
+                    schema = tableComponents[0];
+                    table = tableComponents[1];
+                    log.warn("schema: " + schema);
+                    log.warn("table: " + table);
+                    break;
+                case 3:
+                    catalog = tableComponents[0];
+                    schema = tableComponents[1];
+                    table = tableComponents[2];
+                    log.warn("catalog: " + catalog);
+                    log.warn("schema: " + schema);
+                    log.warn("table: " + table);
+                    break;
+                default:
+                    throw new SQLException("Too many parts in table name: " + table);
             }
 
             connection = getConnection();
 
             // Get current database schema name
-            String schema = DatabaseUtils.getSchemaName(connection);
+            if (schema == null) {
+                DatabaseUtils.getSchemaName(connection);
+            }
             
             DatabaseMetaData metadata = connection.getMetaData();
             Map<String, ColumnInfo> results = new HashMap<String, ColumnInfo>();
