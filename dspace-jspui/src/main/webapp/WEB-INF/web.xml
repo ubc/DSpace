@@ -234,6 +234,11 @@
   </servlet>
 
   <servlet>
+    <servlet-name>evaluate</servlet-name>
+    <servlet-class>org.dspace.app.webui.servlet.EvaluateItemServlet</servlet-class>
+  </servlet>
+
+  <servlet>
     <servlet-name>group-select-list</servlet-name>
     <servlet-class>org.dspace.app.webui.servlet.admin.GroupListServlet</servlet-class>
   </servlet>
@@ -592,6 +597,11 @@
     <url-pattern>/tools/curate</url-pattern>
   </servlet-mapping>
   
+ <servlet-mapping>
+    <servlet-name>evaluate</servlet-name>
+    <url-pattern>/evaluate</url-pattern>
+ </servlet-mapping>
+ 
  <servlet-mapping>
     <servlet-name>itemmap</servlet-name>
     <url-pattern>/tools/itemmap</url-pattern>
