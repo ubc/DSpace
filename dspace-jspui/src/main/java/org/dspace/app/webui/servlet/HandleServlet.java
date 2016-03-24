@@ -30,6 +30,7 @@ import org.dspace.authorize.AuthorizeManager;
 import org.dspace.content.Collection;
 import org.dspace.content.Community;
 import org.dspace.content.DSpaceObject;
+import org.dspace.content.Evaluation;
 import org.dspace.content.Item;
 import org.dspace.content.crosswalk.CrosswalkException;
 import org.dspace.content.crosswalk.DisseminationCrosswalk;
@@ -184,6 +185,24 @@ public class HandleServlet extends DSpaceServlet
             // If we don't return here, we keep processing and end up
             // throwing a NPE when checking community authorization
             // and firing a usage event for the DSO we're reporting for
+            return;
+        }
+        else if("/evaluations".equals(extraPathInfo)) {
+            // Check configuration properties, auth, etc.
+            // Inject handle attribute
+            log.info(LogManager.getHeader(context, "item_evaluations", "handle=" + handle + ", path=" + extraPathInfo));
+
+            request.setAttribute("handle", handle);
+            if (dso.getType() == Constants.ITEM) {
+                Item item = (Item) dso;
+                request.setAttribute("item", item);
+                List<Evaluation> evaluations = Evaluation.findByItem(context, item);
+                log.info(LogManager.getHeader(context, "item_evaluations", "evaluations=" + evaluations.size()));
+                request.setAttribute("evaluations", evaluations);
+            }
+
+            request.getRequestDispatcher("/display-item-evaluations.jsp").forward(request, response);
+            //JSPManager.showJSP(request, response, "display-item-evaluations.jsp");
             return;
 
         } else if ("/display-statistics.jsp".equals(extraPathInfo))
