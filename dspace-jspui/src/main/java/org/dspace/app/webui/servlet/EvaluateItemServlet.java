@@ -61,6 +61,9 @@ public class EvaluateItemServlet extends DSpaceServlet
     	if (buttonPressed.equals("submit")) {
             processEvaluation(context, request, response, item);
         }
+        else if (buttonPressed.equals("submit_view")) {
+            viewEvaluation(context, request, response);
+        }
         else {
             showEvaluationForm(request, response, item);
         }
@@ -73,6 +76,20 @@ public class EvaluateItemServlet extends DSpaceServlet
     {
         request.setAttribute("item", item);
         JSPManager.showJSP(request, response, "/mydspace/evaluate-item.jsp");
+    }
+    
+    
+    private void viewEvaluation(Context context,
+            HttpServletRequest request,
+            HttpServletResponse response)
+        throws ServletException, IOException, SQLException, AuthorizeException
+    {
+        // get the values out of the request
+        int evaluationId = UIUtil.getIntParameter(request, "evaluation_id");
+        Evaluation evaluation = Evaluation.find(context, evaluationId);
+
+        request.setAttribute("evaluation", evaluation);
+        JSPManager.showJSP(request, response, "/display-evaluation.jsp");
     }
     
     
