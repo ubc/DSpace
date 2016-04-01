@@ -55,9 +55,6 @@
 %>
 
 
-       <div class="navbar-header">
-         <a class="navbar-brand" href="<%= request.getContextPath() %>/"><img height="25" src="<%= request.getContextPath() %>/image/ubc-logo-white.png" alt="UBC logo" /></a>
-       </div>
        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
        <div class="nav navbar-nav navbar-right">
 		<ul class="nav navbar-nav navbar-right">

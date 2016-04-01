@@ -54,6 +54,7 @@
 	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/bootstrap/bootstrap.min.css" type="text/css" />
 	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/bootstrap/bootstrap-theme.min.css" type="text/css" />
 	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/bootstrap/dspace-theme.css" type="text/css" />
+	    <link rel="stylesheet" href="/static/css/statspace-clf.css" type="text/css" />
 <%
     if (!"NONE".equals(feedRef))
     {
@@ -121,27 +122,66 @@
 
     <%-- HACK: leftmargin, topmargin: for non-CSS compliant Microsoft IE browser --%>
     <%-- HACK: marginwidth, marginheight: for non-CSS compliant Netscape browser --%>
-    <body class="undernavigation">
-<a class="sr-only" href="#content">Skip navigation</a>
-<header class="navbar navbar-inverse navbar-fixed-top">    
+    <body class="fullwidth">
+        <a class="sr-only" href="#content">Skip navigation</a>
+        
+        <!-- UBC Header -->
+        <header id="ubc7-header" role="banner">
+            <div class="container">
+                <div class="col-xs-1">
+                    <div id="ubc7-logo">
+                        <a href="http://www.ubc.ca">The University of British Columbia</a>
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div id="ubc7-apom">
+                        <a href="https://cdn.ubc.ca/clf/ref/aplaceofmind">UBC - A Place of Mind</a>
+                    </div>
+                </div>
+                <div class="col-xs-9" id="ubc7-wordmark-block">
+                    <div id="ubc7-wordmark">
+                        <a href="http://www.ubc.ca">The University of British Columbia</a>
+                    </div>
+                    <div id="ubc7-centennial">
+                        <a href="//cdn.ubc.ca/clf/ref/centennial"><span>UBC Centennial</span></a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- End of UBC Header -->
+
+        <header class="navbar navbar-default navbar-top">
+            <div id="ubc7-unit">
+                <div class="container">
+                    <div id="ubc7-unit-name" class="navbar-brand">
+                        <a href="/"><span id="ubc7-unit-identifier">StatSpace</span></a>
+                    </div>
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container">
     <%
     if (!navbar.equals("off"))
     {
 %>
-            <div class="container">
                 <dspace:include page="<%= navbar %>" />
-            </div>
 <%
     }
     else
     {
     	%>
-        <div class="container">
             <dspace:include page="/layout/navbar-minimal.jsp" />
-        </div>
 <%    	
     }
 %>
+            </div><!-- navbar container -->
 </header>
 
 <main id="content" role="main">
@@ -163,4 +203,4 @@
 <% if (request.getAttribute("dspace.layout.sidebar") != null) { %>
 	<div class="row">
 		<div class="col-md-9">
-<% } %>		
+<% } %>
