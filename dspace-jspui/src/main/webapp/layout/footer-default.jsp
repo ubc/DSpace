@@ -37,18 +37,59 @@
 %>
 </div>
 </main>
-            <%-- Page footer --%>
-             <footer class="navbar navbar-inverse navbar-bottom">
-             <div id="designedby" class="container text-muted">
-             <fmt:message key="jsp.layout.footer-default.theme-by"/> <a href="http://www.cineca.it"><img
-                                    src="<%= request.getContextPath() %>/image/logo-cineca-small.png"
-                                    alt="Logo CINECA" /></a>
-			<div id="footer_feedback" class="pull-right">                                    
-                                <p class="text-muted"><fmt:message key="jsp.layout.footer-default.text"/>&nbsp;-
-                                <a target="_blank" href="<%= request.getContextPath() %>/feedback"><fmt:message key="jsp.layout.footer-default.feedback"/></a>
-                                <a href="<%= request.getContextPath() %>/htmlmap"></a></p>
-                                </div>
-			</div>
-    </footer>
+
+        <%-- Page footer --%>
+        <footer id="ubc7-footer" class="expand" role="contentinfo">
+            <div class="row-fluid expand" id="ubc7-unit-footer">
+                <div class="container">
+                	<div class="col-md-10" id="ubc7-unit-address">
+                        <div class="ubc7-address-unit-name">
+                            <strong>UBC StatSpace</strong>
+                        </div>
+                	    <div class="ubc7-address-street">UBC Department of Statistics Earth Sciences Building, 3178-2207 Main Mall</div>
+                        <div class="ubc7-address-location">
+                            <span class="ubc7-address-city">Vancouver</span>, <span class="ubc7-address-province" title="British Columbia">British Columbia</span> <span class="ubc7-address-country">Canada</span> <span class="ubc7-address-postal">V6T 1Z4</span>
+                        </div>
+                	    <div id="ubc7-address-phone">Tel XXX XXX XXXX</div>
+                	    <div id="ubc7-address-email">E-mail email@stat.ubc.ca</div>
+                	</div>
+                	<div class="col-md-2">
+                	    <strong>Find us on</strong>
+                	    <div id="ubc7-unit-social-icons">
+                	        <a href="http://www.ubc.ca/"><i class="icon-facebook-sign"></i></a>&nbsp;
+                	        <a href="http://www.ubc.ca/"><i class="icon-twitter-sign"></i></a>
+                	    </div>
+                	</div>
+                </div>
+            </div>
+            <div class="row-fluid expand ubc7-back-to-top">
+                <div class="container">
+                	<div class="col-md-2">
+                	    <a href="#">Back to top <div class="ubc7-arrow up-arrow grey"></div></a>
+                	</div>
+                </div>
+            </div>
+            <div class="row-fluid expand" id="ubc7-global-footer">
+                <div class="container">
+                	<div class="col-md-12">
+                        <div id="ubc7-signature">
+                            <a href="http://www.ubc.ca/">The University of British Columbia</a>
+                        </div>
+                	</div>
+                </div>
+            </div>
+            <div class="row-fluid expand" id="ubc7-minimal-footer">
+                <div class="container">
+                	<div class="col-md-12">
+                	    <ul>
+                	        <li><a href="//cdn.ubc.ca/clf/ref/emergency">Emergency Procedures</a> <span class="divider">|</span></li>
+                	        <li><a href="//cdn.ubc.ca/clf/ref/terms">Terms of Use</a> <span class="divider">|</span></li>
+                	        <li><a href="//cdn.ubc.ca/clf/ref/copyright">Copyright</a> <span class="divider">|</span></li>
+                	        <li><a href="//cdn.ubc.ca/clf/ref/accessibility">Accessibility</a></li>
+                	    </ul>
+                	</div>
+                </div>
+            </div>
+        </footer>
     </body>
 </html>

@@ -1,0 +1,283 @@
+/* Unit specific stuff */
+/** Unit Bar background color **/
+#ubc7-unit {
+    color: white;
+    /* background: #002145; /\* UBC blue *\/ */
+    background: #0093c9;        /* Lightblue pharmsci.ubc.ca */
+    height: 50px;
+    overflow: hidden;
+    width: 100%;
+}
+
+#ubc7-unit, #ubc7-unit-name a, #ubc7-unit-name a:active, #ubc7-unit-name a:hover {
+    color: #FFF;
+    text-shadow: none;
+}
+.ubc7-single-element a #ubc7-unit-faculty {
+    display: none !important;
+}
+.ubc7-single-element a {
+    margin-top: 16px;
+}
+#ubc7-unit-name a {
+    display: block;
+    line-height: 20px;
+}
+#ubc7-unit-name a, #ubc7-unit-name a:hover {
+    color: #fff !important;
+    text-decoration: none !important;
+}
+
+#ubc7-unit-identifier {
+    font-size: 18px;
+    letter-spacing: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.navbar {
+    padding-left: 0;
+}
+
+/** Social Icons **/
+#ubc7-unit-social-icons i {
+    /* color: #002145; */
+    color: #0093c9;             /* Lightblue pharmsci.ubc.ca */
+}
+
+#ubc7-global-menu {
+}
+
+#ubc7-header {
+    border-top: 3px solid #002145;
+}
+
+#ubc7-header .container {
+    border-left: 1px solid #d7e0e7;
+    border-right: 1px solid #d7e0e7;
+    padding-left: 14px;
+    padding-right: 14px;
+}
+
+#ubc7-header .container [class*="col-xs-"] {
+    height: 95px;
+    padding: 0;
+}
+
+#ubc7-header .container [class*="col-xs-"]:first-child {
+    margin-left: 0;
+}
+
+#ubc7-logo, #ubc7-apom, #ubc7-wordmark {
+    height: 100%;
+}
+
+#ubc7-logo {
+    background-position: 11px -115px;
+    min-width: 95px;
+}
+
+#ubc7-apom a {
+    background-position: -73px -115px;
+    border-left: 1px solid #d7e0e7;
+    min-width: 160px;
+}
+
+#ubc7-wordmark-block {
+    background-position: -226px -115px;
+    border-left: 1px solid #d7e0e7;
+    position: relative;
+}
+
+#ubc7-centennial {
+    display: none;
+}
+
+#ubc7-unit-menu {
+    background: red;
+}
+
+#ubc7-logo, #ubc7-apom a, #ubc7-wordmark-block, #ubc7-global-utility button span, #ubc7-global-utility-no-script, #ubc7-okanagan-campus, #ubc7-vancouver-campus, #ubc7-signature a, .ubc7-carousel-control, #ubc7-ql-apom span, #ubc7-ql-mobile span, .ubc7-arrow, #ubc7-centennial a span {
+    background-image: url('../images/ubc7-clf-sprite-centennial-blue.png');
+    background-repeat: no-repeat;
+}
+
+#ubc7-logo a, #ubc7-apom a, #ubc7-wordmark a, #ubc7-global-utility button span, #ubc7-signature a, .ubc7-campus, .hide-text {
+    overflow: hidden;
+    text-indent: 200%;
+    white-space: nowrap;
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+footer {
+    color: white;
+    background: #002145;
+}
+
+
+#ubc7-footer li {
+    display: inline-block;
+}
+
+#ubc7-unit-footer [class*="col-md-"] {
+    margin-bottom: 10px;
+}
+.row-fluid [class*="col-md-"]:first-child {
+    margin-left: 0;
+    padding: 0;
+}
+
+#ubc7-unit-footer {
+    /* background: #fff; */
+    /* border-top: 1px solid #D7E0E7; */
+    /* color: #002145; */
+    padding-top: 20px;
+}
+
+#ubc7-global-footer, #ubc7-minimal-footer, #ubc7-global-footer a, #ubc7-minimal-footer a {
+    color: #fff !important;
+    text-decoration: none;
+}
+
+#ubc7-global-footer .col-md-12 {
+    border-top: 1px solid #1f385f;
+    margin-top: 20px;
+    padding: 22px 0;
+    float: none;
+}
+
+#ubc7-signature {
+    height: 50px;
+}
+
+#ubc7-signature a {
+    background-position: 0 -387px;
+    background-repeat: no-repeat;
+    display: block;
+    height: 100%;
+}
+
+#ubc7-minimal-footer .col-md-12 {
+    border-top: 1px solid #1f385f;
+    float: none;
+    padding: 22px 0;
+}
+#ubc7-minimal-footer a {
+    font-size: 85%;
+}
+#ubc7-minimal-footer ul {
+    padding: 0;
+}
+
+
+/* Large devices (large desktops, 1200px and up) */
+@media screen and (min-width: 1200px) {
+    #ubc7-apom {
+        max-width: 170px;
+    }
+    
+    #ubc7-apom a {
+        background-position: -84px 14px;
+        min-width: 200px;
+    }
+
+    #ubc7-logo {
+        background-position: 32px 14px;
+        margin-left: -15px;
+        min-width: 115px;
+    }
+
+    #ubc7-header .container [class*="col-xs-"] {
+        height: 115px;
+    }
+
+    #ubc7-wordmark-block {
+        background-position: -280px 14px;
+    }
+
+    #ubc7-wordmark {
+        max-width: 739px;
+    }
+}
+
+
+@media screen and (max-width: 979px) {
+    #ubc7-centennial {
+        background-color: #e6e6e6;
+        bottom: 0;
+        display: block;
+        max-height: 45px;
+        max-width: 45px;
+        overflow: hidden;
+        position: absolute;
+        right: 0;
+        height: 45px;
+        width: 45px;
+    }
+    #ubc7-centennial a span {
+        background-position: -1073px -348px;
+        display: block;
+        width: 33px;
+        height: 27px;
+        margin: 0 auto;
+        position: relative;
+        top: 5px;
+        overflow: hidden;
+        text-indent: 200%;
+        white-space: nowrap;
+    }
+
+	#ubc7-header .col-xs-1,header .col-xs-2 {
+		display:none!important
+	}
+	#ubc7-header .col-xs-9 {
+		width:100%!important
+	}
+    
+	#ubc7-wordmark-block {
+		background-position:-1px -205px;
+		border-left:0;
+		margin-left:0
+	}
+    #ubc7-wordmark a {
+		height:80%
+	}
+	#ubc7-unit-name {
+		margin-right:55px
+	}
+	#ubc7-unit a {
+		font-size:12px
+	}
+
+}
+
+
+@media screen and (max-width: 767px) {
+	#ubc7-wordmark-block {
+		background-position:-2px -276px;
+		background-size:auto
+	}
+	#ubc7-wordmark {
+		width:70%!important;
+		background:0
+	}
+	footer #ubc7-signature a {
+		background-position:-2px -544px;
+		background-size:auto
+	}
+}
+
+
+@media screen and (max-width: 319px) {
+	#ubc7-wordmark-block,#ubc7-signature a {
+		background-size:1290px!important
+	}
+	#ubc7-wordmark-block {
+		background-position:-2px -229px;
+	}
+	#ubc7-signature a {
+		background-position:-2px -461px!important
+	}
+}
