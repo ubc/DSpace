@@ -49,7 +49,14 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="Generator" content="<%= generator %>" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" href="<%= request.getContextPath() %>/favicon.ico" type="image/x-icon"/>
+
+        <!-- Fav and touch icons -->
+        <link rel="shortcut icon" href="//cdn.ubc.ca/clf/7.0.4/img/favicon.ico">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="//cdn.ubc.ca/clf/7.0.4/img/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="//cdn.ubc.ca/clf/7.0.4/img/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="//cdn.ubc.ca/clf/7.0.4/img/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="//cdn.ubc.ca/clf/7.0.4/img/apple-touch-icon-57-precomposed.png">
+
 	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/jquery-ui-1.10.3.custom/redmond/jquery-ui-1.10.3.custom.css" type="text/css" />
 	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/bootstrap/bootstrap.min.css" type="text/css" />
 	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/bootstrap/bootstrap-theme.min.css" type="text/css" />
