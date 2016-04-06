@@ -134,7 +134,14 @@ public class Evaluation
 
     
     public static List<Evaluation> findBySubmitter(Context context, EPerson submitter) throws SQLException {
-        throw new SQLException("Unimplemented");
+        String query = "SELECT * FROM statspace.evaluation WHERE eperson_id = ?";
+        List<TableRow> rows = DatabaseManager.queryTable(context, "statspace.evaluation", query, submitter.getID()).toList();
+
+        ArrayList<Evaluation> evaluations = new ArrayList(rows.size());
+        for (TableRow row : rows) {
+            evaluations.add(new Evaluation(context, row));
+        }
+        return evaluations;
     }
 
     
@@ -151,7 +158,14 @@ public class Evaluation
 
     
     public static List<Evaluation> findBySubmitterItem(Context context, EPerson submitter, Item item) throws SQLException {
-        throw new SQLException("Unimplemented");
+        String query = "SELECT * FROM statspace.evaluation WHERE eperson_id = ? and item_id = ?";
+        List<TableRow> rows = DatabaseManager.queryTable(context, "statspace.evaluation", query, submitter.getID(), item.getID()).toList();
+
+        ArrayList<Evaluation> evaluations = new ArrayList(rows.size());
+        for (TableRow row : rows) {
+            evaluations.add(new Evaluation(context, row));
+        }
+        return evaluations;
     }
     
     
