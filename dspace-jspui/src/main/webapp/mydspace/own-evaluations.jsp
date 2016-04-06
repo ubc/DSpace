@@ -23,13 +23,23 @@
 
 <%@ taglib uri="http://www.dspace.org/dspace-tags.tld" prefix="dspace" %>
 
+<%@ page import="java.util.HashMap"%>
+<%@ page import="java.util.Map"%>
+<%@ page import="java.util.List"%>
+
 <%@ page import="org.dspace.core.Utils" %>
 <%@ page import="org.dspace.content.Item" %>
 <%@ page import="org.dspace.eperson.EPerson" %>
+<%@ page import="org.dspace.content.Evaluation"%>
 
 <%
     EPerson eperson = (EPerson) request.getAttribute("user");
     Item[] items = (Item[]) request.getAttribute("items");
+
+    Map<Integer, Evaluation> evaluations = new HashMap<>();
+    for (Evaluation evaluation : (List<Evaluation>) request.getAttribute("evaluations")) {
+        evaluations.put(evaluation.getItem().getID(), evaluation);
+    }
 %>
 
 <dspace:layout style="submission" locbar="link"
@@ -101,8 +111,13 @@ for (int i = 0; i < items.length; i++) {
         <td headers="t12"><%= items[i].getOwningCollection().getName() %></td>
         <td headers="t13">
             <form action="<%= request.getContextPath() %>/evaluate" method="post">
+                <% if (evaluations.containsKey(items[i].getID())) { %>
+                <input type="hidden" name="evaluation_id" value="<%= evaluations.get(items[i].getID()).getId() %>"/>
+                <input class="btn btn-default" type="submit" name="submit_view" value="View" />
+                <% } else { %>
                 <input type="hidden" name="item_id" value="<%= items[i].getID() %>"/>
                 <input class="btn btn-default" type="submit" name="submit_evaluate" value="Evaluate" />
+                <% } %>
             </form>
         </td>
     </tr>

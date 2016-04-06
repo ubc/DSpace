@@ -35,6 +35,7 @@ import org.dspace.app.webui.util.UIUtil;
 import org.dspace.authorize.AuthorizeException;
 import org.dspace.content.Collection;
 import org.dspace.content.Community;
+import org.dspace.content.Evaluation;
 import org.dspace.content.Item;
 import org.dspace.content.ItemIterator;
 import org.dspace.content.Metadatum;
@@ -963,11 +964,14 @@ public class MyDSpaceServlet extends DSpaceServlet
             items[i] = item;
         }
 
+        List<Evaluation> evaluations = Evaluation.findBySubmitter(context, eperson);
+
         log.info(LogManager.getHeader(context, "view_own_evaluations",
                                       "count=" + items.length));
 
         request.setAttribute("user", eperson);
         request.setAttribute("items", items);
+        request.setAttribute("evaluations", evaluations);
 
         JSPManager.showJSP(request, response, "/mydspace/own-evaluations.jsp");
     }
