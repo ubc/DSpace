@@ -47,6 +47,18 @@
     }
 %>
 
+    <p>
+        Please consider the following two goals when evaluating the item's
+        pedagogical quality:
+    </p>
+
+    <ul>
+      <li>Do the learning goals for this learning object align with its
+          assessment activities?</li>
+      <li>How would you judge the quality of the content of this learning
+          object?</li>
+    </ul>
+    
     <form class="" action="<%= request.getContextPath() %>/evaluate" method="post">
         <input type="hidden" name="item_id" value="<%= item.getID() %>"/>
 
