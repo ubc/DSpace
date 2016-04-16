@@ -35,7 +35,7 @@
     boolean incomplete = (attr != null && attr.booleanValue());
 %>
 
-<dspace:layout style="submission" title="Evaluate Item" nocache="true">
+<dspace:layout style="submission" locbar="off" navbar="off" title="Evaluate Item" nocache="true">
 
     <h1>Pedagogical Evaluation for item <%= item.getName() %></h1>
 
