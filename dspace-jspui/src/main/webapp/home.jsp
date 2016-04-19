@@ -32,6 +32,7 @@
 <%@ page import="org.dspace.app.webui.util.UIUtil" %>
 <%@ page import="org.dspace.app.webui.components.RecentSubmissions" %>
 <%@ page import="org.dspace.content.Community" %>
+<%@ page import="org.dspace.eperson.EPerson" %>
 <%@ page import="org.dspace.core.ConfigurationManager" %>
 <%@ page import="org.dspace.core.NewsManager" %>
 <%@ page import="org.dspace.browse.ItemCounter" %>
@@ -39,6 +40,13 @@
 <%@ page import="org.dspace.content.Item" %>
 
 <%
+    // Is anyone logged in?
+    EPerson user = (EPerson) request.getAttribute("dspace.current.user");
+
+    // Is the logged in user an admin
+    Boolean admin = (Boolean)request.getAttribute("is.admin");
+    boolean isAdmin = (admin == null ? false : admin.booleanValue());
+
     Community[] communities = (Community[]) request.getAttribute("communities");
 
     Locale sessionLocale = UIUtil.getSessionLocale(request);
@@ -64,6 +72,7 @@
         <%= topNews %>
 	</div>
 
+    <% if (user != null) { %>
 	<%-- Search Box --%>
 	<form method="get" action="<%= request.getContextPath() %>/simple-search">
 
@@ -257,6 +266,7 @@ if (communities != null && communities.length != 0)
 <div class="row">
 	<%@ include file="discovery/static-tagcloud-facet.jsp" %>
 </div>
-	
+
+<% } %>
 </div>
 </dspace:layout>
