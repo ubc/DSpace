@@ -28,6 +28,7 @@
 <%@ page import="java.util.Locale"%>
 <%@ page import="javax.servlet.jsp.jstl.core.*" %>
 <%@ page import="javax.servlet.jsp.jstl.fmt.LocaleSupport" %>
+<%@ page import="org.apache.commons.lang.StringUtils" %>
 <%@ page import="org.dspace.core.I18nUtil" %>
 <%@ page import="org.dspace.app.webui.util.UIUtil" %>
 <%@ page import="org.dspace.app.webui.components.RecentSubmissions" %>
@@ -267,6 +268,10 @@ if (communities != null && communities.length != 0)
 	<%@ include file="discovery/static-tagcloud-facet.jsp" %>
 </div>
 
+<%
+} else if (!StringUtils.isEmpty(ConfigurationManager.getProperty("statspace.showcase.handle"))) {
+%>
+    <%@ include file="showcase.jsp" %>
 <% } %>
 </div>
 </dspace:layout>
