@@ -27,7 +27,7 @@
     DSpaceObject dso = HandleManager.resolveToObject(context, showcaseCollectionHandle);
     if (dso == null || !(dso instanceof Collection)) {
         throw new IllegalArgumentException("Showcase collection handle does not resolve to a Collection: " + showcaseCollectionHandle + 
-                " (" + dso.getTypeText() + ")");
+                (dso != null ? " (" + dso.getTypeText() + ")" : ""));
     }
 
     Collection collection = (Collection) dso;
