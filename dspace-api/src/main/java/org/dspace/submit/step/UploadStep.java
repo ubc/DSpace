@@ -687,7 +687,23 @@ public class UploadStep extends AbstractProcessingStep
         }
         else
         {
-            return STATUS_INTEGRITY_ERROR;
+            Item item = subInfo.getSubmissionItem().getItem();
+            Bundle[] bundles = item.getBundles("ORIGINAL");
+            if (bundles.length == 1) {
+                Bitstream[] bs = bundles[0].getBitstreams();
+                if (bs.length > 0) {
+                    Bitstream b = bs[bs.length-1];
+                    String description = request.getParameter("description");
+                    b.setDescription(description);
+                    b.update();
+                }
+                else {
+                    return STATUS_INTEGRITY_ERROR;
+                }
+            }
+            else {
+                return STATUS_INTEGRITY_ERROR;
+            }
         }
 
         return STATUS_COMPLETE;
