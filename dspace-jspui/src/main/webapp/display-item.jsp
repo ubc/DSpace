@@ -265,11 +265,32 @@
 
     <a class="btn btn-default" onclick="download_item()">Download</a>
 
+    <div id="downloadProgressInfo" style="display: none">
+        <p class="downloadInProgress">Item is being prepared for download...</p>
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped active" role="progressbar" style="width: 100%">
+                <span class="sr-only">In progress...</span>
+            </div>
+        </div>
+        <p class="downloadError" style="display: none"></p>
+    </div>
+    
     <script type="text/javascript">
         function download_item() {
+            var progressDiv = $("#downloadProgressInfo");
+            progressDiv.show();
+            progressDiv.find("div.progress").show();
+            progressDiv.find("p.downloadInProgress").show();
+            progressDiv.find("p.downloadError").hide();
             $.ajax("<%= request.getContextPath() %>/handle/<%= handle %>/download")
                 .success(function(_, _, jqxhr) {
+                    progressDiv.hide();
                     window.location.href = jqxhr.getResponseHeader("Location");
+                })
+                .error(function(jqxhr, status, errorText) {
+                    progressDiv.find("div.progress").hide();
+                    progressDiv.find("p.downloadInProgress").hide();
+                    progressDiv.find("p.downloadError").show().text(status || errorText);
                 });
             }
     </script>
