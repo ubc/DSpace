@@ -8,6 +8,7 @@
 package org.dspace.app.webui.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.URLEncoder;
 import java.sql.SQLException;
@@ -51,6 +52,8 @@ import org.dspace.utils.DSpace;
 import org.jdom.Element;
 import org.jdom.Text;
 import org.jdom.output.XMLOutputter;
+
+import org.dspace.app.itemexport.ItemExport;
 
 /**
  * Servlet for handling requests within a community or collection. The Handle is
@@ -205,6 +208,29 @@ public class HandleServlet extends DSpaceServlet
             //JSPManager.showJSP(request, response, "display-item-evaluations.jsp");
             return;
 
+        } else if ("/download".equals(extraPathInfo)) {
+            /*
+             * This method is intended to be used by AJAX, so that exporting
+             * doeesn't tie up the UI. Once the export is done and the file
+             * is ready for download, its name is returned in the response
+             * so the client can open the download URL
+             */
+            log.info(LogManager.getHeader(context, "download item, ", "handle=" + handle));
+            if (dso.getType() == Constants.ITEM) {
+                try {
+                    String exportId = ItemExport.exportNow((Item) dso, context);
+                    String createdUrl = "/exportdownload/" + exportId;
+                    response.setStatus(HttpServletResponse.SC_CREATED);
+                    response.setHeader("Location", createdUrl);
+                    response.setContentType("text/plain");
+                    PrintWriter out = response.getWriter();
+                    out.println(createdUrl);
+                }
+                catch (Exception e) {
+                    throw new ServletException(e);
+                }
+            }
+            return;
         } else if ("/display-statistics.jsp".equals(extraPathInfo))
         {
             request.getRequestDispatcher(extraPathInfo).forward(request, response);

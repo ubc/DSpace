@@ -263,6 +263,17 @@
 
     <a class="statisticsLink  btn btn-primary" href="<%= request.getContextPath() %>/handle/<%= handle %>/statistics"><fmt:message key="jsp.display-item.display-statistics"/></a>
 
+    <a class="btn btn-default" onclick="download_item()">Download</a>
+
+    <script type="text/javascript">
+        function download_item() {
+            $.ajax("<%= request.getContextPath() %>/handle/<%= handle %>/download")
+                .success(function(_, _, jqxhr) {
+                    window.location.href = jqxhr.getResponseHeader("Location");
+                });
+            }
+    </script>
+    
     <%-- SFX Link --%>
 <%
     if (ConfigurationManager.getProperty("sfx.server.url") != null)

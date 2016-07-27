@@ -1058,6 +1058,63 @@ public class ItemExport
         }
     }
 
+    
+    /**
+     * Exports the item into a ZIP file in the downloads directory for the user
+     * 
+     * @param item Item to export
+     * @param context current Context
+     * @return the name of the exported file
+     * 
+     * @throws Exception 
+     */
+    public static String exportNow(Item item, Context context) throws Exception {
+        final EPerson eperson = context.getCurrentUser();
+
+        deleteOldExportArchives();
+                
+        // create a new dspace context
+        context = new Context();
+        // ignore auths
+        context.turnOffAuthorisationSystem();
+
+        String fileName = assembleFileName("download_" + item.getHandle().replace('/', '_'), 
+                eperson, new Date());
+        
+        String workParentDir = getExportWorkDirectory()
+                + System.getProperty("file.separator")
+                + fileName;
+        
+        String workDir = workParentDir
+                + System.getProperty("file.separator")
+                + "item_" + item.getID();
+
+        File wkDir = new File(workDir);
+        if (!wkDir.exists() && !wkDir.mkdirs()) {
+            log.error("Unable to create working directory: " + wkDir);
+        }
+
+        // export the items using normal export method
+        exportItem(context, item, workDir, 1, false);
+
+        String downloadDir = getExportDownloadDirectory(eperson.getID());
+        File dnDir = new File(downloadDir);
+        if (!dnDir.exists() && !dnDir.mkdirs()) {
+            log.error("Unable to create download directory: " + dnDir);
+        }
+
+        // now zip up the export directory created above
+        String zipFileName = fileName + ".zip";
+        zip(workParentDir, downloadDir
+                + System.getProperty("file.separator")
+                + zipFileName);
+        
+        context.restoreAuthSystemState();
+        
+        return zipFileName;
+    }
+    
+    
     /**
      * Create a file name based on the date and eperson
      *
