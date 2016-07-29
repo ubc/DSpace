@@ -513,22 +513,6 @@
 <% } %>
 
 <%
-    if (subInfo.getSubmissionItem().hasMultipleFiles())
-    {
-%>
-                    <%-- Please give a brief description of the contents of this file, for
-                    example "Main article", or "Experiment data readings." --%>
-					<div class="help-block"><fmt:message key="jsp.submit.choose-file.info9"/></div>
-                <%-- <td class="submitFormLabel">File Description:</td> --%>
-                <div class="row">
-					<label for="tdescription" class="col-md-<%= bSherpa?"3":"2" %>"><fmt:message key="jsp.submit.choose-file.filedescr"/></label>
-                	<span class="col-md-<%= bSherpa?"9":"10" %> row"><input class="form-control" type="text" name="description" id="tdescription" size="40"/></span>
-                </div>
-<%
-    }
-%>
-
-<%
     if (withEmbargo)
     {
 %>
