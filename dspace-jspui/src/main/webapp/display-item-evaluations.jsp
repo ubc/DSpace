@@ -83,34 +83,36 @@ String latestVersionURL = (String)request.getAttribute("versioning.latestversion
 if (evaluations.size() > 0) {
 %>
     <h1>Evaluations for item <em><%= title %></em></h1>
-    <table class="table" align="center" summary="Item evaluations">
-        <tr>
-            <th id="t10">Author</th>
-            <th id="t11">Date</th>
-            <th id="t12">&nbsp;</th>
-        </tr>
+    <ul>
 <%
     
     for (Evaluation evaluation : evaluations) {
         Date submitted = evaluation.getSubmitted();
         EPerson submitter = evaluation.getSubmitter();
+        String content = evaluation.getContent();
 %>
-    <tr>
-        <td headers="t10">
-            <a href="mailto:<%= submitter.getEmail() %>"><%= Utils.addEntities(submitter.getFullName()) %></a>
-        </td>
-        <td headers="t11"><%= DateFormat.getDateTimeInstance().format(submitted) %></td>
-        <td headers="t12">
-            <form action="<%= request.getContextPath() %>/evaluate" method="post">
-                <input type="hidden" name="evaluation_id" value="<%= evaluation.getId() %>"/>
-                <input class="btn btn-default" type="submit" name="submit_view" value="View" />
-            </form>
-        </td>
-    </tr>
+    <li>
+        <div class="evaluation-header" style="display: inline">
+            <span class="col-md-8" style="padding-left: 0"><a href="mailto:<%= submitter.getEmail() %>"><%= Utils.addEntities(submitter.getFullName()) %></a></span>
+            <span class="col-md-3"><%= DateFormat.getDateTimeInstance().format(submitted) %></span>
+            <span class="col-md-1">
+                <form action="<%= request.getContextPath() %>/evaluate" method="post">
+                    <input type="hidden" name="evaluation_id" value="<%= evaluation.getId() %>"/>
+                    <input type="hidden" name="submit_view" value="View">
+                    <!--input class="btn btn-default" type="submit" name="submit_view" value="View" /-->
+                </form>
+                <a onclick="$(this).siblings('form').submit()">View</a>
+            </span>
+        </div>
+        <p>
+            <%= Utils.addEntities(content.substring(0, Math.min(content.length(), 500))) 
+                    + (content.length() > 500 ? "..." : "") %>
+        </p>
+    </li>
 <%
     }
-%>
-    </table>
+%>       
+    </ul>
 <%
 } 
 else {
