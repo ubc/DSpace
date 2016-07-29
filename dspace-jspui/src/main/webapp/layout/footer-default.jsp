@@ -50,8 +50,8 @@
                         <div class="ubc7-address-location">
                             <span class="ubc7-address-city">Vancouver</span>, <span class="ubc7-address-province" title="British Columbia">British Columbia</span> <span class="ubc7-address-country">Canada</span> <span class="ubc7-address-postal">V6T 1Z4</span>
                         </div>
-                	    <div id="ubc7-address-phone">Tel XXX XXX XXXX</div>
-                	    <div id="ubc7-address-email">E-mail email@stat.ubc.ca</div>
+                	    <div id="ubc7-address-phone">Tel 604.827.1546</div>
+                	    <div id="ubc7-address-email">E-mail statspace@stat.ubc.ca</div>
                 	</div>
                 	<div class="col-md-2">
                 	    <strong>Find us on</strong>
