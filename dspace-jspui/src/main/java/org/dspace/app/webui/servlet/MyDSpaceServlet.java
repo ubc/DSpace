@@ -949,28 +949,27 @@ public class MyDSpaceServlet extends DSpaceServlet
         EPerson eperson = context.getCurrentUser();
         Metadatum[] exported_ids = eperson.getMetadataByMetadataString("statspace.activity.exported");
         
-        Item[] items = new Item[exported_ids.length];
+        ArrayList<Item> items = new ArrayList<>(exported_ids.length);
         for (int i = 0; i < exported_ids.length; i++) {
             Item item = Item.find(context, Integer.parseInt(exported_ids[i].value));
             if (item == null) {
-                log.warn(LogManager.getHeader(context, "integrity_error",
-                                              UIUtil.getRequestLogInfo(request)));
-                JSPManager.showIntegrityError(request, response);
+                log.warn(LogManager.getHeader(context, "no such item",
+                                              exported_ids[i].value));
 
-                return;
+                continue;
             }
 
 
-            items[i] = item;
+            items.add(item);
         }
 
         List<Evaluation> evaluations = Evaluation.findBySubmitter(context, eperson);
 
         log.info(LogManager.getHeader(context, "view_own_evaluations",
-                                      "count=" + items.length));
+                                      "count=" + items.size()));
 
         request.setAttribute("user", eperson);
-        request.setAttribute("items", items);
+        request.setAttribute("items", items.toArray(new Item[0]));
         request.setAttribute("evaluations", evaluations);
 
         JSPManager.showJSP(request, response, "/mydspace/own-evaluations.jsp");
