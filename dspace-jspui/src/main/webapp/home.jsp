@@ -71,6 +71,14 @@
 
 	<div class="jumbotron">
         <%= topNews %>
+        
+        <% if (user != null) { %>
+            <h3>This site is under active development</h3>
+            <p>
+                Please be aware that it can go offline, be restarted, or changed <strong>at
+                any moment with no prior notice!</strong>
+            </p>
+        <% } %>
 	</div>
 
     <% if (user != null) { %>
