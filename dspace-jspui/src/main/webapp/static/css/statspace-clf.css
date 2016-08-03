@@ -45,8 +45,9 @@
     color: #0093c9;             /* Lightblue pharmsci.ubc.ca */
 }
 
-#ubc-wordmark {
+#ubc-wordmark, #ubc-wordmark a {
     color: #002145;
+    text-decoration: none !important;
     font-family: "Whitney",sans-serif;
     text-transform: uppercase;
     font-weight: 600;
