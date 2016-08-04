@@ -31,7 +31,4 @@
     relevant "Resume" button.</p> --%>
 	<p class="alert alert-info"><fmt:message key="jsp.submit.saved.info"/></p>
 
-    <%-- <p><a href="<%= request.getContextPath() %>/mydspace">Go to My DSpace</a></p> --%>
-	<p><a href="<%= request.getContextPath() %>/mydspace"><fmt:message key="jsp.mydspace.general.goto-mydspace"/></a></p>
-
 </dspace:layout>

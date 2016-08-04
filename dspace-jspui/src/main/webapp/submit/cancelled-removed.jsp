@@ -30,7 +30,4 @@
     from the system.</p> --%>
 	<p><fmt:message key="jsp.submit.cancelled-removed.info"/></p>
 
-    <%-- <p><a href="<%= request.getContextPath() %>/mydspace">Go to My DSpace</a></p> --%>
-	<p><a href="<%= request.getContextPath() %>/mydspace"><fmt:message key="jsp.mydspace.general.goto-mydspace"/></a></p>
-
 </dspace:layout>

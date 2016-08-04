@@ -120,6 +120,5 @@
 <%
     }
 %>
-<p align="center"><a href="<%= request.getContextPath() %>/mydspace"><fmt:message key="jsp.mydspace.general.goto-mydspace"/> </a></p>
 
 </dspace:layout>

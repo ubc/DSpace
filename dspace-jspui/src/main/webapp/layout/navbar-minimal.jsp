@@ -56,6 +56,13 @@
 
 
        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+         <ul class="nav navbar-nav">
+           <% if (user != null) { %>
+             <li class="<%= currentPage.endsWith("/mydspace")? "active" : "" %>"><a href="<%= request.getContextPath() %>/mydspace"><span class="glyphicon glyphicon-home"></span> <fmt:message key="jsp.layout.navbar-default.users"/></a></li>
+           <% } else { %>
+             <li class="<%= currentPage.endsWith("/home.jsp")? "active" : "" %>"><a href="<%= request.getContextPath() %>/"><span class="glyphicon glyphicon-home"></span> <fmt:message key="jsp.layout.navbar-default.home"/></a></li>
+           <% } %>
+         </ul>
        <div class="nav navbar-nav navbar-right">
 		<ul class="nav navbar-nav navbar-right">
          <li class="dropdown">
