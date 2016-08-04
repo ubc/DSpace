@@ -200,6 +200,8 @@ if (submissions != null && submissions.count() > 0)
     <%= sideNews %>
 </div>
 </div>
+<% } %>
+
 <div class="row">
     <div class="col-md-8">
         <h3>Support Documents</h3>
@@ -218,6 +220,8 @@ if (submissions != null && submissions.count() > 0)
         </ul>
     </div>
 </div>
+
+<% if (user != null) { %>
 
 <div class="container row">
 <%
