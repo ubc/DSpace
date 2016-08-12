@@ -10,6 +10,7 @@
 <%@page import="java.text.DateFormat"%>
 <%@page import="org.dspace.content.Evaluation"%>
 <%@page import="org.dspace.app.webui.util.UIUtil"%>
+<%@ page import="org.dspace.core.Utils" %>
 <%--
   - Item evaluation form
   -
@@ -38,7 +39,8 @@
 
 <dspace:layout style="submission" title="Evaluate Item" nocache="true">
 
-    <h1>Pedagogical Evaluation for item <%= item.getName() %></h1>
+    <h1>Pedagogical Evaluation for item <a href="<%= request.getContextPath() + "/handle/"
+                                                 + item.getHandle() %>"><%= Utils.addEntities(item.getName()) %></a></h1>
     
     <div>
         <div>
@@ -63,5 +65,7 @@
                 <%= evaluation.getContent() %>
             </div>
         </div>
-   </div>
+    </div>
+
+    <p><a href="<%= request.getContextPath() + "/handle/" + item.getHandle() %>">Back to item</a></p>
 </dspace:layout>
