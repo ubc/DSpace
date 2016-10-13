@@ -48,7 +48,7 @@
                titlekey="jsp.mydspace">
 
     <%-- <h2>Your Submissions</h2> --%>
-    <h2>Your Downloads</h2>
+    <h2>Your Evaluations</h2>
     <!-- <h2><fmt:message key="jsp.mydspace.own-submissions.title"/></h2> -->
     
 <%
