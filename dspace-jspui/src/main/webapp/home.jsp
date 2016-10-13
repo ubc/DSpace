@@ -69,27 +69,21 @@
 
 <dspace:layout locbar="nolink" titlekey="jsp.home.title" feedData="<%= feedData %>">
 
-	<div class="jumbotron">
-        <%= topNews %>
-        
-        <% if (user != null) { %>
-            <h3>This site is under active development</h3>
-            <p>
-                Please be aware that it can go offline, be restarted, or changed <strong>at
-                any moment with no prior notice!</strong>
-            </p>
-        <% } %>
-	</div>
+    <% if (user == null) { %>
+    	<div class="jumbotron">
+            <%= topNews %>
+    	</div>
+    <% } %>
 
     <% if (user != null) { %>
 	<%-- Search Box --%>
 	<form method="get" action="<%= request.getContextPath() %>/simple-search">
 
-        <div class="form-group col-md-8 col-md-offset-2" >
+        <div class="form-group col-md-8 col-md-offset-2" style="padding: 3em 0;">
             <div class="input-group">
-                <input type="text" class="form-control input-xxlarge" placeholder="<fmt:message key="jsp.layout.navbar-default.search"/>" name="query" id="tequery"/>
+                <input type="text" class="form-control input-lg" placeholder="<fmt:message key="jsp.layout.navbar-default.search"/>" name="query" id="tequery"/>
                 <span class="input-group-btn">
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn btn-primary input-lg">
                         <span class="glyphicon glyphicon-search"></span>
                     </button>
                 </span>
@@ -204,19 +198,25 @@ if (submissions != null && submissions.count() > 0)
 
 <div class="row">
     <div class="col-md-8">
-        <h3>Support Documents</h3>
+        <h3>Copyright</h3>
         <ul>
-            <li>Elementum curabitur vitae nunc sed velit!</li>
-            <li>Ornare lectus sit amet est placerat.</li>
-            <li>Nunc id cursus metus aliquam eleifend.</li>
+            <li><a href="http://wiki.ubc.ca/Library:OERR/User_Guides/Copyright_Permissions/Seeking_Permission">Seeking Permission for Copyrighted Content</a></li> 
+            <li><a href="http://wiki.ubc.ca/Library:OERR/User_Guides/Copyright_Permissions/Curated_Content">Copyright and Curated Content in Open Education Resource Repositories</a></li>
+            <li><a href="http://wiki.ubc.ca/Library:OERR/User_Guides/Copyright_Permissions/Self_Created_Content">Self-Created Content for Open Education Repositories</a></li>
         </ul>
     </div>
     <div class="col-md-4">
-        <h3>Pedagogical info</h3>
+        <h3>Pedagogy</h3>
         <ul>
-            <li>Viverra vitae congue eu, consequat ac.</li>
-            <li>Nunc congue nisi, vitae suscipit tellus.</li>
-            <li>Molestie lorem ipsum dolor sit amet.</li>
+            <li>
+                <a href="http://wiki.ubc.ca/Library:OERR/User_Guides/Curating/Define">What are Open Education Resources?</a>
+            </li>
+            <li>
+                <a href="http://wiki.ubc.ca/Library:OERR/User_Guides/Curating/Finding">Finding Open Education Resources</a>
+            </li>
+            <li>
+                <a href="http://wiki.ubc.ca/Library:OERR/User_Guides/Curating/Assessing">Assessing Open Education Resource</a>
+            </li>
         </ul>
     </div>
 </div>
