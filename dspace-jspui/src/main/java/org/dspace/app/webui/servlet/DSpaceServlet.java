@@ -22,6 +22,9 @@ import org.dspace.app.webui.util.UIUtil;
 import org.dspace.authorize.AuthorizeException;
 import org.dspace.core.Context;
 import org.dspace.core.LogManager;
+import org.dspace.content.Item;
+import org.dspace.content.Metadatum;
+import org.dspace.eperson.EPerson;
 
 /**
  * Base class for DSpace servlets. This manages the initialisation of a context,
@@ -212,4 +215,41 @@ public class DSpaceServlet extends HttpServlet
         // indicate that POST is not supported by this servlet.
         super.doGet(request, response);
     }
+    
+    
+    /**
+     * Adds a 'statspace.activity.exported' metadata record to the
+     * current user, with the item's ID as its value.
+     *
+     * @param context
+     *            a DSpace Context object (must have a current user)
+     * @param item
+     *            the item being exported
+     *
+     * @throws ServletException
+     *             if anything goes wrong
+     */
+    protected void recordExport(Context context, Item item) throws ServletException {
+        // Record the export
+        try {
+            String item_id = Integer.toString(item.getID());
+            EPerson eperson = context.getCurrentUser();
+            Metadatum[] exported_ids = eperson.getMetadataByMetadataString("statspace.activity.exported");
+            boolean found = false;
+            for (Metadatum exported_id : exported_ids) {
+                if (exported_id.value.equals(item_id)) {
+                    found = true;
+                }
+            }
+            if (!found) {
+                eperson.addMetadata("statspace", "activity", "exported", null,
+                                    item_id);
+                eperson.update();
+                context.complete();
+            }
+        } catch (Exception e) {
+            throw new ServletException(e);
+        }
+    }
+
 }

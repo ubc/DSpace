@@ -219,6 +219,7 @@ public class HandleServlet extends DSpaceServlet
             if (dso.getType() == Constants.ITEM) {
                 try {
                     String exportId = ItemExport.exportNow((Item) dso, context);
+                    recordExport(context, (Item) dso);
                     String createdUrl = "/exportdownload/" + exportId;
                     response.setStatus(HttpServletResponse.SC_CREATED);
                     response.setHeader("Location", createdUrl);

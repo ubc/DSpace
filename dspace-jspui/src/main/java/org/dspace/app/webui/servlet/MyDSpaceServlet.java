@@ -626,27 +626,8 @@ public class MyDSpaceServlet extends DSpaceServlet
 				}
 			}
             
-            // Record the export
-            try {
-                String item_id = request.getParameter("item_id");
-                EPerson eperson = context.getCurrentUser();
-                Metadatum[] exported_ids = eperson.getMetadataByMetadataString("statspace.activity.exported");
-                boolean found = false;
-                for (Metadatum exported_id : exported_ids) {
-                    if (exported_id.value.equals(item_id)) {
-                        found = true;
-                    }
-                }
-                if (!found) {
-                    eperson.addMetadata("statspace", "activity", "exported", null,
-                                        item_id);
-                    eperson.update();
-                    context.complete();
-                }
-            } catch (Exception e) {
-                throw new ServletException(e);
-            }
-
+            recordExport(context, item);
+            
 			// success
 			JSPManager.showJSP(request, response, "/mydspace/task-complete.jsp");
 		} else if (request.getParameter("collection_id") != null) {
