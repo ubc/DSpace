@@ -25,12 +25,17 @@
        Runtime and Compile Time dependencies for DSpace.
     -->
     <build>
+        <filters>
+          <!-- Filter using the properties file defined by dspace-parent POM -->
+          <filter>${filters.file}</filter>
+        </filters>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
                 <includes>
                     <include>maven.properties</include>
                     <include>scm.properties</include>
+                    <include>Messages.properties</include>
                 </includes>
                 <filtering>true</filtering>
             </resource>
@@ -39,6 +44,7 @@
                 <excludes>
                     <exclude>maven.properties</exclude>
                     <exclude>scm.properties</exclude>
+                    <exclude>Messages.properties</exclude>
                 </excludes>
                 <filtering>false</filtering>
             </resource>
