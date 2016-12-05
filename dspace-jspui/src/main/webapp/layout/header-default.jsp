@@ -138,7 +138,7 @@
                 <div class="navbar-header">
                     <div id="ubc-wordmark">
                         <div class="ubc-name">The University of British Columbia</div>
-                        <div class="group-name">StatSpace</div>
+                        <div class="group-name"><%= ConfigurationManager.getProperty("dspace.name") %></div>
                     </div>
                 </div>
             </div>
