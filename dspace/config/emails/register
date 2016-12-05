@@ -4,13 +4,13 @@
 #
 # See org.dspace.core.Email for information on the format of this file.
 #
-Subject: StatSpace Account Registration
-To complete registration for a StatSpace account, please click the link
+Subject: ${dspace.name} Account Registration
+To complete registration for a ${dspace.name} account, please click the link
 below:
 
   {0}
 
 If you need assistance with your account, please email
-Dspace-dev admin <cubranic@stat.ubc.ca> or call us at 604-822-4220.
+${dspace.name} admin <${mail.admin}> or call us at 604-822-4220.
 
-The DSpace Team
+The ${dspace.name} Team
