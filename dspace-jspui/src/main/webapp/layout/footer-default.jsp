@@ -17,6 +17,7 @@
 
 <%@ page import="java.net.URLEncoder" %>
 <%@ page import="org.dspace.app.webui.util.UIUtil" %>
+<%@ page import="org.dspace.core.ConfigurationManager" %>
 
 <%
     String sidebar = (String) request.getAttribute("dspace.layout.sidebar");
@@ -44,7 +45,7 @@
                 <div class="container">
                 	<div class="col-md-8" id="ubc7-unit-address">
                         <div class="ubc7-address-unit-name">
-                            <strong>UBC StatSpace</strong>
+                            <strong><%= ConfigurationManager.getProperty("dspace.name") %></strong>
                         </div>
                 	    <div class="ubc7-address-street">Department of Statistics Earth Sciences Building, 3178-2207 Main Mall</div>
                         <div class="ubc7-address-location">
