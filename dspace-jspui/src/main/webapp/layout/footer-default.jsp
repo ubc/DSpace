@@ -47,12 +47,29 @@
                         <div class="ubc7-address-unit-name">
                             <strong><%= ConfigurationManager.getProperty("dspace.name") %></strong>
                         </div>
-                	    <div class="ubc7-address-street">Department of Statistics Earth Sciences Building, 3178-2207 Main Mall</div>
-                        <div class="ubc7-address-location">
-                            <span class="ubc7-address-city">Vancouver</span>, <span class="ubc7-address-province" title="British Columbia">British Columbia</span> <span class="ubc7-address-country">Canada</span> <span class="ubc7-address-postal">V6T 1Z4</span>
+                	    <div class="ubc7-address-street">
+                            <%= ConfigurationManager.getProperty("dspace.contact.address.street") %>
                         </div>
-                	    <div id="ubc7-address-phone">Tel 604.827.1546</div>
-                	    <div id="ubc7-address-email">E-mail statspace@stat.ubc.ca</div>
+                        <div class="ubc7-address-location">
+                            <span class="ubc7-address-city">
+                                <%= ConfigurationManager.getProperty("dspace.contact.address.city") %>
+                            </span>,
+                            <span class="ubc7-address-province">
+                                <%= ConfigurationManager.getProperty("dspace.contact.address.province") %>
+                            </span>
+                            <span class="ubc7-address-country">
+                                <%= ConfigurationManager.getProperty("dspace.contact.address.country") %>
+                            </span>
+                            <span class="ubc7-address-postal">
+                                <%= ConfigurationManager.getProperty("dspace.contact.address.postal") %>
+                            </span>
+                        </div>
+                	    <div id="ubc7-address-phone">
+                            Tel <%= ConfigurationManager.getProperty("dspace.contact.phone") %>
+                        </div>
+                	    <div id="ubc7-address-email">
+                            E-mail <%= ConfigurationManager.getProperty("dspace.contact.email") %>
+                        </div>
                 	</div>
                     <div class="col-md-4">
                         <div id="ubc7-signature">
