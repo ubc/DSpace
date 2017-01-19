@@ -70,9 +70,140 @@
 <dspace:layout locbar="nolink" titlekey="jsp.home.title" feedData="<%= feedData %>">
 
     <% if (user == null) { %>
-    	<div class="jumbotron">
-            <%= topNews %>
-    	</div>
+
+	<div class="row landing-page">  
+	    <div class="col-md-8">
+		
+		<div class="jumbotron">
+		    
+		    <h1><i class="glyphicon glyphicon-stats"></i> StatSpace</h1>
+		    <h2>Find and share vetted learning materials for teaching introductory statistics in any discipline</h2>
+		    
+		    <p>StatSpace brings together high-quality open education materials vetted by instructors from UBC and around the world, with the goal of supporting cooperation among statistics instruction experts and sharing resources that address common cross-disciplinary challenges of teaching in this area.</p>
+		    
+		    <p class="text-center cta">
+			    <a href="/register" class="btn btn-success btn-lg">Join</a> &nbsp; or &nbsp;
+			    <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>
+		    </p>
+			  
+		</div>
+		
+		<div class="row after-jumbotron">
+		    <div class="col-md-6">
+			<h4>About Us</h4>
+			<p>Learn about StatSpace and how open education resouces help teaching and learning. &nbsp;<a href="/about.jsp">read more &raquo;</a></p>
+		    </div>    
+		    <div class="col-md-6">
+			<h4>Copyright</h4>
+			<p>Understand how content copyright works for the materials available in StatSpace. &nbsp;<a href="">read more &raquo;</a></p>
+		    </div>
+		</div>
+		
+	    </div>
+	    
+	    <div class="col-md-4 intro-sidebar">
+	    
+		<div class="panel panel-info">
+		    <div class="panel-heading">
+			<h3 class="panel-title">
+				<i class="glyphicon glyphicon-search"></i>&nbsp; Search for materials
+			</h3>
+		    </div>
+		    <div class="panel-body">
+			<p>Search our high-quality archive of <strong>100+ curated introductory statistics materials</strong>.</p>
+			<label>Search StatSpace now:</label>
+			<%-- Search Box --%>
+			<form method="get" action="<%= request.getContextPath() %>/simple-search">
+			    <div class="input-group">
+				<input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
+				<span class="input-group-btn">
+				    <button type="submit" class="btn btn-primary">
+					<span class="glyphicon glyphicon-search"></span>
+				    </button>
+				</span>
+			    </div>
+			</form>
+		    </div>
+		</div>
+		
+		<div class="panel panel-info">
+		    <div class="panel-heading">
+			<h3 class="panel-title"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</h3>
+		    </div>
+		    <div class="panel-body">
+			<p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
+		    </div>
+		</div>
+	      
+		<div class="panel panel-info">
+		    <div class="panel-heading">
+			<h3 class="panel-title"><i class="glyphicon glyphicon-comment"></i> &nbsp;Evaluate what you use</h3>
+		    </div>
+		    <div class="panel-body">
+			<p>Evaluate the introductory statistics material in StatSpace by giving <strong>detailed private feedback</strong> for any resources you use, to help other educators improve their designs.</p>
+		    </div>
+		</div>
+	    
+	    </div>
+	</div>
+	
+	<div class="row">
+	    <div class="col-md-12">
+		<h3 class="featured-heading">Featured StatSpace materials</h3>
+	    </div>
+	</div>
+	
+	<div class="row featured-items">
+	    <div class="col-md-4 text-center">
+		<h4>Simulation</h4>
+		<div class="thumbnail">
+		    <img src="http://www.zoology.ubc.ca/~whitlock/kingfisher/Common/Images/fish.svg" class="sim-image" width="250">
+		    <div class="caption">
+			<h5>Fish Size Interactive Online Visualization: Sampling from a normal distribution</h5>
+			<p class="text-left"><strong>About:</strong> This activity allows students to understand the values of the sample size, mean length, and standard deviation of length by <!--... &nbsp;<a href="">Show <span class="glyphicon glyphicon-chevron-down"></span></a>--> working with an online visualization tool based around fish populations. By doing the tutorial, students get a feel for how these three values change the distribution.</p>
+			<p class="text-left"><strong>Assessment Method:</strong> Method Type</p>
+			<p class="text-left"><strong>Topics:</strong> Normal Distribution, Histograms, Sampling Variability, Sampling From a Normal Distribution</p> 
+			<p class="see-more"><a href="/sim-example.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+		    </div>
+		</div>
+	    </div>
+	    
+	    <div class="col-md-4 text-center">
+		<h4>Video</h4>
+		<div class="thumbnail video-iframe">
+		    <iframe src="https://www.youtube.com/embed/LMSyiAJm99g" allowfullscreen="" width="300" height="169" frameborder="0"></iframe>
+		    <div class="caption">
+			<h5>Introductions to Statistics: An easy video introductory overview</h5>
+			<p class="text-left"><strong>About:</strong> This video gives students a brief and simplified overview of statistics. This resource is especially useful for those outside <!--... &nbsp;<a href="">Show <span class="glyphicon glyphicon-chevron-down"></span></a>--> of math-heavy disciplines to get a high-level understanding of statistics without the overwhelm typically associated introductory videos.</p>
+			<p class="text-left"><strong>Assessment Method:</strong> Method Type</p>
+			<p class="text-left"><strong>Topics:</strong> Topic One, Topic Two, Topic Three</p> 
+			<p class="see-more"><a href="/video-example.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+		    </div>     
+		</div>
+	    </div>
+	    
+	    <div class="col-md-4 text-center">
+		<h4>Data Set</h4>
+		<div class="thumbnail">
+		    <i class="glyphicon glyphicon-sort-by-order data-icon"></i>
+		    <div class="caption">
+			<h5>Winning Numbers History: Florida lottery data through the years</h5>
+			<p class="text-left"><strong>About:</strong> This data set contains the winning numbers from the Florida Lottery (through the end of 2008), as reported by the state lottery <!--... &nbsp;<a href="">Show <span class="glyphicon glyphicon-chevron-down"></span></a>--> commission. Note that from its inception through 23 October 1999, the lottery was "pick 6 of 49." Thereafter, it was a "pick 6 of 53" lottery.</p>
+			<p class="text-left"><strong>Assessment Method:</strong> Method Type</p>
+			<p class="text-left"><strong>Topics:</strong> Topic One, Topic Two, Topic Three</p> 
+			<p class="see-more"><a href="/data-example.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+		    </div>
+		</div>
+	    </div>
+	</div>
+	
+	<div class="row text-center">
+	    <div class="col-md-12">
+		<h4 class="more-heading">To see more resources:</h4>
+		<a href="/register" class="btn btn-success btn-lg">Join</a> &nbsp;or&nbsp; <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>
+	    </div>
+	</div>
+    
     <% } %>
 
     <% if (user != null) { %>
@@ -196,7 +327,7 @@ if (submissions != null && submissions.count() > 0)
 </div>
 <% } %>
 
-<div class="row">
+<!-- <div class="row">
     <div class="col-md-8">
         <h3>Copyright</h3>
         <ul>
@@ -219,7 +350,7 @@ if (submissions != null && submissions.count() > 0)
             </li>
         </ul>
     </div>
-</div>
+</div> -->
 
 <% if (user != null) { %>
 

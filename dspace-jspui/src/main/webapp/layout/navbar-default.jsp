@@ -99,7 +99,9 @@
                </li>
            <% } else { %>
                <li class="<%= currentPage.endsWith("/home.jsp")? "active" : "" %>"><a href="<%= request.getContextPath() %>/"><span class="glyphicon glyphicon-home"></span> <fmt:message key="jsp.layout.navbar-default.home"/></a></li>
-           <% } %>
+	       <li class="<%= currentPage.endsWith("/about.jsp")? "active" : "" %>"><a href="<%= request.getContextPath() %>/about.jsp">About</a></li>
+         
+	   <% } %>
        </ul>
 
  <% if (supportedLocales != null && supportedLocales.length > 1)

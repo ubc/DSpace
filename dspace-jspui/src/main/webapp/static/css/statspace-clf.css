@@ -233,6 +233,168 @@ footer {
 /* } */
 
 
+/*** CSS for non-logged in landing pages ***/
+.landing-page .jumbotron {
+        margin: .5em 0 1em 0;
+        padding: 1.4em 1.8em;
+}
+
+.landing-page .jumbotron h1 {
+        margin-top: 0;
+        color: #002145; 
+}
+
+.landing-page .jumbotron h2 {
+        padding-top: .5em;
+        line-height: 1.1em;
+        border-top: 1px dashed #888;
+}
+
+.landing-page .jumbotron .cta {
+        margin: 1em 0 0 0;
+}
+
+.landing-page .after-jumbotron {
+        margin: 0 0 1.5em 0;
+        padding: .9em 1.6em 1.2em 1.6em;
+        color: #555;
+        border-radius: 5px;
+        background: #eee;
+}
+
+.landing-page .after-jumbotron h4 {
+        margin-bottom: .3em;
+        padding-bottom: .5em;
+        border-bottom: 1px dashed #aaa;
+}
+
+.landing-page .intro-sidebar {
+        margin-top: .8em;
+        color: #3071a9;
+}
+
+.landing-page .intro-sidebar .panel-title,
+.example .value-prop .panel-title {
+        color: #3071a9;
+        font-size: 1.4em;
+}
+
+.landing-page .intro-sidebar .panel-body,
+.example .value-prop .panel-body {
+        background: #E8F4F9;
+}
+
+.landing-page .intro-sidebar .panel-body p,
+.example .value-prop .panel-body p {
+        font-size: 1.15em;
+        line-height:1.4em;
+}
+
+.landing-page .intro-sidebar .panel-body label,
+.example .value-prop .panel-body label {
+        margin: 0 0 .2em .1em;
+        font-size: 1.3em;
+        font-weight: normal; 
+}
+
+.landing-page .intro-sidebar .panel-body .input-group,
+.example .value-prop .panel-body .input-group {
+        margin-bottom: 1em;
+}
+
+.featured-heading {
+        margin: 0 0 1em 0;
+        padding-bottom: .3em;
+        color: #002145;
+        border-bottom: 1px dashed #aaa;
+}
+
+.featured-items .sim-image {
+        margin: 4.2em 3em;
+}
+
+.featured-items .video-iframe {
+        padding-top: 1.8em;
+}
+
+.featured-items .data-icon {
+        font-size: 6em;
+        margin: .65em 0;
+}
+
+.featured-items .caption h5 {
+        padding: .5em;
+        background: #eee;
+}
+
+.featured-items .caption .see-more {
+        margin-top: 1.5em;
+}
+
+.more-heading {
+        margin: 3em 0 1em 0;
+        padding-top: .7em;
+        border-top: 1px dashed #aaa;
+}
+
+.example h1 {
+        margin-top: .2em;
+        color: #002145;
+        line-height: 1em;
+}
+
+.example .contributors {
+        padding-top: .5em;
+        line-height: 1.1em;
+        border-top: 1px dashed #888;
+}
+
+.example .description .zoology-fish {
+        margin: 1.5em 2em 1.5em 0;
+}
+
+.example .description .fake-video {
+        margin: .5em 2em 1.5em 0;
+}
+
+.example .description .data-icon {
+        font-size: 6em;
+	margin: 0 1em 1.5em .5em;
+}
+
+.example .description .intro-text {
+        font-size: 1.2em;
+        line-height:1.3em;
+}
+
+.example .description .access-btn {
+        margin: 1em 0;
+}
+
+.example .value-prop {
+        margin: .8em 0 0 0;
+}
+
+.example .divider {
+        margin-top:1em;
+        padding-top: 1em;
+        border-top: 1px dashed #888;
+}
+
+.example .details h2 {
+        margin-top: 0;
+}
+
+.example .details .tags {
+        margin-top: .8em;
+}
+
+.example .details .panel ul {
+        padding-left: 1em;
+}
+
+
+
 /* Large devices (large desktops, 1200px and up) */
 @media screen and (min-width: 1200px) {
     /* #ubc7-apom { */
