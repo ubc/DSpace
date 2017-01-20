@@ -30,29 +30,11 @@
 <%@ page import="org.apache.commons.lang.StringUtils" %>
 <%@ page import="org.dspace.core.I18nUtil" %>
 <%@ page import="org.dspace.app.webui.util.UIUtil" %>
-<%@ page import="org.dspace.app.webui.components.RecentSubmissions" %>
-<%@ page import="org.dspace.content.Community" %>
-<%@ page import="org.dspace.eperson.EPerson" %>
 <%@ page import="org.dspace.core.ConfigurationManager" %>
-<%@ page import="org.dspace.core.NewsManager" %>
-<%@ page import="org.dspace.browse.ItemCounter" %>
-<%@ page import="org.dspace.content.Metadatum" %>
-<%@ page import="org.dspace.content.Item" %>
 
 <%
-    // Is anyone logged in?
-    EPerson user = (EPerson) request.getAttribute("dspace.current.user");
-
-    // Is the logged in user an admin
-    Boolean admin = (Boolean)request.getAttribute("is.admin");
-    boolean isAdmin = (admin == null ? false : admin.booleanValue());
-
-    Community[] communities = (Community[]) request.getAttribute("communities");
-
     Locale sessionLocale = UIUtil.getSessionLocale(request);
     Config.set(request.getSession(), Config.FMT_LOCALE, sessionLocale);
-    String topNews = NewsManager.readNewsFile(LocaleSupport.getLocalizedMessage(pageContext, "news-top.html"));
-    String sideNews = NewsManager.readNewsFile(LocaleSupport.getLocalizedMessage(pageContext, "news-side.html"));
 
     boolean feedEnabled = ConfigurationManager.getBooleanProperty("webui.feed.enable");
     String feedData = "NONE";
@@ -60,10 +42,6 @@
     {
         feedData = "ALL:" + ConfigurationManager.getProperty("webui.feed.formats");
     }
-    
-    ItemCounter ic = new ItemCounter(UIUtil.obtainContext(request));
-
-    RecentSubmissions submissions = (RecentSubmissions) request.getAttribute("recent.submissions");
 %>
 
 <dspace:layout locbar="nolink" titlekey="jsp.about.title" feedData="<%= feedData %>">
