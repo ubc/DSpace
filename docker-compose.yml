@@ -1,0 +1,21 @@
+version: '2'
+services:
+  # Postgres database
+  postgres:
+    image: postgres
+    container_name: postgres
+    volumes:
+      - ./volumes/db/var/lib/postgresql/data:/var/lib/postgresql/data
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 5432:5432
+
+  # DSpace
+  statspace:
+    image: statspace
+    volumes:
+      - ./volumes/app/assetstore:/dspace/assetstore
+    ports:
+      - 8080:8080
+    depends_on:
+      - postgres
