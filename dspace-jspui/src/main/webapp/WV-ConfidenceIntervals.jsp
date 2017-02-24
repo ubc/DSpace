@@ -47,22 +47,22 @@
 <dspace:layout locbar="nolink" titlekey="jsp.about.title" feedData="<%= feedData %>">
 
     <div class="example">
-	<p><a href="/">Home</a> <span class="text-muted">&raquo; Simulation Example</span></p>
+        <p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/video-example.jsp">Video Example</a> <span class="text-muted">&raquo; Web Visualization: Confidence Intervals of the Mean</span></p>
 
 	<div class="row">  
 	    <div class="col-md-8">
 	    
-		<h1>Fish Size Interactive Online Visualization: Sampling from a normal distribution</h1>
+		<h1>Web Visualization: Confidence intervals of the mean</h1>
 		<p class="text-muted contributors">Contributor(s): <a href="mailto:">Jane Doe</a>, <a href="mailto:">John Doe</a></p>
 		
 		<div class="row description">
 		    <div class="col-md-12">
 			
-			<img class="pull-left zoology-fish" src="http://www.zoology.ubc.ca/~whitlock/kingfisher/Common/Images/fish.svg" width="220">
+			<iframe class="pull-left fake-video" src="https://www.youtube.com/embed/LMSyiAJm99g" allowfullscreen="" width="300" height="169" frameborder="0"></iframe>
 			
-			<p class="intro-text">This activity allows students to understand the values of the sample size, mean length, and standard deviation of length by working with an online visualization tool based around fish populations. By doing the tutorial, students get a feel for how these three values change the distribution.</p>
+			<p class="intro-text">This video gives students a brief and simplified overview of statistics. This resource is especially useful for those outside of math-heavy disciplines to get a high-level understanding of statistics without the overwhelm typically associated introductory videos.</p>
 			
-			<p class="text-center access-btn"><a target="_blank" href="http://www.zoology.ubc.ca/~whitlock/kingfisher/SamplingNormal.htm" class="btn btn-success btn-md">Access Resource</a></p>
+			<p class="text-center access-btn"><a class="btn btn-success btn-md">Access Resource</a></p>
 		  
 		    </div>
 		</div> 
@@ -104,37 +104,37 @@
 	<div class="row details">
 	    <div class="col-md-8">
 		<h2>Intended audience</h2>
-		<p>These are the type of instructors who should use this material (disciplines this may apply to) and what kind of knowledge the instructors should already have in order to use this material well. </p>
-		<p>Students using this visualization should:</p>
-		<ul>
-		    <li>Be familiar with methods of summarizing data sets, such as mean and standard deviation</li>
-		    <li>Be able to recognize probability models as distributions with shape, centre, and spread</li>
-		    <li>Be able to recall the key properties of the Normal model</li>
-		</ul>
-		
+		<p>Students using this visualization should&colon;</p>
+        <ul>
+            <li>Be familiar with methods of summarizing data sets, such as mean and standard deviation</li>
+            <li>Identify and distinguish between a population and a sample, and between parameters and statistics</li> 
+        </ul>
 		<h2>Learning outcomes</h2>
 		<ul>
-		    <li>Identify and distinguish between a population and a sample, and between parameters and statistics</li>
-		    <li>Reinforce the idea of a histogram</li>
-		    <li>Explain the concepts of sampling variability and sampling distribution</li>
-		    <li>Describe properties of the sampling distribution of the sample mean</li>
-		    <li>Explain whether and how the population distribution and the sample size influence the sampling distribution of the sample mean from a Normal distribution</li>
+            <li>Interpret a confidence interval and confidence level
+            <li>Identify features that determine the width of a confidence interval
 		</ul>
 		
 		<h2>Suggested uses</h2>
-		<p>This visualization is intended to be used in a number of ways:</p>
+            <p>These apps are intended to be used in a number of ways&colon;</p>
 		<ul>
-		    <li>As a visual aid during lectures</li>
-		    <li>As an open-ended learning tool for active learning</li>
-		    <li>As a guided learning experience, using either the built-in tutorials or an instructor-written set of instructions</li>
+            <li>As a visual aid during lectures</li>
+            <li>As an open-ended learning tool for active learning</li>
+            <li>As a guided learning experience, using either the built-in tutorials or an instructor-written set of instructions.</li>
+            <ul>
+                <li><i>Bruce's Assignment Questions</i></li>
+            </ul>
+
 		</ul>
 		
 		<h2>Complementary materials</h2>
 		<ul>
-		    <li><a target="_blank" href="https://vimeo.com/196027417">Sampling Distribution of the Mean Video <span class="glyphicon glyphicon-new-window"></span></a></li>
-		    <li><a target="_blank" href="http://www.zoology.ubc.ca/~whitlock/kingfisher/CIMean.htm">Interactive Online Visualization: Confidence Intervals for the Mean <span class="glyphicon glyphicon-new-window"></span></a> </li>
-		    <li><a target="_blank" href="http://www.zoology.ubc.ca/~whitlock/kingfisher/CLT.htm">Interactive Online Visualization: Sampling From a Non-Normally Distributed Population <span class="glyphicon glyphicon-new-window"></span></a> </li>
-            <li><a href="/WV-SamplingNon-Normal.jsp">Web visualization: Sampling from a non-Normally distributed population (CLT)<span class="glyphicon glyphicon-new-window"></span></a></li>          
+            <li>Video&colon; Confidence interval for a population mean</li>
+            <li>Activity: Understanding confidence intervals</li>
+            <li>It is recommended that the “Sampling from a Normal distribution” app be used first to introduce some of the basic concepts and the visual metaphors used in the CLT app.</li>
+            <ul>
+                <li><a href="http://www.zoology.ubc.ca/~whitlock/kingfisher/SamplingNormal.htm">Web visualization: Sampling from a Normally distributed population <span class="glyphicon glyphicon-new-window"></span></a></li>
+            </ul>
 		</ul>
 	    </div>
 	    
@@ -146,7 +146,7 @@
 		    </div>
 		    <div class="panel-body">
 			<p><strong>Assessment Method:</strong> Method Type<br>
-			<strong>Topics:</strong> Normal Distribution, Histograms, Sampling Variability, Sampling From a Normal Distribution<br>
+			<strong>Topics:</strong> Confidence intervals for the mean<br>
 			<strong>Keywords:</strong> Keyword 1, Keyword 2, Keyword 3</p>
 		    </div>
 		</div>
@@ -157,11 +157,11 @@
 		    </div>
 		    <div class="panel-body">
 			<ul>
-			    <li><a target="_blank" href="http://www.cwsei.ubc.ca/resources/files/Demo_WorkshopSummary_CWSEI-EOY2015.pdf">"Making the most of demonstrations, videos, animations, or simulations in lectures and laboratories" (J. Maxwell and J. Stang) <span class="glyphicon glyphicon-new-window"></span></a></li>
+			    <li><a href="http://www.cwsei.ubc.ca/resources/files/Demo_WorkshopSummary_CWSEI-EOY2015.pdf">“Making the most of demonstrations, videos, animations, or simulations in lectures and laboratories” J. Maxwell and J. Stang <span class="glyphicon glyphicon-new-window"></span></a></li>
 		      </ul>
 		    </div>
 		</div>
-            
+	    
         <div class="panel panel-default">
 		    <div class="panel-heading">
 			<h3 class="panel-title"><i class="glyphicon glyphicon-book"></i> What we learned</h3>
@@ -169,7 +169,7 @@
 		    <div class="panel-body">
 		    </div>
 		</div>     
-	    
+            
 	    </div>	
 	</div>
 	
