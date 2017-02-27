@@ -50,13 +50,13 @@
 	<p><a href="/">Home</a> <span class="text-muted">&raquo; Simulation Example</span></p>
 
 	<div class="row">  
-	    <div class="col-md-8">
+        <div class="col-md-8">
 	    
 		<h1>Fish Size Interactive Online Visualization: Sampling from a normal distribution</h1>
 		<p class="text-muted contributors">Contributor(s): <a href="mailto:">Jane Doe</a>, <a href="mailto:">John Doe</a></p>
 		
 		<div class="row description">
-		    <div class="col-md-12">
+            <div class="col-md-12">
 			
 			<img class="pull-left zoology-fish" src="http://www.zoology.ubc.ca/~whitlock/kingfisher/Common/Images/fish.svg" width="220">
 			
@@ -64,21 +64,21 @@
 			
 			<p class="text-center access-btn"><a target="_blank" href="http://www.zoology.ubc.ca/~whitlock/kingfisher/SamplingNormal.htm" class="btn btn-success btn-md">Access Resource</a></p>
 		  
-		    </div>
+            </div>
 		</div> 
 	    
-	    </div>
+        </div>
 	    
-	    <div class="col-md-4 value-prop">
+        <div class="col-md-4 value-prop">
 	    
 		<div class="panel panel-info">
-		    <div class="panel-heading">
+            <div class="panel-heading">
 			<h3 class="panel-title"><i class="glyphicon glyphicon-stats"></i> About StatSpace</h3>
-		    </div>
+            </div>
 		    <div class="panel-body">
 			<p>StatSpace brings together vetted open education materials for use across disciplines. Members of our community can <strong>search and use materials</strong> in the repository, <strong>contribute materials</strong> of their own, and <strong>evaluate materials</strong> they use.</p>
 			<label>Search StatSpace now:</label>
-			<%-- Search Box --%>
+			<%-- Search Box --%/>
 			<form method="get" action="<%= request.getContextPath() %>/simple-search">
 			    <div class="input-group">
 				<input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
@@ -87,10 +87,10 @@
 					<span class="glyphicon glyphicon-search"></span>
 				    </button>
 				</span>
-			    </div>
-			</form>		
+                </div>
+            </form>		
 		    </div>
-		</div>
+        </div>
 	    
 	    </div>			
 	</div>
@@ -131,16 +131,16 @@
 		
 		<h2>Complementary materials</h2>
 		<ul>
-		    <li><a target="_blank" href="https://vimeo.com/196027417">Sampling Distribution of the Mean Video <span class="glyphicon glyphicon-new-window"></span></a></li>
-		    <li><a target="_blank" href="http://www.zoology.ubc.ca/~whitlock/kingfisher/CIMean.htm">Interactive Online Visualization: Confidence Intervals for the Mean <span class="glyphicon glyphicon-new-window"></span></a> </li>
-		    <li><a target="_blank" href="http://www.zoology.ubc.ca/~whitlock/kingfisher/CLT.htm">Interactive Online Visualization: Sampling From a Non-Normally Distributed Population <span class="glyphicon glyphicon-new-window"></span></a> </li>
+            <li><a target="_blank" href="https://vimeo.com/196027417">Sampling Distribution of the Mean Video <span class="glyphicon glyphicon-new-window"></span></a></li>
+            <li><a target="_blank" href="http://www.zoology.ubc.ca/~whitlock/kingfisher/CIMean.htm">Interactive Online Visualization: Confidence Intervals for the Mean <span class="glyphicon glyphicon-new-window"></span></a> </li>
+            <li><a target="_blank" href="http://www.zoology.ubc.ca/~whitlock/kingfisher/CLT.htm">Interactive Online Visualization: Sampling From a Non-Normally Distributed Population <span class="glyphicon glyphicon-new-window"></span></a> </li>
             <li><a href="/WV-SamplingNon-Normal.jsp">Web visualization: Sampling from a non-Normally distributed population (CLT)<span class="glyphicon glyphicon-new-window"></span></a></li>          
 		</ul>
-	    </div>
+        </div>
 	    
-	    <div class="col-md-4 tags">
+        <div class="col-md-4 tags">
 	    
-		<div class="panel panel-default">
+        <div class="panel panel-default">
 		    <div class="panel-heading">
 			<h3 class="panel-title"><i class="glyphicon glyphicon-tag"></i> Tags</h3>
 		    </div>
@@ -149,7 +149,7 @@
 			<strong>Topics:</strong> Normal Distribution, Histograms, Sampling Variability, Sampling From a Normal Distribution<br>
 			<strong>Keywords:</strong> Keyword 1, Keyword 2, Keyword 3</p>
 		    </div>
-		</div>
+        </div>
 	      
 		<div class="panel panel-default">
 		    <div class="panel-heading">
@@ -158,19 +158,19 @@
 		    <div class="panel-body">
 			<ul>
 			    <li><a target="_blank" href="http://www.cwsei.ubc.ca/resources/files/Demo_WorkshopSummary_CWSEI-EOY2015.pdf">"Making the most of demonstrations, videos, animations, or simulations in lectures and laboratories" (J. Maxwell and J. Stang) <span class="glyphicon glyphicon-new-window"></span></a></li>
-		      </ul>
+            </ul>
 		    </div>
-		</div>
+        </div>
             
         <div class="panel panel-default">
-		    <div class="panel-heading">
+            <div class="panel-heading">
 			<h3 class="panel-title"><i class="glyphicon glyphicon-book"></i> What we learned</h3>
-		    </div>
-		    <div class="panel-body">
-		    </div>
-		</div>     
+            </div>
+            <div class="panel-body">
+            </div>
+        </div>     
 	    
-	    </div>	
+        </div>	
 	</div>
 	
 	<div class="row text-center">
