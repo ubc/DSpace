@@ -95,7 +95,7 @@
 		    </div>    
 		    <div class="col-md-6">
 			<h4>Copyright</h4>
-			<p>Understand how content copyright works for the materials available in StatSpace. &nbsp;<a href="">read more &raquo;</a></p>
+			<p>Understand how content copyright works for the materials available in StatSpace. &nbsp;<a href="/copyright.jsp">read more &raquo;</a></p>
 		    </div>
 		</div>
 		
