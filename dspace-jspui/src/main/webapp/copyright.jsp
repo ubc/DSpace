@@ -76,13 +76,15 @@
 	    
 	    
 	    <div class="col-md-4 value-prop">
-	    
-		<div class="panel panel-info">
+            
+        <div class="panel panel-info">
 		    <div class="panel-heading">
-			<h3 class="panel-title"><i class="glyphicon glyphicon-stats"></i> About StatSpace</h3>
+			<h3 class="panel-title">
+				<i class="glyphicon glyphicon-search"></i>&nbsp; Search for materials
+			</h3>
 		    </div>
 		    <div class="panel-body">
-			<p>StatSpace brings together vetted open education materials for use across disciplines. Members of our community can <strong>search and use materials</strong> in the repository, <strong>contribute materials</strong> of their own, and <strong>evaluate materials</strong> they use.</p>
+			<p>Search our high-quality archive of <strong>100+ curated introductory statistics materials</strong>.</p>
 			<label>Search StatSpace now:</label>
 			<%-- Search Box --%>
 			<form method="get" action="<%= request.getContextPath() %>/simple-search">
@@ -94,7 +96,25 @@
 				    </button>
 				</span>
 			    </div>
-			</form>		
+			</form>
+		    </div>
+		</div>
+            
+        <div class="panel panel-info">
+		    <div class="panel-heading">
+			<h3 class="panel-title"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</h3>
+		    </div>
+		    <div class="panel-body">
+			<p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
+		    </div>
+		</div>
+	      
+		<div class="panel panel-info">
+		    <div class="panel-heading">
+			<h3 class="panel-title"><i class="glyphicon glyphicon-comment"></i> &nbsp;Evaluate what you use</h3>
+		    </div>
+		    <div class="panel-body">
+			<p>Evaluate the introductory statistics material in StatSpace by giving <strong>detailed private feedback</strong> for any resources you use, to help other educators improve their designs.</p>
 		    </div>
 		</div>
 	    
