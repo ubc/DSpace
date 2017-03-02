@@ -58,7 +58,8 @@
             <div class="row description">
                 <div class="col-md-12">
 			
-                <iframe class="pull-left fake-video" src="https://www.youtube.com/embed/LMSyiAJm99g" allowfullscreen="" width="300" height="169" frameborder="0"></iframe>
+                <iframe class ="pull-left fake-video" src="https://player.vimeo.com/video/196027417?byline=0&portrait=0" width="300" height="169" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                <p><a href="https://vimeo.com/196027417">Sampling Distribution of the Mean</a> from <a href="https://vimeo.com/ubcmedit">UBC MedIT</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
 			
                 <p class="intro-text">This video gives students a brief and simplified overview of statistics. This resource is especially useful for those outside of math-heavy disciplines to get a high-level understanding of statistics without the overwhelm typically associated introductory videos.</p>
 			
