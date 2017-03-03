@@ -171,7 +171,7 @@
 	    <div class="col-md-4 text-center">
 		<h4>Video</h4>
 		<div class="thumbnail video-iframe">
-		    <iframe class="pull-left fake-video" src="https://player.vimeo.com/video/196027417?byline=0&portrait=0" width="300" height="169" frameborder="0" ></iframe>
+		    <iframe src="https://player.vimeo.com/video/196027417?byline=0&portrait=0" width="300" height="169" frameborder="0" ></iframe>
 		    <div class="caption">
 			<h5>Introductions to Statistics: An easy video introductory overview</h5>
 			<p class="text-left"><strong>About:</strong> This video gives students a brief and simplified overview of statistics. This resource is especially useful for those outside <!--... &nbsp;<a href="">Show <span class="glyphicon glyphicon-chevron-down"></span></a>--> of math-heavy disciplines to get a high-level understanding of statistics without the overwhelm typically associated introductory videos.</p>
