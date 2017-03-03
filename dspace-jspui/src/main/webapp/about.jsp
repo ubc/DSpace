@@ -46,42 +46,59 @@
 
 <dspace:layout locbar="nolink" titlekey="jsp.about.title" feedData="<%= feedData %>">
 
-    <div class="row ">  
-	<div class="col-md-12">
+    <div class="row landing-page">  
+	<div class="col-md-8">
 		
 	    <h1>About StatSpace</h1>
 	    
 	    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Hic Speusippus, hic Xenocrates, hic eius auditor Polemo, cuius illa ipsa sessio fuit, quam videmus. An hoc usque quaque, aliter in vita? An, partus ancillae sitne in fructu habendus, disseretur inter principes civitatis, P. Quaesita enim virtus est, non quae relinqueret naturam, sed quae tueretur. Quae autem natura suae primae institutionis oblita est? Duo Reges: constructio interrete. Si stante, hoc natura videlicet vult, salvam esse se, quod concedimus; Quod autem satis est, eo quicquid accessit, nimium est; Sed tempus est, si videtur, et recta quidem ad me. </p>
 	    
 	    <p>Cyrenaici quidem non recusant; Nam memini etiam quae nolo, oblivisci non possum quae volo. Sed ne, dum huic obsequor, vobis molestus sim. At, si voluptas esset bonum, desideraret. Videamus animi partes, quarum est conspectus illustrior; </p>
-	    
-	    <h2>Verba tu fingas et ea dicas, quae non sentias?</h2>
-	    
-	    <p>Quid de Pythagora? Nam, ut sint illa vendibiliora, haec uberiora certe sunt. Apparet statim, quae sint officia, quae actiones. Itaque hic ipse iam pridem est reiectus; Primum in nostrane potestate est, quid meminerimus? Eiuro, inquit adridens, iniquum, hac quidem de re; Equidem etiam Epicurum, in physicis quidem, Democriteum puto. Non laboro, inquit, de nomine. </p>
-	    
-	    <dl>
-		    <dt><dfn>Tenent mordicus.</dfn></dt>
-		    <dd>Habent enim et bene longam et satis litigiosam disputationem.</dd>
-		    <dt><dfn>Ita credo.</dfn></dt>
-		    <dd>Et ego: Piso, inquam, si est quisquam, qui acute in causis videre soleat quae res agatur.</dd>
-	    </dl>
-	    
-	    
-	    <h2>Quo igitur, inquit, modo?</h2>
-	    
-	    <p>Ergo illi intellegunt quid Epicurus dicat, ego non intellego? Verum hoc idem saepe faciamus. Beatus sibi videtur esse moriens. Pudebit te, inquam, illius tabulae, quam Cleanthes sane commode verbis depingere solebat. Ego vero volo in virtute vim esse quam maximam; Qua tu etiam inprudens utebare non numquam. Quis istud possit, inquit, negare? </p>
-	    
-	    <ul>
-		    <li>Non igitur potestis voluptate omnia dirigentes aut tueri aut retinere virtutem.</li>
-		    <li>Hoc sic expositum dissimile est superiori.</li>
-		    <li>Aliter homines, aliter philosophos loqui putas oportere?</li>
-	    </ul>
-	    
-	    <h3>Sed quot homines, tot sententiae;</h3>
-	    
-	    <p>Facit enim ille duo seiuncta ultima bonorum, quae ut essent vera, coniungi debuerunt; In parvis enim saepe, qui nihil eorum cogitant, si quando iis ludentes minamur praecipitaturos alicunde, extimescunt. Atque haec coniunctio confusioque virtutum tamen a philosophis ratione quadam distinguitur. Hic nihil fuit, quod quaereremus. Sin kakan malitiam dixisses, ad aliud nos unum certum vitium consuetudo Latina traduceret. </p>
-	
 	</div>
+    <div class="col-md-4 intro-sidebar">
+	    
+		<div class="panel panel-info">
+		    <div class="panel-heading">
+			<h3 class="panel-title">
+				<i class="glyphicon glyphicon-search"></i>&nbsp; Search for materials
+			</h3>
+		    </div>
+		    <div class="panel-body">
+			<p>Search our high-quality archive of <strong>100+ curated introductory statistics materials</strong>.</p>
+			<label>Search StatSpace now:</label>
+			<%-- Search Box --%>
+			<form method="get" action="<%= request.getContextPath() %>/simple-search">
+			    <div class="input-group">
+				<input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
+				<span class="input-group-btn">
+				    <button type="submit" class="btn btn-primary">
+					<span class="glyphicon glyphicon-search"></span>
+				    </button>
+				</span>
+			    </div>
+			</form>
+		    </div>
+		</div>
+		
+		<div class="panel panel-info">
+		    <div class="panel-heading">
+			<h3 class="panel-title"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</h3>
+		    </div>
+		    <div class="panel-body">
+			<p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
+		    </div>
+		</div>
+	      
+		<div class="panel panel-info">
+		    <div class="panel-heading">
+			<h3 class="panel-title"><i class="glyphicon glyphicon-comment"></i> &nbsp;Evaluate what you use</h3>
+		    </div>
+		    <div class="panel-body">
+			<p>Evaluate the introductory statistics material in StatSpace by giving <strong>detailed private feedback</strong> for any resources you use, to help other educators improve their designs.</p>
+		    </div>
+		</div>
+	    
+	    </div>
     </div>
 
 </dspace:layout>
