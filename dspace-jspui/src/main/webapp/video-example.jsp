@@ -57,7 +57,6 @@
 		
             <div class="row description">
                 <div class="col-md-12">
-			
                 <iframe class ="pull-left fake-video" src="https://player.vimeo.com/video/196027417?byline=0&portrait=0" width="300" height="169" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                 <p><a href="https://vimeo.com/196027417">Sampling Distribution of the Mean</a> from <a href="https://vimeo.com/ubcmedit">UBC MedIT</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
 			

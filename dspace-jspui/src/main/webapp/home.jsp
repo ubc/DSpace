@@ -181,7 +181,6 @@
 		    </div>     
 		</div>
 	    </div>
-	    
 	    <div class="col-md-4 text-center">
 		<h4>Data Set</h4>
 		<div class="thumbnail">
