@@ -15,31 +15,41 @@
 
  <form-map>
    <name-map collection-handle="default" form-name="statspace" />
- <!-- Combinatorics                                                        -->    
-   <name-map collection-handle=" 123456789/26" form-name="Counting_Map" />
-   <name-map collection-handle=" 123456789/27" form-name="Recurrence_Relations_Map" />
+ <!-- Alone                                                                -->
+   <name-map collection-handle="123456789/56" form-name="bayesian_inference" />
+   <name-map collection-handle="123456789/57" form-name="confidence_intervals" />
+   <name-map collection-handle="123456789/58" form-name="experiments" /> 
+   <name-map collection-handle="123456789/59" form-name="exploratory_data" /> 
+   <name-map collection-handle="123456789/60" form-name="observational_studies" />
+   <name-map collection-handle="123456789/61" form-name="sampling_distributions" />
+   <name-map collection-handle="123456789/62" form-name="theory_of_point" />
+   <name-map collection-handle="123456789/63" form-name="time_series" />
+ <!-- Descriptive statistics/Summary statistics                            -->
+   <name-map collection-handle="123456789/64" form-name="measures_of_location" />
+   <name-map collection-handle="123456789/65" form-name="measures_of_spread" />
+   <name-map collection-handle="123456789/66" form-name="other" />
+ <!-- Hypothesis tests                                                     -->
+   <name-map collection-handle="123456789/67" form-name="bootstrapping" />
+   <name-map collection-handle="123456789/68" form-name="concepts" />
+   <name-map collection-handle="123456789/69" form-name="goodness_of_fit" />
+   <name-map collection-handle="123456789/70" form-name="multiple_independent" />
+   <name-map collection-handle="123456789/71" form-name="one_sample" />
+   <name-map collection-handle="123456789/72" form-name="randomization" />
+   <name-map collection-handle="123456789/73" form-name="two_independent" />
  <!-- Probability                                                          -->    
-   <name-map collection-handle=" 123456789/28" form-name="Continous_Distributions_Map" />
-   <name-map collection-handle=" 123456789/29" form-name="Discrete_Distributions_Map" />
-   <name-map collection-handle=" 123456789/30" form-name="Laws_Theory_Map" />
-   <name-map collection-handle=" 123456789/31" form-name="Random_Variables_Map" />
-   <name-map collection-handle=" 123456789/33" form-name="Sample_Space_Map" />
-   <name-map collection-handle=" 123456789/34" form-name="Several_Variables_Map" />
-   <name-map collection-handle=" 123456789/35" form-name="Stochastic_Process_Map" />
- <!-- Statistics                                                           -->    
-   <name-map collection-handle=" 123456789/36" form-name="Bayesian_Inference_Map" />
-   <name-map collection-handle=" 123456789/37" form-name="Confidence_Intervals_Map" />
-   <name-map collection-handle=" 123456789/38" form-name="Experimental_Design_Map" />
-   <name-map collection-handle=" 123456789/39" form-name="Exploratory_Data_Map" />
-   <name-map collection-handle=" 123456789/40" form-name="Generalized_Linear_Map" />
-   <name-map collection-handle=" 123456789/41" form-name="Hypothesis_Tests_Map" />
-   <name-map collection-handle=" 123456789/42" form-name="Multiple_Regression_Map" />
-   <name-map collection-handle=" 123456789/43" form-name="Nonparametric_Methods_Map" />
-   <name-map collection-handle=" 123456789/44" form-name="Point_Estimation_Map" />
-   <name-map collection-handle=" 123456789/45" form-name="Sample_Survey_Map" />
-   <name-map collection-handle=" 123456789/46" form-name="Sampling_Distributions_Map" />
-   <name-map collection-handle=" 123456789/47" form-name="Simple_Linear_Map" />
-   <name-map collection-handle=" 123456789/48" form-name="Time_Series_Map" />
+   <name-map collection-handle="123456789/74" form-name="combinatorics" />
+   <name-map collection-handle="123456789/75" form-name="continous_distributions" />
+   <name-map collection-handle="123456789/76" form-name="discrete_distributions" />
+   <name-map collection-handle="123456789/77" form-name="laws_theory" />
+   <name-map collection-handle="123456789/78" form-name="random_variables" />
+   <name-map collection-handle="123456789/79" form-name="sample_space" />
+   <name-map collection-handle="123456789/80" form-name="several_variables" />
+   <name-map collection-handle="123456789/81" form-name="stochastic_process" />
+ <!-- Regression                                                           -->    
+   <name-map collection-handle="123456789/82" form-name="seneralized_linear" />
+   <name-map collection-handle="123456789/83" form-name="multiple_regression" />
+   <name-map collection-handle="123456789/84" form-name="nonlinear_regression" />
+   <name-map collection-handle="123456789/85" form-name="simple_linear" />  
  </form-map>
 
   
@@ -210,8 +220,8 @@
      </page>
 
    </form>
- <!-- Combinatorics                                                        -->    
-   <form name="Counting_Map">
+ <!-- Alone                                                                -->
+   <form name="bayesian_inference">
      <page number="1">
        
        <!-- Author(s) -->
@@ -297,7 +307,7 @@
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Subject(s)</label>
-         <input-type value-pairs-name="Counting_Subjects">dropdown</input-type>
+         <input-type value-pairs-name="bayesian_inference_subjects">dropdown</input-type>
          <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
          <required>You must choose a subject.</required>
        </field>
@@ -360,7 +370,7 @@
      </page>
 
    </form>
-   <form name="Recurrence_Relations_Map">
+   <form name="confidence_intervals">
      <page number="1">
        
        <!-- Author(s) -->
@@ -446,7 +456,7 @@
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Subject(s)</label>
-         <input-type value-pairs-name="Recurrence_Relations_Subjects">dropdown</input-type>
+         <input-type value-pairs-name="confidence_intervals_subjects">dropdown</input-type>
          <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
          <required>You must choose a subject.</required>
        </field>
@@ -509,8 +519,7 @@
      </page>
 
    </form>
- <!-- Probability                                                          -->     
-   <form name="Continous_Distributions_Map">
+   <form name="experiments">
      <page number="1">
        
        <!-- Author(s) -->
@@ -596,7 +605,7 @@
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Subject(s)</label>
-         <input-type value-pairs-name="Continous_Distributions_Subjects">dropdown</input-type>
+         <input-type value-pairs-name="experiments_subjects">dropdown</input-type>
          <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
          <required>You must choose a subject.</required>
        </field>
@@ -658,8 +667,8 @@
        </field>
      </page>
 
-   </form>
-   <form name="Discrete_Distributions_Map">
+</form>
+   <form name="exploratory_data">
      <page number="1">
        
        <!-- Author(s) -->
@@ -745,7 +754,7 @@
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Subject(s)</label>
-         <input-type value-pairs-name="Discrete_Distributions_Subjects">dropdown</input-type>
+         <input-type value-pairs-name="exploratory_data_subjects">dropdown</input-type>
          <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
          <required>You must choose a subject.</required>
        </field>
@@ -808,7 +817,7 @@
      </page>
 
    </form>
-   <form name="Laws_Theory_Map">
+   <form name="observational_studies">
      <page number="1">
        
        <!-- Author(s) -->
@@ -894,7 +903,7 @@
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Subject(s)</label>
-         <input-type value-pairs-name="Laws_Theory_Subjects">dropdown</input-type>
+         <input-type value-pairs-name="observational_studies_subjects">dropdown</input-type>
          <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
          <required>You must choose a subject.</required>
        </field>
@@ -957,7 +966,7 @@
      </page>
 
    </form>
-   <form name="Random_Variables_Map">
+   <form name="sampling_distributions">
      <page number="1">
        
        <!-- Author(s) -->
@@ -1043,7 +1052,7 @@
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Subject(s)</label>
-         <input-type value-pairs-name="Random_Variables_Subjects">dropdown</input-type>
+         <input-type value-pairs-name="sampling_distributions_subjects">dropdown</input-type>
          <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
          <required>You must choose a subject.</required>
        </field>
@@ -1105,8 +1114,8 @@
        </field>
      </page>
 
-   </form>
-   <form name="Sample_Space_Map">
+   </form>r
+   <form name="theory_of_point">
      <page number="1">
        
        <!-- Author(s) -->
@@ -1192,7 +1201,7 @@
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Subject(s)</label>
-         <input-type value-pairs-name="Sample_Space_Subjects">dropdown</input-type>
+         <input-type value-pairs-name="theory_of_point_subjects">dropdown</input-type>
          <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
          <required>You must choose a subject.</required>
        </field>
@@ -1255,7 +1264,7 @@
      </page>
 
    </form>
-   <form name="Several_Variables_Map">
+   <form name="time_series">
      <page number="1">
        
        <!-- Author(s) -->
@@ -1341,7 +1350,7 @@
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Subject(s)</label>
-         <input-type value-pairs-name="Several_Variables_Subjects">dropdown</input-type>
+         <input-type value-pairs-name="time_series_subjects">dropdown</input-type>
          <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
          <required>You must choose a subject.</required>
        </field>
@@ -1404,7 +1413,8 @@
      </page>
 
    </form>
-   <form name="Stochastic_Process_Map">
+ <!-- Descriptive statistics/Summary statistics                            --> 
+   <form name="measures_of_location">
      <page number="1">
        
        <!-- Author(s) -->
@@ -1490,7 +1500,7 @@
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Subject(s)</label>
-         <input-type value-pairs-name="Stochastic_Process_Subjects">dropdown</input-type>
+         <input-type value-pairs-name="measures_of_location_subjects">dropdown</input-type>
          <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
          <required>You must choose a subject.</required>
        </field>
@@ -1553,8 +1563,7 @@
      </page>
 
    </form>
- <!-- Statistics                                                           -->
-   <form name="Bayesian_Inference_Map">
+   <form name="measures_of_spread">
      <page number="1">
        
        <!-- Author(s) -->
@@ -1640,7 +1649,7 @@
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Subject(s)</label>
-         <input-type value-pairs-name="Bayesian_Inference_Subjects">dropdown</input-type>
+         <input-type value-pairs-name="measures_of_spread_subjects">dropdown</input-type>
          <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
          <required>You must choose a subject.</required>
        </field>
@@ -1703,7 +1712,7 @@
      </page>
 
    </form>
-   <form name="Confidence_Intervals_Map">
+   <form name="other">
      <page number="1">
        
        <!-- Author(s) -->
@@ -1789,7 +1798,7 @@
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Subject(s)</label>
-         <input-type value-pairs-name="Confidence_Intervals_Subjects">dropdown</input-type>
+         <input-type value-pairs-name="other_subjects">dropdown</input-type>
          <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
          <required>You must choose a subject.</required>
        </field>
@@ -1852,7 +1861,8 @@
      </page>
 
    </form>
-   <form name="Experimental_Design_Map">
+ <!-- Hypothesis tests                                                     -->
+   <form name="bootstrapping">
      <page number="1">
        
        <!-- Author(s) -->
@@ -1938,7 +1948,7 @@
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Subject(s)</label>
-         <input-type value-pairs-name="Experimental_Design_Subjects">dropdown</input-type>
+         <input-type value-pairs-name="bootstrapping_subjects">dropdown</input-type>
          <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
          <required>You must choose a subject.</required>
        </field>
@@ -2001,7 +2011,7 @@
      </page>
 
    </form>
-   <form name="Exploratory_Data_Map">
+   <form name="concepts">
      <page number="1">
        
        <!-- Author(s) -->
@@ -2087,7 +2097,7 @@
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Subject(s)</label>
-         <input-type value-pairs-name="Exploratory_Data_Subjects">dropdown</input-type>
+         <input-type value-pairs-name="concepts_subjects">dropdown</input-type>
          <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
          <required>You must choose a subject.</required>
        </field>
@@ -2150,7 +2160,7 @@
      </page>
 
    </form>
-   <form name="Generalized_Linear_Map">
+   <form name="goodness_of_fit">
      <page number="1">
        
        <!-- Author(s) -->
@@ -2236,7 +2246,7 @@
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Subject(s)</label>
-         <input-type value-pairs-name="Generalized_Linear_Subjects">dropdown</input-type>
+         <input-type value-pairs-name="goodness_of_fit_subjects">dropdown</input-type>
          <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
          <required>You must choose a subject.</required>
        </field>
@@ -2299,7 +2309,7 @@
      </page>
 
    </form>
-   <form name="Hypothesis_Tests_Map">
+   <form name="multiple_independent">
      <page number="1">
        
        <!-- Author(s) -->
@@ -2385,7 +2395,7 @@
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Subject(s)</label>
-         <input-type value-pairs-name="Hypothesis_Tests_Subjects">dropdown</input-type>
+         <input-type value-pairs-name="multiple_independent_subjects">dropdown</input-type>
          <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
          <required>You must choose a subject.</required>
        </field>
@@ -2448,7 +2458,7 @@
      </page>
 
    </form>
-   <form name="Multiple_Regression_Map">
+   <form name="one_sample">
      <page number="1">
        
        <!-- Author(s) -->
@@ -2534,7 +2544,7 @@
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Subject(s)</label>
-         <input-type value-pairs-name="Multiple_Regression_Subjects">dropdown</input-type>
+         <input-type value-pairs-name="one_sample_subjects">dropdown</input-type>
          <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
          <required>You must choose a subject.</required>
        </field>
@@ -2597,7 +2607,7 @@
      </page>
 
    </form>
-   <form name="Nonparametric_Methods_Map">
+   <form name="randomization">
      <page number="1">
        
        <!-- Author(s) -->
@@ -2683,7 +2693,7 @@
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Subject(s)</label>
-         <input-type value-pairs-name="Nonparametric_Methods_Subjects">dropdown</input-type>
+         <input-type value-pairs-name="randomization_subjects">dropdown</input-type>
          <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
          <required>You must choose a subject.</required>
        </field>
@@ -2746,7 +2756,7 @@
      </page>
 
    </form>
-   <form name="Point_Estimation_Map">
+   <form name="two_independent">
      <page number="1">
        
        <!-- Author(s) -->
@@ -2832,7 +2842,7 @@
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Subject(s)</label>
-         <input-type value-pairs-name="Point_Estimation_Subjects">dropdown</input-type>
+         <input-type value-pairs-name="two_independent_subjects">dropdown</input-type>
          <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
          <required>You must choose a subject.</required>
        </field>
@@ -2895,7 +2905,8 @@
      </page>
 
    </form>
-   <form name="Sample_Survey_Map">
+ <!-- Probability                                                          -->
+   <form name="combinatorics_">
      <page number="1">
        
        <!-- Author(s) -->
@@ -2981,7 +2992,7 @@
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Subject(s)</label>
-         <input-type value-pairs-name="Sample_Survey_Subjects">dropdown</input-type>
+         <input-type value-pairs-name="combinatorics_subjects">dropdown</input-type>
          <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
          <required>You must choose a subject.</required>
        </field>
@@ -3044,7 +3055,7 @@
      </page>
 
    </form>
-   <form name="Sampling_Distributions_Map">
+   <form name="continous_distributions">
      <page number="1">
        
        <!-- Author(s) -->
@@ -3130,7 +3141,7 @@
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Subject(s)</label>
-         <input-type value-pairs-name="Sampling_Distributions_Subjects">dropdown</input-type>
+         <input-type value-pairs-name="continous_distributions_subjects">dropdown</input-type>
          <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
          <required>You must choose a subject.</required>
        </field>
@@ -3193,7 +3204,7 @@
      </page>
 
    </form>
-   <form name="Simple_Linear_Map">
+   <form name="discrete_distributions">
      <page number="1">
        
        <!-- Author(s) -->
@@ -3279,7 +3290,7 @@
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Subject(s)</label>
-         <input-type value-pairs-name="Simple_Linear_Subjects">dropdown</input-type>
+         <input-type value-pairs-name="discrete_distributions_subjects">dropdown</input-type>
          <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
          <required>You must choose a subject.</required>
        </field>
@@ -3342,7 +3353,7 @@
      </page>
 
    </form>
-   <form name="Time_Series_Map">
+   <form name="laws_theory">
      <page number="1">
        
        <!-- Author(s) -->
@@ -3428,7 +3439,7 @@
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Subject(s)</label>
-         <input-type value-pairs-name="Time_Series_Subjects">dropdown</input-type>
+         <input-type value-pairs-name="laws_theory_subjects">dropdown</input-type>
          <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
          <required>You must choose a subject.</required>
        </field>
@@ -3491,21 +3502,22 @@
      </page>
 
    </form>
-      
-             
-   <form name="traditional">
+   <form name="random_variables">
      <page number="1">
+       
+       <!-- Author(s) -->
        <field>
          <dc-schema>dc</dc-schema>
-         <dc-element>contributor</dc-element>
-         <dc-qualifier>author</dc-qualifier>
+         <dc-element>creator</dc-element>
+         <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
-         <label>Authors</label>
+         <label>Creator(s)</label>
          <input-type>name</input-type>
-         <hint>Enter the names of the authors of this item.</hint>
-         <required></required>
+         <hint>Enter the name(s) of the creator(s) of this item.</hint>
+         <required>You must enter the creator of the item</required>
        </field>
-
+       
+       <!-- Title -->
        <field>
          <dc-schema>dc</dc-schema>
          <dc-element>title</dc-element>
@@ -3516,31 +3528,33 @@
          <hint>Enter the main title of the item.</hint>
          <required>You must enter a main title for this item.</required>
        </field>
-
+       
+       <!-- DOI -->
        <field>
          <dc-schema>dc</dc-schema>
-         <dc-element>title</dc-element>
-         <dc-qualifier>alternative</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Other Titles</label>
+         <dc-element>identifier</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <label>DOI</label>
          <input-type>onebox</input-type>
-         <hint>If the item has any alternative titles, please enter them here.</hint>
+         <hint>The item's digital object identifier code, if available.</hint>
          <required></required>
        </field>
 
+       <!-- Date -->
        <field>
          <dc-schema>dc</dc-schema>
          <dc-element>date</dc-element>
          <dc-qualifier>issued</dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Date of Issue</label>
+         <label>Publication Date</label>
          <input-type>date</input-type>
+         <visibility>workflow</visibility>
          <hint>Please give the date of previous publication or public distribution.
                         You can leave out the day and/or month if they aren't
                         applicable.</hint>
-         <required>You must enter at least the year.</required>
        </field>
 
+       <!-- Publisher -->
        <field>
          <dc-schema>dc</dc-schema>
          <dc-element>publisher</dc-element>
@@ -3548,131 +3562,1139 @@
          <repeatable>false</repeatable>
          <label>Publisher</label>
          <input-type>onebox</input-type>
+         <visibility>workflow</visibility>
          <hint>Enter the name of the publisher of the previously issued instance of this item.</hint>
          <required></required>
        </field>
-
+       
+       <!-- Revision Date -->
        <field>
          <dc-schema>dc</dc-schema>
-         <dc-element>identifier</dc-element>
-         <dc-qualifier>citation</dc-qualifier>
+         <dc-element>date</dc-element>
+         <dc-qualifier>updated</dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Citation</label>
-         <input-type>onebox</input-type>
-         <hint>Enter the standard citation for the previously issued instance of this item.</hint>
-         <required></required>
+         <label>Revision Date</label>
+         <input-type>date</input-type>
+         <hint>Please give the date the item was last modified. You
+         can leave out the day and/or month if they aren't
+         applicable.</hint>
+         <required>You must choose a revision date.</required>
        </field>
 
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartofseries</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Series/Report No.</label>
-         <input-type>series</input-type>
-         <hint>Enter the series and number assigned to this item by your community.</hint>
-         <required></required>
-       </field>
-
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>identifier</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <!-- An input-type of qualdrop_value MUST be marked as repeatable -->
-         <repeatable>true</repeatable>
-         <label>Identifiers</label>
-         <input-type value-pairs-name="common_identifiers">qualdrop_value</input-type>
-         <hint>If the item has any identification numbers or codes associated with
-it, please enter the types and the actual numbers or codes.</hint>
-         <required></required>
-       </field>
-
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>type</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Type</label>
-         <input-type value-pairs-name="common_types">dropdown</input-type>
-         <hint>Select the type(s) of content of the item. To select more than one value in the list, you may have to hold down the "CTRL" or "Shift" key.</hint>
-         <required></required>
-       </field>
-
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>language</dc-element>
-         <dc-qualifier>iso</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Language</label>
-         <input-type value-pairs-name="common_iso_languages">dropdown</input-type>
-         <hint>Select the language of the main content of the item.  If the language does not appear in the list, please select 'Other'.  If the content does not really have a language (for example, if it is a dataset or an image) please select 'N/A'.</hint>
-         <required></required>
-       </field>
-     </page>
-
-     <page number="2">
+       <!-- Subject -->
        <field>
          <dc-schema>dc</dc-schema>
          <dc-element>subject</dc-element>
          <dc-qualifier></dc-qualifier>
-         <!-- An input-type of twobox MUST be marked as repeatable -->
          <repeatable>true</repeatable>
-         <label>Subject Keywords</label>
-         <input-type>twobox</input-type>
-         <hint>Enter appropriate subject keywords or phrases. </hint>
+         <label>Subject(s)</label>
+         <input-type value-pairs-name="random_variables_subjects">dropdown</input-type>
+         <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
+         <required>You must choose a subject.</required>
+       </field>
+       <!-- Subject Other -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>subject</dc-element>
+         <dc-qualifier>other</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Other Subject(s)</label>
+         <input-type>onebox</input-type>
+         <hint>If you choose 'Other' subject, please enter details here.</hint>
          <required></required>
-         <vocabulary>srsc</vocabulary>
        </field>
 
+       <!-- Abstract / Description -->
        <field>
          <dc-schema>dc</dc-schema>
          <dc-element>description</dc-element>
          <dc-qualifier>abstract</dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Abstract</label>
-         <input-type>textarea</input-type>
-         <hint>Enter the abstract of the item. </hint>
-         <required></required>
-       </field>
-
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>description</dc-element>
-         <dc-qualifier>sponsorship</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Sponsors</label>
-         <input-type>textarea</input-type>
-         <hint>Enter the names of any sponsors and/or funding codes in the box. </hint>
-         <required></required>
-       </field>
-
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>description</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>false</repeatable>
          <label>Description</label>
          <input-type>textarea</input-type>
-         <hint>Enter any other description or comments in this box. </hint>
+         <hint>Enter the description of the item. </hint>
+         <required></required>
+       </field>
+
+       <!-- Audience level -->
+       <field>
+         <dc-schema>dcterms</dc-schema>
+         <dc-element>audience</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Audience Level</label>
+         <input-type value-pairs-name="statspace_audience">dropdown</input-type>
+         <required></required>
+       </field>
+       
+       <!-- Course taught in -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Course(s) taught in</label>
+         <input-type value-pairs-name="statspace_courses">dropdown</input-type>
+         <required></required>
+       </field>
+       <!-- Course Other -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Other Course(s)</label>
+         <input-type>onebox</input-type>
+         <hint>If you choose 'Other' course, please enter details here.</hint>
          <required></required>
        </field>
      </page>
+
    </form>
-   <form name="one">
+   <form name="sample_space">
      <page number="1">
+       
+       <!-- Author(s) -->
        <field>
          <dc-schema>dc</dc-schema>
-         <dc-element>contributor</dc-element>
-         <dc-qualifier>author</dc-qualifier>
+         <dc-element>creator</dc-element>
+         <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
-         <label>One: Authors</label>
+         <label>Creator(s)</label>
          <input-type>name</input-type>
-         <hint>Enter the names of the authors of this item.</hint>
+         <hint>Enter the name(s) of the creator(s) of this item.</hint>
+         <required>You must enter the creator of the item</required>
+       </field>
+       
+       <!-- Title -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>title</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Title</label>
+         <input-type>onebox</input-type>
+         <hint>Enter the main title of the item.</hint>
+         <required>You must enter a main title for this item.</required>
+       </field>
+       
+       <!-- DOI -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>identifier</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <label>DOI</label>
+         <input-type>onebox</input-type>
+         <hint>The item's digital object identifier code, if available.</hint>
          <required></required>
        </field>
-      </page>
-    </form>
-   
+
+       <!-- Date -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>date</dc-element>
+         <dc-qualifier>issued</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Publication Date</label>
+         <input-type>date</input-type>
+         <visibility>workflow</visibility>
+         <hint>Please give the date of previous publication or public distribution.
+                        You can leave out the day and/or month if they aren't
+                        applicable.</hint>
+       </field>
+
+       <!-- Publisher -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>publisher</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Publisher</label>
+         <input-type>onebox</input-type>
+         <visibility>workflow</visibility>
+         <hint>Enter the name of the publisher of the previously issued instance of this item.</hint>
+         <required></required>
+       </field>
+       
+       <!-- Revision Date -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>date</dc-element>
+         <dc-qualifier>updated</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Revision Date</label>
+         <input-type>date</input-type>
+         <hint>Please give the date the item was last modified. You
+         can leave out the day and/or month if they aren't
+         applicable.</hint>
+         <required>You must choose a revision date.</required>
+       </field>
+
+       <!-- Subject -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>subject</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Subject(s)</label>
+         <input-type value-pairs-name="sample_space_subjects">dropdown</input-type>
+         <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
+         <required>You must choose a subject.</required>
+       </field>
+       <!-- Subject Other -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>subject</dc-element>
+         <dc-qualifier>other</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Other Subject(s)</label>
+         <input-type>onebox</input-type>
+         <hint>If you choose 'Other' subject, please enter details here.</hint>
+         <required></required>
+       </field>
+
+       <!-- Abstract / Description -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>description</dc-element>
+         <dc-qualifier>abstract</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Description</label>
+         <input-type>textarea</input-type>
+         <hint>Enter the description of the item. </hint>
+         <required></required>
+       </field>
+
+       <!-- Audience level -->
+       <field>
+         <dc-schema>dcterms</dc-schema>
+         <dc-element>audience</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Audience Level</label>
+         <input-type value-pairs-name="statspace_audience">dropdown</input-type>
+         <required></required>
+       </field>
+       
+       <!-- Course taught in -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Course(s) taught in</label>
+         <input-type value-pairs-name="statspace_courses">dropdown</input-type>
+         <required></required>
+       </field>
+       <!-- Course Other -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Other Course(s)</label>
+         <input-type>onebox</input-type>
+         <hint>If you choose 'Other' course, please enter details here.</hint>
+         <required></required>
+       </field>
+     </page>
+
+   </form>
+   <form name="several_variables">
+     <page number="1">
+       
+       <!-- Author(s) -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>creator</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Creator(s)</label>
+         <input-type>name</input-type>
+         <hint>Enter the name(s) of the creator(s) of this item.</hint>
+         <required>You must enter the creator of the item</required>
+       </field>
+       
+       <!-- Title -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>title</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Title</label>
+         <input-type>onebox</input-type>
+         <hint>Enter the main title of the item.</hint>
+         <required>You must enter a main title for this item.</required>
+       </field>
+       
+       <!-- DOI -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>identifier</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <label>DOI</label>
+         <input-type>onebox</input-type>
+         <hint>The item's digital object identifier code, if available.</hint>
+         <required></required>
+       </field>
+
+       <!-- Date -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>date</dc-element>
+         <dc-qualifier>issued</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Publication Date</label>
+         <input-type>date</input-type>
+         <visibility>workflow</visibility>
+         <hint>Please give the date of previous publication or public distribution.
+                        You can leave out the day and/or month if they aren't
+                        applicable.</hint>
+       </field>
+
+       <!-- Publisher -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>publisher</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Publisher</label>
+         <input-type>onebox</input-type>
+         <visibility>workflow</visibility>
+         <hint>Enter the name of the publisher of the previously issued instance of this item.</hint>
+         <required></required>
+       </field>
+       
+       <!-- Revision Date -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>date</dc-element>
+         <dc-qualifier>updated</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Revision Date</label>
+         <input-type>date</input-type>
+         <hint>Please give the date the item was last modified. You
+         can leave out the day and/or month if they aren't
+         applicable.</hint>
+         <required>You must choose a revision date.</required>
+       </field>
+
+       <!-- Subject -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>subject</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Subject(s)</label>
+         <input-type value-pairs-name="several_variables_subjects">dropdown</input-type>
+         <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
+         <required>You must choose a subject.</required>
+       </field>
+       <!-- Subject Other -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>subject</dc-element>
+         <dc-qualifier>other</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Other Subject(s)</label>
+         <input-type>onebox</input-type>
+         <hint>If you choose 'Other' subject, please enter details here.</hint>
+         <required></required>
+       </field>
+
+       <!-- Abstract / Description -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>description</dc-element>
+         <dc-qualifier>abstract</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Description</label>
+         <input-type>textarea</input-type>
+         <hint>Enter the description of the item. </hint>
+         <required></required>
+       </field>
+
+       <!-- Audience level -->
+       <field>
+         <dc-schema>dcterms</dc-schema>
+         <dc-element>audience</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Audience Level</label>
+         <input-type value-pairs-name="statspace_audience">dropdown</input-type>
+         <required></required>
+       </field>
+       
+       <!-- Course taught in -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Course(s) taught in</label>
+         <input-type value-pairs-name="statspace_courses">dropdown</input-type>
+         <required></required>
+       </field>
+       <!-- Course Other -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Other Course(s)</label>
+         <input-type>onebox</input-type>
+         <hint>If you choose 'Other' course, please enter details here.</hint>
+         <required></required>
+       </field>
+     </page>
+
+   </form>
+   <form name="stochastic_process">
+     <page number="1">
+       
+       <!-- Author(s) -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>creator</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Creator(s)</label>
+         <input-type>name</input-type>
+         <hint>Enter the name(s) of the creator(s) of this item.</hint>
+         <required>You must enter the creator of the item</required>
+       </field>
+       
+       <!-- Title -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>title</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Title</label>
+         <input-type>onebox</input-type>
+         <hint>Enter the main title of the item.</hint>
+         <required>You must enter a main title for this item.</required>
+       </field>
+       
+       <!-- DOI -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>identifier</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <label>DOI</label>
+         <input-type>onebox</input-type>
+         <hint>The item's digital object identifier code, if available.</hint>
+         <required></required>
+       </field>
+
+       <!-- Date -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>date</dc-element>
+         <dc-qualifier>issued</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Publication Date</label>
+         <input-type>date</input-type>
+         <visibility>workflow</visibility>
+         <hint>Please give the date of previous publication or public distribution.
+                        You can leave out the day and/or month if they aren't
+                        applicable.</hint>
+       </field>
+
+       <!-- Publisher -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>publisher</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Publisher</label>
+         <input-type>onebox</input-type>
+         <visibility>workflow</visibility>
+         <hint>Enter the name of the publisher of the previously issued instance of this item.</hint>
+         <required></required>
+       </field>
+       
+       <!-- Revision Date -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>date</dc-element>
+         <dc-qualifier>updated</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Revision Date</label>
+         <input-type>date</input-type>
+         <hint>Please give the date the item was last modified. You
+         can leave out the day and/or month if they aren't
+         applicable.</hint>
+         <required>You must choose a revision date.</required>
+       </field>
+
+       <!-- Subject -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>subject</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Subject(s)</label>
+         <input-type value-pairs-name="stochastic_process_subjects">dropdown</input-type>
+         <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
+         <required>You must choose a subject.</required>
+       </field>
+       <!-- Subject Other -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>subject</dc-element>
+         <dc-qualifier>other</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Other Subject(s)</label>
+         <input-type>onebox</input-type>
+         <hint>If you choose 'Other' subject, please enter details here.</hint>
+         <required></required>
+       </field>
+
+       <!-- Abstract / Description -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>description</dc-element>
+         <dc-qualifier>abstract</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Description</label>
+         <input-type>textarea</input-type>
+         <hint>Enter the description of the item. </hint>
+         <required></required>
+       </field>
+
+       <!-- Audience level -->
+       <field>
+         <dc-schema>dcterms</dc-schema>
+         <dc-element>audience</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Audience Level</label>
+         <input-type value-pairs-name="statspace_audience">dropdown</input-type>
+         <required></required>
+       </field>
+       
+       <!-- Course taught in -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Course(s) taught in</label>
+         <input-type value-pairs-name="statspace_courses">dropdown</input-type>
+         <required></required>
+       </field>
+       <!-- Course Other -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Other Course(s)</label>
+         <input-type>onebox</input-type>
+         <hint>If you choose 'Other' course, please enter details here.</hint>
+         <required></required>
+       </field>
+     </page>
+
+   </form>
+ <!-- Regression                                                           -->    
+   <form name="generalized_linear">
+     <page number="1">
+       
+       <!-- Author(s) -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>creator</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Creator(s)</label>
+         <input-type>name</input-type>
+         <hint>Enter the name(s) of the creator(s) of this item.</hint>
+         <required>You must enter the creator of the item</required>
+       </field>
+       
+       <!-- Title -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>title</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Title</label>
+         <input-type>onebox</input-type>
+         <hint>Enter the main title of the item.</hint>
+         <required>You must enter a main title for this item.</required>
+       </field>
+       
+       <!-- DOI -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>identifier</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <label>DOI</label>
+         <input-type>onebox</input-type>
+         <hint>The item's digital object identifier code, if available.</hint>
+         <required></required>
+       </field>
+
+       <!-- Date -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>date</dc-element>
+         <dc-qualifier>issued</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Publication Date</label>
+         <input-type>date</input-type>
+         <visibility>workflow</visibility>
+         <hint>Please give the date of previous publication or public distribution.
+                        You can leave out the day and/or month if they aren't
+                        applicable.</hint>
+       </field>
+
+       <!-- Publisher -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>publisher</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Publisher</label>
+         <input-type>onebox</input-type>
+         <visibility>workflow</visibility>
+         <hint>Enter the name of the publisher of the previously issued instance of this item.</hint>
+         <required></required>
+       </field>
+       
+       <!-- Revision Date -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>date</dc-element>
+         <dc-qualifier>updated</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Revision Date</label>
+         <input-type>date</input-type>
+         <hint>Please give the date the item was last modified. You
+         can leave out the day and/or month if they aren't
+         applicable.</hint>
+         <required>You must choose a revision date.</required>
+       </field>
+
+       <!-- Subject -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>subject</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Subject(s)</label>
+         <input-type value-pairs-name="generalized_linear_subjects">dropdown</input-type>
+         <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
+         <required>You must choose a subject.</required>
+       </field>
+       <!-- Subject Other -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>subject</dc-element>
+         <dc-qualifier>other</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Other Subject(s)</label>
+         <input-type>onebox</input-type>
+         <hint>If you choose 'Other' subject, please enter details here.</hint>
+         <required></required>
+       </field>
+
+       <!-- Abstract / Description -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>description</dc-element>
+         <dc-qualifier>abstract</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Description</label>
+         <input-type>textarea</input-type>
+         <hint>Enter the description of the item. </hint>
+         <required></required>
+       </field>
+
+       <!-- Audience level -->
+       <field>
+         <dc-schema>dcterms</dc-schema>
+         <dc-element>audience</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Audience Level</label>
+         <input-type value-pairs-name="statspace_audience">dropdown</input-type>
+         <required></required>
+       </field>
+       
+       <!-- Course taught in -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Course(s) taught in</label>
+         <input-type value-pairs-name="statspace_courses">dropdown</input-type>
+         <required></required>
+       </field>
+       <!-- Course Other -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Other Course(s)</label>
+         <input-type>onebox</input-type>
+         <hint>If you choose 'Other' course, please enter details here.</hint>
+         <required></required>
+       </field>
+     </page>
+
+   </form>
+   <form name="multiple_regression">
+     <page number="1">
+       
+       <!-- Author(s) -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>creator</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Creator(s)</label>
+         <input-type>name</input-type>
+         <hint>Enter the name(s) of the creator(s) of this item.</hint>
+         <required>You must enter the creator of the item</required>
+       </field>
+       
+       <!-- Title -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>title</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Title</label>
+         <input-type>onebox</input-type>
+         <hint>Enter the main title of the item.</hint>
+         <required>You must enter a main title for this item.</required>
+       </field>
+       
+       <!-- DOI -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>identifier</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <label>DOI</label>
+         <input-type>onebox</input-type>
+         <hint>The item's digital object identifier code, if available.</hint>
+         <required></required>
+       </field>
+
+       <!-- Date -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>date</dc-element>
+         <dc-qualifier>issued</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Publication Date</label>
+         <input-type>date</input-type>
+         <visibility>workflow</visibility>
+         <hint>Please give the date of previous publication or public distribution.
+                        You can leave out the day and/or month if they aren't
+                        applicable.</hint>
+       </field>
+
+       <!-- Publisher -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>publisher</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Publisher</label>
+         <input-type>onebox</input-type>
+         <visibility>workflow</visibility>
+         <hint>Enter the name of the publisher of the previously issued instance of this item.</hint>
+         <required></required>
+       </field>
+       
+       <!-- Revision Date -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>date</dc-element>
+         <dc-qualifier>updated</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Revision Date</label>
+         <input-type>date</input-type>
+         <hint>Please give the date the item was last modified. You
+         can leave out the day and/or month if they aren't
+         applicable.</hint>
+         <required>You must choose a revision date.</required>
+       </field>
+
+       <!-- Subject -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>subject</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Subject(s)</label>
+         <input-type value-pairs-name="multiple_regression_subjects">dropdown</input-type>
+         <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
+         <required>You must choose a subject.</required>
+       </field>
+       <!-- Subject Other -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>subject</dc-element>
+         <dc-qualifier>other</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Other Subject(s)</label>
+         <input-type>onebox</input-type>
+         <hint>If you choose 'Other' subject, please enter details here.</hint>
+         <required></required>
+       </field>
+
+       <!-- Abstract / Description -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>description</dc-element>
+         <dc-qualifier>abstract</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Description</label>
+         <input-type>textarea</input-type>
+         <hint>Enter the description of the item. </hint>
+         <required></required>
+       </field>
+
+       <!-- Audience level -->
+       <field>
+         <dc-schema>dcterms</dc-schema>
+         <dc-element>audience</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Audience Level</label>
+         <input-type value-pairs-name="statspace_audience">dropdown</input-type>
+         <required></required>
+       </field>
+       
+       <!-- Course taught in -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Course(s) taught in</label>
+         <input-type value-pairs-name="statspace_courses">dropdown</input-type>
+         <required></required>
+       </field>
+       <!-- Course Other -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Other Course(s)</label>
+         <input-type>onebox</input-type>
+         <hint>If you choose 'Other' course, please enter details here.</hint>
+         <required></required>
+       </field>
+     </page>
+
+   </form>
+   <form name="nonlinear_regression">
+     <page number="1">
+       
+       <!-- Author(s) -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>creator</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Creator(s)</label>
+         <input-type>name</input-type>
+         <hint>Enter the name(s) of the creator(s) of this item.</hint>
+         <required>You must enter the creator of the item</required>
+       </field>
+       
+       <!-- Title -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>title</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Title</label>
+         <input-type>onebox</input-type>
+         <hint>Enter the main title of the item.</hint>
+         <required>You must enter a main title for this item.</required>
+       </field>
+       
+       <!-- DOI -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>identifier</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <label>DOI</label>
+         <input-type>onebox</input-type>
+         <hint>The item's digital object identifier code, if available.</hint>
+         <required></required>
+       </field>
+
+       <!-- Date -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>date</dc-element>
+         <dc-qualifier>issued</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Publication Date</label>
+         <input-type>date</input-type>
+         <visibility>workflow</visibility>
+         <hint>Please give the date of previous publication or public distribution.
+                        You can leave out the day and/or month if they aren't
+                        applicable.</hint>
+       </field>
+
+       <!-- Publisher -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>publisher</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Publisher</label>
+         <input-type>onebox</input-type>
+         <visibility>workflow</visibility>
+         <hint>Enter the name of the publisher of the previously issued instance of this item.</hint>
+         <required></required>
+       </field>
+       
+       <!-- Revision Date -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>date</dc-element>
+         <dc-qualifier>updated</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Revision Date</label>
+         <input-type>date</input-type>
+         <hint>Please give the date the item was last modified. You
+         can leave out the day and/or month if they aren't
+         applicable.</hint>
+         <required>You must choose a revision date.</required>
+       </field>
+
+       <!-- Subject -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>subject</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Subject(s)</label>
+         <input-type value-pairs-name="nonlinear_regression_subjects">dropdown</input-type>
+         <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
+         <required>You must choose a subject.</required>
+       </field>
+       <!-- Subject Other -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>subject</dc-element>
+         <dc-qualifier>other</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Other Subject(s)</label>
+         <input-type>onebox</input-type>
+         <hint>If you choose 'Other' subject, please enter details here.</hint>
+         <required></required>
+       </field>
+
+       <!-- Abstract / Description -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>description</dc-element>
+         <dc-qualifier>abstract</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Description</label>
+         <input-type>textarea</input-type>
+         <hint>Enter the description of the item. </hint>
+         <required></required>
+       </field>
+
+       <!-- Audience level -->
+       <field>
+         <dc-schema>dcterms</dc-schema>
+         <dc-element>audience</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Audience Level</label>
+         <input-type value-pairs-name="statspace_audience">dropdown</input-type>
+         <required></required>
+       </field>
+       
+       <!-- Course taught in -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Course(s) taught in</label>
+         <input-type value-pairs-name="statspace_courses">dropdown</input-type>
+         <required></required>
+       </field>
+       <!-- Course Other -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Other Course(s)</label>
+         <input-type>onebox</input-type>
+         <hint>If you choose 'Other' course, please enter details here.</hint>
+         <required></required>
+       </field>
+     </page>
+
+   </form>
+   <form name="simple_linear">
+     <page number="1">
+       
+       <!-- Author(s) -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>creator</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Creator(s)</label>
+         <input-type>name</input-type>
+         <hint>Enter the name(s) of the creator(s) of this item.</hint>
+         <required>You must enter the creator of the item</required>
+       </field>
+       
+       <!-- Title -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>title</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Title</label>
+         <input-type>onebox</input-type>
+         <hint>Enter the main title of the item.</hint>
+         <required>You must enter a main title for this item.</required>
+       </field>
+       
+       <!-- DOI -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>identifier</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <label>DOI</label>
+         <input-type>onebox</input-type>
+         <hint>The item's digital object identifier code, if available.</hint>
+         <required></required>
+       </field>
+
+       <!-- Date -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>date</dc-element>
+         <dc-qualifier>issued</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Publication Date</label>
+         <input-type>date</input-type>
+         <visibility>workflow</visibility>
+         <hint>Please give the date of previous publication or public distribution.
+                        You can leave out the day and/or month if they aren't
+                        applicable.</hint>
+       </field>
+
+       <!-- Publisher -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>publisher</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Publisher</label>
+         <input-type>onebox</input-type>
+         <visibility>workflow</visibility>
+         <hint>Enter the name of the publisher of the previously issued instance of this item.</hint>
+         <required></required>
+       </field>
+       
+       <!-- Revision Date -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>date</dc-element>
+         <dc-qualifier>updated</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Revision Date</label>
+         <input-type>date</input-type>
+         <hint>Please give the date the item was last modified. You
+         can leave out the day and/or month if they aren't
+         applicable.</hint>
+         <required>You must choose a revision date.</required>
+       </field>
+
+       <!-- Subject -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>subject</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Subject(s)</label>
+         <input-type value-pairs-name="simple_linear_subjects">dropdown</input-type>
+         <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
+         <required>You must choose a subject.</required>
+       </field>
+       <!-- Subject Other -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>subject</dc-element>
+         <dc-qualifier>other</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Other Subject(s)</label>
+         <input-type>onebox</input-type>
+         <hint>If you choose 'Other' subject, please enter details here.</hint>
+         <required></required>
+       </field>
+
+       <!-- Abstract / Description -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>description</dc-element>
+         <dc-qualifier>abstract</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Description</label>
+         <input-type>textarea</input-type>
+         <hint>Enter the description of the item. </hint>
+         <required></required>
+       </field>
+
+       <!-- Audience level -->
+       <field>
+         <dc-schema>dcterms</dc-schema>
+         <dc-element>audience</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Audience Level</label>
+         <input-type value-pairs-name="statspace_audience">dropdown</input-type>
+         <required></required>
+       </field>
+       
+       <!-- Course taught in -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Course(s) taught in</label>
+         <input-type value-pairs-name="statspace_courses">dropdown</input-type>
+         <required></required>
+       </field>
+       <!-- Course Other -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Other Course(s)</label>
+         <input-type>onebox</input-type>
+         <hint>If you choose 'Other' course, please enter details here.</hint>
+         <required></required>
+       </field>
+     </page>
+
+   </form>     
  </form-definitions>
 
 
@@ -3690,33 +4712,7 @@ it, please enter the types and the actual numbers or codes.</hint>
  <!-- stores the associated stored-values in the database.                  -->
 
  <form-value-pairs>
-   <value-pairs value-pairs-name="common_identifiers" dc-term="identifier">
-     <pair>
-       <displayed-value>ISSN</displayed-value>
-       <stored-value>issn</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Other</displayed-value>
-       <stored-value>other</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>ISMN</displayed-value>
-       <stored-value>ismn</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Gov't Doc #</displayed-value>
-       <stored-value>govdoc</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>URI</displayed-value>
-       <stored-value>uri</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>ISBN</displayed-value>
-       <stored-value>isbn</stored-value>
-     </pair>
-   </value-pairs>
- <!-- Combinatorics                                                         -->
+     
    <value-pairs value-pairs-name="statspace_subjects" dc-term="subject">
      <pair>
        <displayed-value>Bayes theorem</displayed-value>
@@ -3835,60 +4831,337 @@ it, please enter the types and the actual numbers or codes.</hint>
        <stored-value>Other</stored-value>
      </pair>
    </value-pairs>
-   <value-pairs value-pairs-name="Counting_Subjects" dc-term="subject">
+ <!-- Alone                                                                 -->\
+   <value-pairs value-pairs-name="bayesian_inference_subjects" dc-term="subject">
+     <pair>
+       <displayed-value>Credibility intervals</displayed-value>
+       <stored-value>Credibility intervals</stored-value>
+     </pair>  
+     <pair>
+       <displayed-value>Hypothesis tests</displayed-value>
+       <stored-value>Hypothesis tests</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Posterior distribution</displayed-value>
+       <stored-value>Posterior distribution</stored-value>
+     </pair>
+   </value-pairs>
+   <value-pairs value-pairs-name="confidence_intervals_subjects" dc-term="subject">
+     <pair>
+       <displayed-value>Concepts - Sample size</displayed-value>
+       <stored-value>Concepts - Sample size</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Concepts - Standard error</displayed-value>
+       <stored-value>Concepts - Standard error</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Bootstrapping</displayed-value>
+       <stored-value>Bootstrapping</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Measures of independence</displayed-value>
+       <stored-value>Measures of independence</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>One sample mean-t</displayed-value>
+       <stored-value>One sample mean-t</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>One sample mean-z</displayed-value>
+       <stored-value>One sample mean-z</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>One sample proportion</displayed-value>
+       <stored-value>One sample proportion</stored-value>
+       </pair> 
+     <pair>
+       <displayed-value>Paired samples</displayed-value>
+       <stored-value>Paired samples</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Two independent samples - t</displayed-value>
+       <stored-value>Two independent samples - t</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Two independent samples - z</displayed-value>
+       <stored-value>Two independent sample - z</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Two sample proportion</displayed-value>
+       <stored-value>Two sample proportion</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Variance</displayed-value>
+       <stored-value>Variance</stored-value>
+     </pair>
+   </value-pairs>
+   <value-pairs value-pairs-name="experiments_subjects" dc-term="subject">
+     <pair>
+       <displayed-value>Concepts</displayed-value>
+       <stored-value>Concepts</stored-value>
+     </pair>
+   </value-pairs>
+   <value-pairs value-pairs-name="exploratory_data_subjects" dc-term="subject">
+     <pair>
+       <displayed-value>Classifying data</displayed-value>
+       <stored-value>Classifying data</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Description of distributions</displayed-value>
+       <stored-value>Description of distributions</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Graphical representations - Box charts</displayed-value>
+       <stored-value>Graphical representations - Box charts</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Graphical representations - Boxplots</displayed-value>
+       <stored-value>Graphical representations - Boxplots</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Graphical representations - Histograms</displayed-value>
+       <stored-value>Graphical representations - Histograms</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Graphical representations - Scatterplots</displayed-value>
+       <stored-value>Graphical representations - Scatterplots</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Graphical representations - Stem-and-leaf plots</displayed-value>
+       <stored-value>Graphical representations - Stem-and-leaf plots</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Graphical representations - Strip plots</displayed-value>
+       <stored-value>Graphical representations - Strip plots</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Summarizing data in tables</displayed-value>
+       <stored-value>Summarizing data in tables</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Data mining</displayed-value>
+       <stored-value>Data mining</stored-value>
+     </pair>
+   </value-pairs>
+   <value-pairs value-pairs-name="observational_studies_subjects" dc-term="subject">
+     <pair>
+       <displayed-value>Concepts</displayed-value>
+       <stored-value>Concepts</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Sources of bias</displayed-value>
+       <stored-value>Sources of bias</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Techniques - Simple random sampling</displayed-value>
+       <stored-value>Techniques - Simple random sampling</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Techniques - Stratified sampling</displayed-value>
+       <stored-value>Techniques - Stratified sampling</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Techniques - Cluster sampling</displayed-value>
+       <stored-value>Techniques - Cluster sampling</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Techniques - Systematic sampling</displayed-value>
+       <stored-value>Techniques - Systematic sampling</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Techniques - Other</displayed-value>
+       <stored-value>Techniques - Other</stored-value>
+     </pair>
+   </value-pairs>
+   <value-pairs value-pairs-name="sampling_distributions_subjects" dc-term="subject">
+     <pair>
+       <displayed-value>Sample mean</displayed-value>
+       <stored-value>Sample mean</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Sample proportion</displayed-value>
+       <stored-value>Sample proportion</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Other statistics</displayed-value>
+       <stored-value>Other statistics</stored-value>
+     </pair>
+   </value-pairs>
+   <value-pairs value-pairs-name="theory_of_point_subjects" dc-term="subject">
+     <pair>
+       <displayed-value>Consistency</displayed-value>
+       <stored-value>Consistency</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Maximum likelihood estimation</displayed-value>
+       <stored-value>Maximum likelihood estimation</stored-value>
+     </pair>
+   </value-pairs>   
+   <value-pairs value-pairs-name="time_series_subjects" dc-term="subject">
+     <pair>
+       <displayed-value>Autocorrelation</displayed-value>
+       <stored-value>Autocorrelation</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Descriptive methods</displayed-value>
+       <stored-value>Descriptive methods</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Forecasting</displayed-value>
+       <stored-value>Forecasting</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Runs test</displayed-value>
+       <stored-value>Runs test</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Seasonal variation</displayed-value>
+       <stored-value>Seasonal variation</stored-value>
+     </pair>
+   </value-pairs>   
+ <!-- Descriptive statistics/Summary statistics                             -->
+   <value-pairs value-pairs-name="measures_of_location_subjects" dc-term="subject">
+     <pair>
+       <displayed-value>Median</displayed-value>
+       <stored-value>Median</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Mean</displayed-value>
+       <stored-value>Mean</stored-value>
+     </pair>
+   </value-pairs>    
+   <value-pairs value-pairs-name="measures_of_spread_subjects" dc-term="subject">
+     <pair>
+       <displayed-value>Variance</displayed-value>
+       <stored-value>Variance</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Interquartile range</displayed-value>
+       <stored-value>Interquatile range</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Range</displayed-value>
+       <stored-value>Range</stored-value>
+     </pair>
+   </value-pairs>
+   <value-pairs value-pairs-name="other_subjects" dc-term="subject">
+     <pair>
+       <displayed-value>Other</displayed-value>
+       <stored-value>Other</stored-value>
+     </pair>
+   </value-pairs> 
+ <!-- Hypothesis tests                                                      -->   
+   <value-pairs value-pairs-name="bootstrapping_subjects" dc-term="subject">
+     <pair>
+       <displayed-value>Bootstrapping</displayed-value>
+       <stored-value>Bootstrapping</stored-value>
+     </pair>
+   </value-pairs>  
+   <value-pairs value-pairs-name="concepts_subjects" dc-term="subject">
+     <pair>
+       <displayed-value>P-value and significance level</displayed-value>
+       <stored-value>P-value and significance level</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Type I/type II errors and power</displayed-value>
+       <stored-value>Type I/type II errors and power</stored-value>
+     </pair>
+   </value-pairs>
+   <value-pairs value-pairs-name="goodness_of_fit_subjects" dc-term="subject">
+     <pair>
+       <displayed-value>Chi-squared test for goodness of fit</displayed-value>
+       <stored-value>Chi-squared test for goodness of fit</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Chi-squared test for independence</displayed-value>
+       <stored-value>Chi-squared test for independence</stored-value>
+     </pair>
+   </value-pairs>  
+   <value-pairs value-pairs-name="multiple_independent_subjects" dc-term="subject">
+     <pair>
+       <displayed-value>Kruskal-Wallis</displayed-value>
+       <stored-value>Kruskal-Wallis</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>One-way ANOVA</displayed-value>
+       <stored-value>One-way ANOVA</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Two-way ANOVA</displayed-value>
+       <stored-value>Two-way ANOVA</stored-value>
+     </pair>
+   </value-pairs> 
+   <value-pairs value-pairs-name="one_sample_subjects" dc-term="subject">
+     <pair>
+       <displayed-value>One sample mean - t</displayed-value>
+       <stored-value>One sample mean - t</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>One sample mean - z</displayed-value>
+       <stored-value>One sample mean - z</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>One sample proportion</displayed-value>
+       <stored-value>One sample proportion</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>One sample variance</displayed-value>
+       <stored-value>One sample variance</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Paired samples</displayed-value>
+       <stored-value>Paired samples</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Sign test</displayed-value>
+       <stored-value>Sign test</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Signed rank</displayed-value>
+       <stored-value>Signed rank</stored-value>
+     </pair>
+   </value-pairs>   
+   <value-pairs value-pairs-name="randomization_subjects" dc-term="subject">
+     <pair>
+       <displayed-value>Randomization/Permutation</displayed-value>
+       <stored-value>Randomization/Permutation</stored-value>
+     </pair>
+   </value-pairs>
+   <value-pairs value-pairs-name="two_independent_subjects" dc-term="subject">
+     <pair>
+       <displayed-value>Independent samples - t</displayed-value>
+       <stored-value>Independent samples - t</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Independent samples - z</displayed-value>
+       <stored-value>Independent samples - z</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Rank sum</displayed-value>
+       <stored-value>Rank sum</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Two sample proportions</displayed-value>
+       <stored-value>Two sample proportions</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Two sample variances</displayed-value>
+       <stored-value>Two sample variances</stored-value>
+     </pair>
+   </value-pairs>
+ <!-- Probability                                                           -->    
+   <value-pairs value-pairs-name="combinatorics_subjects" dc-term="subject">
      <pair>
        <displayed-value>Combinations</displayed-value>
        <stored-value>Combinations</stored-value>
-     </pair>  
-     <pair>
-       <displayed-value>Factorial arithmetic</displayed-value>
-       <stored-value>Factorial arithmetic</stored-value>
      </pair>
-     <pair>
-       <displayed-value>Inclusion/exclusion</displayed-value>
-       <stored-value>Inclusion/exclusion</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Multiple techniques</displayed-value>
-       <stored-value>Multiple techniques</stored-value>
-     </pair>  
      <pair>
        <displayed-value>Permutations</displayed-value>
        <stored-value>Permutations</stored-value>
      </pair>
-     <pair>
-       <displayed-value>Pigeonhole principle</displayed-value>
-       <stored-value>Pigeonhole principle</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Principles (addition, subtraction, multiplication)</displayed-value>
-       <stored-value>Principles (addition, subtraction, multiplication)</stored-value>
-     </pair>  
-     <pair>
-       <displayed-value>Recursive</displayed-value>
-       <stored-value>Recursive</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Stars and bars</displayed-value>
-       <stored-value>Stars and bars</stored-value>
-     </pair>
-   </value-pairs>
-   <value-pairs value-pairs-name="Recurrence_Relations_Subjects" dc-term="subject">
-     <pair>
-       <displayed-value>Concepts</displayed-value>
-       <stored-value>Concepts (Recurrence relations)</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Solving homogeneous</displayed-value>
-       <stored-value>Solving homogeneous</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Solving nonhomogeneous</displayed-value>
-       <stored-value>Solving nonhomogeneous</stored-value>
-     </pair>
-   </value-pairs>
- <!-- Probability                                                           -->    
-   <value-pairs value-pairs-name="Continous_Distributions_Subjects" dc-term="subject">
+   </value-pairs>    
+   <value-pairs value-pairs-name="continous_distributions_subjects" dc-term="subject">
      <pair>
        <displayed-value>Application of a normal distribution</displayed-value>
        <stored-value>Application of a normal distribution</stored-value>
@@ -3902,6 +5175,10 @@ it, please enter the types and the actual numbers or codes.</hint>
        <stored-value>Gaussian normal</stored-value>
      </pair>
      <pair>
+       <displayed-value>Normal approximation to binomial</displayed-value>
+       <stored-value>Normal approximation to binomial</stored-value>
+       </pair>
+     <pair>
        <displayed-value>Other distribution</displayed-value>
        <stored-value>Other distribution</stored-value>
      </pair>
@@ -3910,7 +5187,7 @@ it, please enter the types and the actual numbers or codes.</hint>
        <stored-value>Uniform</stored-value>
      </pair>
    </value-pairs>
-   <value-pairs value-pairs-name="Discrete_Distributions_Subjects" dc-term="subject">
+   <value-pairs value-pairs-name="discrete_distributions_subjects" dc-term="subject">
      <pair>
        <displayed-value>Bernoulli</displayed-value>
        <stored-value>Bernoulli</stored-value>
@@ -3932,29 +5209,37 @@ it, please enter the types and the actual numbers or codes.</hint>
        <stored-value>Negative binomial</stored-value>
      </pair>
      <pair>
-       <displayed-value>Normal approximation to binomial</displayed-value>
-       <stored-value>Normal approximation to binomial</stored-value>
-     </pair>
-     <pair>
        <displayed-value>Poisson</displayed-value>
        <stored-value>Poisson</stored-value>
      </pair>
+     <pair>
+       <displayed-value>Poisson approximation to binomial</displayed-value>
+       <stored-value>Poisson approximation to binomial</stored-value>
+     </pair>
    </value-pairs>
-   <value-pairs value-pairs-name="Laws_Theory_Subjects" dc-term="subject">
+   <value-pairs value-pairs-name="laws_theory_subjects" dc-term="subject">
      <pair>
        <displayed-value>Central limit theorem</displayed-value>
        <stored-value>Central limit theorem</stored-value>
      </pair>
      <pair>
-       <displayed-value>Chebychev's Inequality</displayed-value>
-       <stored-value>Chebychev's Inequality</stored-value>
+       <displayed-value>Law of large numbers</displayed-value>
+       <stored-value>Law of large numbers</stored-value>
      </pair>
      <pair>
-       <displayed-value>Misc</displayed-value>
-       <stored-value>Misc</stored-value>
+       <displayed-value>Chebychev's inequality</displayed-value>
+       <stored-value>Chebychev's inequality</stored-value>
      </pair>
-   </value-pairs>
-   <value-pairs value-pairs-name="Random_Variables_Subjects" dc-term="subject">
+     <pair>
+       <displayed-value>Markov's inequality</displayed-value>
+       <stored-value>Markov's inequality</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Other</displayed-value>
+       <stored-value>Other</stored-value>
+     </pair>
+   </value-pairs> 
+   <value-pairs value-pairs-name="random_variables_subjects" dc-term="subject">
         <pair>
        <displayed-value>Continuous: density function, cumulative distribution function</displayed-value>
        <stored-value>Continuous: density function, cumulative distribution function</stored-value>
@@ -3976,7 +5261,7 @@ it, please enter the types and the actual numbers or codes.</hint>
        <stored-value>Variance, standard deviation</stored-value>
      </pair>
    </value-pairs>
-   <value-pairs value-pairs-name="Sample_Space_Subjects" dc-term="subject">
+   <value-pairs value-pairs-name="sample_space_subjects" dc-term="subject">
      <pair>
        <displayed-value>Bayes theorem -- inverse probability</displayed-value>
        <stored-value>Bayes theorem -- inverse probability</stored-value>
@@ -4001,8 +5286,8 @@ it, please enter the types and the actual numbers or codes.</hint>
        <displayed-value>Probability: direct computation, inclusion/exclusion</displayed-value>
        <stored-value>Probability: direct computation, inclusion/exclusion</stored-value>
      </pair>
-   </value-pairs>
-   <value-pairs value-pairs-name="Several_Variables_Subjects" dc-term="subject">
+   </value-pairs>   
+   <value-pairs value-pairs-name="several_variables_subjects" dc-term="subject">
      <pair>
        <displayed-value>Covariance &amp; correlation</displayed-value>
        <stored-value>Covariance and correlation</stored-value>
@@ -4016,252 +5301,52 @@ it, please enter the types and the actual numbers or codes.</hint>
        <stored-value>Marginal distributions</stored-value>
      </pair>
    </value-pairs>
-   <value-pairs value-pairs-name="Stochastic_Process_Subjects" dc-term="subject">
+   <value-pairs value-pairs-name="stochastic_process_subjects" dc-term="subject">
      <pair>
        <displayed-value>Markov chain</displayed-value>
        <stored-value>Markov chain</stored-value>
      </pair>
    </value-pairs>   
- <!-- Statistics                                                            -->    
-   <value-pairs value-pairs-name="Bayesian_Inference_Subjects" dc-term="subject">
-     <pair>
-       <displayed-value>Credibility intervals</displayed-value>
-       <stored-value>Credibility intervals</stored-value>
-     </pair>  
-     <pair>
-       <displayed-value>Hypothesis tests</displayed-value>
-       <stored-value>Hypothesis tests (Bayesian inference)</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Posterior distribution</displayed-value>
-       <stored-value>Posterior distribution</stored-value>
-     </pair>
-   </value-pairs>
-   <value-pairs value-pairs-name="Confidence_Intervals_Subjects" dc-term="subject">
-     <pair>
-       <displayed-value>Concepts</displayed-value>
-       <stored-value>Concepts (Confidence intervals)</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Independent samples-t</displayed-value>
-       <stored-value>Independent samples-t(Confidence intervals)</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Independent samples-z</displayed-value>
-       <stored-value>Independent samples-z(Confidence intervals)</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>One sample mean-t</displayed-value>
-       <stored-value>One sample mean-t (Confidence Intervals)</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>One sample mean-z</displayed-value>
-       <stored-value>One sample mean-z (Confidence Intervals)</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>One sample proportion</displayed-value>
-       <stored-value>One sample proportion</stored-value>
-       </pair> 
-     <pair>
-       <displayed-value>Paired samples</displayed-value>
-       <stored-value>Paired samples (Confidence intervals</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Two sample proportion</displayed-value>
-       <stored-value>Two sample proportion (Confidence intervals</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Variance</displayed-value>
-       <stored-value>Variance</stored-value>
-     </pair>
-   </value-pairs>
-   <value-pairs value-pairs-name="Experimental_Design_Subjects" dc-term="subject">
-     <pair>
-       <displayed-value>Concepts</displayed-value>
-       <stored-value>Concepts (Experimental design)</stored-value>
-     </pair>
-   </value-pairs>
-   <value-pairs value-pairs-name="Exploratory_Data_Subjects" dc-term="subject">
-     <pair>
-       <displayed-value>Classifying data</displayed-value>
-       <stored-value>Classifying data</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Description of distributions</displayed-value>
-       <stored-value>Description of distributions</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Graphical representations</displayed-value>
-       <stored-value>Graphical representations</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Summarizing data in tables</displayed-value>
-       <stored-value>Summarizing data in tables</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Summary statistics</displayed-value>
-       <stored-value>Summary statistics</stored-value>
-     </pair>
-   </value-pairs>
-   <value-pairs value-pairs-name="Generalized_Linear_Subjects" dc-term="subject">
+ <!-- Regression                                                            -->   
+   <value-pairs value-pairs-name="generalized_linear_subjects" dc-term="subject">
      <pair>
        <displayed-value>Logistic regression</displayed-value>
        <stored-value>Logistic regression</stored-value>
      </pair>
    </value-pairs>
-   <value-pairs value-pairs-name="Hypothesis_Tests_Subjects" dc-term="subject">
+   <value-pairs value-pairs-name="multiple_regression_subjects" dc-term="subject">
      <pair>
-       <displayed-value>Chi-squared test for goodness of fit</displayed-value>
-       <stored-value>Chi-squared test for goodness of fit</stored-value>
+       <displayed-value>Confidence intervals</displayed-value>
+       <stored-value>Confidence intervals</stored-value>
      </pair>
      <pair>
-       <displayed-value>Chi-squared test for independence</displayed-value>
-       <stored-value>Chi-squared test for independence</stored-value>
+       <displayed-value>Diagnostics/Residuals</displayed-value>
+       <stored-value>Diagnostics/Residuals</stored-value>
      </pair>
-     <pair>
-       <displayed-value>Concepts</displayed-value>
-       <stored-value>Concepts (Hypothesis tests)</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Independent samples-t</displayed-value>
-       <stored-value>Independent samples-t (Hypothesis tests)</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Independent samples-z</displayed-value>
-       <stored-value>Independent samples-z (Hypothesis tests)</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>One sample mean-t</displayed-value>
-       <stored-value>One sample mean-t (Hypothesis Tests)</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>One sample mean-z</displayed-value>
-       <stored-value>One sample mean-z (Hypothesis Tests)</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>One sample proportion</displayed-value>
-       <stored-value>One sample proportion</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>One sample variance</displayed-value>
-       <stored-value>One sample variance</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>One-way ANOVA</displayed-value>
-       <stored-value>One-way ANOVA</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Paired samples</displayed-value>
-       <stored-value>Paired samples (Hypothesis tests)</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Two sampling proportions</displayed-value>
-       <stored-value>Two sampling proportions (Hypothesis tests)</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Two sample variances</displayed-value>
-       <stored-value>Two sample variances</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Two-way ANOVA</displayed-value>
-       <stored-value>Two-way ANOVA</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Type l/type ll errors and power</displayed-value>
-       <stored-value>Type l/type ll errors and power</stored-value>
-     </pair>
-   </value-pairs>
-   <value-pairs value-pairs-name="Multiple_Regression_Subjects" dc-term="subject">
      <pair>
        <displayed-value>Hypothesis tests</displayed-value>
-       <stored-value>Hypothesis tests (Multiple regression)</stored-value>
+       <stored-value>Hypothesis tests</stored-value>
      </pair>
      <pair>
        <displayed-value>Model selection</displayed-value>
        <stored-value>Model selection</stored-value>
      </pair>
      <pair>
-       <displayed-value>Nonlinear regression</displayed-value>
-       <stored-value>Nonlinear regression</stored-value>
-     </pair>
-     <pair>
        <displayed-value>Parameter estimates</displayed-value>
        <stored-value>Parameter estimates</stored-value>
      </pair>
-   </value-pairs>
-   <value-pairs value-pairs-name="Nonparametric_Methods_Subjects" dc-term="subject">
      <pair>
-       <displayed-value>Kruskal-Wallis test</displayed-value>
-       <stored-value>Kruskal-Wallis test</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Rank sum test</displayed-value>
-       <stored-value>Rank sum test</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Signed rank test</displayed-value>
-       <stored-value>Signed rank test</stored-value>
+       <displayed-value>Prediction</displayed-value>
+       <stored-value>Prediction</stored-value>
      </pair>
    </value-pairs>
-   <value-pairs value-pairs-name="Point_Estimation_Subjects" dc-term="subject">
+   <value-pairs value-pairs-name="nonlinear_regression_subjects" dc-term="subject">
      <pair>
-       <displayed-value>Consistency</displayed-value>
-       <stored-value>Consistency</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Maximum likelihood estimation</displayed-value>
-       <stored-value>Maximum likelihood estimation</stored-value>
-     </pair>
-   </value-pairs> 
-   <value-pairs value-pairs-name="Sample_Survey_Subjects" dc-term="subject">
-     <pair>
-       <displayed-value>Capture-recapture method</displayed-value>
-       <stored-value>Capture-recapture method</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Cluster sampling</displayed-value>
-       <stored-value>Cluster sampling</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Concepts</displayed-value>
-       <stored-value>Concepts (Sample survery methods)</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Ratio estimators</displayed-value>
-       <stored-value>Ratio estimators</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Regression estimators</displayed-value>
-       <stored-value>Regression estimators</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Response bias</displayed-value>
-       <stored-value>Response bias</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Samping bias</displayed-value>
-       <stored-value>Sampling bias</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Stratified sampling</displayed-value>
-       <stored-value>Stratified sampling</stored-value>
+       <displayed-value>Nonlinear regression</displayed-value>
+       <stored-value>Nonlinear regression</stored-value>
      </pair>
    </value-pairs>
-   <value-pairs value-pairs-name="Sampling_Distributions_Subjects" dc-term="subject">
-     <pair>
-       <displayed-value>General sample distributions</displayed-value>
-       <stored-value>General sample distributions</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Sample mean</displayed-value>
-       <stored-value>Sample mean</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Sample proportion</displayed-value>
-       <stored-value>Sample proportion</stored-value>
-     </pair>
-   </value-pairs>
-   <value-pairs value-pairs-name="Simple_Linear_Subjects" dc-term="subject">
+   <value-pairs value-pairs-name="simple_linear_subjects" dc-term="subject">
      <pair>
        <displayed-value>Confidence intervals</displayed-value>
        <stored-value>Confidence intervals</stored-value>
@@ -4271,58 +5356,23 @@ it, please enter the types and the actual numbers or codes.</hint>
        <stored-value>Correlation</stored-value>
      </pair>
      <pair>
-       <displayed-value>Diagnostics</displayed-value>
-       <stored-value>Diagnostics</stored-value>
+       <displayed-value>Diagnostics/Residuals</displayed-value>
+       <stored-value>Diagnostics/Residuals</stored-value>
      </pair> 
      <pair>
-       <displayed-value>Hypothesis tests (Simple linear regression)</displayed-value>
-       <stored-value>Hypothesis tests (Simple linear regression)</stored-value>
+       <displayed-value>Hypothesis tests</displayed-value>
+       <stored-value>Hypothesis tests</stored-value>
      </pair>
      <pair>
        <displayed-value>Prediction</displayed-value>
        <stored-value>Prediciton</stored-value>
      </pair>
      <pair>
-       <displayed-value>Regression</displayed-value>
-       <stored-value>Regression</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Residuals</displayed-value>
-       <stored-value>Residuals</stored-value>
+       <displayed-value>Parameter estimates</displayed-value>
+       <stored-value>Parameter estimates</stored-value>
      </pair>
    </value-pairs>
-   <value-pairs value-pairs-name="Time_Series_Subjects" dc-term="subject">
-     <pair>
-       <displayed-value>ARIMA Models</displayed-value>
-       <stored-value>ARIMA Models</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Autocorrelation</displayed-value>
-       <stored-value>Autocorrelation</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Descriptive methods</displayed-value>
-       <stored-value>Descriptive methods</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Forecasting</displayed-value>
-       <stored-value>Forecasting</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Frequency domain</displayed-value>
-       <stored-value>Frequency domain</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Runs test</displayed-value>
-       <stored-value>Runs test</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Seasonal variation</displayed-value>
-       <stored-value>Seasonal variation</stored-value>
-     </pair>
-   </value-pairs>   
-     
-     
+ <!-- Statspace Others                                                      -->    
    <value-pairs value-pairs-name="statspace_licenses" dc-term="license">
      <pair>
        <displayed-value>Attribution (CC BY)</displayed-value>
@@ -4357,7 +5407,6 @@ it, please enter the types and the actual numbers or codes.</hint>
        <stored-value>Other</stored-value>
      </pair>
    </value-pairs>
-   
    <value-pairs value-pairs-name="statspace_audience" dc-term="audience">
      <pair>
        <displayed-value>Graduate</displayed-value>
@@ -4368,7 +5417,6 @@ it, please enter the types and the actual numbers or codes.</hint>
        <stored-value>Undergraduate</stored-value>
      </pair>
    </value-pairs>
-   
    <value-pairs value-pairs-name="statspace_courses" dc-term="relation">
      <pair>
        <displayed-value>STAT 200</displayed-value>
@@ -4407,148 +5455,6 @@ it, please enter the types and the actual numbers or codes.</hint>
        <stored-value>Other</stored-value>
      </pair>
    </value-pairs>
-
-   <value-pairs value-pairs-name="common_types" dc-term="type">
-     <pair>
-       <displayed-value>Animation</displayed-value>
-       <stored-value>Animation</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Article</displayed-value>
-       <stored-value>Article</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Book</displayed-value>
-       <stored-value>Book</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Book chapter</displayed-value>
-       <stored-value>Book chapter</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Dataset</displayed-value>
-       <stored-value>Dataset</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Learning Object</displayed-value>
-       <stored-value>Learning Object</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Image</displayed-value>
-       <stored-value>Image</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Image, 3-D</displayed-value>
-       <stored-value>Image, 3-D</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Map</displayed-value>
-       <stored-value>Map</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Musical Score</displayed-value>
-       <stored-value>Musical Score</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Plan or blueprint</displayed-value>
-       <stored-value>Plan or blueprint</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Preprint</displayed-value>
-       <stored-value>Preprint</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Presentation</displayed-value>
-       <stored-value>Presentation</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Recording, acoustical</displayed-value>
-       <stored-value>Recording, acoustical</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Recording, musical</displayed-value>
-       <stored-value>Recording, musical</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Recording, oral</displayed-value>
-       <stored-value>Recording, oral</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Software</displayed-value>
-       <stored-value>Software</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Technical Report</displayed-value>
-       <stored-value>Technical Report</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Thesis</displayed-value>
-       <stored-value>Thesis</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Video</displayed-value>
-       <stored-value>Video</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Working Paper</displayed-value>
-       <stored-value>Working Paper</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Other</displayed-value>
-       <stored-value>Other</stored-value>
-     </pair>
-   </value-pairs>
-
-   <!-- default language order: (from dspace 1.2.1)
-        "en_US", "en", "es", "de", "fr", "it", "ja", "zh", "other", ""
-     -->
-   <value-pairs value-pairs-name="common_iso_languages" dc-term="language_iso">
-     <pair>
-       <displayed-value>N/A</displayed-value>
-       <stored-value></stored-value>
-     </pair>
-     <pair>
-       <displayed-value>English (United States)</displayed-value>
-       <stored-value>en_US</stored-value>
-      </pair>
-     <pair>
-       <displayed-value>English</displayed-value>
-       <stored-value>en</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Spanish</displayed-value>
-       <stored-value>es</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>German</displayed-value>
-       <stored-value>de</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>French</displayed-value>
-       <stored-value>fr</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Italian</displayed-value>
-       <stored-value>it</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Japanese</displayed-value>
-       <stored-value>ja</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Chinese</displayed-value>
-       <stored-value>zh</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Turkish</displayed-value>
-       <stored-value>tr</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>(Other)</displayed-value>
-       <stored-value>other</stored-value>
-     </pair>
-   </value-pairs>
-
  </form-value-pairs>
 
 </input-forms>
