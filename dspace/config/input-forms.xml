@@ -46,7 +46,7 @@
    <name-map collection-handle="123456789/80" form-name="several_variables" />
    <name-map collection-handle="123456789/81" form-name="stochastic_process" />
  <!-- Regression                                                           -->    
-   <name-map collection-handle="123456789/82" form-name="seneralized_linear" />
+   <name-map collection-handle="123456789/82" form-name="generalized_linear" />
    <name-map collection-handle="123456789/83" form-name="multiple_regression" />
    <name-map collection-handle="123456789/84" form-name="nonlinear_regression" />
    <name-map collection-handle="123456789/85" form-name="simple_linear" />  
@@ -2906,7 +2906,7 @@
 
    </form>
  <!-- Probability                                                          -->
-   <form name="combinatorics_">
+   <form name="combinatorics">
      <page number="1">
        
        <!-- Author(s) -->
