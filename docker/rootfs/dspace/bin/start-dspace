@@ -29,8 +29,7 @@ if [ -n "$DSPACE_WEBAPPS" ]; then
     done
 fi
 
-# update indexes
-dspace index-discovery -o
+# recreate indexes
 dspace index-lucene-init
 
 # Start Tomcat
