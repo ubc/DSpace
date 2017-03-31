@@ -29,5 +29,9 @@ if [ -n "$DSPACE_WEBAPPS" ]; then
     done
 fi
 
+# update indexes
+dspace index-discovery -o
+dspace index-lucene-init
+
 # Start Tomcat
 exec catalina.sh run
