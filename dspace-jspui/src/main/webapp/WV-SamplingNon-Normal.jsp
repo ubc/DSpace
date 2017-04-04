@@ -57,7 +57,7 @@
 		
 		<div class="row description">
 		    <div class="col-md-12">
-			<iframe class="pull-left fake-video" src="https://player.vimeo.com/video/196470101?byline=0&portrait=0" width="300" height="169" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+			<img class="pull-left zoology-fish" src="http://www.zoology.ubc.ca/~whitlock/kingfisher/Common/Images/fish.svg" width="220">
 			
 			<p class="intro-text">This video gives students a brief and simplified overview of statistics. This resource is especially useful for those outside of math-heavy disciplines to get a high-level understanding of statistics without the overwhelm typically associated introductory videos.</p>
 			
@@ -168,6 +168,7 @@
 			<h3 class="panel-title"><i class="glyphicon glyphicon-book"></i> What we learned</h3>
 		    </div>
 		    <div class="panel-body">
+                <p>Six student volunteers were recruited from an introductory (200 level) statistics class in the Summer 2016 term to test the web visualization.<br><a target="_blank" href="/SampNonNorm_WhatWeLearned.jsp">Read More<span class="glyphicon glyphicon-new-window"></span></a></p>
 		    </div>
 		</div> 
 	    
