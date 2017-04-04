@@ -166,6 +166,7 @@
 			<h3 class="panel-title"><i class="glyphicon glyphicon-book"></i> What we learned</h3>
 		    </div>
 		    <div class="panel-body">
+                <p>Six students were selected to participate in a pilot study conducted on an introductory (200 level) statistics class in the Fall 2015 semester.<br><a target="_blank" href="/ConfInt_WhatWeLearned.jsp">Read More<span class="glyphicon glyphicon-new-window"></span></a></p>
 		    </div>
 		</div>     
             
