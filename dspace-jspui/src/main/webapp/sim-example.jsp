@@ -52,7 +52,7 @@
 	<div class="row">  
         <div class="col-md-8">
 	    
-		<h1>Fish Size Interactive Online Visualization: Sampling from a normal distribution</h1>
+		<h1>Web Visualization: Sampling from a Normal distribution</h1>
 		<p class="text-muted contributors">Contributor(s): <a href="mailto:">Jane Doe</a>, <a href="mailto:">John Doe</a></p>
 		
 		<div class="row description">
@@ -115,7 +115,7 @@
 		<h2>Learning outcomes</h2>
 		<ul>
 		    <li>Identify and distinguish between a population and a sample, and between parameters and statistics</li>
-		    <li>Reinforce the idea of a histogram</li>
+		    <li>Interpret histograms for summarizing and comparing data sets</li>
 		    <li>Explain the concepts of sampling variability and sampling distribution</li>
 		    <li>Describe properties of the sampling distribution of the sample mean</li>
 		    <li>Explain whether and how the population distribution and the sample size influence the sampling distribution of the sample mean from a Normal distribution</li>
@@ -124,17 +124,23 @@
 		<h2>Suggested uses</h2>
 		<p>This visualization is intended to be used in a number of ways:</p>
 		<ul>
-		    <li>As a visual aid during lectures</li>
+            <li>As a visual aid during lectures <i>(See below)</i></li>
 		    <li>As an open-ended learning tool for active learning</li>
 		    <li>As a guided learning experience, using either the built-in tutorials or an instructor-written set of instructions</li>
+            <ul>
+                <li><i>Bruce’s Assignment questions</i></li>
+            </ul>
 		</ul>
 		
 		<h2>Complementary materials</h2>
 		<ul>
-            <li><a target="_blank" href="https://vimeo.com/196027417">Sampling Distribution of the Mean Video <span class="glyphicon glyphicon-new-window"></span></a></li>
-            <li><a target="_blank" href="http://www.zoology.ubc.ca/~whitlock/kingfisher/CIMean.htm">Interactive Online Visualization: Confidence Intervals for the Mean <span class="glyphicon glyphicon-new-window"></span></a> </li>
-            <li><a target="_blank" href="http://www.zoology.ubc.ca/~whitlock/kingfisher/CLT.htm">Interactive Online Visualization: Sampling From a Non-Normally Distributed Population <span class="glyphicon glyphicon-new-window"></span></a> </li>
-            <li><a href="/WV-SamplingNon-Normal.jsp">Web visualization: Sampling from a non-Normally distributed population (CLT)<span class="glyphicon glyphicon-new-window"></span></a></li>          
+            <li><a href="/WV-SamplingNon-Normal.jsp">Web visualization: Sampling from a non-Normally distributed population (CLT)<span class="glyphicon glyphicon-new-window"></span></a></li>
+            <li><a target="_blank" href="https://vimeo.com/196027417">Video: Sampling Distribution of the Mean <span class="glyphicon glyphicon-new-window"></span></a></li>
+            <li>Sampling from a Normal distribution web visualization can be used as a primer before introducing students to the following 2 visualizations:</li>
+            <ul>
+                <li><a target="_blank" href="http://www.zoology.ubc.ca/~whitlock/kingfisher/CIMean.htm">Interactive Online Visualization: Confidence Intervals for the Mean <span class="glyphicon glyphicon-new-window"></span></a> </li>
+                <li><a target="_blank" href="http://www.zoology.ubc.ca/~whitlock/kingfisher/CLT.htm">Interactive Online Visualization: Sampling From a Non-Normally Distributed Population <span class="glyphicon glyphicon-new-window"></span></a> </li>    
+            </ul>
 		</ul>
         </div>
 	    
@@ -146,7 +152,7 @@
 		    </div>
 		    <div class="panel-body">
 			<p><strong>Assessment Method:</strong> Method Type<br>
-			<strong>Topics:</strong> Normal Distribution, Histograms, Sampling Variability, Sampling From a Normal Distribution<br>
+			<strong>Topics:</strong> Normal distribution, Histograms, Sampling variability, Sampling from a Normal distribution<br>
 			<strong>Keywords:</strong> Keyword 1, Keyword 2, Keyword 3</p>
 		    </div>
         </div>
@@ -167,6 +173,7 @@
 			<h3 class="panel-title"><i class="glyphicon glyphicon-book"></i> What we learned</h3>
             </div>
             <div class="panel-body">
+                <p>Six students were selected to participate in a pilot study conducted on an introductory (200 level) statistics class in the Fall 2015 semester.<br><a target="_blank" href="/SampNorm_WhatWeLearned.jsp">Read More<span class="glyphicon glyphicon-new-window"></span></a></p>
             </div>
         </div>     
 	    
