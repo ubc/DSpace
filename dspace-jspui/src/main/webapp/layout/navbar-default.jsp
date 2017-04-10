@@ -84,7 +84,7 @@
                <li class="dropdown">
                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="jsp.layout.navbar-default.browse"/> <b class="caret"></b></a>
                    <ul class="dropdown-menu">
-                       <li><a href="<%= request.getContextPath() %>/community-list"><fmt:message key="jsp.layout.navbar-default.communities-collections"/></a></li>
+                       <li><a href="<%= request.getContextPath() %>/simple-search?query="><fmt:message key="jsp.layout.navbar-default.advanced"/></a></li>
 				       <li class="divider"></li>
                        <li class="dropdown-header"><fmt:message key="jsp.layout.navbar-default.browseitemsby"/></li>
 				       <%-- Insert the dynamic browse indices here --%>
@@ -97,6 +97,8 @@
                        <%-- End of dynamic browse indices --%>
                    </ul>
                </li>
+               
+               <li class="<%= currentPage.endsWith("/community-list")? "active" : "" %>"><a href="<%= request.getContextPath() %>/community-list"> <fmt:message key="jsp.layout.navbar-default.communities-collections"/></a></li>
            <% } else { %>
                <li class="<%= currentPage.endsWith("/home.jsp")? "active" : "" %>"><a href="<%= request.getContextPath() %>/"><span class="glyphicon glyphicon-home"></span> <fmt:message key="jsp.layout.navbar-default.home"/></a></li>
 	       <li class="<%= currentPage.endsWith("/about.jsp")? "active" : "" %>"><a href="<%= request.getContextPath() %>/about.jsp">About</a></li>
