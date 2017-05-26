@@ -51,9 +51,11 @@
 		
 	    <h1>About StatSpace</h1>
 	    
-	    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Hic Speusippus, hic Xenocrates, hic eius auditor Polemo, cuius illa ipsa sessio fuit, quam videmus. An hoc usque quaque, aliter in vita? An, partus ancillae sitne in fructu habendus, disseretur inter principes civitatis, P. Quaesita enim virtus est, non quae relinqueret naturam, sed quae tueretur. Quae autem natura suae primae institutionis oblita est? Duo Reges: constructio interrete. Si stante, hoc natura videlicet vult, salvam esse se, quod concedimus; Quod autem satis est, eo quicquid accessit, nimium est; Sed tempus est, si videtur, et recta quidem ad me. </p>
+	    <p>StatSpace provides open and adaptable resources for teaching and learning introductory statistics, including suggestions of how, why and when resources can be used to support the mastery of challenging statistical concepts.</p>
 	    
-	    <p>Cyrenaici quidem non recusant; Nam memini etiam quae nolo, oblivisci non possum quae volo. Sed ne, dum huic obsequor, vobis molestus sim. At, si voluptas esset bonum, desideraret. Videamus animi partes, quarum est conspectus illustrior; </p>
+	    <p>The resources and StatSpace itself were initially developed at the University of British Columbia through the Flexible Learning in Introductory Statistics project. The team included a number of faculty who taught introductory statistics courses in seven different departments, supported by learning specialists and technical staff. Team members taught courses ranging from the typical one in the Statistics Department to third year courses in Biology and Political Science and Economics to a course for fourth year and graduate medical students. Each team member brought a unique disciplinary perspective and this diversity of experience led to developing resources that are truly universal in approach.</p>
+        
+        <p>The project team chose to focus on concepts rather than computations starting with the concept of sampling variability, which is fundamental to all of statistical inference. Each type of resource was “managed” be a specific team member, who directed the logistics of production. Content was discussed during the production process and all resources were carefully vetted by the UBC project team to be error-free and clear in language and pedagogical intent. Resources were further vetted by students in focus groups and in courses, which resulted in modifications to further improve resource effectiveness. StatSpace contains descriptions of the pedagogical insights we gained from this vetting process.</p>
 	</div>
     <div class="col-md-4 intro-sidebar">
 	    
