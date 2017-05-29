@@ -51,11 +51,13 @@
 		
 	    <h1>About StatSpace</h1>
 	    
-	    <p>StatSpace provides open and adaptable resources for teaching and learning introductory statistics, including suggestions of how, why and when resources can be used to support the mastery of challenging statistical concepts.</p>
+	    <p>StatSpace brings together open, vetted and adaptable resources for teaching and learning introductory statistics.  StatSpace also provides suggestions for use including teaching pitfalls and how students use and misuse resources.</p>
 	    
-	    <p>The resources and StatSpace itself were initially developed at the University of British Columbia through the Flexible Learning in Introductory Statistics project. The team included a number of faculty who taught introductory statistics courses in seven different departments, supported by learning specialists and technical staff. Team members taught courses ranging from the typical one in the Statistics Department to third year courses in Biology and Political Science and Economics to a course for fourth year and graduate medical students. Each team member brought a unique disciplinary perspective and this diversity of experience led to developing resources that are truly universal in approach.</p>
+	    <p>StatSpace grew out of the University of British Columbia Statistics Department’s goal of improving cross-campus introductory statistics education.  At UBC, as in many universities, introductory statistics is taught not only in the Statistics Department but also in other units, as a complete course or as a component of a domain area course to provide in-context learning.  Some instructors are experts in statistics, in statistics education and in their domain area of application.  Other instructors are not.  And many instructors work alone in their units.  The Statistics Department believes in the importance of a cross-campus community for collaboration in teaching introductory statistics, to sharing teaching resources, experiences and best practices.  Such collaboration improves statistics instruction, reduces isolation and saves instructors’ from re-inventing the wheel.   As part of its vision, in 2008 the Department founded the cross-unit Introductory Statistics Discussion Group.  Members of this group received UBC funding in 2014 and became the Flexible Learning Introductory Statistics (FLIS) project team.</p>
         
-        <p>The project team chose to focus on concepts rather than computations starting with the concept of sampling variability, which is fundamental to all of statistical inference. Each type of resource was “managed” be a specific team member, who directed the logistics of production. Content was discussed during the production process and all resources were carefully vetted by the UBC project team to be error-free and clear in language and pedagogical intent. Resources were further vetted by students in focus groups and in courses, which resulted in modifications to further improve resource effectiveness. StatSpace contains descriptions of the pedagogical insights we gained from this vetting process.</p>
+        <p>FLIS is led by a team of experienced statistics instructors, with homes in five different departments in three different faculties.   These instructors have student audiences ranging from second year statistics majors to third year political science majors to first year medical students.  The team has been challenged by the diversity of approaches and terminology.  But this diversity has enriched the project, forcing members to focus on the core statistical concepts that bridge all disciplines and to produce material that is truly cross-disciplinary and accessible to students of a variety of levels and interests.   The project team chose to focus on concepts rather than computations starting with the concept of sampling variability, which is fundamental to all of statistical inference.</p>
+        
+        <p>All materials were vetted through team discussion informed by our own experiences and by the education literature -  especially the statistics education literature (when it existed!).  Many of the resources were also vetted by students through interviews, through focus groups and through trialing in a range of courses.  With each resource on StatSpace we’ve included comments on what we’ve found out about how students learn.</p>
 	</div>
     <div class="col-md-4 intro-sidebar">
 	    
@@ -84,7 +86,7 @@
 		
 		<div class="panel panel-info">
 		    <div class="panel-heading">
-			<h3 class="panel-title"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</h3>
+                <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
 		    </div>
 		    <div class="panel-body">
 			<p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
@@ -93,7 +95,7 @@
 	      
 		<div class="panel panel-info">
 		    <div class="panel-heading">
-			<h3 class="panel-title"><i class="glyphicon glyphicon-comment"></i> &nbsp;Evaluate what you use</h3>
+                <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-comment"></i> &nbsp;Evaluate what you use</a></h3>
 		    </div>
 		    <div class="panel-body">
 			<p>Evaluate the introductory statistics material in StatSpace by giving <strong>detailed private feedback</strong> for any resources you use, to help other educators improve their designs.</p>
