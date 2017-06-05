@@ -47,12 +47,12 @@
 <dspace:layout locbar="nolink" titlekey="jsp.about.title" feedData="<%= feedData %>">
 
     <div class="example">
-	<p><a href="/">Home</a> <span class="text-muted">&raquo; Data Example</span></p>
+	<p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/WebWork_Questions.jsp">WeBWork Qustions</a> <span class="text-muted">&raquo; WWSTAT300HW6Q1</span></p>
 
 	<div class="row">  
 	    <div class="col-md-8">
 	    
-		<h1>Winning Numbers History: Florida lottery data through the years</h1>
+		<h1>WeBWorK Question STAT 300 HW6 Question Q1</h1>
 		<p class="text-muted contributors">Contributor(s): <a href="mailto:">Jane Doe</a>, <a href="mailto:">John Doe</a></p>
 		
 		<div class="row description">
@@ -103,25 +103,30 @@
 	
 	<div class="row details">
 	    <div class="col-md-8">
-		<h2>Intended audience</h2>
-		<p>These are the type of instructors who should use this material (disciplines this may apply to) and what kind of knowledge the instructors should already have in order to use this material well. </p>
+		<h2>Prerequisite knowledge</h2>
+		<p>Questions are not currently tagged with pre-req knowledge</p>
 		
-		<h2>Learning outcomes</h2>
+		<h2>Learning Objectives</h2>
 		<ul>
-		    <li>An expected learning outcome of using this material in the classroom listed here. This is more information about the expected outcome.</li>
-		    <li>A second expected learning outcome of using this material in the classroom listed here. This is more information about the alternative expected outcome.</li>
+            <p>Statistical inference; Analysis of variance; estimate the common unknown variance using the error (i.e., residual) mean square, compute statistics for the ANOVA table, draw inference from an ANOVA table, compute significant difference for a multiple comparison test.</p>
+        </ul>
+        <h3>About this resource</h3>
+        <ul>
+            <p>Created 2014/03/07</p>
+            <li>a.	Credits: Bruce Dunham, Jonathan Baik. The question is available in the Open Problem Library (OPL) in WeBWorK.</li>
+            <li>Question includes randomisation.</li>
+            <li>Solutions available in WeBWorK.</li>
 		</ul>
 		
 		<h2>Suggested uses</h2>
 		<ul>
-		    <li>One way to use this effectively in the classroom would be to use the suggestion listed here. This is more information about this suggestion.</li>
-		    <li>Another suggestion of how to use this effectively in the classroom would be to use the idea listed here. This is more information about this suggestion.</li>
+		    <li>The question was devised to be used in the on-line homework system WeBWorK, and the suggested number of attempts permitted is given in the question’s PG file.</li>
+		    <li>The question could also be used on tests or for homework.</li>
 		</ul>
 		
 		<h2>Complementary materials</h2>
 		<ul>
-		    <li><a href="">Something else <span class="glyphicon glyphicon-new-window"></span></a> you may want to use with this material</li>
-		    <li><a href="">Another thing <span class="glyphicon glyphicon-new-window"></span></a> you may want to use with this material</li>
+		    <li>Various other WeBWorK questions on one-way ANOVA.</li>
 		</ul>
 	    </div>
 	    
@@ -132,9 +137,9 @@
 			<h3 class="panel-title"><i class="glyphicon glyphicon-tag"></i> Tags</h3>
 		    </div>
 		    <div class="panel-body">
-			<p><strong>Assessment Method:</strong> Method Type<br>
-			<strong>Topics:</strong> Topic One, Topic Two, Topic Three<br>
-			<strong>Keywords:</strong> Keyword 1, Keyword 2, Keyword 3</p>
+			<p><strong>DBsubject:</strong> Statistics<br>
+			<strong>DBChapter:</strong> Hypothesis Testing<br>
+			<strong>DBSection:</strong>One-way ANOVA</p>
 		    </div>
 		</div>
 	      
@@ -144,12 +149,21 @@
 		    </div>
 		    <div class="panel-body">
 			<ul>
-			    <li><a href="">Linked Title of StatSpace Resource</a></li>
-			    <li><a href="">Linked Title of 2nd StatSpace Resource</a></li>
-			    <li><a href="">Linked Title of External Resource <span class="glyphicon glyphicon-new-window"></span></a></li>
+			    <li><a href="http://www.webwork.maa.org/">Mathematical Association of America (MAA): WebWork <span class="glyphicon glyphicon-new-window"></span></a></li>
+			    <li><a href="http://wiki.ubc.ca/Documentation:WeBWork/The_WeBWorKiR_Project:_Integrating_WeBWorK_with_R/Installation_guide">UBC Wiki: WebWork <span class="glyphicon glyphicon-new-window"></span></a></li>
+			    <li>Updated version of guide to incorporate new macros in release 2.14 (expected 2017):<br><a href="http://webwork.maa.org/wiki/Using_R_Integration_with_WeBWorK">MAA Wiki: R in WebWork <span class="glyphicon glyphicon-new-window"></span></a></li>
 		      </ul>
 		    </div>
 		</div>
+            
+        <div class="panel panel-default">
+		    <div class="panel-heading">
+			<h3 class="panel-title"><i class="glyphicon glyphicon-book"></i> What we learned</h3>
+		    </div>
+		    <div class="panel-body">
+                <p>All questions from UBC have been trialed extensively on students before submitting to the OPL.</p>
+		    </div>
+		</div>     
 	    
 	    </div>	
 	</div>
