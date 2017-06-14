@@ -186,7 +186,7 @@
 		<div class="thumbnail">
 		    <i class="glyphicon glyphicon-sort-by-order data-icon"></i>
 		    <div class="caption">
-			<h5>Winning Numbers History: Florida lottery data through the years</h5>
+			<h5>WeBWorK Question STAT 300 HW6 Question Q1</h5>
 			<p class="text-left"><strong>About:</strong> This data set contains the winning numbers from the Florida Lottery (through the end of 2008), as reported by the state lottery <!--... &nbsp;<a href="">Show <span class="glyphicon glyphicon-chevron-down"></span></a>--> commission. Note that from its inception through 23 October 1999, the lottery was "pick 6 of 49." Thereafter, it was a "pick 6 of 53" lottery.</p>
 			<p class="text-left"><strong>Assessment Method:</strong> Method Type</p>
 			<p class="text-left"><strong>Topics:</strong> Topic One, Topic Two, Topic Three</p> 
