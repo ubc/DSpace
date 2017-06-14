@@ -108,8 +108,9 @@
 		</div>
 	    
 	    </div>
+        </div>
         
-        <h3>ABOUT THE TEAM</h3>
+        <h4>ABOUT THE TEAM</h4>
         
         <div class="row featured-items">
 	    <div class="col-md-4 text-center">
@@ -147,10 +148,8 @@
             
 	    
 	      
-	</div>>
-    <h3>CREDIT FUNDING</h3>
+	</div>
+    <h4>CREDIT FUNDING</h4>
         
     <p>StatSpace was developed as part of the UBC Flexible Learning Introductory Statistics Project funded by The University of British Columbia’s Teaching and Learning Enhancement Fund, The Faculty of Medicine, The Faculty of Science, and The Faculty of Arts.</p>
-    </div>
-
 </dspace:layout>
