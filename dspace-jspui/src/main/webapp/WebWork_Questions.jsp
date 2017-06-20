@@ -52,15 +52,14 @@
 	<div class="row">  
 	    <div class="col-md-8">
 	    
-		<h1>WeBWorK Question STAT 300 HW6 Question Q1</h1>
-		<p class="text-muted contributors">Contributor(s): <a href="mailto:">Jane Doe</a>, <a href="mailto:">John Doe</a></p>
+		<h1>WeBWorK Questions</h1>
 		
 		<div class="row description">
 		    <div class="col-md-12">
 			
 			<i class="glyphicon glyphicon-sort-by-order data-icon pull-left"></i>
 			
-			<p class="intro-text">This data set contains the winning numbers from the Florida Lottery (through the end of 2008), as reported by the state lottery commission. Note that from its inception through 23 October 1999, the lottery was "pick 6 of 49." Thereafter, it was a "pick 6 of 53" lottery.</p>
+			<p class="intro-text">WeBWorK is a free on-line individualized assessment tool that provides students with automatic feedback on their work and is used at over 700 institutions globally. Faculty members at UBC have enhanced WeBWorK by incorporating R functionality and have created over 200 WeBWorK questions for use in introductory statistics courses.  All questions are available in WeBWorK's Open Problem Library. Details of a sample of these questions can be found here.</p>
 			
 			<p class="text-center access-btn"><a class="btn btn-success btn-md">Access Resource</a></p>
 		  
@@ -104,32 +103,29 @@
 	<div class="row details">
 	    <div class="col-md-8">
 		<h2>Prerequisite knowledge</h2>
-		<p>Questions are not currently tagged with pre-req knowledge</p>
+		<p>TEXT FROM BRUCE THAT HE WILL SUPPLY WHEN HE SEES HOW THIS LOOKS ON STATSPACE</p>
 		
 		<h2>Learning Objectives</h2>
 		<ul>
-            <p>Statistical inference; Analysis of variance; estimate the common unknown variance using the error (i.e., residual) mean square, compute statistics for the ANOVA table, draw inference from an ANOVA table, compute significant difference for a multiple comparison test.</p>
+            <p>TEXT FROM BRUCE THAT HE WILL SUPPLY WHEN HE SEES HOW THIS LOOKS ON STATSPACE</p>
         </ul>
         <h3>About this resource</h3>
         <ul>
-            <p>Created 2014/03/07</p>
-            <li>a.	Credits: Bruce Dunham, Jonathan Baik. The question is available in the Open Problem Library (OPL) in WeBWorK.</li>
-            <li>Question includes randomisation.</li>
-            <li>Solutions available in WeBWorK.</li>
+            <p>TEXT FROM BRUCE THAT HE WILL SUPPLY WHEN HE SEES HOW THIS LOOKS ON STATSPACE</p>
 		</ul>
 		
 		<h2>Suggested uses</h2>
 		<ul>
-		    <li>The question was devised to be used in the on-line homework system WeBWorK, and the suggested number of attempts permitted is given in the question’s PG file.</li>
-		    <li>The question could also be used on tests or for homework.</li>
+		    <li>TEXT FROM BRUCE THAT HE WILL SUPPLY WHEN HE SEES HOW THIS LOOKS ON STATSPACE</li>
 		</ul>
             
 		<h2>Complementary materials</h2>
+        <p>For sample questions, please see the following.</p>
 		<ul>
 		    
             <li><a href="/wwecon325h6additionalQ1.jsp">WeBWorK Question ECON 325 HW6 additional Q1 <span class="glyphicon glyphicon-new-window"></span></a></li>
             <li><a href="/wwstat200revisedlinguisticsQ9.jsp">WeBWorK Question STAT 200 revised2016/Linguistics Question Q9 <span class="glyphicon glyphicon-new-window"></span></a></li>
-            <li>Various other WeBWorK questions on one-way ANOVA.</li>
+            <li><a href="/wwstat300hw6Q1.jsp">WeBWorK Question STAT 300 HW6 Question Q1<span class="glyphicon glyphicon-new-window"></span></a></li>
 		</ul>
 	    </div>
 	    

@@ -47,13 +47,12 @@
 <dspace:layout locbar="nolink" titlekey="jsp.about.title" feedData="<%= feedData %>">
 
     <div class="example">
-        <p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/sim-example.jsp">Simulation Example</a> <span class="text-muted">&raquo; Web Visualization: Sampling from a non-Normally Distributed Population(CLT)</span></p>
+        <p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/sim-example.jsp">Simulation Example</a> <span class="text-muted">&raquo; Video: Confidence Interval for a Population Mean</span></p>
 
 	<div class="row">  
 	    <div class="col-md-8">
 	    
-		<h1>Web Visualization: Sampling from a non-Normally distributed population (CLT)</h1>
-		<p class="text-muted contributors">Contributor(s): <a href="mailto:">Jane Doe</a>, <a href="mailto:">John Doe</a></p>
+		<h1>Video: Confidence Interval for a Population Mean</h1>
 		
 		<div class="row description">
 		    <div class="col-md-12">
@@ -105,42 +104,50 @@
 		<h2>Prerequisite Knowledge</h2>
 		<p>Students should&colon;</p>
         <ul>
-            <li>Be familiar with methods of summarizing data sets, such as mean and standard deviation</li>
-            <li>Be able to recognize probability models as distributions with shape, centre, and spread</li>
-            <li>Be able to recall the key properties of the Normal model</li>
-            <li>Be able to distinguish between a population and a sample, and between parameters and statistics</li>
+            <li>Be able to identify and distinguish between a population and a sample, and between parameters and statistics;</li>
+            <li>Be familiar with methods of summarizing data sets, such as mean, standard deviation and histograms;</li>
+            <li>Be able to recognize probability models as distributions with shape, centre, and spread particularly the Normal distribution</li>
+            <li>Be able to explain the concepts of sampling variability and sampling distribution.</li>
         </ul>
 		<h2>Learning Objectives</h2>
 		<ul>
-            <li>Describe properties of the sampling distribution of the sample mean in general situations, using the Central Limit Theorem</li>
-            <li>For the sample mean, explain whether and how the population distribution and the sample size influence the sampling distribution of the sample mean</li>
+            <li>Interpret a confidence interval and confidence level</li>
+            <li>Identify features that determine the width of a confidence interval.</li>
 		</ul>
 		
 		<h2>Suggested uses</h2>
-		<p>These resources are intended to be used in a number of ways:</p>
+            <p>These apps are intended to be used in a number of ways&colon;</p>
 		<ul>
-            <li>as a visual aid during lectures</li>
-		    <li>as an open-ended learning tool for active learning;</li>
-		    <li>as a guided learning experience, using either the built-in tutorials or the guided activity sheet [link to Bruce’s material] or other instructor-supplied material.</li>
-        </ul>
+            <li>Before class: Students watch the video before class, giving them the flexibility to engage with the video in the way that suits them (pausing, rewinding). Students are primed for class and lecture time can be spent applying that knowledge in engaging and collaborative ways. </li>
+            <li>After class: The students can watch the video after they have learned the material in lecture. The video could be used as a refresher of the material before an exam or to review concepts they didn’t understand in class.</li>
+		</ul>
 		
 		<h2>Complementary materials</h2>
 		<ul>
-            <li>It is recommended that the “Sampling from a Normal distribution” web visualization be used first to introduce some of the basic concepts and the visual metaphors used in the CLT web visualization&colon;<br>
-            <a href="http://www.zoology.ubc.ca/~whitlock/kingfisher/SamplingNormal.htm">Sampling Normal Simulation<span class="glyphicon glyphicon-new-window"></span></a>
-            <li><a target="_blank" href="https://vimeo.com/196027417">Video: Sampling Distribution of the Mean <span class="glyphicon glyphicon-new-window"></span></a></li>
-            <li><a href="/WV-SamplingNon-Normal.jsp">Activity: Introducing the sampling distribution (French protest)<span class="glyphicon glyphicon-new-window"></span></a></li>
+            <li><a href="http://www.zoology.ubc.ca/~whitlock/kingfisher/CIMean.htm">Web visualization: Confidence intervals for the mean<span class="glyphicon glyphicon-new-window"></span></a></li>
+            <li>Activity: Understanding confidence intervals</li>
 		</ul>
             
         <h2>About this resource</h2>
             <p>
-                <b>Funding&colon;</b> University of British Columbia<br>
-                <b>Project Leader&colon;</b> Mike Whitlock<br>
-                <b>Programmers&colon;</b> Boris Dalstein, Mike Whitlock, &amp; Zahraa Almasslawi<br>
-                <b>Art&colon;</b> Derek Tan<br>
-                <b>Testing&colon;</b> Melissa Lee, Gaitri Yapa, &amp;Bruce Dunham<br>
-                <b>Thanks to&colon;</b> Darren Irwin, Dolph Schluter, Nancy Heckman, Kaylee Byers, Brandon Doty, Kim Gilbert, Sally Otto, Wilson Whitlock, Jeff Whitlock, Jeremy Draghi, Karon MacLean, Fred Cutler, Diana Whistler, Andrew Owen, Mike Marin, Leslie Burkholder, Eugenia Yu, Doug Bonn, Michael Scott, the UBC Physics Learning Group, &amp; the UBC Flex Stats initiative for numerous suggestions and improvements.
+                <b>Written by&colon;</b> Mike Marin, Zachary Rothman, &amp; Stephen Gillis<br>
+                <b>Performed by&colon;</b> Mike Marin<br>
+                <b>Puppets built and Performed&colon;</b> Dusty Hagerud<br>
+                <b>Production Design and Conceptual Drawings&colon;</b> Jelena Sihvonen<br>
+                <b>Camera&colon;</b> Paul Milaire, Zachary Rothman, &amp; Stephen Gillis<br>
+                <b>Editing&colon;</b> Stephon Gillis<br>
+                <b>Visual Effects&colon;</b> Paul Milaire<br>
+                <b>Audio Edit and Mix&colon;</b> Stephan Gills &amp; Cornelius Wolinsky<br>
+                <b>UBC Intro Stats Project Team&colon;</b> Mike Marin, Nancy Heckman, Bruce Dunham, Eugenia Yu, Melissa Lee, Michael Whitlock, Gaitri Yapa, Fred Cutler, Andrew Owen, Diana Whistler, Andy Leung, Gillian Gerhard, &amp; Noureddine Elouazizi<br>
+                <b>Special Thanks&colon;</b> Gary Rosborough, Saeed Dyanatkar, Andrew Wang, David Li, Kian Marin, Ladan Hamadani, &amp; UBC Statistics Department<br>
+                <b>Produced and Directed by&colon;</b> Zachary Rothman<br>
+                <b>Associate Producer&colon;</b> Stephen Gillis
             </p>
+            
+            <p>This video is part of the UBC Intro Stats Project funded by the University of British Columbia’s Teaching and Learning Enhancement Fund, The Faculty of Medicine, The Faculty of Science, and The Faculty of Arts</p>
+            
+            <p>Copyright UBC 2017<br>License Creative Commons<br>Share-alike, Nn
+                
 	    </div>
 	    
 	    <div class="col-md-4 tags">
@@ -150,11 +157,11 @@
 			<h3 class="panel-title"><i class="glyphicon glyphicon-tag"></i> Tags</h3>
 		    </div>
 		    <div class="panel-body">
-            <p>
-			<strong>Topics:</strong> Probability, Laws, Theory, Central Limit Theorem, Sampling distributions, Sample mean
+			<p>
+			<strong>Topics:</strong> Confidence intervals, One sample mean t
             </p>
 		    </div>
-        </div>
+		</div>
 	      
 		<div class="panel panel-default">
 		    <div class="panel-heading">
@@ -162,21 +169,20 @@
 		    </div>
 		    <div class="panel-body">
 			<ul>
-			    <li><a target="_blank" href="http://www.cwsei.ubc.ca/resources/files/Demo_WorkshopSummary_CWSEI-EOY2015.pdf">"Making the most of demonstrations, videos, animations, or simulations in lectures and laboratories" (J. Maxwell and J. Stang) <span class="glyphicon glyphicon-new-window"></span></a></li>
-            </ul>
+			    <li><a href="http://www.cwsei.ubc.ca/resources/files/Demo_WorkshopSummary_CWSEI-EOY2015.pdf">“Making the most of demonstrations, videos, animations, or simulations in lectures and laboratories” J. Maxwell and J. Stang <span class="glyphicon glyphicon-new-window"></span></a></li>
+		      </ul>
 		    </div>
-        </div>
+		</div>
             
         <div class="panel panel-default">
-            <div class="panel-heading">
+		    <div class="panel-heading">
 			<h3 class="panel-title"><i class="glyphicon glyphicon-book"></i> What we learned</h3>
-            </div>
-            <div class="panel-body">
-                <p>Many students hold misconceptions related to the Central Limit Theorem. From our teaching, we have found that although students might be able to perform formal calculations, they often get confused with some of the concepts surrounding this topic.<br><a target="_blank" href="/SampNonNorm_WhatWeLearned.jsp">Read More<span class="glyphicon glyphicon-new-window"></span></a></p>
-            </div>
+		    </div>
+		    <div class="panel-body">
+		    </div>
 		</div> 
 	    
-	    </div>	s
+	    </div>	
 	</div>
 	
 	<div class="row text-center">
