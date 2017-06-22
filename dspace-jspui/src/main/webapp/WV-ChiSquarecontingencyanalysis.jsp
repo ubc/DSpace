@@ -47,20 +47,18 @@
 <dspace:layout locbar="nolink" titlekey="jsp.about.title" feedData="<%= feedData %>">
 
     <div class="example">
-        <p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/video-example.jsp">Video Example</a> <span class="text-muted">&raquo; Web Visualization: Confidence Intervals of the Mean</span></p>
+        <p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/video-example.jsp">Video Example</a> <span class="text-muted">&raquo; Web Visualization: Chi-square contingency analysis</span></p>
 
 	<div class="row">  
 	    <div class="col-md-8">
 	    
-		<h1>Web Visualization: Confidence intervals of the mean</h1>
+		<h1>Web Visualization: Chi-square contingency analysis</h1>
 		<p class="text-muted contributors">Contributor(s): <a href="mailto:">Jane Doe</a>, <a href="mailto:">John Doe</a></p>
 		
 		<div class="row description">
 		    <div class="col-md-12">
-			<iframe class="pull-left fake-video" src="https://player.vimeo.com/video/196027604?byline=0&portrait=0" width="300" height="169" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-			
-			<p class="intro-text">This video gives students a brief and simplified overview of statistics. This resource is especially useful for those outside of math-heavy disciplines to get a high-level understanding of statistics without the overwhelm typically associated introductory videos.</p>
-			
+
+					
 			<p class="text-center access-btn"><a class="btn btn-success btn-md">Access Resource</a></p>
 		  
 		    </div>
@@ -105,17 +103,20 @@
 		<h2>Intended audience</h2>
 		<p>Students using this visualization should&colon;</p>
         <ul>
-            <li>Be familiar with methods of summarizing data sets, such as mean and standard deviation</li>
-            <li>Identify and distinguish between a population and a sample, and between parameters and statistics</li> 
+            <li>recognize when a contingency table is an appropriate way to summarize a data set;</li>
+            <li>identify and distinguish between a population and a sample, and between parameters and statistics;</li>
+            <li>explain the concepts of sampling variability and sampling distribution.</li>
         </ul>    
         <h2>Learning outcomes</h2>
 		<ul>
-            <li>Interpret a confidence interval and confidence level
-            <li>Identify features that determine the width of a confidence interval
+            <li>Investigate the chi-squared test for independence between categorical variables,including the sampling distribution of the test statistic.</li>
+            <li>Interpret the meaning of the P-value associated with a contingency analysis.</li>
+            <li>Explain the two types of error possible and the power of a hypothesis test.</li>
+            <li>Investigate the effects of the sample size and population parameters on the power of the chi-squared test.</li>
 		</ul>
 		
 		<h2>Suggested uses</h2>
-            <p>These apps are intended to be used in a number of ways&colon;</p>
+            <p>These resources are intended to be used in a number of ways&colon;</p>
 		<ul>
             <li>As a visual aid during lectures</li>
             <li>As an open-ended learning tool for active learning</li>
@@ -128,12 +129,10 @@
 		
 		<h2>Complementary materials</h2>
 		<ul>
-            <li>Video&colon; Confidence interval for a population mean</li>
-            <li>Activity: Understanding confidence intervals</li>
-            <li>It is recommended that the “Sampling from a Normal distribution” app be used first to introduce some of the basic concepts and the visual metaphors used in the CLT app.</li>
-            <ul>
-                <li><a href="http://www.zoology.ubc.ca/~whitlock/kingfisher/SamplingNormal.htm">Web visualization: Sampling from a Normally distributed population <span class="glyphicon glyphicon-new-window"></span></a></li>
-            </ul>
+            <li>Webwork Questions&colon; </li>
+            <li>iClicker Questions&colon; </li>
+            
+           
 		</ul>
             
         <h2>About this Resource</h2>
@@ -159,7 +158,7 @@
 		    </div>
 		    <div class="panel-body">
 			<p><strong>Assessment Method:</strong> Method Type<br>
-			<strong>Topics:</strong> Confidence intervals for the mean<br>
+			<strong>Topics:</strong> Hypothesis tests,Goodness-of-fit, Chi-squared test for independence<br>
 			<strong>Keywords:</strong> Keyword 1, Keyword 2, Keyword 3</p>
 		    </div>
 		</div>
@@ -175,15 +174,8 @@
 		    </div>
 		</div>
 	    
-        <div class="panel panel-default">
-		    <div class="panel-heading">
-			<h3 class="panel-title"><i class="glyphicon glyphicon-book"></i> What we learned</h3>
-		    </div>
-		    <div class="panel-body">
-                <p>Students often have misconceptions and trouble interpreting confidence intervals...<br><a target="_blank" href="/ConfInt_WhatWeLearned.jsp">Read More<span class="glyphicon glyphicon-new-window"></span></a></p>
-		    </div>
-		</div>     
-            
+           
+      
 	    </div>	
 	</div>
 	
