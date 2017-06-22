@@ -129,10 +129,38 @@
 		<ul>
             <li><i>Eugenia's Clicker Questions</i></li>
             <li>Activity: Introducing the sampling distribution (French protest)</li>
+            <li><a href="/WV-ChiSquarecontingencyanalysis.jsp">Web Visualization: Chi-sqare contingency analysis<span class="glyphicon glyphicon-new-window"></span></a></li>
             <li><a href="/WV-ConfidenceIntervals.jsp">Web visualization: Confidence intervals of the mean<span class="glyphicon glyphicon-new-window"></span></a></li>
 		    <li><a href="http://www.zoology.ubc.ca/~whitlock/kingfisher/SamplingNormal.htm">Web visualization: Sampling from a Normally distributed population <span class="glyphicon glyphicon-new-window"></span></a></li>
             <li><a target="_blank" href="http://www.zoology.ubc.ca/~whitlock/kingfisher/CLT.htm">Interactive Online Visualization: Sampling From a Non-Normally Distributed Population <span class="glyphicon glyphicon-new-window"></span></a> </li>
 		</ul>
+        
+             <h2>About this Resource</h2>
+		<ul>
+            <p>
+            <strong>Written by </strong>Mike Marin, Zachary Rothman, Stephen Gillis<br>
+            <strong>Performed by </strong>Mike Marin<br>
+            <strong>Puppets Built and Performed </strong>Dusty Hagerud<br>
+            <strong>Production Design </strong>Enigma Arcana<br>
+            <strong>Origami Design and Conceptual Drawings </strong>Jelena Sihvonen<br>
+            <strong>Camera </strong>Paul Milaire, Zachary Rothman, Stephen Gillis<br>
+            <strong>Editing </strong>Stephen Gillis<br>
+            <strong>Visual Effects </strong>Paul Milaire<br>
+            <strong>Audio Edit and Mix </strong>Stephen Gillis, Cornelius Wolinsky<br>
+            <strong>UBC Intro Stats Project Team </strong>Mike Marin, Nancy Heckman, Bruce Dunham,Eugenia Yu, Melissa Lee, Michael Whitlock, Gaitri Yapa, Fred Cutler, Andrew Owen,Diana Whistler, Andy Leung, Gillian Gerhard, Noureddine Elouazizi<br>
+            <strong>Special Thanks </strong>Gary Rosborough, Saeed Dyanatkar, Andrew Wang, David Li, Kian Marin, Ladan Hamadani, UBC Statistics Department<br>
+            <strong>Produced and Directed By </strong>Zachary Rothman<br>
+            <strong>Associate Producer </strong>Stephen Gillis<br>
+             <br>
+              This video is part of the UBC Intro Stats Project funded by the University of British Columbia’s Teaching and Learning Enhancement Fund, The Faculty of Medicine,The Faculty of Science, and The Faculty of Arts<br>
+                <br>
+                Copyright UBC 2017<br>
+                Licensed Creative Commons<br>
+                Share-alike, Non-Derivs, Non-commercial<br>
+                
+            </p>
+           
+		</ul>   
 	    </div>
 	    
 	    <div class="col-md-4 tags">
@@ -143,7 +171,7 @@
 		    </div>
 		    <div class="panel-body">
 			<p><strong>Assessment Method:</strong> Method Type<br>
-			<strong>Topics:</strong> Normal distribution, Histograms, Sampling variability, Sampling from a Normal distribution<br>
+			<strong>Topics:</strong> Normal distribution, Histograms, Sampling variability, Sampling from a Normal distribution, Sample mean<br>
 			<strong>Keywords:</strong> Keyword 1, Keyword 2, Keyword 3</p>
 		    </div>
 		</div>

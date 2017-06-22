@@ -55,35 +55,43 @@
 		<h1>What We Learned</h1>
 		<div class="row descriptions">
 	       <div class="col-md-12">
-               <p>Six students were selected to participate in a pilot study conducted on an introductory (200 level) statistics class in the Fall 2015 semester. The study was carried out to gather information about how students use the simulation and how it might be improved. Volunteers were exposed to two web visualizations, first the “Sampling from a Normally distributed population” and then the “Confidence intervals of the mean” web visualization, during 50-minute long interviews. Students were asked to “think-aloud” while exploring the applets. Pre-questions were provided about the topics prior to use of the simulation and more questions, taken from the NSF-funded Web ARTIST project, were given after exploration of the tool.</p>
-               <p>After implementing changes to the two simulations based on feedback from the first set of interviews, a second set of interviews was conducted on a 300 level introductory stat course in January 2016. The same format as the first set was followed (pre-questions, “think-aloud” exploration, post questions) however students were given only one of the two applets to allow for more time during the interviews. Four students were selected to try the “Confidence intervals of the mean” web visualization.</p>
-               <h3>Enhancements made to simulations based on feedback from the first set of interviews:</h3>
+                  <p>Students often have trouble interpreting confidence intervals and often have some misconceptions. For instance, many students believe, for the same data and parameter of interest, a 90% confidence interval is wider than a 95% confidence interval. This visualization was designed to help mitigate some common misconceptions with confidence intervals.</p>
+                    <p>Comments about what we learned from trialing the resource&colon;</p>
                <ul>
-                   <li>Questions provided at the very beginning to frame the purpose of the tutorial reduced student confusion, and helped students focus on the important features of the tutorial.</li>
-                   <li>Some students initially found the repeated sampling too slow and were confused about the sampling process, such as when they should stop sampling. Clearer instructions helped the sampling process hit the right balance in terms of speed and reduced confusion. There were no complaints about the repeated sampling during the second set of interviews, other than from one student.</li>
+                   <li>Students need clear instructions when taking repeated samples. Some students were confused about the sampling process, such as how long to keep sampling and when they should stop. (“The part that really didn’t work well is the creating repeated samples…otherwise we don’t know when to click on ‘stop’… worried and stuff…”). Clearer instructions were provided to prevent the student from moving away from repeated sampling process too soon, and helped them gauge how long to keep sampling.
+                    </li>
+                   <li>Some students found the repeated sampling too slow. The sampling process was adjusted to hit the right balance in terms of speed to allow enough time for students to grasp what was happening on the screen, but without letting the sampling run too long so that the student disengages.
+                   </li>
                    <ul>
-                       <br><p>“The part that really didn’t work well is the creating repeated samples…otherwise we don’t know when to click on stop and worried and stuff…”’</p>
-                       <p>“Kind of going on for too long. Should point out the stop button sooner. Kind of get the idea of what’s happening” </p>
+                       <br><p><i><b>“Kind of going on for too long. Should point out the stop button sooner. Kind of get the idea of what’s happening”</b></i></p>
                    </ul>
-               </ul>
-               <h3>Enhancements made to simulations based on feedback from the second set of interviews:</h3>
-               <ul>
-                   <li>Minor errors were fixed and cosmetic changes were made to the applet. For instance, one student mentioned the questions provided at the start of the tutorial to frame the purpose of the activity could be given as a list rather than a block of text.</li>
-               </ul>
-               <h3>General observations:</h3>
-               <ul>
-                   <li>Students liked the interactive, hands-on nature of visualizations. Most of the students commented that the simulation was good for visualizing the effect certain parameters or confidence level had on the width of the confidence intervals.</li>
+                   
+                 <li>Students liked the interactive, hands-on nature of visualizations. Most of the students commented that the simulation was good for visualizing the effect the confidence level, standard deviation and sample size had on the width of the confidence intervals.
+                   </li>
                    <ul>
-                       <br><p>“Cool. Never seen anything like it! Pretty straight forward. Like how fish changes to bar graph, sliders, drop down thing. … [Repeated Sampling Process] Really liked it. Good that they have slower and faster buttons.”</p>
-                       <p>“Creating of all the samples is fun to watch…”</p>
+                       <br><p><i><b>“Cool. Never seen anything like it! Pretty straight forward. Like how fish changes to bar graph, sliders, drop down thing. … [Repeated Sampling Process] Really liked it. Good that they have slower and faster buttons.”</b></i></p>
+                       <br><p><i><b>“Creating all of the samples is fun to watch”</b></i></p>
                    </ul>
-                   <li>	It is recommended that “Sampling from a Normally distributed population” web visualization be used as a primer for the Confidence interval web visualization. From our interviews, we found students who interacted with the Sampling from Normal simulation prior to the Confidence Interval web visualization had a better understanding of the context of these proceeding simulations (i.e. how the samples are drawn, what the population mean represents with respect to the example). Students using only the Confidence Interval applet during the second set of interviews requested more explanation about the population mean and standard deviation at the end of the tutorial. One student commented that they did not understand what μ represented with respect to the example suggesting they did not understand the basic premise of the simulation.</li>
+                   
+                   <li>We recommend that the “Sampling from a Normally distributed population” web visualization be used as a primer for the Confidence Interval web visualization. From our interviews, we found students who interacted with the Sampling from Normal web visualization prior to the Confidence Interval web visualization had a better understanding of the context of these proceeding simulations (i.e. how the samples are drawn, what the population mean represents with respect to the example). Students using only the Confidence Interval applet requested more explanation about the population mean and standard deviation. For instance, one student commented that he did not understand what represented with respect to the example, which suggests that he did not understand the basic premise of the simulation.
+                   </li>
                    <ul>
-                       <br><p>“Confidence interval part was much more difficult than the sampling distribution of means… sampling distribution of means was more clear. Sampling distribution of means… there was more section of how sampling is really happening…. More instruction in the sampling part is helpful.”</p>
+                       <br><p><i><b>“Confidence interval part was much more difficult than the sampling distribution of means… sampling distribution of means was more clear. Sampling distribution of means… there was more section of how sampling is really happening…. More instruction in the sampling part is helpful.”</b></i></p>
                    </ul>
-               </ul>
+               </ul>     
+          
 	       </div>	
 	   </div>
+            <div class="row">
+	           <div class="col-md-12">
+		      <div class="divider"></div>
+	           </div>
+	        </div>
+           <h1>How We Learned</h1> 
+            <p>In the Fall of 2015, we conducted a pilot study to understand how students interact with the resource. We selected six students from an introductory statistics course for second year students in a variety of majors in the Faculty of Science. During 50-minute long individual interviews, each student was exposed to two web visualizations, first the “Sampling from a Normally Distributed Population” and then the “Confidence Intervals of the Mean” web visualization, during 50-minute long interviews. Students were asked to “think-aloud” while exploring the applets. To probe student understanding, we asked questions at the beginning and end of the interviews. The post-questions were taken from the NSF-funded Web ARTIST project.</p>
+            <p>We then implemented some changes based on what we saw, and conducted a second set of interviews in January 2016. The students were registered in an introductory statistics course intended for third year biology majors. These interviews followed the same format as the first set (pre-questions, “think-aloud” exploration, post questions). However students were given only one of the two visualizations to allow for more time during the interviews. Four students were selected to try the “Confidence Intervals” web visualization.</p>
+            
+            
 		</div> 
 	    
 	    
