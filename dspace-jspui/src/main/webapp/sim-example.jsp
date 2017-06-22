@@ -136,7 +136,8 @@
             <ul>
                 <li><a href="http://www.zoology.ubc.ca/~whitlock/kingfisher/CIMean.htm">Confidence intervals for the mean<span class="glyphicon glyphicon-new-window"></span></a></li>
                 <li><a href="http://www.zoology.ubc.ca/~whitlock/kingfisher/CLT.htm">Sampling from a non-Normally distributed population<span class="glyphicon glyphicon-new-window"></span></a></li>
-		</ul>
+		    </ul>
+        </ul>
             
         <h2>About this resource</h2>
             <p>
