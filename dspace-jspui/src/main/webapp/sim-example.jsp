@@ -53,7 +53,6 @@
         <div class="col-md-8">
 	    
 		<h1>Web Visualization: Sampling from a Normal distribution</h1>
-		<p class="text-muted contributors">Contributor(s): <a href="mailto:">Jane Doe</a>, <a href="mailto:">John Doe</a></p>
 		
 		<div class="row description">
             <div class="col-md-12">
@@ -103,45 +102,52 @@
 	
 	<div class="row details">
 	    <div class="col-md-8">
-		<h2>Intended audience</h2>
-		<p>These are the type of instructors who should use this material (disciplines this may apply to) and what kind of knowledge the instructors should already have in order to use this material well. </p>
-		<p>Students using this visualization should:</p>
+		<h2>Prerequisite Knowledge</h2>
+		<p>Students should&colon;</p>
+        <ul>
+            <li>Be familiar with methods of summarizing data sets, such as mean and standard deviation</li>
+            <li>Be able to recognize probability models as distributions with shape, centre, and spread</li>
+            <li>Be able to recall the key properties of the Normal model</li>
+        </ul>
+		<h2>Learning Objectives</h2>
 		<ul>
-		    <li>Be familiar with methods of summarizing data sets, such as mean and standard deviation</li>
-		    <li>Be able to recognize probability models as distributions with shape, centre, and spread</li>
-		    <li>Be able to recall the key properties of the Normal model</li>
-		</ul>
-		
-		<h2>Learning outcomes</h2>
-		<ul>
-		    <li>Identify and distinguish between a population and a sample, and between parameters and statistics</li>
-		    <li>Interpret histograms for summarizing and comparing data sets</li>
-		    <li>Explain the concepts of sampling variability and sampling distribution</li>
-		    <li>Describe properties of the sampling distribution of the sample mean</li>
-		    <li>Explain whether and how the population distribution and the sample size influence the sampling distribution of the sample mean from a Normal distribution</li>
+            <li>Identify and distinguish between a population and a sample, and between parameters and statistics</li>
+            <li>Interpret histograms for summarizing and comparing data sets</li>
+            <li>Explain the concepts of sampling variability and sampling distribution</li>
+            <li>Describe properties of the sampling distribution of the sample mean</li>
+            <li>Explain whether and how the population distribution and the sample size influence the sampling distribution of the sample mean from a Normal distribution.</li>
 		</ul>
 		
 		<h2>Suggested uses</h2>
-		<p>This visualization is intended to be used in a number of ways:</p>
+		<p>These resources are intended to be used in a number of ways:</p>
 		<ul>
-            <li>As a visual aid during lectures <i>(See below)</i></li>
-		    <li>As an open-ended learning tool for active learning</li>
-		    <li>As a guided learning experience, using either the built-in tutorials or an instructor-written set of instructions</li>
-            <ul>
-                <li><i>Bruce’s Assignment questions</i></li>
-            </ul>
-		</ul>
+            <li>as a visual aid during lectures</li>
+		    <li>as an open-ended learning tool for active learning;</li>
+		    <li>as a guided learning experience, using either the built-in tutorials or the guided activity sheet [link to Bruce’s material] or other instructor-supplied material.</li>
+        </ul>
 		
 		<h2>Complementary materials</h2>
 		<ul>
             <li><a href="/WV-SamplingNon-Normal.jsp">Web visualization: Sampling from a non-Normally distributed population (CLT)<span class="glyphicon glyphicon-new-window"></span></a></li>
+            <li><a href="/LP-VideoCIs.jsp">Video: Confidence Interval for a Population Mean<span class="glyphicon glyphicon-new-window"></span></a></li>
+            <li><a href="/LP-VideoOne-Sample-T-Test.jsp">Video: One Sample T-Test<span class="glyphicon glyphicon-new-window"></span></a></li>
             <li><a target="_blank" href="https://vimeo.com/196027417">Video: Sampling Distribution of the Mean <span class="glyphicon glyphicon-new-window"></span></a></li>
-            <li>Sampling from a Normal distribution web visualization can be used as a primer before introducing students to the following 2 visualizations:</li>
+            <li>Sampling from a Normal distribution web visualization can be used as a primer before introducing students to the following 2 visualizations&colon;</li>
             <ul>
-                <li><a target="_blank" href="http://www.zoology.ubc.ca/~whitlock/kingfisher/CIMean.htm">Interactive Online Visualization: Confidence Intervals for the Mean <span class="glyphicon glyphicon-new-window"></span></a> </li>
-                <li><a target="_blank" href="http://www.zoology.ubc.ca/~whitlock/kingfisher/CLT.htm">Interactive Online Visualization: Sampling From a Non-Normally Distributed Population <span class="glyphicon glyphicon-new-window"></span></a> </li>    
-            </ul>
-		</ul>
+                <li><a href="http://www.zoology.ubc.ca/~whitlock/kingfisher/CIMean.htm">Confidence intervals for the mean<span class="glyphicon glyphicon-new-window"></span></a></li>
+                <li><a href="http://www.zoology.ubc.ca/~whitlock/kingfisher/CLT.htm">Sampling from a non-Normally distributed population<span class="glyphicon glyphicon-new-window"></span></a></li>
+		    </ul>
+        </ul>
+            
+        <h2>About this resource</h2>
+            <p>
+                <b>Funding&colon;</b> University of British Columbia<br>
+                <b>Project Leader&colon;</b> Mike Whitlock<br>
+                <b>Programmers&colon;</b> Boris Dalstein, Mike Whitlock, &amp; Zahraa Almasslawi<br>
+                <b>Art&colon;</b> Derek Tan<br>
+                <b>Testing&colon;</b> Melissa Lee, Gaitri Yapa, &amp;Bruce Dunham<br>
+                <b>Thanks to&colon;</b> Darren Irwin, Dolph Schluter, Nancy Heckman, Kaylee Byers, Brandon Doty, Kim Gilbert, Sally Otto, Wilson Whitlock, Jeff Whitlock, Jeremy Draghi, Karon MacLean, Fred Cutler, Diana Whistler, Andrew Owen, Mike Marin, Leslie Burkholder, Eugenia Yu, Doug Bonn, Michael Scott, the UBC Physics Learning Group, &amp; the UBC Flex Stats initiative for numerous suggestions and improvements.
+            </p>
         </div>
 	    
         <div class="col-md-4 tags">
@@ -151,9 +157,9 @@
 			<h3 class="panel-title"><i class="glyphicon glyphicon-tag"></i> Tags</h3>
 		    </div>
 		    <div class="panel-body">
-			<p><strong>Assessment Method:</strong> Method Type<br>
-			<strong>Topics:</strong> Normal distribution, Histograms, Sampling variability, Sampling from a Normal distribution<br>
-			<strong>Keywords:</strong> Keyword 1, Keyword 2, Keyword 3</p>
+            <p>
+			<strong>Topics:</strong> Sampling distributions, Sample mean, Exploratory data analysis/Classifying data, Graphical representations, Histograms 
+            </p>
 		    </div>
         </div>
 	      
@@ -173,7 +179,7 @@
 			<h3 class="panel-title"><i class="glyphicon glyphicon-book"></i> What we learned</h3>
             </div>
             <div class="panel-body">
-                <p>Six students were selected to participate in a pilot study conducted on an introductory (200 level) statistics class in the Fall 2015 semester.<br><a target="_blank" href="/SampNorm_WhatWeLearned.jsp">Read More<span class="glyphicon glyphicon-new-window"></span></a></p>
+                <p>The sampling distribution is a complex concept.  For instance, from our teaching, we have found that students often confuse the histogram of values from a random sample and the histogram of sample means from many random samples.<br><a target="_blank" href="/SampNorm_WhatWeLearned.jsp">Read More<span class="glyphicon glyphicon-new-window"></span></a></p>
             </div>
         </div>     
 	    

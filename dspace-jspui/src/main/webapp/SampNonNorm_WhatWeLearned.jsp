@@ -55,24 +55,24 @@
 		<h1>What We Learned</h1>
 		<div class="row descriptions">
 	       <div class="col-md-12">
-               <p>Six student volunteers were recruited from an introductory (200 level) statistics class in the Summer 2016 term to test the web visualization. Students were recruited around the midpoint of their course and were exposed to the web visualization during 50-minute long interviews. Students were asked pre-questions about the topics prior to use of the simulation and more questions were given after exploration of the tool.</p>
-               <p>After implementing changes to the simulation based on feedback from the interviews, a focus group was conducted with nine student volunteers selected from several introductory statistics courses in Fall 2016. </p>
-               <h3>Enhancements made to simulations based on feedback from the first set of interviews:</h3>
+               <p>Many students hold misconceptions related to the Central Limit Theorem. From our teaching, we have found that although students might be able to perform formal calculations, they often get confused with some of the concepts surrounding this topic. For instance, many students believe that, when larger samples are taken from a non-Normal distribution the distribution of the sampled data itself becomes Normally distributed. This visualization was designed to help with students’ conceptual understanding. </p>
+               
+               <p>Comments about what we learn from trialing the resource&colon;</p>
                <ul>
-                   <li>Wording in the tutorial mode was changed to reduce student confusion around certain terminology. For instance, students did not understand the use of the term “individual mean” in the question “Does the average of the distribution of sample means match the individual mean?” The term was changed to “mean of the population” to be more precise.</li>
-                   <li>There was a need for certain settings to re-set once in the tutorial mode, otherwise the user would not see what was expected. For example, the value of the sample size needed to revert to a default value when entering the “custom mode”. Instructions were added when entering this mode to tell the user to reset the sample size before sampling.</li>
+                   <li>Terminology needs to be precise so as not to confuse students. For instance, in the original version of the tutorial, students were confused by our use of the term “individual mean” rather than “mean of the population”. We adjusted wording in the tutorial to ensure the meaning of all vocabulary was clear.</li>
                    <li>Certain visual elements on the applet caused some confusion, for example some users tried to drag the graphic of the pencil in “custom mode” over to use on the right. Instructions were reworded to make clear how to draw distributions in this mode.</li>
-                   <li>Other visual features were altered to direct the user’s eye, such as highlighting the “scenario buttons” in orange or greying out unneeded buttons to indicate where the user should click during the tutorial mode.</li>
-               </ul>
-               <h3>General observations:</h3>
-               <ul>
-                   <li>Student feedback from the interviews and focus group about the applet was generally quite positive. Students found the visual elements helpful to understand this concept.</li>
+                   <li>Other visual features were added to help the user interact with the interface in a seamless manner. Buttons were highlighted or greyed out to strategically direct attention towards or away from certain items. </li>
+                   <li>Students found the interactive visual elements especially helpful to understand this abstract concept.</li>
                    <ul>
-                       <br><p>“It's quite interesting to see an animation simulation of the abstract stat concepts and it is really helpful to visualize the concept”</p>
-                       <p>“It gives clear visual representations that help the user to understand what is happening”</p>
+                       <li><i><b>“It's quite interesting to see an animation simulation of the abstract stat concepts and it is really helpful to visualize the concept”</b></i></li>
+                       <li><i><b>“It gives clear visual representations that help the user to understand what is happening”</b></i></li>
                    </ul>
-                   <li>It is recommended that the Sampling from Normal web visualization be used as a prior to the CLT applet to introduce the basic concepts and the visual metaphors used in the CLT visualization. We found students who interacted with the Sampling from Normal simulation prior to the CLT web visualization had a better grasp of the context in this simulation.</li>
+                   <li>It is recommended that the Sampling from Normal web visualization be used prior to the CLT visualization to introduce the basic concepts and the visual metaphors used. We found students who interacted with the Sampling from Normal simulation prior to the CLT web visualization had a better grasp of the context in this simulation.</li>
                </ul>
+               <h1>How We Learned</h1>
+               <p>In the Summer of 2016, we conducted a pilot study to understand how students interact with the resource. We selected six students from an introductory statistics course for second year students in the Faculty of Applied Science. Students were recruited around the midpoint of their course and were exposed to the CLT web visualization during 50-minute long individual interviews. Each student was asked to “think-aloud” while exploring the visualization.  To probe student understanding, we asked questions at the beginning and end of the interviews.  The questions were taken from the NSF-funded Web ARTIST project.</p>
+               
+               <p>We then implemented some changes based on the feedback, and conducted a focus group in October 2016. We selected nine students who had been registered in an introductory statistics course in the past year. During the hour-long focus group, students were asked questions to check their understanding of topics prior to playing with the visualization. More questions were provided after exploration. Small groups were formed and students were given the opportunity to discuss the web visualization before providing feedback to the whole group. </p>
 	       </div>	
 	   </div>
 		</div> 
