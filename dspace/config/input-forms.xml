@@ -98,17 +98,6 @@
          <required>You must enter a main title for this item.</required>
        </field>
        
-       <!-- DOI -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>identifier</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <label>DOI</label>
-         <input-type>onebox</input-type>
-         <hint>The item's digital object identifier code, if available.</hint>
-         <required></required>
-       </field>
-
        <!-- Date -->
        <field>
          <dc-schema>dc</dc-schema>
@@ -185,38 +174,88 @@
          <required></required>
        </field>
 
+       <!--Learning Objectives -->  
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Learning Objectives</label>
+         <input-type>textarea</input-type>
+         <hint>Enter the learning objectives of the item. </hint>
+         <required></required>
+       </field>
+
        <!-- Audience level -->
        <field>
          <dc-schema>dcterms</dc-schema>
          <dc-element>audience</dc-element>
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
-         <label>Audience Level</label>
+         <label>Prerequisite Knowledge</label>
          <input-type value-pairs-name="statspace_audience">dropdown</input-type>
          <required></required>
        </field>
+         
+       <!-- Resource Type -->
+       <field>
+         <dc-schema>dcterms</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Resource Type</label>
+         <input-type value-pairs-name="resource_type">dropdown</input-type>
+         <required></required>
+       </field>  
        
-       <!-- Course taught in -->
+       <!-- University Acronym -->
        <field>
          <dc-schema>dc</dc-schema>
          <dc-element>relation</dc-element>
          <dc-qualifier>ispartof</dc-qualifier>
          <repeatable>true</repeatable>
-         <label>Course(s) taught in</label>
-         <input-type value-pairs-name="statspace_courses">dropdown</input-type>
-         <required></required>
-       </field>
-       <!-- Course Other -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Other Course(s)</label>
+         <label>University Acronym</label>
          <input-type>onebox</input-type>
-         <hint>If you choose 'Other' course, please enter details here.</hint>
+         <hint>This is Optional</hint>
          <required></required>
        </field>
+         
+        <!-- Course Subject -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Course Subject</label>
+         <input-type>onebox</input-type>
+         <hint>This is Optional</hint>
+         <required></required>
+       </field>
+         
+        <!-- Course Number -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Course Number</label>
+         <input-type>onebox</input-type>
+         <hint>This is Optional</hint>
+         <required></required>
+       </field>
+         
+         
+        <!-- DOI -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>identifier</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <label>DOI</label>
+         <input-type>onebox</input-type>
+         <hint>The item's digital object identifier code, if available.</hint>
+         <required></required>
+       </field>
+
      </page>
 
    </form>
@@ -323,7 +362,7 @@
          <hint>Enter the description of the item. </hint>
          <required></required>
        </field>
-         
+
        <!--Learning Objectives -->  
        <field>
          <dc-schema>dc</dc-schema>
@@ -342,10 +381,21 @@
          <dc-element>audience</dc-element>
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
-         <label>Audience Level</label>
+         <label>Prerequisite Knowledge</label>
          <input-type value-pairs-name="statspace_audience">dropdown</input-type>
          <required></required>
        </field>
+         
+       <!-- Resource Type -->
+       <field>
+         <dc-schema>dcterms</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Resource Type</label>
+         <input-type value-pairs-name="resource_type">dropdown</input-type>
+         <required></required>
+       </field>  
        
        <!-- University Acronym -->
        <field>
@@ -490,7 +540,7 @@
          <required></required>
        </field>
 
-       <!-- Abstract / Description -->
+      <!-- Abstract / Description -->
        <field>
          <dc-schema>dc</dc-schema>
          <dc-element>description</dc-element>
@@ -520,10 +570,21 @@
          <dc-element>audience</dc-element>
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
-         <label>Audience Level</label>
+         <label>Prerequisite Knowledge</label>
          <input-type value-pairs-name="statspace_audience">dropdown</input-type>
          <required></required>
        </field>
+         
+       <!-- Resource Type -->
+       <field>
+         <dc-schema>dcterms</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Resource Type</label>
+         <input-type value-pairs-name="resource_type">dropdown</input-type>
+         <required></required>
+       </field>  
        
        <!-- University Acronym -->
        <field>
@@ -602,17 +663,6 @@
          <input-type>onebox</input-type>
          <hint>Enter the main title of the item.</hint>
          <required>You must enter a main title for this item.</required>
-       </field>
-       
-       <!-- DOI -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>identifier</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <label>DOI</label>
-         <input-type>onebox</input-type>
-         <hint>The item's digital object identifier code, if available.</hint>
-         <required></required>
        </field>
 
        <!-- Date -->
@@ -709,10 +759,21 @@
          <dc-element>audience</dc-element>
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
-         <label>Audience Level</label>
+         <label>Prerequisite Knowledge</label>
          <input-type value-pairs-name="statspace_audience">dropdown</input-type>
          <required></required>
        </field>
+         
+       <!-- Resource Type -->
+       <field>
+         <dc-schema>dcterms</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Resource Type</label>
+         <input-type value-pairs-name="resource_type">dropdown</input-type>
+         <required></required>
+       </field>  
        
        <!-- University Acronym -->
        <field>
@@ -792,17 +853,6 @@
          <required>You must enter a main title for this item.</required>
        </field>
        
-       <!-- DOI -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>identifier</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <label>DOI</label>
-         <input-type>onebox</input-type>
-         <hint>The item's digital object identifier code, if available.</hint>
-         <required></required>
-       </field>
-
        <!-- Date -->
        <field>
          <dc-schema>dc</dc-schema>
@@ -879,38 +929,88 @@
          <required></required>
        </field>
 
+       <!--Learning Objectives -->  
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Learning Objectives</label>
+         <input-type>textarea</input-type>
+         <hint>Enter the learning objectives of the item. </hint>
+         <required></required>
+       </field>
+
        <!-- Audience level -->
        <field>
          <dc-schema>dcterms</dc-schema>
          <dc-element>audience</dc-element>
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
-         <label>Audience Level</label>
+         <label>Prerequisite Knowledge</label>
          <input-type value-pairs-name="statspace_audience">dropdown</input-type>
          <required></required>
        </field>
+         
+       <!-- Resource Type -->
+       <field>
+         <dc-schema>dcterms</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Resource Type</label>
+         <input-type value-pairs-name="resource_type">dropdown</input-type>
+         <required></required>
+       </field>  
        
-       <!-- Course taught in -->
+       <!-- University Acronym -->
        <field>
          <dc-schema>dc</dc-schema>
          <dc-element>relation</dc-element>
          <dc-qualifier>ispartof</dc-qualifier>
          <repeatable>true</repeatable>
-         <label>Course(s) taught in</label>
-         <input-type value-pairs-name="statspace_courses">dropdown</input-type>
-         <required></required>
-       </field>
-       <!-- Course Other -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Other Course(s)</label>
+         <label>University Acronym</label>
          <input-type>onebox</input-type>
-         <hint>If you choose 'Other' course, please enter details here.</hint>
+         <hint>This is Optional</hint>
          <required></required>
        </field>
+         
+        <!-- Course Subject -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Course Subject</label>
+         <input-type>onebox</input-type>
+         <hint>This is Optional</hint>
+         <required></required>
+       </field>
+         
+        <!-- Course Number -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Course Number</label>
+         <input-type>onebox</input-type>
+         <hint>This is Optional</hint>
+         <required></required>
+       </field>
+         
+         
+        <!-- DOI -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>identifier</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <label>DOI</label>
+         <input-type>onebox</input-type>
+         <hint>The item's digital object identifier code, if available.</hint>
+         <required></required>
+       </field>
+
      </page>
 
    </form>
@@ -941,17 +1041,6 @@
          <required>You must enter a main title for this item.</required>
        </field>
        
-       <!-- DOI -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>identifier</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <label>DOI</label>
-         <input-type>onebox</input-type>
-         <hint>The item's digital object identifier code, if available.</hint>
-         <required></required>
-       </field>
-
        <!-- Date -->
        <field>
          <dc-schema>dc</dc-schema>
@@ -1028,38 +1117,88 @@
          <required></required>
        </field>
 
+       <!--Learning Objectives -->  
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Learning Objectives</label>
+         <input-type>textarea</input-type>
+         <hint>Enter the learning objectives of the item. </hint>
+         <required></required>
+       </field>
+
        <!-- Audience level -->
        <field>
          <dc-schema>dcterms</dc-schema>
          <dc-element>audience</dc-element>
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
-         <label>Audience Level</label>
+         <label>Prerequisite Knowledge</label>
          <input-type value-pairs-name="statspace_audience">dropdown</input-type>
          <required></required>
        </field>
+         
+       <!-- Resource Type -->
+       <field>
+         <dc-schema>dcterms</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Resource Type</label>
+         <input-type value-pairs-name="resource_type">dropdown</input-type>
+         <required></required>
+       </field>  
        
-       <!-- Course taught in -->
+       <!-- University Acronym -->
        <field>
          <dc-schema>dc</dc-schema>
          <dc-element>relation</dc-element>
          <dc-qualifier>ispartof</dc-qualifier>
          <repeatable>true</repeatable>
-         <label>Course(s) taught in</label>
-         <input-type value-pairs-name="statspace_courses">dropdown</input-type>
-         <required></required>
-       </field>
-       <!-- Course Other -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Other Course(s)</label>
+         <label>University Acronym</label>
          <input-type>onebox</input-type>
-         <hint>If you choose 'Other' course, please enter details here.</hint>
+         <hint>This is Optional</hint>
          <required></required>
        </field>
+         
+        <!-- Course Subject -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Course Subject</label>
+         <input-type>onebox</input-type>
+         <hint>This is Optional</hint>
+         <required></required>
+       </field>
+         
+        <!-- Course Number -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Course Number</label>
+         <input-type>onebox</input-type>
+         <hint>This is Optional</hint>
+         <required></required>
+       </field>
+         
+         
+        <!-- DOI -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>identifier</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <label>DOI</label>
+         <input-type>onebox</input-type>
+         <hint>The item's digital object identifier code, if available.</hint>
+         <required></required>
+       </field>
+
      </page>
 
    </form>
@@ -1088,17 +1227,6 @@
          <input-type>onebox</input-type>
          <hint>Enter the main title of the item.</hint>
          <required>You must enter a main title for this item.</required>
-       </field>
-       
-       <!-- DOI -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>identifier</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <label>DOI</label>
-         <input-type>onebox</input-type>
-         <hint>The item's digital object identifier code, if available.</hint>
-         <required></required>
        </field>
 
        <!-- Date -->
@@ -1177,38 +1305,88 @@
          <required></required>
        </field>
 
+       <!--Learning Objectives -->  
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Learning Objectives</label>
+         <input-type>textarea</input-type>
+         <hint>Enter the learning objectives of the item. </hint>
+         <required></required>
+       </field>
+
        <!-- Audience level -->
        <field>
          <dc-schema>dcterms</dc-schema>
          <dc-element>audience</dc-element>
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
-         <label>Audience Level</label>
+         <label>Prerequisite Knowledge</label>
          <input-type value-pairs-name="statspace_audience">dropdown</input-type>
          <required></required>
        </field>
+         
+       <!-- Resource Type -->
+       <field>
+         <dc-schema>dcterms</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Resource Type</label>
+         <input-type value-pairs-name="resource_type">dropdown</input-type>
+         <required></required>
+       </field>  
        
-       <!-- Course taught in -->
+       <!-- University Acronym -->
        <field>
          <dc-schema>dc</dc-schema>
          <dc-element>relation</dc-element>
          <dc-qualifier>ispartof</dc-qualifier>
          <repeatable>true</repeatable>
-         <label>Course(s) taught in</label>
-         <input-type value-pairs-name="statspace_courses">dropdown</input-type>
-         <required></required>
-       </field>
-       <!-- Course Other -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Other Course(s)</label>
+         <label>University Acronym</label>
          <input-type>onebox</input-type>
-         <hint>If you choose 'Other' course, please enter details here.</hint>
+         <hint>This is Optional</hint>
          <required></required>
        </field>
+         
+        <!-- Course Subject -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Course Subject</label>
+         <input-type>onebox</input-type>
+         <hint>This is Optional</hint>
+         <required></required>
+       </field>
+         
+        <!-- Course Number -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Course Number</label>
+         <input-type>onebox</input-type>
+         <hint>This is Optional</hint>
+         <required></required>
+       </field>
+         
+         
+        <!-- DOI -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>identifier</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <label>DOI</label>
+         <input-type>onebox</input-type>
+         <hint>The item's digital object identifier code, if available.</hint>
+         <required></required>
+       </field>
+
      </page>
 
    </form>
@@ -1239,17 +1417,6 @@
          <required>You must enter a main title for this item.</required>
        </field>
        
-       <!-- DOI -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>identifier</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <label>DOI</label>
-         <input-type>onebox</input-type>
-         <hint>The item's digital object identifier code, if available.</hint>
-         <required></required>
-       </field>
-
        <!-- Date -->
        <field>
          <dc-schema>dc</dc-schema>
@@ -1326,1039 +1493,6 @@
          <required></required>
        </field>
 
-       <!-- Audience level -->
-       <field>
-         <dc-schema>dcterms</dc-schema>
-         <dc-element>audience</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Audience Level</label>
-         <input-type value-pairs-name="statspace_audience">dropdown</input-type>
-         <required></required>
-       </field>
-       
-       <!-- Course taught in -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Course(s) taught in</label>
-         <input-type value-pairs-name="statspace_courses">dropdown</input-type>
-         <required></required>
-       </field>
-       <!-- Course Other -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Other Course(s)</label>
-         <input-type>onebox</input-type>
-         <hint>If you choose 'Other' course, please enter details here.</hint>
-         <required></required>
-       </field>
-     </page>
-
-   </form>
-   <form name="randomization">
-     <page number="1">
-       
-       <!-- Author(s) -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>creator</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Creator(s)</label>
-         <input-type>name</input-type>
-         <hint>Enter the name(s) of the creator(s) of this item.</hint>
-         <required>You must enter the creator of the item</required>
-       </field>
-       
-       <!-- Title -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>title</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Title</label>
-         <input-type>onebox</input-type>
-         <hint>Enter the main title of the item.</hint>
-         <required>You must enter a main title for this item.</required>
-       </field>
-       
-       <!-- DOI -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>identifier</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <label>DOI</label>
-         <input-type>onebox</input-type>
-         <hint>The item's digital object identifier code, if available.</hint>
-         <required></required>
-       </field>
-
-       <!-- Date -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>date</dc-element>
-         <dc-qualifier>issued</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Publication Date</label>
-         <input-type>date</input-type>
-         <visibility>workflow</visibility>
-         <hint>Please give the date of previous publication or public distribution.
-                        You can leave out the day and/or month if they aren't
-                        applicable.</hint>
-       </field>
-
-       <!-- Publisher -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>publisher</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Publisher</label>
-         <input-type>onebox</input-type>
-         <visibility>workflow</visibility>
-         <hint>Enter the name of the publisher of the previously issued instance of this item.</hint>
-         <required></required>
-       </field>
-       
-       <!-- Revision Date -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>date</dc-element>
-         <dc-qualifier>updated</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Revision Date</label>
-         <input-type>date</input-type>
-         <hint>Please give the date the item was last modified. You
-         can leave out the day and/or month if they aren't
-         applicable.</hint>
-         <required>You must choose a revision date.</required>
-       </field>
-
-       <!-- Subject -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>subject</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Subject(s)</label>
-         <input-type value-pairs-name="randomization_subjects">dropdown</input-type>
-         <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
-         <required>You must choose a subject.</required>
-       </field>
-       <!-- Subject Other -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>subject</dc-element>
-         <dc-qualifier>other</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Other Subject(s)</label>
-         <input-type>onebox</input-type>
-         <hint>If you choose 'Other' subject, please enter details here.</hint>
-         <required></required>
-       </field>
-
-       <!-- Abstract / Description -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>description</dc-element>
-         <dc-qualifier>abstract</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Description</label>
-         <input-type>textarea</input-type>
-         <hint>Enter the description of the item. </hint>
-         <required></required>
-       </field>
-
-       <!-- Audience level -->
-       <field>
-         <dc-schema>dcterms</dc-schema>
-         <dc-element>audience</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Audience Level</label>
-         <input-type value-pairs-name="statspace_audience">dropdown</input-type>
-         <required></required>
-       </field>
-       
-       <!-- Course taught in -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Course(s) taught in</label>
-         <input-type value-pairs-name="statspace_courses">dropdown</input-type>
-         <required></required>
-       </field>
-       <!-- Course Other -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Other Course(s)</label>
-         <input-type>onebox</input-type>
-         <hint>If you choose 'Other' course, please enter details here.</hint>
-         <required></required>
-       </field>
-     </page>
-
-   </form>
-   <form name="two_independent">
-     <page number="1">
-       
-       <!-- Author(s) -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>creator</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Creator(s)</label>
-         <input-type>name</input-type>
-         <hint>Enter the name(s) of the creator(s) of this item.</hint>
-         <required>You must enter the creator of the item</required>
-       </field>
-       
-       <!-- Title -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>title</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Title</label>
-         <input-type>onebox</input-type>
-         <hint>Enter the main title of the item.</hint>
-         <required>You must enter a main title for this item.</required>
-       </field>
-       
-       <!-- DOI -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>identifier</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <label>DOI</label>
-         <input-type>onebox</input-type>
-         <hint>The item's digital object identifier code, if available.</hint>
-         <required></required>
-       </field>
-
-       <!-- Date -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>date</dc-element>
-         <dc-qualifier>issued</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Publication Date</label>
-         <input-type>date</input-type>
-         <visibility>workflow</visibility>
-         <hint>Please give the date of previous publication or public distribution.
-                        You can leave out the day and/or month if they aren't
-                        applicable.</hint>
-       </field>
-
-       <!-- Publisher -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>publisher</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Publisher</label>
-         <input-type>onebox</input-type>
-         <visibility>workflow</visibility>
-         <hint>Enter the name of the publisher of the previously issued instance of this item.</hint>
-         <required></required>
-       </field>
-       
-       <!-- Revision Date -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>date</dc-element>
-         <dc-qualifier>updated</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Revision Date</label>
-         <input-type>date</input-type>
-         <hint>Please give the date the item was last modified. You
-         can leave out the day and/or month if they aren't
-         applicable.</hint>
-         <required>You must choose a revision date.</required>
-       </field>
-
-       <!-- Subject -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>subject</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Subject(s)</label>
-         <input-type value-pairs-name="two_independent_subjects">dropdown</input-type>
-         <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
-         <required>You must choose a subject.</required>
-       </field>
-       <!-- Subject Other -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>subject</dc-element>
-         <dc-qualifier>other</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Other Subject(s)</label>
-         <input-type>onebox</input-type>
-         <hint>If you choose 'Other' subject, please enter details here.</hint>
-         <required></required>
-       </field>
-
-       <!-- Abstract / Description -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>description</dc-element>
-         <dc-qualifier>abstract</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Description</label>
-         <input-type>textarea</input-type>
-         <hint>Enter the description of the item. </hint>
-         <required></required>
-       </field>
-
-       <!-- Audience level -->
-       <field>
-         <dc-schema>dcterms</dc-schema>
-         <dc-element>audience</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Audience Level</label>
-         <input-type value-pairs-name="statspace_audience">dropdown</input-type>
-         <required></required>
-       </field>
-       
-       <!-- Course taught in -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Course(s) taught in</label>
-         <input-type value-pairs-name="statspace_courses">dropdown</input-type>
-         <required></required>
-       </field>
-       <!-- Course Other -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Other Course(s)</label>
-         <input-type>onebox</input-type>
-         <hint>If you choose 'Other' course, please enter details here.</hint>
-         <required></required>
-       </field>
-     </page>
-
-   </form>
- <!-- Probability                                                          -->
-   <form name="combinatorics">
-     <page number="1">
-       
-       <!-- Author(s) -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>creator</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Creator(s)</label>
-         <input-type>name</input-type>
-         <hint>Enter the name(s) of the creator(s) of this item.</hint>
-         <required>You must enter the creator of the item</required>
-       </field>
-       
-       <!-- Title -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>title</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Title</label>
-         <input-type>onebox</input-type>
-         <hint>Enter the main title of the item.</hint>
-         <required>You must enter a main title for this item.</required>
-       </field>
-       
-       <!-- DOI -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>identifier</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <label>DOI</label>
-         <input-type>onebox</input-type>
-         <hint>The item's digital object identifier code, if available.</hint>
-         <required></required>
-       </field>
-
-       <!-- Date -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>date</dc-element>
-         <dc-qualifier>issued</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Publication Date</label>
-         <input-type>date</input-type>
-         <visibility>workflow</visibility>
-         <hint>Please give the date of previous publication or public distribution.
-                        You can leave out the day and/or month if they aren't
-                        applicable.</hint>
-       </field>
-
-       <!-- Publisher -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>publisher</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Publisher</label>
-         <input-type>onebox</input-type>
-         <visibility>workflow</visibility>
-         <hint>Enter the name of the publisher of the previously issued instance of this item.</hint>
-         <required></required>
-       </field>
-       
-       <!-- Revision Date -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>date</dc-element>
-         <dc-qualifier>updated</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Revision Date</label>
-         <input-type>date</input-type>
-         <hint>Please give the date the item was last modified. You
-         can leave out the day and/or month if they aren't
-         applicable.</hint>
-         <required>You must choose a revision date.</required>
-       </field>
-
-       <!-- Subject -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>subject</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Subject(s)</label>
-         <input-type value-pairs-name="combinatorics_subjects">dropdown</input-type>
-         <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
-         <required>You must choose a subject.</required>
-       </field>
-       <!-- Subject Other -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>subject</dc-element>
-         <dc-qualifier>other</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Other Subject(s)</label>
-         <input-type>onebox</input-type>
-         <hint>If you choose 'Other' subject, please enter details here.</hint>
-         <required></required>
-       </field>
-
-       <!-- Abstract / Description -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>description</dc-element>
-         <dc-qualifier>abstract</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Description</label>
-         <input-type>textarea</input-type>
-         <hint>Enter the description of the item. </hint>
-         <required></required>
-       </field>
-
-       <!-- Audience level -->
-       <field>
-         <dc-schema>dcterms</dc-schema>
-         <dc-element>audience</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Audience Level</label>
-         <input-type value-pairs-name="statspace_audience">dropdown</input-type>
-         <required></required>
-       </field>
-       
-       <!-- Course taught in -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Course(s) taught in</label>
-         <input-type value-pairs-name="statspace_courses">dropdown</input-type>
-         <required></required>
-       </field>
-       <!-- Course Other -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Other Course(s)</label>
-         <input-type>onebox</input-type>
-         <hint>If you choose 'Other' course, please enter details here.</hint>
-         <required></required>
-       </field>
-     </page>
-
-   </form>
-   <form name="continous_distributions">
-     <page number="1">
-       
-       <!-- Author(s) -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>creator</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Creator(s)</label>
-         <input-type>name</input-type>
-         <hint>Enter the name(s) of the creator(s) of this item.</hint>
-         <required>You must enter the creator of the item</required>
-       </field>
-       
-       <!-- Title -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>title</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Title</label>
-         <input-type>onebox</input-type>
-         <hint>Enter the main title of the item.</hint>
-         <required>You must enter a main title for this item.</required>
-       </field>
-       
-       <!-- DOI -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>identifier</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <label>DOI</label>
-         <input-type>onebox</input-type>
-         <hint>The item's digital object identifier code, if available.</hint>
-         <required></required>
-       </field>
-
-       <!-- Date -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>date</dc-element>
-         <dc-qualifier>issued</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Publication Date</label>
-         <input-type>date</input-type>
-         <visibility>workflow</visibility>
-         <hint>Please give the date of previous publication or public distribution.
-                        You can leave out the day and/or month if they aren't
-                        applicable.</hint>
-       </field>
-
-       <!-- Publisher -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>publisher</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Publisher</label>
-         <input-type>onebox</input-type>
-         <visibility>workflow</visibility>
-         <hint>Enter the name of the publisher of the previously issued instance of this item.</hint>
-         <required></required>
-       </field>
-       
-       <!-- Revision Date -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>date</dc-element>
-         <dc-qualifier>updated</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Revision Date</label>
-         <input-type>date</input-type>
-         <hint>Please give the date the item was last modified. You
-         can leave out the day and/or month if they aren't
-         applicable.</hint>
-         <required>You must choose a revision date.</required>
-       </field>
-
-       <!-- Subject -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>subject</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Subject(s)</label>
-         <input-type value-pairs-name="continous_distributions_subjects">dropdown</input-type>
-         <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
-         <required>You must choose a subject.</required>
-       </field>
-       <!-- Subject Other -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>subject</dc-element>
-         <dc-qualifier>other</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Other Subject(s)</label>
-         <input-type>onebox</input-type>
-         <hint>If you choose 'Other' subject, please enter details here.</hint>
-         <required></required>
-       </field>
-
-       <!-- Abstract / Description -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>description</dc-element>
-         <dc-qualifier>abstract</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Description</label>
-         <input-type>textarea</input-type>
-         <hint>Enter the description of the item. </hint>
-         <required></required>
-       </field>
-
-       <!-- Audience level -->
-       <field>
-         <dc-schema>dcterms</dc-schema>
-         <dc-element>audience</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Audience Level</label>
-         <input-type value-pairs-name="statspace_audience">dropdown</input-type>
-         <required></required>
-       </field>
-       
-       <!-- Course taught in -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Course(s) taught in</label>
-         <input-type value-pairs-name="statspace_courses">dropdown</input-type>
-         <required></required>
-       </field>
-       <!-- Course Other -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Other Course(s)</label>
-         <input-type>onebox</input-type>
-         <hint>If you choose 'Other' course, please enter details here.</hint>
-         <required></required>
-       </field>
-     </page>
-
-   </form>
-   <form name="discrete_distributions">
-     <page number="1">
-       
-       <!-- Author(s) -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>creator</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Creator(s)</label>
-         <input-type>name</input-type>
-         <hint>Enter the name(s) of the creator(s) of this item.</hint>
-         <required>You must enter the creator of the item</required>
-       </field>
-       
-       <!-- Title -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>title</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Title</label>
-         <input-type>onebox</input-type>
-         <hint>Enter the main title of the item.</hint>
-         <required>You must enter a main title for this item.</required>
-       </field>
-       
-       <!-- DOI -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>identifier</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <label>DOI</label>
-         <input-type>onebox</input-type>
-         <hint>The item's digital object identifier code, if available.</hint>
-         <required></required>
-       </field>
-
-       <!-- Date -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>date</dc-element>
-         <dc-qualifier>issued</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Publication Date</label>
-         <input-type>date</input-type>
-         <visibility>workflow</visibility>
-         <hint>Please give the date of previous publication or public distribution.
-                        You can leave out the day and/or month if they aren't
-                        applicable.</hint>
-       </field>
-
-       <!-- Publisher -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>publisher</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Publisher</label>
-         <input-type>onebox</input-type>
-         <visibility>workflow</visibility>
-         <hint>Enter the name of the publisher of the previously issued instance of this item.</hint>
-         <required></required>
-       </field>
-       
-       <!-- Revision Date -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>date</dc-element>
-         <dc-qualifier>updated</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Revision Date</label>
-         <input-type>date</input-type>
-         <hint>Please give the date the item was last modified. You
-         can leave out the day and/or month if they aren't
-         applicable.</hint>
-         <required>You must choose a revision date.</required>
-       </field>
-
-       <!-- Subject -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>subject</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Subject(s)</label>
-         <input-type value-pairs-name="discrete_distributions_subjects">dropdown</input-type>
-         <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
-         <required>You must choose a subject.</required>
-       </field>
-       <!-- Subject Other -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>subject</dc-element>
-         <dc-qualifier>other</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Other Subject(s)</label>
-         <input-type>onebox</input-type>
-         <hint>If you choose 'Other' subject, please enter details here.</hint>
-         <required></required>
-       </field>
-
-       <!-- Abstract / Description -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>description</dc-element>
-         <dc-qualifier>abstract</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Description</label>
-         <input-type>textarea</input-type>
-         <hint>Enter the description of the item. </hint>
-         <required></required>
-       </field>
-
-       <!-- Audience level -->
-       <field>
-         <dc-schema>dcterms</dc-schema>
-         <dc-element>audience</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Audience Level</label>
-         <input-type value-pairs-name="statspace_audience">dropdown</input-type>
-         <required></required>
-       </field>
-       
-       <!-- Course taught in -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Course(s) taught in</label>
-         <input-type value-pairs-name="statspace_courses">dropdown</input-type>
-         <required></required>
-       </field>
-       <!-- Course Other -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Other Course(s)</label>
-         <input-type>onebox</input-type>
-         <hint>If you choose 'Other' course, please enter details here.</hint>
-         <required></required>
-       </field>
-     </page>
-
-   </form>
-   <form name="laws_theory">
-     <page number="1">
-       
-       <!-- Author(s) -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>creator</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Creator(s)</label>
-         <input-type>name</input-type>
-         <hint>Enter the name(s) of the creator(s) of this item.</hint>
-         <required>You must enter the creator of the item</required>
-       </field>
-       
-       <!-- Title -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>title</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Title</label>
-         <input-type>onebox</input-type>
-         <hint>Enter the main title of the item.</hint>
-         <required>You must enter a main title for this item.</required>
-       </field>
-       
-       <!-- DOI -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>identifier</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <label>DOI</label>
-         <input-type>onebox</input-type>
-         <hint>The item's digital object identifier code, if available.</hint>
-         <required></required>
-       </field>
-
-       <!-- Date -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>date</dc-element>
-         <dc-qualifier>issued</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Publication Date</label>
-         <input-type>date</input-type>
-         <visibility>workflow</visibility>
-         <hint>Please give the date of previous publication or public distribution.
-                        You can leave out the day and/or month if they aren't
-                        applicable.</hint>
-       </field>
-
-       <!-- Publisher -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>publisher</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Publisher</label>
-         <input-type>onebox</input-type>
-         <visibility>workflow</visibility>
-         <hint>Enter the name of the publisher of the previously issued instance of this item.</hint>
-         <required></required>
-       </field>
-       
-       <!-- Revision Date -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>date</dc-element>
-         <dc-qualifier>updated</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Revision Date</label>
-         <input-type>date</input-type>
-         <hint>Please give the date the item was last modified. You
-         can leave out the day and/or month if they aren't
-         applicable.</hint>
-         <required>You must choose a revision date.</required>
-       </field>
-
-       <!-- Subject -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>subject</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Subject(s)</label>
-         <input-type value-pairs-name="laws_theory_subjects">dropdown</input-type>
-         <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
-         <required>You must choose a subject.</required>
-       </field>
-       <!-- Subject Other -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>subject</dc-element>
-         <dc-qualifier>other</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Other Subject(s)</label>
-         <input-type>onebox</input-type>
-         <hint>If you choose 'Other' subject, please enter details here.</hint>
-         <required></required>
-       </field>
-
-       <!-- Abstract / Description -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>description</dc-element>
-         <dc-qualifier>abstract</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Description</label>
-         <input-type>textarea</input-type>
-         <hint>Enter the description of the item. </hint>
-         <required></required>
-       </field>
-
-       <!-- Audience level -->
-       <field>
-         <dc-schema>dcterms</dc-schema>
-         <dc-element>audience</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Audience Level</label>
-         <input-type value-pairs-name="statspace_audience">dropdown</input-type>
-         <required></required>
-       </field>
-       
-       <!-- Course taught in -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Course(s) taught in</label>
-         <input-type value-pairs-name="statspace_courses">dropdown</input-type>
-         <required></required>
-       </field>
-       <!-- Course Other -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Other Course(s)</label>
-         <input-type>onebox</input-type>
-         <hint>If you choose 'Other' course, please enter details here.</hint>
-         <required></required>
-       </field>
-     </page>
-
-   </form>
-   <form name="random_variables">
-     <page number="1">
-       
-       <!-- Author(s) -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>creator</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Creator(s)</label>
-         <input-type>name</input-type>
-         <hint>Enter the name(s) of the creator(s) of this item.</hint>
-         <required>You must enter the creator of the item</required>
-       </field>
-       
-       <!-- Title -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>title</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Title</label>
-         <input-type>onebox</input-type>
-         <hint>Enter the main title of the item.</hint>
-         <required>You must enter a main title for this item.</required>
-       </field>
-
-       <!-- Date -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>date</dc-element>
-         <dc-qualifier>issued</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Publication Date</label>
-         <input-type>date</input-type>
-         <visibility>workflow</visibility>
-         <hint>Please give the date of previous publication or public distribution.
-            You can leave out the day and/or month if they aren't
-                        applicable.</hint>
-       </field>
-
-       <!-- Publisher -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>publisher</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Publisher</label>
-         <input-type>onebox</input-type>
-         <visibility>workflow</visibility>
-         <hint>Enter the name of the publisher of the previously issued instance of this item.</hint>
-         <required></required>
-       </field>
-       
-       <!-- Revision Date -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>date</dc-element>
-         <dc-qualifier>updated</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Revision Date</label>
-         <input-type>date</input-type>
-         <hint>Please give the date the item was last modified. You
-         can leave out the day and/or month if they aren't
-         applicable.</hint>
-         <required>You must choose a revision date.</required>
-       </field>
-
-       <!-- Subject -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>subject</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Subject(s)</label>
-         <input-type value-pairs-name="random_variables_subjects">dropdown</input-type>
-         <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
-         <required>You must choose a subject.</required>
-       </field>
-       <!-- Subject Other -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>subject</dc-element>
-         <dc-qualifier>other</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Other Subject(s)</label>
-         <input-type>onebox</input-type>
-         <hint>If you choose 'Other' subject, please enter details here.</hint>
-         <required></required>
-       </field>
-
-       <!-- Abstract / Description -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>description</dc-element>
-         <dc-qualifier>abstract</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Description</label>
-         <input-type>textarea</input-type>
-         <hint>Enter the description of the item. </hint>
-         <required></required>
-       </field>
-
        <!--Learning Objectives -->  
        <field>
          <dc-schema>dc</dc-schema>
@@ -2377,10 +1511,21 @@
          <dc-element>audience</dc-element>
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
-         <label>Audience Level</label>
+         <label>Prerequisite Knowledge</label>
          <input-type value-pairs-name="statspace_audience">dropdown</input-type>
          <required></required>
        </field>
+         
+       <!-- Resource Type -->
+       <field>
+         <dc-schema>dcterms</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Resource Type</label>
+         <input-type value-pairs-name="resource_type">dropdown</input-type>
+         <required></required>
+       </field>  
        
        <!-- University Acronym -->
        <field>
@@ -2430,1044 +1575,6 @@
          <required></required>
        </field>
 
-     </page>
-
-</form>   
-   <form name="sample_space">
-     <page number="1">
-       
-       <!-- Author(s) -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>creator</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Creator(s)</label>
-         <input-type>name</input-type>
-         <hint>Enter the name(s) of the creator(s) of this item.</hint>
-         <required>You must enter the creator of the item</required>
-       </field>
-       
-       <!-- Title -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>title</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Title</label>
-         <input-type>onebox</input-type>
-         <hint>Enter the main title of the item.</hint>
-         <required>You must enter a main title for this item.</required>
-       </field>
-       
-       <!-- Date -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>date</dc-element>
-         <dc-qualifier>issued</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Publication Date</label>
-         <input-type>date</input-type>
-         <visibility>workflow</visibility>
-         <hint>Please give the date of previous publication or public distribution.
-                        You can leave out the day and/or month if they aren't
-                        applicable.</hint>
-       </field>
-
-       <!-- Publisher -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>publisher</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Publisher</label>
-         <input-type>onebox</input-type>
-         <visibility>workflow</visibility>
-         <hint>Enter the name of the publisher of the previously issued instance of this item.</hint>
-         <required></required>
-       </field>
-       
-       <!-- Revision Date -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>date</dc-element>
-         <dc-qualifier>updated</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Revision Date</label>
-         <input-type>date</input-type>
-         <hint>Please give the date the item was last modified. You
-         can leave out the day and/or month if they aren't
-         applicable.</hint>
-         <required>You must choose a revision date.</required>
-       </field>
-
-       <!-- Subject -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>subject</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Subject(s)</label>
-         <input-type value-pairs-name="sample_space_subjects">dropdown</input-type>
-         <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
-         <required>You must choose a subject.</required>
-       </field>
-       <!-- Subject Other -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>subject</dc-element>
-         <dc-qualifier>other</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Other Subject(s)</label>
-         <input-type>onebox</input-type>
-         <hint>If you choose 'Other' subject, please enter details here.</hint>
-         <required></required>
-       </field>
-
-       <!-- Abstract / Description -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>description</dc-element>
-         <dc-qualifier>abstract</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Description</label>
-         <input-type>textarea</input-type>
-         <hint>Enter the description of the item. </hint>
-         <required></required>
-       </field>
-
-       <!--Learning Objectives -->  
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Learning Objectives</label>
-         <input-type>textarea</input-type>
-         <hint>Enter the learning objectives of the item. </hint>
-         <required></required>
-       </field>
-
-       <!-- Audience level -->
-       <field>
-         <dc-schema>dcterms</dc-schema>
-         <dc-element>audience</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Audience Level</label>
-         <input-type value-pairs-name="statspace_audience">dropdown</input-type>
-         <required></required>
-       </field>
-       
-       <!-- University Acronym -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>University Acronym</label>
-         <input-type>onebox</input-type>
-         <hint>Ex: UBC</hint>
-         <required></required>
-       </field>
-         
-        <!-- Course Subject Acronym -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Course Subject</label>
-         <input-type>onebox</input-type>
-         <hint>Ex: STAT</hint>
-         <required></required>
-       </field>
-         
-        <!-- Course Number -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Course Number</label>
-         <input-type>onebox</input-type>
-         <hint>Ex: 112</hint>
-         <required></required>
-       </field>
-         
-         
-        <!-- DOI -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>identifier</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <label>DOI</label>
-         <input-type>onebox</input-type>
-         <hint>The item's digital object identifier code, if available.</hint>
-         <required></required>
-       </field>
-
-     </page>
-
-   </form> 
-   <form name="several_variables">
-     <page number="1">
-       
-       <!-- Author(s) -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>creator</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Creator(s)</label>
-         <input-type>name</input-type>
-         <hint>Enter the name(s) of the creator(s) of this item.</hint>
-         <required>You must enter the creator of the item</required>
-       </field>
-       
-       <!-- Title -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>title</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Title</label>
-         <input-type>onebox</input-type>
-         <hint>Enter the main title of the item.</hint>
-         <required>You must enter a main title for this item.</required>
-       </field>
-
-       <!-- Date -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>date</dc-element>
-         <dc-qualifier>issued</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Publication Date</label>
-         <input-type>date</input-type>
-         <visibility>workflow</visibility>
-         <hint>Please give the date of previous publication or public distribution.
-                        You can leave out the day and/or month if they aren't
-                        applicable.</hint>
-       </field>
-
-       <!-- Publisher -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>publisher</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Publisher</label>
-         <input-type>onebox</input-type>
-         <visibility>workflow</visibility>
-         <hint>Enter the name of the publisher of the previously issued instance of this item.</hint>
-         <required></required>
-       </field>
-       
-       <!-- Revision Date -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>date</dc-element>
-         <dc-qualifier>updated</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Revision Date</label>
-         <input-type>date</input-type>
-         <hint>Please give the date the item was last modified. You
-         can leave out the day and/or month if they aren't
-         applicable.</hint>
-         <required>You must choose a revision date.</required>
-       </field>
-
-       <!-- Subject -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>subject</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Subject(s)</label>
-         <input-type value-pairs-name="several_variables_subjects">dropdown</input-type>
-         <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
-         <required>You must choose a subject.</required>
-       </field>
-       <!-- Subject Other -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>subject</dc-element>
-         <dc-qualifier>other</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Other Subject(s)</label>
-         <input-type>onebox</input-type>
-         <hint>If you choose 'Other' subject, please enter details here.</hint>
-         <required></required>
-       </field>
-
-       <!-- Abstract / Description -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>description</dc-element>
-         <dc-qualifier>abstract</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Description</label>
-         <input-type>textarea</input-type>
-         <hint>Enter the description of the item. </hint>
-         <required></required>
-       </field>
-
-       <!--Learning Objectives -->  
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Learning Objectives</label>
-         <input-type>textarea</input-type>
-         <hint>Enter the learning objectives of the item. </hint>
-         <required></required>
-       </field>
-
-       <!-- Audience level -->
-       <field>
-         <dc-schema>dcterms</dc-schema>
-         <dc-element>audience</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Audience Level</label>
-         <input-type value-pairs-name="statspace_audience">dropdown</input-type>
-         <required></required>
-       </field>
-       
-       <!-- University Acronym -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>University Acronym</label>
-         <input-type>onebox</input-type>
-         <hint>This is Optional</hint>
-         <required></required>
-       </field>
-         
-        <!-- Course Subject -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Course Subject</label>
-         <input-type>onebox</input-type>
-         <hint>This is Optional</hint>
-         <required></required>
-       </field>
-         
-        <!-- Course Number -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Course Number</label>
-         <input-type>onebox</input-type>
-         <hint>This is Optional</hint>
-         <required></required>
-       </field>
-         
-         
-        <!-- DOI -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>identifier</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <label>DOI</label>
-         <input-type>onebox</input-type>
-         <hint>The item's digital object identifier code, if available.</hint>
-         <required></required>
-       </field>
-
-     </page>
-
-   </form>
-   <form name="stochastic_process">
-     <page number="1">
-       
-       <!-- Author(s) -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>creator</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Creator(s)</label>
-         <input-type>name</input-type>
-         <hint>Enter the name(s) of the creator(s) of this item.</hint>
-         <required>You must enter the creator of the item</required>
-       </field>
-       
-       <!-- Title -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>title</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Title</label>
-         <input-type>onebox</input-type>
-         <hint>Enter the main title of the item.</hint>
-         <required>You must enter a main title for this item.</required>
-       </field>
-       
-       <!-- Date -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>date</dc-element>
-         <dc-qualifier>issued</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Publication Date</label>
-         <input-type>date</input-type>
-         <visibility>workflow</visibility>
-         <hint>Please give the date of previous publication or public distribution.
-                        You can leave out the day and/or month if they aren't
-                        applicable.</hint>
-       </field>
-
-       <!-- Publisher -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>publisher</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Publisher</label>
-         <input-type>onebox</input-type>
-         <visibility>workflow</visibility>
-         <hint>Enter the name of the publisher of the previously issued instance of this item.</hint>
-         <required></required>
-       </field>
-       
-       <!-- Revision Date -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>date</dc-element>
-         <dc-qualifier>updated</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Revision Date</label>
-         <input-type>date</input-type>
-         <hint>Please give the date the item was last modified. You
-         can leave out the day and/or month if they aren't
-         applicable.</hint>
-         <required>You must choose a revision date.</required>
-       </field>
-
-       <!-- Subject -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>subject</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Subject(s)</label>
-         <input-type value-pairs-name="stochastic_process_subjects">dropdown</input-type>
-         <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
-         <required>You must choose a subject.</required>
-       </field>
-       <!-- Subject Other -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>subject</dc-element>
-         <dc-qualifier>other</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Other Subject(s)</label>
-         <input-type>onebox</input-type>
-         <hint>If you choose 'Other' subject, please enter details here.</hint>
-         <required></required>
-       </field>
-
-       <!-- Abstract / Description -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>description</dc-element>
-         <dc-qualifier>abstract</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Description</label>
-         <input-type>textarea</input-type>
-         <hint>Enter the description of the item. </hint>
-         <required></required>
-       </field>
-
-       <!--Learning Objectives -->  
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Learning Objectives</label>
-         <input-type>textarea</input-type>
-         <hint>Enter the learning objectives of the item. </hint>
-         <required></required>
-       </field>
-
-       <!-- Audience level -->
-       <field>
-         <dc-schema>dcterms</dc-schema>
-         <dc-element>audience</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Audience Level</label>
-         <input-type value-pairs-name="statspace_audience">dropdown</input-type>
-         <required></required>
-       </field>
-       
-       <!-- University Acronym -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>University Acronym</label>
-         <input-type>onebox</input-type>
-         <hint>This is Optional</hint>
-         <required></required>
-       </field>
-         
-        <!-- Course Subject -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Course Subject</label>
-         <input-type>onebox</input-type>
-         <hint>This is Optional</hint>
-         <required></required>
-       </field>
-         
-        <!-- Course Number -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Course Number</label>
-         <input-type>onebox</input-type>
-         <hint>This is Optional</hint>
-         <required></required>
-       </field>
-         
-         
-        <!-- DOI -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>identifier</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <label>DOI</label>
-         <input-type>onebox</input-type>
-         <hint>The item's digital object identifier code, if available.</hint>
-         <required></required>
-       </field>
-
-     </page>
-
-   </form>
- <!-- Regression                                                           -->    
-   <form name="generalized_linear">
-     <page number="1">
-       
-       <!-- Author(s) -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>creator</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Creator(s)</label>
-         <input-type>name</input-type>
-         <hint>Enter the name(s) of the creator(s) of this item.</hint>
-         <required>You must enter the creator of the item</required>
-       </field>
-       
-       <!-- Title -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>title</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Title</label>
-         <input-type>onebox</input-type>
-         <hint>Enter the main title of the item.</hint>
-         <required>You must enter a main title for this item.</required>
-       </field>
-       
-       <!-- Date -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>date</dc-element>
-         <dc-qualifier>issued</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Publication Date</label>
-         <input-type>date</input-type>
-         <visibility>workflow</visibility>
-         <hint>Please give the date of previous publication or public distribution.
-                        You can leave out the day and/or month if they aren't
-                        applicable.</hint>
-       </field>
-
-       <!-- Publisher -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>publisher</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Publisher</label>
-         <input-type>onebox</input-type>
-         <visibility>workflow</visibility>
-         <hint>Enter the name of the publisher of the previously issued instance of this item.</hint>
-         <required></required>
-       </field>
-       
-       <!-- Revision Date -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>date</dc-element>
-         <dc-qualifier>updated</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Revision Date</label>
-         <input-type>date</input-type>
-         <hint>Please give the date the item was last modified. You
-         can leave out the day and/or month if they aren't
-         applicable.</hint>
-         <required>You must choose a revision date.</required>
-       </field>
-
-       <!-- Subject -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>subject</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Subject(s)</label>
-         <input-type value-pairs-name="generalized_linear_subjects">dropdown</input-type>
-         <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
-         <required>You must choose a subject.</required>
-       </field>
-       <!-- Subject Other -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>subject</dc-element>
-         <dc-qualifier>other</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Other Subject(s)</label>
-         <input-type>onebox</input-type>
-         <hint>If you choose 'Other' subject, please enter details here.</hint>
-         <required></required>
-       </field>
-
-       <!--Learning Objectives -->  
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Learning Objectives</label>
-         <input-type>textarea</input-type>
-         <hint>Enter the learning objectives of the item. </hint>
-         <required></required>
-       </field>
-
-       <!-- Audience level -->
-       <field>
-         <dc-schema>dcterms</dc-schema>
-         <dc-element>audience</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Audience Level</label>
-         <input-type value-pairs-name="statspace_audience">dropdown</input-type>
-         <required></required>
-       </field>
-       
-       <!-- University Acronym -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>University Acronym</label>
-         <input-type>onebox</input-type>
-         <hint>This is Optional</hint>
-         <required></required>
-       </field>
-         
-        <!-- Course Subject -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Course Subject</label>
-         <input-type>onebox</input-type>
-         <hint>This is Optional</hint>
-         <required></required>
-       </field>
-         
-        <!-- Course Number -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Course Number</label>
-         <input-type>onebox</input-type>
-         <hint>This is Optional</hint>
-         <required></required>
-       </field>
-         
-         
-        <!-- DOI -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>identifier</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <label>DOI</label>
-         <input-type>onebox</input-type>
-         <hint>The item's digital object identifier code, if available.</hint>
-         <required></required>
-       </field>
-
-     </page>
-
-   </form>
-   <form name="multiple_regression">
-     <page number="1">
-       
-       <!-- Author(s) -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>creator</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Creator(s)</label>
-         <input-type>name</input-type>
-         <hint>Enter the name(s) of the creator(s) of this item.</hint>
-         <required>You must enter the creator of the item</required>
-       </field>
-       
-       <!-- Title -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>title</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Title</label>
-         <input-type>onebox</input-type>
-         <hint>Enter the main title of the item.</hint>
-         <required>You must enter a main title for this item.</required>
-       </field>
-       
-       <!-- Date -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>date</dc-element>
-         <dc-qualifier>issued</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Publication Date</label>
-         <input-type>date</input-type>
-         <visibility>workflow</visibility>
-         <hint>Please give the date of previous publication or public distribution.
-                        You can leave out the day and/or month if they aren't
-                        applicable.</hint>
-       </field>
-
-       <!-- Publisher -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>publisher</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Publisher</label>
-         <input-type>onebox</input-type>
-         <visibility>workflow</visibility>
-         <hint>Enter the name of the publisher of the previously issued instance of this item.</hint>
-         <required></required>
-       </field>
-       
-       <!-- Revision Date -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>date</dc-element>
-         <dc-qualifier>updated</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Revision Date</label>
-         <input-type>date</input-type>
-         <hint>Please give the date the item was last modified. You
-         can leave out the day and/or month if they aren't
-         applicable.</hint>
-         <required>You must choose a revision date.</required>
-       </field>
-
-       <!-- Subject -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>subject</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Subject(s)</label>
-         <input-type value-pairs-name="multiple_regression_subjects">dropdown</input-type>
-         <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
-         <required>You must choose a subject.</required>
-       </field>
-       <!-- Subject Other -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>subject</dc-element>
-         <dc-qualifier>other</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Other Subject(s)</label>
-         <input-type>onebox</input-type>
-         <hint>If you choose 'Other' subject, please enter details here.</hint>
-         <required></required>
-       </field>
-
-       <!--Learning Objectives -->  
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Learning Objectives</label>
-         <input-type>textarea</input-type>
-         <hint>Enter the learning objectives of the item. </hint>
-         <required></required>
-       </field>
-
-       <!-- Audience level -->
-       <field>
-         <dc-schema>dcterms</dc-schema>
-         <dc-element>audience</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Audience Level</label>
-         <input-type value-pairs-name="statspace_audience">dropdown</input-type>
-         <required></required>
-       </field>
-       
-       <!-- University Acronym -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>University Acronym</label>
-         <input-type>onebox</input-type>
-         <hint>This is Optional</hint>
-         <required></required>
-       </field>
-         
-        <!-- Course Subject -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Course Subject</label>
-         <input-type>onebox</input-type>
-         <hint>This is Optional</hint>
-         <required></required>
-       </field>
-         
-        <!-- Course Number -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Course Number</label>
-         <input-type>onebox</input-type>
-         <hint>This is Optional</hint>
-         <required></required>
-       </field>
-         
-         
-        <!-- DOI -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>identifier</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <label>DOI</label>
-         <input-type>onebox</input-type>
-         <hint>The item's digital object identifier code, if available.</hint>
-         <required></required>
-       </field>
-
-     </page>
-
-   </form>
-   <form name="nonlinear_regression">
-     <page number="1">
-       
-       <!-- Author(s) -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>creator</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Creator(s)</label>
-         <input-type>name</input-type>
-         <hint>Enter the name(s) of the creator(s) of this item.</hint>
-         <required>You must enter the creator of the item</required>
-       </field>
-       
-       <!-- Title -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>title</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Title</label>
-         <input-type>onebox</input-type>
-         <hint>Enter the main title of the item.</hint>
-         <required>You must enter a main title for this item.</required>
-       </field>
-       
-       <!-- Date -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>date</dc-element>
-         <dc-qualifier>issued</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Publication Date</label>
-         <input-type>date</input-type>
-         <visibility>workflow</visibility>
-         <hint>Please give the date of previous publication or public distribution.
-                        You can leave out the day and/or month if they aren't
-                        applicable.</hint>
-       </field>
-
-       <!-- Publisher -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>publisher</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Publisher</label>
-         <input-type>onebox</input-type>
-         <visibility>workflow</visibility>
-         <hint>Enter the name of the publisher of the previously issued instance of this item.</hint>
-         <required></required>
-       </field>
-       
-       <!-- Revision Date -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>date</dc-element>
-         <dc-qualifier>updated</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Revision Date</label>
-         <input-type>date</input-type>
-         <hint>Please give the date the item was last modified. You
-         can leave out the day and/or month if they aren't
-         applicable.</hint>
-         <required>You must choose a revision date.</required>
-       </field>
-
-       <!-- Subject -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>subject</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Subject(s)</label>
-         <input-type value-pairs-name="nonlinear_regression_subjects">dropdown</input-type>
-         <hint>Select the subject of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).  If the subject does not appear in the list, please select 'Other'.</hint>
-         <required>You must choose a subject.</required>
-       </field>
-       <!-- Subject Other -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>subject</dc-element>
-         <dc-qualifier>other</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Other Subject(s)</label>
-         <input-type>onebox</input-type>
-         <hint>If you choose 'Other' subject, please enter details here.</hint>
-         <required></required>
-       </field>
-
-       <!-- Abstract / Description -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>description</dc-element>
-         <dc-qualifier>abstract</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Description</label>
-         <input-type>textarea</input-type>
-         <hint>Enter the description of the item. </hint>
-         <required></required>
-       </field>
-
-       <!--Learning Objectives -->  
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Learning Objectives</label>
-         <input-type>textarea</input-type>
-         <hint>Enter the learning objectives of the item. </hint>
-         <required></required>
-       </field>
-
-       <!-- Audience level -->
-       <field>
-         <dc-schema>dcterms</dc-schema>
-         <dc-element>audience</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Audience Level</label>
-         <input-type value-pairs-name="statspace_audience">dropdown</input-type>
-         <required></required>
-       </field>
-       
-       <!-- University Acronym -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>University Acronym</label>
-         <input-type>onebox</input-type>
-         <hint>This is Optional</hint>
-         <required></required>
-       </field>
-         
-        <!-- Course Subject -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Course Subject</label>
-         <input-type>onebox</input-type>
-         <hint>This is Optional</hint>
-         <required></required>
-       </field>
-         
-        <!-- Course Number -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Course Number</label>
-         <input-type>onebox</input-type>
-         <hint>This is Optional</hint>
-         <required></required>
-       </field>
-         
-         
-        <!-- DOI -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>identifier</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <label>DOI</label>
-         <input-type>onebox</input-type>
-         <hint>The item's digital object identifier code, if available.</hint>
-         <required></required>
-       </field>
 
      </page>
 
@@ -3593,10 +1700,21 @@
          <dc-element>audience</dc-element>
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
-         <label>Audience Level</label>
+         <label>Prerequisite Knowledge</label>
          <input-type value-pairs-name="statspace_audience">dropdown</input-type>
          <required></required>
        </field>
+         
+       <!-- Resource Type -->
+       <field>
+         <dc-schema>dcterms</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>ispartof</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Resource Type</label>
+         <input-type value-pairs-name="resource_type">dropdown</input-type>
+         <required></required>
+       </field>  
        
        <!-- University Acronym -->
        <field>
@@ -4371,6 +2489,57 @@
        <stored-value>Undergraduate</stored-value>
      </pair>
    </value-pairs>
+   <value-pairs value-pairs-name="resource_type" dc-term="relation">
+     <pair>
+       <displayed-value>Activities</displayed-value>
+       <stored-value>Activities</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Lecture Slides</displayed-value>
+       <stored-value>Lecture_Slides</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Notes</displayed-value>
+       <stored-value>Notes</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Videos</displayed-value>
+       <stored-value>Videos</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Pencast</displayed-value>
+       <stored-value>Pencast</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Web Visualization (Applet)</displayed-value>
+       <stored-value>Web_Visualization_Applet</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Questions (Exams/Homework)</displayed-value>
+       <stored-value>Questions_Exams_Homework</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Questions (Personal Response/Clickers)</displayed-value>
+       <stored-value>Questions_Personal_Clickers</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Audiofile</displayed-value>
+       <stored-value>Audiofile</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>WeBWork</displayed-value>
+       <stored-value>WeBWork</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Case Studies</displayed-value>
+       <stored-value>Case_Studies</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Other</displayed-value>
+       <stored-value>Other</stored-value>
+     </pair>
+   </value-pairs>
+
    <value-pairs value-pairs-name="statspace_courses" dc-term="relation">
      <pair>
        <displayed-value>STAT 200</displayed-value>
