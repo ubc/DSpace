@@ -51,22 +51,24 @@
 
 	<div class="row">  
 	    <div class="col-md-8">
-	    
-		<h1>WeBWorK Questions</h1>
+
+		<h1>WeBWorK</h1>
+		<p class="text-muted contributors">Contributor(s): <a href="mailto:">Jane Doe</a>, <a href="mailto:">John Doe</a></p>
 		
 		<div class="row description">
-		    <div class="col-md-12">
-			
-			<i class="glyphicon glyphicon-sort-by-order data-icon pull-left"></i>
-			
-			<p class="intro-text">WeBWorK is a free on-line individualized assessment tool that provides students with automatic feedback on their work and is used at over 700 institutions globally. Faculty members at UBC have enhanced WeBWorK by incorporating R functionality and have created over 200 WeBWorK questions for use in introductory statistics courses.  All questions are available in WeBWorK's Open Problem Library. Details of a sample of these questions can be found here.</p>
-			
-			<p class="text-center access-btn"><a class="btn btn-success btn-md">Access Resource</a></p>
-		  
+		    
+			 <div class="col-md-4">
+			<img class="pull-left" src="https://pbs.twimg.com/profile_images/1476325229/webwork_square_400x400.png"  width="175">
+			</div>
+            
+            <div class="col-md-8">
+			<p class="intro-text">WeBWorK is an open-source online homework system primarily for math problems.</p>
+		  <p class="text-center access-btn"><a target="_blank" href="https://webwork.elearning.ubc.ca/webwork2/" class="btn btn-success btn-md">Access Resource</a></p>
+            </div>
 		    </div>
 		</div> 
 	    
-	    </div>
+	    
 	    
 	    <div class="col-md-4 value-prop">
 	    
@@ -94,6 +96,8 @@
 	    </div>			
 	</div>
 	
+        
+        
 	<div class="row">
 	    <div class="col-md-12">
 		<div class="divider"></div>
@@ -102,31 +106,33 @@
 	
 	<div class="row details">
 	    <div class="col-md-8">
-		<h2>Prerequisite knowledge</h2>
-		<p>TEXT FROM BRUCE THAT HE WILL SUPPLY WHEN HE SEES HOW THIS LOOKS ON STATSPACE</p>
-		
-		<h2>Learning Objectives</h2>
-		<ul>
-            <p>TEXT FROM BRUCE THAT HE WILL SUPPLY WHEN HE SEES HOW THIS LOOKS ON STATSPACE</p>
-        </ul>
-        <h3>About this resource</h3>
-        <ul>
-            <p>TEXT FROM BRUCE THAT HE WILL SUPPLY WHEN HE SEES HOW THIS LOOKS ON STATSPACE</p>
-		</ul>
+
+		<h2>About Webwork</h2>
+		<p>WeBWorK is a free on-line individualized assessment tool that provides students with automatic feedback on their work and is used at over 700 institutions globally... Faculty members at UBC have enhanced WeBWorK by incorporating R functionality and have created over 200 WeBWorK questions for use in introductory statistics courses.  All questions are available in WeBWorK's Open Problem Library. Details of a sample of these questions can be found here.</p>
+            
+            <h2>General Information</h2>
+            <ul>
+            <li><a href="http://wiki.ubc.ca/Documentation:WeBWorK">Everything you need to know about setting up your webwork environment<span class="glyphicon glyphicon-new-window"></span></a></li>
+            <li>Link to Bruce's document</li>
+            </ul>
 		
 		<h2>Suggested uses</h2>
 		<ul>
-		    <li>TEXT FROM BRUCE THAT HE WILL SUPPLY WHEN HE SEES HOW THIS LOOKS ON STATSPACE</li>
+		    <li>Questions can be created by instructors or taken from a online bank of questions on the topic at hand</li>
+		    <li>Students can be given limited attempts to answer the questions, this is so that the instructor can test the student's understanding of the material</li>
 		</ul>
+            
             
 		<h2>Complementary materials</h2>
         <p>For sample questions, please see the following.</p>
 		<ul>
-		    
+            
             <li><a href="/wwecon325h6additionalQ1.jsp">WeBWorK Question ECON 325 HW6 additional Q1 <span class="glyphicon glyphicon-new-window"></span></a></li>
             <li><a href="/wwstat200revisedlinguisticsQ9.jsp">WeBWorK Question STAT 200 revised2016/Linguistics Question Q9 <span class="glyphicon glyphicon-new-window"></span></a></li>
             <li><a href="/wwstat300hw6Q1.jsp">WeBWorK Question STAT 300 HW6 Question Q1<span class="glyphicon glyphicon-new-window"></span></a></li>
 		</ul>
+            
+            
 	    </div>
 	    
 	    <div class="col-md-4 tags">
@@ -136,21 +142,22 @@
 			<h3 class="panel-title"><i class="glyphicon glyphicon-tag"></i> Tags</h3>
 		    </div>
 		    <div class="panel-body">
-			<p><strong>DBsubject:</strong> Statistics<br>
-			<strong>DBChapter:</strong> Hypothesis Testing<br>
-			<strong>DBSection:</strong>One-way ANOVA</p>
+			<p><strong>Tag1:</strong><br>
+			<strong>Tag2:</strong><br>
+			<strong>Tag3:</strong></p>
 		    </div>
 		</div>
 	      
 		<div class="panel panel-default">
 		    <div class="panel-heading">
-			<h3 class="panel-title"><i class="glyphicon glyphicon-link"></i> Related materials</h3>
+			<h3 class="panel-title"><i class="glyphicon glyphicon-link"></i> Related Links</h3>
 		    </div>
 		    <div class="panel-body">
 			<ul>
-			    <li><a href="">Linked Title of External Resource <span class="glyphicon glyphicon-new-window"></span></a></li>
-                <li><a href="">Linked Title of External Resource <span class="glyphicon glyphicon-new-window"></span></a></li>
-                <li><a href="">Linked Title of External Resource <span class="glyphicon glyphicon-new-window"></span></a></li>
+			    <li><a href="http://webwork.maa.org/">Mathematical Association of America <span class="glyphicon glyphicon-new-window"></span></a></li>
+                <li><a href="http://wiki.ubc.ca/Documentation:WeBWorK">Wiki Guides to WebWork <span class="glyphicon glyphicon-new-window"></span></a></li>
+                <li><a href="">Article<span class="glyphicon glyphicon-new-window"></span></a></li>
+                <li><a href="">Questions<span class="glyphicon glyphicon-new-window"></span></a></li>
 		      </ul>
 		    </div>
 		</div>
