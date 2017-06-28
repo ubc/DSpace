@@ -51,7 +51,6 @@
 
 	<div class="row">  
 	    <div class="col-md-8">
-
 		<h1>WeBWorK</h1>
 		<p class="text-muted contributors">Contributor(s): <a href="mailto:">Jane Doe</a>, <a href="mailto:">John Doe</a></p>
 		
@@ -67,7 +66,6 @@
             </div>
 		    </div>
 		</div> 
-	    
 	    
 	    
 	    <div class="col-md-4 value-prop">
@@ -96,8 +94,6 @@
 	    </div>			
 	</div>
 	
-        
-        
 	<div class="row">
 	    <div class="col-md-12">
 		<div class="divider"></div>
@@ -126,17 +122,14 @@
 		<h2>Complementary materials</h2>
         <p>For sample questions, please see the following.</p>
 		<ul>
-            
             <li><a href="/wwecon325h6additionalQ1.jsp">WeBWorK Question ECON 325 HW6 additional Q1 <span class="glyphicon glyphicon-new-window"></span></a></li>
             <li><a href="/wwstat200revisedlinguisticsQ9.jsp">WeBWorK Question STAT 200 revised2016/Linguistics Question Q9 <span class="glyphicon glyphicon-new-window"></span></a></li>
             <li><a href="/wwstat300hw6Q1.jsp">WeBWorK Question STAT 300 HW6 Question Q1<span class="glyphicon glyphicon-new-window"></span></a></li>
-		</ul>
-            
-            
+		</ul>            
 	    </div>
 	    
 	    <div class="col-md-4 tags">
-	    
+            
 		<div class="panel panel-default">
 		    <div class="panel-heading">
 			<h3 class="panel-title"><i class="glyphicon glyphicon-tag"></i> Tags</h3>
