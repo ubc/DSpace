@@ -184,10 +184,10 @@
 	    <div class="col-md-4 text-center">
 		<h4>WeBWork Questions</h4>
 		<div class="thumbnail">
-		    <i class="glyphicon glyphicon-sort-by-order data-icon"></i>
+		    <img align="top" src="https://pbs.twimg.com/profile_images/1476325229/webwork_square_400x400.png" class="sim-image" width="175">
 		    <div class="caption">
-			<h5>WeBWorK Question STAT 300 HW6 Question Q1</h5>
-			<p class="text-left"><strong>About:</strong> This data set contains the winning numbers from the Florida Lottery (through the end of 2008), as reported by the state lottery <!--... &nbsp;<a href="">Show <span class="glyphicon glyphicon-chevron-down"></span></a>--> commission. Note that from its inception through 23 October 1999, the lottery was "pick 6 of 49." Thereafter, it was a "pick 6 of 53" lottery.</p>
+			<h5>WeBWorK Web Application</h5>
+			<p class="text-left"><strong>About:</strong> WeBWorK is a free on-line individualized assessment tool that provides students with automatic feedback on their work and is used at over 700 institutions globally... </p>
 			<p class="text-left"><strong>Assessment Method:</strong> Method Type</p>
 			<p class="text-left"><strong>Topics:</strong> Topic One, Topic Two, Topic Three</p> 
 			<p class="see-more"><a href="/WebWork_Questions.jsp" class="btn btn-primary">Read more &raquo;</a></p>
