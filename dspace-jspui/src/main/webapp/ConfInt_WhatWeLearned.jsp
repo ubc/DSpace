@@ -47,12 +47,12 @@
 <dspace:layout locbar="nolink" titlekey="jsp.about.title" feedData="<%= feedData %>">
 
     <div class="example">
-        <p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/video-example.jsp">Video Example</a> <span class="text-muted">&raquo;</span> <a href="/WV-ConfidenceIntervals.jsp">Web Visualization: Confidence Intervals of the Mean</a> <span class="text-muted">&raquo; What We Learned</span></p>
+        <p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/sim-example.jsp">Simulation Example</a> <span class="text-muted">&raquo;</span> <a href="/WV-ConfidenceIntervals.jsp">Web Visualization: Confidence Intervals of the Mean</a> <span class="text-muted">&raquo; What We Learned</span></p>
 
 	<div class="row">  
 	    <div class="col-md-8">
-	    
-		<h1>What We Learned</h1>
+        <h1>Web Visualization: Confidence intervals of the mean</h1>
+		<h2>What We Learned</h2>
 		<div class="row descriptions">
 	       <div class="col-md-12">
                   <p>Students often have trouble interpreting confidence intervals and often have some misconceptions. For instance, many students believe, for the same data and parameter of interest, a 90% confidence interval is wider than a 95% confidence interval. This visualization was designed to help mitigate some common misconceptions with confidence intervals.</p>
@@ -87,8 +87,8 @@
 		      <div class="divider"></div>
 	           </div>
 	        </div>
-           <h1>How We Learned</h1> 
-            <p>In the Fall of 2015, we conducted a pilot study to understand how students interact with the resource. We selected six students from an introductory statistics course for second year students in a variety of majors in the Faculty of Science. During 50-minute long individual interviews, each student was exposed to two web visualizations, first the “Sampling from a Normally Distributed Population” and then the “Confidence Intervals of the Mean” web visualization, during 50-minute long interviews. Students were asked to “think-aloud” while exploring the applets. To probe student understanding, we asked questions at the beginning and end of the interviews. The post-questions were taken from the NSF-funded Web ARTIST project.</p>
+           <h2>How We Learned</h2> 
+            <p>In the Fall of 2015, we conducted a pilot study to understand how students interact with the resource. We selected six students from an introductory statistics course for second year students in a variety of majors in the Faculty of Science. During 50-minute long individual interviews, each student was exposed to two web visualizations, first the “Sampling from a Normally Distributed Population” and then the “Confidence Intervals of the Mean” web visualization. Students were asked to “think-aloud” while exploring the applets. To probe student understanding, we asked questions at the beginning and end of the interviews. The post-questions were taken from the NSF-funded Web ARTIST project.</p>
             <p>We then implemented some changes based on what we saw, and conducted a second set of interviews in January 2016. The students were registered in an introductory statistics course intended for third year biology majors. These interviews followed the same format as the first set (pre-questions, “think-aloud” exploration, post questions). However students were given only one of the two visualizations to allow for more time during the interviews. Four students were selected to try the “Confidence Intervals” web visualization.</p>
             
             
