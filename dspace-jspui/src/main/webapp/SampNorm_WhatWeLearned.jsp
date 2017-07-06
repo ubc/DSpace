@@ -51,8 +51,8 @@
 
 	<div class="row">  
 	    <div class="col-md-8">
-	    
-		<h1>What We Learned</h1>
+        <h1>Web Visualization: Sampling from a Normal distribution</h1>
+		<h2>What We Learned</h2>
 		<div class="row descriptions">
 	       <div class="col-md-12">
                <p>The sampling distribution is a complex concept.  For instance, from our teaching, we have found that students often confuse the histogram of values from a random sample and the histogram of sample means from many random samples.  They often confuse the sample standard deviation and the standard error of the mean.  This visualization was carefully designed to reduce that confusion.</p>
@@ -76,7 +76,7 @@
                    <li>Students should be required to use the resource “Sampling from a Normally distributed population” before using later animations (Confidence Intervals and Central Limit Theorem).   From our interviews, we found students who interacted with the Sampling from Normal resource prior to the CLT or Confidence Interval web visualization had a better understanding of how the samples are drawn and what the population mean represents with respect to the example. Students using only the Confidence Interval applet during our second set of interviews requested more explanation about the population mean and standard deviation at the end of the tutorial, suggesting they did not understand the basic premise of the simulation.</li>
                </ul>
                
-               <h1>How We Learned</h1>
+               <h2>How We Learned</h2>
                
                <p>In the Fall of 2015, we conducted a pilot study to understand how students interact with the resource.  We selected six students from an introductory statistics course for second year students in a variety of majors in the Faculty of Science.  During 50-minute long individual interviews, each student was exposed to two web visualizations, first the “Sampling from a Normally distributed population” and then the “Confidence intervals of the mean” web visualization. Students were asked to “think-aloud” while exploring the visualizations.  To probe student understanding, we asked questions at the beginning and end of the interviews.  The post-questions were taken from the NSF-funded Web ARTIST project.</p>
                

@@ -53,7 +53,6 @@
 	    <div class="col-md-8">
 	    
 		<h1>Video: Sampling distribution of the mean</h1>
-		<p class="text-muted contributors">Contributor(s): <a href="mailto:">Jane Doe</a>, <a href="mailto:">John Doe</a></p>
 		
             <div class="row description">
                 <div class="col-md-12">
@@ -62,7 +61,7 @@
 			
                 <p class="intro-text">This video gives students a brief and simplified overview of statistics. This resource is especially useful for those outside of math-heavy disciplines to get a high-level understanding of statistics without the overwhelm typically associated introductory videos.</p>
 			
-                <p class="text-center access-btn"><a class="btn btn-success btn-md">Access Resource</a></p>
+                <p class="text-center access-btn"><a class="btn btn-success btn-md" href="https://vimeo.com/196027417">Access Resource</a></p>
 		  
                 </div>
             </div> 
@@ -103,60 +102,58 @@
 	
 	<div class="row details">
 	    <div class="col-md-8">
-		<h2>Intended audience</h2>
-		<p>Students using this visualization should&colon;</p>
+		<h2>Prerequisite Knowledge</h2>
+		<p>Students using this visualization should</p>
         <ul>
-            <li>Be able to identify and distinguish between a population and a sample, and between parameters and statistics</li>
-            <li>Be familiar with methods of summarizing data sets, such as mean, standard deviation and histograms</li>
-            <li>Be able to recognize probability models as distributions with shape, centre, and spread particularly the Normal distribution</li>
+            <li>be able to identify and distinguish between a population and a sample, and between parameters and statistics;</li>
+            <li>be familiar with methods of summarizing data sets, such as mean, standard deviation and histograms;</li>
+            <li>be able to recognize probability models as distributions with shape, centre, and spread particularly the Normal distribution.</li>
         </ul>
-		<h2>Learning outcomes</h2>
+		<h2>Learning Objectives</h2>
 		<ul>
-            <li>Explain the concepts of sampling variability and sampling distribution</li>
-            <li>Describe properties of the sampling distribution of the sample mean when the sample size is large</li>
-            <li>Calculate the standard error of a sample mean</li>
-            <li>Explain how the sample size influences the sampling distribution of the mean</li>
-            <li>Distinguish between the sampling distribution of the mean and the distribution of a sample of n observations</li>
+            <li>Explain the concepts of sampling variability and sampling distribution.</li>
+            <li>Describe properties of the sampling distribution of the sample mean when the sample size is large.</li>
+            <li>Calculate the standard error of a sample mean.</li>
+            <li>Explain how the sample size influences the sampling distribution of the mean.</li>
+            <li>Distinguish between the sampling distribution of the mean and the distribution of a sample of n observations.</li>
 		</ul>
 		
 		<h2>Suggested uses</h2>
 		<ul>
-            <li>Before class&colon; Students watch the video before class, giving them the flexibility to engage with the video in the way that suits them      (pausing, rewinding). Students are primed for class and lecture time can be spent applying that knowledge in engaging and collaborative ways.</li>
-            <li>After class&colon; The students can watch the video after they have learned the material in lecture. The video could be used as a refresher of the material before an exam or to review concepts they didn’t understand in class.</li>
+            <li>Before class, students watch the video before class, giving them the flexibility to engage with the video in the way that suits them (pausing, rewinding). Students are primed for class and lecture time can be spent applying that knowledge in engaging and collaborative ways.</li>
+            <li>After class, the students can watch the video after they have learned the material in lecture. The video could be used as a refresher of the material before an exam or to review concepts they didn’t understand in class.</li>
 		</ul>
 		
 		<h2>Complementary materials</h2>
 		<ul>
-            <li><i>Eugenia's Clicker Questions</i></li>
+            <li><a href="/video-example.jsp"><i>Eugenia's Clicker Questions <span class="glyphicon glyphicon-new-window"></span></i></a></li>
             <li>Activity: Introducing the sampling distribution (French protest)</li>
-            <li><a href="/WV-ChiSquarecontingencyanalysis.jsp">Web Visualization: Chi-sqare contingency analysis<span class="glyphicon glyphicon-new-window"></span></a></li>
-            <li><a href="/WV-ConfidenceIntervals.jsp">Web visualization: Confidence intervals of the mean<span class="glyphicon glyphicon-new-window"></span></a></li>
-		    <li><a href="http://www.zoology.ubc.ca/~whitlock/kingfisher/SamplingNormal.htm">Web visualization: Sampling from a Normally distributed population <span class="glyphicon glyphicon-new-window"></span></a></li>
-            <li><a target="_blank" href="http://www.zoology.ubc.ca/~whitlock/kingfisher/CLT.htm">Interactive Online Visualization: Sampling From a Non-Normally Distributed Population <span class="glyphicon glyphicon-new-window"></span></a> </li>
+            <li><a href="/LP-VideoCIs.jsp">Video: Confidence Interval for a Population Mean <span class="glyphicon glyphicon-new-window"></span></a></li>
+            <li><a href="/LP-VideoOne-Sample-T-Test.jsp">Video: One Sample T-Test <span class="glyphicon glyphicon-new-window"></span></a></li>
 		</ul>
         
              <h2>About this Resource</h2>
 		<ul>
             <p>
-            <strong>Written by </strong>Mike Marin, Zachary Rothman, Stephen Gillis<br>
-            <strong>Performed by </strong>Mike Marin<br>
-            <strong>Puppets Built and Performed </strong>Dusty Hagerud<br>
-            <strong>Production Design </strong>Enigma Arcana<br>
-            <strong>Origami Design and Conceptual Drawings </strong>Jelena Sihvonen<br>
-            <strong>Camera </strong>Paul Milaire, Zachary Rothman, Stephen Gillis<br>
-            <strong>Editing </strong>Stephen Gillis<br>
-            <strong>Visual Effects </strong>Paul Milaire<br>
-            <strong>Audio Edit and Mix </strong>Stephen Gillis, Cornelius Wolinsky<br>
-            <strong>UBC Intro Stats Project Team </strong>Mike Marin, Nancy Heckman, Bruce Dunham,Eugenia Yu, Melissa Lee, Michael Whitlock, Gaitri Yapa, Fred Cutler, Andrew Owen,Diana Whistler, Andy Leung, Gillian Gerhard, Noureddine Elouazizi<br>
-            <strong>Special Thanks </strong>Gary Rosborough, Saeed Dyanatkar, Andrew Wang, David Li, Kian Marin, Ladan Hamadani, UBC Statistics Department<br>
-            <strong>Produced and Directed By </strong>Zachary Rothman<br>
-            <strong>Associate Producer </strong>Stephen Gillis<br>
+            <strong>Written by&colon; </strong>Mike Marin, Zachary Rothman, Stephen Gillis<br>
+            <strong>Performed by&colon; </strong>Mike Marin<br>
+            <strong>Puppets Built and Performed&colon; </strong>Dusty Hagerud<br>
+            <strong>Production Design&colon; </strong>Enigma Arcana<br>
+            <strong>Origami Design and Conceptual Drawings&colon; </strong>Jelena Sihvonen<br>
+            <strong>Camera&colon; </strong>Paul Milaire, Zachary Rothman &amp; Stephen Gillis<br>
+            <strong>Editing&colon; </strong>Stephen Gillis<br>
+            <strong>Visual Effects&colon; </strong>Paul Milaire<br>
+            <strong>Audio Edit and Mix&colon; </strong>Stephen Gillis &amp; Cornelius Wolinsky<br>
+            <strong>UBC Intro Stats Project Team&colon; </strong>Mike Marin, Nancy Heckman, Bruce Dunham, Eugenia Yu, Melissa Lee, Michael Whitlock, Gaitri Yapa, Fred Cutler, Andrew Owen,Diana Whistler, Andy Leung, Gillian Gerhard &amp; Noureddine Elouazizi<br>
+            <strong>Special Thanks&colon; </strong>Gary Rosborough, Saeed Dyanatkar, Andrew Wang, David Li, Kian Marin, Ladan Hamadani &amp; UBC Statistics Department<br>
+            <strong>Produced and Directed By&colon; </strong>Zachary Rothman<br>
+            <strong>Associate Producer&colon; </strong>Stephen Gillis<br>
              <br>
               This video is part of the UBC Intro Stats Project funded by the University of British Columbia’s Teaching and Learning Enhancement Fund, The Faculty of Medicine,The Faculty of Science, and The Faculty of Arts<br>
                 <br>
                 Copyright UBC 2017<br>
                 Licensed Creative Commons<br>
-                Share-alike, Non-Derivs, Non-commercial<br>
+                Share-alike, Non-Derivs &amp; Non-commercial<br>
                 
             </p>
            
@@ -170,9 +167,8 @@
 			<h3 class="panel-title"><i class="glyphicon glyphicon-tag"></i> Tags</h3>
 		    </div>
 		    <div class="panel-body">
-			<p><strong>Assessment Method:</strong> Method Type<br>
-			<strong>Topics:</strong> Normal distribution, Histograms, Sampling variability, Sampling from a Normal distribution, Sample mean<br>
-			<strong>Keywords:</strong> Keyword 1, Keyword 2, Keyword 3</p>
+			<p>
+			<strong>Topics:</strong> Normal distribution, Histograms, Sampling variability, Sampling from a Normal distribution, Sample mean</p>
 		    </div>
 		</div>
 	      
@@ -186,7 +182,7 @@
 		      </ul>
 		    </div>
 		</div>
-            
+       <!--     
         <div class="panel panel-default">
 		    <div class="panel-heading">
 			<h3 class="panel-title"><i class="glyphicon glyphicon-book"></i> What we learned</h3>
@@ -194,7 +190,7 @@
 		    <div class="panel-body">
 		    </div>
 		</div> 
-	    
+	    -->
 	    </div>	
 	</div>
 	

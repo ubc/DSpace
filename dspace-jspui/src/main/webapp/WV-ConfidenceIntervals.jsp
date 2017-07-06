@@ -47,21 +47,20 @@
 <dspace:layout locbar="nolink" titlekey="jsp.about.title" feedData="<%= feedData %>">
 
     <div class="example">
-        <p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/video-example.jsp">Video Example</a> <span class="text-muted">&raquo; Web Visualization: Confidence Intervals of the Mean</span></p>
+        <p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/sim-example.jsp">Simulation Example</a> <span class="text-muted">&raquo; Web Visualization: Confidence Intervals of the Mean</span></p>
 
 	<div class="row">  
 	    <div class="col-md-8">
 	    
 		<h1>Web Visualization: Confidence intervals of the mean</h1>
-		<p class="text-muted contributors">Contributor(s): <a href="mailto:">Jane Doe</a>, <a href="mailto:">John Doe</a></p>
 		
 		<div class="row description">
 		    <div class="col-md-12">
-			<iframe class="pull-left fake-video" src="https://player.vimeo.com/video/196027604?byline=0&portrait=0" width="300" height="169" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+			<img class="pull-left zoology-fish" src="http://www.zoology.ubc.ca/~whitlock/kingfisher/Common/Images/fish.svg" width="220">
 			
 			<p class="intro-text">This video gives students a brief and simplified overview of statistics. This resource is especially useful for those outside of math-heavy disciplines to get a high-level understanding of statistics without the overwhelm typically associated introductory videos.</p>
 			
-			<p class="text-center access-btn"><a class="btn btn-success btn-md">Access Resource</a></p>
+			<p class="text-center access-btn"><a class="btn btn-success btn-md" href="http://www.zoology.ubc.ca/~whitlock/kingfisher/CIMean.htm">Access Resource</a></p>
 		  
 		    </div>
 		</div> 
@@ -102,50 +101,42 @@
 	
 	<div class="row details">
 	    <div class="col-md-8">
-		<h2>Intended audience</h2>
-		<p>Students using this visualization should&colon;</p>
+		<h2>Prerequisite Knowledge</h2>
+		<p>Students using this visualization should</p>
         <ul>
-            <li>Be familiar with methods of summarizing data sets, such as mean and standard deviation</li>
-            <li>Identify and distinguish between a population and a sample, and between parameters and statistics</li> 
+            <li>be familiar with methods of summarizing data sets, such as mean and standard deviation;</li>
+            <li>identify and distinguish between a population and a sample, and between parameters and statistics.</li> 
         </ul>    
-        <h2>Learning outcomes</h2>
+        <h2>Learning Objectives</h2>
 		<ul>
             <li>Interpret a confidence interval and confidence level
             <li>Identify features that determine the width of a confidence interval
 		</ul>
 		
-		<h2>Suggested uses</h2>
-            <p>These apps are intended to be used in a number of ways&colon;</p>
+		<h2>Suggested use(s) and Tips</h2>
+            <p>These apps are intended to be used in a number of ways</p>
 		<ul>
-            <li>As a visual aid during lectures</li>
-            <li>As an open-ended learning tool for active learning</li>
-            <li>As a guided learning experience, using either the built-in tutorials or an instructor-written set of instructions.</li>
-            <ul>
-                <li><i>Bruce's Assignment Questions</i></li>
-            </ul>
-
-		</ul>
+            <li>as a visual aid during lectures;</li>
+            <li>as an open-ended learning tool for active learning;</li>
+            <li>as a guided learning experience, using either the built-in tutorials or the guided <a href="/WV-ConfidenceIntervals.jsp">activity sheet <span class="glyphicon glyphicon-new-window"></span></a> or other instructor-supplied material</li>
+    	</ul>
 		
 		<h2>Complementary materials</h2>
 		<ul>
-            <li>Video&colon; Confidence interval for a population mean</li>
+            <li><a href="/LP-VideoCIs.jsp">Video: Confidence intervals for the mean <span class="glyphicon glyphicon-new-window"></span></a></li>
             <li>Activity: Understanding confidence intervals</li>
-            <li>It is recommended that the “Sampling from a Normal distribution” app be used first to introduce some of the basic concepts and the visual metaphors used in the CLT app.</li>
-            <ul>
-                <li><a href="http://www.zoology.ubc.ca/~whitlock/kingfisher/SamplingNormal.htm">Web visualization: Sampling from a Normally distributed population <span class="glyphicon glyphicon-new-window"></span></a></li>
-            </ul>
 		</ul>
             
         <h2>About this Resource</h2>
 		<ul>
             <p>
-            <strong>Funding </strong>University of British Columbia <br>
-            <strong>Project Leader </strong>Mike Whitlock<br>
-            <strong>Programmers </strong>Boris Dalstein, Mike Whitlock, Zahraa Almasslawi<br>
-            <strong>Art </strong>Derek Tan<br>
-            <strong>Translation </strong>Rémi Matthey-Doret<br>
-            <strong>Testing </strong>Melissa Lee, Gaitri Yapa, Bruce Dunham<br>
-            <strong>Thanks to </strong>Darren Irwin, Dolph Schluter, Nancy Heckman, Kaylee Byers, Brandon Doty, Kim Gilbert, Sally Otto, Wilson Whitlock, Jeff Whitlock, Jeremy Draghi, Karon MacLean, Fred Cutler, Diana Whistler, Andrew Owen, Mike Marin, Leslie Burkholder, Eugenia Yu, Doug Bonn, Michael Scott, the UBC Physics Learning Group, and the UBC Flex Stats initiative for numerous suggestions and improvements.<br>
+            <strong>Funding&colon; </strong>University of British Columbia <br>
+            <strong>Project Leader&colon; </strong>Mike Whitlock<br>
+            <strong>Programmers&colon; </strong>Boris Dalstein, Mike Whitlock &amp; Zahraa Almasslawi<br>
+            <strong>Art&colon; </strong>Derek Tan<br>
+            <strong>Translation&colon; </strong>Rémi Matthey-Doret<br>
+            <strong>Testing&colon; </strong>Melissa Lee, Gaitri Yapa &amp; Bruce Dunham<br>
+            <strong>Thanks to&colon; </strong>Darren Irwin, Dolph Schluter, Nancy Heckman, Kaylee Byers, Brandon Doty, Kim Gilbert, Sally Otto, Wilson Whitlock, Jeff Whitlock, Jeremy Draghi, Karon MacLean, Fred Cutler, Diana Whistler, Andrew Owen, Mike Marin, Leslie Burkholder, Eugenia Yu, Doug Bonn, Michael Scott, the UBC Physics Learning Group &amp; the UBC Flex Stats initiative for numerous suggestions and improvements.<br>
             </p>
            
 		</ul>    
@@ -158,9 +149,9 @@
 			<h3 class="panel-title"><i class="glyphicon glyphicon-tag"></i> Tags</h3>
 		    </div>
 		    <div class="panel-body">
-			<p><strong>Assessment Method:</strong> Method Type<br>
+			<p>
 			<strong>Topics:</strong> Confidence intervals for the mean<br>
-			<strong>Keywords:</strong> Keyword 1, Keyword 2, Keyword 3</p>
+			</p>
 		    </div>
 		</div>
 	      
@@ -180,7 +171,7 @@
 			<h3 class="panel-title"><i class="glyphicon glyphicon-book"></i> What we learned</h3>
 		    </div>
 		    <div class="panel-body">
-                <p>Students often have misconceptions and trouble interpreting confidence intervals...<br><a target="_blank" href="/ConfInt_WhatWeLearned.jsp">Read More<span class="glyphicon glyphicon-new-window"></span></a></p>
+                <p>Students often have trouble interpreting confidence intervals and often have some misconceptions. For instance, many students believe, for the same data and parameter of interest, a 90% confidence interval is wider than a 95% confidence interval.<br><a target="_blank" href="/ConfInt_WhatWeLearned.jsp">Read More <span class="glyphicon glyphicon-new-window"></span></a></p>
 		    </div>
 		</div>     
             

@@ -91,9 +91,41 @@
 		    </div>
         </div>
 	    
-	    </div>			
+	    </div>	
 	</div>
-	
+	<div class="row featured-items">
+	    <div class="col-md-4 text-center">
+		<div class="thumbnail">
+		    <img src="http://www.zoology.ubc.ca/~whitlock/kingfisher/Common/Images/fish.svg" class="sim-image" width="250">
+		    <div class="caption">
+			<h5>Web visualization: Sampling from a non-Normally distributed population (CLT)</h5>
+			<p class="text-left"><strong>Topics:</strong> Probability, Laws, Theory, Central Limit Theorem, Sampling distributions, Sample mean</p> 
+			<p class="see-more"><a href="/WV-SamplingNon-Normal.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+		    </div>
+		</div>
+	    </div>
+	    
+	    <div class="col-md-4 text-center">
+		<div class="thumbnail">
+		    <img src="http://www.zoology.ubc.ca/~whitlock/kingfisher/Common/Images/fish.svg" class="sim-image" width="250">
+		    <div class="caption">
+			<h5>Web Visualization: Chi-square contingency analysis</h5>
+			<p class="text-left"><strong>Topics:</strong> Hypothesis tests,Goodness-of-fit, Chi-squared test for independence</p> 
+			<p class="see-more"><a href="/WV-ChiSquarecontingencyanalysis.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+		    </div>     
+		</div>
+	    </div>
+	    <div class="col-md-4 text-center">
+		<div class="thumbnail">
+		    <img src="http://www.zoology.ubc.ca/~whitlock/kingfisher/Common/Images/fish.svg" class="sim-image" width="250">
+		    <div class="caption">
+			<h5>Web Visualization: Confidence intervals of the mean</h5>
+			<p class="text-left"><strong>Topics:</strong> Confidence intervals for the mean</p> 
+			<p class="see-more"><a href="/WV-ConfidenceIntervals.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+		    </div>
+		</div>
+	    </div>
+	</div>
 	<div class="row">
 	    <div class="col-md-12">
 		<div class="divider"></div>
@@ -103,11 +135,11 @@
 	<div class="row details">
 	    <div class="col-md-8">
 		<h2>Prerequisite Knowledge</h2>
-		<p>Students should&colon;</p>
+		<p>Students should</p>
         <ul>
-            <li>Be familiar with methods of summarizing data sets, such as mean and standard deviation</li>
-            <li>Be able to recognize probability models as distributions with shape, centre, and spread</li>
-            <li>Be able to recall the key properties of the Normal model</li>
+            <li>be familiar with methods of summarizing data sets, such as mean and standard deviation;</li>
+            <li>be able to recognize probability models as distributions with shape, centre, and spread;</li>
+            <li>be able to recall the key properties of the Normal model;</li>
         </ul>
 		<h2>Learning Objectives</h2>
 		<ul>
@@ -119,34 +151,29 @@
 		</ul>
 		
 		<h2>Suggested uses</h2>
-		<p>These resources are intended to be used in a number of ways:</p>
+		<p>These resources are intended to be used in a number of ways,</p>
 		<ul>
-            <li>as a visual aid during lectures</li>
+            <li>as a visual aid during lectures;</li>
 		    <li>as an open-ended learning tool for active learning;</li>
 		    <li>as a guided learning experience, using either the built-in tutorials or the guided activity sheet [link to Bruce’s material] or other instructor-supplied material.</li>
         </ul>
 		
 		<h2>Complementary materials</h2>
 		<ul>
-            <li><a href="/WV-SamplingNon-Normal.jsp">Web visualization: Sampling from a non-Normally distributed population (CLT)<span class="glyphicon glyphicon-new-window"></span></a></li>
-            <li><a href="/LP-VideoCIs.jsp">Video: Confidence Interval for a Population Mean<span class="glyphicon glyphicon-new-window"></span></a></li>
-            <li><a href="/LP-VideoOne-Sample-T-Test.jsp">Video: One Sample T-Test<span class="glyphicon glyphicon-new-window"></span></a></li>
-            <li><a target="_blank" href="https://vimeo.com/196027417">Video: Sampling Distribution of the Mean <span class="glyphicon glyphicon-new-window"></span></a></li>
-            <li>Sampling from a Normal distribution web visualization can be used as a primer before introducing students to the following 2 visualizations&colon;</li>
-            <ul>
-                <li><a href="http://www.zoology.ubc.ca/~whitlock/kingfisher/CIMean.htm">Confidence intervals for the mean<span class="glyphicon glyphicon-new-window"></span></a></li>
-                <li><a href="http://www.zoology.ubc.ca/~whitlock/kingfisher/CLT.htm">Sampling from a non-Normally distributed population<span class="glyphicon glyphicon-new-window"></span></a></li>
-		    </ul>
+            <li><a href="/WV-SamplingNon-Normal.jsp">Web visualization: Sampling from a non-Normally distributed population (CLT) <span class="glyphicon glyphicon-new-window"></span></a></li>
+            <li><a href="/WV-ChiSquarecontingencyanalysis.jsp">Web Visualization: Chi-sqare contingency analysis <span class="glyphicon glyphicon-new-window"></span></a></li>
+            <li><a href="/WV-ConfidenceIntervals.jsp">Web visualization: Confidence intervals of the mean <span class="glyphicon glyphicon-new-window"></span></a></li>
+            <li><a target="_blank" href="/video-example.jsp">Video: Sampling Distribution of the Mean <span class="glyphicon glyphicon-new-window"></span></a></li>
         </ul>
             
         <h2>About this resource</h2>
             <p>
                 <b>Funding&colon;</b> University of British Columbia<br>
                 <b>Project Leader&colon;</b> Mike Whitlock<br>
-                <b>Programmers&colon;</b> Boris Dalstein, Mike Whitlock, &amp; Zahraa Almasslawi<br>
+                <b>Programmers&colon;</b> Boris Dalstein, Mike Whitlock &amp; Zahraa Almasslawi<br>
                 <b>Art&colon;</b> Derek Tan<br>
-                <b>Testing&colon;</b> Melissa Lee, Gaitri Yapa, &amp;Bruce Dunham<br>
-                <b>Thanks to&colon;</b> Darren Irwin, Dolph Schluter, Nancy Heckman, Kaylee Byers, Brandon Doty, Kim Gilbert, Sally Otto, Wilson Whitlock, Jeff Whitlock, Jeremy Draghi, Karon MacLean, Fred Cutler, Diana Whistler, Andrew Owen, Mike Marin, Leslie Burkholder, Eugenia Yu, Doug Bonn, Michael Scott, the UBC Physics Learning Group, &amp; the UBC Flex Stats initiative for numerous suggestions and improvements.
+                <b>Testing&colon;</b> Melissa Lee, Gaitri Yapa &amp;Bruce Dunham<br>
+                <b>Thanks to&colon;</b> Darren Irwin, Dolph Schluter, Nancy Heckman, Kaylee Byers, Brandon Doty, Kim Gilbert, Sally Otto, Wilson Whitlock, Jeff Whitlock, Jeremy Draghi, Karon MacLean, Fred Cutler, Diana Whistler, Andrew Owen, Mike Marin, Leslie Burkholder, Eugenia Yu, Doug Bonn, Michael Scott, the UBC Physics Learning Group &amp; the UBC Flex Stats initiative for numerous suggestions and improvements.
             </p>
         </div>
 	    
@@ -179,7 +206,7 @@
 			<h3 class="panel-title"><i class="glyphicon glyphicon-book"></i> What we learned</h3>
             </div>
             <div class="panel-body">
-                <p>The sampling distribution is a complex concept.  For instance, from our teaching, we have found that students often confuse the histogram of values from a random sample and the histogram of sample means from many random samples.<br><a target="_blank" href="/SampNorm_WhatWeLearned.jsp">Read More<span class="glyphicon glyphicon-new-window"></span></a></p>
+                <p>The sampling distribution is a complex concept.  For instance, from our teaching, we have found that students often confuse the histogram of values from a random sample and the histogram of sample means from many random samples.<br><a target="_blank" href="/SampNorm_WhatWeLearned.jsp">Read More <span class="glyphicon glyphicon-new-window"></span></a></p>
             </div>
         </div>     
 	    
