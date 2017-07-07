@@ -94,6 +94,7 @@
 	</div>
         
     <div class="row featured-items">
+        <h2>Check out more Videos:</h2>
 	    <div class="col-md-4 text-center">
 		<div class="thumbnail video-iframe">
 		   <iframe src="https://player.vimeo.com/video/196027417?byline=0&portrait=0" width="300" height="169" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
