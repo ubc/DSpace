@@ -56,8 +56,8 @@
 		
 		<div class="row description">
 		    <div class="col-md-12">
-			<iframe class="pull-left fake-video" src="https://vimeo.com/196027604?byline=0&portrait=0" width="300" height="169" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-			
+			<iframe class="pull-left fake-video" src="https://player.vimeo.com/video/196027604?byline=0&portrait=0" width="300" height="169" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                
 			<p class="intro-text">This video gives students a brief and simplified overview of statistics. This resource is especially useful for those outside of math-heavy disciplines to get a high-level understanding of statistics without the overwhelm typically associated introductory videos.</p>
 			
 			<p class="text-center access-btn"><a class="btn btn-success btn-md" href="https://vimeo.com/196027604">Access Resource</a></p>
@@ -92,6 +92,30 @@
 	    
 	    </div>			
 	</div>
+        
+    <div class="row featured-items">
+	    <div class="col-md-4 text-center">
+		<div class="thumbnail video-iframe">
+		   <iframe src="https://player.vimeo.com/video/196027417?byline=0&portrait=0" width="300" height="169" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+		    <div class="caption">
+			<h5>Video: Sampling distribution of the mean</h5>
+			<p class="text-left"><strong>Topics:</strong> Normal distribution, Histograms, Sampling variability, Sampling from a Normal distribution, Sample mean</p> 
+			<p class="see-more"><a href="/video-example.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+		    </div>
+		</div>
+	    </div>
+	    
+	    <div class="col-md-4 text-center">
+		<div class="thumbnail video-iframe">
+		   <iframe src="https://player.vimeo.com/video/196470101?byline=0&portrait=0" width="300" height="169" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+		    <div class="caption">
+			<h5>Video: One Sample T-Test</h5>
+			<p class="text-left"><strong>Topics:</strong> Hypothesis tests, one sample/paired, One sample mean t
+			<p class="see-more"><a href="/LP-VideoOne-Sample-T-Test.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+		    </div>
+		</div>
+	    </div>
+	</div>
 	
 	<div class="row">
 	    <div class="col-md-12">
@@ -124,7 +148,7 @@
 		<h2>Complementary materials</h2>
 		<ul>
             <li><a href="/WV-ConfidenceIntervals.jsp">Web visualization: Confidence intervals for the mean <span class="glyphicon glyphicon-new-window"></span></a></li>
-            <li>Activity: Understanding confidence intervals</li>
+            <li><a href="/LP-VideoCIs.jsp"><i>Activity: Understanding confidence intervals <span class="glyphicon glyphicon-new-window"></span></i></a></li>
 		</ul>
             
         <h2>About this resource</h2>

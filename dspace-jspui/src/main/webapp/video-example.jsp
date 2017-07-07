@@ -93,6 +93,30 @@
 	    
 	    </div>			
 	</div>
+        
+    <div class="row featured-items">
+	    <div class="col-md-4 text-center">
+		<div class="thumbnail video-iframe">
+		   <iframe src="https://player.vimeo.com/video/196027604?byline=0&portrait=0" width="300" height="169" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+		    <div class="caption">
+			<h5>Video: Confidence Interval for a Population Mean</h5>
+			<p class="text-left"><strong>Topics:</strong> Confidence intervals, One sample mean t</p> 
+			<p class="see-more"><a href="/LP-VideoCIs.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+		    </div>
+		</div>
+	    </div>
+	    
+	    <div class="col-md-4 text-center">
+		<div class="thumbnail video-iframe">
+		   <iframe src="https://player.vimeo.com/video/196470101?byline=0&portrait=0" width="300" height="169" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+		    <div class="caption">
+			<h5>Video: One Sample T-Test</h5>
+			<p class="text-left"><strong>Topics:</strong> Hypothesis tests, one sample/paired, One sample mean t
+			<p class="see-more"><a href="/LP-VideoOne-Sample-T-Test.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+		    </div>
+		</div>
+	    </div>
+	</div>
 	
 	<div class="row">
 	    <div class="col-md-12">
@@ -127,9 +151,6 @@
 		<h2>Complementary materials</h2>
 		<ul>
             <li><a href="/video-example.jsp"><i>Eugenia's Clicker Questions <span class="glyphicon glyphicon-new-window"></span></i></a></li>
-            <li>Activity: Introducing the sampling distribution (French protest)</li>
-            <li><a href="/LP-VideoCIs.jsp">Video: Confidence Interval for a Population Mean <span class="glyphicon glyphicon-new-window"></span></a></li>
-            <li><a href="/LP-VideoOne-Sample-T-Test.jsp">Video: One Sample T-Test <span class="glyphicon glyphicon-new-window"></span></a></li>
 		</ul>
         
              <h2>About this Resource</h2>

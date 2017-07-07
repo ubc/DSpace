@@ -90,6 +90,41 @@
 	    
 	    </div>			
 	</div>
+
+<div class="row featured-items">
+        <h2>Check out more Web Visualizations:</h2>
+	    <div class="col-md-4 text-center">
+		<div class="thumbnail">
+		    <img src="http://www.zoology.ubc.ca/~whitlock/kingfisher/Common/Images/fish.svg" class="sim-image" width="250">
+		    <div class="caption">
+			<h5>Web visualization: Sampling from a non-Normally distributed population (CLT)</h5>
+			<p class="text-left"><strong>Topics:</strong> Probability, Laws, Theory, Central Limit Theorem, Sampling distributions, Sample mean</p> 
+			<p class="see-more"><a href="/WV-SamplingNon-Normal.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+		    </div>
+		</div>
+	    </div>
+	    
+	    <div class="col-md-4 text-center">
+		<div class="thumbnail">
+		    <img src="http://www.zoology.ubc.ca/~whitlock/kingfisher/Common/Images/fish.svg" class="sim-image" width="250">
+		    <div class="caption">
+			<h5>Web Visualization: Sampling from a Normal distribution</h5>
+			<p class="text-left"><strong>Topics:</strong> Sampling distributions, Sample mean, Exploratory data analysis/Classifying data, Graphical representations, Histograms</p> 
+			<p class="see-more"><a href="/sim-example.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+		    </div>     
+		</div>
+	    </div>
+	    <div class="col-md-4 text-center">
+		<div class="thumbnail">
+		    <img src="http://www.zoology.ubc.ca/~whitlock/kingfisher/Common/Images/fish.svg" class="sim-image" width="250">
+		    <div class="caption">
+			<h5>Web Visualization: Confidence intervals of the mean</h5>
+			<p class="text-left"><strong>Topics:</strong> Confidence intervals for the mean</p> 
+			<p class="see-more"><a href="/WV-ConfidenceIntervals.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+		    </div>
+		</div>
+	    </div>
+	</div>    
 	
 	<div class="row">
 	    <div class="col-md-12">
@@ -159,7 +194,6 @@
 			<strong>Topics:</strong> Hypothesis tests,Goodness-of-fit, Chi-squared test for independence<br>
             </p>
 		    </div>
-		</div>
 	      
 		<div class="panel panel-default">
 		    <div class="panel-heading">
@@ -185,7 +219,7 @@
            
       
 	    </div>	
-	</div>
+        </div>
 	
 	<div class="row text-center">
 	    <div class="col-md-12">
