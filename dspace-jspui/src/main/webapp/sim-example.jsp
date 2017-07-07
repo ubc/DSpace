@@ -94,6 +94,7 @@
 	    </div>	
 	</div>
 	<div class="row featured-items">
+        <h2>Check out more Web Visualizations:</h2>
 	    <div class="col-md-4 text-center">
 		<div class="thumbnail">
 		    <img src="http://www.zoology.ubc.ca/~whitlock/kingfisher/Common/Images/fish.svg" class="sim-image" width="250">
@@ -160,9 +161,7 @@
 		
 		<h2>Complementary materials</h2>
 		<ul>
-            <li><a href="/WV-SamplingNon-Normal.jsp">Web visualization: Sampling from a non-Normally distributed population (CLT) <span class="glyphicon glyphicon-new-window"></span></a></li>
-            <li><a href="/WV-ChiSquarecontingencyanalysis.jsp">Web Visualization: Chi-sqare contingency analysis <span class="glyphicon glyphicon-new-window"></span></a></li>
-            <li><a href="/WV-ConfidenceIntervals.jsp">Web visualization: Confidence intervals of the mean <span class="glyphicon glyphicon-new-window"></span></a></li>
+        
             <li><a target="_blank" href="/video-example.jsp">Video: Sampling Distribution of the Mean <span class="glyphicon glyphicon-new-window"></span></a></li>
         </ul>
             

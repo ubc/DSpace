@@ -46,11 +46,12 @@
                         <div class="ubc7-address-unit-name">
                             <strong>UBC StatSpace</strong>
                         </div>
-                	    <div class="ubc7-address-street">Department of Statistics Earth Sciences Building, 3178-2207 Main Mall</div>
+                	    <div class="ubc7-address-street">Department of Statistics<br>3178 Earth Sciences Building
+                            <br>2207 Main Mall</div>
                         <div class="ubc7-address-location">
                             <span class="ubc7-address-city">Vancouver</span>, <span class="ubc7-address-province" title="British Columbia">British Columbia</span> <span class="ubc7-address-country">Canada</span> <span class="ubc7-address-postal">V6T 1Z4</span>
                         </div>
-                	    <div id="ubc7-address-phone">Tel 604.827.1546</div>
+                	    <div id="ubc7-address-phone">Tel 604.822.0570</div>
                 	    <div id="ubc7-address-email">E-mail lt.support@science.ubc.ca</div>
                 	</div>
                     <div class="col-md-4">
