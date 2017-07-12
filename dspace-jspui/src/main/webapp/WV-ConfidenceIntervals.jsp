@@ -97,7 +97,7 @@
         <h2>Check out more Web Visualizations:</h2>
 	    <div class="col-md-4 text-center">
 		<div class="thumbnail">
-		    <img src="http://www.zoology.ubc.ca/~whitlock/kingfisher/Common/Images/fish.svg" class="sim-image" width="250">
+		    <img src="http://www.zoology.ubc.ca/~whitlock/Kingfisher/Common/Images/coffee.svg" class="sim-image" width="250">
 		    <div class="caption">
 			<h5>Web visualization: Sampling from a non-Normally distributed population (CLT)</h5>
 			<p class="text-left"><strong>Topics:</strong> Probability, Laws, Theory, Central Limit Theorem, Sampling distributions, Sample mean</p> 
@@ -108,7 +108,7 @@
 	    
 	    <div class="col-md-4 text-center">
 		<div class="thumbnail">
-		    <img src="http://www.zoology.ubc.ca/~whitlock/kingfisher/Common/Images/fish.svg" class="sim-image" width="250">
+		    <img src="image/contingency_analysis_image.jpg" class="sim-image" width="250">
 		    <div class="caption">
 			<h5>Web Visualization: Chi-square contingency analysis</h5>
 			<p class="text-left"><strong>Topics:</strong> Hypothesis tests,Goodness-of-fit, Chi-squared test for independence</p> 
