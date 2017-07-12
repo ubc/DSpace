@@ -176,7 +176,7 @@
 			<h5>Video: Sampling distribution of the mean</h5>
 			<p class="text-left"><strong>About:</strong> This video gives students a brief and simplified overview of statistics. This resource is especially useful for those outside <!--... &nbsp;<a href="">Show <span class="glyphicon glyphicon-chevron-down"></span></a>--> of math-heavy disciplines to get a high-level understanding of statistics without the overwhelm typically associated introductory videos.</p>
 			<p class="text-left"><strong>Assessment Method:</strong> Method Type</p>
-			<p class="text-left"><strong>Topics:</strong> Normal distribution, Histograms, Sampling variability, Sampling from a Normal distribution</p> 
+			<p class="text-left"><strong>Topics:</strong> <br>&bull; Sampling distribution -  Sample mean</p> 
 			<p class="see-more"><a href="/video-example.jsp" class="btn btn-primary">Read more &raquo;</a></p>
 		    </div>     
 		</div>
