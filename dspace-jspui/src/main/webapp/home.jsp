@@ -162,7 +162,7 @@
 			<h5>Web Visualization: Sampling from a Normal distribution</h5>
 			<p class="text-left"><strong>About:</strong> This activity allows students to understand the values of the sample size, mean length, and standard deviation of length by <!--... &nbsp;<a href="">Show <span class="glyphicon glyphicon-chevron-down"></span></a>--> working with an online visualization tool based around fish populations. By doing the tutorial, students get a feel for how these three values change the distribution.</p>
 			<p class="text-left"><strong>Assessment Method:</strong> Method Type</p>
-			<p class="text-left"><strong>Topics:</strong> Normal Distribution, Histograms, Sampling Variability, Sampling From a Normal Distribution</p> 
+			<p class="text-left"><strong>Topics:</strong> <br>&bull; Sampling distributions - Sample mean <br>&bull; Exploratory data analysis/Classifying data - Graphical representations - Histograms</p> 
 			<p class="see-more"><a href="/sim-example.jsp" class="btn btn-primary">Read more &raquo;</a></p>
 		    </div>
 		</div>
@@ -176,7 +176,7 @@
 			<h5>Video: Sampling distribution of the mean</h5>
 			<p class="text-left"><strong>About:</strong> This video gives students a brief and simplified overview of statistics. This resource is especially useful for those outside <!--... &nbsp;<a href="">Show <span class="glyphicon glyphicon-chevron-down"></span></a>--> of math-heavy disciplines to get a high-level understanding of statistics without the overwhelm typically associated introductory videos.</p>
 			<p class="text-left"><strong>Assessment Method:</strong> Method Type</p>
-			<p class="text-left"><strong>Topics:</strong> Normal distribution, Histograms, Sampling variability, Sampling from a Normal distribution</p> 
+			<p class="text-left"><strong>Topics:</strong> <br>&bull; Sampling distribution -  Sample mean</p> 
 			<p class="see-more"><a href="/video-example.jsp" class="btn btn-primary">Read more &raquo;</a></p>
 		    </div>     
 		</div>

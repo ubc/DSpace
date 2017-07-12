@@ -100,7 +100,7 @@
 		   <iframe src="https://player.vimeo.com/video/196027604?byline=0&portrait=0" width="300" height="169" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 		    <div class="caption">
 			<h5>Video: Confidence Interval for a Population Mean</h5>
-			<p class="text-left"><strong>Topics:</strong> Confidence intervals, One sample mean t</p> 
+			<p class="text-left"><strong>Topics:</strong> <br>&bull; Confidence intervals - One sample mean t</p> 
 			<p class="see-more"><a href="/LP-VideoCIs.jsp" class="btn btn-primary">Read more &raquo;</a></p>
 		    </div>
 		</div>
@@ -111,7 +111,7 @@
 		   <iframe src="https://player.vimeo.com/video/196470101?byline=0&portrait=0" width="300" height="169" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 		    <div class="caption">
 			<h5>Video: One Sample T-Test</h5>
-			<p class="text-left"><strong>Topics:</strong> Hypothesis tests, one sample/paired, One sample mean t
+			<p class="text-left"><strong>Topics:</strong> <br>&bull; Hypothesis tests - One sample/paired - One sample mean t
 			<p class="see-more"><a href="/LP-VideoOne-Sample-T-Test.jsp" class="btn btn-primary">Read more &raquo;</a></p>
 		    </div>
 		</div>
@@ -189,7 +189,8 @@
 		    </div>
 		    <div class="panel-body">
 			<p>
-			<strong>Topics:</strong> Normal distribution, Histograms, Sampling variability, Sampling from a Normal distribution, Sample mean</p>
+                <strong>Topics:</strong> <br>&bull; Sampling distribution - Sample mean
+                </p>
 		    </div>
 		</div>
 	      

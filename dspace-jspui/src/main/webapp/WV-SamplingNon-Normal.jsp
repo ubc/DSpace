@@ -100,7 +100,7 @@
 		    <img src="http://www.zoology.ubc.ca/~whitlock/kingfisher/Common/Images/fish.svg" class="sim-image" width="250">
 		    <div class="caption">
 			<h5>Web Visualization: Sampling from a Normal distribution</h5>
-			<p class="text-left"><strong>Topics:</strong> Sampling distributions, Sample mean, Exploratory data analysis/Classifying data, Graphical representations, Histograms</p> 
+			<p class="text-left"><strong>Topics:</strong> <br>&bull; Sampling distributions - Sample mean <br>&bull; Exploratory data analysis/Classifying data - Graphical representations - Histograms</p> 
 			<p class="see-more"><a href="/sim-example.jsp" class="btn btn-primary">Read more &raquo;</a></p>
 		    </div>     
 		</div>
@@ -111,7 +111,7 @@
 		    <img src="image/contingency_analysis_image.jpg" class="sim-image" width="250">
 		    <div class="caption">
 			<h5>Web Visualization: Chi-square contingency analysis</h5>
-			<p class="text-left"><strong>Topics:</strong> Hypothesis tests,Goodness-of-fit, Chi-squared test for independence</p> 
+			<p class="text-left"><strong>Topics:</strong> <br>&bull; Hypothesis tests - Goodness of fit - Chi-squared test for independence</p> 
 			<p class="see-more"><a href="/WV-ChiSquarecontingencyanalysis.jsp" class="btn btn-primary">Read more &raquo;</a></p>
 		    </div>     
 		</div>
@@ -121,7 +121,7 @@
 		    <img src="image/confidence_interval_image.JPG" class="sim-image" width="250">
 		    <div class="caption">
 			<h5>Web Visualization: Confidence intervals of the mean</h5>
-			<p class="text-left"><strong>Topics:</strong> Confidence intervals for the mean</p> 
+                <p class="text-left"><strong>Topics:</strong><br>&bull; Confidence intervals - One sample mean t</p>
 			<p class="see-more"><a href="/WV-ConfidenceIntervals.jsp" class="btn btn-primary">Read more &raquo;</a></p>
 		    </div>
 		</div>
@@ -150,12 +150,12 @@
             <li>For the sample mean, explain whether and how the population distribution and the sample size influence the sampling distribution of the sample mean</li>
 		</ul>
 		
-		<h2>Suggested uses</h2>
+		<h2>Suggested use(s) and tips</h2>
 		<p>These resources are intended to be used in a number of ways,</p>
 		<ul>
             <li>as a visual aid during lectures;</li>
 		    <li>as an open-ended learning tool for active learning;</li>
-		    <li>as a guided learning experience, using either the built-in tutorials or the guided activity sheet [link to Bruce’s material] or other instructor-supplied material.</li>
+		    <li>as a guided learning experience, using either the built-in tutorials or the guided <a target="_blank" href="/WV-SamplingNon-Normal.jsp">activity sheet <span class="glyphicon glyphicon-new-window"></span></a> or other instructor-supplied material.</li>
         </ul>
 		
 		<h2>Complementary materials</h2>
@@ -184,7 +184,7 @@
 		    </div>
 		    <div class="panel-body">
             <p>
-			<strong>Topics:</strong> Probability, Laws, Theory, Central Limit Theorem, Sampling distributions, Sample mean
+			<strong>Topics:</strong> <br>&bull; Probability - Laws, Theory - Central Limit Theorem <br>&bull; Sampling distributions - Sample mean
             </p>
 		    </div>
         </div>
@@ -209,7 +209,7 @@
             </div>
 		</div> 
 	    
-	    </div>	s
+	    </div>
 	</div>
 	
 	<div class="row text-center">

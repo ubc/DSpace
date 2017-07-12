@@ -100,7 +100,7 @@
 		    <img src="http://www.zoology.ubc.ca/~whitlock/Kingfisher/Common/Images/coffee.svg" class="sim-image" width="250">
 		    <div class="caption">
 			<h5>Web visualization: Sampling from a non-Normally distributed population (CLT)</h5>
-			<p class="text-left"><strong>Topics:</strong> Probability, Laws, Theory, Central Limit Theorem, Sampling distributions, Sample mean</p> 
+			<p class="text-left"><strong>Topics:</strong> <br>&bull; Probability - Laws, Theory - Central Limit Theorem <br>&bull; Sampling distributions - Sample mean</p> 
 			<p class="see-more"><a href="/WV-SamplingNon-Normal.jsp" class="btn btn-primary">Read more &raquo;</a></p>
 		    </div>
 		</div>
@@ -111,7 +111,7 @@
 		    <img src="image/contingency_analysis_image.jpg" class="sim-image" width="250">
 		    <div class="caption">
 			<h5>Web Visualization: Chi-square contingency analysis</h5>
-			<p class="text-left"><strong>Topics:</strong> Hypothesis tests,Goodness-of-fit, Chi-squared test for independence</p> 
+			<p class="text-left"><strong>Topics:</strong> <br>&bull; Hypothesis tests - Goodness of fit - Chi-squared test for independence</p> 
 			<p class="see-more"><a href="/WV-ChiSquarecontingencyanalysis.jsp" class="btn btn-primary">Read more &raquo;</a></p>
 		    </div>     
 		</div>
@@ -121,7 +121,7 @@
 		    <img src="image/confidence_interval_image.JPG" class="sim-image" width="250">
 		    <div class="caption">
 			<h5>Web Visualization: Confidence intervals of the mean</h5>
-			<p class="text-left"><strong>Topics:</strong> Confidence intervals for the mean</p> 
+                <p class="text-left"><strong>Topics:</strong><br>&bull; Confidence intervals - One sample mean t</p> 
 			<p class="see-more"><a href="/WV-ConfidenceIntervals.jsp" class="btn btn-primary">Read more &raquo;</a></p>
 		    </div>
 		</div>
@@ -140,7 +140,7 @@
         <ul>
             <li>be familiar with methods of summarizing data sets, such as mean and standard deviation;</li>
             <li>be able to recognize probability models as distributions with shape, centre, and spread;</li>
-            <li>be able to recall the key properties of the Normal model;</li>
+            <li>be able to recall the key properties of the Normal model.</li>
         </ul>
 		<h2>Learning Objectives</h2>
 		<ul>
@@ -151,12 +151,12 @@
             <li>Explain whether and how the population distribution and the sample size influence the sampling distribution of the sample mean from a Normal distribution.</li>
 		</ul>
 		
-		<h2>Suggested uses</h2>
+		<h2>Suggested use(s) and tips</h2>
 		<p>These resources are intended to be used in a number of ways,</p>
 		<ul>
             <li>as a visual aid during lectures;</li>
 		    <li>as an open-ended learning tool for active learning;</li>
-		    <li>as a guided learning experience, using either the built-in tutorials or the guided activity sheet [link to Bruce’s material] or other instructor-supplied material.</li>
+		    <li>as a guided learning experience, using either the built-in tutorials or the guided <a target="_blank" href="/sim-example.jsp">activity sheet <span class="glyphicon glyphicon-new-window"></span></a> or other instructor-supplied material.</li>
         </ul>
 		
 		<h2>Complementary materials</h2>
@@ -171,7 +171,7 @@
                 <b>Project Leader&colon;</b> Mike Whitlock<br>
                 <b>Programmers&colon;</b> Boris Dalstein, Mike Whitlock &amp; Zahraa Almasslawi<br>
                 <b>Art&colon;</b> Derek Tan<br>
-                <b>Testing&colon;</b> Melissa Lee, Gaitri Yapa &amp;Bruce Dunham<br>
+                <b>Testing&colon;</b> Melissa Lee, Gaitri Yapa &amp; Bruce Dunham<br>
                 <b>Thanks to&colon;</b> Darren Irwin, Dolph Schluter, Nancy Heckman, Kaylee Byers, Brandon Doty, Kim Gilbert, Sally Otto, Wilson Whitlock, Jeff Whitlock, Jeremy Draghi, Karon MacLean, Fred Cutler, Diana Whistler, Andrew Owen, Mike Marin, Leslie Burkholder, Eugenia Yu, Doug Bonn, Michael Scott, the UBC Physics Learning Group &amp; the UBC Flex Stats initiative for numerous suggestions and improvements.
             </p>
         </div>
@@ -184,7 +184,7 @@
 		    </div>
 		    <div class="panel-body">
             <p>
-			<strong>Topics:</strong> Sampling distributions, Sample mean, Exploratory data analysis/Classifying data, Graphical representations, Histograms 
+			<strong>Topics:</strong> <br>&bull; Sampling distributions - Sample mean <br>&bull; Exploratory data analysis/Classifying data - Graphical representations - Histograms 
             </p>
 		    </div>
         </div>
