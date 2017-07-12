@@ -98,7 +98,7 @@
 		    <img src="http://www.zoology.ubc.ca/~whitlock/kingfisher/Common/Images/fish.svg" class="sim-image" width="250">
 		    <div class="caption">
 			<h5>Web visualization: Sampling from a non-Normally distributed population (CLT)</h5>
-			<p class="text-left"><strong>Topics:</strong> Probability, Laws, Theory, Central Limit Theorem, Sampling distributions, Sample mean</p> 
+			<p class="text-left"><strong>Topics:</strong> <br>&bull; Probability - Laws, Theory - Central Limit Theorem <br>&bull; Sampling distributions - Sample mean</p> 
 			<p class="see-more"><a href="/WV-SamplingNon-Normal.jsp" class="btn btn-primary">Read more &raquo;</a></p>
 		    </div>
 		</div>
@@ -109,7 +109,7 @@
 		    <img src="http://www.zoology.ubc.ca/~whitlock/kingfisher/Common/Images/fish.svg" class="sim-image" width="250">
 		    <div class="caption">
 			<h5>Web Visualization: Sampling from a Normal distribution</h5>
-			<p class="text-left"><strong>Topics:</strong> Sampling distributions, Sample mean, Exploratory data analysis/Classifying data, Graphical representations, Histograms</p> 
+			<p class="text-left"><strong>Topics:</strong> <br>&bull; Sampling distributions - Sample mean <br>&bull; Exploratory data analysis/Classifying data - Graphical representations - Histograms</p> 
 			<p class="see-more"><a href="/sim-example.jsp" class="btn btn-primary">Read more &raquo;</a></p>
 		    </div>     
 		</div>
@@ -119,7 +119,7 @@
 		    <img src="http://www.zoology.ubc.ca/~whitlock/kingfisher/Common/Images/fish.svg" class="sim-image" width="250">
 		    <div class="caption">
 			<h5>Web Visualization: Confidence intervals of the mean</h5>
-			<p class="text-left"><strong>Topics:</strong> Confidence intervals for the mean</p> 
+			<p class="text-left"><strong>Topics:</strong><br>&bull; Confidence intervals - One sample mean t</p> 
 			<p class="see-more"><a href="/WV-ConfidenceIntervals.jsp" class="btn btn-primary">Read more &raquo;</a></p>
 		    </div>
 		</div>
@@ -143,21 +143,18 @@
         </ul>    
         <h2>Learning Objectives</h2>
 		<ul>
-            <li>Investigate the chi-squared test for independence between categorical variables,including the sampling distribution of the test statistic.</li>
+            <li>Investigate the chi-squared test for independence between categorical variables, including the sampling distribution of the test statistic.</li>
             <li>Interpret the meaning of the P-value associated with a contingency analysis.</li>
             <li>Explain the two types of error possible and the power of a hypothesis test.</li>
             <li>Investigate the effects of the sample size and population parameters on the power of the chi-squared test.</li>
 		</ul>
 		
-		<h2>Suggested uses</h2>
+		<h2>Suggested use(s) and tips</h2>
             <p>These resources are intended to be used in a number of ways</p>
 		<ul>
             <li>as a visual aid during lectures;</li>
             <li>as an open-ended learning tool for active learning;</li>
-            <li>as a guided learning experience, using either the built-in tutorials or an instructor-written set of instructions.</li>
-            <ul>
-                <li><a href="/WV-ChiSquarecontingencyanalysis.jsp"><i>WeBWork Questions <span class="glyphicon glyphicon-new-window"></span></i></a></li>
-            </ul>
+            <li>as a guided learning experience, using either the built-in tutorials or the guided <a target="_blank" href="/WV-SamplingNon-Normal.jsp">activity sheet <span class="glyphicon glyphicon-new-window"></span></a> or other instructor-supplied material.</li>
 
 		</ul>
 		
@@ -191,7 +188,7 @@
 			<h3 class="panel-title"><i class="glyphicon glyphicon-tag"></i> Tags</h3>
 		    </div>
             <p>
-			<strong>Topics:</strong> Hypothesis tests,Goodness-of-fit, Chi-squared test for independence<br>
+			<strong>Topics:</strong> <br>&bull; Hypothesis tests - Goodness of fit - Chi-squared test for independence
             </p>
 		    </div>
 	      
