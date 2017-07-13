@@ -57,16 +57,14 @@
 		<div class="row description">
 		    
 			 <div class="col-md-4">
-			<img class="pull-left" src="https://pbs.twimg.com/profile_images/1476325229/webwork_square_400x400.png"  width="175">
+			<img class="pull-left" src="image/webwork_logo.JPG"  width="175">
 			</div>
             
             <div class="col-md-8">
-			<p class="intro-text">WeBWorK is an open-source online homework system primarily for math problems.</p>
-		  <p class="text-center access-btn"><a target="_blank" href="https://webwork.elearning.ubc.ca/webwork2/" class="btn btn-success btn-md">Access Resource</a></p>
-            </div>
+			<p class="intro-text">WeBWorK is a free on-line assessment tool presently used at over 700 institutions globally. Faculty members at UBC have created over 200 WeBWorK questions for use in introductory statistics courses, all of which are available in WeBWorK's Open Problem Library. Details of a sample of these questions can be found here.<br><br>The WeBWorKiR project was funded by UBC’s Teaching and Learning Enhancement Fund and involved the development of a wide range of homework questions for statistics courses. A key aspect of the project was augmenting WeBWorK to enable its communication with the statistical computing software R. This integration allows WeBWorK access to R's rich facilities for statistical data manipulation, analysis, and visualization, and hence permits the creation of probing and diverse problems in statistical science.</p>
 		    </div>
+        </div>
 		</div> 
-	    
 	    
 	    <div class="col-md-4 value-prop">
 	    
@@ -94,6 +92,41 @@
 	    </div>			
 	</div>
 	
+        <div class="row featured-items">
+        <h2>Check out some sample WebWork Questions:</h2>
+	    <div class="col-md-4 text-center">
+		<div class="thumbnail">
+		    <div class="col-md-12 text-center">
+		    <img align="top" src="image/webwork_logo.JPG" class="sim-image" width="175" align="center"></div>
+		    <div class="caption">
+			<h5>ECON 325 HW6 additional Q1</h5>
+			<p class="see-more"><a href="/wwecon325h6additionalQ1.jsp" class="btn btn-primary">Access &raquo;</a></p>
+		    </div>
+		</div>
+	    </div>
+	    
+	    <div class="col-md-4 text-center">
+		<div class="thumbnail">
+		    <div class="col-md-12 text-center">
+		    <img align="top" src="image/webwork_logo.JPG" class="sim-image" width="175" align="center"></div>
+		    <div class="caption">
+			<h5>STAT 200 revised2016/Linguistics Question Q9 </h5>
+			<p class="see-more"><a href="/wwstat200revisedlinguisticsQ9.jsp" class="btn btn-primary">Access &raquo;</a></p>
+		    </div>     
+		</div>
+	    </div>
+	    <div class="col-md-4 text-center">
+		<div class="thumbnail">
+		    <div class="col-md-12 text-center">
+		    <img align="top" src="image/webwork_logo.JPG" class="sim-image" width="175" align="center"></div>
+		    <div class="caption">
+			<h5>STAT 300 HW6 Question Q1</h5> 
+			<p class="see-more"><a href="/wwstat300hw6Q1.jsp" class="btn btn-primary">Access &raquo;</a></p>
+		    </div>
+		</div>
+	    </div>
+	</div>
+        
 	<div class="row">
 	    <div class="col-md-12">
 		<div class="divider"></div>
@@ -103,43 +136,17 @@
 	<div class="row details">
 	    <div class="col-md-8">
 
-		<h2>About Webwork</h2>
-		<p>WeBWorK is a free on-line individualized assessment tool that provides students with automatic feedback on their work and is used at over 700 institutions globally... Faculty members at UBC have enhanced WeBWorK by incorporating R functionality and have created over 200 WeBWorK questions for use in introductory statistics courses.  All questions are available in WeBWorK's Open Problem Library. Details of a sample of these questions can be found here.</p>
-            
-            <h2>General Information</h2>
-            <ul>
-            <li><a href="http://wiki.ubc.ca/Documentation:WeBWorK">Everything you need to know about setting up your webwork environment<span class="glyphicon glyphicon-new-window"></span></a></li>
-            <li>Link to Bruce's document</li>
-            </ul>
-		
+		<h2>About Resource</h2>
+		<p>Over 400 probability and statistics questions resulted from the WeBWorKiR project, more than half of which can be used for introductory courses. The questions can be found in the Open Problem Library via searching for homework sets commencing OpenProblemLibrary/UBC/STAT/. Most questions feature randomisation and customised solutions via R code, though R is not needed to attempt the questions.<br><br>Details on a small sample of questions are available below. Those interested in using WeBWorK should consult the installation and user guides linked on this page. </p>
+        		
 		<h2>Suggested uses</h2>
 		<ul>
 		    <li>Questions can be created by instructors or taken from a online bank of questions on the topic at hand</li>
 		    <li>Students can be given limited attempts to answer the questions, this is so that the instructor can test the student's understanding of the material</li>
-		</ul>
-            
-            
-		<h2>Complementary materials</h2>
-        <p>For sample questions, please see the following.</p>
-		<ul>
-            <li><a href="/wwecon325h6additionalQ1.jsp">WeBWorK Question ECON 325 HW6 additional Q1 <span class="glyphicon glyphicon-new-window"></span></a></li>
-            <li><a href="/wwstat200revisedlinguisticsQ9.jsp">WeBWorK Question STAT 200 revised2016/Linguistics Question Q9 <span class="glyphicon glyphicon-new-window"></span></a></li>
-            <li><a href="/wwstat300hw6Q1.jsp">WeBWorK Question STAT 300 HW6 Question Q1<span class="glyphicon glyphicon-new-window"></span></a></li>
-		</ul>            
+		</ul>           
 	    </div>
 	    
 	    <div class="col-md-4 tags">
-            
-		<div class="panel panel-default">
-		    <div class="panel-heading">
-			<h3 class="panel-title"><i class="glyphicon glyphicon-tag"></i> Tags</h3>
-		    </div>
-		    <div class="panel-body">
-			<p><strong>Tag1:</strong><br>
-			<strong>Tag2:</strong><br>
-			<strong>Tag3:</strong></p>
-		    </div>
-		</div>
 	      
 		<div class="panel panel-default">
 		    <div class="panel-heading">

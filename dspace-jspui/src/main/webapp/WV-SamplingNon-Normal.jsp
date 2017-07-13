@@ -118,7 +118,7 @@
 	    </div>
 	    <div class="col-md-4 text-center">
 		<div class="thumbnail">
-		    <img src="image/confidence_interval_image.JPG" class="sim-image" width="250">
+		    <img src="image/confidence_interval_image.JPG" class="sim-image" width="275">
 		    <div class="caption">
 			<h5>Web Visualization: Confidence intervals of the mean</h5>
 			<p class="text-left"><strong>Topics:</strong> Confidence intervals for the mean</p> 
