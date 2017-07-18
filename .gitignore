@@ -31,4 +31,4 @@ META-INF/
 .DS_Store
 
 # Docker-compose generated data files
-.volumes
+volumes
