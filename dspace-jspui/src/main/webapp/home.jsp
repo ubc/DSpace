@@ -184,12 +184,13 @@
 	    <div class="col-md-4 text-center">
 		<h4>WeBWork Questions</h4>
 		<div class="thumbnail">
-		    <img align="top" src="https://pbs.twimg.com/profile_images/1476325229/webwork_square_400x400.png" class="sim-image" width="175">
+            <div class="col-md-12 text-center">
+		    <img align="top" src="image/webwork_logo.JPG" class="sim-image" width="175" align="center"></div>
 		    <div class="caption">
 			<h5>WeBWorK Web Application</h5>
-			<p class="text-left"><strong>About:</strong> WeBWorK is a free on-line individualized assessment tool that provides students with automatic feedback on their work and is used at over 700 institutions globally... </p>
+			<p class="text-left"><strong>About:</strong> WeBWorK is a free on-line individualized assessment tool that provides students with automatic feedback on their work and is used at over 700 institutions globally. </p>
 			<p class="text-left"><strong>Assessment Method:</strong> Method Type</p>
-			<p class="text-left"><strong>Topics:</strong> Topic One, Topic Two, Topic Three</p> 
+			<p class="text-left"><strong>Topics:</strong> Normal distribution, Histograms, Sampling variability, Sampling from a Normal distribution</p> 
 			<p class="see-more"><a href="/WebWork_Questions.jsp" class="btn btn-primary">Read more &raquo;</a></p>
 		    </div>
 		</div>

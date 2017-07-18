@@ -97,7 +97,7 @@
         <h2>Check out more Web Visualizations:</h2>
 	    <div class="col-md-4 text-center">
 		<div class="thumbnail">
-		    <img src="http://www.zoology.ubc.ca/~whitlock/Kingfisher/Common/Images/coffee.svg" class="sim-image" width="250">
+		    <img src="http://www.zoology.ubc.ca/~whitlock/Kingfisher/Common/Images/coffee.svg" class="sim-image" width="162" height="180" align="center">
 		    <div class="caption">
 			<h5>Web visualization: Sampling from a non-Normally distributed population (CLT)</h5>
 			<p class="text-left"><strong>Topics:</strong> <br>&bull; Probability - Laws, Theory - Central Limit Theorem <br>&bull; Sampling distributions - Sample mean</p> 
