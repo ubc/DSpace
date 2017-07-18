@@ -93,11 +93,11 @@
 	</div>
 	
         <div class="row featured-items">
-        <h2>Check out some sample WebWork Questions:</h2>
+        <h2>Check out some sample WeBWork Questions:</h2>
 	    <div class="col-md-4 text-center">
 		<div class="thumbnail">
 		    <div class="col-md-12 text-center">
-		    <img align="top" src="image/webwork_logo.JPG" class="sim-image" width="175" align="center"></div>
+		    <img align="top" src="image/econ325_hw6_displayimage.JPG" class="sim-image" width="245" align="center"></div>
 		    <div class="caption">
 			<h5>ECON 325 HW6 additional Q1</h5>
 			<p class="see-more"><a href="/wwecon325h6additionalQ1.jsp" class="btn btn-primary">Access &raquo;</a></p>
@@ -108,7 +108,7 @@
 	    <div class="col-md-4 text-center">
 		<div class="thumbnail">
 		    <div class="col-md-12 text-center">
-		    <img align="top" src="image/webwork_logo.JPG" class="sim-image" width="175" align="center"></div>
+		    <img align="top" src="image/Stat200_displayimage.JPG" class="sim-image" width="245" align="center"></div>
 		    <div class="caption">
 			<h5>STAT 200 revised2016/Linguistics Question Q9 </h5>
 			<p class="see-more"><a href="/wwstat200revisedlinguisticsQ9.jsp" class="btn btn-primary">Access &raquo;</a></p>
@@ -118,7 +118,7 @@
 	    <div class="col-md-4 text-center">
 		<div class="thumbnail">
 		    <div class="col-md-12 text-center">
-		    <img align="top" src="image/webwork_logo.JPG" class="sim-image" width="175" align="center"></div>
+		    <img align="top" src="image/stat300_displayimage.JPG" class="sim-image" width="245" align="center"></div>
 		    <div class="caption">
 			<h5>STAT 300 HW6 Question Q1</h5> 
 			<p class="see-more"><a href="/wwstat300hw6Q1.jsp" class="btn btn-primary">Access &raquo;</a></p>
@@ -136,13 +136,14 @@
 	<div class="row details">
 	    <div class="col-md-8">
 
-		<h2>About Resource</h2>
-		<p>Over 400 probability and statistics questions resulted from the WeBWorKiR project, more than half of which can be used for introductory courses. The questions can be found in the Open Problem Library via searching for homework sets commencing OpenProblemLibrary/UBC/STAT/. Most questions feature randomisation and customised solutions via R code, though R is not needed to attempt the questions.<br><br>Details on a small sample of questions are available below. Those interested in using WeBWorK should consult the installation and user guides linked on this page. </p>
+		<h2>About Resources</h2>
+		<p>Over 400 probability and statistics questions resulted from the WeBWorKiR project, more than half of which can be used for introductory courses. The questions can be found in the Open Problem Library via searching for homework sets commencing OpenProblemLibrary/UBC/STAT/. Most questions feature randomisation and customised solutions via R code, though R is not needed to attempt the questions.<br><br>Those interested in using WeBWorK should consult the installation and user guides linked on this page. Details on a small sample of questions are available above. </p>
         		
 		<h2>Suggested uses</h2>
 		<ul>
-		    <li>Questions can be created by instructors or taken from a online bank of questions on the topic at hand</li>
-		    <li>Students can be given limited attempts to answer the questions, this is so that the instructor can test the student's understanding of the material</li>
+		    <li>Questions can be created by instructors or taken from WeBWorK's Open Problem Library.</li>
+		    <li>The number of attempts per question can be set by the instructor.</li>
+            <li>In addition to homeworks, WeBWorK can also be used in labs and for time-constrained tests.</li>
 		</ul>           
 	    </div>
 	    
