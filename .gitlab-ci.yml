@@ -1,0 +1,78 @@
+image: registry.gitlab.com/xcompass/kubernetes-deploy
+
+services:
+  - docker:dind
+
+variables:
+  DOCKER_HOST: tcp://localhost:2375
+  # improve docker build performance
+  DOCKER_DRIVER: overlay
+  # Application deployment domain
+  KUBE_DOMAIN: apps.ctlt.ubc.ca
+  # helm chart to deploy
+  DEPLOYMENT_MANIFEST: ctlt/statspace
+
+stages:
+  - build
+  - review
+  - staging
+  - production
+
+build_image:
+  stage: build
+  script:
+    - docker build --pull -t ubcctlt/dspace:statspace .
+    # To login, set up environment variables for dockerhub
+    - docker login -u $DOCKER_ID_USERNAME -p $DOCKER_ID_PASSWORD
+    - docker push ubcctlt/dspace
+  only:
+    - statspace
+
+production:
+  stage: production
+  variables:
+      DEPLOYMENT_VALUE_FILE: values_prod.yaml
+  script:
+    - command deploy-helm
+  environment:
+    name: production
+    url: http://statspace.elearning.ubc.ca
+  when: manual
+  only:
+    - statspace
+staging:
+  stage: staging
+  variables:
+      DEPLOYMENT_VALUE_FILE: values_staging.yaml
+  script:
+    - if [[ "$EVENT_TYPE" == "push" && "$ENV_NAME" == "staging" ]]; then command deploy-helm; fi
+  environment:
+    name: staging
+    url: http://statspace.stg.$KUBE_DOMAIN
+  only:
+    - statspace
+    - triggers
+review:
+  stage: review
+  variables:
+      DEPLOYMENT_VALUE_FILE: values_review.yaml
+  script:
+    - if [[ "$EVENT_TYPE" == "pull_request" || ("$EVENT_TYPE" == "push" && "$ENV_NAME" != "staging") ]]; then command deploy-helm; fi
+  environment:
+    name: $ENV_NAME
+    url: http://statspace.$CI_ENVIRONMENT_SLUG.$KUBE_DOMAIN
+    on_stop: stop_review
+  only:
+    - triggers
+stop_review:
+  stage: review
+  variables:
+    GIT_STRATEGY: none
+  script:
+    - command destroy-helm
+  environment:
+    name: $ENV_NAME
+    action: stop
+  when: manual
+  only:
+    - triggers
