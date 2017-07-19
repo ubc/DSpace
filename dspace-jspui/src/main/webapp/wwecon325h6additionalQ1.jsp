@@ -47,7 +47,7 @@
 <dspace:layout locbar="nolink" titlekey="jsp.about.title" feedData="<%= feedData %>">
 
     <div class="example">
-	<p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/WebWork_Questions.jsp">WebWork Qustions</a> <span class="text-muted">&raquo; WWECON325H6AdditionalQ1</span></p>
+	<p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/WebWork_Questions.jsp">WebWork Questions</a> <span class="text-muted">&raquo; WWECON325H6AdditionalQ1</span></p>
 
 	<div class="row">  
 	    <div class="col-md-8">
@@ -58,7 +58,7 @@
 		<div class="row description">
 		    <div class="col-md-12">
 			
-			<i class="glyphicon glyphicon-sort-by-order data-icon pull-left"></i>
+			<img src="image/econ325_hw6_displayimage.JPG" width="225">
 			
 			<p class="intro-text">This data set contains the winning numbers from the Florida Lottery (through the end of 2008), as reported by the state lottery commission. Note that from its inception through 23 October 1999, the lottery was "pick 6 of 49." Thereafter, it was a "pick 6 of 53" lottery.</p>
 			
@@ -108,12 +108,12 @@
 		
 		<h2>Learning Objectives</h2>
 		<ul>
-            <p>Inference; sampling distribution of sample mean, normal distribution; find the standard error of a sample mean, identify which density function graphic indicates a lower tail probability for the sample mean, find the probability that the sample mean is less than a given value, decide whether the standard error would increase or decrease by increasing the sample size, decide if a tail probability for the sample mean would increase or decrease by changing the sample size.</p>
+            <p>Find the standard error of a sample mean, identify which density function graphic indicates a lower tail probability for the sample mean, find the probability that the sample mean is less than a given value, decide whether the standard error would increase or decrease by increasing the sample size, decide if a tail probability for the sample mean would increase or decrease by changing the sample size.</p>
         </ul>
         <h3>About this resource</h3>
         <ul>
             <p>Created 2015/10/25</p>
-            <li>a.	Credits: Bruce Dunham, Jonathan Baik. The question is available in the Open Problem Library (OPL) in WeBWorK.</li>
+            <li>Credits: Eugenia Yu, Diana Whistler, Bruce Dunham, Nelson Chen. The question is available in the Open Problem Library (OPL) in WeBWorK. </li>
             <li>Question includes randomisation.</li>
             <li>Solutions available in WeBWorK.</li>    
 		</ul>

@@ -47,7 +47,7 @@
 <dspace:layout locbar="nolink" titlekey="jsp.about.title" feedData="<%= feedData %>">
 
     <div class="example">
-	<p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/WebWork_Questions.jsp">WeBWork Qustions</a> <span class="text-muted">&raquo; WWSTAT300HW6Q1</span></p>
+	<p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/WebWork_Questions.jsp">WeBWork Questions</a> <span class="text-muted">&raquo; WWSTAT300HW6Q1</span></p>
 
 	<div class="row">  
 	    <div class="col-md-8">
@@ -58,7 +58,7 @@
 		<div class="row description">
 		    <div class="col-md-12">
 			
-			<i class="glyphicon glyphicon-sort-by-order data-icon pull-left"></i>
+			<img src="image/stat300_displayimage.JPG" width="225">
 			
 			<p class="intro-text">This data set contains the winning numbers from the Florida Lottery (through the end of 2008), as reported by the state lottery commission. Note that from its inception through 23 October 1999, the lottery was "pick 6 of 49." Thereafter, it was a "pick 6 of 53" lottery.</p>
 			
@@ -108,7 +108,7 @@
 		
 		<h2>Learning Objectives</h2>
 		<ul>
-            <p>Statistical inference; Analysis of variance; estimate the common unknown variance using the error (i.e., residual) mean square, compute statistics for the ANOVA table, draw inference from an ANOVA table, compute significant difference for a multiple comparison test.</p>
+            <p>Estimate the common unknown variance using the error (i.e., residual) mean square, compute statistics for the ANOVA table, draw inference from an ANOVA table, compute significant difference for a multiple comparison test. </p>
         </ul>
         <h3>About this resource</h3>
         <ul>

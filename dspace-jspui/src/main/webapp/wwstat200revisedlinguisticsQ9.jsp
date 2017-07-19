@@ -47,7 +47,7 @@
 <dspace:layout locbar="nolink" titlekey="jsp.about.title" feedData="<%= feedData %>">
 
     <div class="example">
-	<p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/WebWork_Questions.jsp">WebWork Qustions</a> <span class="text-muted">&raquo; WWSTAT200RevisedLinguisticsQ9</span></p>
+	<p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/WebWork_Questions.jsp">WebWork Questions</a> <span class="text-muted">&raquo; WWSTAT200RevisedLinguisticsQ9</span></p>
 
 	<div class="row">  
 	    <div class="col-md-8">
@@ -58,7 +58,7 @@
 		<div class="row description">
 		    <div class="col-md-12">
 			
-			<i class="glyphicon glyphicon-sort-by-order data-icon pull-left"></i>
+			<img src="image/Stat200_displayimage.JPG" width="225">
 			
 			<p class="intro-text">This data set contains the winning numbers from the Florida Lottery (through the end of 2008), as reported by the state lottery commission. Note that from its inception through 23 October 1999, the lottery was "pick 6 of 49." Thereafter, it was a "pick 6 of 53" lottery.</p>
 			
@@ -108,12 +108,12 @@
 		
 		<h2>Learning Objectives</h2>
 		<ul>
-            <p>Inference for sample proportion, hypothesis tests, P-value</p>
+            <p>Identify a parameter of interest for a study, select appropriate null and alternative hypotheses, identify the approximate sampling distribution of the sample proportion, compute the z score for the test, use software to find the P-value for the test, select the appropriate conclusion for the test.</p>
         </ul>
         <h3>About this resource</h3>
         <ul>
             <p>Created 2016/08/24</p>
-            <li>Credits: Bruce Dunham, Jonathan Baik. The question is available in the Open Problem Library (OPL) in WeBWorK.</li>
+            <li>Credits: Kathleen Hall, Bruce Dunham, Nelson Chen. The question is available in the Open Problem Library (OPL) in WeBWorK.</li>
             <li>Question includes randomisation.</li>
             <li>Solutions available in WeBWorK.</li>    
 		</ul>
