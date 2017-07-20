@@ -34,6 +34,7 @@ production:
     DEPLOYMENT_VALUE_FILE: configuration/statspace/values_prod.yaml
     GIT_STRATEGY: none
   before_script:
+    - source docker-entrypoint.sh
     - git clone git@repo.code.ubc.ca:devops/configuration.git
   script:
     - command deploy-helm
@@ -49,6 +50,7 @@ staging:
     DEPLOYMENT_VALUE_FILE: configuration/statspace/values_staging.yaml
     GIT_STRATEGY: none
   before_script:
+    - source docker-entrypoint.sh
     - git clone git@repo.code.ubc.ca:devops/configuration.git
   script:
     - command deploy-helm
@@ -63,6 +65,7 @@ review:
     DEPLOYMENT_VALUE_FILE: configuration/statspace/values_review.yaml
     GIT_STRATEGY: none
   before_script:
+    - source docker-entrypoint.sh
     - git clone git@repo.code.ubc.ca:devops/configuration.git
   script:
     - command deploy-helm
