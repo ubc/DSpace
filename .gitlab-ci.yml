@@ -31,7 +31,10 @@ build_image:
 production:
   stage: production
   variables:
-      DEPLOYMENT_VALUE_FILE: values_prod.yaml
+    DEPLOYMENT_VALUE_FILE: configuration/statspace/values_prod.yaml
+    GIT_STRATEGY: none
+  before_script:
+    - git clone git@repo.code.ubc.ca:devops/configuration.git
   script:
     - command deploy-helm
   environment:
@@ -43,27 +46,34 @@ production:
 staging:
   stage: staging
   variables:
-      DEPLOYMENT_VALUE_FILE: values_staging.yaml
+    DEPLOYMENT_VALUE_FILE: configuration/statspace/values_staging.yaml
+    GIT_STRATEGY: none
+  before_script:
+    - git clone git@repo.code.ubc.ca:devops/configuration.git
   script:
-    - if [[ "$EVENT_TYPE" == "push" && "$ENV_NAME" == "staging" ]]; then command deploy-helm; fi
+    - command deploy-helm
   environment:
     name: staging
     url: http://statspace.stg.$KUBE_DOMAIN
   only:
     - statspace
-    - triggers
 review:
   stage: review
   variables:
-      DEPLOYMENT_VALUE_FILE: values_review.yaml
+    DEPLOYMENT_VALUE_FILE: configuration/statspace/values_review.yaml
+    GIT_STRATEGY: none
+  before_script:
+    - git clone git@repo.code.ubc.ca:devops/configuration.git
   script:
-    - if [[ "$EVENT_TYPE" == "pull_request" || ("$EVENT_TYPE" == "push" && "$ENV_NAME" != "staging") ]]; then command deploy-helm; fi
+    - command deploy-helm
   environment:
     name: $ENV_NAME
     url: http://statspace.$CI_ENVIRONMENT_SLUG.$KUBE_DOMAIN
     on_stop: stop_review
   only:
-    - triggers
+    - branches
+  except:
+    - statspace
 stop_review:
   stage: review
   variables:
