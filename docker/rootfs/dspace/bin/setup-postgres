@@ -26,6 +26,10 @@ SCHEMA_EXISTS=$(psql -h "$POSTGRES_DB_HOST" -p "$POSTGRES_DB_PORT" -U "$POSTGRES
 if [ $SCHEMA_EXISTS -eq 1 ]; then
   psql -h "$POSTGRES_DB_HOST" -p "$POSTGRES_DB_PORT" -d postgres -U "$POSTGRES_ADMIN_USER" -c "CREATE DATABASE $POSTGRES_SCHEMA OWNER $POSTGRES_USER;" 2>&1 > /dev/null
   echo "Database '${POSTGRES_SCHEMA}' created"
+else
+  # we need to change the database owner to the user
+  psql -h "$POSTGRES_DB_HOST" -p "$POSTGRES_DB_PORT" -d postgres -U "$POSTGRES_ADMIN_USER" -c "ALTER DATABASE $POSTGRES_SCHEMA OWNER TO $POSTGRES_USER;" 2>&1 > /dev/null
+  echo "Database '${POSTGRES_SCHEMA}' owner changed to '${POSTGRES_USER}'"
 fi
 
 # Configure database in dspace.cfg
