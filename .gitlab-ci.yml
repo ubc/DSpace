@@ -12,7 +12,6 @@ variables:
   # helm chart to deploy
   DEPLOYMENT_MANIFEST: ctlt/statspace
   # Build
-  app__image__tag: $CI_BUILD_REF_NAME
   CI_REGISTRY_IMAGE: ubcctlt/dspace
 
 stages:
@@ -68,7 +67,7 @@ review:
   script:
     - command deploy-helm
   environment:
-    name: $ENV_NAME
+    name: review/$CI_COMMIT_REF_SLUG
     url: http://statspace.$CI_ENVIRONMENT_SLUG.$KUBE_DOMAIN
     on_stop: stop_review
   only:
@@ -82,8 +81,10 @@ stop_review:
   script:
     - command destroy-helm
   environment:
-    name: $ENV_NAME
+    name: review/$CI_COMMIT_REF_SLUG
     action: stop
   when: manual
   only:
-    - triggers
+    - branches
+  except:
+    - statspace
