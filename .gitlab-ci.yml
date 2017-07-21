@@ -11,6 +11,9 @@ variables:
   KUBE_DOMAIN: apps.ctlt.ubc.ca
   # helm chart to deploy
   DEPLOYMENT_MANIFEST: ctlt/statspace
+  # Build
+  app__image__tag: $CI_BUILD_REF_NAME
+  CI_REGISTRY_IMAGE: ubcctlt/dspace
 
 stages:
   - build
@@ -21,12 +24,7 @@ stages:
 build_image:
   stage: build
   script:
-    - docker build --pull -t ubcctlt/dspace:statspace .
-    # To login, set up environment variables for dockerhub
-    - docker login -u $DOCKER_ID_USERNAME -p $DOCKER_ID_PASSWORD
-    - docker push ubcctlt/dspace
-  only:
-    - statspace
+    - command build
 
 production:
   stage: production
