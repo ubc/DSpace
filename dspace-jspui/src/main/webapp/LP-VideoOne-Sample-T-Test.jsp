@@ -58,7 +58,7 @@
 		    <div class="col-md-12">
 			<iframe class="pull-left fake-video" src="https://player.vimeo.com/video/196470101?byline=0&portrait=0" width="300" height="169" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                 
-			<p class="intro-text">This video gives students a brief and simplified overview of statistics. This resource is especially useful for those outside of math-heavy disciplines to get a high-level understanding of statistics without the overwhelm typically associated introductory videos.</p>
+			<p class="intro-text">This video discusses the concept of a one sample t-test. It examines the foundations of a hypothesis test, explains the meaning of P-values and how we use P-values to make decisions about our hypothesis. </p>
 			
 			<p class="text-center access-btn"><a class="btn btn-success btn-md" href="https://vimeo.com/196470101">Access Resource</a></p>
 		  
@@ -89,6 +89,15 @@
 			</form>		
 		    </div>
 		</div>
+            
+            <div class="panel panel-info">
+		      <div class="panel-heading">
+                <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
+                </div>
+                <div class="panel-body">
+			     <p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
+		      </div>
+		      </div>
 	    
 	    </div>			
 	</div>

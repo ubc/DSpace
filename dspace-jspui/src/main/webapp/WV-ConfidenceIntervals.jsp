@@ -52,16 +52,17 @@
 	<div class="row">  
 	    <div class="col-md-8">
 	    
-		<h1>Web Visualization: Confidence intervals of the mean</h1>
+		<h1>Web Visualization: Confidence intervals of the mean</h1> <br><br>
 		
 		<div class="row description">
 		    <div class="col-md-12">
-			<img class="pull-left zoology-fish" src="http://www.zoology.ubc.ca/~whitlock/kingfisher/Common/Images/fish.svg" width="220">
-			
-			<p class="intro-text">This video gives students a brief and simplified overview of statistics. This resource is especially useful for those outside of math-heavy disciplines to get a high-level understanding of statistics without the overwhelm typically associated introductory videos.</p>
-			
+                
+			 <img class="pull-left zoology-fish" src="image/confidence_interval_image.JPG" class="sim-image" width="225">
+    
+			<p class="intro-text">This web visualization shows the meaning of a confidence interval, calculating confidence intervals of the means of repeated samples.</p>
+                
 			<p class="text-center access-btn"><a class="btn btn-success btn-md" href="http://www.zoology.ubc.ca/~whitlock/kingfisher/CIMean.htm">Access Resource</a></p>
-		  
+		      
 		    </div>
 		</div> 
 	    
@@ -89,6 +90,15 @@
 			</form>		
 		    </div>
 		</div>
+            
+            <div class="panel panel-info">
+		      <div class="panel-heading">
+                <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
+		      </div>
+		      <div class="panel-body">
+			     <p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
+                </div>
+		    </div>
 	    
 	    </div>			
 	</div>
@@ -97,7 +107,8 @@
         <h2>Check out more Web Visualizations:</h2>
 	    <div class="col-md-4 text-center">
 		<div class="thumbnail">
-		    <img src="http://www.zoology.ubc.ca/~whitlock/Kingfisher/Common/Images/coffee.svg" class="sim-image" width="162" height="180" align="center">
+             <div class="col-md-12 text-center">
+		    <img src="http://www.zoology.ubc.ca/~whitlock/Kingfisher/Common/Images/coffee.svg" class="sim-image" width="162" height="180" align="center"></div>
 		    <div class="caption">
 			<h5>Web visualization: Sampling from a non-Normally distributed population (CLT)</h5>
 			<p class="text-left"><strong>Topics:</strong> <br>&bull; Probability - Laws, Theory - Central Limit Theorem <br>&bull; Sampling distributions - Sample mean</p> 

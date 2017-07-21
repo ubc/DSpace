@@ -59,7 +59,7 @@
                 <iframe class="pull-left fake-video" src="https://player.vimeo.com/video/196027417?byline=0&portrait=0" width="300" height="169" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                 <p><a href="https://vimeo.com/196027417">Sampling Distribution of the Mean</a> from <a href="https://vimeo.com/ubcmedit">UBC MedIT</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
 			
-                <p class="intro-text">This video gives students a brief and simplified overview of statistics. This resource is especially useful for those outside of math-heavy disciplines to get a high-level understanding of statistics without the overwhelm typically associated introductory videos.</p>
+                <p class="intro-text">This video explores the concept of a sampling distribution of the mean. It highlights how we can draw conclusions about a population mean based on a sample mean by understanding how sample means behave when we know the true values of the population. </p>
 			
                 <p class="text-center access-btn"><a class="btn btn-success btn-md" href="https://vimeo.com/196027417">Access Resource</a></p>
 		  
@@ -90,6 +90,15 @@
                 </form>		
 		    </div>
 		</div>
+                
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
+		          </div>
+		          <div class="panel-body">
+			         <p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
+		          </div>
+		      </div>
 	    
 	    </div>			
 	</div>
