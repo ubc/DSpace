@@ -17,7 +17,7 @@ variables:
   GITHUB_REPO: ubc/dspace
 
 stages:
-    #  - build
+    #- build
   - review
   - staging
   - production
@@ -75,8 +75,7 @@ review:
   script:
     - 'github_post_status pending'
     - command deploy-helm
-    - 'github_post_status success'
-    - 'github_post_issue_comment "The app is deployed and available for review at: $CI_ENVIRONMENT_URL"'
+    - 'github_post_status success "$CI_ENVIRONMENT_URL"'
   environment:
     name: review/$CI_COMMIT_REF_SLUG
     url: http://statspace.$CI_ENVIRONMENT_SLUG.$KUBE_DOMAIN
