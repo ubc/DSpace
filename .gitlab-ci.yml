@@ -13,6 +13,8 @@ variables:
   DEPLOYMENT_MANIFEST: ctlt/statspace
   # Build
   CI_REGISTRY_IMAGE: ubcctlt/dspace
+  # GitHub integration
+  GITHUB_REPO: ubc/dspace
 
 stages:
   - build
@@ -22,8 +24,12 @@ stages:
 
 build_image:
   stage: build
+  before_script:
+    - source docker-entrypoint.sh
   script:
+    - 'github_post_status pending'
     - command build
+    - 'github_post_status success'
 
 production:
   stage: production
@@ -50,7 +56,9 @@ staging:
     - source docker-entrypoint.sh
     - git clone git@repo.code.ubc.ca:devops/configuration.git
   script:
+    - 'github_post_status pending'
     - command deploy-helm
+    - 'github_post_status success'
   environment:
     name: staging
     url: http://statspace.stg.$KUBE_DOMAIN
@@ -65,7 +73,10 @@ review:
     - source docker-entrypoint.sh
     - git clone git@repo.code.ubc.ca:devops/configuration.git
   script:
+    - 'github_post_status pending'
     - command deploy-helm
+    - 'github_post_status success'
+    - 'github_post_issue_comment "The app is deployed and available for review at: $CI_ENVIRONMENT_URL"'
   environment:
     name: review/$CI_COMMIT_REF_SLUG
     url: http://statspace.$CI_ENVIRONMENT_SLUG.$KUBE_DOMAIN
