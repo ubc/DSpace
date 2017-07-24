@@ -58,7 +58,7 @@
 		<div class="row description">
 		    <div class="col-md-12">
 			
-			<img src="image/Stat200_displayimage.JPG" width="225">
+			<img class="pull-left zoology-fish" src="image/Stat200_displayimage.JPG" width="225">
 			
 			<p class="intro-text">This data set contains the winning numbers from the Florida Lottery (through the end of 2008), as reported by the state lottery commission. Note that from its inception through 23 October 1999, the lottery was "pick 6 of 49." Thereafter, it was a "pick 6 of 53" lottery.</p>
 			
@@ -91,6 +91,15 @@
 			</form>		
 		    </div>
 		</div>
+            
+            <div class="panel panel-info">
+		      <div class="panel-heading">
+                <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
+		      </div>
+		      <div class="panel-body">
+			     <p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
+		      </div>
+		  </div>
 	    
 	    </div>			
 	</div>

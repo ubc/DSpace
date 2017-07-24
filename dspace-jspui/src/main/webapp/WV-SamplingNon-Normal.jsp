@@ -52,16 +52,18 @@
 	<div class="row">  
 	    <div class="col-md-8">
 	    
-		<h1>Web Visualization: Sampling from a non-Normally distributed population (CLT)</h1>
+		<h1>Web Visualization: Sampling from a non-Normally distributed population (CLT)</h1> <br><br>
 		
 		<div class="row description">
 		    <div class="col-md-12">
-			<img class="pull-left zoology-fish" src="http://www.zoology.ubc.ca/~whitlock/kingfisher/Common/Images/fish.svg" width="220">
-			
-			<p class="intro-text">This video gives students a brief and simplified overview of statistics. This resource is especially useful for those outside of math-heavy disciplines to get a high-level understanding of statistics without the overwhelm typically associated introductory videos.</p>
+            <div class="col-md-4">
+			<img src="http://www.zoology.ubc.ca/~whitlock/Kingfisher/Common/Images/coffee.svg" width="162" height="180" align="center"></div>
+            <div class="col-md-8">
+			<p class="intro-text">This web visualization explores the sampling distribution of the mean when the data do not necessarily follow a Normal distribution. <br><br>
+                This visualization is designed to be used after the students are familiar with the general principles of sampling. The “Sampling from a Normal distribution” visualization should be used first to introduce some of the basic concepts and the visual metaphors used here.</p><br><br>
 			
 			<p class="text-center access-btn"><a class="btn btn-success btn-md" href="http://www.zoology.ubc.ca/~whitlock/kingfisher/CLT.htm">Access Resource</a></p>
-		  
+		      </div>
 		    </div>
 		</div> 
 	    
@@ -89,6 +91,15 @@
 			</form>		
 		    </div>
 		</div>
+            
+            <div class="panel panel-info">
+		      <div class="panel-heading">
+                <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
+                </div>
+		      <div class="panel-body">
+			     <p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
+		      </div>
+		    </div>
 	    
 	    </div>			
 	</div>
