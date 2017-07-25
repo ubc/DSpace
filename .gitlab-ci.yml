@@ -11,6 +11,7 @@ variables:
   KUBE_DOMAIN: apps.ctlt.ubc.ca
   # helm chart to deploy
   DEPLOYMENT_MANIFEST: ctlt/statspace
+  image__tag: $CI_COMMIT_REF_SLUG
   # Build
   CI_REGISTRY_IMAGE: ubcctlt/dspace
   # GitHub integration
