@@ -196,6 +196,22 @@
 		</div>
 	    </div>
 	</div>
+        
+    <div class="row featured-items">
+	    <div class="col-md-4 text-center">
+		<h4>iClicker</h4>
+		<div class="thumbnail">
+		    <img src="image/iClicker_image.JPG" class="sim-image" width="250">
+		    <div class="caption">
+			<h5>Interactive engagement (clicker) questions: Sampling distributions of means</h5>
+			<p class="text-left"><strong>About:</strong> Turn class into a conversation and allow students to participate with smartphones, laptops, tablets, or clickers.</p>
+			<p class="text-left"><strong>Assessment Method:</strong> Method Type</p>
+			<p class="text-left"><strong>Topics:</strong> <br>&bull; Sampling distributions - Sample mean <br>&bull; Exploratory data analysis/Classifying data - Graphical representations - Histograms</p> 
+			<p class="see-more"><a href="/iClicker-example.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+		    </div>
+		</div>
+	    </div>
+	</div>
 	
 	<div class="row text-center">
 	    <div class="col-md-12">
