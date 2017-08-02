@@ -53,7 +53,6 @@
 	    <div class="col-md-8">
 	    
 		<h1>WeBWorK Question ECON 325 HW6 additional Q1</h1>
-		<p class="text-muted contributors">Contributor(s): <a href="mailto:">Jane Doe</a>, <a href="mailto:">John Doe</a></p>
 		
 		<div class="row description">
 		    <div class="col-md-12">

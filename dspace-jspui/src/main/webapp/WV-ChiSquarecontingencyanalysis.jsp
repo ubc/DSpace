@@ -168,18 +168,16 @@
 		<ul>
             <li>as a visual aid during lectures;</li>
             <li>as an open-ended learning tool for active learning;</li>
-            <li>as a guided learning experience, using either the built-in tutorials or the guided <a target="_blank" href="/WV-SamplingNon-Normal.jsp">activity sheet <span class="glyphicon glyphicon-new-window"></span></a> or other instructor-supplied material.</li>
+            <li>as a guided learning experience, using either the built-in tutorials or the guided <a target="_blank" href="/WV-ChiSquarecontingencyanalysis.jsp">activity sheet <span class="glyphicon glyphicon-new-window"></span></a> or other instructor-supplied material.</li>
 
 		</ul>
-		
+		<!--
 		<h2>Complementary materials</h2>
 		<ul>
             <li><a href="/WV-ChiSquarecontingencyanalysis.jsp"><i>WeBWork Questions <span class="glyphicon glyphicon-new-window"></span></i></a></li>
             <li><a href="/WV-ChiSquarecontingencyanalysis.jsp"><i>iClicker Questions <span class="glyphicon glyphicon-new-window"></span></i></a></li>
-            
-           
-		</ul>
-            
+        </ul>
+          -->  
         <h2>About this Resource</h2>
 		<ul>
             <p>
@@ -195,16 +193,18 @@
 		</ul>    
 	    </div>
 	    
-	    <div class="col-md-4 tags">
+	 <div class="col-md-4 tags">
 	    
-		<div class="panel panel-default">
+        <div class="panel panel-default">
 		    <div class="panel-heading">
 			<h3 class="panel-title"><i class="glyphicon glyphicon-tag"></i> Tags</h3>
 		    </div>
+		    <div class="panel-body">
             <p>
-			<strong>Topics:</strong> <br>&bull; Hypothesis tests - Goodness of fit - Chi-squared test for independence
+			<strong>Topics:</strong> <br>&bull; Hypothesis tests - Goodness of fit - Chi-squared test for independence 
             </p>
 		    </div>
+        </div>
 	      
 		<div class="panel panel-default">
 		    <div class="panel-heading">

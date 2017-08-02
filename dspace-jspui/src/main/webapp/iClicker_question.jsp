@@ -55,10 +55,10 @@
 	       <div class="col-md-12">
 		      <h2>Sample Question</h2>
                <div class="row">
-		      <p>The sampling distribution of the average hourly wages of random samples of 120 employees in a large company is shown below: </p>
+		      <p>Suppose that we are to draw many random samples of 120 employees from a large company. The average of the hourly wages of the 120 employees is computed for each sample. Below is the sampling distribution of the average values from the repeated samples.</p>
                </div> 
                <div class="row">
-		      <img class="pull-left zoology-fish" src="image/sample_question_image.JPG" width="225">
+		      <img class="pull-left zoology-fish" src="image/sample_question_image.JPG" width="225"> <br>
                </div> 
 		      <div class="row">
 		      <p>If the averages are computed based on samples of size larger than 120, we would expect the sampling distribution of the average hourly wage to look like:
@@ -107,7 +107,7 @@
 			<p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
 		    </div>
 		</div>
-	      
+<!--
 		<div class="panel panel-info">
 		    <div class="panel-heading">
                 <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-comment"></i> &nbsp;Evaluate what you use</a></h3>
@@ -116,7 +116,7 @@
 			<p>Evaluate the introductory statistics material in StatSpace by giving <strong>detailed private feedback</strong> for any resources you use, to help other educators improve their designs.</p>
 		    </div>
 		</div>
-	    
+-->	   
 	    </div>			
 	</div>
 	

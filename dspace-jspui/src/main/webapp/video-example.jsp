@@ -159,7 +159,7 @@
 		
 		<h2>Complementary materials</h2>
 		<ul>
-            <li><a href="/video-example.jsp"><i>Eugenia's Clicker Questions <span class="glyphicon glyphicon-new-window"></span></i></a></li>
+            <li><a href="/iClicker-example.jsp">“Interactive Engagement Questions: Sampling distributions of means<span class="glyphicon glyphicon-new-window"></span></a></li>
 		</ul>
         
              <h2>About this Resource</h2>
