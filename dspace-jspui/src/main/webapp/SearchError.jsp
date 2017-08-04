@@ -50,7 +50,7 @@
 	<div class="col-md-12">
         
         <h1>Doesn't Work</h1>
-        <h3>The search function is under development</h3>
+        <h3>The search function is not yet available at this point in time. It is under development</h3>
 	<!--	
 	    <h1>Search Temporarily Down</h1>
 	    
