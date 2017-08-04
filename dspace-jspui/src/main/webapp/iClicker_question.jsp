@@ -47,31 +47,30 @@
 <dspace:layout locbar="nolink" titlekey="jsp.about.title" feedData="<%= feedData %>">
 
     <div class="example">
-	<p><a href="/">Home</a> <span class="text-muted">&raquo; Copyright Resources</span></p>
+	<p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/iClicker-example.jsp">iClicker</a> <span class="text-muted">&raquo; iClicker Question</span></p>
 
 	<div class="row">  
 	    <div class="col-md-8">
 	    
-		<h1>Copyright Resources</h1>
-		<div class="row descriptions">
 	       <div class="col-md-12">
-		      <h2>Curating</h2>
-		      <p>These are the links for copyright resources regarding curating: </p>
-		      <ul>
-                  <li>Copyright &amp; Permissions&colon; <a href="http://wiki.ubc.ca/Library:OERR/User_Guides/Copyright_Permissions/Curated_Content">Copyright and Curated Content in Open Education Resource Repositories<span class="glyphicon glyphicon-new-window"></span></a></li>
-                  <li>Finding &amp; Using Open Education Resources&colon; <a href="http://wiki.ubc.ca/Library:OERR/User_Guides/Curating/Finding">Finding Open Education Resources<span class="glyphicon glyphicon-new-window"></span></a></li>
-		          <li>Assessing &amp; Using Open Education Resources&colon; <a href="http://wiki.ubc.ca/Library:OERR/User_Guides/Curating/Assessing">Assessing Open Education Resources<span class="glyphicon glyphicon-new-window"></span></a></li>
-		      </ul>
-		
-		      <h2>Creating</h2>
-              <p>These are the links for copyright resources regarding creating</p>
-		      <ul>
-		          <li>Copyright &amp; Permissions&colon; <a href="http://wiki.ubc.ca/Library:OERR/User_Guides/Copyright_Permissions/Self_Created_Content">Self-Created Content for Open Education Repositories<span class="glyphicon glyphicon-new-window"></span></a></li>
-                  <li>Copyright &amp; Permissions&colon; <a href="http://wiki.ubc.ca/Library:OERR/User_Guides/Copyright_Permissions/Seeking_Permission">Seeking Permission for Copyright Content<span class="glyphicon glyphicon-new-window"></span></a></li>
-		          <li>Finding &amp; Using Open Education Resources&colon; <a href="http://wiki.ubc.ca/Library:OERR/User_Guides/Curating/Define">What are Open Education Resources<span class="glyphicon glyphicon-new-window"></span></a></li>
-		      </ul>
+		      <h2>Sample Question</h2>
+               <div class="row">
+		      <p>Suppose that we are to draw many random samples of 120 employees from a large company. The average of the hourly wages of the 120 employees is computed for each sample. Below is the sampling distribution of the average values from the repeated samples.</p>
+               </div> 
+               <div class="row">
+		      <img class="pull-left zoology-fish" src="image/sample_question_image.JPG" width="225"> <br>
+               </div> 
+		      <div class="row">
+		      <p>If the averages are computed based on samples of size larger than 120, we would expect the sampling distribution of the average hourly wage to look like:
+                </p><br><br><br>
+               </div> 
+              <div class="row">
+		      <div class="col-md-8">
+                  <img src="image/iClicker_image_3.JPG" width="325">
+                  </div>
+               </div>
+               
 	       </div>	
-	   </div>
 		</div> 
 	    
 	    
@@ -87,7 +86,7 @@
 			<p>Search our high-quality archive of <strong>100+ curated introductory statistics materials</strong>.</p>
 			<label>Search StatSpace now:</label>
 			<%-- Search Box --%>
-			<form method="get" action="<%= request.getContextPath() %>/SearchError.jsp">
+			<form method="get" action="<%= request.getContextPath() %>/simple-search">
 			    <div class="input-group">
 				<input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
 				<span class="input-group-btn">
@@ -108,7 +107,7 @@
 			<p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
 		    </div>
 		</div>
-	      
+<!--
 		<div class="panel panel-info">
 		    <div class="panel-heading">
                 <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-comment"></i> &nbsp;Evaluate what you use</a></h3>
@@ -117,7 +116,7 @@
 			<p>Evaluate the introductory statistics material in StatSpace by giving <strong>detailed private feedback</strong> for any resources you use, to help other educators improve their designs.</p>
 		    </div>
 		</div>
-	    
+-->	   
 	    </div>			
 	</div>
 	
@@ -126,15 +125,16 @@
 		<div class="divider"></div>
 	    </div>
 	</div>
-	
-	
-	
+        
+        <div class="row">
+		      <p><b>Answer: D</b><br>Explanation: Since the mean of a sampling distribution equals the population mean regardless of the sample size, one can deduce that the population mean hourly wage is $15.3 from the given graph.  We also know that the SD of the average hourly wage of n employees is given by the population SD divided by sqrt(n).  The larger the value of n, the smaller the SD of the sample average hourly wage will be.  Therefore, we expect that the sampling distribution for n>120 will have the same center ($15.3) but a smaller spread than that for n=120. </p>
+        </div> 
+		
 	<div class="row text-center">
 	    <div class="col-md-12">
 		<h4 class="more-heading">To see more resources:</h4>
 		<a href="/register" class="btn btn-success btn-lg">Join</a> &nbsp;or&nbsp; <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>
-	    </div>
-	    
+	    </div>	    
 	</div>
 
     </div>

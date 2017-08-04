@@ -53,12 +53,11 @@
 	    <div class="col-md-8">
 	    
 		<h1>WeBWorK Question STAT 200 revised2016/Linguistics Question Q9</h1>
-		<p class="text-muted contributors">Contributor(s): <a href="mailto:">Jane Doe</a>, <a href="mailto:">John Doe</a></p>
 		
 		<div class="row description">
 		    <div class="col-md-12">
 			
-			<img src="image/Stat200_displayimage.JPG" width="225">
+			<img class="pull-left zoology-fish" src="image/Stat200_displayimage.JPG" width="225">
 			
 			<p class="intro-text">This data set contains the winning numbers from the Florida Lottery (through the end of 2008), as reported by the state lottery commission. Note that from its inception through 23 October 1999, the lottery was "pick 6 of 49." Thereafter, it was a "pick 6 of 53" lottery.</p>
 			
@@ -79,7 +78,7 @@
 			<p>StatSpace brings together vetted open education materials for use across disciplines. Members of our community can <strong>search and use materials</strong> in the repository, <strong>contribute materials</strong> of their own, and <strong>evaluate materials</strong> they use.</p>
 			<label>Search StatSpace now:</label>
 			<%-- Search Box --%>
-			<form method="get" action="<%= request.getContextPath() %>/simple-search">
+			<form method="get" action="<%= request.getContextPath() %>/SearchError.jsp">
 			    <div class="input-group">
 				<input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
 				<span class="input-group-btn">
@@ -91,6 +90,15 @@
 			</form>		
 		    </div>
 		</div>
+            
+            <div class="panel panel-info">
+		      <div class="panel-heading">
+                <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
+		      </div>
+		      <div class="panel-body">
+			     <p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
+		      </div>
+		  </div>
 	    
 	    </div>			
 	</div>

@@ -78,7 +78,7 @@
 			<p>StatSpace brings together vetted open education materials for use across disciplines. Members of our community can <strong>search and use materials</strong> in the repository, <strong>contribute materials</strong> of their own, and <strong>evaluate materials</strong> they use.</p>
 			<label>Search StatSpace now:</label>
 			<%-- Search Box --%>
-			<form method="get" action="<%= request.getContextPath() %>/simple-search">
+			<form method="get" action="<%= request.getContextPath() %>/SearchError.jsp">
 			    <div class="input-group">
 				<input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
 				<span class="input-group-btn">
@@ -90,6 +90,15 @@
             </form>		
 		    </div>
         </div>
+            
+            <div class="panel panel-info">
+		      <div class="panel-heading">
+                <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
+		      </div>
+		      <div class="panel-body">
+			     <p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
+                </div>
+		    </div>
 	    
 	    </div>	
 	</div>
@@ -97,7 +106,8 @@
         <h2>Check out more Web Visualizations:</h2>
 	    <div class="col-md-4 text-center">
 		<div class="thumbnail">
-		    <img src="http://www.zoology.ubc.ca/~whitlock/Kingfisher/Common/Images/coffee.svg" class="sim-image" width="162" height="180" align="center">
+            <div class="col-md-12 text-center">
+		    <img src="http://www.zoology.ubc.ca/~whitlock/Kingfisher/Common/Images/coffee.svg" class="sim-image" width="162" height="180" align="center"></div>
 		    <div class="caption">
 			<h5>Web visualization: Sampling from a non-Normally distributed population (CLT)</h5>
 			<p class="text-left"><strong>Topics:</strong> <br>&bull; Probability - Laws, Theory - Central Limit Theorem <br>&bull; Sampling distributions - Sample mean</p> 
@@ -156,7 +166,7 @@
 		<ul>
             <li>as a visual aid during lectures;</li>
 		    <li>as an open-ended learning tool for active learning;</li>
-		    <li>as a guided learning experience, using either the built-in tutorials or the guided <a target="_blank" href="/sim-example.jsp">activity sheet <span class="glyphicon glyphicon-new-window"></span></a> or other instructor-supplied material.</li>
+		    <li>as a guided learning experience, using either the built-in tutorials or the guided activity sheet <a target="_blank" href="/pdf_folder/Applet1Qs.pdf">activity sheet<span class="glyphicon glyphicon-new-window"></span></a> or other <a target="_blank" href="/pdf_folder/Applet1InstructorGuide.pdf">instructor-supplied material<span class="glyphicon glyphicon-new-window"></span></a>.</li>
         </ul>
 		
 		<h2>Complementary materials</h2>

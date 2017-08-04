@@ -57,7 +57,7 @@
 		<div class="row description">
 		    <div class="col-md-12">
             
-            <img class="pull-left zoology-fish" src="http://www.zoology.ubc.ca/~whitlock/kingfisher/Common/Images/fish.svg" width="220">
+            <img class="pull-left zoology-fish" src="image/contingency_analysis_image.jpg" class="sim-image" width="250">
 			
                 <p class="intro-text">This web visualization simulates samples of a 2x2 contingency analysis. It demonstrates that the <i>X</i><sup>2</sup> test statistic follows a <i>X</i><sup>2</sup> distribution and illustrates the meaning of the P-value. It may be most useful as a demonstration of the meaning of Type I error and power. <i>This visualization has no tutorial version.</i></p>
 
@@ -79,7 +79,7 @@
 			<p>StatSpace brings together vetted open education materials for use across disciplines. Members of our community can <strong>search and use materials</strong> in the repository, <strong>contribute materials</strong> of their own, and <strong>evaluate materials</strong> they use.</p>
 			<label>Search StatSpace now:</label>
 			<%-- Search Box --%>
-			<form method="get" action="<%= request.getContextPath() %>/simple-search">
+			<form method="get" action="<%= request.getContextPath() %>/SearchError.jsp">
 			    <div class="input-group">
 				<input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
 				<span class="input-group-btn">
@@ -91,6 +91,15 @@
 			</form>		
 		    </div>
 		</div>
+            
+            <div class="panel panel-info">
+		      <div class="panel-heading">
+                <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
+		      </div>
+		      <div class="panel-body">
+			     <p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
+		      </div>
+		    </div>
 	    
 	    </div>			
 	</div>
@@ -99,7 +108,8 @@
         <h2>Check out more Web Visualizations:</h2>
 	    <div class="col-md-4 text-center">
 		<div class="thumbnail">
-		    <img src="http://www.zoology.ubc.ca/~whitlock/Kingfisher/Common/Images/coffee.svg" class="sim-image" width="162" height="180" align="center">
+             <div class="col-md-12 text-center">
+		    <img src="http://www.zoology.ubc.ca/~whitlock/Kingfisher/Common/Images/coffee.svg" class="sim-image" width="162" height="180" align="center"></div>
 		    <div class="caption">
 			<h5>Web visualization: Sampling from a non-Normally distributed population (CLT)</h5>
 			<p class="text-left"><strong>Topics:</strong> <br>&bull; Probability - Laws, Theory - Central Limit Theorem <br>&bull; Sampling distributions - Sample mean</p> 
@@ -158,18 +168,16 @@
 		<ul>
             <li>as a visual aid during lectures;</li>
             <li>as an open-ended learning tool for active learning;</li>
-            <li>as a guided learning experience, using either the built-in tutorials or the guided <a target="_blank" href="/WV-SamplingNon-Normal.jsp">activity sheet <span class="glyphicon glyphicon-new-window"></span></a> or other instructor-supplied material.</li>
+            <li>as a guided learning experience, using either the built-in tutorials or the guided <a target="_blank" href="/WV-ChiSquarecontingencyanalysis.jsp">activity sheet <span class="glyphicon glyphicon-new-window"></span></a> or other instructor-supplied material.</li>
 
 		</ul>
-		
+		<!--
 		<h2>Complementary materials</h2>
 		<ul>
             <li><a href="/WV-ChiSquarecontingencyanalysis.jsp"><i>WeBWork Questions <span class="glyphicon glyphicon-new-window"></span></i></a></li>
             <li><a href="/WV-ChiSquarecontingencyanalysis.jsp"><i>iClicker Questions <span class="glyphicon glyphicon-new-window"></span></i></a></li>
-            
-           
-		</ul>
-            
+        </ul>
+          -->  
         <h2>About this Resource</h2>
 		<ul>
             <p>
@@ -185,16 +193,18 @@
 		</ul>    
 	    </div>
 	    
-	    <div class="col-md-4 tags">
+	 <div class="col-md-4 tags">
 	    
-		<div class="panel panel-default">
+        <div class="panel panel-default">
 		    <div class="panel-heading">
 			<h3 class="panel-title"><i class="glyphicon glyphicon-tag"></i> Tags</h3>
 		    </div>
+		    <div class="panel-body">
             <p>
-			<strong>Topics:</strong> <br>&bull; Hypothesis tests - Goodness of fit - Chi-squared test for independence
+			<strong>Topics:</strong> <br>&bull; Hypothesis tests - Goodness of fit - Chi-squared test for independence 
             </p>
 		    </div>
+        </div>
 	      
 		<div class="panel panel-default">
 		    <div class="panel-heading">

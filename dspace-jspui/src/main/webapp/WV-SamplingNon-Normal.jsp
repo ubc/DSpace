@@ -52,16 +52,18 @@
 	<div class="row">  
 	    <div class="col-md-8">
 	    
-		<h1>Web Visualization: Sampling from a non-Normally distributed population (CLT)</h1>
+		<h1>Web Visualization: Sampling from a non-Normally distributed population (CLT)</h1> <br><br>
 		
 		<div class="row description">
 		    <div class="col-md-12">
-			<img class="pull-left zoology-fish" src="http://www.zoology.ubc.ca/~whitlock/kingfisher/Common/Images/fish.svg" width="220">
-			
-			<p class="intro-text">This video gives students a brief and simplified overview of statistics. This resource is especially useful for those outside of math-heavy disciplines to get a high-level understanding of statistics without the overwhelm typically associated introductory videos.</p>
+            <div class="col-md-4">
+			<img src="http://www.zoology.ubc.ca/~whitlock/Kingfisher/Common/Images/coffee.svg" width="162" height="180" align="center"></div>
+            <div class="col-md-8">
+			<p class="intro-text">This web visualization explores the sampling distribution of the mean when the data do not necessarily follow a Normal distribution. <br><br>
+                This visualization is designed to be used after the students are familiar with the general principles of sampling. The “Sampling from a Normal distribution” visualization should be used first to introduce some of the basic concepts and the visual metaphors used here.</p><br><br>
 			
 			<p class="text-center access-btn"><a class="btn btn-success btn-md" href="http://www.zoology.ubc.ca/~whitlock/kingfisher/CLT.htm">Access Resource</a></p>
-		  
+		      </div>
 		    </div>
 		</div> 
 	    
@@ -77,7 +79,7 @@
 			<p>StatSpace brings together vetted open education materials for use across disciplines. Members of our community can <strong>search and use materials</strong> in the repository, <strong>contribute materials</strong> of their own, and <strong>evaluate materials</strong> they use.</p>
 			<label>Search StatSpace now:</label>
 			<%-- Search Box --%>
-			<form method="get" action="<%= request.getContextPath() %>/simple-search">
+			<form method="get" action="<%= request.getContextPath() %>/SearchError.jsp">
 			    <div class="input-group">
 				<input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
 				<span class="input-group-btn">
@@ -89,6 +91,15 @@
 			</form>		
 		    </div>
 		</div>
+            
+            <div class="panel panel-info">
+		      <div class="panel-heading">
+                <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
+                </div>
+		      <div class="panel-body">
+			     <p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
+		      </div>
+		    </div>
 	    
 	    </div>			
 	</div>
@@ -155,14 +166,15 @@
 		<ul>
             <li>as a visual aid during lectures;</li>
 		    <li>as an open-ended learning tool for active learning;</li>
-		    <li>as a guided learning experience, using either the built-in tutorials or the guided <a target="_blank" href="/WV-SamplingNon-Normal.jsp">activity sheet <span class="glyphicon glyphicon-new-window"></span></a> or other instructor-supplied material.</li>
+		    <li>as a guided learning experience, using either the built-in tutorials or the guided activity sheet <a target="_blank" href="/pdf_folder/Applet2Qs.pdf">activity sheet<span class="glyphicon glyphicon-new-window"></span></a> or other <a target="_blank" href="/pdf_folder/Applet2InstructorGuide.pdf">instructor-supplied material<span class="glyphicon glyphicon-new-window"></span></a>.</li>
         </ul>
 		
 		<h2>Complementary materials</h2>
 		<ul>
             <li>It is recommended that the “Sampling from a Normal distribution” web visualization be used first to introduce some of the basic concepts and the visual metaphors used in the CLT web visualization&colon; <a target="_blank" href="sim-example.jsp">Web Visualization: Sampling from a Normal distribution <span class="glyphicon glyphicon-new-window"></span></a></li>
-            <li><a target="_blank" href="LP-VideoCIs.jsp">Video: Sampling Distribution of the Mean <span class="glyphicon glyphicon-new-window"></span></a></li>
-            <li><a href="/WV-SamplingNon-Normal.jsp">Activity: Introducing the sampling distribution (French protest) <span class="glyphicon glyphicon-new-window"></span></a></li>
+            <li><a target="_blank" href="video-example.jsp">Video: Sampling Distribution of the Mean <span class="glyphicon glyphicon-new-window"></span></a></li>
+            <li><a href="">Activity: Introducing the sampling distribution (French protest) <span class="glyphicon glyphicon-new-window"></span></a></li>
+            <li><a href="/iClicker-example.jsp">“Interactive Engagement Questions: Sampling distributions of means<span class="glyphicon glyphicon-new-window"></span></a></li>
 		</ul>
             
         <h2>About this resource</h2>
