@@ -134,7 +134,7 @@
 			<p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
 		    </div>
 		</div>
-	      
+	   <!--
 		<div class="panel panel-info">
 		    <div class="panel-heading">
                 <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-comment"></i> &nbsp;Evaluate what you use</a></h3>
@@ -143,7 +143,7 @@
 			<p>Evaluate the introductory statistics material in StatSpace by giving <strong>detailed private feedback</strong> for any resources you use, to help other educators improve their designs.</p>
 		    </div>
 		</div>
-	    
+	    -->
 	    </div>
 	</div>
 	
@@ -161,7 +161,6 @@
 		    <div class="caption">
 			<h5>Web Visualization: Sampling from a Normal distribution</h5>
 			<p class="text-left"><strong>About:</strong> This activity allows students to understand the values of the sample size, mean length, and standard deviation of length by <!--... &nbsp;<a href="">Show <span class="glyphicon glyphicon-chevron-down"></span></a>--> working with an online visualization tool based around fish populations. By doing the tutorial, students get a feel for how these three values change the distribution.</p>
-			<p class="text-left"><strong>Assessment Method:</strong> Method Type</p>
 			<p class="text-left"><strong>Topics:</strong> <br>&bull; Sampling distributions - Sample mean <br>&bull; Exploratory data analysis/Classifying data - Graphical representations - Histograms</p> 
 			<p class="see-more"><a href="/sim-example.jsp" class="btn btn-primary">Read more &raquo;</a></p>
 		    </div>
@@ -174,8 +173,7 @@
 		    <iframe src="https://player.vimeo.com/video/196027417?byline=0&portrait=0" width="300" height="169" frameborder="0" ></iframe>
 		    <div class="caption">
 			<h5>Video: Sampling distribution of the mean</h5>
-			<p class="text-left"><strong>About:</strong> This video gives students a brief and simplified overview of statistics. This resource is especially useful for those outside <!--... &nbsp;<a href="">Show <span class="glyphicon glyphicon-chevron-down"></span></a>--> of math-heavy disciplines to get a high-level understanding of statistics without the overwhelm typically associated introductory videos.</p>
-			<p class="text-left"><strong>Assessment Method:</strong> Method Type</p>
+			<p class="text-left"><strong>About:</strong> This video explores the concept of a sampling distribution of the mean. It highlights how we can draw conclusions about a population mean based on a sample mean by understanding how sample means behave when we know the true values of the population.</p>
 			<p class="text-left"><strong>Topics:</strong> <br>&bull; Sampling distribution -  Sample mean</p> 
 			<p class="see-more"><a href="/video-example.jsp" class="btn btn-primary">Read more &raquo;</a></p>
 		    </div>     
@@ -189,9 +187,23 @@
 		    <div class="caption">
 			<h5>WeBWorK Web Application</h5>
 			<p class="text-left"><strong>About:</strong> WeBWorK is a free on-line individualized assessment tool that provides students with automatic feedback on their work and is used at over 700 institutions globally. </p>
-			<p class="text-left"><strong>Assessment Method:</strong> Method Type</p>
 			<p class="text-left"><strong>Topics:</strong> Normal distribution, Histograms, Sampling variability, Sampling from a Normal distribution</p> 
 			<p class="see-more"><a href="/WebWork_Questions.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+		    </div>
+		</div>
+	    </div>
+	</div>
+        
+    <div class="row featured-items">
+	    <div class="col-md-4 text-center">
+		<h4>iClicker</h4>
+		<div class="thumbnail">
+		    <img src="image/iClicker_image_home.JPG" class="sim-image" width="250">
+		    <div class="caption">
+			<h5>Interactive engagement (clicker) questions: Sampling distributions of means</h5>
+			<p class="text-left"><strong>About:</strong> With a personal response system, students can answer questions and instructors can monitor understanding in real time. Turn the classroom into a conversation and allow students to participate with smartphones, laptops, tablets, or clickers.</p>
+			<p class="text-left"><strong>Topics:</strong> <br>&bull; Sampling distributions - Sample mean</p> 
+			<p class="see-more"><a href="/iClicker-example.jsp" class="btn btn-primary">Read more &raquo;</a></p>
 		    </div>
 		</div>
 	    </div>

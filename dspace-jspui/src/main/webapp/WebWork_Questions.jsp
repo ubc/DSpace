@@ -52,7 +52,6 @@
 	<div class="row">  
 	    <div class="col-md-8">
 		<h1>WeBWorK</h1>
-		<p class="text-muted contributors">Contributor(s): <a href="mailto:">Jane Doe</a>, <a href="mailto:">John Doe</a></p>
 		
 		<div class="row description">
 		    

@@ -166,7 +166,7 @@
 		<ul>
             <li>as a visual aid during lectures;</li>
 		    <li>as an open-ended learning tool for active learning;</li>
-		    <li>as a guided learning experience, using either the built-in tutorials or the guided <a target="_blank" href="/sim-example.jsp">activity sheet <span class="glyphicon glyphicon-new-window"></span></a> or other instructor-supplied material.</li>
+		    <li>as a guided learning experience, using either the built-in tutorials or the guided activity sheet <a target="_blank" href="/pdf_folder/Applet1Qs.pdf">activity sheet<span class="glyphicon glyphicon-new-window"></span></a> or other <a target="_blank" href="/pdf_folder/Applet1InstructorGuide.pdf">instructor-supplied material<span class="glyphicon glyphicon-new-window"></span></a>.</li>
         </ul>
 		
 		<h2>Complementary materials</h2>

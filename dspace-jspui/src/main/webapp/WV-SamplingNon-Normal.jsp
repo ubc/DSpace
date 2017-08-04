@@ -166,14 +166,15 @@
 		<ul>
             <li>as a visual aid during lectures;</li>
 		    <li>as an open-ended learning tool for active learning;</li>
-		    <li>as a guided learning experience, using either the built-in tutorials or the guided <a target="_blank" href="/WV-SamplingNon-Normal.jsp">activity sheet <span class="glyphicon glyphicon-new-window"></span></a> or other instructor-supplied material.</li>
+		    <li>as a guided learning experience, using either the built-in tutorials or the guided activity sheet <a target="_blank" href="/pdf_folder/Applet2Qs.pdf">activity sheet<span class="glyphicon glyphicon-new-window"></span></a> or other <a target="_blank" href="/pdf_folder/Applet2InstructorGuide.pdf">instructor-supplied material<span class="glyphicon glyphicon-new-window"></span></a>.</li>
         </ul>
 		
 		<h2>Complementary materials</h2>
 		<ul>
             <li>It is recommended that the “Sampling from a Normal distribution” web visualization be used first to introduce some of the basic concepts and the visual metaphors used in the CLT web visualization&colon; <a target="_blank" href="sim-example.jsp">Web Visualization: Sampling from a Normal distribution <span class="glyphicon glyphicon-new-window"></span></a></li>
-            <li><a target="_blank" href="LP-VideoCIs.jsp">Video: Sampling Distribution of the Mean <span class="glyphicon glyphicon-new-window"></span></a></li>
-            <li><a href="/WV-SamplingNon-Normal.jsp">Activity: Introducing the sampling distribution (French protest) <span class="glyphicon glyphicon-new-window"></span></a></li>
+            <li><a target="_blank" href="video-example.jsp">Video: Sampling Distribution of the Mean <span class="glyphicon glyphicon-new-window"></span></a></li>
+            <li><a href="">Activity: Introducing the sampling distribution (French protest) <span class="glyphicon glyphicon-new-window"></span></a></li>
+            <li><a href="/iClicker-example.jsp">“Interactive Engagement Questions: Sampling distributions of means<span class="glyphicon glyphicon-new-window"></span></a></li>
 		</ul>
             
         <h2>About this resource</h2>
