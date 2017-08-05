@@ -18,11 +18,10 @@ variables:
   GITHUB_REPO: ubc/dspace
 
 stages:
-    #- build
+  - build
   - review
   - staging
   - production
-
 
 build_image:
   stage: build
@@ -32,7 +31,6 @@ build_image:
     - 'github_post_status pending'
     - command build
     - 'github_post_status success'
-
 
 production:
   stage: production
