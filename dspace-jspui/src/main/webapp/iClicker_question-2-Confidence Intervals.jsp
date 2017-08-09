@@ -47,7 +47,7 @@
 <dspace:layout locbar="nolink" titlekey="jsp.about.title" feedData="<%= feedData %>">
 
     <div class="example">
-        <p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/iClicker-example.jsp">iClicker</a> <span class="text-muted">&raquo; iClicker Question</span></p>
+         <p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/iClicker-example-2-Confidence%20Intervals.jsp">Interactive engagement (clicker) questions: Confidence intervals for means</a> <span class="text-muted">&raquo; Sample Question: Confidence intervals for means</span></p>
 
         <div class="row">  
             <div class="col-md-8">
@@ -55,14 +55,23 @@
                 <div class="col-md-12">
                     <h2>Sample Question</h2>
                     <div class="row">
-                        <p>Suppose that we are to draw many random samples of 120 employees from a large company. The average of the hourly wages of the 120 employees is computed for each sample. Below is the sampling distribution of the average values from the repeated samples.</p>
+                        <p>A news article reported the following: “The poll of 500 Canadians using random-digit dialling of both mobile phones and land lines gave a mean expenditure on holiday shopping of 652 dollars.  The numbers are considered accurate plus or minus 169 dollars, 19 times out of 20.”</p>
                     </div> 
                     <div class="row">
                         <img class="pull-left zoology-fish" src="image/sample_question_image.JPG" width="225"> <br>
                     </div> 
                     <div class="row">
-                        <p>If the averages are computed based on samples of size larger than 120, we would expect the sampling distribution of the average hourly wage to look like:
+                        <p>Which of the following is/are correct?
                         </p><br><br><br>
+                        <ul>
+                            <p>
+                                <b>A.&colon; The 95% confidence interval for the true mean expenditure on holiday shopping by Canadians is (483,    821) dollars.</b><br>
+                                B.&colon; Based on the confidence interval, one can conclude that it is unusual for a Canadian to spend over $1000 on holiday shopping.  <br>
+                                C.&colon; 95% of Canadians spend between $483 and $821 on holiday shopping. <br>
+                                D.&colon; Both (A) and (B).<br>
+                                E.&colon; Both (A) and (C).<br>
+                            </p>    
+                        </ul>
                     </div> 
                     <div class="row">
                         <div class="col-md-8">
@@ -127,7 +136,11 @@
             </div>
 
             <div class="row">
-                <p><b>Answer: D</b><br>Explanation: Since the mean of a sampling distribution equals the population mean regardless of the sample size, one can deduce that the population mean hourly wage is $15.3 from the given graph.  We also know that the SD of the average hourly wage of n employees is given by the population SD divided by sqrt(n).  The larger the value of n, the smaller the SD of the sample average hourly wage will be.  Therefore, we expect that the sampling distribution for n>120 will have the same center ($15.3) but a smaller spread than that for n=120. </p>
+                <p><b>Explanation&colon;</b><br><br> 
+                        (A.) &colon; The confidence interval has a margin of error of 169 dollars. The phrase "19 times out of 20" implies a 95% confidence level. Hence, the 95% confidence interval based on the poll results is given by 652 +-169, i.e. (482,821) dollars<br>
+                        (B.)&colon; This statement is incorrect because a confidence interval is used to estimate the true mean expenditure and it does not tell how the expenditures of the individual Canadians are distributed. We are unable to infer if the value $1000 is unusual in the expenditure distribution.<br>
+                        (C.)&colon; This is an incorrect statement. As indicated in the explanation for (B), the confidence interval does not give information on the expenditure distribution of all Canadians.<br>
+                </p>
             </div> 
 
             <div class="row text-center">

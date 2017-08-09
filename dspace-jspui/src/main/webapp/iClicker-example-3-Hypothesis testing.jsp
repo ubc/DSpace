@@ -47,23 +47,24 @@
 <dspace:layout locbar="nolink" titlekey="jsp.about.title" feedData="<%= feedData %>">
 
     <div class="example">
-        <p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/sim-example.jsp">Simulation Example</a> <span class="text-muted">&raquo; Web Visualization: Chi-square contingency analysis</span></p>
+        <p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/iClicker-example.jsp">Interactive engagement (clicker) questions: Sampling distributions of means</a> <span class="text-muted">&raquo; Interactive engagement (clicker) questions: 
+            Hypothesis testing for means</span></p>
 
         <div class="row">  
             <div class="col-md-8">
 
-                <h1>Web Visualization: Chi-square contingency analysis</h1>
+                <h1>Interactive engagement (clicker) questions: Hypothesis testing for means</h1>
 
                 <div class="row description">
                     <div class="col-md-12">
-
-                        <img class="pull-left zoology-fish" src="image/contingency_analysis_image.jpg" class="sim-image" width="250">
-
-                        <p class="intro-text">This web visualization simulates samples of a 2x2 contingency analysis. It demonstrates that the <i>X</i><sup>2</sup> test statistic follows a <i>X</i><sup>2</sup> distribution and illustrates the meaning of the P-value. It may be most useful as a demonstration of the meaning of Type I error and power. <i>This visualization has no tutorial version.</i></p>
-
-
-                        <p class="text-center access-btn"><a class="btn btn-success btn-md" href="http://www.zoology.ubc.ca/~whitlock/kingfisher/ContingencyAnalysis.htm">Access Resource</a></p>
-
+                        <h2>Sample Question</h2>
+                        <p>The label on Olliberry jam jars lists a content weight of 269 grams. A sample of 100 jars was selected from the main factory and weighed. The content weights had an average of 264 grams. We will test that the Olliberry jam jar label correctly identifies the content weight... </p>
+                        <div class="col-md-12">
+                            <img class="pull-left zoology-fish" src="image/sample_question_image.JPG" width="225">
+                        </div>
+                        <div class="col-md-12">
+                            <p class="text-center access-btn"><a class="btn btn-success btn-md" href="/iClicker_question-3-Hypothesis%20Testing.jsp">See More</a></p>
+                        </div>
                     </div>
                 </div> 
 
@@ -109,36 +110,27 @@
                 <div class="col-md-4 text-center">
                     <div class="thumbnail">
                         <div class="col-md-12 text-center">
-                            <img src="http://www.zoology.ubc.ca/~whitlock/Kingfisher/Common/Images/coffee.svg" class="sim-image" width="162" height="180" align="center"></div>
+                            <img src="image/iClicker_image_home.JPG" class="sim-image" width="250">
+                        </div>
                         <div class="caption">
-                            <h5>Web visualization: Sampling from a non-Normally distributed population (CLT)</h5>
-                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Probability - Laws, Theory - Central Limit Theorem <br>&bull; Sampling distributions - Sample mean</p> 
-                            <p class="see-more"><a href="/WV-SamplingNon-Normal.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+                            <h5>Interactive engagement (clicker) questions: Confidence intervals for means</h5>
+                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Confidence Intervals</p> 
+                            <p class="see-more"><a href="/iClicker-example-2-Confidence%20Intervals.jsp" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-md-4 text-center">
                     <div class="thumbnail">
-                        <img src="http://www.zoology.ubc.ca/~whitlock/kingfisher/Common/Images/fish.svg" class="sim-image" width="250">
+                        <img src="image/iClicker_image_home.JPG" class="sim-image" width="250" >
                         <div class="caption">
-                            <h5>Web Visualization: Sampling from a Normal distribution</h5>
-                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Sampling distributions - Sample mean <br>&bull; Exploratory data analysis/Classifying data - Graphical representations - Histograms</p> 
-                            <p class="see-more"><a href="/sim-example.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+                            <h5>Interactive engagement (clicker) questions: Sampling distributions of means</h5>
+                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Hypothesis tests</p> 
+                            <p class="see-more"><a href="/iClicker-example.jsp" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>     
                     </div>
                 </div>
-                <div class="col-md-4 text-center">
-                    <div class="thumbnail">
-                        <img src="image/confidence_interval_image.JPG" class="sim-image" width="275">
-                        <div class="caption">
-                            <h5>Web Visualization: Confidence intervals for the mean</h5>
-                            <p class="text-left"><strong>Topics:</strong><br>&bull; Confidence intervals - One sample mean t</p> 
-                            <p class="see-more"><a href="/WV-ConfidenceIntervals.jsp" class="btn btn-primary">Read more &raquo;</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>    
+            </div>
 
             <div class="row">
                 <div class="col-md-12">
@@ -148,41 +140,45 @@
 
             <div class="row details">
                 <div class="col-md-8">
-                    <h2>Prerequisite Knowledge</h2>
-                    <p>Students using this visualization should</p>
+                    <h2>Prerequisite knowledge</h2>
+                    <p>Students should&colon;</p>
                     <ul>
-                        <li>recognize when a contingency table is an appropriate way to summarize a data set;</li>
-                        <li>identify and distinguish between a population and a sample, and between parameters and statistics;</li>
-                        <li>explain the concepts of sampling variability and sampling distribution.</li>
-                    </ul>    
+                        <li>be able to distinguish between a population and a sample, and between parameters and statistics </li>
+                        <li>be able to recall key properties of the Normal model</li>
+                        <li>be able to explain concepts of sampling distribution of the mean</li>
+                        <li>be able to interpret confidence intervals for means</li>
+                    </ul>
                     <h2>Learning Objectives</h2>
                     <ul>
-                        <li>Investigate the chi-squared test for independence between categorical variables, including the sampling distribution of the test statistic.</li>
-                        <li>Interpret the meaning of the P-value associated with a contingency analysis.</li>
-                        <li>Explain the two types of error possible and the power of a hypothesis test.</li>
-                        <li>Investigate the effects of the sample size and population parameters on the power of the chi-squared test.</li>
+                        <li>Identify the components of a classical hypothesis test, including the parameter of interest, the null and alternative hypotheses and the test statistic</li>
+                        <li>Compute the t statistic given relevant sample data</li>
+                        <li>Compute or find a range for the P-value of a hypothesis test</li>
+                        <li>Interpret the P-value in a hypothesis test</li>
+                        <li>State and interpret the conclusion of a hypothesis test in context</li>
+                        <li>Describe how the t statistic may change based on its component parts</li>
+                        <li>Explain the two types of errors possible.</li>
                     </ul>
 
-                    <h2>Suggested use(s) and tips</h2>
-                    <p>These resources are intended to be used in a number of ways</p>
+                    <h2>Suggested uses</h2>
+                    <p>These resources are intended to be used in a number of ways&colon;</p>
                     <ul>
-                        <li>as a visual aid during lectures;</li>
-                        <li>as an open-ended learning tool for active learning;</li>
-                        <li>as a guided learning experience, using either the built-in tutorials or the guided <a target="_blank" href="/WV-ChiSquarecontingencyanalysis.jsp">activity sheet <span class="glyphicon glyphicon-new-window"></span></a> or other instructor-supplied material.</li>
+                        <li>as stand-alone clicker questions during lectures&semi;</li>
+                        <li>as assessment questions during and outside of class (e.g., pre-lecture quiz after students complete pre-lecture reading or other assigned tasks)&semi;</li>
+                        <li>as questions to be adapted for use in guided in-class activities [link to Fred’s material] or other instructor-supplied material</li>
                     </ul>
 
-                    <h2>About this Resource</h2>
+                    <h2>Complementary materials</h2>
                     <ul>
-                        <p>
-                            <strong>Funding&colon; </strong>University of British Columbia <br>
-                            <strong>Project Leader&colon; </strong>Mike Whitlock<br>
-                            <strong>Programmers&colon; </strong>Boris Dalstein, Mike Whitlock &amp; Zahraa Almasslawi<br>
-                            <strong>Art&colon; </strong>Derek Tan<br>
-                            <strong>Translation&colon; </strong>Rémi Matthey-Doret<br>
-                            <strong>Testing&colon; </strong>Melissa Lee, Gaitri Yapa &amp; Bruce Dunham<br>
-                            <strong>Thanks to&colon; </strong>Darren Irwin, Dolph Schluter, Nancy Heckman, Kaylee Byers, Brandon Doty, Kim Gilbert, Sally Otto, Wilson Whitlock, Jeff Whitlock, Jeremy Draghi, Karon MacLean, Fred Cutler, Diana Whistler, Andrew Owen, Mike Marin, Leslie Burkholder, Eugenia Yu, Doug Bonn, Michael Scott, the UBC Physics Learning Group &amp; the UBC Flex Stats initiative for numerous suggestions and improvements.<br>
-                        </p>
-                    </ul>    
+                        <li><a target="_blank" href="/LP-VideoOne-Sample-T-Test.jsp">Video: One-Sample T Test<span class="glyphicon glyphicon-new-window"></span></a></li>            
+                    </ul>
+
+                    <h2>About this resource</h2>
+                    <p>
+                        <b>Funding&colon;</b> University of British Columbia<br>
+                        <b>Project Leader&colon;</b> Eugenia Yu<br>
+                        <b>Thanks To&colon;</b> Nancy Heckman, Bruce Dunham, Melissa Lee, Gaitri Yapa, Mike Whitlock, Fred Cutler, Diana Whistler, Andrew Owen, Mike Marin, Leslie Burkholder, Doug Bonn, the UBC Flex Stats initiative for numerous suggestions and improvements.<br>
+                    </p>          
+
                 </div>
 
                 <div class="col-md-4 tags">
@@ -193,7 +189,7 @@
                         </div>
                         <div class="panel-body">
                             <p>
-                                <strong>Topics:</strong> <br>&bull; Hypothesis tests - Goodness of fit - Chi-squared test for independence 
+                                <strong>Topics:</strong> <br>&bull; Hypothesis tests – One sample / paired – One sample mean - t <br>&bull; Hypothesis tests – One sample / paired – One sample mean - z <br>&bull; Hypothesis tests – Concepts – P-value and significance level <br>&bull; Hypothesis tests – Type I / type II errors and power
                             </p>
                         </div>
                     </div>
@@ -204,7 +200,7 @@
                         </div>
                         <div class="panel-body">
                             <ul>
-                                <li><a href="http://www.cwsei.ubc.ca/resources/files/Demo_WorkshopSummary_CWSEI-EOY2015.pdf">“Making the most of demonstrations, videos, animations, or simulations in lectures and laboratories” J. Maxwell and J. Stang <span class="glyphicon glyphicon-new-window"></span></a></li>
+                                <li><a href="http://www.cwsei.ubc.ca/resources/clickers.htm">iClicker Resources <span class="glyphicon glyphicon-new-window"></span></a></li>
                             </ul>
                         </div>
                     </div>

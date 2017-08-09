@@ -47,12 +47,12 @@
 <dspace:layout locbar="nolink" titlekey="jsp.about.title" feedData="<%= feedData %>">
 
     <div class="example">
-        <p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/sim-example.jsp">Simulation Example</a> <span class="text-muted">&raquo; Web Visualization: Confidence Intervals of the Mean</span></p>
+        <p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/sim-example.jsp">Simulation Example</a> <span class="text-muted">&raquo; Web Visualization: Confidence Intervals for the Mean</span></p>
 
 	<div class="row">  
 	    <div class="col-md-8">
 	    
-		<h1>Web Visualization: Confidence intervals of the mean</h1> <br><br>
+		<h1>Web Visualization: Confidence intervals for the mean</h1> <br><br>
 		
 		<div class="row description">
 		    <div class="col-md-12">
@@ -164,7 +164,7 @@
 		<ul>
             <li>as a visual aid during lectures;</li>
             <li>as an open-ended learning tool for active learning;</li>
-            <li>as a guided learning experience, using either the built-in tutorials or the guided activity sheet <a target="_blank" href="/pdf_folder/Applet3Qs.pdf">activity sheet<span class="glyphicon glyphicon-new-window"></span></a> or other <a target="_blank" href="/pdf_folder/Applet3InstructorGuide.pdf">instructor-supplied material<span class="glyphicon glyphicon-new-window"></span></a>.</li>
+            <li>as a guided learning experience, using either the built-in tutorials, guided activity sheet, or other instructor-supplied material (click here for <a target="_blank" href="/pdf_folder/Applet3InstructorGuide.pdf">Instructor Guide<span class="glyphicon glyphicon-new-window"></span></a> and <a target="_blank" href="/pdf_folder/Applet3Qs.pdf">Activity Sheet<span class="glyphicon glyphicon-new-window"></span>)</a>.</li>
     	</ul>
 		
 		<h2>Complementary materials</h2>
@@ -217,7 +217,7 @@
 			<h3 class="panel-title"><i class="glyphicon glyphicon-book"></i> What we learned</h3>
 		    </div>
 		    <div class="panel-body">
-                <p>Students often have trouble interpreting confidence intervals and often have some misconceptions. For instance, many students believe, for the same data and parameter of interest, a 90% confidence interval is wider than a 95% confidence interval.<br><a target="_blank" href="/ConfInt_WhatWeLearned.jsp">Read More <span class="glyphicon glyphicon-new-window"></span></a></p>
+                <p>Students often have trouble interpreting confidence intervals and hold some common misconception. For instance, many students believe, for the same data and parameter of interest, a 90% confidence interval is wider than a 95% confidence interval.<br><a target="_blank" href="/ConfInt_WhatWeLearned.jsp">Read More <span class="glyphicon glyphicon-new-window"></span></a></p>
 		    </div>
 		</div>     
             
