@@ -102,18 +102,18 @@
 
                 </div>	
             </div>
-            <div class="row featured-items">
-                <h2>Check out more Web Visualizations:</h2>
-                <div class="col-md-4 text-center">
-                    <div class="thumbnail">
-                        <div class="col-md-12 text-center">
-                            <img src="http://www.zoology.ubc.ca/~whitlock/Kingfisher/Common/Images/coffee.svg" class="sim-image" width="162" height="180" align="center"></div>
-                        <div class="caption">
-                            <h5>Web visualization: Sampling from a non-Normally distributed population (CLT)</h5>
-                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Probability - Laws, Theory - Central Limit Theorem <br>&bull; Sampling distributions - Sample mean</p> 
-                            <p class="see-more"><a href="/WV-SamplingNon-Normal.jsp" class="btn btn-primary">Read more &raquo;</a></p>
-                        </div>
-                    </div>
+		    <div class="panel-body">
+			<p>StatSpace brings together vetted open education materials for use across disciplines. Members of our community can <strong>search and use materials</strong> in the repository, <strong>contribute materials</strong> of their own, and <strong>evaluate materials</strong> they use.</p>
+			<label>Search StatSpace now:</label>
+			<%-- Search Box --%>
+			<form method="get" action="<%= request.getContextPath() %>/SearchError.jsp">
+			    <div class="input-group">
+				<input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
+				<span class="input-group-btn">
+				    <button type="submit" class="btn btn-primary">
+					<span class="glyphicon glyphicon-search"></span>
+				    </button>
+				</span>
                 </div>
 
                 <div class="col-md-4 text-center">
