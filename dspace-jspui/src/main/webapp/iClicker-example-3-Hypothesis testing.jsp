@@ -60,9 +60,6 @@
                         <h2>Sample Question</h2>
                         <p>The label on Olliberry jam jars lists a content weight of 269 grams. A sample of 100 jars was selected from the main factory and weighed. The content weights had an average of 264 grams. We will test that the Olliberry jam jar label correctly identifies the content weight... </p>
                         <div class="col-md-12">
-                            <img class="pull-left zoology-fish" src="image/sample_question_image.JPG" width="225">
-                        </div>
-                        <div class="col-md-12">
                             <p class="text-center access-btn"><a class="btn btn-success btn-md" href="/iClicker_question-3-Hypothesis%20Testing.jsp">See More</a></p>
                         </div>
                     </div>
@@ -106,7 +103,7 @@
             </div>
 
             <div class="row featured-items">
-                <h2>Check out more Web Visualizations:</h2>
+                <h2>Check out more interactive engagement (clicker) questions:</h2>
                 <div class="col-md-4 text-center">
                     <div class="thumbnail">
                         <div class="col-md-12 text-center">
@@ -114,7 +111,7 @@
                         </div>
                         <div class="caption">
                             <h5>Interactive engagement (clicker) questions: Confidence intervals for means</h5>
-                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Confidence Intervals</p> 
+                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Confidence intervals – One sample mean – t <br>&bull; Confidence intervals – One sample mean – z <br>&bull; Confidence intervals – Concepts – Sample size <br>&bull; Confidence intervals – Concepts – Standard error</p> 
                             <p class="see-more"><a href="/iClicker-example-2-Confidence%20Intervals.jsp" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>
                     </div>
@@ -125,7 +122,7 @@
                         <img src="image/iClicker_image_home.JPG" class="sim-image" width="250" >
                         <div class="caption">
                             <h5>Interactive engagement (clicker) questions: Sampling distributions of means</h5>
-                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Hypothesis tests</p> 
+                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Probability -- Laws, theory -- Central Limit Theorem <br>&bull; Sampling distributions -- Sample mean</p> 
                             <p class="see-more"><a href="/iClicker-example.jsp" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>     
                     </div>
@@ -164,7 +161,7 @@
                     <ul>
                         <li>as stand-alone clicker questions during lectures&semi;</li>
                         <li>as assessment questions during and outside of class (e.g., pre-lecture quiz after students complete pre-lecture reading or other assigned tasks)&semi;</li>
-                        <li>as questions to be adapted for use in guided in-class activities [link to Fred’s material] or other instructor-supplied material</li>
+                        <li>as questions to be adapted for use in guided in-class<a target="_blank" href="http://www.zoology.ubc.ca/~whitlock/Kingfisher/ContingencyAnalysis.htm"> activities <span class="glyphicon glyphicon-new-window"></span></a>or other instructor-supplied material</li>
                     </ul>
 
                     <h2>Complementary materials</h2>
