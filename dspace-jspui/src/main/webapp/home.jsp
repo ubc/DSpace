@@ -22,6 +22,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <%@ taglib uri="http://www.dspace.org/dspace-tags.tld" prefix="dspace" %>
+    
 
 <%@ page import="java.io.File" %>
 <%@ page import="java.util.Enumeration"%>
@@ -68,7 +69,7 @@
 %>
 
 <dspace:layout locbar="nolink" titlekey="jsp.home.title" feedData="<%= feedData %>">
-
+     
     <% if (user == null) { %>
 
         <div class="row landing-page">  
@@ -92,7 +93,7 @@
                     </div>    
                     <div class="col-md-6">
                         <h4>Copyright</h4>
-                        <p>Understand how content copyright works for the materials available in StatSpace. &nbsp;<a href="/copyright.jsp">read more &raquo;</a></p>
+                        <p>Understand how content copyright works for the materials available in StatSpace. &nbsp;<a href="/copyright.jsp">read more &raquo;</a></p>                        
                     </div>
                 </div>
 		
@@ -110,21 +111,20 @@
                         <p>Search our high-quality archive of <strong>100+ curated introductory statistics materials</strong>.</p>
                         <label>Search StatSpace now:</label>
 			<%-- Search Box --%>
-			<form method="get" action="<%= request.getContextPath() %>/SearchError.jsp">
-			    <div class="input-group">
-				<input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
-				<span class="input-group-btn">
-				    <button type="submit" class="btn btn-primary">
-					<span class="glyphicon glyphicon-search"></span>
-				    </button>
-				</span>
-			    </div>
-			</form>
-		    </div>
-		</div>
-
+			<form method="get" action="<%= request.getContextPath() %>/simple-search">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+                </div>
+                </form>
+                </div>
+                    </div>
 		
-		<div class="panel panel-info">
+		<div class="panel panel-info" >
 		    <div class="panel-heading">
                 <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
 		    </div>
@@ -200,7 +200,7 @@
                         <div class="caption">
                             <h5>Interactive engagement (clicker) questions: Sampling distributions of means</h5>
                             <p class="text-left"><strong>About:</strong> With a personal response system, students can answer questions and instructors can monitor understanding in real time. Turn the classroom into a conversation and allow students to participate with smartphones, laptops, tablets, or clickers.</p>
-                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Sampling distributions - Sample mean</p> 
+                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Probability -- Laws, theory -- Central Limit Theorem <br>&bull; Sampling distributions -- Sample mean</p> 
                             <p class="see-more"><a href="/iClicker-example.jsp" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>
                     </div>
