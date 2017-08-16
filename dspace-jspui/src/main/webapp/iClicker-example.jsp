@@ -105,7 +105,7 @@
             </div>
 
             <div class="row featured-items">
-                <h2>Check out more Web Visualizations:</h2>
+                <h2>Check out more interactive engagement (clicker) questions:</h2>
                 <div class="col-md-4 text-center">
                     <div class="thumbnail">
                         <div class="col-md-12 text-center">
@@ -113,7 +113,7 @@
                         </div>
                         <div class="caption">
                             <h5>Interactive engagement (clicker) questions: Confidence intervals for means</h5>
-                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Confidence Intervals</p> 
+                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Confidence intervals – One sample mean – t <br>&bull; Confidence intervals – One sample mean – z <br>&bull; Confidence intervals – Concepts – Sample size <br>&bull; Confidence intervals – Concepts – Standard error</p> 
                             <p class="see-more"><a href="/iClicker-example-2-Confidence%20Intervals.jsp" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>
                     </div>
@@ -124,7 +124,7 @@
                         <img src="image/iClicker_image_home.JPG" class="sim-image" width="250" >
                         <div class="caption">
                             <h5>Interactive engagement (clicker) questions: Hypothesis testing for means</h5>
-                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Hypothesis tests</p> 
+                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Hypothesis tests – One sample / paired – One sample mean - t <br>&bull; Hypothesis tests – One sample / paired – One sample mean - z <br>&bull; Hypothesis tests – Concepts – P-value and significance level <br>&bull; Hypothesis tests – Type I / type II errors and power</p> 
                             <p class="see-more"><a href="/iClicker-example-3-Hypothesis%20testing.jsp" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>     
                     </div>
@@ -152,7 +152,7 @@
                         <li>Recall the sampling distribution of the mean of a sample from a Normal distribution</li>
                         <li>Describe properties of the sampling distribution of the sample mean in general situations, using the Central Limit Theorem</li>
                         <li>For the sample mean, explain whether and how the population distribution and the sample size influence the sampling distribution of the sample mean</li>
-                        <li>Apply the Central Limit Theorem to problems involving averages of variables from arbitrary distributions.</li>
+                        <li>Apply the Central Limit Theorem to problems involving averages of variables from arbitrary distributions</li>
                     </ul>
 
                     <h2>Suggested uses</h2>
@@ -160,7 +160,7 @@
                     <ul>
                         <li>as stand-alone clicker questions during lectures&semi;</li>
                         <li>as assessment questions during and outside of class (e.g., pre-lecture quiz after students complete pre-lecture reading or other assigned tasks)&semi;</li>
-                        <li>as questions to be adapted for use in guided in-class activities [link to Fred’s material] or other instructor-supplied material</li>
+                        <li>as questions to be adapted for use in guided in-class<a target="_blank" href="http://www.zoology.ubc.ca/~whitlock/kingfisher/SamplingNormal.htm"> activities <span class="glyphicon glyphicon-new-window"></span></a>or other instructor-supplied material</li>
                     </ul>
 
                     <h2>Complementary materials</h2>
