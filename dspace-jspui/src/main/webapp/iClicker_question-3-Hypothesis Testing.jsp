@@ -51,14 +51,10 @@
 
         <div class="row">  
             <div class="col-md-8">
-
                 <div class="col-md-12">
                     <h2>Sample Question</h2>
                     <div class="row">
                         <p>The label on Olliberry jam jars lists a content weight of 269 grams. A sample of 100 jars was selected from the main factory and weighed. The content weights had an average of 264 grams. We will test that the Olliberry jam jar label correctly identifies the content weight.</p>
-                    </div> 
-                    <div class="row">
-                        <img class="pull-left zoology-fish" src="image/sample_question_image.JPG" width="225"> <br>
                     </div> 
                     <div class="row">
                         <p>What is the null hypothesis? 
@@ -72,13 +68,7 @@
                                 <b>E.&colon; The mean weight of Olliberry jam jars produced in the main factory is 269 grams. </b><br>
                             </p>    
                         </ul>
-                    </div> 
-                    <div class="row">
-                        <div class="col-md-8">
-                            <img src="image/iClicker_image_3.JPG" width="325">
-                        </div>
-                    </div>
-
+                    </div>                     
                 </div>	
             </div> 
 
