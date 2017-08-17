@@ -51,14 +51,10 @@
 
         <div class="row">  
             <div class="col-md-8">
-
                 <div class="col-md-12">
                     <h2>Sample Question</h2>
                     <div class="row">
                         <p>A news article reported the following: “The poll of 500 Canadians using random-digit dialling of both mobile phones and land lines gave a mean expenditure on holiday shopping of 652 dollars.  The numbers are considered accurate plus or minus 169 dollars, 19 times out of 20.”</p>
-                    </div> 
-                    <div class="row">
-                        <img class="pull-left zoology-fish" src="image/sample_question_image.JPG" width="225"> <br>
                     </div> 
                     <div class="row">
                         <p>Which of the following is/are correct?
@@ -73,12 +69,6 @@
                             </p>    
                         </ul>
                     </div> 
-                    <div class="row">
-                        <div class="col-md-8">
-                            <img src="image/iClicker_image_3.JPG" width="325">
-                        </div>
-                    </div>
-
                 </div>	
             </div> 
 
@@ -152,4 +142,4 @@
 
         </div>
 
-        </dspace:layout>
+    </dspace:layout>
