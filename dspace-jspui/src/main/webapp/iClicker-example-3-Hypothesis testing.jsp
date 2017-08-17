@@ -161,7 +161,7 @@
                     <ul>
                         <li>as stand-alone clicker questions during lectures&semi;</li>
                         <li>as assessment questions during and outside of class (e.g., pre-lecture quiz after students complete pre-lecture reading or other assigned tasks)&semi;</li>
-                        <li>as questions to be adapted for use in guided in-class<a target="_blank" href="http://www.zoology.ubc.ca/~whitlock/Kingfisher/ContingencyAnalysis.htm"> activities <span class="glyphicon glyphicon-new-window"></span></a>or other instructor-supplied material</li>
+                        <li>as questions to be adapted for use in guided in-class activities or other instructor-supplied material</li>
                     </ul>
 
                     <h2>Complementary materials</h2>
