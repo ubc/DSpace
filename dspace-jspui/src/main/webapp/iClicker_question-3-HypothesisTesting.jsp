@@ -47,7 +47,7 @@
 <dspace:layout locbar="nolink" titlekey="jsp.about.title" feedData="<%= feedData %>">
 
     <div class="example">
-       <p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/iClicker_question-3-Hypothesis%20Testing.jsp">Interactive engagement (clicker) questions: Hypothesis testing for means</a> <span class="text-muted">&raquo; Sample Question: Hypothesis testing for means</span></p>
+       <p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/iClicker_question-3-HypothesisTesting.jsp">Interactive engagement (clicker) questions: Hypothesis testing for means</a> <span class="text-muted">&raquo; Sample Question: Hypothesis testing for means</span></p>
 
         <div class="row">  
             <div class="col-md-8">
