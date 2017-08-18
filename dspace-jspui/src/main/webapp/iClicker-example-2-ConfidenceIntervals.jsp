@@ -60,7 +60,7 @@
                         <h2>Sample Question</h2>
                         <p>SA news article reported the following: “The poll of 500 Canadians using random-digit dialling of both mobile phones and land lines gave a mean expenditure on holiday shopping of 652 dollars.  The numbers are considered...”</p>
                         <div class="col-md-12">
-                            <p class="text-center access-btn"><a class="btn btn-success btn-md" href="/iClicker_question-2-Confidence%20Intervals.jsp">See More</a></p>
+                            <p class="text-center access-btn"><a class="btn btn-success btn-md" href="/iClicker_question-2-ConfidenceIntervals.jsp">See More</a></p>
                         </div>
                     </div>
                 </div> 
@@ -123,7 +123,7 @@
                         <div class="caption">
                             <h5>Interactive engagement (clicker) questions: Hypothesis testing for means</h5>
                             <p class="text-left"><strong>Topics:</strong> <br>&bull; Hypothesis tests – One sample / paired – One sample mean - t <br>&bull; Hypothesis tests – One sample / paired – One sample mean - z <br>&bull; Hypothesis tests – Concepts – P-value and significance level <br>&bull; Hypothesis tests – Type I / type II errors and power</p> 
-                            <p class="see-more"><a href="/iClicker-example-3-Hypothesis%20testing.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+                            <p class="see-more"><a href="/iClicker-example-3-Hypothesistesting.jsp" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>     
                     </div>
                 </div>
