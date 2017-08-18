@@ -114,7 +114,7 @@
                         <div class="caption">
                             <h5>Interactive engagement (clicker) questions: Confidence intervals for means</h5>
                             <p class="text-left"><strong>Topics:</strong> <br>&bull; Confidence intervals – One sample mean – t <br>&bull; Confidence intervals – One sample mean – z <br>&bull; Confidence intervals – Concepts – Sample size <br>&bull; Confidence intervals – Concepts – Standard error</p> 
-                            <p class="see-more"><a href="/iClicker-example-2-Confidence%20Intervals.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+                            <p class="see-more"><a href="/iClicker-example-2-ConfidenceIntervals.jsp" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>
                     </div>
                 </div>
@@ -125,7 +125,7 @@
                         <div class="caption">
                             <h5>Interactive engagement (clicker) questions: Hypothesis testing for means</h5>
                             <p class="text-left"><strong>Topics:</strong> <br>&bull; Hypothesis tests – One sample / paired – One sample mean - t <br>&bull; Hypothesis tests – One sample / paired – One sample mean - z <br>&bull; Hypothesis tests – Concepts – P-value and significance level <br>&bull; Hypothesis tests – Type I / type II errors and power</p> 
-                            <p class="see-more"><a href="/iClicker-example-3-Hypothesis%20testing.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+                            <p class="see-more"><a href="/iClicker-example-3-Hypothesistesting.jsp" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>     
                     </div>
                 </div>
