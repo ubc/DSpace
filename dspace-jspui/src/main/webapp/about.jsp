@@ -61,7 +61,7 @@
         
         <p>All materials were vetted through team discussion informed by our own experiences and by the education literature -  especially the statistics education literature (when it existed!).  Many of the resources were also vetted by students through interviews, through focus groups and through trialling in a range of courses.  With each resource on StatSpace we’ve included comments on what we’ve found out about how students learn.</p>
         
-        <p>StatSpace is not only a repository of resources developed by FLIS. It is also a place where other statistics instructors can share their resources.</p>
+        <p>StatSpace will not only be a repository of resources developed by FLIS. It will also be a place and platform to contribute to open statistics pedagogies, and where other statistics educators can share and sustain their teaching resources, find those of their peers, as well as evaluate the teaching resources of their peers and get peer feedback on their own.  The development of contribution and comment functionality is currently underway.</p>
         
 	</div>
     <div class="col-md-4 intro-sidebar">
@@ -110,7 +110,7 @@
 	    </div>
         </div>
         
-        <h4>ABOUT THE TEAM</h4>
+        <h1>ABOUT THE TEAM</h1>
         
         <div class="row featured-items">
 	    <div class="col-md-4 text-center">
@@ -144,6 +144,14 @@
         <div class="row featured-items">
 	    <div class="col-md-4 text-center">
 			<p class="text-left"><strong>Mike Marin, Video Resource Lead:</strong> Mike is a Senior Instructor in the UBC School of Population and Public Health (SPPH), and creator of over 60 highly successful educational statistics videos, hosted on his YouTube Channel.  Mike teaches the core statistical courses in SPPH to students spanning 7 different degree programs.  His students range from research-intensive PhD trainees to physicians in a Master of Health Sciences program who will be mainly consumers of statistics, and everything in between.  Mike has received numerous teaching awards over his tenure teaching, including a UBC Killam Teaching Prize in 2017. </p> 		
+	    </div>
+            
+        <div class="col-md-4 text-center">
+			<p class="text-left"><strong>Noureddine Elouazizi:</strong>  Noureddine works for the Faculty of Science’s Dean office (<a href="https://skylight.science.ubc.ca/contact">Skylight</a>). He leads the Skylight-Learning Technology team (Skylight-LT) to provide Learning Technologies services, which include: (i) management of the LT-Ecosystem operations at the Faculty of Science, (ii) consulting faculty members and other stakeholders on the feasibility, integration, design and sustainability of LT-pedagogies and solutions, and (iii) collaborating and engaging with Science faculty in LT-mediated pedagogy’ s evaluation, innovation and research. On the FLIS project, Noureddine led the learning technologies collective efforts of Faculty of Science and UBC central (CTLT) to design and create the StatSpace platform and its underlying framework. </p> 		
+	    </div>
+            
+        <div class="col-md-4 text-center">
+			<p class="text-left"><strong>Gillian Gerhard, Senior Educational Consultant:</strong> Gillian is a Senior Educational Consultant in the Centre for Teaching, Learning and Technology (CTLT), with a background in Mechanical Engineering and a PhD in Curriculum and Pedagogy.  During this project’s development, Gillian worked as a Strategist, Teaching and Learning Initiatives in Skylight at the Science Dean’s Office and as Science Faculty Liaison for CTLT.    She guided the development and implementation of FLIS, as well as other faculty-led strategic teaching and learning enhancement projects in Science. </p> 		
 	    </div>
             
 	    
