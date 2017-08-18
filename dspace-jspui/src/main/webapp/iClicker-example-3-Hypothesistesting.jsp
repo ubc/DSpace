@@ -60,7 +60,7 @@
                         <h2>Sample Question</h2>
                         <p>The label on Olliberry jam jars lists a content weight of 269 grams. A sample of 100 jars was selected from the main factory and weighed. The content weights had an average of 264 grams. We will test that the Olliberry jam jar label correctly identifies the content weight... </p>
                         <div class="col-md-12">
-                            <p class="text-center access-btn"><a class="btn btn-success btn-md" href="/iClicker_question-3-Hypothesis%20Testing.jsp">See More</a></p>
+                            <p class="text-center access-btn"><a class="btn btn-success btn-md" href="/iClicker_question-3-HypothesisTesting.jsp">See More</a></p>
                         </div>
                     </div>
                 </div> 
@@ -112,7 +112,7 @@
                         <div class="caption">
                             <h5>Interactive engagement (clicker) questions: Confidence intervals for means</h5>
                             <p class="text-left"><strong>Topics:</strong> <br>&bull; Confidence intervals – One sample mean – t <br>&bull; Confidence intervals – One sample mean – z <br>&bull; Confidence intervals – Concepts – Sample size <br>&bull; Confidence intervals – Concepts – Standard error</p> 
-                            <p class="see-more"><a href="/iClicker-example-2-Confidence%20Intervals.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+                            <p class="see-more"><a href="/iClicker-example-2-ConfidenceIntervals.jsp" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>
                     </div>
                 </div>
