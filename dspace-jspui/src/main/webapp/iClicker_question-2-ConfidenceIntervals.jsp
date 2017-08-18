@@ -47,7 +47,7 @@
 <dspace:layout locbar="nolink" titlekey="jsp.about.title" feedData="<%= feedData %>">
 
     <div class="example">
-         <p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/iClicker-example-2-Confidence%20Intervals.jsp">Interactive engagement (clicker) questions: Confidence intervals for means</a> <span class="text-muted">&raquo; Sample Question: Confidence intervals for means</span></p>
+         <p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/iClicker-example-2-ConfidenceIntervals.jsp">Interactive engagement (clicker) questions: Confidence intervals for means</a> <span class="text-muted">&raquo; Sample Question: Confidence intervals for means</span></p>
 
         <div class="row">  
             <div class="col-md-8">
