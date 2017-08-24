@@ -48,22 +48,19 @@
 
     <div class="example">
         <p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/iClicker-example.jsp">Interactive engagement (clicker) questions: Sampling distributions of means</a> <span class="text-muted">&raquo; Interactive engagement (clicker) questions: 
-            Hypothesis testing for means</span></p>
+            Confidence intervals for means</span></p>
 
         <div class="row">  
             <div class="col-md-8">
 
-                <h1>Interactive engagement (clicker) questions: Hypothesis testing for means</h1>
+                <h1>Interactive engagement (clicker) questions: Confidence intervals for means</h1>
 
                 <div class="row description">
                     <div class="col-md-12">
                         <h2>Sample Question</h2>
-                        <p>The label on Olliberry jam jars lists a content weight of 269 grams. A sample of 100 jars was selected from the main factory and weighed. The content weights had an average of 264 grams. We will test that the Olliberry jam jar label correctly identifies the content weight... </p>
+                        <p>SA news article reported the following: “The poll of 500 Canadians using random-digit dialling of both mobile phones and land lines gave a mean expenditure on holiday shopping of 652 dollars.  The numbers are considered...”</p>
                         <div class="col-md-12">
-                            <img class="pull-left zoology-fish" src="image/sample_question_image.JPG" width="225">
-                        </div>
-                        <div class="col-md-12">
-                            <p class="text-center access-btn"><a class="btn btn-success btn-md" href="/iClicker_question-3-Hypothesis%20Testing.jsp">See More</a></p>
+                            <p class="text-center access-btn"><a class="btn btn-success btn-md" href="/iClicker_question-2-ConfidenceIntervals.jsp">See More</a></p>
                         </div>
                     </div>
                 </div> 
@@ -106,16 +103,16 @@
             </div>
 
             <div class="row featured-items">
-                <h2>Check out more Web Visualizations:</h2>
+                <h2>Check out more interactive engagement (clicker) questions:</h2>
                 <div class="col-md-4 text-center">
                     <div class="thumbnail">
                         <div class="col-md-12 text-center">
                             <img src="image/iClicker_image_home.JPG" class="sim-image" width="250">
                         </div>
                         <div class="caption">
-                            <h5>Interactive engagement (clicker) questions: Confidence intervals for means</h5>
-                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Confidence Intervals</p> 
-                            <p class="see-more"><a href="/iClicker-example-2-Confidence%20Intervals.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+                            <h5>Interactive engagement (clicker) questions: Sampling distributions of means</h5>
+                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Probability -- Laws, theory -- Central Limit Theorem <br>&bull; Sampling distributions -- Sample mean </p> 
+                            <p class="see-more"><a href="/iClicker-example.jsp" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>
                     </div>
                 </div>
@@ -124,9 +121,9 @@
                     <div class="thumbnail">
                         <img src="image/iClicker_image_home.JPG" class="sim-image" width="250" >
                         <div class="caption">
-                            <h5>Interactive engagement (clicker) questions: Sampling distributions of means</h5>
-                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Hypothesis tests</p> 
-                            <p class="see-more"><a href="/iClicker-example.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+                            <h5>Interactive engagement (clicker) questions: Hypothesis testing for means</h5>
+                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Hypothesis tests – One sample / paired – One sample mean - t <br>&bull; Hypothesis tests – One sample / paired – One sample mean - z <br>&bull; Hypothesis tests – Concepts – P-value and significance level <br>&bull; Hypothesis tests – Type I / type II errors and power</p> 
+                            <p class="see-more"><a href="/iClicker-example-3-Hypothesistesting.jsp" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>     
                     </div>
                 </div>
@@ -143,20 +140,16 @@
                     <h2>Prerequisite knowledge</h2>
                     <p>Students should&colon;</p>
                     <ul>
-                        <li>be able to distinguish between a population and a sample, and between parameters and statistics </li>
+                        <li>be able to recognize probability models as distributions with shape, centre, and spread</li>
                         <li>be able to recall key properties of the Normal model</li>
-                        <li>be able to explain concepts of sampling distribution of the mean</li>
-                        <li>be able to interpret confidence intervals for means</li>
+                        <li>be able to distinguish between a population and a sample, and between parameters and statistics</li>
                     </ul>
                     <h2>Learning Objectives</h2>
                     <ul>
-                        <li>Identify the components of a classical hypothesis test, including the parameter of interest, the null and alternative hypotheses and the test statistic</li>
-                        <li>Compute the t statistic given relevant sample data</li>
-                        <li>Compute or find a range for the P-value of a hypothesis test</li>
-                        <li>Interpret the P-value in a hypothesis test</li>
-                        <li>State and interpret the conclusion of a hypothesis test in context</li>
-                        <li>Describe how the t statistic may change based on its component parts</li>
-                        <li>Explain the two types of errors possible.</li>
+                        <li>Construct confidence intervals given relevant sample data</li>
+                        <li>Interpret a confidence interval and confidence level</li>
+                        <li>Identify features that determine the width of a confidence interval</li>
+                        <li>Recall the assumptions for construction of a confidence interval</li>
                     </ul>
 
                     <h2>Suggested uses</h2>
@@ -164,12 +157,17 @@
                     <ul>
                         <li>as stand-alone clicker questions during lectures&semi;</li>
                         <li>as assessment questions during and outside of class (e.g., pre-lecture quiz after students complete pre-lecture reading or other assigned tasks)&semi;</li>
-                        <li>as questions to be adapted for use in guided in-class activities [link to Fred’s material] or other instructor-supplied material</li>
+                        <li>as questions to be adapted for use in guided in-class activities or other instructor-supplied material</li>
                     </ul>
 
                     <h2>Complementary materials</h2>
                     <ul>
-                        <li><a target="_blank" href="/LP-VideoOne-Sample-T-Test.jsp">Video: One-Sample T Test<span class="glyphicon glyphicon-new-window"></span></a></li>            
+                        <li>Web visualization&colon; Instructors may assign this accompanying web visualization as homework before teaching the topic in class</li>
+                        <ul>
+                            <li><a target="_blank" href="/WV-ConfidenceIntervals.jsp"> Confidence intervals for the mean <span class="glyphicon glyphicon-new-window"></span></a></li>
+                        </ul>
+                        <li><a target="_blank" href="/LP-VideoCIs.jsp">Video: Confidence Intervals for a Population Mean<span class="glyphicon glyphicon-new-window"></span></a></li>            
+                        <li><a target="_blank" href="/wwstat200revisedlinguisticsQ9.jsp">Activity: Understanding Confidence Intervals<span class="glyphicon glyphicon-new-window"></span></a></li>
                     </ul>
 
                     <h2>About this resource</h2>
@@ -189,7 +187,8 @@
                         </div>
                         <div class="panel-body">
                             <p>
-                                <strong>Topics:</strong> <br>&bull; Hypothesis tests – One sample / paired – One sample mean - t <br>&bull; Hypothesis tests – One sample / paired – One sample mean - z <br>&bull; Hypothesis tests – Concepts – P-value and significance level <br>&bull; Hypothesis tests – Type I / type II errors and power
+                                <strong>Topics:</strong> <br>&bull; Confidence intervals – One sample mean – t <br>&bull; Confidence intervals – One sample mean – z <br>&bull; Confidence intervals – Concepts – Sample size <br>&bull;
+                                Confidence intervals – Concepts – Standard error
                             </p>
                         </div>
                     </div>
