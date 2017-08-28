@@ -47,22 +47,20 @@
 <dspace:layout locbar="nolink" titlekey="jsp.about.title" feedData="<%= feedData %>">
 
     <div class="example">
-        <p><a href="/">Home</a> <span class="text-muted">&raquo; iClicker</span></p>
+        <p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/iClicker-example.jsp">Interactive engagement (clicker) questions: Sampling distributions of means</a> <span class="text-muted">&raquo; Interactive engagement (clicker) questions: 
+            Hypothesis testing for means</span></p>
 
         <div class="row">  
             <div class="col-md-8">
 
-                <h1>Interactive engagement (clicker) questions: Sampling distributions of means</h1>
+                <h1>Interactive engagement (clicker) questions: Hypothesis testing for means</h1>
 
                 <div class="row description">
                     <div class="col-md-12">
                         <h2>Sample Question</h2>
-                        <p>Suppose that we are to draw many random samples of 120 employees from a large company. The average of the hourly wages of the 120 employees is computed for each sample. Below is the sampling distribution of the average values from the repeated samples.</p>
+                        <p>The label on Olliberry jam jars lists a content weight of 269 grams. A sample of 100 jars was selected from the main factory and weighed. The content weights had an average of 264 grams. We will test that the Olliberry jam jar label correctly identifies the content weight... </p>
                         <div class="col-md-12">
-                            <img class="pull-left zoology-fish" src="image/sample_question_image.JPG" width="225">
-                        </div>
-                        <div class="col-md-12">
-                            <p class="text-center access-btn"><a class="btn btn-success btn-md" href="/iClicker_question.jsp">See More</a></p>
+                            <p class="text-center access-btn"><a class="btn btn-success btn-md" href="/iClicker_question-3-HypothesisTesting.jsp">See More</a></p>
                         </div>
                     </div>
                 </div> 
@@ -123,9 +121,9 @@
                     <div class="thumbnail">
                         <img src="image/iClicker_image_home.JPG" class="sim-image" width="250" >
                         <div class="caption">
-                            <h5>Interactive engagement (clicker) questions: Hypothesis testing for means</h5>
-                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Hypothesis tests – One sample / paired – One sample mean - t <br>&bull; Hypothesis tests – One sample / paired – One sample mean - z <br>&bull; Hypothesis tests – Concepts – P-value and significance level <br>&bull; Hypothesis tests – Type I / type II errors and power</p> 
-                            <p class="see-more"><a href="/iClicker-example-3-Hypothesistesting.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+                            <h5>Interactive engagement (clicker) questions: Sampling distributions of means</h5>
+                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Probability -- Laws, theory -- Central Limit Theorem <br>&bull; Sampling distributions -- Sample mean</p> 
+                            <p class="see-more"><a href="/iClicker-example.jsp" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>     
                     </div>
                 </div>
@@ -142,17 +140,20 @@
                     <h2>Prerequisite knowledge</h2>
                     <p>Students should&colon;</p>
                     <ul>
-                        <li>be able to recognize probability models as distributions with shape, centre, and spread</li>
+                        <li>be able to distinguish between a population and a sample, and between parameters and statistics </li>
                         <li>be able to recall key properties of the Normal model</li>
-                        <li>be able to distinguish between a population and a sample, and between parameters and statistics</li>
+                        <li>be able to explain concepts of sampling distribution of the mean</li>
+                        <li>be able to interpret confidence intervals for means</li>
                     </ul>
                     <h2>Learning Objectives</h2>
                     <ul>
-                        <li>Identify the population, sample, parameters and statistics in a given scenario</li>
-                        <li>Recall the sampling distribution of the mean of a sample from a Normal distribution</li>
-                        <li>Describe properties of the sampling distribution of the sample mean in general situations, using the Central Limit Theorem</li>
-                        <li>For the sample mean, explain whether and how the population distribution and the sample size influence the sampling distribution of the sample mean</li>
-                        <li>Apply the Central Limit Theorem to problems involving averages of variables from arbitrary distributions</li>
+                        <li>Identify the components of a classical hypothesis test, including the parameter of interest, the null and alternative hypotheses and the test statistic</li>
+                        <li>Compute the t statistic given relevant sample data</li>
+                        <li>Compute or find a range for the P-value of a hypothesis test</li>
+                        <li>Interpret the P-value in a hypothesis test</li>
+                        <li>State and interpret the conclusion of a hypothesis test in context</li>
+                        <li>Describe how the t statistic may change based on its component parts</li>
+                        <li>Explain the two types of errors possible.</li>
                     </ul>
 
                     <h2>Suggested uses</h2>
@@ -165,13 +166,7 @@
 
                     <h2>Complementary materials</h2>
                     <ul>
-                        <li>Web visualization&colon; Instructors may assign the following accompanying web visualizations as homework before teaching the topic in class</li>
-                        <ul>
-                            <li><a target="_blank" href="/WV-SamplingNon-Normal.jsp"> Sampling from a non-Normally distributed population (CLT)<span class="glyphicon glyphicon-new-window"></span></a></li>
-                            <li><a target="_blank" href="/sim-example.jsp">Sampling from a Normal distribution<span class="glyphicon glyphicon-new-window"></span></a></li>
-                        </ul>
-                        <li><a target="_blank" href="/video-example.jsp">Video: Sampling Distribution of the Mean<span class="glyphicon glyphicon-new-window"></span></a></li>            
-                        <li><a target="_blank" href="http://www.zoology.ubc.ca/~whitlock/kingfisher/SamplingNormal.htm">Activity: Introducing the sampling distribution (French protest)<span class="glyphicon glyphicon-new-window"></span></a></li>
+                        <li><a target="_blank" href="/LP-VideoOne-Sample-T-Test.jsp">Video: One-Sample T Test<span class="glyphicon glyphicon-new-window"></span></a></li>            
                     </ul>
 
                     <h2>About this resource</h2>
@@ -191,7 +186,7 @@
                         </div>
                         <div class="panel-body">
                             <p>
-                                <strong>Topics:</strong> <br>&bull; Probability -- Laws, theory -- Central Limit Theorem <br>&bull; Sampling distributions -- Sample mean 
+                                <strong>Topics:</strong> <br>&bull; Hypothesis tests – One sample / paired – One sample mean - t <br>&bull; Hypothesis tests – One sample / paired – One sample mean - z <br>&bull; Hypothesis tests – Concepts – P-value and significance level <br>&bull; Hypothesis tests – Type I / type II errors and power
                             </p>
                         </div>
                     </div>

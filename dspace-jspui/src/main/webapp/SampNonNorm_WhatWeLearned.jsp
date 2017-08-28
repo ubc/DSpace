@@ -111,7 +111,7 @@
 			<p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
 		    </div>
 		</div>
-	      
+	   <!--Will use at a later date   
 		<div class="panel panel-info">
 		    <div class="panel-heading">
                 <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-comment"></i> &nbsp;Evaluate what you use</a></h3>
@@ -120,7 +120,7 @@
 			<p>Evaluate the introductory statistics material in StatSpace by giving <strong>detailed private feedback</strong> for any resources you use, to help other educators improve their designs.</p>
 		    </div>
 		</div>
-	    
+	   --> 
 	    </div>			
 	</div>
 	

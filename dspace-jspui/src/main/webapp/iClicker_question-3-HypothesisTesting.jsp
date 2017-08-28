@@ -47,29 +47,28 @@
 <dspace:layout locbar="nolink" titlekey="jsp.about.title" feedData="<%= feedData %>">
 
     <div class="example">
-        <p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/iClicker-example.jsp">iClicker</a> <span class="text-muted">&raquo; iClicker Question</span></p>
+       <p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/iClicker_question-3-HypothesisTesting.jsp">Interactive engagement (clicker) questions: Hypothesis testing for means</a> <span class="text-muted">&raquo; Sample Question: Hypothesis testing for means</span></p>
 
         <div class="row">  
             <div class="col-md-8">
-
                 <div class="col-md-12">
                     <h2>Sample Question</h2>
                     <div class="row">
-                        <p>Suppose that we are to draw many random samples of 120 employees from a large company. The average of the hourly wages of the 120 employees is computed for each sample. Below is the sampling distribution of the average values from the repeated samples.</p>
+                        <p>The label on Olliberry jam jars lists a content weight of 269 grams. A sample of 100 jars was selected from the main factory and weighed. The content weights had an average of 264 grams. We will test that the Olliberry jam jar label correctly identifies the content weight.</p>
                     </div> 
                     <div class="row">
-                        <img class="pull-left zoology-fish" src="image/sample_question_image.JPG" width="225"> <br>
-                    </div> 
-                    <div class="row">
-                        <p>If the averages are computed based on samples of size larger than 120, we would expect the sampling distribution of the average hourly wage to look like:
+                        <p>What is the null hypothesis? 
                         </p><br><br><br>
-                    </div> 
-                    <div class="row">
-                        <div class="col-md-8">
-                            <img src="image/iClicker_image_3.JPG" width="325">
-                        </div>
-                    </div>
-
+                        <ul>
+                            <p>
+                                A.&colon; The weight of a single Olliberry jam jar is 269 grams. <br>
+                                B.&colon; The mean weight of the sampled Olliberry jam jars is 264 grams.  <br>
+                                C.&colon; The mean weight of the sampled Olliberry jam jars is 269 grams.  <br>
+                                D.&colon; The mean weight of Olliberry jam jars produced in the main factory is 264 grams.<br>
+                                <b>E.&colon; The mean weight of Olliberry jam jars produced in the main factory is 269 grams. </b><br>
+                            </p>    
+                        </ul>
+                    </div>                     
                 </div>	
             </div> 
 
@@ -127,7 +126,9 @@
             </div>
 
             <div class="row">
-                <p><b>Answer: D</b><br>Explanation: Since the mean of a sampling distribution equals the population mean regardless of the sample size, one can deduce that the population mean hourly wage is $15.3 from the given graph.  We also know that the SD of the average hourly wage of n employees is given by the population SD divided by sqrt(n).  The larger the value of n, the smaller the SD of the sample average hourly wage will be.  Therefore, we expect that the sampling distribution for n>120 will have the same center ($15.3) but a smaller spread than that for n=120. </p>
+                 <p><b>Explanation&colon;<br><br> 
+                        We want to test if the label correctly identifies the content weight. The null hypothesis states that the difference between the value of an observed sample mean (264 grams) and that of the population mean (269 grams) is due to chance. Hence, the null hypothesis will be that the population mean weight is equal to 269 grams (μ=269).</b>
+                </p>
             </div> 
 
             <div class="row text-center">
@@ -139,4 +140,4 @@
 
         </div>
 
-        </dspace:layout>
+</dspace:layout>

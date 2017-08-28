@@ -22,6 +22,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <%@ taglib uri="http://www.dspace.org/dspace-tags.tld" prefix="dspace" %>
+    
 
 <%@ page import="java.io.File" %>
 <%@ page import="java.util.Enumeration"%>
@@ -68,65 +69,62 @@
 %>
 
 <dspace:layout locbar="nolink" titlekey="jsp.home.title" feedData="<%= feedData %>">
-
+     
     <% if (user == null) { %>
 
-	<div class="row landing-page">  
-	    <div class="col-md-8">
+        <div class="row landing-page">  
+            <div class="col-md-8">
 		
-		<div class="jumbotron">
+                <div class="jumbotron">
+                    <h1><i class="glyphicon glyphicon-stats"></i> StatSpace</h1>
+                    <h2>Find and share vetted learning materials for teaching introductory statistics in any discipline</h2>
 		    
-		    <h1><i class="glyphicon glyphicon-stats"></i> StatSpace</h1>
-		    <h2>Find and share vetted learning materials for teaching introductory statistics in any discipline</h2>
-		    
-		    <p>StatSpace brings together high-quality open education materials vetted by instructors from UBC and around the world, with the goal of supporting cooperation among statistics instruction experts and sharing resources that address common cross-disciplinary challenges of teaching in this area.</p>
-		    
-		    <p class="text-center cta">
-			    <a href="/register" class="btn btn-success btn-lg">Join</a> &nbsp; or &nbsp;
-			    <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>
-		    </p>
-			  
-		</div>
+                    <p>StatSpace brings together high-quality open education materials vetted by instructors from UBC and around the world, with the goal of supporting cooperation among statistics instruction experts and sharing resources that address common cross-disciplinary challenges of teaching in this area.</p>
+                    <p class="text-center cta">
+                        <a href="/register" class="btn btn-success btn-lg">Join</a> &nbsp; or &nbsp;
+                        <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>
+                    </p>
+                </div>
 		
-		<div class="row after-jumbotron">
-		    <div class="col-md-6">
-			<h4>About Us</h4>
-			<p>Learn about StatSpace and how open education resouces help teaching and learning. &nbsp;<a href="/about.jsp">read more &raquo;</a></p>
-		    </div>    
-		    <div class="col-md-6">
-			<h4>Copyright</h4>
-			<p>Understand how content copyright works for the materials available in StatSpace. &nbsp;<a href="/copyright.jsp">read more &raquo;</a></p>
-		    </div>
-		</div>
+                <div class="row after-jumbotron">
+                    <div class="col-md-6">
+                        <h4>About Us</h4>
+                        <p>Learn about StatSpace and how open education resouces help teaching and learning. &nbsp;<a href="/about.jsp">read more &raquo;</a></p>
+                    </div>    
+                    <div class="col-md-6">
+                        <h4>Copyright</h4>
+                        <p>Understand how content copyright works for the materials available in StatSpace. &nbsp;<a href="/copyright.jsp">read more &raquo;</a></p>                        
+                    </div>
+                </div>
 		
-	    </div>
+            </div>
 	    
-	    <div class="col-md-4 intro-sidebar">
+            <div class="col-md-4 intro-sidebar">
 	    
-		<div class="panel panel-info">
-		    <div class="panel-heading">
-			<h3 class="panel-title">
-				<i class="glyphicon glyphicon-search"></i>&nbsp; Search for materials
-			</h3>
-		    </div>
-		    <div class="panel-body">
-			<p>Search our high-quality archive of <strong>100+ curated introductory statistics materials</strong>.</p>
-			<label>Search StatSpace now:</label>
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <i class="glyphicon glyphicon-search"></i>&nbsp; Search for materials
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>Search our high-quality archive of <strong>100+ curated introductory statistics materials</strong>.</p>
+                        <label>Search StatSpace now:</label>
 			<%-- Search Box --%>
-			<form method="get" action="<%= request.getContextPath() %>/SearchError.jsp">
-			    <div class="input-group">
-				<input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
-				<span class="input-group-btn">
-				    <button type="submit" class="btn btn-primary">
-					<span class="glyphicon glyphicon-search"></span>
-				    </button>
-				</span>
-			    </div>
-			</form>
-		    </div>
-		</div>
+			<form method="get" action="<%= request.getContextPath() %>/simple-search">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+                </div>
+                </form>
+                </div>
+                    </div>
 		
-		<div class="panel panel-info">
+		<div class="panel panel-info" >
 		    <div class="panel-heading">
                 <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
 		    </div>
@@ -134,87 +132,87 @@
 			<p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
 		    </div>
 		</div>
-	   <!--
-		<div class="panel panel-info">
-		    <div class="panel-heading">
+	   <!--Will be using at a later date
+            <div class="panel panel-info">
+		      <div class="panel-heading">
                 <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-comment"></i> &nbsp;Evaluate what you use</a></h3>
-		    </div>
-		    <div class="panel-body">
-			<p>Evaluate the introductory statistics material in StatSpace by giving <strong>detailed private feedback</strong> for any resources you use, to help other educators improve their designs.</p>
-		    </div>
-		</div>
+		      </div>
+		      <div class="panel-body">
+			     <p>Evaluate the introductory statistics material in StatSpace by giving <strong>detailed private feedback</strong> for any resources you use, to help other educators improve their designs.</p>
+		      </div>
+            </div>
 	    -->
-	    </div>
-	</div>
+                </div>
+            </div>
 	
-	<div class="row">
-	    <div class="col-md-12">
-		<h3 class="featured-heading">Featured StatSpace materials</h3>
-	    </div>
-	</div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="featured-heading">Featured StatSpace materials</h3>
+                </div>
+            </div>
 	
-	<div class="row featured-items">
-	    <div class="col-md-4 text-center">
-		<h4>Simulation</h4>
-		<div class="thumbnail">
-		    <img src="http://www.zoology.ubc.ca/~whitlock/kingfisher/Common/Images/fish.svg" class="sim-image" width="250">
-		    <div class="caption">
-			<h5>Web Visualization: Sampling from a Normal distribution</h5>
-			<p class="text-left"><strong>About:</strong> This activity allows students to understand the values of the sample size, mean length, and standard deviation of length by <!--... &nbsp;<a href="">Show <span class="glyphicon glyphicon-chevron-down"></span></a>--> working with an online visualization tool based around fish populations. By doing the tutorial, students get a feel for how these three values change the distribution.</p>
-			<p class="text-left"><strong>Topics:</strong> <br>&bull; Sampling distributions - Sample mean <br>&bull; Exploratory data analysis/Classifying data - Graphical representations - Histograms</p> 
-			<p class="see-more"><a href="/sim-example.jsp" class="btn btn-primary">Read more &raquo;</a></p>
-		    </div>
-		</div>
-	    </div>
+            <div class="row featured-items">
+                <div class="col-md-4 text-center">
+                    <h4>Simulation</h4>
+                    <div class="thumbnail">
+                        <img src="http://www.zoology.ubc.ca/~whitlock/kingfisher/Common/Images/fish.svg" class="sim-image" width="250">
+                        <div class="caption">
+                            <h5>Web Visualization: Sampling from a Normal distribution</h5>
+                            <p class="text-left"><strong>About:</strong> This web visualization demonstrates the concept of a sampling distribution of an estimate, using the example of a mean of a Normally distributed variable. It also reinforces the idea of a histogram.</p>
+                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Sampling distributions - Sample mean <br>&bull; Exploratory data analysis/Classifying data - Graphical representations - Histograms</p> 
+                            <p class="see-more"><a href="/sim-example.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+                        </div>
+                    </div>
+                </div>
 	    
-	    <div class="col-md-4 text-center">
-		<h4>Video</h4>
-		<div class="thumbnail video-iframe">
-		    <iframe src="https://player.vimeo.com/video/196027417?byline=0&portrait=0" width="300" height="169" frameborder="0" ></iframe>
-		    <div class="caption">
-			<h5>Video: Sampling distribution of the mean</h5>
-			<p class="text-left"><strong>About:</strong> This video explores the concept of a sampling distribution of the mean. It highlights how we can draw conclusions about a population mean based on a sample mean by understanding how sample means behave when we know the true values of the population.</p>
-			<p class="text-left"><strong>Topics:</strong> <br>&bull; Sampling distribution -  Sample mean</p> 
-			<p class="see-more"><a href="/video-example.jsp" class="btn btn-primary">Read more &raquo;</a></p>
-		    </div>     
-		</div>
-	    </div>
-	    <div class="col-md-4 text-center">
-		<h4>WeBWork Questions</h4>
-		<div class="thumbnail">
-            <div class="col-md-12 text-center">
-		    <img align="top" src="image/webwork_logo.JPG" class="sim-image" width="175" align="center"></div>
-		    <div class="caption">
-			<h5>WeBWorK Web Application</h5>
-			<p class="text-left"><strong>About:</strong> WeBWorK is a free on-line individualized assessment tool that provides students with automatic feedback on their work and is used at over 700 institutions globally. </p>
-			<p class="text-left"><strong>Topics:</strong> Normal distribution, Histograms, Sampling variability, Sampling from a Normal distribution</p> 
-			<p class="see-more"><a href="/WebWork_Questions.jsp" class="btn btn-primary">Read more &raquo;</a></p>
-		    </div>
-		</div>
-	    </div>
-	</div>
+                <div class="col-md-4 text-center">
+                    <h4>Video</h4>
+                    <div class="thumbnail video-iframe">
+                        <iframe src="https://player.vimeo.com/video/196027417?byline=0&portrait=0" width="300" height="169" frameborder="0" ></iframe>
+                        <div class="caption">
+                            <h5>Video: Sampling distribution of the mean</h5>
+                            <p class="text-left"><strong>About:</strong> This video explores the concept of a sampling distribution of the mean. It highlights how we can draw conclusions about a population mean based on a sample mean by understanding how sample means behave when we know the true values of the population.</p>
+                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Sampling distribution -  Sample mean</p> 
+                            <p class="see-more"><a href="/video-example.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+                        </div>     
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <h4>WeBWork Questions</h4>
+                    <div class="thumbnail">
+                        <div class="col-md-12 text-center">
+                            <img align="top" src="image/webwork_logo.JPG" class="sim-image" width="175" align="center"></div>
+                        <div class="caption">
+                            <h5>WeBWorK Web Application</h5>
+                            <p class="text-left"><strong>About:</strong> WeBWorK is a free on-line individualized assessment tool that provides students with automatic feedback on their work and is used at over 700 institutions globally. </p>
+                            <p class="text-left"><strong>Topics:</strong> Normal distribution, Histograms, Sampling variability, Sampling from a Normal distribution</p> 
+                            <p class="see-more"><a href="/WebWork_Questions.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         
-    <div class="row featured-items">
-	    <div class="col-md-4 text-center">
-		<h4>iClicker</h4>
-		<div class="thumbnail">
-		    <img src="image/iClicker_image_home.JPG" class="sim-image" width="250">
-		    <div class="caption">
-			<h5>Interactive engagement (clicker) questions: Sampling distributions of means</h5>
-			<p class="text-left"><strong>About:</strong> With a personal response system, students can answer questions and instructors can monitor understanding in real time. Turn the classroom into a conversation and allow students to participate with smartphones, laptops, tablets, or clickers.</p>
-			<p class="text-left"><strong>Topics:</strong> <br>&bull; Sampling distributions - Sample mean</p> 
-			<p class="see-more"><a href="/iClicker-example.jsp" class="btn btn-primary">Read more &raquo;</a></p>
-		    </div>
-		</div>
-	    </div>
-	</div>
+            <div class="row featured-items">
+                <div class="col-md-4 text-center">
+                    <h4>iClicker</h4>
+                    <div class="thumbnail">
+                        <img src="image/iClicker_image_home.JPG" class="sim-image" width="250">
+                        <div class="caption">
+                            <h5>Interactive engagement (clicker) questions: Sampling distributions of means</h5>
+                            <p class="text-left"><strong>About:</strong> With a personal response system, students can answer questions and instructors can monitor understanding in real time. Turn the classroom into a conversation and allow students to participate with smartphones, laptops, tablets, or clickers.</p>
+                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Probability -- Laws, theory -- Central Limit Theorem <br>&bull; Sampling distributions -- Sample mean</p> 
+                            <p class="see-more"><a href="/iClicker-example.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 	
-	<div class="row text-center">
-	    <div class="col-md-12">
-		<h4 class="more-heading">To see more resources:</h4>
-		<a href="/register" class="btn btn-success btn-lg">Join</a> &nbsp;or&nbsp; <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>
-	    </div>
-	</div>
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <h4 class="more-heading">To see more resources:</h4>
+                    <a href="/register" class="btn btn-success btn-lg">Join</a> &nbsp;or&nbsp; <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>
+                </div>
+            </div>
     
     <% } %>
 

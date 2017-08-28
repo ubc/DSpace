@@ -146,13 +146,13 @@
 		<h2>Learning Objectives</h2>
 		<ul>
             <li>Interpret a confidence interval and confidence level</li>
-            <li>Identify features that determine the width of a confidence interval.</li>
+            <li>Identify features that determine the width of a confidence interval</li>
 		</ul>
 		
-		<h2>Suggested uses</h2>
+		<h2>Suggested use(s) and tips</h2>
 		<ul>
-            <li>Before class, students watch the video before class, giving them the flexibility to engage with the video in the way that suits them (pausing, rewinding). Students are primed for class and lecture time can be spent applying that knowledge in engaging and collaborative ways. </li>
-            <li>After class, the students can watch the video after they have learned the material in lecture. The video could be used as a refresher of the material before an exam or to review concepts they didn’t understand in class.</li>
+            <li>Students can watch the video before class, giving them the flexibility to engage with the video in the way that suits them (pausing, rewinding). Students are primed for class and lecture time can be spent applying that knowledge in engaging and collaborative ways. </li>
+            <li>Students can watch the video after they have learned the material in lecture. The video could be used as a refresher of the material before an exam or to review concepts they didn’t understand in class.</li>
 		</ul>
 		
 		<h2>Complementary materials</h2>

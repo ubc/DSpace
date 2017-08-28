@@ -47,18 +47,18 @@
 <dspace:layout locbar="nolink" titlekey="jsp.about.title" feedData="<%= feedData %>">
 
     <div class="example">
-        <p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/sim-example.jsp">Simulation Example</a> <span class="text-muted">&raquo;</span> <a href="/WV-ConfidenceIntervals.jsp">Web Visualization: Confidence Intervals of the Mean</a> <span class="text-muted">&raquo; What We Learned</span></p>
+        <p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/sim-example.jsp">Simulation Example</a> <span class="text-muted">&raquo;</span> <a href="/WV-ConfidenceIntervals.jsp">Web Visualization: Confidence Intervals for the Mean</a> <span class="text-muted">&raquo; What We Learned</span></p>
 
 	<div class="row">  
 	    <div class="col-md-8">
-        <h1>Web Visualization: Confidence intervals of the mean</h1>
+        <h1>Web Visualization: Confidence intervals for the mean</h1>
 		<h2>What We Learned</h2>
 		<div class="row descriptions">
 	       <div class="col-md-12">
-                  <p>Students often have trouble interpreting confidence intervals and often have some misconceptions. For instance, many students believe, for the same data and parameter of interest, a 90% confidence interval is wider than a 95% confidence interval. This visualization was designed to help mitigate some common misconceptions with confidence intervals.</p>
+                  <p>Students often have trouble interpreting confidence intervals and hold some common misconception. For instance, many students believe, for the same data and parameter of interest, a 90% confidence interval is wider than a 95% confidence interval. This visualization was designed to help mitigate some of these misconceptions with confidence intervals.</p>
                     <p>Comments about what we learned from trialing the resource&colon;</p>
                <ul>
-                   <li>Students need clear instructions when taking repeated samples. Some students were confused about the sampling process, such as how long to keep sampling and when they should stop. (“The part that really didn’t work well is the creating repeated samples…otherwise we don’t know when to click on ‘stop’… worried and stuff…”). Clearer instructions were provided to prevent the student from moving away from repeated sampling process too soon, and helped them gauge how long to keep sampling.
+                   <li>Students need clear instructions when taking repeated samples. Some students were confused about the sampling process, such as how long to keep sampling and when they should stop (<i>“The part that really didn’t work well is the creating repeated samples…otherwise we don’t know when to click on ‘stop’… worried and stuff…”</i>). Clearer instructions were provided to prevent the student from moving away from repeated sampling process too soon, and helped them gauge how long to keep sampling.
                     </li>
                    <li>Some students found the repeated sampling too slow. The sampling process was adjusted to hit the right balance in terms of speed to allow enough time for students to grasp what was happening on the screen, but without letting the sampling run too long so that the student disengages.
                    </li>
@@ -128,7 +128,7 @@
 			<p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
 		    </div>
 		</div>
-	      
+	   <!--will use at a later date   
 		<div class="panel panel-info">
 		    <div class="panel-heading">
                 <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-comment"></i> &nbsp;Evaluate what you use</a></h3>
@@ -137,7 +137,7 @@
 			<p>Evaluate the introductory statistics material in StatSpace by giving <strong>detailed private feedback</strong> for any resources you use, to help other educators improve their designs.</p>
 		    </div>
 		</div>
-	    
+	   --> 
 	    </div>			
 	</div>
 	

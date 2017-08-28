@@ -231,15 +231,5 @@
       
 	    </div>	
         </div>
-	
-	<div class="row text-center">
-	    <div class="col-md-12">
-		<h4 class="more-heading">To see more resources:</h4>
-		<a href="/register" class="btn btn-success btn-lg">Join</a> &nbsp;or&nbsp; <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>
-	    </div>
-	    
-	</div>
-
-    </div>
 
 </dspace:layout>
