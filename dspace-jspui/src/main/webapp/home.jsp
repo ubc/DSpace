@@ -186,6 +186,7 @@
                             <br>
                             <h5>WeBWorK Web Application</h5>
                             <p class="text-left"><strong>About:</strong> WeBWorK is a free on-line individualized assessment tool that provides students with automatic feedback on their work and is used at over 700 institutions globally. </p>
+                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Normal distribution, Histograms, Sampling variability, Sampling from a Normal distribution</p><br><br>
                             <p class="see-more"><a href="/WebWork_Questions.jsp" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>
                     </div>
