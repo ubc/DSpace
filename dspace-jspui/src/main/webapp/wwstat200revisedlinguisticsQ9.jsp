@@ -169,7 +169,7 @@
 			<h3 class="panel-title"><i class="glyphicon glyphicon-book"></i> What we learned</h3>
 		    </div>
 		    <div class="panel-body">
-                <p>All questions from UBC have been trialed extensively on students before submitting to the OPL.</p>
+                <p>We learned a lot about this resource from trialling with students. All questions from UBC have been trialed extensively on students before submitting to the OPL.</p>
 		    </div>
 		</div>     
 	    
