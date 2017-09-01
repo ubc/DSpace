@@ -56,7 +56,7 @@
 		<div class="row description">
 		    
 			 <div class="col-md-4">
-			<img class="pull-left" src="image/webwork_logo.JPG"  width="175">
+			<img class="pull-left" src="image/webwork_logo_official.JPG"  width="175">
 			</div>
             
             <div class="col-md-8">
@@ -107,7 +107,7 @@
 		    <div class="col-md-12 text-center">
 		    <img align="top" src="image/econ325_hw6_displayimage.JPG" class="sim-image" width="245" align="center"></div>
 		    <div class="caption">
-			<h5>ECON 325 HW6 additional Q1</h5>
+			<h5>ECON 325 HW6 additional Q1</h5><br>
 			<p class="see-more"><a href="/wwecon325h6additionalQ1.jsp" class="btn btn-primary">Access &raquo;</a></p>
 		    </div>
 		</div>
@@ -118,7 +118,7 @@
 		    <div class="col-md-12 text-center">
 		    <img align="top" src="image/Stat200_displayimage.JPG" class="sim-image" width="245" align="center"></div>
 		    <div class="caption">
-			<h5>STAT 200 revised2016/Linguistics Question Q9 </h5>
+			<h5>STAT 200 revised2016/Linguistics Question Q9 </h5><br>
 			<p class="see-more"><a href="/wwstat200revisedlinguisticsQ9.jsp" class="btn btn-primary">Access &raquo;</a></p>
 		    </div>     
 		</div>

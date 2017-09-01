@@ -77,7 +77,7 @@
                         <p>StatSpace brings together vetted open education materials for use across disciplines. Members of our community can <strong>search and use materials</strong> in the repository, <strong>contribute materials</strong> of their own, and <strong>evaluate materials</strong> they use.</p>
                         <label>Search StatSpace now:</label>
                         <%-- Search Box --%>
-                            <form method="get" action="<%= request.getContextPath() %>/simple-search">
+                            <form method="get" action="<%= request.getContextPath() %>/SearchError.jsp">
                                 <div class="input-group">
                                     <input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
                                     <span class="input-group-btn">
@@ -122,7 +122,7 @@
                         <img src="image/iClicker_image_home.JPG" class="sim-image" width="250" >
                         <div class="caption">
                             <h5>Interactive engagement (clicker) questions: Sampling distributions of means</h5>
-                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Probability -- Laws, theory -- Central Limit Theorem <br>&bull; Sampling distributions -- Sample mean</p> 
+                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Probability -- Laws, theory -- Central Limit Theorem <br>&bull; Sampling distributions -- Sample mean</p><br><br> 
                             <p class="see-more"><a href="/iClicker-example.jsp" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>     
                     </div>

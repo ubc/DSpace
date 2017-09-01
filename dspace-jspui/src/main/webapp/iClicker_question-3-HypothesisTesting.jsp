@@ -47,13 +47,13 @@
 <dspace:layout locbar="nolink" titlekey="jsp.about.title" feedData="<%= feedData %>">
 
     <div class="example">
-       <p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/iClicker_question-3-HypothesisTesting.jsp">Interactive engagement (clicker) questions: Hypothesis testing for means</a> <span class="text-muted">&raquo; Sample Question: Hypothesis testing for means</span></p>
+       <p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/iClicker-example-3-Hypothesistesting.jsp">Interactive engagement (clicker) questions: Hypothesis testing for means</a> <span class="text-muted">&raquo; Sample Question: Hypothesis testing for means</span></p>
 
         <div class="row">  
             <div class="col-md-8">
                 <div class="col-md-12">
-                    <h2>Sample Question</h2>
                     <div class="row">
+                        <h2>Sample Question</h2>
                         <p>The label on Olliberry jam jars lists a content weight of 269 grams. A sample of 100 jars was selected from the main factory and weighed. The content weights had an average of 264 grams. We will test that the Olliberry jam jar label correctly identifies the content weight.</p>
                     </div> 
                     <div class="row">
@@ -61,11 +61,11 @@
                         </p><br><br><br>
                         <ul>
                             <p>
-                                A.&colon; The weight of a single Olliberry jam jar is 269 grams. <br>
-                                B.&colon; The mean weight of the sampled Olliberry jam jars is 264 grams.  <br>
-                                C.&colon; The mean weight of the sampled Olliberry jam jars is 269 grams.  <br>
-                                D.&colon; The mean weight of Olliberry jam jars produced in the main factory is 264 grams.<br>
-                                <b>E.&colon; The mean weight of Olliberry jam jars produced in the main factory is 269 grams. </b><br>
+                                A&colon; The weight of a single Olliberry jam jar is 269 grams. <br>
+                                B&colon; The mean weight of the sampled Olliberry jam jars is 264 grams.  <br>
+                                C&colon; The mean weight of the sampled Olliberry jam jars is 269 grams.  <br>
+                                D&colon; The mean weight of Olliberry jam jars produced in the main factory is 264 grams.<br>
+                                <b>E&colon; The mean weight of Olliberry jam jars produced in the main factory is 269 grams. </b><br>
                             </p>    
                         </ul>
                     </div>                     
@@ -85,7 +85,7 @@
                         <p>Search our high-quality archive of <strong>100+ curated introductory statistics materials</strong>.</p>
                         <label>Search StatSpace now:</label>
                         <%-- Search Box --%>
-                            <form method="get" action="<%= request.getContextPath() %>/simple-search">
+                            <form method="get" action="<%= request.getContextPath() %>/SearchError.jsp">
                                 <div class="input-group">
                                     <input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
                                     <span class="input-group-btn">

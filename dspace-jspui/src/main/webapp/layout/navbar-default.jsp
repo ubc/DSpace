@@ -79,7 +79,10 @@
        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
          <ul class="nav navbar-nav">
            <% if (user != null) { %>
-               <li class="<%= currentPage.endsWith("/mydspace")? "active" : "" %>"><a href="<%= request.getContextPath() %>/mydspace"><span class="glyphicon glyphicon-home"></span> <fmt:message key="jsp.layout.navbar-default.users"/></a></li>
+               
+               <li><a href="<%= request.getContextPath() %>/logout"><span class="glyphicon glyphicon-home"></span></a></li>
+               
+               <li class="<%= currentPage.endsWith("/mydspace")? "active" : "" %>"><a href="<%= request.getContextPath() %>/mydspace"> <fmt:message key="jsp.layout.navbar-default.users"/></a></li>
 
                <li class="dropdown">
                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="jsp.layout.navbar-default.browse"/> <b class="caret"></b></a>
@@ -98,7 +101,8 @@
                    </ul>
                </li>
                
-               <li class="<%= currentPage.endsWith("/community-list")? "active" : "" %>"><a href="<%= request.getContextPath() %>/community-list"> <fmt:message key="jsp.layout.navbar-default.communities-collections"/></a></li>
+               <li class="<%= currentPage.endsWith("/community-list")? "active" : "" %>"><a href="<%= request.getContextPath() %>/community-list"> <fmt:message key="jsp.layout.navbar-default.communities-collections"/></a></li>    
+                           
            <% } else { %>
                <li class="<%= currentPage.endsWith("/home.jsp")? "active" : "" %>"><a href="<%= request.getContextPath() %>/"><span class="glyphicon glyphicon-home"></span> <fmt:message key="jsp.layout.navbar-default.home"/></a></li>
 	       <li class="<%= currentPage.endsWith("/about.jsp")? "active" : "" %>"><a href="<%= request.getContextPath() %>/about.jsp">About</a></li>
