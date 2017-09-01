@@ -58,7 +58,7 @@
                 <div class="row description">
                     <div class="col-md-12">
                         <h2>Sample Question</h2>
-                        <p>SA news article reported the following: “The poll of 500 Canadians using random-digit dialling of both mobile phones and land lines gave a mean expenditure on holiday shopping of 652 dollars.  The numbers are considered...”</p>
+                        <p>A news article reported the following: “The poll of 500 Canadians using random-digit dialling of both mobile phones and land lines gave a mean expenditure on holiday shopping of 652 dollars.  The numbers are considered...”</p>
                         <div class="col-md-12">
                             <p class="text-center access-btn"><a class="btn btn-success btn-md" href="/iClicker_question-2-ConfidenceIntervals.jsp">See More</a></p>
                         </div>
@@ -77,7 +77,7 @@
                         <p>StatSpace brings together vetted open education materials for use across disciplines. Members of our community can <strong>search and use materials</strong> in the repository, <strong>contribute materials</strong> of their own, and <strong>evaluate materials</strong> they use.</p>
                         <label>Search StatSpace now:</label>
                         <%-- Search Box --%>
-                            <form method="get" action="<%= request.getContextPath() %>/simple-search">
+                            <form method="get" action="<%= request.getContextPath() %>/SearchError.jsp">
                                 <div class="input-group">
                                     <input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
                                     <span class="input-group-btn">
@@ -111,7 +111,7 @@
                         </div>
                         <div class="caption">
                             <h5>Interactive engagement (clicker) questions: Sampling distributions of means</h5>
-                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Probability -- Laws, theory -- Central Limit Theorem <br>&bull; Sampling distributions -- Sample mean </p> 
+                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Probability -- Laws, theory -- Central Limit Theorem <br>&bull; Sampling distributions -- Sample mean </p><br><br><br><br> 
                             <p class="see-more"><a href="/iClicker-example.jsp" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>
                     </div>

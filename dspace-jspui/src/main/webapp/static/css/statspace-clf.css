@@ -331,6 +331,10 @@ footer {
         margin-top: 1.5em;
 }
 
+featured-items .sim-image-large {
+    margin: 2cm 3em 2.1em 3em;    
+}
+
 .more-heading {
         margin: 3em 0 1em 0;
         padding-top: .7em;
