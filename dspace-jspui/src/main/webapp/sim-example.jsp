@@ -203,7 +203,7 @@
                         </div>
                     </div>
                 </div>
-
+              
                 <div class="col-md-4 text-center">
                     <div class="thumbnail">
                         <img src="image/contingency_analysis_image.jpg" class="sim-image" width="250" >
@@ -236,7 +236,6 @@
                     <a href="/register" class="btn btn-success btn-lg">Join</a> &nbsp;or&nbsp; <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>
                 </div>
             </div>
-
         </div>
 
 </dspace:layout>
