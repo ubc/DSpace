@@ -95,7 +95,7 @@
                             <ul>
                                 <li>as a visual aid during lectures;</li>
                                 <li>as an open-ended learning tool for active learning;</li>
-                                <li>as a guided learning experience, using either the built-in tutorials, guided activity sheet, or other instructor-supplied material (click here for <a target="_blank" href="/pdf_folder/Applet1InstructorGuide.pdf">Instructor Guide<span class="glyphicon glyphicon-new-window"></span></a> and <a target="_blank" href="/pdf_folder/Applet1Qs.pdf">Activity Sheet<span class="glyphicon glyphicon-new-window"></span>)</a>.</li>
+                                <li>as a guided learning experience, using either the built-in tutorials, guided activity sheet (click here for <a target="_blank" href="/pdf_folder/Applet1InstructorGuide.pdf">Instructor Guide<span class="glyphicon glyphicon-new-window"></span></a> and <a target="_blank" href="/pdf_folder/Applet1Qs.pdf">Activity Sheet<span class="glyphicon glyphicon-new-window"></span>)</a>, or other instructor-supplied material.</li>
                             </ul>
 
                             <h2>About this resource</h2>
@@ -168,9 +168,8 @@
                                 <div class="panel-body">
                                     <ul>
                                         <li><a target="_blank" href="http://www.cwsei.ubc.ca/resources/files/Demo_WorkshopSummary_CWSEI-EOY2015.pdf">"Making the most of demonstrations, videos, animations, or simulations in lectures and laboratories" (J. Maxwell and J. Stang) <span class="glyphicon glyphicon-new-window"></span></a></li>
-                                        <li><a target="_blank" href="http://www.zoology.ubc.ca/~whitlock/Kingfisher/KFhomepage.htm">Check out more web visualizations</a></li>
                                         <li><a target="_blank" href="/video-example.jsp">Video: Sampling Distribution of the Mean <span class="glyphicon glyphicon-new-window"></span></a></li>
-                                        <li><a target="_blank" href="/pdf_folder/Applet1InstructorGuide.pdf">Instructor Guide</a> and <a target="_blank" href="/pdf_folder/Applet1Qs.pdf">Activity Sheet</a>.</li>
+                                        <li><a target="_blank" href="/pdf_folder/Applet1InstructorGuide.pdf">Instructor Guide</a> and <a target="_blank" href="/pdf_folder/Applet1Qs.pdf">Activity Sheet</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -187,15 +186,15 @@
                     </div>	
            </div> 
             
-            <div class="row">
-                <h2><a href="#jump"></a>More Web Visualizations:</h2>
+            <div class="row"><a name="jump"></a>
+                <h2>More Web Visualizations:</h2>
             </div>
             
-            <div class="row featured-items"><a name="jump"></a> 
-                <div class="col-md-4 text-center">
+            <div class="row featured-items"> 
+                <div class="col-md-3 text-center">
                     <div class="thumbnail">
                         <div class="col-md-12 text-center">
-                            <img src="http://www.zoology.ubc.ca/~whitlock/Kingfisher/Common/Images/coffee.svg" class="sim-image" width="162" height="180" align="center"></div>
+                            <img src="http://www.zoology.ubc.ca/~whitlock/Kingfisher/Common/Images/coffee.svg" class="sim-image-large" width="75"></div>
                         <div class="caption">
                             <h5>Web visualization: Sampling from a non-Normally distributed population (CLT)</h5>
                             <p class="text-left"><strong>Topics:</strong> <br>&bull; Probability - Laws, Theory - Central Limit Theorem <br>&bull; Sampling distributions - Sample mean</p>
@@ -204,20 +203,20 @@
                     </div>
                 </div>
               
-                <div class="col-md-4 text-center">
+                <div class="col-md-3 text-center">
                     <div class="thumbnail">
-                        <img src="image/contingency_analysis_image.jpg" class="sim-image" width="250" >
+                        <img src="image/contingency_analysis_image.jpg" class="sim-image-large" width="120" >
                         <div class="caption">
                             <h5>Web Visualization: Chi-square contingency analysis</h5>
-                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Hypothesis tests - Goodness of fit - Chi-squared test for independence</p> 
+                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Hypothesis tests - Goodness of fit - Chi-squared test for independence</p><br><br> 
                             <p class="see-more"><a href="/WV-ChiSquarecontingencyanalysis.jsp" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>     
                     </div>
                 </div>
-                <div class="col-md-4 text-center">
+                <div class="col-md-3 text-center">
                     <div class="thumbnail">
-                        <img src="image/confidence_interval_image.JPG" class="sim-image" width="275">
-                        <div class="caption">
+                        <img src="image/confidence_interval_image.JPG" class="sim-image-large" width="135">
+                        <div class="caption"><br>
                             <h5>Web Visualization: Confidence intervals for the mean</h5>
                             <p class="text-left"><strong>Topics:</strong><br>&bull; Confidence intervals - One sample mean t</p><br><br>
                             <p class="see-more"><a href="/WV-ConfidenceIntervals.jsp" class="btn btn-primary">Read more &raquo;</a></p>
