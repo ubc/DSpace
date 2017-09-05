@@ -186,7 +186,7 @@
                     </div>	
            </div> 
             
-            <div class="row"><a name="jump"></a>
+            <div class="row">
                 <h2>More Web Visualizations:</h2>
             </div>
             
@@ -194,7 +194,7 @@
                 <div class="col-md-3 text-center">
                     <div class="thumbnail">
                         <div class="col-md-12 text-center">
-                            <img src="http://www.zoology.ubc.ca/~whitlock/Kingfisher/Common/Images/coffee.svg" class="sim-image-large" width="75"></div>
+                            <img src="http://www.zoology.ubc.ca/~whitlock/Kingfisher/Common/Images/coffee.svg" class="sim-image-large" width="110"></div>
                         <div class="caption">
                             <h5>Web visualization: Sampling from a non-Normally distributed population (CLT)</h5>
                             <p class="text-left"><strong>Topics:</strong> <br>&bull; Probability - Laws, Theory - Central Limit Theorem <br>&bull; Sampling distributions - Sample mean</p>
@@ -205,7 +205,7 @@
               
                 <div class="col-md-3 text-center">
                     <div class="thumbnail">
-                        <img src="image/contingency_analysis_image.jpg" class="sim-image-large" width="120" >
+                        <img src="image/contingency_analysis_image.jpg" class="sim-image-large" width="170" >
                         <div class="caption">
                             <h5>Web Visualization: Chi-square contingency analysis</h5>
                             <p class="text-left"><strong>Topics:</strong> <br>&bull; Hypothesis tests - Goodness of fit - Chi-squared test for independence</p><br><br> 
@@ -215,7 +215,7 @@
                 </div>
                 <div class="col-md-3 text-center">
                     <div class="thumbnail">
-                        <img src="image/confidence_interval_image.JPG" class="sim-image-large" width="135">
+                        <img src="image/confidence_interval_image.JPG" class="sim-image-small" width="170">
                         <div class="caption"><br>
                             <h5>Web Visualization: Confidence intervals for the mean</h5>
                             <p class="text-left"><strong>Topics:</strong><br>&bull; Confidence intervals - One sample mean t</p><br><br>
