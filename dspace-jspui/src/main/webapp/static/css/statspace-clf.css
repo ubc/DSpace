@@ -332,7 +332,13 @@ footer {
 }
 
 featured-items .sim-image-large {
-    margin: 2cm 3em 2.1em 3em;    
+    margin: 2cm 3em 2.1em 3em;  
+    padding-top: 2cm;
+}
+
+featured-items .sim-image-small {
+    margin: 2cm 1em 2.1em 1em;  
+    padding-top: 2cm;
 }
 
 .more-heading {
