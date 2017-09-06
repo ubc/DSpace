@@ -111,7 +111,7 @@
                         <p>Search our high-quality archive of <strong>100+ curated introductory statistics materials</strong>.</p>
                         <label>Search StatSpace now:</label>
 			<%-- Search Box --%>
-			<form method="get" action="<%= request.getContextPath() %>/simple-search">
+			<form method="get" action="<%= request.getContextPath() %>/SearchError.jsp">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
                     <span class="input-group-btn">
@@ -172,7 +172,8 @@
                         <div class="caption">
                             <h5>Video: Sampling distribution of the mean</h5>
                             <p class="text-left"><strong>About:</strong> This video explores the concept of a sampling distribution of the mean. It highlights how we can draw conclusions about a population mean based on a sample mean by understanding how sample means behave when we know the true values of the population.</p>
-                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Sampling distribution -  Sample mean</p> 
+                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Sampling distribution -  Sample mean</p>
+                            <br>
                             <p class="see-more"><a href="/video-example.jsp" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>     
                     </div>
@@ -180,12 +181,12 @@
                 <div class="col-md-4 text-center">
                     <h4>WeBWork Questions</h4>
                     <div class="thumbnail">
-                        <div class="col-md-12 text-center">
-                            <img align="top" src="image/webwork_logo.JPG" class="sim-image" width="175" align="center"></div>
+                            <img src="image/webwork_homepage.JPG"  class="sim-image-large">
                         <div class="caption">
+                            <br>
                             <h5>WeBWorK Web Application</h5>
                             <p class="text-left"><strong>About:</strong> WeBWorK is a free on-line individualized assessment tool that provides students with automatic feedback on their work and is used at over 700 institutions globally. </p>
-                            <p class="text-left"><strong>Topics:</strong> Normal distribution, Histograms, Sampling variability, Sampling from a Normal distribution</p> 
+                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Normal distribution, Histograms, Sampling variability, Sampling from a Normal distribution</p><br><br>
                             <p class="see-more"><a href="/WebWork_Questions.jsp" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>
                     </div>
@@ -196,7 +197,7 @@
                 <div class="col-md-4 text-center">
                     <h4>iClicker</h4>
                     <div class="thumbnail">
-                        <img src="image/iClicker_image_home.JPG" class="sim-image" width="250">
+                        <img src="image/iClicker_image_home.JPG" class="sim-image-large" width="250">
                         <div class="caption">
                             <h5>Interactive engagement (clicker) questions: Sampling distributions of means</h5>
                             <p class="text-left"><strong>About:</strong> With a personal response system, students can answer questions and instructors can monitor understanding in real time. Turn the classroom into a conversation and allow students to participate with smartphones, laptops, tablets, or clickers.</p>
@@ -218,7 +219,7 @@
 
     <% if (user != null) { %>
 	<%-- Search Box --%>
-	<form method="get" action="<%= request.getContextPath() %>/simple-search">
+	<form method="get" action="<%= request.getContextPath() %>/SearchError.jsp">
 
         <div class="form-group col-md-8 col-md-offset-2" style="padding: 3em 0;">
             <div class="input-group">

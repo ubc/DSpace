@@ -53,8 +53,8 @@
             <div class="col-md-8">
 
                 <div class="col-md-12">
-                    <h2>Sample Question</h2>
                     <div class="row">
+                        <h2>Sample Question</h2>
                         <p>Suppose that we are to draw many random samples of 120 employees from a large company. The average of the hourly wages of the 120 employees is computed for each sample. Below is the sampling distribution of the average values from the repeated samples.</p>
                     </div> 
                     <div class="row">
@@ -86,7 +86,7 @@
                         <p>Search our high-quality archive of <strong>100+ curated introductory statistics materials</strong>.</p>
                         <label>Search StatSpace now:</label>
                         <%-- Search Box --%>
-                            <form method="get" action="<%= request.getContextPath() %>/simple-search">
+                            <form method="get" action="<%= request.getContextPath() %>/SearchError.jsp">
                                 <div class="input-group">
                                     <input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
                                     <span class="input-group-btn">

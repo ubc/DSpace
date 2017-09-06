@@ -123,7 +123,7 @@
 		    <img src="http://www.zoology.ubc.ca/~whitlock/kingfisher/Common/Images/fish.svg" class="sim-image" width="250">
 		    <div class="caption">
 			<h5>Web Visualization: Sampling from a Normal distribution</h5>
-			<p class="text-left"><strong>Topics:</strong> <br>&bull; Sampling distributions - Sample mean <br>&bull; Exploratory data analysis/Classifying data - Graphical representations - Histograms</p> 
+			<p class="text-left"><strong>Topics:</strong> <br>&bull; Sampling distributions - Sample mean <br>&bull; Exploratory data analysis/Classifying data - Graphical representations - Histograms</p> <br><br><br>
 			<p class="see-more"><a href="/sim-example.jsp" class="btn btn-primary">Read more &raquo;</a></p>
 		    </div>     
 		</div>
@@ -133,7 +133,7 @@
 		    <img src="image/confidence_interval_image.JPG" class="sim-image" width="275">
 		    <div class="caption">
 			<h5>Web Visualization: Confidence intervals of the mean</h5>
-			<p class="text-left"><strong>Topics:</strong><br>&bull; Confidence intervals - One sample mean t</p> 
+			<p class="text-left"><strong>Topics:</strong><br>&bull; Confidence intervals - One sample mean t</p><br> 
 			<p class="see-more"><a href="/WV-ConfidenceIntervals.jsp" class="btn btn-primary">Read more &raquo;</a></p>
 		    </div>
 		</div>
@@ -213,6 +213,7 @@
 		    <div class="panel-body">
 			<ul>
 			    <li><a href="http://www.cwsei.ubc.ca/resources/files/Demo_WorkshopSummary_CWSEI-EOY2015.pdf">“Making the most of demonstrations, videos, animations, or simulations in lectures and laboratories” J. Maxwell and J. Stang <span class="glyphicon glyphicon-new-window"></span></a></li>
+                <li><a target="_blank" href="http://www.zoology.ubc.ca/~whitlock/Kingfisher/KFhomepage.htm">Check out more web visualizations</a></li>
 		      </ul>
 		    </div>
 		</div>

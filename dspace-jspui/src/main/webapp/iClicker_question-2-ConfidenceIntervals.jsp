@@ -52,8 +52,8 @@
         <div class="row">  
             <div class="col-md-8">
                 <div class="col-md-12">
-                    <h2>Sample Question</h2>
                     <div class="row">
+                        <h2>Sample Question</h2>
                         <p>A news article reported the following: “The poll of 500 Canadians using random-digit dialling of both mobile phones and land lines gave a mean expenditure on holiday shopping of 652 dollars.  The numbers are considered accurate plus or minus 169 dollars, 19 times out of 20.”</p>
                     </div> 
                     <div class="row">
@@ -61,11 +61,11 @@
                         </p><br><br><br>
                         <ul>
                             <p>
-                                <b>A.&colon; The 95% confidence interval for the true mean expenditure on holiday shopping by Canadians is (483,    821) dollars.</b><br>
-                                B.&colon; Based on the confidence interval, one can conclude that it is unusual for a Canadian to spend over $1000 on holiday shopping.  <br>
-                                C.&colon; 95% of Canadians spend between $483 and $821 on holiday shopping. <br>
-                                D.&colon; Both (A) and (B).<br>
-                                E.&colon; Both (A) and (C).<br>
+                                <b>A&colon; The 95% confidence interval for the true mean expenditure on holiday shopping by Canadians is (483,    821) dollars.</b><br>
+                                B&colon; Based on the confidence interval, one can conclude that it is unusual for a Canadian to spend over $1000 on holiday shopping.  <br>
+                                C&colon; 95% of Canadians spend between $483 and $821 on holiday shopping. <br>
+                                D&colon; Both (A) and (B).<br>
+                                E&colon; Both (A) and (C).<br>
                             </p>    
                         </ul>
                     </div> 
@@ -85,7 +85,7 @@
                         <p>Search our high-quality archive of <strong>100+ curated introductory statistics materials</strong>.</p>
                         <label>Search StatSpace now:</label>
                         <%-- Search Box --%>
-                            <form method="get" action="<%= request.getContextPath() %>/simple-search">
+                            <form method="get" action="<%= request.getContextPath() %>/SearchError.jsp">
                                 <div class="input-group">
                                     <input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
                                     <span class="input-group-btn">
@@ -127,9 +127,9 @@
 
             <div class="row">
                 <p><b>Explanation&colon;</b><br><br> 
-                        (A.) &colon; The confidence interval has a margin of error of 169 dollars. The phrase "19 times out of 20" implies a 95% confidence level. Hence, the 95% confidence interval based on the poll results is given by 652 +-169, i.e. (482,821) dollars<br>
-                        (B.)&colon; This statement is incorrect because a confidence interval is used to estimate the true mean expenditure and it does not tell how the expenditures of the individual Canadians are distributed. We are unable to infer if the value $1000 is unusual in the expenditure distribution.<br>
-                        (C.)&colon; This is an incorrect statement. As indicated in the explanation for (B), the confidence interval does not give information on the expenditure distribution of all Canadians.<br>
+                        (A) &colon; The confidence interval has a margin of error of 169 dollars. The phrase "19 times out of 20" implies a 95% confidence level. Hence, the 95% confidence interval based on the poll results is given by 652 +-169, i.e. (482,821) dollars<br>
+                        (B)&colon; This statement is incorrect because a confidence interval is used to estimate the true mean expenditure and it does not tell how the expenditures of the individual Canadians are distributed. We are unable to infer if the value $1000 is unusual in the expenditure distribution.<br>
+                        (C)&colon; This is an incorrect statement. As indicated in the explanation for (B), the confidence interval does not give information on the expenditure distribution of all Canadians.<br>
                 </p>
             </div> 
 

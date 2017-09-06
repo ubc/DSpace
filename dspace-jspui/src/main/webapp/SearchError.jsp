@@ -48,16 +48,13 @@
 
     <div class="row landing-page">  
 	<div class="col-md-12">
+        	
+	    <h1>Search Temporarily Unavailable</h1>	    
+        <h3>The StatSpace search function is currently under development. We apologize for any inconvenience.</h3>
         
-        <h1>Doesn't Work</h1>
-        <h3>The search function is not yet available at this point in time. It is under development.</h3>
-	<!--	
-	    <h1>Search Temporarily Down</h1>
-	    
-        <p>Currently, StatSpace's search function is unavailable. Our technicians are working as quickly as possible to fix this issue. We apologize for the inconvenience.</p> 
-    -->    
 	    </div>
     
         </div>
         
 </dspace:layout>
+
