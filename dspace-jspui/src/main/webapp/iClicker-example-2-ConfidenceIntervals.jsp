@@ -52,28 +52,20 @@
 
         <div class="row">  
             <div class="col-md-8">
-
                 <h1>Interactive engagement (clicker) questions: Confidence intervals for means</h1>
-
                 <div class="row description">
-                    <div class="col-md-12">
-                        
+                    <div class="col-md-12"> 
                         <div class="row">
                             <h2>Sample Question</h2><br>
                             <img class="pull-left zoology-fish" href="image/canadian_shopping.JPG" class="sim-image" width="220">
-                        </div>
-                                            
+                        </div>           
                         <p>A news article reported the following: “The poll of 500 Canadians using random-digit dialling of both mobile phones and land lines gave a mean expenditure on holiday shopping of 652 dollars.  The numbers are considered...”</p>
-                        
                         <p class="text-center access-btn"><a target="_blank" class="btn btn-success btn-md" href="/iClicker_question-2-ConfidenceIntervals.jsp">See More</a></p>
-                        
                     </div>
                 </div> 
-
             </div>
 
             <div class="col-md-4 value-prop">
-
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         <h3 class="panel-title"><i class="glyphicon glyphicon-stats"></i> About StatSpace</h3>
@@ -103,7 +95,6 @@
                             <p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
                         </div>
                     </div>
-
                 </div>			
             </div>
 
