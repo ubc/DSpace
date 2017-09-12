@@ -47,7 +47,7 @@
 <dspace:layout locbar="nolink" titlekey="jsp.about.title" feedData="<%= feedData %>">
 
     <div class="example">
-	<p><a href="/">Home</a> <span class="text-muted">&raquo; WeBWork Questions</span></p>
+	<p><a href="/">Home</a> <span class="text-muted">&raquo; WeBWorK Questions</span></p>
 
 	<div class="row">  
 	    <div class="col-md-8">
@@ -101,7 +101,7 @@
 	</div>
 	
         <div class="row featured-items">
-        <h2>Check out some sample WeBWork Questions:</h2>
+        <h2>Check out some sample WeBWorK Questions:</h2>
 	    <div class="col-md-4 text-center">
 		<div class="thumbnail">
 		    <div class="col-md-12 text-center">
@@ -147,7 +147,7 @@
 		<h2>About Resources</h2>
 		<p>Over 400 probability and statistics questions resulted from the WeBWorKiR project, more than half of which can be used for introductory courses. The questions can be found in the Open Problem Library via searching for homework sets commencing OpenProblemLibrary/UBC/STAT/. Most questions feature randomisation and customised solutions via R code, though R is not needed to attempt the questions.<br><br>Those interested in using WeBWorK should consult the installation and user guides linked on this page. Details on a small sample of questions are available above. </p>
         		
-		<h2>Suggested uses</h2>
+		<h2>Suggested use(s) and tips</h2>
 		<ul>
 		    <li>Questions can be created by instructors or taken from WeBWorK's Open Problem Library.</li>
 		    <li>The number of attempts per question can be set by the instructor.</li>
@@ -163,9 +163,9 @@
 		    </div>
 		    <div class="panel-body">
 			<ul>
-			    <li><a href="http://webwork.maa.org/">Mathematical Association of America <span class="glyphicon glyphicon-new-window"></span></a></li>
-                <li><a href="http://wiki.ubc.ca/Documentation:WeBWorK">Wiki Guides to WebWork <span class="glyphicon glyphicon-new-window"></span></a></li>
-                <li><a href="">Article<span class="glyphicon glyphicon-new-window"></span></a></li>
+			    <li><a href="http://webwork.maa.org/">MAA WeBWorK Homepage<span class="glyphicon glyphicon-new-window"></span></a></li>
+                <li><a href="http://wiki.ubc.ca/Documentation:WeBWorK">Wiki Guides to WeBWork <span class="glyphicon glyphicon-new-window"></span></a></li>
+                <li><a href="http://iase-web.org/icots/9/proceedings/pdfs/ICOTS9_C178_DUNHAM.pdf">Article<span class="glyphicon glyphicon-new-window"></span></a></li>
                 <li><a href="">Questions<span class="glyphicon glyphicon-new-window"></span></a></li>
 		      </ul>
 		    </div>

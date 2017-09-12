@@ -47,7 +47,7 @@
 <dspace:layout locbar="nolink" titlekey="jsp.about.title" feedData="<%= feedData %>">
 
     <div class="example">
-	<p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/WebWork_Questions.jsp">WebWork Questions</a> <span class="text-muted">&raquo; WWSTAT200RevisedLinguisticsQ9</span></p>
+	<p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/WebWork_Questions.jsp">WeBWorK Questions</a> <span class="text-muted">&raquo; WWSTAT200RevisedLinguisticsQ9</span></p>
 
 	<div class="row">  
 	    <div class="col-md-8">
@@ -57,12 +57,8 @@
 		<div class="row description">
 		    <div class="col-md-12">
 			
-			<img class="pull-left zoology-fish" src="image/Stat200_displayimage.JPG" width="225">
-			
-			<p class="intro-text">This data set contains the winning numbers from the Florida Lottery (through the end of 2008), as reported by the state lottery commission. Note that from its inception through 23 October 1999, the lottery was "pick 6 of 49." Thereafter, it was a "pick 6 of 53" lottery.</p>
-			
-			<p class="text-center access-btn"><a class="btn btn-success btn-md">Access Resource</a></p>
-		  
+			<img class="pull-left zoology-fish" src="image/Stat200_displayimage.JPG" width="500">
+					  
 		    </div>
 		</div> 
 	    
@@ -111,31 +107,32 @@
 	
 	<div class="row details">
 	    <div class="col-md-8">
-		<h2>Prerequisite knowledge</h2>
-		<p>Questions are not currently tagged with pre-req knowledge</p>
-		
-		<h2>Learning Objectives</h2>
-		<ul>
-            <p>Identify a parameter of interest for a study, select appropriate null and alternative hypotheses, identify the approximate sampling distribution of the sample proportion, compute the z score for the test, use software to find the P-value for the test, select the appropriate conclusion for the test.</p>
-        </ul>
-        <h3>About this resource</h3>
-        <ul>
-            <p>Created 2016/08/24</p>
-            <li>Credits: Kathleen Hall, Bruce Dunham, Nelson Chen. The question is available in the Open Problem Library (OPL) in WeBWorK.</li>
-            <li>Question includes randomisation.</li>
-            <li>Solutions available in WeBWorK.</li>    
-		</ul>
-		
-		<h2>Suggested uses</h2>
-		<ul>
-		    <li>The question was devised to be used in the on-line homework system WeBWorK, and the suggested number of attempts permitted is given in the question’s PG file.</li>
-		    <li>The question could also be used on tests or for homework.</li>
-		</ul>
-		
-		<h2>Complementary materials</h2>
-		<ul>
-		    <li>WeBWorK STAT 200 revised/Linguistics Question Q8</li>
-		</ul>
+            <h2>Prerequisite knowledge</h2>
+            <p>Questions are not currently tagged with pre-req knowledge</p>
+
+            <h2>Learning Objectives</h2>
+            <ul>
+                <p>Identify a parameter of interest for a study, select appropriate null and alternative hypotheses, identify the approximate sampling distribution of the sample proportion, compute the z score for the test, use software to find the P-value for the test, select the appropriate conclusion for the test.</p>
+            </ul>
+
+            <h2>Suggested use(s) and tips</h2>
+            <ul>
+                <li>The question was devised to be used in the on-line homework system WeBWorK, and the suggested number of attempts permitted is given in the question’s PG file.</li>
+                <li>The question could also be used on tests or for homework.</li>
+            </ul>
+
+            <h2>Complementary materials</h2>
+            <ul>
+                <li>WeBWorK STAT 200 revised/Linguistics Question Q8</li>
+            </ul>
+
+            <h2>About this resource</h2>
+            <ul>
+                <p>Created 2016/08/24</p>
+                <li>Credits: Kathleen Hall, Bruce Dunham, Nelson Chen. The question is available in the Open Problem Library (OPL) in WeBWorK.</li>
+                <li>Question includes randomisation.</li>
+                <li>Solutions available in WeBWorK.</li>    
+            </ul>    
 	    </div>
 	    
 	    <div class="col-md-4 tags">
@@ -157,9 +154,9 @@
 		    </div>
 		    <div class="panel-body">
 			<ul>
-			    <li><a href="http://www.webwork.maa.org/">Mathematical Association of America (MAA): WebWork <span class="glyphicon glyphicon-new-window"></span></a></li>
-			    <li><a href="http://wiki.ubc.ca/Documentation:WeBWork/The_WeBWorKiR_Project:_Integrating_WeBWorK_with_R/Installation_guide">UBC Wiki: WebWork <span class="glyphicon glyphicon-new-window"></span></a></li>
-			    <li>Updated version of guide to incorporate new macros in release 2.14 (expected 2017):<br><a href="http://webwork.maa.org/wiki/Using_R_Integration_with_WeBWorK">MAA Wiki: R in WebWork <span class="glyphicon glyphicon-new-window"></span></a></li>
+			    <li><a href="http://www.webwork.maa.org/">MAA WeBWorK Homepage<span class="glyphicon glyphicon-new-window"></span></a></li>
+			    <li><a href="http://wiki.ubc.ca/Documentation:WeBWork/The_WeBWorKiR_Project:_Integrating_WeBWorK_with_R/Installation_guide">UBC Wiki: WeBWork <span class="glyphicon glyphicon-new-window"></span></a></li>
+			    <li><a href="http://webwork.maa.org/wiki/Using_R_Integration_with_WeBWorK">MAA Wiki: R in WeBWork <span class="glyphicon glyphicon-new-window"></span></a></li>
 		      </ul>
 		    </div>
 		</div>

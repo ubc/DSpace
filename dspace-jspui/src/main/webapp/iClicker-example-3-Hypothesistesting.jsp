@@ -57,11 +57,16 @@
 
                 <div class="row description">
                     <div class="col-md-12">
-                        <h2>Sample Question</h2>
-                        <p>The label on Olliberry jam jars lists a content weight of 269 grams. A sample of 100 jars was selected from the main factory and weighed. The content weights had an average of 264 grams. We will test that the Olliberry jam jar label correctly identifies the content weight... </p>
-                        <div class="col-md-12">
-                            <p class="text-center access-btn"><a class="btn btn-success btn-md" href="/iClicker_question-3-HypothesisTesting.jsp">See More</a></p>
+                        
+                        <div class="row">
+                            <h2>Sample Question</h2><br>
+                            <img class="pull-left zoology-fish" href="image/olli_jam.jpg" class="sim-image" width="220">
                         </div>
+                        
+                        <p>The label on Olliberry jam jars lists a content weight of 269 grams. A sample of 100 jars was selected from the main factory and weighed. The content weights had an average of 264 grams. We will test that the Olliberry jam jar label correctly identifies the content weight... </p>
+                        
+                        <p class="text-center access-btn"><a target="_blank" class="btn btn-success btn-md" href="/iClicker_question-3-HypothesisTesting.jsp">See More</a></p>
+                        
                     </div>
                 </div> 
 
@@ -107,7 +112,7 @@
                 <div class="col-md-4 text-center">
                     <div class="thumbnail">
                         <div class="col-md-12 text-center">
-                            <img src="image/iClicker_image_home.JPG" class="sim-image" width="250">
+                            <img src="image/canadian_shopping.JPG" class="sim-image-large" width="220">
                         </div>
                         <div class="caption">
                             <h5>Interactive engagement (clicker) questions: Confidence intervals for means</h5>
@@ -119,7 +124,7 @@
 
                 <div class="col-md-4 text-center">
                     <div class="thumbnail">
-                        <img src="image/iClicker_image_home.JPG" class="sim-image" width="250" >
+                        <img src="image/iClicker_home_image.JPG" class="sim-image-large" width="220">
                         <div class="caption">
                             <h5>Interactive engagement (clicker) questions: Sampling distributions of means</h5>
                             <p class="text-left"><strong>Topics:</strong> <br>&bull; Probability -- Laws, theory -- Central Limit Theorem <br>&bull; Sampling distributions -- Sample mean</p><br><br> 
@@ -156,7 +161,7 @@
                         <li>Explain the two types of errors possible.</li>
                     </ul>
 
-                    <h2>Suggested uses</h2>
+                    <h2>Suggested use(s) and tips</h2>
                     <p>These resources are intended to be used in a number of ways&colon;</p>
                     <ul>
                         <li>as stand-alone clicker questions during lectures&semi;</li>

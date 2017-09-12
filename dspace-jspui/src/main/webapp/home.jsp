@@ -179,7 +179,7 @@
                     </div>
                 </div>
                 <div class="col-md-4 text-center">
-                    <h4>WeBWork Questions</h4>
+                    <h4>WeBWorK Questions</h4>
                     <div class="thumbnail">
                             <img src="image/webwork_homepage.JPG"  class="sim-image-large">
                         <div class="caption">
@@ -197,7 +197,7 @@
                 <div class="col-md-4 text-center">
                     <h4>iClicker</h4>
                     <div class="thumbnail">
-                        <img src="image/iClicker_image_home.JPG" class="sim-image-large" width="250">
+                        <img src="image/iClicker_home_image.JPG" class="sim-image-large" width="220">
                         <div class="caption">
                             <h5>Interactive engagement (clicker) questions: Sampling distributions of means</h5>
                             <p class="text-left"><strong>About:</strong> With a personal response system, students can answer questions and instructors can monitor understanding in real time. Turn the classroom into a conversation and allow students to participate with smartphones, laptops, tablets, or clickers.</p>

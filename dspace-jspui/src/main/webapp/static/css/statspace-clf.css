@@ -341,6 +341,10 @@ featured-items .sim-image-small {
     padding-top: 2cm;
 }
 
+.featured-items .sim-image-fish {
+        margin: 2em 3em;
+}
+
 .more-heading {
         margin: 3em 0 1em 0;
         padding-top: .7em;
