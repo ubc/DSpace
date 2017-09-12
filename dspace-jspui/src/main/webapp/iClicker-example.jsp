@@ -48,31 +48,22 @@
 
     <div class="example">
         <p><a href="/">Home</a> <span class="text-muted">&raquo; iClicker</span></p>
-
         <div class="row">  
             <div class="col-md-8">
-
                 <h1>Interactive engagement (clicker) questions: Sampling distributions of means</h1>
-
                 <div class="row description">
-                    <div class="col-md-12">
-                        
+                    <div class="col-md-12"> 
                         <div class="row">
                             <h2>Sample Question</h2>
                         </div>
-                        
                         <img class="pull-left zoology-fish" src="image/sample_question_image.JPG" width="220">
-                        
                         <p class="intro-text">Suppose that we are to draw many random samples of 120 employees from a large company. The average of the hourly wages of the 120 employees is computed for each sample. Below is the sampling distribution of the average values from the repeated samples.</p>
-                        
-                        <p class="text-center access-btn"><a target="_blank" class="btn btn-success btn-md" href="/iClicker_question.jsp">See More</a></p> 
-                        
+                        <p class="text-center access-btn"><a target="_blank" class="btn btn-success btn-md" href="/iClicker_question.jsp">See More</a></p>   
                     </div>
                 </div>
             </div>
 
             <div class="col-md-4 value-prop">
-
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         <h3 class="panel-title"><i class="glyphicon glyphicon-stats"></i> About StatSpace</h3>
