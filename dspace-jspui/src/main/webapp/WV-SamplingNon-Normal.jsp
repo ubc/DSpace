@@ -60,7 +60,7 @@
                             <img src="http://www.zoology.ubc.ca/~whitlock/Kingfisher/Common/Images/coffee.svg" width="162" height="180" align="center"></div>
                         <div class="col-md-8">
                             <p class="intro-text">This web visualization explores the sampling distribution of the mean when the data do not necessarily follow a Normal distribution. <br><br>
-                                This visualization is designed to be used after the students are familiar with the general principles of sampling. The “Sampling from a Normal distribution” visualization should be used first to introduce some of the basic concepts and the visual metaphors used here.</p><br><br>
+                                This visualization is designed to be used after the students are familiar with the general principles of sampling. The <a href="/sim-example.jsp">Sampling from a Normal distribution<span class="glyphicon glyphicon-new-window"></span></a> visualization should be used first to introduce some of the basic concepts and the visual metaphors used here.</p><br><br>
 
                             <p class="text-center access-btn"><a class="btn btn-success btn-md" href="http://www.zoology.ubc.ca/~whitlock/kingfisher/CLT.htm">Access Resource</a></p>
                         </div>
@@ -95,14 +95,6 @@
                         <li>as a visual aid during lectures;</li>
                         <li>as an open-ended learning tool for active learning;</li>
                         <li>as a guided learning experience, using either the built-in tutorials, guided activity sheet, or other instructor-supplied material (click here for <a target="_blank" href="/pdf_folder/Applet2InstructorGuide.pdf">Instructor Guide<span class="glyphicon glyphicon-new-window"></span></a> and <a target="_blank" href="/pdf_folder/Applet2Qs.pdf">Activity Sheet<span class="glyphicon glyphicon-new-window"></span>)</a>.</li>
-                    </ul>
-
-                    <h2>Complementary materials</h2>
-                    <ul>
-                        <li>It is recommended that the “Sampling from a Normal distribution” web visualization be used first to introduce some of the basic concepts and the visual metaphors used in the CLT web visualization&colon; <a target="_blank" href="sim-example.jsp">Web Visualization: Sampling from a Normal distribution <span class="glyphicon glyphicon-new-window"></span></a></li>
-                        <li><a target="_blank" href="video-example.jsp">Video: Sampling Distribution of the Mean <span class="glyphicon glyphicon-new-window"></span></a></li>
-                        <li><a href="">Activity: Introducing the sampling distribution (French protest) <span class="glyphicon glyphicon-new-window"></span></a></li>
-                        <li><a href="/iClicker-example.jsp">Interactive Engagement Questions: Sampling distributions of means<span class="glyphicon glyphicon-new-window"></span></a></li>
                     </ul>
 
                     <h2>About this resource</h2>
@@ -170,6 +162,10 @@
                                 <ul>
                                     <li><a target="_blank" href="http://www.cwsei.ubc.ca/resources/files/Demo_WorkshopSummary_CWSEI-EOY2015.pdf">"Making the most of demonstrations, videos, animations, or simulations in lectures and laboratories" (J. Maxwell and J. Stang) <span class="glyphicon glyphicon-new-window"></span></a></li>
                                     <li><a target="_blank" href="http://www.zoology.ubc.ca/~whitlock/Kingfisher/KFhomepage.htm">Check out more web visualizations</a></li>
+                                    <li>It is recommended that the “Sampling from a Normal distribution” web visualization be used first to introduce some of the basic concepts and the visual metaphors used in the CLT web visualization&colon; <a target="_blank" href="sim-example.jsp">Web Visualization: Sampling from a Normal distribution <span class="glyphicon glyphicon-new-window"></span></a></li>
+                                    <li><a target="_blank" href="video-example.jsp">Video: Sampling Distribution of the Mean <span class="glyphicon glyphicon-new-window"></span></a></li>
+                                    <li><a href="">Activity: Introducing the sampling distribution (French protest) <span class="glyphicon glyphicon-new-window"></span></a></li>
+                                    <li><a href="/iClicker-example.jsp">Interactive Engagement Questions: Sampling distributions of means<span class="glyphicon glyphicon-new-window"></span></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -199,7 +195,8 @@
                         <div class="caption">
                             <br>
                             <h5>Web Visualization: Sampling from a Normal distribution</h5>
-                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Sampling distributions - Sample mean <br>&bull; Exploratory data analysis/Classifying data - Graphical representations - Histograms</p><br> 
+                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Sampling distributions - Sample mean <br>&bull; Exploratory data analysis/Classifying data - Graphical representations - Histograms</p><br>
+                            <br><br>
                             <p class="see-more"><a href="/sim-example.jsp" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>     
                     </div>

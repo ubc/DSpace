@@ -94,12 +94,6 @@
                         <li>as a guided learning experience, using either the built-in tutorials, guided activity sheet, or other instructor-supplied material (click here for <a target="_blank" href="/pdf_folder/Applet3InstructorGuide.pdf">Instructor Guide<span class="glyphicon glyphicon-new-window"></span></a> and <a target="_blank" href="/pdf_folder/Applet3Qs.pdf">Activity Sheet<span class="glyphicon glyphicon-new-window"></span>)</a>.</li>
                     </ul>
 
-                    <h2>Complementary materials</h2>
-                    <ul>
-                        <li><a href="/LP-VideoCIs.jsp">Video: Confidence Interval for a Population Mean<span class="glyphicon glyphicon-new-window"></span></a></li>
-                        <li>Activity: Understanding confidence intervals</li>
-                    </ul>
-
                     <h2>About this Resource</h2>
                     <ul>
                         <p>
@@ -169,6 +163,7 @@
                                 <ul>
                                     <li><a href="http://www.cwsei.ubc.ca/resources/files/Demo_WorkshopSummary_CWSEI-EOY2015.pdf">“Making the most of demonstrations, videos, animations, or simulations in lectures and laboratories” J. Maxwell and J. Stang <span class="glyphicon glyphicon-new-window"></span></a></li>
                                     <li><a target="_blank" href="http://www.zoology.ubc.ca/~whitlock/Kingfisher/KFhomepage.htm">Check out more web visualizations</a></li>
+                                    <li><a href="/LP-VideoCIs.jsp">Video: Confidence Interval for a Population Mean<span class="glyphicon glyphicon-new-window"></span></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -197,7 +192,6 @@
             </div>
 
             <div class="row featured-items">
-                <h2>Check out more Web Visualizations:</h2>
                 <div class="col-md-3 text-center">
                     <div class="thumbnail">
                         <div class="col-md-12 text-center">
@@ -226,7 +220,8 @@
                         <div class="caption">
                             <br>
                             <h5>Web Visualization: Sampling from a Normal distribution</h5>
-                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Sampling distributions - Sample mean <br>&bull; Exploratory data analysis/Classifying data - Graphical representations - Histograms</p><br> 
+                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Sampling distributions - Sample mean <br>&bull; Exploratory data analysis/Classifying data - Graphical representations - Histograms</p><br>
+                            <br><br>
                             <p class="see-more"><a href="/sim-example.jsp" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>     
                     </div>

@@ -59,7 +59,7 @@
 
                         <img class="pull-left zoology-fish" src="image/contingency_analysis_image.jpg" class="sim-image" width="250">
 
-                        <p class="intro-text">This web visualization simulates samples of a 2x2 contingency analysis. It demonstrates that the <i>X</i><sup>2</sup> test statistic follows a <i>X</i><sup>2</sup> distribution and illustrates the meaning of the P-value. It may be most useful as a demonstration of the meaning of Type I error and power. <i>This visualization has no tutorial version.</i></p>
+                        <p class="intro-text">This web visualization simulates samples of a 2x2 contingency analysis. It demonstrates that the <i>x</i><sup>2</sup> test statistic follows a <i>x</i><sup>2</sup> distribution and illustrates the meaning of the P-value. It may be most useful as a demonstration of the meaning of Type I error and power. <i>This visualization has no tutorial version.</i></p>
 
 
                         <p class="text-center access-btn"><a class="btn btn-success btn-md" href="http://www.zoology.ubc.ca/~whitlock/kingfisher/ContingencyAnalysis.htm">Access Resource</a></p>
@@ -180,7 +180,6 @@
             </div>
 
             <div class="row featured-items">
-                <h2>Check out more Web Visualizations:</h2>
                 <div class="col-md-3 text-center">
                     <div class="thumbnail">
                         <div class="col-md-12 text-center">
@@ -200,6 +199,7 @@
                             <br>
                             <h5>Web Visualization: Sampling from a Normal distribution</h5>
                             <p class="text-left"><strong>Topics:</strong> <br>&bull; Sampling distributions - Sample mean <br>&bull; Exploratory data analysis/Classifying data - Graphical representations - Histograms</p> <br>
+                            <br><br>
                             <p class="see-more"><a href="/sim-example.jsp" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>     
                     </div>
