@@ -121,11 +121,6 @@
                 <li>The question could also be used on tests or for homework.</li>
             </ul>
 
-            <h2>Complementary materials</h2>
-            <ul>
-                <li>WeBWorK STAT 200 revised/Linguistics Question Q8</li>
-            </ul>
-
             <h2>About this resource</h2>
             <ul>
                 <p>Created 2016/08/24</p>
@@ -157,6 +152,7 @@
 			    <li><a href="http://www.webwork.maa.org/">MAA WeBWorK Homepage<span class="glyphicon glyphicon-new-window"></span></a></li>
 			    <li><a href="http://wiki.ubc.ca/Documentation:WeBWork/The_WeBWorKiR_Project:_Integrating_WeBWorK_with_R/Installation_guide">UBC Wiki: WeBWork <span class="glyphicon glyphicon-new-window"></span></a></li>
 			    <li><a href="http://webwork.maa.org/wiki/Using_R_Integration_with_WeBWorK">MAA Wiki: R in WeBWork <span class="glyphicon glyphicon-new-window"></span></a></li>
+                <li>WeBWorK STAT 200 revised/Linguistics Question Q8</li>
 		      </ul>
 		    </div>
 		</div>

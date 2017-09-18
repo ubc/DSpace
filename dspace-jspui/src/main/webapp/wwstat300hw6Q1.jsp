@@ -121,11 +121,6 @@
                 <li>The question could also be used on tests or for homework.</li>
             </ul>
 
-            <h2>Complementary materials</h2>
-            <ul>
-                <li>Various other WeBWorK questions on one-way ANOVA.</li>
-            </ul>
-
             <h2>About this resource</h2>
             <ul>
                 <p>Created 2014/03/07</p>

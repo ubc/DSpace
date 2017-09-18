@@ -62,44 +62,120 @@
                         <p>A news article reported the following: “The poll of 500 Canadians using random-digit dialling of both mobile phones and land lines gave a mean expenditure on holiday shopping of 652 dollars.  The numbers are considered...”</p>
                         <p class="text-center access-btn"><a target="_blank" class="btn btn-success btn-md" href="/iClicker_question-2-ConfidenceIntervals.jsp">See More</a></p>
                     </div>
+                </div>
+
+                <div class="row">
+                    <h2><a href="#jump"><span class="glyphicon glyphicon-new-window"></span> Click to check out more interactive engagement (clicker) questions</a></h2><br><br>
+                    <div class="col-md-12">
+                        <div class="divider"></div>
+                    </div>  
                 </div> 
+
+                <div class="details">
+                    <h2>Prerequisite knowledge</h2>
+                    <p>Students should&colon;</p>
+                    <ul>
+                        <li>be able to recognize probability models as distributions with shape, centre, and spread</li>
+                        <li>be able to recall key properties of the Normal model</li>
+                        <li>be able to distinguish between a population and a sample, and between parameters and statistics</li>
+                    </ul>
+                    <h2>Learning Objectives</h2>
+                    <ul>
+                        <li>Construct confidence intervals given relevant sample data</li>
+                        <li>Interpret a confidence interval and confidence level</li>
+                        <li>Identify features that determine the width of a confidence interval</li>
+                        <li>Recall the assumptions for construction of a confidence interval</li>
+                    </ul>
+
+                    <h2>Suggested use(s) and tips</h2>
+                    <p>These resources are intended to be used in a number of ways&colon;</p>
+                    <ul>
+                        <li>as stand-alone clicker questions during lectures&semi;</li>
+                        <li>as assessment questions during and outside of class (e.g., pre-lecture quiz after students complete pre-lecture reading or other assigned tasks)&semi;</li>
+                        <li>as questions to be adapted for use in guided in-class activities or other instructor-supplied material</li>
+                    </ul>
+
+                    <h2>About this resource</h2>
+                    <p>
+                        <b>Funding&colon;</b> University of British Columbia<br>
+                        <b>Project Leader&colon;</b> Eugenia Yu<br>
+                        <b>Thanks To&colon;</b> Nancy Heckman, Bruce Dunham, Melissa Lee, Gaitri Yapa, Mike Whitlock, Fred Cutler, Diana Whistler, Andrew Owen, Mike Marin, Leslie Burkholder, Doug Bonn, the UBC Flex Stats initiative for numerous suggestions and improvements.<br>
+                    </p>          
+                </div>
             </div>
 
-            <div class="col-md-4 value-prop">
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <h3 class="panel-title"><i class="glyphicon glyphicon-stats"></i> About StatSpace</h3>
-                    </div>
-                    <div class="panel-body">
-                        <p>StatSpace brings together vetted open education materials for use across disciplines. Members of our community can <strong>search and use materials</strong> in the repository, <strong>contribute materials</strong> of their own, and <strong>evaluate materials</strong> they use.</p>
-                        <label>Search StatSpace now:</label>
-                        <%-- Search Box --%>
-                            <form method="get" action="<%= request.getContextPath() %>/SearchError.jsp">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
-                                    <span class="input-group-btn">
-                                        <button type="submit" class="btn btn-primary">
-                                            <span class="glyphicon glyphicon-search"></span>
-                                        </button>
-                                    </span>
-                                </div>
-                            </form>		
-                            </div>
-                    </div>
-
+            <div class="col-md-4">
+                <div class="value-prop">
                     <div class="panel panel-info">
                         <div class="panel-heading">
-                            <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
+                            <h3 class="panel-title"><i class="glyphicon glyphicon-stats"></i> About StatSpace</h3>
                         </div>
                         <div class="panel-body">
-                            <p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
+                            <p>StatSpace brings together vetted open education materials for use across disciplines. Members of our community can <strong>search and use materials</strong> in the repository, <strong>contribute materials</strong> of their own, and <strong>evaluate materials</strong> they use.</p>
+                            <label>Search StatSpace now:</label>
+                            <%-- Search Box --%>
+                                <form method="get" action="<%= request.getContextPath() %>/SearchError.jsp">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
+                                        <span class="input-group-btn">
+                                            <button type="submit" class="btn btn-primary">
+                                                <span class="glyphicon glyphicon-search"></span>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </form>		
+                                </div>
+                        </div>
+
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
+                            </div>
+                            <div class="panel-body">
+                                <p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="details tags">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="glyphicon glyphicon-tag"></i> Tags</h3>
+                            </div>
+                            <div class="panel-body">
+                                <p>
+                                    <strong>Topics:</strong> <br>&bull; Confidence intervals – One sample mean – t <br>&bull; Confidence intervals – One sample mean – z <br>&bull; Confidence intervals – Concepts – Sample size <br>&bull;
+                                    Confidence intervals – Concepts – Standard error
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="glyphicon glyphicon-link"></i> Related materials</h3>
+                            </div>
+                            <div class="panel-body">
+                                <ul>
+                                    <li><a href="http://www.cwsei.ubc.ca/resources/clickers.htm">iClicker Resources <span class="glyphicon glyphicon-new-window"></span></a></li>
+                                    <li>Web visualization&colon; Instructors may assign this accompanying web visualization as homework before teaching the topic in class</li>
+                                    <ul>
+                                        <li><a target="_blank" href="/WV-ConfidenceIntervals.jsp"> Confidence intervals for the mean <span class="glyphicon glyphicon-new-window"></span></a></li>
+                                    </ul>
+                                    <li><a target="_blank" href="/LP-VideoCIs.jsp">Video: Confidence Intervals for a Population Mean<span class="glyphicon glyphicon-new-window"></span></a></li>            
+                                    <li><a target="_blank" href="/wwstat200revisedlinguisticsQ9.jsp">Activity: Understanding Confidence Intervals<span class="glyphicon glyphicon-new-window"></span></a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>			
             </div>
 
+            <div class="row">
+                <h2>More interactive engagement (clicker) questions:</h2>
+                <a id="jump"></a>
+            </div>
+
             <div class="row featured-items">
-                <h2>Check out more interactive engagement (clicker) questions:</h2>
                 <div class="col-md-4 text-center">
                     <div class="thumbnail">
                         <div class="col-md-12 text-center">
@@ -125,90 +201,11 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="divider"></div>
-                </div>
-            </div>
-
-            <div class="row details">
-                <div class="col-md-8">
-                    <h2>Prerequisite knowledge</h2>
-                    <p>Students should&colon;</p>
-                    <ul>
-                        <li>be able to recognize probability models as distributions with shape, centre, and spread</li>
-                        <li>be able to recall key properties of the Normal model</li>
-                        <li>be able to distinguish between a population and a sample, and between parameters and statistics</li>
-                    </ul>
-                    <h2>Learning Objectives</h2>
-                    <ul>
-                        <li>Construct confidence intervals given relevant sample data</li>
-                        <li>Interpret a confidence interval and confidence level</li>
-                        <li>Identify features that determine the width of a confidence interval</li>
-                        <li>Recall the assumptions for construction of a confidence interval</li>
-                    </ul>
-
-                    <h2>Suggested use(s) and tips</h2>
-                    <p>These resources are intended to be used in a number of ways&colon;</p>
-                    <ul>
-                        <li>as stand-alone clicker questions during lectures&semi;</li>
-                        <li>as assessment questions during and outside of class (e.g., pre-lecture quiz after students complete pre-lecture reading or other assigned tasks)&semi;</li>
-                        <li>as questions to be adapted for use in guided in-class activities or other instructor-supplied material</li>
-                    </ul>
-
-                    <h2>Complementary materials</h2>
-                    <ul>
-                        <li>Web visualization&colon; Instructors may assign this accompanying web visualization as homework before teaching the topic in class</li>
-                        <ul>
-                            <li><a target="_blank" href="/WV-ConfidenceIntervals.jsp"> Confidence intervals for the mean <span class="glyphicon glyphicon-new-window"></span></a></li>
-                        </ul>
-                        <li><a target="_blank" href="/LP-VideoCIs.jsp">Video: Confidence Intervals for a Population Mean<span class="glyphicon glyphicon-new-window"></span></a></li>            
-                        <li><a target="_blank" href="/wwstat200revisedlinguisticsQ9.jsp">Activity: Understanding Confidence Intervals<span class="glyphicon glyphicon-new-window"></span></a></li>
-                    </ul>
-
-                    <h2>About this resource</h2>
-                    <p>
-                        <b>Funding&colon;</b> University of British Columbia<br>
-                        <b>Project Leader&colon;</b> Eugenia Yu<br>
-                        <b>Thanks To&colon;</b> Nancy Heckman, Bruce Dunham, Melissa Lee, Gaitri Yapa, Mike Whitlock, Fred Cutler, Diana Whistler, Andrew Owen, Mike Marin, Leslie Burkholder, Doug Bonn, the UBC Flex Stats initiative for numerous suggestions and improvements.<br>
-                    </p>          
-
-                </div>
-
-                <div class="col-md-4 tags">
-
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title"><i class="glyphicon glyphicon-tag"></i> Tags</h3>
-                        </div>
-                        <div class="panel-body">
-                            <p>
-                                <strong>Topics:</strong> <br>&bull; Confidence intervals – One sample mean – t <br>&bull; Confidence intervals – One sample mean – z <br>&bull; Confidence intervals – Concepts – Sample size <br>&bull;
-                                Confidence intervals – Concepts – Standard error
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title"><i class="glyphicon glyphicon-link"></i> Related materials</h3>
-                        </div>
-                        <div class="panel-body">
-                            <ul>
-                                <li><a href="http://www.cwsei.ubc.ca/resources/clickers.htm">iClicker Resources <span class="glyphicon glyphicon-new-window"></span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>	
-            </div>
-
             <div class="row text-center">
                 <div class="col-md-12">
                     <h4 class="more-heading">To see more resources:</h4>
                     <a href="/register" class="btn btn-success btn-lg">Join</a> &nbsp;or&nbsp; <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>
                 </div>
-
             </div>
 
         </div>
