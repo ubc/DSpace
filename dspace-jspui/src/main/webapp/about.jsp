@@ -31,9 +31,10 @@
 <%@ page import="org.dspace.app.webui.util.UIUtil" %>
 <%@ page import="org.dspace.core.ConfigurationManager" %>
 <%@ page import="org.dspace.app.webui.servlet.RegisterServlet" %>
+
 <%
     boolean retry = (request.getAttribute("retry") != null);
-%>
+%>    
 
 <%
 
@@ -52,15 +53,13 @@
     <div class="row landing-page">  
         <div class="col-md-8"> 
             <div class="jumbotron">
-                <h2><i class="glyphicon glyphicon-stats"></i> Soft Launch of StatSpace</h2>
-                <h3>This preliminary version of StatSpace allows you to explore and use resources through the featured StatSpace material, linked from the home page.   The current resources are web visualizations, videos, WebWorK questions and clicker questions.  We are currently working on implementing the following StatSpace functionalities:  search, evaluate and, for those of you who have resources to share, upload.  We are also in the process of incorporating more resources.</h3>
-                <p>If you would like to be contacted when these functionalities are added, please enter your email address.</p>
+                <h1><i class="glyphicon glyphicon-stats"></i> Soft Launch of StatSpace</h1>
+                <p>This preliminary version of StatSpace allows you to explore and use resources through the featured StatSpace material, linked from the home page.   The current resources are web visualizations, videos, WebWorK questions and clicker questions.  We are currently working on implementing the following StatSpace functionalities:  search, evaluate and, for those of you who have resources to share, upload.  We are also in the process of incorporating more resources.</p>
+                <p>If you would like to be contacted when these functionalities are added, please enter your email address below:</p>
                 <form class="form-horizontal" action="<%= request.getContextPath() %>/register" method="post">
 
                     <input type="hidden" name="step" value="<%= RegisterServlet.ENTER_EMAIL_PAGE %>"/>
-
-
-                    <%-- <td class="standard"><strong>E-mail Address:</strong></td> --%>
+                    <%-- <td class="standard"></td> --%>
                     <div class="form-group">
                         <label class="col-md-offset-1 col-md-2 control-label" for="temail"><fmt:message key="jsp.register.new-user.email.field"/></label>
                         <div class="col-md-5"><input class="form-control" type="text" name="email" id="temail" /></div>
