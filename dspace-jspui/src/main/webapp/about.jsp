@@ -30,6 +30,10 @@
 <%@ page import="org.apache.commons.lang.StringUtils" %>
 <%@ page import="org.dspace.app.webui.util.UIUtil" %>
 <%@ page import="org.dspace.core.ConfigurationManager" %>
+<%@ page import="org.dspace.app.webui.servlet.RegisterServlet" %>
+<%
+    boolean retry = (request.getAttribute("retry") != null);
+%>
 
 <%
 
