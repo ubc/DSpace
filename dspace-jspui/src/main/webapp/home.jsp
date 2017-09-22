@@ -81,8 +81,7 @@
 		    
                     <p>StatSpace brings together high-quality open education materials vetted by instructors from UBC and around the world, with the goal of supporting cooperation among statistics instruction experts and sharing resources that address common cross-disciplinary challenges of teaching in this area.</p>
                     <p class="text-center cta">
-                        <a href="/register" class="btn btn-success btn-lg">Join</a> &nbsp; or &nbsp;
-                        <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>
+                        <a href="/register" class="btn btn-success btn-lg">Join</a> <!-- &nbsp;or&nbsp; <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>-->
                     </p>
                 </div>
 		
@@ -129,8 +128,17 @@
                 <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
 		    </div>
 		    <div class="panel-body">
-			<p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
+			 <p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
 		    </div>
+		</div>
+        
+        <div class="panel panel-info" >
+                <div class="panel-heading">
+                    <h3 class="panel-title"><a href="https://survey.ubc.ca/s/statspace/"><i class="glyphicon glyphicon-open"></i>&nbsp;Survey</a></h3>
+                </div>
+                <div class="panel-body">
+                    <p>When you have explored StatSpace, we would appreciate your opinion, via a brief <a href="https://survey.ubc.ca/s/statspace/">survey</a>.<span class="glyphicon glyphicon-new-window"></span></p>
+                </div>
 		</div>
 	   <!--Will be using at a later date
             <div class="panel panel-info">
@@ -211,7 +219,7 @@
             <div class="row text-center">
                 <div class="col-md-12">
                     <h4 class="more-heading">To see more resources:</h4>
-                    <a href="/register" class="btn btn-success btn-lg">Join</a> &nbsp;or&nbsp; <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>
+                    <a href="/register" class="btn btn-success btn-lg">Join</a> <!-- &nbsp;or&nbsp; <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>-->
                 </div>
             </div>
     

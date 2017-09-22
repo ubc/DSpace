@@ -94,7 +94,7 @@
                     <ul>
                         <li>as a visual aid during lectures;</li>
                         <li>as an open-ended learning tool for active learning;</li>
-                        <li>as a guided learning experience, using either the built-in tutorials, guided activity sheet, or other instructor-supplied material (click here for <a target="_blank" href="/pdf_folder/Applet2InstructorGuide.pdf">Instructor Guide<span class="glyphicon glyphicon-new-window"></span></a> and <a target="_blank" href="/pdf_folder/Applet2Qs.pdf">Activity Sheet<span class="glyphicon glyphicon-new-window"></span>)</a>.</li>
+                        <li>as a guided learning experience, using either the built-in tutorials, guided activity sheet (click here for <a target="_blank" href="/pdf_folder/Applet2InstructorGuide.pdf">Instructor Guide<span class="glyphicon glyphicon-new-window"></span></a> and <a target="_blank" href="/pdf_folder/Applet2Qs.pdf">Activity Sheet<span class="glyphicon glyphicon-new-window"></span>)</a>, or other instructor-supplied material.</li>
                     </ul>
 
                     <h2>About this resource</h2>
@@ -140,6 +140,14 @@
                                 <p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
                             </div>
                         </div>
+                        <div class="panel panel-info" >
+                                <div class="panel-heading">
+                                    <h3 class="panel-title"><a href="https://survey.ubc.ca/s/statspace/"><i class="glyphicon glyphicon-open"></i>&nbsp;Survey</a></h3>
+                                </div>
+                                <div class="panel-body">
+                                    <p>When you have explored StatSpace, we would appreciate your opinion, via a brief <a href="https://survey.ubc.ca/s/statspace/">survey</a>.<span class="glyphicon glyphicon-new-window"></span></p>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="details tags">
@@ -161,10 +169,10 @@
                             <div class="panel-body">
                                 <ul>
                                     <li><a target="_blank" href="http://www.cwsei.ubc.ca/resources/files/Demo_WorkshopSummary_CWSEI-EOY2015.pdf">"Making the most of demonstrations, videos, animations, or simulations in lectures and laboratories" (J. Maxwell and J. Stang) <span class="glyphicon glyphicon-new-window"></span></a></li>
-                                    <li><a target="_blank" href="http://www.zoology.ubc.ca/~whitlock/Kingfisher/KFhomepage.htm">Check out more web visualizations</a></li>
                                     <li>It is recommended that the “Sampling from a Normal distribution” web visualization be used first to introduce some of the basic concepts and the visual metaphors used in the CLT web visualization&colon; <a target="_blank" href="sim-example.jsp">Web Visualization: Sampling from a Normal distribution <span class="glyphicon glyphicon-new-window"></span></a></li>
                                     <li><a target="_blank" href="video-example.jsp">Video: Sampling Distribution of the Mean <span class="glyphicon glyphicon-new-window"></span></a></li>
-                                    <li><a href="">Activity: Introducing the sampling distribution (French protest) <span class="glyphicon glyphicon-new-window"></span></a></li>
+                                   <!-- removed for soft launch
+                                    <li><a href="">Activity: Introducing the sampling distribution (French protest) <span class="glyphicon glyphicon-new-window"></span></a></li>-->
                                     <li><a href="/iClicker-example.jsp">Interactive Engagement Questions: Sampling distributions of means<span class="glyphicon glyphicon-new-window"></span></a></li>
                                 </ul>
                             </div>
@@ -196,7 +204,6 @@
                             <br>
                             <h5>Web Visualization: Sampling from a Normal distribution</h5>
                             <p class="text-left"><strong>Topics:</strong> <br>&bull; Sampling distributions - Sample mean <br>&bull; Exploratory data analysis/Classifying data - Graphical representations - Histograms</p><br>
-                            <br><br>
                             <p class="see-more"><a href="/sim-example.jsp" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>     
                     </div>
@@ -207,7 +214,7 @@
                         <img src="image/contingency_analysis_image.jpg" class="sim-image-large" width="170">
                         <div class="caption">
                             <h5>Web Visualization: Chi-square contingency analysis</h5>
-                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Hypothesis tests - Goodness of fit - Chi-squared test for independence</p> <br><br><br><br>
+                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Hypothesis tests - Goodness of fit - Chi-squared test for independence</p> <br><br><br>
                             <p class="see-more"><a href="/WV-ChiSquarecontingencyanalysis.jsp" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>     
                     </div>
@@ -218,7 +225,7 @@
                         <div class="caption">
                             <br>
                             <h5>Web Visualization: Confidence intervals for the mean</h5>
-                            <p class="text-left"><strong>Topics:</strong><br>&bull; Confidence intervals - One sample mean t</p><br><br><br><br>
+                            <p class="text-left"><strong>Topics:</strong><br>&bull; Confidence intervals - One sample mean t</p><br><br><br>
                             <p class="see-more"><a href="/WV-ConfidenceIntervals.jsp" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>
                     </div>
@@ -232,7 +239,7 @@
             <div class="row text-center">
                 <div class="col-md-12">
                     <h4 class="more-heading">To see more resources:</h4>
-                    <a href="/register" class="btn btn-success btn-lg">Join</a> &nbsp;or&nbsp; <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>
+                    <a href="/register" class="btn btn-success btn-lg">Join</a> <!-- &nbsp;or&nbsp; <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>-->
                 </div>
             </div>
 

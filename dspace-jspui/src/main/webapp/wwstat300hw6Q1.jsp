@@ -47,135 +47,142 @@
 <dspace:layout locbar="nolink" titlekey="jsp.about.title" feedData="<%= feedData %>">
 
     <div class="example">
-	<p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/WebWork_Questions.jsp">WeBWorK Questions</a> <span class="text-muted">&raquo; WWSTAT300HW6Q1</span></p>
+        <p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/WebWork_Questions.jsp">WeBWorK Questions</a> <span class="text-muted">&raquo; WWSTAT300HW6Q1</span></p>
 
-	<div class="row">  
-	    <div class="col-md-8">
-	    
-		<h1>WeBWorK Question STAT 300 HW6 Question Q1</h1>
-		
-		<div class="row description">
-		    <div class="col-md-12">
-			
-			<img class="pull-left zoology-fish" src="image/stat300_displayimage.JPG" width="500">
-					  
-		    </div>
-		</div> 
-	    
-	    </div>
-	    
-	    <div class="col-md-4 value-prop">
-	    
-		<div class="panel panel-info">
-		    <div class="panel-heading">
-			<h3 class="panel-title"><i class="glyphicon glyphicon-stats"></i> About StatSpace</h3>
-		    </div>
-		    <div class="panel-body">
-			<p>StatSpace brings together vetted open education materials for use across disciplines. Members of our community can <strong>search and use materials</strong> in the repository, <strong>contribute materials</strong> of their own, and <strong>evaluate materials</strong> they use.</p>
-			<label>Search StatSpace now:</label>
-			<%-- Search Box --%>
-			<form method="get" action="<%= request.getContextPath() %>/SearchError.jsp">
-			    <div class="input-group">
-				<input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
-				<span class="input-group-btn">
-				    <button type="submit" class="btn btn-primary">
-					<span class="glyphicon glyphicon-search"></span>
-				    </button>
-				</span>
-			    </div>
-			</form>		
-		    </div>
-		</div>
-            
-            <div class="panel panel-info">
-		      <div class="panel-heading">
-                <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
-		      </div>
-		      <div class="panel-body">
-			     <p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
-		      </div>
-		  </div>
-	    
-	    </div>			
-	</div>
-	
-	<div class="row">
-	    <div class="col-md-12">
-		<div class="divider"></div>
-	    </div>
-	</div>
-	
-	<div class="row details">
-	    <div class="col-md-8">
-            <h2>Prerequisite knowledge</h2>
-            <p>Questions are not currently tagged with pre-req knowledge</p>
+        <div class="row">  
+            <div class="col-md-8">
 
-            <h2>Learning Objectives</h2>
-            <ul>
-                <p>Estimate the common unknown variance using the error (i.e., residual) mean square, compute statistics for the ANOVA table, draw inference from an ANOVA table, compute significant difference for a multiple comparison test. </p>
-            </ul>
+                <h1>WeBWorK Question STAT 300 HW6 Question Q1</h1>
 
-            <h2>Suggested use(s) and tips</h2>
-            <ul>
-                <li>The question was devised to be used in the on-line homework system WeBWorK, and the suggested number of attempts permitted is given in the question’s PG file.</li>
-                <li>The question could also be used on tests or for homework.</li>
-            </ul>
+                <div class="row description">
+                    <div class="col-md-12">
+                        <img class="pull-left zoology-fish" src="image/stat300_displayimage.JPG" width="500">
+                    </div>
+                </div>
+                 <div class="row">
+                        <h2><a href="pdf_folder/STAT300HW6Q1.pdf"><span class="glyphicon glyphicon-new-window"></span> Click to see details on this question</a></h2><br><br> 
+                </div>
 
-            <h2>About this resource</h2>
-            <ul>
-                <p>Created 2014/03/07</p>
-                <li>Credits: Bruce Dunham, Jonathan Baik. The question is available in the Open Problem Library (OPL) in WeBWorK.</li>
-                <li>Question includes randomisation.</li>
-                <li>Solutions available in WeBWorK.</li>
-            </ul>    
-	    </div>
-	    
-	    <div class="col-md-4 tags">
-	    
-		<div class="panel panel-default">
-		    <div class="panel-heading">
-			<h3 class="panel-title"><i class="glyphicon glyphicon-tag"></i> Tags</h3>
-		    </div>
-		    <div class="panel-body">
-			<p><strong>DBsubject:</strong> Statistics<br>
-			<strong>DBChapter:</strong> Hypothesis Testing<br>
-			<strong>DBSection:</strong>One-way ANOVA</p>
-		    </div>
-		</div>
-	      
-		<div class="panel panel-default">
-		    <div class="panel-heading">
-			<h3 class="panel-title"><i class="glyphicon glyphicon-link"></i> Related materials</h3>
-		    </div>
-		    <div class="panel-body">
-			<ul>
-			    <li><a href="http://www.webwork.maa.org/">MAA WeBWorK Homepage<span class="glyphicon glyphicon-new-window"></span></a></li>
-			    <li><a href="http://wiki.ubc.ca/Documentation:WeBWork/The_WeBWorKiR_Project:_Integrating_WeBWorK_with_R/Installation_guide">UBC Wiki: WeBWork <span class="glyphicon glyphicon-new-window"></span></a></li>
-			    <li><a href="http://webwork.maa.org/wiki/Using_R_Integration_with_WeBWorK">MAA Wiki: R in WeBWorK <span class="glyphicon glyphicon-new-window"></span></a></li>
-		      </ul>
-		    </div>
-		</div>
-            
-        <div class="panel panel-default">
-		    <div class="panel-heading">
-			<h3 class="panel-title"><i class="glyphicon glyphicon-book"></i> What we learned</h3>
-		    </div>
-		    <div class="panel-body">
-                <p>We learned a lot about this resource from trialling with students. All questions from UBC have been trialed extensively on students before submitting to the OPL.</p>
-		    </div>
-		</div>     
-	    
-	    </div>	
-	</div>
-	
-	<div class="row text-center">
-	    <div class="col-md-12">
-		<h4 class="more-heading">To see more resources:</h4>
-		<a href="/register" class="btn btn-success btn-lg">Join</a> &nbsp;or&nbsp; <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>
-	    </div>
-	    
-	</div>
+            </div>
 
-    </div>
+            <div class="col-md-4 value-prop">
+
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><i class="glyphicon glyphicon-stats"></i> About StatSpace</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>StatSpace brings together vetted open education materials for use across disciplines. Members of our community can <strong>search and use materials</strong> in the repository, <strong>contribute materials</strong> of their own, and <strong>evaluate materials</strong> they use.</p>
+                        <label>Search StatSpace now:</label>
+                        <%-- Search Box --%>
+                            <form method="get" action="<%= request.getContextPath() %>/SearchError.jsp">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
+                                    <span class="input-group-btn">
+                                        <button type="submit" class="btn btn-primary">
+                                            <span class="glyphicon glyphicon-search"></span>
+                                        </button>
+                                    </span>
+                                </div>
+                            </form>		
+                            </div>
+                    </div>
+
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
+                        </div>
+                        <div class="panel-body">
+                            <p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
+                        </div>
+                    </div>
+                    <div class="panel panel-info" >
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><a href="https://survey.ubc.ca/s/statspace/"><i class="glyphicon glyphicon-open"></i>&nbsp;Survey</a></h3>
+                        </div>
+                        <div class="panel-body">
+                            <p>When you have explored StatSpace, we would appreciate your opinion, via a brief <a href="https://survey.ubc.ca/s/statspace/">survey</a>.<span class="glyphicon glyphicon-new-window"></span></p>
+                        </div>
+                    </div>	    
+                </div>			
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="divider"></div>
+                </div>
+            </div>
+
+            <div class="row details">
+                <div class="col-md-8">
+                    <h2>Prerequisite knowledge</h2>
+                    <p>Questions are not currently tagged with pre-req knowledge</p>
+
+                    <h2>Learning Objectives</h2>
+                    <ul>
+                        <p>Estimate the common unknown variance using the error (i.e., residual) mean square, compute statistics for the ANOVA table, draw inference from an ANOVA table, compute significant difference for a multiple comparison test. </p>
+                    </ul>
+
+                    <h2>Suggested use(s) and tips</h2>
+                    <ul>
+                        <li>The question was devised to be used in the on-line homework system WeBWorK, and the suggested number of attempts permitted is given in the question’s PG file.</li>
+                        <li>The question could also be used on tests or for homework.</li>
+                    </ul>
+
+                    <h2>About this resource</h2>
+                    <ul>
+                        <p>Created 2014/03/07</p>
+                        <li>Credits: Bruce Dunham, Jonathan Baik. The question is available in the Open Problem Library (OPL) in WeBWorK.</li>
+                        <li>Question includes randomisation.</li>
+                        <li>Solutions available in WeBWorK.</li>
+                    </ul>    
+                </div>
+
+                <div class="col-md-4 tags">
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="glyphicon glyphicon-tag"></i> Tags</h3>
+                        </div>
+                        <div class="panel-body">
+                            <p><strong>DBsubject:</strong> Statistics<br>
+                                <strong>DBChapter:</strong> Hypothesis Testing<br>
+                                <strong>DBSection:</strong>One-way ANOVA</p>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="glyphicon glyphicon-link"></i> Related materials</h3>
+                        </div>
+                        <div class="panel-body">
+                            <ul>
+                                <li><a href="http://www.webwork.maa.org/">MAA WeBWorK Homepage<span class="glyphicon glyphicon-new-window"></span></a></li>
+                                <li><a href="http://wiki.ubc.ca/Documentation:WeBWork/The_WeBWorKiR_Project:_Integrating_WeBWorK_with_R/Installation_guide">UBC Wiki: WeBWork <span class="glyphicon glyphicon-new-window"></span></a></li>
+                                <li><a href="http://webwork.maa.org/wiki/Using_R_Integration_with_WeBWorK">MAA Wiki: R in WeBWorK <span class="glyphicon glyphicon-new-window"></span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="glyphicon glyphicon-book"></i> What we learned</h3>
+                        </div>
+                        <div class="panel-body">
+                            <p>We learned a lot about this resource from trialling with students. All questions from UBC have been trialed extensively on students before submitting to the OPL.</p>
+                        </div>
+                    </div>     
+
+                </div>	
+            </div>
+
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <h4 class="more-heading">To see more resources:</h4>
+                    <a href="/register" class="btn btn-success btn-lg">Join</a> <!-- &nbsp;or&nbsp; <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>-->
+                </div>
+            </div>
+
+        </div>
 
 </dspace:layout>

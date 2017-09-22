@@ -149,6 +149,15 @@
                                 <p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
                             </div>
                         </div>
+                        
+                        <div class="panel panel-info" >
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><a href="https://survey.ubc.ca/s/statspace/"><i class="glyphicon glyphicon-open"></i>&nbsp;Survey</a></h3>
+                            </div>
+                            <div class="panel-body">
+                                <p>When you have explored StatSpace, we would appreciate your opinion, via a brief <a href="https://survey.ubc.ca/s/statspace/">survey</a>.<span class="glyphicon glyphicon-new-window"></span></p>
+                            </div>
+                        </div>
                     </div>
                     <div class="tags">
                         <div class="panel panel-default">
@@ -169,7 +178,7 @@
                             <div class="panel-body">
                                 <ul>
                                     <li><a href="http://www.cwsei.ubc.ca/resources/files/Demo_WorkshopSummary_CWSEI-EOY2015.pdf">“Making the most of demonstrations, videos, animations, or simulations in lectures and laboratories” J. Maxwell and J. Stang <span class="glyphicon glyphicon-new-window"></span></a></li>
-                                    <li><a href="/LP-VideoOne-Sample-T-Test.jsp"><i>iClicker Questions <span class="glyphicon glyphicon-new-window"></span></i></a></li>
+                                    <li><a href="/iClicker-example-3-Hypothesistesting.jsp"><i>iClicker Questions <span class="glyphicon glyphicon-new-window"></span></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -209,7 +218,7 @@
             <div class="row text-center">
                 <div class="col-md-12">
                     <h4 class="more-heading">To see more resources:</h4>
-                    <a href="/register" class="btn btn-success btn-lg">Join</a> &nbsp;or&nbsp; <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>
+                    <a href="/register" class="btn btn-success btn-lg">Join</a><!-- &nbsp;or&nbsp; <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>-->
                 </div>
             </div>
 
