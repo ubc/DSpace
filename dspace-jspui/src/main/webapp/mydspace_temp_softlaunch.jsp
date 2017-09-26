@@ -49,9 +49,8 @@
     <div class="row landing-page">  
 	<div class="col-md-12">
         	
-	    <h1>Search Unavailable</h1>	    
-        <h3>The StatSpace search function is currently under development. We apologize for any inconvenience.</h3>
-        
+	    <h1>Sign In Unavailable</h1>	    
+        <h3>This is the preliminary version of StatSpace, and registration has not yet been implemented.</h3>        
 	    </div>
     
         </div>

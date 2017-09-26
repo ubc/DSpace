@@ -128,6 +128,15 @@
 			<p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
 		    </div>
 		</div>
+        
+        <div class="panel panel-info" >
+            <div class="panel-heading">
+                <h3 class="panel-title"><a href="https://survey.ubc.ca/s/statspace/"><i class="glyphicon glyphicon-open"></i>&nbsp;Survey</a></h3>
+            </div>
+            <div class="panel-body">
+                <p>When you have explored StatSpace, we would appreciate your opinion, via a brief <a href="https://survey.ubc.ca/s/statspace/">survey</a>.<span class="glyphicon glyphicon-new-window"></span></p>
+            </div>
+        </div>    
 	   <!--will use at a later date   
 		<div class="panel panel-info">
 		    <div class="panel-heading">
@@ -152,7 +161,7 @@
 	<div class="row text-center">
 	    <div class="col-md-12">
 		<h4 class="more-heading">To see more resources:</h4>
-		<a href="/register" class="btn btn-success btn-lg">Join</a> &nbsp;or&nbsp; <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>
+		<a href="/register" class="btn btn-success btn-lg">Join</a><!-- &nbsp;or&nbsp; <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>-->
 	    </div>
 	    
 	</div>

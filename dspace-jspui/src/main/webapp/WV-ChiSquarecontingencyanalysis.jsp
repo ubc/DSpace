@@ -59,7 +59,7 @@
 
                         <img class="pull-left zoology-fish" src="image/contingency_analysis_image.jpg" class="sim-image" width="250">
 
-                        <p class="intro-text">This web visualization simulates samples of a 2x2 contingency analysis. It demonstrates that the <i>x</i><sup>2</sup> test statistic follows a <i>x</i><sup>2</sup> distribution and illustrates the meaning of the P-value. It may be most useful as a demonstration of the meaning of Type I error and power. <i>This visualization has no tutorial version.</i></p>
+                        <p class="intro-text">This web visualization simulates samples of a 2x2 contingency analysis. It demonstrates that the &chi;<sup>2</sup> test statistic follows a &chi;<sup>2</sup> distribution and illustrates the meaning of the P-value. It may be most useful as a demonstration of the meaning of Type I error and power. <i>This visualization has no tutorial version.</i></p>
 
 
                         <p class="text-center access-btn"><a class="btn btn-success btn-md" href="http://www.zoology.ubc.ca/~whitlock/kingfisher/ContingencyAnalysis.htm">Access Resource</a></p>
@@ -95,7 +95,7 @@
                     <ul>
                         <li>as a visual aid during lectures;</li>
                         <li>as an open-ended learning tool for active learning;</li>
-                        <li>as a guided learning experience, using either the built-in tutorials or the guided <a target="_blank" href="/WV-ChiSquarecontingencyanalysis.jsp">activity sheet <span class="glyphicon glyphicon-new-window"></span></a> or other instructor-supplied material.</li>
+                        <li>as a guided learning experience, using either the built-in tutorials or the guided activity sheet or other instructor-supplied material.</li>
 
                     </ul>
 
@@ -144,6 +144,14 @@
                                 <p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
                             </div>
                         </div>
+                        <div class="panel panel-info" >
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><a href="https://survey.ubc.ca/s/statspace/"><i class="glyphicon glyphicon-open"></i>&nbsp;Survey</a></h3>
+                            </div>
+                            <div class="panel-body">
+                                <p>When you have explored StatSpace, we would appreciate your opinion, via a brief <a href="https://survey.ubc.ca/s/statspace/">survey</a>.<span class="glyphicon glyphicon-new-window"></span></p>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="details tags">
@@ -165,7 +173,6 @@
                             <div class="panel-body">
                                 <ul>
                                     <li><a href="http://www.cwsei.ubc.ca/resources/files/Demo_WorkshopSummary_CWSEI-EOY2015.pdf">“Making the most of demonstrations, videos, animations, or simulations in lectures and laboratories” J. Maxwell and J. Stang <span class="glyphicon glyphicon-new-window"></span></a></li>
-                                    <li><a target="_blank" href="http://www.zoology.ubc.ca/~whitlock/Kingfisher/KFhomepage.htm">Check out more web visualizations</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -199,7 +206,6 @@
                             <br>
                             <h5>Web Visualization: Sampling from a Normal distribution</h5>
                             <p class="text-left"><strong>Topics:</strong> <br>&bull; Sampling distributions - Sample mean <br>&bull; Exploratory data analysis/Classifying data - Graphical representations - Histograms</p> <br>
-                            <br><br>
                             <p class="see-more"><a href="/sim-example.jsp" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>     
                     </div>
@@ -224,7 +230,7 @@
             <div class="row text-center">
                 <div class="col-md-12">
                     <h4 class="more-heading">To see more resources:</h4>
-                    <a href="/register" class="btn btn-success btn-lg">Join</a> &nbsp;or&nbsp; <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>
+                    <a href="/register" class="btn btn-success btn-lg">Join</a><!-- &nbsp;or&nbsp; <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>-->
                 </div>
             </div>     
 
