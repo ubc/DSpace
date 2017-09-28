@@ -55,9 +55,7 @@
         <div class="col-md-8"> 
             <div class="jumbotron">
                 <h1><i class="glyphicon glyphicon-stats"></i> Soft Launch of StatSpace</h1>
-                <p>This preliminary version of StatSpace allows you to explore and use resources through the featured StatSpace material, linked from the home page.   The current resources are web visualizations, videos, WebWorK questions and clicker questions.  We are currently working on implementing the following StatSpace functionalities:  search, evaluate and, for those of you who have resources to share, upload.  We are also in the process of incorporating more resources.</p>
-                <p>If you would like to be contacted when these functionalities are added, please enter your email address below.</p>
-    
+                <p>This preliminary version of StatSpace allows you to explore and use resources through the featured StatSpace material, linked from the home page.   The current resources are web visualizations, videos, WebWorK questions and clicker questions.  We are currently working on implementing the following StatSpace functionalities:  search, evaluate and, for those of you who have resources to share, upload.  We are also in the process of incorporating more resources. If you would like to be contacted when these functionalities are added, please enter your email address below: </p>    
                 <form class="form-horizontal" action="<%= request.getContextPath() %>/register" method="post">
 
                     <input type="hidden" name="step" value="<%= RegisterServlet.ENTER_EMAIL_PAGE %>"/>
@@ -69,9 +67,7 @@
                                         <input class="btn btn-default col-md-2" type="submit" name="submit" value="<fmt:message key="jsp.register.new-user.register.button"/>" />
                                     </div>
                 </form>
-                <p>When you have explored StatSpace, we would appreciate your opinion, via a brief <a href="https://survey.ubc.ca/s/statspace/">survey <span class="glyphicon glyphicon-new-window"></span></a>.</p>
-                <p>If you encounter any technical difficulties, please email lt.support@science.ubc.ca</p>
-                <p>If you would like more information about the UBC Statistics Flexible Learning Project or would like to learn more about the StatSpace project, please email  statspace@stat.ubc.ca </p>
+                <p>When you have explored StatSpace, we would appreciate your opinion, via a brief <a href="https://survey.ubc.ca/s/statspace/">survey <span class="glyphicon glyphicon-new-window"></span></a>. If you encounter any technical difficulties, please email <u>lt.support@science.ubc.ca</u>, and if you would like more information about the UBC Statistics Flexible Learning Project or would like to learn more about the StatSpace project, please email <u>statspace@stat.ubc.ca</u>.</p>
             </div>
         </div>
         <div class="col-md-4 intro-sidebar">
@@ -101,13 +97,13 @@
 
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
+                        <h3 class="panel-title"><a href="/ContributeError.jsp"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
                     </div>
                     <div class="panel-body">
                         <p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
                     </div>
                 </div>
-
+                <!--Cut out for soft-launch
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-comment"></i> &nbsp;Evaluate what you use</a></h3>
@@ -116,7 +112,7 @@
                         <p>Evaluate the introductory statistics material in StatSpace by giving <strong>detailed private feedback</strong> for any resources you use, to help other educators improve their designs.</p>
                     </div>
                 </div>
-                
+                -->
                 <div class="panel panel-info" >
                     <div class="panel-heading">
                         <h3 class="panel-title"><a href="https://survey.ubc.ca/s/statspace/"><i class="glyphicon glyphicon-open"></i>&nbsp;Survey</a></h3>

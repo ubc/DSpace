@@ -60,7 +60,8 @@
                     </div>
                 </div>
                 <div class="row">
-                        <h2><a href="pdf_folder/ECON325HW6additionalQ1.pdf"><span class="glyphicon glyphicon-new-window"></span> Click to see details on this question</a></h2><br><br> 
+                    <a href="pdf_folder/ECON325HW6additionalQ1.pdf" class="btn btn-success btn-lg">More details on this question</a><br>
+                    <h2><a href="#jump"><span class="glyphicon glyphicon-new-window"></span> Click to see more WeBWorK questions</a></h2><br><br> 
                 </div>
             </div>
 
@@ -89,7 +90,7 @@
 
                     <div class="panel panel-info">
                         <div class="panel-heading">
-                            <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
+                            <h3 class="panel-title"><a href="/ContributeError.jsp"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
                         </div>
                         <div class="panel-body">
                             <p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
@@ -145,9 +146,9 @@
                             <h3 class="panel-title"><i class="glyphicon glyphicon-tag"></i> Tags</h3>
                         </div>
                         <div class="panel-body">
-                            <p><strong>DBsubject:</strong> Statistics<br>
-                                <strong>DBChapter:</strong> Sampling distributions'<br>
-                                <strong>DBSection:</strong> Sample mean'</p>
+                            <p><strong>Subject:</strong> Statistics<br>
+                                <strong>Chapter:</strong> <br>
+                                <strong>Section:</strong> </p>
                         </div>
                     </div>
 
@@ -175,6 +176,34 @@
                     </div>     
 
                 </div>	
+            </div>
+
+            <div class="row">
+                <h2>Other WeBWorK Questions :</h2>
+                <a id="jump"></a>
+            </div>
+
+            <div class="row featured-items">
+                <div class="col-md-3 text-center">
+                    <div class="thumbnail">
+                        <div class="col-md-12 text-center">
+                            <img align="top" src="image/Stat200_displayimage.JPG" class="sim-image" width="150" align="center"></div>
+                        <div class="caption">
+                            <h5>STAT 200 revised2016/Linguistics Question Q9 </h5><br>
+                            <p class="see-more"><a href="/wwstat200revisedlinguisticsQ9.jsp" class="btn btn-primary">Access &raquo;</a></p>
+                        </div>     
+                    </div>
+                </div>
+                <div class="col-md-3 text-center">
+                    <div class="thumbnail">
+                        <div class="col-md-12 text-center">
+                            <img align="top" src="image/stat300_displayimage.JPG" class="sim-image" width="150" align="center"></div>
+                        <div class="caption">
+                            <h5>STAT 300 HW6 Question Q1</h5><br>
+                            <p class="see-more"><a href="/wwstat300hw6Q1.jsp" class="btn btn-primary">Access &raquo;</a></p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="row text-center">
