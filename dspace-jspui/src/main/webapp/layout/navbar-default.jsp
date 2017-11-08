@@ -109,7 +109,7 @@
                </div>
                <li class="<%= currentPage.endsWith("/home.jsp")? "active" : "" %>"><a href="<%= request.getContextPath() %>/"><span class="glyphicon glyphicon-home"></span> <fmt:message key="jsp.layout.navbar-default.home"/></a></li>
 	           <li class="<%= currentPage.endsWith("/about.jsp")? "active" : "" %>"><a href="<%= request.getContextPath() %>/about.jsp"><span class="glyphicon glyphicon-book"></span> About</a></li>
-               <li><a href="<%= request.getContextPath() %>/register"><span class="glyphicon glyphicon-blackboard"></span> <fmt:message key="jsp.register.new-user.register.button"/></a></li>
+               <li><a href="https://survey.ubc.ca/surveys/37-ebe7b07545dc43f1e9090f86433/statspace-user-analytics/"><span class="glyphicon glyphicon-blackboard"></span> <fmt:message key="jsp.register.new-user.register.button"/></a></li>
 	   <% } %>
        </ul>
 
