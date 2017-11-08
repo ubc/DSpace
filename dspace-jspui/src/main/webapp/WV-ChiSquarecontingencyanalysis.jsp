@@ -230,7 +230,7 @@
             <div class="row text-center">
                 <div class="col-md-12">
                     <h4 class="more-heading">To see more resources:</h4>
-                    <a href="/register" class="btn btn-success btn-lg">Join</a><!-- &nbsp;or&nbsp; <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>-->
+                    <a href="https://survey.ubc.ca/surveys/37-ebe7b07545dc43f1e9090f86433/statspace-user-analytics/" class="btn btn-success btn-lg">Join</a><!-- &nbsp;or&nbsp; <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>-->
                 </div>
             </div>     
 

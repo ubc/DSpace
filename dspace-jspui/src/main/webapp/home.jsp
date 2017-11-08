@@ -81,7 +81,7 @@
 		    
                     <p>StatSpace brings together high-quality open education materials vetted by instructors from UBC and around the world, with the goal of supporting cooperation among statistics instruction experts and sharing resources that address common cross-disciplinary challenges of teaching in this area.</p>
                     <p class="text-center cta">
-                        <a href="/register" class="btn btn-success btn-lg">Join</a> <!-- &nbsp;or&nbsp; <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>-->
+                        <a href="https://survey.ubc.ca/surveys/37-ebe7b07545dc43f1e9090f86433/statspace-user-analytics/" class="btn btn-success btn-lg">Join</a> <!-- &nbsp;or&nbsp; <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>-->
                     </p>
                 </div>
 		
@@ -219,7 +219,7 @@
             <div class="row text-center">
                 <div class="col-md-12">
                     <h4 class="more-heading">To see more resources:</h4>
-                    <a href="/register" class="btn btn-success btn-lg">Join</a> <!-- &nbsp;or&nbsp; <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>-->
+                    <a href="https://survey.ubc.ca/surveys/37-ebe7b07545dc43f1e9090f86433/statspace-user-analytics/" class="btn btn-success btn-lg">Join</a> <!-- &nbsp;or&nbsp; <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>-->
                 </div>
             </div>
     
