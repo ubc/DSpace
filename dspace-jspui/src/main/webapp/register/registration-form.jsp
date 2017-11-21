@@ -85,6 +85,7 @@
     if (setPassword)
     {
 %>
+       <!-- Taken out for soft-launch
         <%-- <p>Please choose a password and enter it into the box below, and confirm it by typing it
         again into the second box.  It should be at least six characters long.</p> --%>
 		<p class="alert"><fmt:message key="jsp.register.registration-form.instruct4"/></p>
@@ -103,7 +104,7 @@
                             	<input class="form-control" type="password" name="password_confirm" id="tpassword_confirm" /></td>
                             </div>
 		</div>
-       
+       -->
 <%
     }
 %>
