@@ -1,0 +1,71 @@
+Running a virtual machine with Git, Virtualbox and Vagrant
+
+1. Download GIT (https://git-scm.com/downloads), and register for a Github account
+
+2. Go to UBC's statspace to copy their respository, using the clone function to obtain a URL (https://github.com/ubc/statspace-vagrant)
+
+3. Using git by opening the program git GUI, enter the command ("git clone %link%") to clone the repository 
+
+4. Using git, navigate to statspace-vagrant (cd statspace-vagrant), which will depend on where you have saved it.
+
+5. git clone ubc's dspace (https://github.com/ubc/DSpace), using git.
+
+6. Download virtualbox (https://www.virtualbox.org/wiki/Download_Old_Builds_5_1) and Vagrant (http://bit.ly/2B9FILt). They require a restart
+
+7. Install plugin (vagrant-hostmanager) through git terminal, using the command "vagrant plugin install vagrant-hostmanager" in the git terminal
+
+8. Use git terminal when running vagrant for the first time, using the command "vagrant up"
+
+
+Making your own local copy
+
+1. Check configuration: (git config -l)
+2. Log in to Github and navigate to the statspace Branch of UBC's Dspace (https://github.com/ubc/dspace/tree/statspace)
+3. While logged in, click fork to make your own copy of that branch
+4. Check that origin url is directed to your fork of the respository ( e.g. https://github.com/$YOURUSERNAME$/dspace.git), by using (git remote set-url origin https://github.com/$yourUSER$/dspace.git 
+5. List an upstream remote url for this on your own Git terminal, (git remote set-url (anyname) https://github.com/ubc/dspace.git
+6. Check it all with (git config -l)
+
+
+To rebuilt 
+To rebuild, run these commands while in the directory statspace-vagrant (master)
+
+vagrant ssh
+sudo su 
+cd /var/dspace-src
+mvn clean && mvn -Dskiptests package -P '!dspace-xmlui,!dspace-lni,!dspace-oai,!dspace-sword,!dspace-swordv2'
+cd /var/dspace-src/dspace/target/dspace-installer
+ant update && sudo /sbin/service tomcat restart
+
+Use command to rectify: 
+sed -i 's/\r//' $filename$
+
+
+Run 'vagrant halt' to stop machine
+vagrant up --provision to trigger the provision process
+
+
+Make sure application compiled 
+change the appbase="webapps" to appBase="/dspace/webapps" in /usr/share/tomcat/conf/server.xml 
+then restart tomcat using "/sbin/service tomcat restart"
+
+then can access from (localhost:8080/jspui)
+
+TO ACCESS ROOT
+after vagrant ssh
+sudo -s
+Let's you become root user to run the above commands
+Identify which user you are by checking the user name prior to @ sign, and the number sign directly prior to the prompt
+
+'/' makes links use an absolute path, remove to make relative ==> should work on all configurations
+
+Exit command (Ctrl+C)
+
+To remove backup folders:
+cd /dspace 
+rm -rf webapps.bak* (May need root account permissions)
+ 
+
+
+
+

@@ -47,7 +47,7 @@
 <dspace:layout locbar="nolink" titlekey="jsp.about.title" feedData="<%= feedData %>">
 
     <div class="example">
-        <p><a href="/">Home</a> <span class="text-muted">&raquo; Simulation Example</span></p>
+        <p><a href="">Home</a> <span class="text-muted">&raquo; Simulation Example</span></p>
 
         <div class="row">  
                 <div class="col-md-8">
@@ -95,7 +95,7 @@
                             <ul>
                                 <li>as a visual aid during lectures;</li>
                                 <li>as an open-ended learning tool for active learning;</li>
-                                <li>as a guided learning experience, using either the built-in tutorials, guided activity sheet (click here for <a target="_blank" href="/pdf_folder/Applet1InstructorGuide.pdf">Instructor Guide<span class="glyphicon glyphicon-new-window"></span></a> and <a target="_blank" href="/pdf_folder/Applet1Qs.pdf">Activity Sheet<span class="glyphicon glyphicon-new-window"></span>)</a>, or other instructor-supplied material.</li>
+                                <li>as a guided learning experience, using either the built-in tutorials, guided activity sheet (click here for <a target="_blank" href="pdf_folder/Applet1InstructorGuide.pdf">Instructor Guide<span class="glyphicon glyphicon-new-window"></span></a> and <a target="_blank" href="pdf_folder/Applet1Qs.pdf">Activity Sheet<span class="glyphicon glyphicon-new-window"></span>)</a>, or other instructor-supplied material.</li>
                             </ul>
 
                             <h2>About this resource</h2>
@@ -135,7 +135,7 @@
 
                             <div class="panel panel-info">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title"><a href="/ContributeError.jsp"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
+                                    <h3 class="panel-title"><a href="ContributeError.jsp"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
                                 </div>
                                 <div class="panel-body">
                                     <p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
@@ -170,8 +170,8 @@
                                 <div class="panel-body">
                                     <ul>
                                         <li><a target="_blank" href="http://www.cwsei.ubc.ca/resources/files/Demo_WorkshopSummary_CWSEI-EOY2015.pdf">"Making the most of demonstrations, videos, animations, or simulations in lectures and laboratories" (J. Maxwell and J. Stang) <span class="glyphicon glyphicon-new-window"></span></a></li>
-                                        <li><a target="_blank" href="/video-example.jsp">Video: Sampling Distribution of the Mean <span class="glyphicon glyphicon-new-window"></span></a></li>
-                                        <li><a target="_blank" href="/pdf_folder/Applet1InstructorGuide.pdf">Instructor Guide</a> and <a target="_blank" href="/pdf_folder/Applet1Qs.pdf">Activity Sheet</a></li>
+                                        <li><a target="_blank" href="video-example.jsp">Video: Sampling Distribution of the Mean <span class="glyphicon glyphicon-new-window"></span></a></li>
+                                        <li><a target="_blank" href="pdf_folder/Applet1InstructorGuide.pdf">Instructor Guide</a> and <a target="_blank" href="pdf_folder/Applet1Qs.pdf">Activity Sheet</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -181,7 +181,7 @@
                                     <h3 class="panel-title"><i class="glyphicon glyphicon-book"></i> What we learned</h3>
                                 </div>
                                 <div class="panel-body">
-                                    <p>We learned a lot about this resource from trialling with students. The sampling distribution is a complex concept.  For instance, from our teaching, we have found that students often confuse the histogram of values from a random sample and the histogram of sample means from many random samples.<br><a target="_blank" href="/SampNorm_WhatWeLearned.jsp">Read More <span class="glyphicon glyphicon-new-window"></span></a></p>
+                                    <p>We learned a lot about this resource from trialling with students. The sampling distribution is a complex concept.  For instance, from our teaching, we have found that students often confuse the histogram of values from a random sample and the histogram of sample means from many random samples.<br><a target="_blank" href="SampNorm_WhatWeLearned.jsp">Read More <span class="glyphicon glyphicon-new-window"></span></a></p>
                                 </div>
                             </div>
                         </div>
@@ -201,7 +201,7 @@
                         <div class="caption">
                             <h5>Web visualization: Sampling from a non-Normally distributed population (CLT)</h5>
                             <p class="text-left"><strong>Topics:</strong> <br>&bull; Probability - Laws, Theory - Central Limit Theorem <br>&bull; Sampling distributions - Sample mean</p>
-                            <p class="see-more"><a href="/WV-SamplingNon-Normal.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+                            <p class="see-more"><a href="WV-SamplingNon-Normal.jsp" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>
                     </div>
                 </div>
@@ -212,7 +212,7 @@
                         <div class="caption">
                             <h5>Web Visualization: Chi-square contingency analysis</h5>
                             <p class="text-left"><strong>Topics:</strong> <br>&bull; Hypothesis tests - Goodness of fit - Chi-squared test for independence</p><br><br> 
-                            <p class="see-more"><a href="/WV-ChiSquarecontingencyanalysis.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+                            <p class="see-more"><a href="WV-ChiSquarecontingencyanalysis.jsp" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>     
                     </div>
                 </div>
@@ -222,7 +222,7 @@
                         <div class="caption"><br>
                             <h5>Web Visualization: Confidence intervals for the mean</h5>
                             <p class="text-left"><strong>Topics:</strong><br>&bull; Confidence intervals - One sample mean t</p><br><br>
-                            <p class="see-more"><a href="/WV-ConfidenceIntervals.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+                            <p class="see-more"><a href="WV-ConfidenceIntervals.jsp" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>
                     </div>
                 </div>
@@ -235,7 +235,7 @@
             <div class="row text-center">
                 <div class="col-md-12">
                     <h4 class="more-heading">To see more resources:</h4>
-                    <a href="https://survey.ubc.ca/surveys/37-ebe7b07545dc43f1e9090f86433/statspace-user-analytics/" class="btn btn-success btn-lg">Join</a><!-- &nbsp;or&nbsp; <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>-->
+                    <a href="https://survey.ubc.ca/surveys/37-ebe7b07545dc43f1e9090f86433/statspace-user-analytics/" class="btn btn-success btn-lg">Join</a><!-- &nbsp;or&nbsp; <a href="mydspace" class="btn btn-success btn-lg">Sign In</a>-->
                 </div>
             </div>
         </div>
