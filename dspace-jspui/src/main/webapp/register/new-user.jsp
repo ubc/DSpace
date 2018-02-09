@@ -32,10 +32,8 @@
 
 <dspace:layout style="submission" titlekey="jsp.register.new-user.title">
     <%-- <h1>User Registration</h1> --%>
-    <!--
 	<h1><fmt:message key="jsp.register.new-user.title"/></h1>
-    -->
-    <h1>User Registration</h1>
+    
 <%
     if (retry)
     { %>
@@ -45,10 +43,8 @@
 <!--
     <p>If you've never logged on to DSpace before, please enter your e-mail address in the box below and click "Register". If you have, please proceed to the <a href="/password-login">sign in</a> page.</p>
 	<p class="alert"><fmt:message key="jsp.register.new-user.info2"/></p>-->
-    <p>This is the preliminary version of StatSpace, and not all functions have been implemented. We are currently working on implementing registration plus the following StatSpace functionalities: search,  evaluate and, for those of you who have resources to contribute, upload.</p>
+    <p>This is the preliminary version of StatSpace, and registration has not yet been implemented.  We are currently working on implementing registration plus the following StatSpace functionalities:  search, evaluate and, for those of you who have resources to share, upload.</p>
     <p>If you would like to be contacted when these functionalities are added, please enter your email address below.</p>
-    
-    
     
     <form class="form-horizontal" action="<%= request.getContextPath() %>/register" method="post">
 

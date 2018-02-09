@@ -106,7 +106,7 @@
 
                         <div class="panel panel-info">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><a href="/ContributeError.jsp"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
+                                <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
                             </div>
                             <div class="panel-body">
                                 <p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
@@ -151,7 +151,6 @@
                         <div class="col-md-12 text-center">
                             <img align="top" src="image/econ325_hw6_displayimage.JPG" class="sim-image" width="150" align="center"></div>
                         <div class="caption">
-                            <br>
                             <h5>ECON 325 HW6 additional Q1</h5><br>
                             <p class="see-more"><a href="/wwecon325h6additionalQ1.jsp" class="btn btn-primary">Access &raquo;</a></p>
                         </div>
