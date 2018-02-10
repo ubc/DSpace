@@ -111,6 +111,7 @@
                         <label>Search StatSpace now:</label>
 			<%-- Search Box --%>
 			<form method="get" action="<%= request.getContextPath() %>/simple-search">
+<<<<<<< HEAD
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
                     <span class="input-group-btn">
@@ -122,6 +123,19 @@
                 </form>
                 </div>
                     </div>
+=======
+			    <div class="input-group">
+				<input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
+				<span class="input-group-btn">
+				    <button type="submit" class="btn btn-primary">
+					<span class="glyphicon glyphicon-search"></span>
+				    </button>
+				</span>
+			    </div>
+			</form>
+		    </div>
+		</div>
+>>>>>>> parent of 6726ceee6... Make all searches to an error page
 		
 		<div class="panel panel-info" >
 		    <div class="panel-heading">

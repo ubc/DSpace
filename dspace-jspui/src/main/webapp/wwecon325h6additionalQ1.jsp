@@ -47,6 +47,7 @@
 <dspace:layout locbar="nolink" titlekey="jsp.about.title" feedData="<%= feedData %>">
 
     <div class="example">
+<<<<<<< HEAD
         <p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/WebWork_Questions.jsp">WeBWorK Questions</a> <span class="text-muted">&raquo; WWECON325H6AdditionalQ1</span></p>
 
         <div class="row">  
@@ -110,6 +111,56 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="divider"></div>
+=======
+	<p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/WebWork_Questions.jsp">WebWork Questions</a> <span class="text-muted">&raquo; WWECON325H6AdditionalQ1</span></p>
+
+	<div class="row">  
+	    <div class="col-md-8">
+	    
+		<h1>WeBWorK Question ECON 325 HW6 additional Q1</h1>
+		<p class="text-muted contributors">Contributor(s): <a href="mailto:">Jane Doe</a>, <a href="mailto:">John Doe</a></p>
+		
+		<div class="row description">
+		    <div class="col-md-12">
+			
+			<img class="pull-left zoology-fish" src="image/econ325_hw6_displayimage.JPG" width="225">
+			
+			<p class="intro-text">This data set contains the winning numbers from the Florida Lottery (through the end of 2008), as reported by the state lottery commission. Note that from its inception through 23 October 1999, the lottery was "pick 6 of 49." Thereafter, it was a "pick 6 of 53" lottery.</p>
+			
+			<p class="text-center access-btn"><a class="btn btn-success btn-md">Access Resource</a></p>
+		  
+		    </div>
+		</div> 
+	    
+	    </div>
+	    
+	    <div class="col-md-4 value-prop">
+	    
+		<div class="panel panel-info">
+		    <div class="panel-heading">
+			<h3 class="panel-title"><i class="glyphicon glyphicon-stats"></i> About StatSpace</h3>
+		    </div>
+		    <div class="panel-body">
+			<p>StatSpace brings together vetted open education materials for use across disciplines. Members of our community can <strong>search and use materials</strong> in the repository, <strong>contribute materials</strong> of their own, and <strong>evaluate materials</strong> they use.</p>
+			<label>Search StatSpace now:</label>
+			<%-- Search Box --%>
+			<form method="get" action="<%= request.getContextPath() %>/simple-search">
+			    <div class="input-group">
+				<input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
+				<span class="input-group-btn">
+				    <button type="submit" class="btn btn-primary">
+					<span class="glyphicon glyphicon-search"></span>
+				    </button>
+				</span>
+			    </div>
+			</form>		
+		    </div>
+		</div>
+            
+            <div class="panel panel-info">
+		      <div class="panel-heading">
+                <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
+>>>>>>> parent of 6726ceee6... Make all searches to an error page
                 </div>
             </div>
 

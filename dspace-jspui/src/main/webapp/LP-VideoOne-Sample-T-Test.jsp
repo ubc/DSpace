@@ -49,6 +49,7 @@
     <div class="example">
         <p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/sim-example.jsp">Video Example</a> <span class="text-muted">&raquo; Video: One Sample T-Test</span></p>
 
+<<<<<<< HEAD
         <div class="row">  
             <div class="col-md-8">
 
@@ -114,6 +115,52 @@
 
                     <p>This video is part of the UBC Intro Stats Project funded by the University of British Columbia’s Teaching and Learning Enhancement Fund, The Faculty of Medicine, The Faculty of Science, and The Faculty of Arts</p>
                     <p>Copyright UBC 2017<br>License Creative Commons<br>Share-alike, Non-Derivs &amp; Non-commerical</p>
+=======
+	<div class="row">  
+	    <div class="col-md-8">
+	    
+		<h1>Video: One Sample T-Test</h1>
+		
+		<div class="row description">
+		    <div class="col-md-12">
+			<iframe class="pull-left fake-video" src="https://player.vimeo.com/video/196470101?byline=0&portrait=0" width="300" height="169" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                
+			<p class="intro-text">This video discusses the concept of a one sample t-test. It examines the foundations of a hypothesis test, explains the meaning of P-values and how we use P-values to make decisions about our hypothesis. </p>
+			
+			<p class="text-center access-btn"><a class="btn btn-success btn-md" href="https://vimeo.com/196470101">Access Resource</a></p>
+		  
+		    </div>
+		</div> 
+	    
+	    </div>
+	    
+	    <div class="col-md-4 value-prop">
+	    
+		<div class="panel panel-info">
+		    <div class="panel-heading">
+			<h3 class="panel-title"><i class="glyphicon glyphicon-stats"></i> About StatSpace</h3>
+		    </div>
+		    <div class="panel-body">
+			<p>StatSpace brings together vetted open education materials for use across disciplines. Members of our community can <strong>search and use materials</strong> in the repository, <strong>contribute materials</strong> of their own, and <strong>evaluate materials</strong> they use.</p>
+			<label>Search StatSpace now:</label>
+			<%-- Search Box --%>
+			<form method="get" action="<%= request.getContextPath() %>/simple-search">
+			    <div class="input-group">
+				<input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
+				<span class="input-group-btn">
+				    <button type="submit" class="btn btn-primary">
+					<span class="glyphicon glyphicon-search"></span>
+				    </button>
+				</span>
+			    </div>
+			</form>		
+		    </div>
+		</div>
+            
+            <div class="panel panel-info">
+		      <div class="panel-heading">
+                <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
+>>>>>>> parent of 6726ceee6... Make all searches to an error page
                 </div>
 
             </div>

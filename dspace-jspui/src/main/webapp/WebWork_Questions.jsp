@@ -51,6 +51,7 @@
 
         <div class="row">  
             <div class="col-md-8">
+<<<<<<< HEAD
                 <h1>WeBWorK</h1>
                 <div class="row description">
                     <div class="col-md-4">
@@ -166,6 +167,39 @@
                             <p class="see-more"><a href="/wwstat200revisedlinguisticsQ9.jsp" class="btn btn-primary">Access &raquo;</a></p>
                         </div>     
                     </div>
+=======
+			<p class="intro-text">WeBWorK is a free on-line assessment tool presently used at over 700 institutions globally. Faculty members at UBC have created over 200 WeBWorK questions for use in introductory statistics courses, all of which are available in WeBWorK's Open Problem Library. Details of a sample of these questions can be found here.<br><br>The WeBWorKiR project was funded by UBC’s Teaching and Learning Enhancement Fund and involved the development of a wide range of homework questions for statistics courses. A key aspect of the project was augmenting WeBWorK to enable its communication with the statistical computing software R. This integration allows WeBWorK access to R's rich facilities for statistical data manipulation, analysis, and visualization, and hence permits the creation of probing and diverse problems in statistical science.</p>
+		    </div>
+        </div>
+		</div> 
+	    
+	    <div class="col-md-4 value-prop">
+	    
+		<div class="panel panel-info">
+		    <div class="panel-heading">
+			<h3 class="panel-title"><i class="glyphicon glyphicon-stats"></i> About StatSpace</h3>
+		    </div>
+		    <div class="panel-body">
+			<p>StatSpace brings together vetted open education materials for use across disciplines. Members of our community can <strong>search and use materials</strong> in the repository, <strong>contribute materials</strong> of their own, and <strong>evaluate materials</strong> they use.</p>
+			<label>Search StatSpace now:</label>
+			<%-- Search Box --%>
+			<form method="get" action="<%= request.getContextPath() %>/simple-search">
+			    <div class="input-group">
+				<input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
+				<span class="input-group-btn">
+				    <button type="submit" class="btn btn-primary">
+					<span class="glyphicon glyphicon-search"></span>
+				    </button>
+				</span>
+			    </div>
+			</form>		
+		    </div>
+		</div>
+            
+            <div class="panel panel-info">
+		      <div class="panel-heading">
+                <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
+>>>>>>> parent of 6726ceee6... Make all searches to an error page
                 </div>
                 <div class="col-md-3 text-center">
                     <div class="thumbnail">

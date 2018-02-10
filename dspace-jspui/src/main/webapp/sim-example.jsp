@@ -47,6 +47,7 @@
 <dspace:layout locbar="nolink" titlekey="jsp.about.title" feedData="<%= feedData %>">
 
     <div class="example">
+<<<<<<< HEAD
         <p><a href="">Home</a> <span class="text-muted">&raquo; Simulation Example</span></p>
 
         <div class="row">  
@@ -108,6 +109,47 @@
                                 <b>Thanks to&colon;</b> Darren Irwin, Dolph Schluter, Nancy Heckman, Kaylee Byers, Brandon Doty, Kim Gilbert, Sally Otto, Wilson Whitlock, Jeff Whitlock, Jeremy Draghi, Karon MacLean, Fred Cutler, Diana Whistler, Andrew Owen, Mike Marin, Leslie Burkholder, Eugenia Yu, Doug Bonn, Michael Scott, the UBC Physics Learning Group &amp; the UBC Flex Stats initiative for numerous suggestions and improvements.
                             </p>
                     </div>
+=======
+	<p><a href="/">Home</a> <span class="text-muted">&raquo; Simulation Example</span></p>
+
+	<div class="row">  
+        <div class="col-md-8">
+	    
+		<h1>Web Visualization: Sampling from a Normal distribution</h1>
+		
+		<div class="row description">
+            <div class="col-md-12">
+			
+			<img class="pull-left zoology-fish" src="http://www.zoology.ubc.ca/~whitlock/kingfisher/Common/Images/fish.svg" width="220">
+			
+			<p class="intro-text">This activity allows students to understand the values of the sample size, mean length, and standard deviation of length by working with an online visualization tool based around fish populations. By doing the tutorial, students get a feel for how these three values change the distribution.</p>
+			
+			<p class="text-center access-btn"><a target="_blank" href="http://www.zoology.ubc.ca/~whitlock/kingfisher/SamplingNormal.htm" class="btn btn-success btn-md">Access Resource</a></p>
+		  
+            </div>
+		</div> 
+	    
+        </div>
+	    
+        <div class="col-md-4 value-prop">
+	    
+		<div class="panel panel-info">
+            <div class="panel-heading">
+			<h3 class="panel-title"><i class="glyphicon glyphicon-stats"></i> About StatSpace</h3>
+            </div>
+		    <div class="panel-body">
+			<p>StatSpace brings together vetted open education materials for use across disciplines. Members of our community can <strong>search and use materials</strong> in the repository, <strong>contribute materials</strong> of their own, and <strong>evaluate materials</strong> they use.</p>
+			<label>Search StatSpace now:</label>
+			<%-- Search Box --%>
+			<form method="get" action="<%= request.getContextPath() %>/simple-search">
+			    <div class="input-group">
+				<input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
+				<span class="input-group-btn">
+				    <button type="submit" class="btn btn-primary">
+					<span class="glyphicon glyphicon-search"></span>
+				    </button>
+				</span>
+>>>>>>> parent of 6726ceee6... Make all searches to an error page
                 </div>
 
                 <div class="col-md-4">

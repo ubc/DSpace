@@ -47,6 +47,7 @@
 <dspace:layout locbar="nolink" titlekey="jsp.about.title" feedData="<%= feedData %>">
 
     <div class="example">
+<<<<<<< HEAD
         <p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/sim-example.jsp">Simulation Example</a> <span class="text-muted">&raquo; Web Visualization: Confidence Intervals for the Mean</span></p>
 
         <div class="row">  
@@ -209,6 +210,58 @@
                             <p class="see-more"><a href="/WV-SamplingNon-Normal.jsp" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>
                     </div>
+=======
+        <p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/sim-example.jsp">Simulation Example</a> <span class="text-muted">&raquo; Web Visualization: Confidence Intervals of the Mean</span></p>
+
+	<div class="row">  
+	    <div class="col-md-8">
+	    
+		<h1>Web Visualization: Confidence intervals of the mean</h1> <br><br>
+		
+		<div class="row description">
+		    <div class="col-md-12">
+                
+			 <img class="pull-left zoology-fish" src="image/confidence_interval_image.JPG" class="sim-image" width="225">
+    
+			<p class="intro-text">This web visualization shows the meaning of a confidence interval, calculating confidence intervals of the means of repeated samples.</p>
+                
+			<p class="text-center access-btn"><a class="btn btn-success btn-md" href="http://www.zoology.ubc.ca/~whitlock/kingfisher/CIMean.htm">Access Resource</a></p>
+		      
+		    </div>
+		</div> 
+	    
+	    </div>
+	    
+	    <div class="col-md-4 value-prop">
+	    
+		<div class="panel panel-info">
+		    <div class="panel-heading">
+			<h3 class="panel-title"><i class="glyphicon glyphicon-stats"></i> About StatSpace</h3>
+		    </div>
+		    <div class="panel-body">
+			<p>StatSpace brings together vetted open education materials for use across disciplines. Members of our community can <strong>search and use materials</strong> in the repository, <strong>contribute materials</strong> of their own, and <strong>evaluate materials</strong> they use.</p>
+			<label>Search StatSpace now:</label>
+			<%-- Search Box --%>
+			<form method="get" action="<%= request.getContextPath() %>/simple-search">
+			    <div class="input-group">
+				<input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
+				<span class="input-group-btn">
+				    <button type="submit" class="btn btn-primary">
+					<span class="glyphicon glyphicon-search"></span>
+				    </button>
+				</span>
+			    </div>
+			</form>		
+		    </div>
+		</div>
+            
+            <div class="panel panel-info">
+		      <div class="panel-heading">
+                <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
+		      </div>
+		      <div class="panel-body">
+			     <p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
+>>>>>>> parent of 6726ceee6... Make all searches to an error page
                 </div>
 
                 <div class="col-md-3 text-center">
