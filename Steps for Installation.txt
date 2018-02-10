@@ -38,7 +38,12 @@ cd /var/dspace-src/dspace/target/dspace-installer
 ant update && sudo /sbin/service tomcat restart
 
 Use command to rectify: 
-sed -i 's/\r//' $filename$
+sed -i 's/\r//' /dspace/bin/dspace
+
+then run vagrant halt and then 
+vagrant up --provision
+
+dspace/webapps is the folder with all the working files in the directory
 
 
 Run 'vagrant halt' to stop machine
@@ -64,6 +69,10 @@ Exit command (Ctrl+C)
 To remove backup folders:
 cd /dspace 
 rm -rf webapps.bak* (May need root account permissions)
+
+
+yum install nano
+to install nano 
  
 
 

@@ -51,6 +51,7 @@
 
         <div class="row">  
             <div class="col-md-8">
+<<<<<<< HEAD
 
                 <h1>Web Visualization: Sampling from a non-Normally distributed population (CLT)</h1> <br><br>
 
@@ -65,6 +66,44 @@
                             <p class="text-center access-btn"><a class="btn btn-success btn-md" href="http://www.zoology.ubc.ca/~whitlock/kingfisher/CLT.htm">Access Resource</a></p>
                         </div>
                     </div>
+=======
+			<p class="intro-text">This web visualization explores the sampling distribution of the mean when the data do not necessarily follow a Normal distribution. <br><br>
+                This visualization is designed to be used after the students are familiar with the general principles of sampling. The “Sampling from a Normal distribution” visualization should be used first to introduce some of the basic concepts and the visual metaphors used here.</p><br><br>
+			
+			<p class="text-center access-btn"><a class="btn btn-success btn-md" href="http://www.zoology.ubc.ca/~whitlock/kingfisher/CLT.htm">Access Resource</a></p>
+		      </div>
+		    </div>
+		</div> 
+	    
+	    </div>
+	    
+	    <div class="col-md-4 value-prop">
+	    
+		<div class="panel panel-info">
+		    <div class="panel-heading">
+			<h3 class="panel-title"><i class="glyphicon glyphicon-stats"></i> About StatSpace</h3>
+		    </div>
+		    <div class="panel-body">
+			<p>StatSpace brings together vetted open education materials for use across disciplines. Members of our community can <strong>search and use materials</strong> in the repository, <strong>contribute materials</strong> of their own, and <strong>evaluate materials</strong> they use.</p>
+			<label>Search StatSpace now:</label>
+			<%-- Search Box --%>
+			<form method="get" action="<%= request.getContextPath() %>/simple-search">
+			    <div class="input-group">
+				<input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
+				<span class="input-group-btn">
+				    <button type="submit" class="btn btn-primary">
+					<span class="glyphicon glyphicon-search"></span>
+				    </button>
+				</span>
+			    </div>
+			</form>		
+		    </div>
+		</div>
+            
+            <div class="panel panel-info">
+		      <div class="panel-heading">
+                <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
+>>>>>>> parent of 6726ceee6... Make all searches to an error page
                 </div>
 
                 <div class="row">
@@ -134,7 +173,7 @@
 
                         <div class="panel panel-info">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><a href="/ContributeError.jsp"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
+                                <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
                             </div>
                             <div class="panel-body">
                                 <p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>

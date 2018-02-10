@@ -47,6 +47,7 @@
 <dspace:layout locbar="nolink" titlekey="jsp.about.title" feedData="<%= feedData %>">
 
     <div class="example">
+<<<<<<< HEAD
         <p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/WebWork_Questions.jsp">WeBWorK Questions</a> <span class="text-muted">&raquo; WWSTAT200RevisedLinguisticsQ9</span></p>
 
         <div class="row">  
@@ -59,9 +60,8 @@
                         <img class="pull-left zoology-fish" src="image/Stat200_displayimage.JPG" width="500">
                     </div>
                 </div>
-                <div class="row">
-                    <a href="pdf_folder/STAT200or203LinguisticQ9.pdf" class="btn btn-success btn-lg">More details on this question</a><br>
-                    <h2><a href="#jump"><span class="glyphicon glyphicon-new-window"></span> Click to see more WeBWorK questions</a></h2><br><br> 
+                 <div class="row">
+                        <h2><a href="pdf_folder/STAT200or203LinguisticQ9.pdf"><span class="glyphicon glyphicon-new-window"></span> Click to see details on this question</a></h2><br><br> 
                 </div>
             </div>
 
@@ -90,7 +90,7 @@
 
                     <div class="panel panel-info">
                         <div class="panel-heading">
-                            <h3 class="panel-title"><a href="/ContributeError.jsp"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
+                            <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
                         </div>
                         <div class="panel-body">
                             <p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
@@ -147,9 +147,9 @@
                             <h3 class="panel-title"><i class="glyphicon glyphicon-tag"></i> Tags</h3>
                         </div>
                         <div class="panel-body">
-                            <p><strong>Subject:</strong> Statistics<br>
-                                <strong>Chapter:</strong> <br>
-                                <strong>Section:</strong> </p>
+                            <p><strong>DBsubject:</strong> Statistics<br>
+                                <strong>DBChapter:</strong> Sampling distributions'<br>
+                                <strong>DBSection:</strong> Sample mean'</p>
                         </div>
                     </div>
 
@@ -179,36 +179,6 @@
                 </div>	
             </div>
 
-            <div class="row">
-                <h2>Other WeBWorK Questions :</h2>
-                <a id="jump"></a>
-            </div>
-
-            <div class="row featured-items">
-                <div class="col-md-3 text-center">
-                    <div class="thumbnail">
-                        <div class="col-md-12 text-center">
-                            <img align="top" src="image/econ325_hw6_displayimage.JPG" class="sim-image" width="150" align="center"></div>
-                        <div class="caption">
-                            <br>
-                            <h5>ECON 325 HW6 additional Q1</h5><br>
-                            <p class="see-more"><a href="/wwecon325h6additionalQ1.jsp" class="btn btn-primary">Access &raquo;</a></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3 text-center">
-                    <div class="thumbnail">
-                        <div class="col-md-12 text-center">
-                            <img align="top" src="image/stat300_displayimage.JPG" class="sim-image" width="150" align="center"></div>
-                        <div class="caption">
-                            <h5>STAT 300 HW6 Question Q1</h5><br>
-                            <p class="see-more"><a href="/wwstat300hw6Q1.jsp" class="btn btn-primary">Access &raquo;</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <div class="row text-center">
                 <div class="col-md-12">
                     <h4 class="more-heading">To see more resources:</h4>
@@ -217,5 +187,146 @@
             </div>
 
         </div>
+=======
+	<p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/WebWork_Questions.jsp">WebWork Questions</a> <span class="text-muted">&raquo; WWSTAT200RevisedLinguisticsQ9</span></p>
+
+	<div class="row">  
+	    <div class="col-md-8">
+	    
+		<h1>WeBWorK Question STAT 200 revised2016/Linguistics Question Q9</h1>
+		<p class="text-muted contributors">Contributor(s): <a href="mailto:">Jane Doe</a>, <a href="mailto:">John Doe</a></p>
+		
+		<div class="row description">
+		    <div class="col-md-12">
+			
+			<img class="pull-left zoology-fish" src="image/Stat200_displayimage.JPG" width="225">
+			
+			<p class="intro-text">This data set contains the winning numbers from the Florida Lottery (through the end of 2008), as reported by the state lottery commission. Note that from its inception through 23 October 1999, the lottery was "pick 6 of 49." Thereafter, it was a "pick 6 of 53" lottery.</p>
+			
+			<p class="text-center access-btn"><a class="btn btn-success btn-md">Access Resource</a></p>
+		  
+		    </div>
+		</div> 
+	    
+	    </div>
+	    
+	    <div class="col-md-4 value-prop">
+	    
+		<div class="panel panel-info">
+		    <div class="panel-heading">
+			<h3 class="panel-title"><i class="glyphicon glyphicon-stats"></i> About StatSpace</h3>
+		    </div>
+		    <div class="panel-body">
+			<p>StatSpace brings together vetted open education materials for use across disciplines. Members of our community can <strong>search and use materials</strong> in the repository, <strong>contribute materials</strong> of their own, and <strong>evaluate materials</strong> they use.</p>
+			<label>Search StatSpace now:</label>
+			<%-- Search Box --%>
+			<form method="get" action="<%= request.getContextPath() %>/simple-search">
+			    <div class="input-group">
+				<input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
+				<span class="input-group-btn">
+				    <button type="submit" class="btn btn-primary">
+					<span class="glyphicon glyphicon-search"></span>
+				    </button>
+				</span>
+			    </div>
+			</form>		
+		    </div>
+		</div>
+            
+            <div class="panel panel-info">
+		      <div class="panel-heading">
+                <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
+		      </div>
+		      <div class="panel-body">
+			     <p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
+		      </div>
+		  </div>
+	    
+	    </div>			
+	</div>
+	
+	<div class="row">
+	    <div class="col-md-12">
+		<div class="divider"></div>
+	    </div>
+	</div>
+	
+	<div class="row details">
+	    <div class="col-md-8">
+		<h2>Prerequisite knowledge</h2>
+		<p>Questions are not currently tagged with pre-req knowledge</p>
+		
+		<h2>Learning Objectives</h2>
+		<ul>
+            <p>Identify a parameter of interest for a study, select appropriate null and alternative hypotheses, identify the approximate sampling distribution of the sample proportion, compute the z score for the test, use software to find the P-value for the test, select the appropriate conclusion for the test.</p>
+        </ul>
+        <h3>About this resource</h3>
+        <ul>
+            <p>Created 2016/08/24</p>
+            <li>Credits: Kathleen Hall, Bruce Dunham, Nelson Chen. The question is available in the Open Problem Library (OPL) in WeBWorK.</li>
+            <li>Question includes randomisation.</li>
+            <li>Solutions available in WeBWorK.</li>    
+		</ul>
+		
+		<h2>Suggested uses</h2>
+		<ul>
+		    <li>The question was devised to be used in the on-line homework system WeBWorK, and the suggested number of attempts permitted is given in the question’s PG file.</li>
+		    <li>The question could also be used on tests or for homework.</li>
+		</ul>
+		
+		<h2>Complementary materials</h2>
+		<ul>
+		    <li>WeBWorK STAT 200 revised/Linguistics Question Q8</li>
+		</ul>
+	    </div>
+	    
+	    <div class="col-md-4 tags">
+	    
+		<div class="panel panel-default">
+		    <div class="panel-heading">
+			<h3 class="panel-title"><i class="glyphicon glyphicon-tag"></i> Tags</h3>
+		    </div>
+		    <div class="panel-body">
+			<p><strong>DBsubject:</strong> Statistics<br>
+			<strong>DBChapter:</strong> Sampling distributions'<br>
+			<strong>DBSection:</strong> Sample mean'</p>
+		    </div>
+		</div>
+	      
+		<div class="panel panel-default">
+		    <div class="panel-heading">
+			<h3 class="panel-title"><i class="glyphicon glyphicon-link"></i> Related materials</h3>
+		    </div>
+		    <div class="panel-body">
+			<ul>
+			    <li><a href="http://www.webwork.maa.org/">Mathematical Association of America (MAA): WebWork <span class="glyphicon glyphicon-new-window"></span></a></li>
+			    <li><a href="http://wiki.ubc.ca/Documentation:WeBWork/The_WeBWorKiR_Project:_Integrating_WeBWorK_with_R/Installation_guide">UBC Wiki: WebWork <span class="glyphicon glyphicon-new-window"></span></a></li>
+			    <li>Updated version of guide to incorporate new macros in release 2.14 (expected 2017):<br><a href="http://webwork.maa.org/wiki/Using_R_Integration_with_WeBWorK">MAA Wiki: R in WebWork <span class="glyphicon glyphicon-new-window"></span></a></li>
+		      </ul>
+		    </div>
+		</div>
+            
+        <div class="panel panel-default">
+		    <div class="panel-heading">
+			<h3 class="panel-title"><i class="glyphicon glyphicon-book"></i> What we learned</h3>
+		    </div>
+		    <div class="panel-body">
+                <p>All questions from UBC have been trialed extensively on students before submitting to the OPL.</p>
+		    </div>
+		</div>     
+	    
+	    </div>	
+	</div>
+	
+	<div class="row text-center">
+	    <div class="col-md-12">
+		<h4 class="more-heading">To see more resources:</h4>
+		<a href="/register" class="btn btn-success btn-lg">Join</a> &nbsp;or&nbsp; <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>
+	    </div>
+	    
+	</div>
+
+    </div>
+>>>>>>> parent of 6726ceee6... Make all searches to an error page
 
 </dspace:layout>
