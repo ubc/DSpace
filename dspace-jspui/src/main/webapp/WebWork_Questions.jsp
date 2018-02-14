@@ -91,7 +91,7 @@
                             <p>StatSpace brings together vetted open education materials for use across disciplines. Members of our community can <strong>search and use materials</strong> in the repository, <strong>contribute materials</strong> of their own, and <strong>evaluate materials</strong> they use.</p>
                             <label>Search StatSpace now:</label>
                             <%-- Search Box --%>
-                                <form method="get" action="<%= request.getContextPath() %>/SearchError.jsp">
+                                <form method="get" action="<%= request.getContextPath() %>/simple-search">
                                     <div class="input-group">
                                         <input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
                                         <span class="input-group-btn">
@@ -166,6 +166,7 @@
                             <p class="see-more"><a href="/wwstat200revisedlinguisticsQ9.jsp" class="btn btn-primary">Access &raquo;</a></p>
                         </div>     
                     </div>
+
                 </div>
                 <div class="col-md-3 text-center">
                     <div class="thumbnail">
