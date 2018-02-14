@@ -124,7 +124,7 @@
                             <p>StatSpace brings together vetted open education materials for use across disciplines. Members of our community can <strong>search and use materials</strong> in the repository, <strong>contribute materials</strong> of their own, and <strong>evaluate materials</strong> they use.</p>
                             <label>Search StatSpace now:</label>
                             <%-- Search Box --%>
-                                <form method="get" action="<%= request.getContextPath() %>/SearchError.jsp">
+                                <form method="get" action="<%= request.getContextPath() %>/simple-search">
                                     <div class="input-group">
                                         <input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
                                         <span class="input-group-btn">
@@ -223,6 +223,7 @@
                 </div>
             </div>
             
+
             <div class="row">
                 <h3>Web Visualizations are also available in <a target="_blank" href="http://www.zoology.ubc.ca/~whitlock/Kingfisher/KFhomepage_FR.htm">French</a> and <a target="_blank" href="http://www.zoology.ubc.ca/~whitlock/Kingfisher/KFhomepage_ES.htm">Spanish</a></h3>
             </div>
@@ -233,8 +234,6 @@
                     <a href="https://ubc.ca1.qualtrics.com/jfe/form/SV_6J4ans7VBN2hpt3" class="btn btn-success btn-lg">Join</a><!-- &nbsp;or&nbsp; <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>-->
                 </div>
             </div>     
-
-
         </div>
 
 </dspace:layout>

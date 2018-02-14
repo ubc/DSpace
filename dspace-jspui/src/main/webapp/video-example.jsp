@@ -133,7 +133,7 @@
                             <p>StatSpace brings together vetted open education materials for use across disciplines. Members of our community can <strong>search and use materials</strong> in the repository, <strong>contribute materials</strong> of their own, and <strong>evaluate materials</strong> they use.</p>
                             <label>Search StatSpace now:</label>
                             <%-- Search Box --%>
-                                <form method="get" action="<%= request.getContextPath() %>/SearchError.jsp">
+                                <form method="get" action="<%= request.getContextPath() %>/simple-search">
                                     <div class="input-group">
                                         <input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
                                         <span class="input-group-btn">
@@ -162,6 +162,7 @@
                                 <p>When you have explored StatSpace, we would appreciate your opinion, via a brief <a href="https://ubc.ca1.qualtrics.com/jfe/form/SV_6J4ans7VBN2hpt3">survey</a>.<span class="glyphicon glyphicon-new-window"></span></p>
                             </div>
                         </div>
+
                     </div>
 
                     <div class="tags">
