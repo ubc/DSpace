@@ -27,7 +27,6 @@ Making your own local copy
 6. Check it all with (git config -l)
 
 
-To rebuilt 
 To rebuild, run these commands while in the directory statspace-vagrant (master)
 
 vagrant ssh
@@ -38,7 +37,7 @@ cd /var/dspace-src/dspace/target/dspace-installer
 ant update && sudo /sbin/service tomcat restart
 
 Use command to rectify: 
-sed -i 's/\r//' $filename$
+sed -i 's/\r//' /dspace/bin/dspace
 
 
 Run 'vagrant halt' to stop machine
