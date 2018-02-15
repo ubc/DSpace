@@ -48,6 +48,22 @@ production:
   when: manual
   only:
     - statspace
+production_bio:
+  stage: production
+  variables:
+    DEPLOYMENT_VALUE_FILE: configuration/biospace/values_prod.yaml
+    GIT_STRATEGY: none
+  before_script:
+    - source docker-entrypoint.sh
+    - git clone git@repo.code.ubc.ca:devops/configuration.git
+  script:
+    - command deploy-helm
+  environment:
+    name: production_bio
+    url: http://biospace.elearning.ubc.ca
+  when: manual
+  only:
+    - biospace
 staging:
   stage: staging
   variables:
@@ -65,6 +81,23 @@ staging:
     url: http://statspace.stg.$KUBE_DOMAIN
   only:
     - statspace
+staging_bio:
+  stage: staging
+  variables:
+    DEPLOYMENT_VALUE_FILE: configuration/biospace/values_staging.yaml
+    GIT_STRATEGY: none
+  before_script:
+    - source docker-entrypoint.sh
+    - git clone git@repo.code.ubc.ca:devops/configuration.git
+  script:
+    - 'github_post_status pending'
+    - command deploy-helm
+    - 'github_post_status success'
+  environment:
+    name: staging_bio
+    url: http://biospace.stg.$KUBE_DOMAIN
+  only:
+    - biospace
 review:
   stage: review
   variables:
@@ -85,6 +118,7 @@ review:
     - branches
   except:
     - statspace
+    - biospace
 stop_review:
   stage: review
   variables:
@@ -99,3 +133,4 @@ stop_review:
     - branches
   except:
     - statspace
+    - biospace
