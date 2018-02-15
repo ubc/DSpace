@@ -113,7 +113,7 @@
                             <p>StatSpace brings together vetted open education materials for use across disciplines. Members of our community can <strong>search and use materials</strong> in the repository, <strong>contribute materials</strong> of their own, and <strong>evaluate materials</strong> they use.</p>
                             <label>Search StatSpace now:</label>
                             <%-- Search Box --%>
-                                <form method="get" action="<%= request.getContextPath() %>/SearchError.jsp">
+                                <form method="get" action="<%= request.getContextPath() %>/simple-search.jsp">
                                     <div class="input-group">
                                         <input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
                                         <span class="input-group-btn">

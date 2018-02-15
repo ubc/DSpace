@@ -228,7 +228,7 @@
 
     <% if (user != null) { %>
 	<%-- Search Box --%>
-	<form method="get" action="<%= request.getContextPath() %>/SearchError.jsp">
+	<form method="get" action="<%= request.getContextPath() %>/simple-search">
 
         <div class="form-group col-md-8 col-md-offset-2" style="padding: 3em 0;">
             <div class="input-group">
