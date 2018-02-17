@@ -68,7 +68,7 @@
                                         <input class="btn btn-default col-md-2" type="submit" name="submit" value="<fmt:message key="jsp.register.new-user.register.button"/>" />
                                     </div>
                 </form>
-                <p>When you have explored StatSpace, we would appreciate your opinion, via a brief <a href="https://survey.ubc.ca/s/statspace/">survey <span class="glyphicon glyphicon-new-window"></span></a>. If you encounter any technical difficulties, please email <u>lt.support@science.ubc.ca</u>, and if you would like more information about the UBC Statistics Flexible Learning Project or would like to learn more about the StatSpace project, please email <u>statspace@stat.ubc.ca</u>.</p>
+                <p>When you have explored StatSpace, we would appreciate your opinion, via a brief <a href="https://ubc.ca1.qualtrics.com/jfe/form/SV_6J4ans7VBN2hpt3">survey <span class="glyphicon glyphicon-new-window"></span></a>. If you encounter any technical difficulties, please email <u>lt.support@science.ubc.ca</u>, and if you would like more information about the UBC Statistics Flexible Learning Project or would like to learn more about the StatSpace project, please email <u>statspace@stat.ubc.ca</u>.</p>
             </div>
         </div>
         <div class="col-md-4 intro-sidebar">
@@ -116,10 +116,10 @@
                 -->
                 <div class="panel panel-info" >
                     <div class="panel-heading">
-                        <h3 class="panel-title"><a href="https://survey.ubc.ca/s/statspace/"><i class="glyphicon glyphicon-open"></i>&nbsp;Survey</a></h3>
+                        <h3 class="panel-title"><a href="https://ubc.ca1.qualtrics.com/jfe/form/SV_6J4ans7VBN2hpt3"><i class="glyphicon glyphicon-open"></i>&nbsp;Survey</a></h3>
                     </div>
                     <div class="panel-body">
-                        <p>When you have explored StatSpace, we would appreciate your opinion, via a brief <a href="https://survey.ubc.ca/s/statspace/">survey</a>.<span class="glyphicon glyphicon-new-window"></span></p>
+                        <p>When you have explored StatSpace, we would appreciate your opinion, via a brief <a href="https://ubc.ca1.qualtrics.com/jfe/form/SV_6J4ans7VBN2hpt3">survey</a>.<span class="glyphicon glyphicon-new-window"></span></p>
                     </div>
                 </div>
 
