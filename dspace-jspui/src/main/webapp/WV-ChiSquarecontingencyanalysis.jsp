@@ -124,7 +124,7 @@
                             <p>StatSpace brings together vetted open education materials for use across disciplines. Members of our community can <strong>search and use materials</strong> in the repository, <strong>contribute materials</strong> of their own, and <strong>evaluate materials</strong> they use.</p>
                             <label>Search StatSpace now:</label>
                             <%-- Search Box --%>
-                                <form method="get" action="<%= request.getContextPath() %>/SearchError.jsp">
+                                <form method="get" action="<%= request.getContextPath() %>/simple-search">
                                     <div class="input-group">
                                         <input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
                                         <span class="input-group-btn">
@@ -138,7 +138,7 @@
                         </div>                        
                         <div class="panel panel-info">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><a href="/ContributeError.jsp"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
+                                <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
                             </div>
                             <div class="panel-body">
                                 <p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
@@ -146,10 +146,10 @@
                         </div>
                         <div class="panel panel-info" >
                             <div class="panel-heading">
-                                <h3 class="panel-title"><a href="https://survey.ubc.ca/s/statspace/"><i class="glyphicon glyphicon-open"></i>&nbsp;Survey</a></h3>
+                                <h3 class="panel-title"><a href="https://ubc.ca1.qualtrics.com/jfe/form/SV_6J4ans7VBN2hpt3"><i class="glyphicon glyphicon-open"></i>&nbsp;Survey</a></h3>
                             </div>
                             <div class="panel-body">
-                                <p>When you have explored StatSpace, we would appreciate your opinion, via a brief <a href="https://survey.ubc.ca/s/statspace/">survey</a>.<span class="glyphicon glyphicon-new-window"></span></p>
+                                <p>When you have explored StatSpace, we would appreciate your opinion, via a brief <a href="https://ubc.ca1.qualtrics.com/jfe/form/SV_6J4ans7VBN2hpt3">survey</a>.<span class="glyphicon glyphicon-new-window"></span></p>
                             </div>
                         </div>
                     </div>
@@ -223,6 +223,7 @@
                 </div>
             </div>
             
+
             <div class="row">
                 <h3>Web Visualizations are also available in <a target="_blank" href="http://www.zoology.ubc.ca/~whitlock/Kingfisher/KFhomepage_FR.htm">French</a> and <a target="_blank" href="http://www.zoology.ubc.ca/~whitlock/Kingfisher/KFhomepage_ES.htm">Spanish</a></h3>
             </div>
@@ -233,8 +234,6 @@
                     <a href="https://survey.ubc.ca/surveys/37-ebe7b07545dc43f1e9090f86433/statspace-user-analytics/" class="btn btn-success btn-lg">Join</a><!-- &nbsp;or&nbsp; <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>-->
                 </div>
             </div>     
-
-
         </div>
 
 </dspace:layout>
