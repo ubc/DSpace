@@ -703,6 +703,32 @@
          </modules>
       </profile>
 
+      <!--
+           New in Java 8u121, javadoc now rejects JavaScript code in comments
+           unless you add the allow-script-in-comments option. This configures
+           Maven to add this option to javadoc for Java 8 and above.
+      -->
+      <profile>
+          <id>javadoc-option-for-java8</id>
+          <activation>
+              <jdk>[1.8,)</jdk>
+          </activation>
+          <build>
+              <plugins>
+                  <plugin>
+                      <groupId>org.apache.maven.plugins</groupId>
+                      <artifactId>maven-javadoc-plugin</artifactId>
+                      <configuration>
+                          <additionalOptions>
+                              <additionalOption>
+                                  --allow-script-in-comments
+                              </additionalOption>
+                          </additionalOptions>
+                      </configuration>
+                  </plugin>
+              </plugins>
+          </build>
+      </profile>
    </profiles>
 
    <!--
