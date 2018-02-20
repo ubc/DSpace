@@ -142,8 +142,8 @@
        <!-- Resource Type -->
        <field>
          <dc-schema>dcterms</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
+         <dc-element>isPartOf</dc-element>
+         <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Resource Type</label>
          <input-type value-pairs-name="resource_type">dropdown</input-type>
@@ -331,8 +331,8 @@
        <!-- Resource Type -->
        <field>
          <dc-schema>dcterms</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
+         <dc-element>isPartOf</dc-element>
+         <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Resource Type</label>
          <input-type value-pairs-name="resource_type">dropdown</input-type>
@@ -520,8 +520,8 @@
        <!-- Resource Type -->
        <field>
          <dc-schema>dcterms</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
+         <dc-element>isPartOf</dc-element>
+         <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Resource Type</label>
          <input-type value-pairs-name="resource_type">dropdown</input-type>
@@ -708,8 +708,8 @@
        <!-- Resource Type -->
        <field>
          <dc-schema>dcterms</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
+         <dc-element>isPartOf</dc-element>
+         <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Resource Type</label>
          <input-type value-pairs-name="resource_type">dropdown</input-type>
@@ -897,8 +897,8 @@
        <!-- Resource Type -->
        <field>
          <dc-schema>dcterms</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
+         <dc-element>isPartOf</dc-element>
+         <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Resource Type</label>
          <input-type value-pairs-name="resource_type">dropdown</input-type>
@@ -1085,8 +1085,8 @@
        <!-- Resource Type -->
        <field>
          <dc-schema>dcterms</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
+         <dc-element>isPartOf</dc-element>
+         <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Resource Type</label>
          <input-type value-pairs-name="resource_type">dropdown</input-type>
@@ -1274,8 +1274,8 @@
        <!-- Resource Type -->
        <field>
          <dc-schema>dcterms</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
+         <dc-element>isPartOf</dc-element>
+         <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Resource Type</label>
          <input-type value-pairs-name="resource_type">dropdown</input-type>
@@ -1462,8 +1462,8 @@
        <!-- Resource Type -->
        <field>
          <dc-schema>dcterms</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
+         <dc-element>isPartOf</dc-element>
+         <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Resource Type</label>
          <input-type value-pairs-name="resource_type">dropdown</input-type>
@@ -1651,8 +1651,8 @@
        <!-- Resource Type -->
        <field>
          <dc-schema>dcterms</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
+         <dc-element>isPartOf</dc-element>
+         <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Resource Type</label>
          <input-type value-pairs-name="resource_type">dropdown</input-type>
@@ -1840,8 +1840,8 @@
        <!-- Resource Type -->
        <field>
          <dc-schema>dcterms</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
+         <dc-element>isPartOf</dc-element>
+         <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Resource Type</label>
          <input-type value-pairs-name="resource_type">dropdown</input-type>
@@ -2029,8 +2029,8 @@
        <!-- Resource Type -->
        <field>
          <dc-schema>dcterms</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
+         <dc-element>isPartOf</dc-element>
+         <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Resource Type</label>
          <input-type value-pairs-name="resource_type">dropdown</input-type>
@@ -2217,8 +2217,8 @@
        <!-- Resource Type -->
        <field>
          <dc-schema>dcterms</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
+         <dc-element>isPartOf</dc-element>
+         <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Resource Type</label>
          <input-type value-pairs-name="resource_type">dropdown</input-type>
@@ -2407,8 +2407,8 @@
        <!-- Resource Type -->
        <field>
          <dc-schema>dcterms</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
+         <dc-element>isPartOf</dc-element>
+         <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Resource Type</label>
          <input-type value-pairs-name="resource_type">dropdown</input-type>
@@ -2595,8 +2595,8 @@
        <!-- Resource Type -->
        <field>
          <dc-schema>dcterms</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
+         <dc-element>isPartOf</dc-element>
+         <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Resource Type</label>
          <input-type value-pairs-name="resource_type">dropdown</input-type>
@@ -2783,8 +2783,8 @@
        <!-- Resource Type -->
        <field>
          <dc-schema>dcterms</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
+         <dc-element>isPartOf</dc-element>
+         <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Resource Type</label>
          <input-type value-pairs-name="resource_type">dropdown</input-type>
@@ -2971,8 +2971,8 @@
        <!-- Resource Type -->
        <field>
          <dc-schema>dcterms</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
+         <dc-element>isPartOf</dc-element>
+         <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Resource Type</label>
          <input-type value-pairs-name="resource_type">dropdown</input-type>
@@ -3159,8 +3159,8 @@
        <!-- Resource Type -->
        <field>
          <dc-schema>dcterms</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
+         <dc-element>isPartOf</dc-element>
+         <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Resource Type</label>
          <input-type value-pairs-name="resource_type">dropdown</input-type>
@@ -3347,8 +3347,8 @@
        <!-- Resource Type -->
        <field>
          <dc-schema>dcterms</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
+         <dc-element>isPartOf</dc-element>
+         <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Resource Type</label>
          <input-type value-pairs-name="resource_type">dropdown</input-type>
@@ -3534,8 +3534,8 @@
        <!-- Resource Type -->
        <field>
          <dc-schema>dcterms</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
+         <dc-element>isPartOf</dc-element>
+         <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Resource Type</label>
          <input-type value-pairs-name="resource_type">dropdown</input-type>
@@ -3723,8 +3723,8 @@
        <!-- Resource Type -->
        <field>
          <dc-schema>dcterms</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
+         <dc-element>isPartOf</dc-element>
+         <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Resource Type</label>
          <input-type value-pairs-name="resource_type">dropdown</input-type>
@@ -3910,8 +3910,8 @@
        <!-- Resource Type -->
        <field>
          <dc-schema>dcterms</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
+         <dc-element>isPartOf</dc-element>
+         <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Resource Type</label>
          <input-type value-pairs-name="resource_type">dropdown</input-type>
@@ -4099,8 +4099,8 @@
        <!-- Resource Type -->
        <field>
          <dc-schema>dcterms</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
+         <dc-element>isPartOf</dc-element>
+         <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Resource Type</label>
          <input-type value-pairs-name="resource_type">dropdown</input-type>
@@ -4287,8 +4287,8 @@
        <!-- Resource Type -->
        <field>
          <dc-schema>dcterms</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
+         <dc-element>isPartOf</dc-element>
+         <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Resource Type</label>
          <input-type value-pairs-name="resource_type">dropdown</input-type>
@@ -4475,8 +4475,8 @@
        <!-- Resource Type -->
        <field>
          <dc-schema>dcterms</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
+         <dc-element>isPartOf</dc-element>
+         <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Resource Type</label>
          <input-type value-pairs-name="resource_type">dropdown</input-type>
@@ -4662,8 +4662,8 @@
        <!-- Resource Type -->
        <field>
          <dc-schema>dcterms</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
+         <dc-element>isPartOf</dc-element>
+         <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Resource Type</label>
          <input-type value-pairs-name="resource_type">dropdown</input-type>
@@ -4850,8 +4850,8 @@
        <!-- Resource Type -->
        <field>
          <dc-schema>dcterms</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
+         <dc-element>isPartOf</dc-element>
+         <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Resource Type</label>
          <input-type value-pairs-name="resource_type">dropdown</input-type>
@@ -5038,8 +5038,8 @@
        <!-- Resource Type -->
        <field>
          <dc-schema>dcterms</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
+         <dc-element>isPartOf</dc-element>
+         <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Resource Type</label>
          <input-type value-pairs-name="resource_type">dropdown</input-type>
@@ -5227,8 +5227,8 @@
        <!-- Resource Type -->
        <field>
          <dc-schema>dcterms</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
+         <dc-element>isPartOf</dc-element>
+         <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Resource Type</label>
          <input-type value-pairs-name="resource_type">dropdown</input-type>
@@ -5415,8 +5415,8 @@
        <!-- Resource Type -->
        <field>
          <dc-schema>dcterms</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
+         <dc-element>isPartOf</dc-element>
+         <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Resource Type</label>
          <input-type value-pairs-name="resource_type">dropdown</input-type>
@@ -5603,8 +5603,8 @@
        <!-- Resource Type -->
        <field>
          <dc-schema>dcterms</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
+         <dc-element>isPartOf</dc-element>
+         <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Resource Type</label>
          <input-type value-pairs-name="resource_type">dropdown</input-type>
@@ -5791,8 +5791,8 @@
        <!-- Resource Type -->
        <field>
          <dc-schema>dcterms</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
+         <dc-element>isPartOf</dc-element>
+         <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Resource Type</label>
          <input-type value-pairs-name="resource_type">dropdown</input-type>
