@@ -32,7 +32,7 @@
 
     Collection collection = (Collection) dso;
     ItemIterator itemsIterator = collection.getAllItems();
-    ArrayList<Item> items = new ArrayList<>();
+    ArrayList<Item> items = new ArrayList<Item>();
     while (itemsIterator.hasNext()) {
         items.add(itemsIterator.next());
     }
