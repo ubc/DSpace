@@ -253,12 +253,32 @@ public class HandleServlet extends DSpaceServlet
             // and firing a usage event for the DSO we're reporting for
             return;
         } else if ("/browse".equals((extraPathInfo)) || StringUtils.startsWith(extraPathInfo, "/browse?")) {
+        	// Add the location if we got a community or collection
+        	if (dso instanceof Community)
+        	{
+        		Community c = (Community) dso;
+        		request.setAttribute("dspace.community", c);
+        	} else if (dso instanceof Collection)
+        	{
+        		Collection c = (Collection) dso;
+        		request.setAttribute("dspace.collection", c);
+        	}
             request.getRequestDispatcher(extraPathInfo).forward(request, response);
             // If we don't return here, we keep processing and end up
             // throwing a NPE when checking community authorization
             // and firing a usage event for the DSO we're reporting for
             return;
         } else if ("/simple-search".equals(extraPathInfo) || StringUtils.startsWith(extraPathInfo, "simple-search?")) {
+        	// Add the location if we got a community or collection
+        	if (dso instanceof Community)
+        	{
+        		Community c = (Community) dso;
+        		request.setAttribute("dspace.community", c);
+        	} else if (dso instanceof Collection)
+        	{
+        		Collection c = (Collection) dso;
+        		request.setAttribute("dspace.collection", c);
+        	}
             request.getRequestDispatcher(extraPathInfo).forward(request, response);
             // If we don't return here, we keep processing and end up
             // throwing a NPE when checking community authorization
@@ -563,11 +583,15 @@ public class HandleServlet extends DSpaceServlet
      *            the HTTP response
      * @param community
      *            the community
+     * @throws AuthorizeException 
      */
     private void communityHome(Context context, HttpServletRequest request,
             HttpServletResponse response, Community community)
-            throws ServletException, IOException, SQLException
+            throws ServletException, IOException, SQLException, AuthorizeException
     {
+        // Ensure the user has authorisation
+    	AuthorizeManager.authorizeAction(context, community, Constants.READ);
+
         // Handle click on a browse or search button
         if (!handleButton(request, response, community.getHandle()))
         {
@@ -662,6 +686,9 @@ public class HandleServlet extends DSpaceServlet
             Collection collection) throws ServletException, IOException,
             SQLException, AuthorizeException
     {
+    	// Ensure the user has authorisation
+    	AuthorizeManager.authorizeAction(context, collection, Constants.READ);
+        
         // Handle click on a browse or search button
         if (!handleButton(request, response, collection.getHandle()))
         {
