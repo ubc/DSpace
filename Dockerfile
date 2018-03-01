@@ -27,7 +27,7 @@ ADD . /dspace-src
 
 WORKDIR /dspace-src
 
-RUN /tmp/maven/bin/mvn package -Dmaven.test.skip=false -P '!dspace-xmlui,!dspace-lni,!dspace-oai,!dspace-sword,!dspace-swordv2' \
+RUN /tmp/maven/bin/mvn package -Dmaven.test.skip=false -P '!dspace-xmlui,!dspace-lni,!dspace-oai,!dspace-sword,!dspace-swordv2,!dspace-xmlui-mirage2' \
     && cd dspace/target/dspace-installer \
     && ant init_installation init_configs install_code copy_webapps \
     #&& sed -i s/CONFIDENTIAL/NONE/ $CATALINA_HOME/webapps/rest/WEB-INF/web.xml
