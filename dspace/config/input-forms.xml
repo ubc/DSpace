@@ -198,7 +198,7 @@
          <required></required>
        </field>
 
-       <!-- Audience level -->
+       <!-- Prerequisite Knowledge -->
        <field>
          <dc-schema>dcterms</dc-schema>
          <dc-element>audience</dc-element>
@@ -209,53 +209,9 @@
          <required></required>
        </field>  
        
-       <!-- University Acronym -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>University Acronym</label>
-         <input-type>onebox</input-type>
-         <hint>This is Optional</hint>
-         <required></required>
-       </field>
-         
-        <!-- Course Subject -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Course Subject</label>
-         <input-type>onebox</input-type>
-         <hint>This is Optional</hint>
-         <required></required>
-       </field>
-         
-        <!-- Course Number -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartof</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Course Number</label>
-         <input-type>onebox</input-type>
-         <hint>This is Optional</hint>
-         <required></required>
-       </field>
-         
-         
-        <!-- DOI -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>identifier</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <label>DOI</label>
-         <input-type>onebox</input-type>
-         <hint>The item's digital object identifier code, if available.</hint>
-         <required></required>
-       </field>
+       
+
+        
      </page>
 
    </form>
