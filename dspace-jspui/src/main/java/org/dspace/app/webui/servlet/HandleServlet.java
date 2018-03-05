@@ -550,7 +550,8 @@ public class HandleServlet extends DSpaceServlet
         request.setAttribute("item", item);
         request.setAttribute("collections", collections);
         request.setAttribute("dspace.layout.head", headMetadata);
-        JSPManager.showJSP(request, response, "/display-item.jsp");
+		//JSPManager.showJSP(request, response, "/display-item.jsp");
+        JSPManager.showJSP(request, response, "/ubc/statspace/display-item.jsp");
     }
     
     private void preProcessItemHome(Context context, HttpServletRequest request,
