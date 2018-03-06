@@ -47,10 +47,7 @@
 <%@page import="org.dspace.eperson.EPerson"%>
 <%@page import="org.dspace.versioning.VersionHistory"%>
 
-<%@page import="org.dspace.app.webui.ubc.statspace.MetadataRetriever"%>
-<%@page import="org.dspace.app.webui.ubc.statspace.MetadataResult"%>
-<%@page import="org.dspace.app.webui.ubc.statspace.BitstreamRetriever"%>
-<%@page import="org.dspace.app.webui.ubc.statspace.BitstreamResult"%>
+<%@page import="org.dspace.app.webui.ubc.statspace.ItemRetriever"%>
 
 <%
     // Attributes
@@ -198,18 +195,14 @@
 <%
 	// all this should be done in the servlet and set as attributes, but
 	// I want to keep servlet modifications to a minimum
-	MetadataRetriever mRetriever = new MetadataRetriever(item, pageContext);
-	MetadataResult titleResult = mRetriever.getSingleValueField("dc.title");
-	MetadataResult descResult = mRetriever.getSingleValueField("dc.description.abstract");
-	BitstreamRetriever bRetriever = new BitstreamRetriever(item, pageContext);
-	List<BitstreamResult> bitstreamResults = bRetriever.getBitstreams();
-	request.setAttribute("bitstreamResults", bitstreamResults);
+	ItemRetriever itemRetriever = new ItemRetriever(item, pageContext);
+	pageContext.setAttribute("itemRetriever", itemRetriever);
 %>
 	<!-- SUBMISSION TITLE -->
 	<div class='row'>
 		<div class='col-md-12'>
 			<div class='page-header'>
-				<h1><%= titleResult.getValue() %></h1> 
+				<h1>${itemRetriever.title}</h1> 
 			</div>
 		</div>
 	</div>
@@ -220,12 +213,12 @@
 			<!-- Description Main Body-->
 			<div class='lead panel panel-default'> 
 				<div class='panel-body'>
-					<%= descResult.getValue() %>
+					${itemRetriever.description}
 				</div>
 			</div> 
 
 			<!-- Files List -->
-			<c:forEach items="${bitstreamResults}" var="result">
+			<c:forEach items="${itemRetriever.files}" var="result">
 				<div class="media">
 					<div class="pull-left media-left">
 						<img class="media-objec img-thumbnail" src="${result.thumbnail}" />
@@ -283,13 +276,10 @@
 				</div>
 				<div class="panel-body">
 					<ul>
-						<li>Sampling Distributions</li>
-						<li>Sample Mean</li>
-						<li>Data Analysis</li>
-						<li>Classifying Data</li>
-						<li>Graphical Representations</li>
-						<li>Histograms</li>
-						</p>
+						<c:forEach items="${itemRetriever.subjects}" var="subject">
+							<li>${subject}</li>
+						</c:forEach>
+					</ul>
 				</div>
 			</div>
 

@@ -12,22 +12,27 @@
  */
 package org.dspace.app.webui.ubc.statspace;
 
+import java.util.ArrayList;
+import java.util.List;
+import org.dspace.content.Metadatum;
+
 public class MetadataResult {
 
 	private String label = "";
-	private String value = "";
+	private List<String> values = new ArrayList<>();
 
-	public MetadataResult(String label, String value) {
+	public MetadataResult(String label) {
 		this.label = label;
-		this.value = value;
 	}
 
 	public void setLabel(String label) {
 		this.label = label;
 	}
 
-	public void setValue(String value) {
-		this.value = value;
+	public void setValues(Metadatum[] values) {
+		for (Metadatum value : values) {
+			this.values.add(value.value);
+		}
 	}
 
 	public String getLabel() {
@@ -35,6 +40,12 @@ public class MetadataResult {
 	}
 	
 	public String getValue() {
-		return value;
+		if (values.isEmpty())
+			return "";
+		return values.get(0);
+	}
+
+	public List<String> getValues() {
+		return values;
 	}
 }

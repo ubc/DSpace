@@ -24,14 +24,14 @@ import org.dspace.constants.Constants;
  * Helper to retrieve a list of files from an item.
  * Bitstreams are just files. DSpace just calls them bitstreams for some reason.
  */
-public class BitstreamRetriever {
+public class ItemBitstreamRetriever {
     /** log4j logger */
-    private static final Logger log = Logger.getLogger(MetadataRetriever.class);
+    private static final Logger log = Logger.getLogger(ItemMetadataRetriever.class);
 
 	private final Item item;
 	private final PageContext pageContext;
 
-	public BitstreamRetriever(Item item, PageContext pageContext) {
+	public ItemBitstreamRetriever(Item item, PageContext pageContext) {
 		this.item = item;
 		this.pageContext = pageContext;
 	}

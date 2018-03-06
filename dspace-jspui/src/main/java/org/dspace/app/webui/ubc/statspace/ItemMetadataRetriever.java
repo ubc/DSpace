@@ -13,15 +13,15 @@ import org.apache.log4j.Logger;
 import org.dspace.content.Metadatum;
 import org.dspace.content.Item;
 
-public class MetadataRetriever
+public class ItemMetadataRetriever
 {
     /** log4j logger */
-    private static Logger log = Logger.getLogger(MetadataRetriever.class);
+    private static Logger log = Logger.getLogger(ItemMetadataRetriever.class);
 
 	private PageContext pageContext;
 	private Item item;
 
-    public MetadataRetriever(Item item, PageContext pageContext) {
+    public ItemMetadataRetriever(Item item, PageContext pageContext) {
 		this.pageContext = pageContext;
 		this.item = item;
     }
@@ -33,8 +33,8 @@ public class MetadataRetriever
 	 * @param item - The submission item we're looking up data for
 	 * @return A MetadataResult object containing the label and the value. 
 	 */
-	public MetadataResult getSingleValueField(String field) {
-		MetadataResult result = new MetadataResult("", "");
+	public MetadataResult getField(String field) {
+		MetadataResult result = new MetadataResult("");
 
 		// Try to parse the field into its components.
 		String[] eq = field.split("\\.");
@@ -66,7 +66,7 @@ public class MetadataRetriever
 		if (values.length > 0)
 		{
 			// only need to read the first value
-			result.setValue(values[0].value);
+			result.setValues(values);
 		}
 		return result;
 	}
