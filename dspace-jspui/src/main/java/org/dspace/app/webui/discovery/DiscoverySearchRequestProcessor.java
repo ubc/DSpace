@@ -441,7 +441,8 @@ public class DiscoverySearchRequestProcessor implements SearchRequestProcessor
             request.setAttribute("search.error.message", e.getMessage());
         }
 
-        JSPManager.showJSP(request, response, "/search/discovery.jsp");
+        //JSPManager.showJSP(request, response, "/search/discovery.jsp");
+        JSPManager.showJSP(request, response, "/ubc/statspace/simple-search.jsp");
     }
 
     protected void logSearch(Context context, HttpServletRequest request, String query, long start, DSpaceObject scope) {
