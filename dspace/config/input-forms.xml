@@ -162,17 +162,7 @@
          <required>You must choose a subject.</required>
        </field>
          
-       <!-- Subject Other -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>subject</dc-element>
-         <dc-qualifier>other</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Other Subject(s)</label>
-         <input-type>onebox</input-type>
-         <hint>If you choose 'Other' subject, please enter details here.</hint>
-         <required></required>
-       </field>
+
 
        <!-- Abstract / Description -->
        <field>
@@ -209,6 +199,16 @@
          <required></required>
        </field>  
        
+	   <!-- What we learned -->
+       <field>
+         <dc-schema>dcterms</dc-schema>
+         <dc-element>educationLevel</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>What we learned</label>
+         <input-type>textarea</input-type>
+         <required></required>
+       </field>  
        
 
         
@@ -5996,10 +5996,7 @@
        <displayed-value>Two-sample inference for proportions</displayed-value>
        <stored-value>Two-sample inference for proportions</stored-value>
      </pair>
-     <pair>
-       <displayed-value>Other</displayed-value>
-       <stored-value>Other</stored-value>
-     </pair>
+
    </value-pairs>
  <!-- Alone                                                                 -->\
    <value-pairs value-pairs-name="bayesian_inference_subjects" dc-term="subject">
