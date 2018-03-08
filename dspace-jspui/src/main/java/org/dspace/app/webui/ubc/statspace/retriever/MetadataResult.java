@@ -10,7 +10,7 @@
  *
  * http://www.dspace.org/license/
  */
-package org.dspace.app.webui.ubc.statspace;
+package org.dspace.app.webui.ubc.statspace.retriever;
 
 import java.util.ArrayList;
 import java.util.List;

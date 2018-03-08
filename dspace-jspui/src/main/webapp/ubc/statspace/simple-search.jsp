@@ -8,7 +8,7 @@
 
 --%>
 
-<%@page import="org.dspace.app.webui.ubc.statspace.ItemRetriever"%>
+<%@page import="org.dspace.app.webui.ubc.statspace.retriever.ItemRetriever"%>
 <%--
   - Display the form to refine the simple-search and dispaly the results of the search
   -

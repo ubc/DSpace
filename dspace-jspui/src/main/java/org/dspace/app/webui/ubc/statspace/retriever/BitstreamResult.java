@@ -5,7 +5,7 @@
  *
  * http://www.dspace.org/license/
  */
-package org.dspace.app.webui.ubc.statspace;
+package org.dspace.app.webui.ubc.statspace.retriever;
 
 public class BitstreamResult {
 	private String name;

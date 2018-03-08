@@ -47,7 +47,7 @@
 <%@page import="org.dspace.eperson.EPerson"%>
 <%@page import="org.dspace.versioning.VersionHistory"%>
 
-<%@page import="org.dspace.app.webui.ubc.statspace.ItemRetriever"%>
+<%@page import="org.dspace.app.webui.ubc.statspace.retriever.ItemRetriever"%>
 
 <%
     // Attributes
