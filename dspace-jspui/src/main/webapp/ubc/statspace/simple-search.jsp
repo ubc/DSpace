@@ -469,12 +469,6 @@ else if( qResults != null)
 	        qResults.getStart()+qResults.getMaxResults():qResults.getTotalSearchResults();
 %>
     <%-- <p align="center">Results <//%=qResults.getStart()+1%>-<//%=qResults.getStart()+qResults.getHitHandles().size()%> of --%>
-	<div class="alert alert-info"><fmt:message key="jsp.search.results.results">
-        <fmt:param><%=qResults.getStart()+1%></fmt:param>
-        <fmt:param><%=lastHint%></fmt:param>
-        <fmt:param><%=qResults.getTotalSearchResults()%></fmt:param>
-        <fmt:param><%=(float) qResults.getSearchTime() / 1000%></fmt:param>
-    </fmt:message></div>
     <ul class="pagination pull-right">
 	<%
 	if (pageFirst != pageCurrent)
@@ -534,11 +528,51 @@ else if( qResults != null)
 </div>
 <div class="discovery-result-results">
 
-<% if (communities.length > 0 ) { %>
+<% if (items.length > 0) { %>
+	<div class="row">
+		<div class="col-md-12 searchResultsWrap">
+		<c:forEach items="${items}" var="item">
+			<%
+				ItemRetriever itemRetriever = new ItemRetriever(
+					(Item) pageContext.findAttribute("item"), pageContext);
+				pageContext.setAttribute("itemRetriever", itemRetriever);
+			%>
+			<div class="col-md-4 col-sm-6 col-xs-12 thumbnail searchResultBox">
+				<a class="center-block searchResultThumbnail img-rounded" href="${itemRetriever.url}" 
+				   style='background: center / contain no-repeat url(${itemRetriever.thumbnail}), slategray;'>
+					<div class="text-center searchResultThumbnailPlaceholder">
+						<c:if test="${empty itemRetriever.thumbnail}">
+						<%-- table is a simple but stupid workaround for vertical centering placeholder image --%>
+						<table>
+							<tr>
+								<td>
+									<span class="glyphicon glyphicon-file"></span>
+								</td>
+							</tr>
+						</table>
+						</c:if>
+					</div>
+				</a>
+
+				<div class="caption">
+					<h4>${itemRetriever.title}</h4>
+					<div>
+						${itemRetriever.description}
+					</div>
+				</div>
+				<div class="searchResultBoxButton">
+					<a class="btn btn-primary" href="${itemRetriever.url}">View</a>
+				</div>
+			</div>
+		</c:forEach>
+		</div>
+	</div>
+	<%--
     <div class="panel panel-info">
-    <div class="panel-heading"><fmt:message key="jsp.search.results.comhits"/></div>
-    <dspace:communitylist  communities="<%= communities %>" />
+    <div class="panel-heading"><fmt:message key="jsp.search.results.itemhits"/></div>
+    <dspace:itemlist items="<%= items %>" />
     </div>
+	--%>
 <% } %>
 
 <% if (collections.length > 0 ) { %>
@@ -548,40 +582,11 @@ else if( qResults != null)
     </div>
 <% } %>
 
-<% if (items.length > 0) { %>
-	<div class="row">
-		<c:forEach items="${items}" var="item">
-			<%
-				ItemRetriever itemRetriever = new ItemRetriever(
-					(Item) pageContext.findAttribute("item"), pageContext);
-				pageContext.setAttribute("itemRetriever", itemRetriever);
-			%>
-			<div class="col-md-4 col-sm-6 col-xs-12">
-				<div class="thumbnail">
-					<a class="center-block" href="${itemRetriever.url}">
-						<img class="img-responsive" src="${itemRetriever.thumbnail}" />
-					</a>
-
-					<div class="caption">
-						<h4>${itemRetriever.title}</h4>
-						<div>
-							${itemRetriever.description}
-						</div>
-						<div class="text-center" style="margin-top:0.6em">
-							<a class="btn btn-primary" href="${itemRetriever.url}">View</a>
-						</div>
-						
-					</div>
-				</div>
-			</div>
-		</c:forEach>
-	</div>
-	<%--
+<% if (communities.length > 0 ) { %>
     <div class="panel panel-info">
-    <div class="panel-heading"><fmt:message key="jsp.search.results.itemhits"/></div>
-    <dspace:itemlist items="<%= items %>" />
+    <div class="panel-heading"><fmt:message key="jsp.search.results.comhits"/></div>
+    <dspace:communitylist  communities="<%= communities %>" />
     </div>
-	--%>
 <% } %>
 </div>
 <%-- if the result page is enought long... --%>

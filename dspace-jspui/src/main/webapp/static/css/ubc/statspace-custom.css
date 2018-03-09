@@ -1,0 +1,43 @@
+/* Make shared height search results gallery boxes */
+.discovery-result-results div.searchResultsWrap {
+	display: flex;
+	flex-wrap: wrap;
+}
+.discovery-result-results div.searchResultBox {
+	margin-bottom: 1em;
+	border-radius: 0;
+}
+
+/* Make fixed width but still proportional thumbnails. */
+.discovery-result-results a.searchResultThumbnail {
+	display: block;
+}
+.discovery-result-results div.searchResultThumbnailPlaceholder {
+	height: 150px;
+	color: white; /* Remove color from link */
+}
+.discovery-result-results div.searchResultThumbnailPlaceholder table {
+	height: 100%;
+	width: 100%;
+}
+.discovery-result-results div.searchResultThumbnailPlaceholder table span {
+	font-size: 4em;
+	vertical-align: middle;
+	text-align: center;
+}
+
+/* Position search result box's view button to the bottom */
+.discovery-result-results div.searchResultBox {
+	position: relative;
+	padding-bottom: 4em;
+}
+.discovery-result-results div.searchResultBoxButton {
+	position: absolute;
+	left: 50%;
+	margin-left: -2.5em;
+	bottom: 0.5em;
+}
+.discovery-result-results div.searchResultBoxButton a {
+	width: 5em;
+	height: 2.5em;
+}
