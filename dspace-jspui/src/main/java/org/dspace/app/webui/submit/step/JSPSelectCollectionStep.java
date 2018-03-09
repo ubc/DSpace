@@ -62,7 +62,8 @@ import org.dspace.submit.step.SelectCollectionStep;
 public class JSPSelectCollectionStep extends JSPStep
 {
     /** JSP which displays HTML for this Class * */
-    private static final String SELECT_COLLECTION_JSP = "/submit/select-collection.jsp";
+    //private static final String SELECT_COLLECTION_JSP = "/submit/select-collection.jsp";
+    private static final String SELECT_COLLECTION_JSP = "/ubc/statspace/select-collection.jsp";
 
     /** log4j logger */
     private static Logger log = Logger.getLogger(JSPSelectCollectionStep.class);

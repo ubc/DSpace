@@ -41,3 +41,27 @@
 	width: 5em;
 	height: 2.5em;
 }
+
+/* Selection step overlay */
+#selectCollectionStepOverlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 1001; /* navbar has an z-index of 1000 for some reason */
+	background-color: rgba(0,0,0,0.9);
+}
+#selectCollectionStepOverlayModal {
+	width: 30em;
+    height: 5.5em;
+    position: fixed;
+    top: 50%; 
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -150px;
+    background-color: rgba(255,255,255,0.7);
+    border-radius: 5px;
+    text-align: center;
+    z-index: 1002; /* 1px higher than the overlay layer */
+}
