@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
+import org.dspace.app.webui.json.CreativeCommonsJSONRequest;
 import org.dspace.app.webui.json.JSONRequest;
 import org.dspace.authorize.AuthorizeException;
 import org.dspace.core.Context;
@@ -50,8 +51,15 @@ public class JSONServlet extends DSpaceServlet
             pluginName = pluginName.substring(1);
             pluginName = pluginName.split("/")[0];
         }
-        JSONRequest jsonReq = (JSONRequest) PluginManager.getNamedPlugin(JSONRequest.class, 
-                pluginName);
+
+		JSONRequest jsonReq;
+		if (pluginName.equals("creativecommons")) {
+			jsonReq = new CreativeCommonsJSONRequest();
+		}
+		else {
+			jsonReq = (JSONRequest) PluginManager.getNamedPlugin(JSONRequest.class, 
+					pluginName);
+		}
         
         if (jsonReq == null)
         {
