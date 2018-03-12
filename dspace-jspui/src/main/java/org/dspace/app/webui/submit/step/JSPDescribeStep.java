@@ -66,7 +66,8 @@ import org.dspace.submit.step.DescribeStep;
 public class JSPDescribeStep extends JSPStep
 {
     /** JSP which displays HTML for this Class * */
-    private static final String DISPLAY_JSP = "/submit/edit-metadata.jsp";
+    //private static final String DISPLAY_JSP = "/submit/edit-metadata.jsp";
+    private static final String DISPLAY_JSP = "/ubc/statspace/edit-metadata.jsp";
     
     /** JSP which reviews information gathered by DISPLAY_JSP * */
     private static final String REVIEW_JSP = "/submit/review-metadata.jsp";
