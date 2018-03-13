@@ -1509,10 +1509,14 @@ jQuery(document).ready(function() {
 		jQuery(selectId).prop('disabled', false);
 	}
 
+	function sanitizeForId(str) {
+		return str.replace(/[^\w]/g, 'a');
+	}
+
 	// Add a new entry into the Selected Subjects table
 	function addToSelectedSubjectsTable(val) {
-		var rowId = "subjectsRow" + val;
-		var btnId = "subjectsBtn" + val;
+		var rowId = sanitizeForId("subjectsRow" + val);
+		var btnId = sanitizeForId("subjectsBtn" + val);
 		// already entered 
 		if (jQuery("#" + rowId).length) return;
 		// get the friendly label for each level
