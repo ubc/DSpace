@@ -209,11 +209,11 @@
 	
 	<div class='row'> 
 		<!-- START SUBMISSION MAIN BODY -->
-		<div class='col-md-8'> 
-			<!-- Description Main Body-->
+		<div class='col-md-7'> 
+			<!-- Summary Main Body-->
 			<div class='lead panel panel-default'> 
 				<div class='panel-body'>
-					${itemRetriever.description}
+					${itemRetriever.summary}
 				</div>
 			</div> 
 
@@ -230,59 +230,71 @@
 				</div>
 			</c:forEach>
 
-			<hr>
+			<hr />
 
 			<!-- Pre-Reqs Main Body -->
+			<c:if test="${!empty itemRetriever.prereqs}">
 			<div class='panel panel-default'>
 				<div class='panel-heading'>
 					Pre-Requisite Knowledge
 				</div> 
 				<ul class='list-group'>
-					<li class='list-group-item'>Some Pre-req</li>
-					<li class='list-group-item'>Some Pre-req</li>
-					<li class='list-group-item'>Some Pre-req</li>
+					<c:forEach items="${itemRetriever.prereqs}" var="prereq">
+						<li class='list-group-item'>${prereq}</li>
+					</c:forEach>
 				</ul>
 			</div>
+			</c:if>
 
 			<!-- Learning Objectives Main Body -->
+			<c:if test="${!empty itemRetriever.objectives}">
 			<div class='panel panel-default'>
 				<div class='panel-heading'>
 					Learning Objectives
 				</div> 
 				<ul class='list-group'>
-					<li class='list-group-item'>Objectives 1</li>
-					<li class='list-group-item'>Objectives 2</li>
-					<li class='list-group-item'>Objectives 3</li>
+					<c:forEach items="${itemRetriever.objectives}" var="prereq">
+						<li class='list-group-item'>${prereq}</li>
+					</c:forEach>
 				</ul>
 			</div>
-
-			<h3>Suggested Uses &amp; Tips</h3> 
-			<p> 
-			Some tips and uses.  
-			</p> 
-			<h3>About This Resource</h3> 
-			<p> 
-			Created By: Some Name  
-			</p> 
+			</c:if>
 		</div> 
 		<!-- END SUBMISSION MAIN BODY -->
 
 		<!-- START RIGHT SIDE BAR -->
-		<div class='col-md-4'> 
+		<div class='col-md-5'> 
 			<!-- Tags Side Bar -->
 			<div class="panel panel-info">
 				<div class="panel-heading">
-					<h3 class="panel-title"><i class="glyphicon glyphicon-tag"></i> Tags</h3>
+					<h3 class="panel-title"><i class="glyphicon glyphicon-tag"></i> Subjects</h3>
+				</div>
+				<ul class="list-group subjectsList">
+					<c:forEach items="${itemRetriever.subjects}" var="subject">
+						<li class="list-group-item">
+							<span class="label label-default level1">${subject.level1}</span>
+							<span class="label label-default level2">${subject.level2}</span>
+							<span class="label label-default level3"><div>${subject.level3}</div></span>
+						</li>
+					</c:forEach>
+				</ul>
+			</div>
+
+			<!-- Resource Types -->
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title"><i class="glyphicon glyphicon-bookmark"></i> Resource Types</h3>
 				</div>
 				<div class="panel-body">
-					<ul>
-						<c:forEach items="${itemRetriever.subjects}" var="subject">
-							<li>${subject}</li>
-						</c:forEach>
-					</ul>
+					<c:forEach items="${itemRetriever.resourceTypes}" var="type">
+						<span class="label label-default labelResource">
+							${type}
+						</span>
+					</c:forEach>
 				</div>
 			</div>
 
+			<%-- Not implemented
 			<!-- Related Materials Side Bar -->
 			<div class="panel panel-warning">
 				<div class="panel-heading">
@@ -296,22 +308,39 @@
 					</ul>
 				</div>
 			</div>
+			--%>
 
 			<!-- What We Learned Side Bar -->
+			<c:if test="${!empty itemRetriever.whatWeLearned}">
 			<div class="panel panel-success">
 				<div class="panel-heading">
 					<h3 class="panel-title"><i class="glyphicon glyphicon-book"></i> What we learned</h3>
 				</div>
 				<div class="panel-body">
-					<p>We learned a lot about this resource from trialling with students. The sampling distribution is a complex concept.  For instance, from our teaching, we have found that students often confuse the histogram of values from a random sample and the histogram of sample means from many random samples.</p>
+					${itemRetriever.whatWeLearned}
 				</div>
 			</div>
+			</c:if>
 		</div> 
 		<!-- END RIGHT SIDE BAR -->
 
 	</div> 
 
 	<!-- SUBMISSION FOOTER -->
+	<h2>Description</h2>
+	<div>
+		${itemRetriever.description}
+	</div>
+
+	<h3>About This Resource</h3> 
+	<p> 
+	Created By: 
+		<c:forEach items="${itemRetriever.authors}" var="author" varStatus="loop">
+			${author}<c:if test="${!loop.last}">;</c:if>
+		</c:forEach>
+	</p> 
+	<p>Date: ${itemRetriever.date}</p>
+	<%-- Not implemented yet, should considering moving some of the right side bar here
 	<div class='row'> 
 		<div class='col-md-12'> 
 			<h3>More RESOURCE TYPE</h3> 
@@ -324,6 +353,9 @@
 			</p> 
 		</div> 
 	</div>
+	--%>
+
+<%-- Not implemented yet
 
 <div class="container row">
 <%
@@ -431,7 +463,7 @@
             }
     </script>
     
-    <%-- SFX Link --%>
+    <!-- SFX Link -->
 <%
     if (ConfigurationManager.getProperty("sfx.server.url") != null)
     {
@@ -447,6 +479,9 @@
     }
 %>
 </div>
+
+--%>
+
 <br/>
     <%-- Versioning table --%>
 <%

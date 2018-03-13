@@ -65,3 +65,34 @@
     text-align: center;
     z-index: 1002; /* 1px higher than the overlay layer */
 }
+
+/* Show item subjects list customization */
+.subjectsList span.label {
+	display: inline-flex;
+	padding-top: 0.3em;
+	font-size: 85%;
+	margin-bottom: 0.1em;
+	overflow: hidden;
+}
+.subjectsList span.label div {
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.subjectsList span.level1 {
+	background: dimgray;
+}
+.subjectsList span.level2 {
+	background: slategray;
+}
+.subjectsList span.level3 {
+	background: steelblue;
+}
+
+/* Show item resource types customization */
+span.label.labelResource {
+	background: mediumseagreen;
+	display: inline-block;
+	margin-bottom: 0.2em;
+	font-size: 1em;
+}

@@ -557,7 +557,7 @@ else if( qResults != null)
 				<div class="caption">
 					<h4>${itemRetriever.title}</h4>
 					<div>
-						${itemRetriever.description}
+						${itemRetriever.summary}
 					</div>
 				</div>
 				<div class="searchResultBoxButton">
