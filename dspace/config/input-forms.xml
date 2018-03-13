@@ -206,552 +206,552 @@
    <value-pairs value-pairs-name="statspace_subjects" dc-term="subject">
     <pair>
 	   <displayed-value>Combinatorics >>> Counting >>> Combinations</displayed-value>
-	   <stored-value>Combinatorics___Counting___Combinations</stored-value>
+	   <stored-value>Combinatorics >>> Counting >>> Combinations</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Combinatorics >>> Counting >>> Factorial Arthimetic</displayed-value>
-	   <stored-value>Combinatorics___Counting___Factorial_Arthimetic</stored-value>
+	   <stored-value>Combinatorics >>> Counting >>> Factorial Arthimetic</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Combinatorics >>> Counting >>> Inclusion/Exclusion</displayed-value>
-	   <stored-value>Combinatorics___Counting___Inclusion_Exclusion</stored-value>
+	   <stored-value>Combinatorics >>> Counting >>> Inclusion/Exclusion</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Combinatorics >>> Counting >>> Multiple Techniques</displayed-value>
-	   <stored-value>Combinatorics___Counting___Multiple_Techniques</stored-value>
+	   <stored-value>Combinatorics >>> Counting >>> Multiple Techniques</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Combinatorics >>> Counting >>> Permutations</displayed-value>
-	   <stored-value>Combinatorics___Counting___Permutations</stored-value>
+	   <stored-value>Combinatorics >>> Counting >>> Permutations</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Combinatorics >>> Counting >>> Pigeonhole Principle</displayed-value>
-	   <stored-value>Combinatorics___Counting___Pigeonhole_Principle</stored-value>
+	   <stored-value>Combinatorics >>> Counting >>> Pigeonhole Principle</stored-value>
 	</pair>
 
 	<pair>
-	   <displayed-value>Combinatorics >>> Counting >>> Principles( Addition, Subtraction, Multiplication)</displayed-value>
-	   <stored-value>Combinatorics___Counting___Principles_Addition_Subtraction_Multiplication</stored-value>
+	   <displayed-value>Combinatorics >>> Counting >>> Principles (Addition, Subtraction, Multiplication)</displayed-value>
+	   <stored-value>Combinatorics >>> Counting >>> Principles (Addition, Subtraction, Multiplication)</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Combinatorics >>> Counting >>> Recursive</displayed-value>
-	   <stored-value>Combinatorics___Counting___Recursive</stored-value>
+	   <stored-value>Combinatorics >>> Counting >>> Recursive</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Combinatorics >>> Counting >>> Stars and Bars</displayed-value>
-	   <stored-value>Combinatorics___Counting___Stars_and_Bars</stored-value>
+	   <stored-value>Combinatorics >>> Counting >>> Stars and Bars</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Combinatorics >>> Recurrence Relations >>> Concepts</displayed-value>
-	   <stored-value>Combinatorics___Recurrence_Relations___Concepts</stored-value>
+	   <stored-value>Combinatorics >>> Recurrence Relations >>> Concepts</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Combinatorics >>> Recurrence Relations >>> Solving Homogeneous</displayed-value>
-	   <stored-value>Combinatorics___Combinatorics___Recurrence_Relations___Solving_Homogeneous</stored-value>
+	   <stored-value>Combinatorics >>> Recurrence Relations >>> Solving Homogeneous</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Combinatorics >>> Recurrence Relations >>> Solving Non-Homogeneous</displayed-value>
-	   <stored-value>Combinatorics___Recurrence_Relations___Solving_Non-Homogeneous</stored-value>
+	   <stored-value>Combinatorics >>> Recurrence Relations >>> Solving Non-Homogeneous</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Probability >>> Continuous Distributions >>> Application of a Normal Distribution</displayed-value>
-	   <stored-value>Probability___Continuous_Distributions___Application_of_a_Normal_Distribution</stored-value>
+	   <stored-value>Probability >>> Continuous Distributions >>> Application of a Normal Distribution</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Probability >>> Continuous Distributions >>> Exponential</displayed-value>
-	   <stored-value>Probability___Continuous_Distributions___Exponential</stored-value>
+	   <stored-value>Probability >>> Continuous Distributions >>> Exponential</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Probability >>> Continuous Distributions >>> Gaussian Normal</displayed-value>
-	   <stored-value>Probability___Continuous_Distributions___Gaussian_Normal</stored-value>
+	   <stored-value>Probability >>> Continuous Distributions >>> Gaussian Normal</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Probability >>> Continuous Distributions >>> Other Distributions</displayed-value>
-	   <stored-value>Probability___Continuous_Distributions___Other_Distributions</stored-value>
+	   <stored-value>Probability >>> Continuous Distributions >>> Other Distributions</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Probability >>> Continuous Distributions >>> Uniform</displayed-value>
-	   <stored-value>Probability___Continuous_Distributions___Uniform</stored-value>
+	   <stored-value>Probability >>> Continuous Distributions >>> Uniform</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Probability >>> Discrete Distributions >>> Bernoulli</displayed-value>
-	   <stored-value>Probability___Discrete_Distributions___Bernoulli</stored-value>
+	   <stored-value>Probability >>> Discrete Distributions >>> Bernoulli</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Probability >>> Discrete Distributions >>> Binomial</displayed-value>
-	   <stored-value>Probability___Discrete_Distributions___Binomial</stored-value>
+	   <stored-value>Probability >>> Discrete Distributions >>> Binomial</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Probability >>> Discrete Distributions >>> Geometric</displayed-value>
-	   <stored-value>Probability___Discrete_Distributions___Geometric</stored-value>
+	   <stored-value>Probability >>> Discrete Distributions >>> Geometric</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Probability >>> Discrete Distributions >>> Hypergeometric</displayed-value>
-	   <stored-value>Probability___Discrete_Distributions___Hypergeometric</stored-value>
+	   <stored-value>Probability >>> Discrete Distributions >>> Hypergeometric</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Probability >>> Discrete Distributions >>> Negative Binomial</displayed-value>
-	   <stored-value>Probability___Discrete_Distributions___Negative_Binomial</stored-value>
+	   <stored-value>Probability >>> Discrete Distributions >>> Negative Binomial</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Probability >>> Discrete Distributions >>> Normal Approximation to Binomial</displayed-value>
-	   <stored-value>Probability___Discrete_Distributions___Normal_Approximation_to_Binomial</stored-value>
+	   <stored-value>Probability >>> Discrete Distributions >>> Normal Approximation to Binomial</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Probability >>> Discrete Distributions >>> Poisson</displayed-value>
-	   <stored-value>Probability___Discrete_Distributions___Poisson</stored-value>
+	   <stored-value>Probability >>> Discrete Distributions >>> Poisson</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Probability >>> Laws, Theory >>> Central Limit Theorem</displayed-value>
-	   <stored-value>Probability___Laws_Theory___Central_Limit_Theorem</stored-value>
+	   <stored-value>Probability >>> Laws, Theory >>> Central Limit Theorem</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Probability >>> Laws, Theory >>> Chebychev's Inequality</displayed-value>
-	   <stored-value>Probability___Laws_Theory___Chebychevs_Inequality</stored-value>
+	   <stored-value>Probability >>> Laws, Theory >>> Chebychev's Inequality</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Probability >>> Laws, Theory >>> Misc.</displayed-value>
-	   <stored-value>Probability___Laws_Theory___Misc</stored-value>
+	   <stored-value>Probability >>> Laws, Theory >>> Misc.</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Probability >>> Random Variables >>> Continuous: Density Function, Cumulative Distribution Function</displayed-value>
-	   <stored-value>Probability___Random_Variables___Continuous_Density_Function_Cumulative_Distribution_Function</stored-value>
+	   <stored-value>Probability >>> Random Variables >>> Continuous: Density Function, Cumulative Distribution Function</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Probability >>> Random Variables >>> Discrete: Probability Mass Function</displayed-value>
-	   <stored-value>Probability___Random_Variables___Discrete_Probability_Mass_Function</stored-value>
+	   <stored-value>Probability >>> Random Variables >>> Discrete: Probability Mass Function</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Probability >>> Random Variables >>> Expectation</displayed-value>
-	   <stored-value>Probability___Random_Variables___Expectation</stored-value>
+	   <stored-value>Probability >>> Random Variables >>> Expectation</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Probability >>> Random Variables >>> Generating Function</displayed-value>
-	   <stored-value>Probability___Random_Variables___Generating_Function</stored-value>
+	   <stored-value>Probability >>> Random Variables >>> Generating Function</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Probability >>> Random Variables >>> Variance, Standard Deviation</displayed-value>
-	   <stored-value>Probability___Random_Variables___Variance_Standard_Deviation</stored-value>
+	   <stored-value>Probability >>> Random Variables >>> Variance, Standard Deviation</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Probability >>> Sample Space >>> Bayes Theorem, Inverse Probability</displayed-value>
-	   <stored-value>Probability___Sample_Space___Bayes_Theorem_Inverse_Probability</stored-value>
+	   <stored-value>Probability >>> Sample Space >>> Bayes Theorem, Inverse Probability</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Probability >>> Sample Space >>> Conditional Probability -- Direct</displayed-value>
-	   <stored-value>Probability___Sample_Space___Conditional_Probability_--_Direct</stored-value>
+	   <stored-value>Probability >>> Sample Space >>> Conditional Probability -- Direct</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Probability >>> Sample Space >>> Independence</displayed-value>
-	   <stored-value>Probability___Sample_Space___Independence</stored-value>
+	   <stored-value>Probability >>> Sample Space >>> Independence</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Probability >>> Sample Space >>> Odds</displayed-value>
-	   <stored-value>Probability___Sample_Space___Odds</stored-value>
+	   <stored-value>Probability >>> Sample Space >>> Odds</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Probability >>> Sample Space >>> Outcomes and Events</displayed-value>
-	   <stored-value>Probability___Sample_Space___Outcomes_and_Events</stored-value>
+	   <stored-value>Probability >>> Sample Space >>> Outcomes and Events</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Probability >>> Sample Space >>> Probability: Direct Computation, Inclusion/Exclusion</displayed-value>
-	   <stored-value>Probability___Sample_Space___Probability_Direct_Computation_Inclusion_Exclusion</stored-value>
+	   <stored-value>Probability >>> Sample Space >>> Probability: Direct Computation, Inclusion/Exclusion</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Probability >>> Several Variables >>> Covariance and Correlation</displayed-value>
-	   <stored-value>Probability___Several_Variables___Covariance_and_Correlation</stored-value>
+	   <stored-value>Probability >>> Several Variables >>> Covariance and Correlation</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Probability >>> Several Variables >>> Joint Distribution</displayed-value>
-	   <stored-value>Probability___Several_Variables___Joint_Distribution</stored-value>
+	   <stored-value>Probability >>> Several Variables >>> Joint Distribution</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Probability >>> Several Variables >>> Marginal Distributions</displayed-value>
-	   <stored-value>Probability___Several_Variables___Marginal_Distributions</stored-value>
+	   <stored-value>Probability >>> Several Variables >>> Marginal Distributions</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Probability >>> Stochastic Process >>> Markov Chain</displayed-value>
-	   <stored-value>Probability___Stochastic_Process___Markov_Chain</stored-value>
+	   <stored-value>Probability >>> Stochastic Process >>> Markov Chain</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Bayesian Inference >>> Credibility Intervals</displayed-value>
-	   <stored-value>Statistics___Bayesian_Inference___Credibility_Intervals</stored-value>
+	   <stored-value>Statistics >>> Bayesian Inference >>> Credibility Intervals</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Bayesian Inference >>> Hypothesis Tests</displayed-value>
-	   <stored-value>Statistics___Bayesian_Inference___Hypothesis_Tests</stored-value>
+	   <stored-value>Statistics >>> Bayesian Inference >>> Hypothesis Tests</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Bayesian Inference >>> Posterior Distribution</displayed-value>
-	   <stored-value>Statistics___Bayesian_Inference___Posterior_Distribution</stored-value>
+	   <stored-value>Statistics >>> Bayesian Inference >>> Posterior Distribution</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Confidence Intervals >>> Concepts</displayed-value>
-	   <stored-value>Statistics___Confidence_Intervals___Concepts</stored-value>
+	   <stored-value>Statistics >>> Confidence Intervals >>> Concepts</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Confidence Intervals >>> Independent Samples - t</displayed-value>
-	   <stored-value>Statistics___Confidence_Intervals___Independent_Samples_-_t</stored-value>
+	   <stored-value>Statistics >>> Confidence Intervals >>> Independent Samples - t</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Confidence Intervals >>> Independent Samples - z</displayed-value>
-	   <stored-value>Statistics___Confidence_Intervals___Independent_Samples_-_z</stored-value>
+	   <stored-value>Statistics >>> Confidence Intervals >>> Independent Samples - z</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Confidence Intervals >>> One Sample Mean - t</displayed-value>
-	   <stored-value>Statistics___Confidence_Intervals___One_Sample_Mean_-_t</stored-value>
+	   <stored-value>Statistics >>> Confidence Intervals >>> One Sample Mean - t</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Confidence Intervals >>> One Sample Mean - z</displayed-value>
-	   <stored-value>Statistics___Confidence_Intervals___One_Sample_Mean_-_z</stored-value>
+	   <stored-value>Statistics >>> Confidence Intervals >>> One Sample Mean - z</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Confidence Intervals >>> One Sample Portion</displayed-value>
-	   <stored-value>Statistics___Confidence_Intervals___One_Sample_Portion</stored-value>
+	   <stored-value>Statistics >>> Confidence Intervals >>> One Sample Portion</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Confidence Intervals >>> Paired Samples</displayed-value>
-	   <stored-value>Statistics___Confidence_Intervals___Paired_Samples</stored-value>
+	   <stored-value>Statistics >>> Confidence Intervals >>> Paired Samples</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Confidence Intervals >>> Two Sample Proportion</displayed-value>
-	   <stored-value>Statistics___Confidence_Intervals___Two_Sample_Proportion</stored-value>
+	   <stored-value>Statistics >>> Confidence Intervals >>> Two Sample Proportion</stored-value>
 	</pair>
 
 	<pair>
-	   <displayed-value>Statistics >>> Confidence Intervals >>> Variance </displayed-value>
-	   <stored-value>Statistics___Confidence_Intervals___Variance_</stored-value>
+	   <displayed-value>Statistics >>> Confidence Intervals >>> Variance</displayed-value>
+	   <stored-value>Statistics >>> Confidence Intervals >>> Variance</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Experimental Design >>> Concepts</displayed-value>
-	   <stored-value>Statistics___Experimental_Design___Concepts</stored-value>
+	   <stored-value>Statistics >>> Experimental Design >>> Concepts</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Exploratory Data Analysis/Descriptive Statistics >>> Classifying Data</displayed-value>
-	   <stored-value>Statistics___Exploratory_Data_Analysis_Descriptive_Statistics___Classifying_Data</stored-value>
+	   <stored-value>Statistics >>> Exploratory Data Analysis/Descriptive Statistics >>> Classifying Data</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Exploratory Data Analysis/Descriptive Statistics >>> Description of Distributions</displayed-value>
-	   <stored-value>Statistics___Exploratory_Data_Analysis_Descriptive_Statistics___Description_of_Distributions</stored-value>
+	   <stored-value>Statistics >>> Exploratory Data Analysis/Descriptive Statistics >>> Description of Distributions</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Exploratory Data Analysis/Descriptive Statistics >>> Graphical Representations</displayed-value>
-	   <stored-value>Statistics___Exploratory_Data_Analysis_Descriptive_Statistics___Graphical_Representations</stored-value>
+	   <stored-value>Statistics >>> Exploratory Data Analysis/Descriptive Statistics >>> Graphical Representations</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Exploratory Data Analysis/Descriptive Statistics >>> Summarizing Data in Tables</displayed-value>
-	   <stored-value>Statistics___Exploratory_Data_Analysis_Descriptive_Statistics___Summarizing_Data_in_Tables</stored-value>
+	   <stored-value>Statistics >>> Exploratory Data Analysis/Descriptive Statistics >>> Summarizing Data in Tables</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Exploratory Data Analysis/Descriptive Statistics >>> Summary Statistics</displayed-value>
-	   <stored-value>Statistics___Exploratory_Data_Analysis_Descriptive_Statistics___Summary_Statistics</stored-value>
+	   <stored-value>Statistics >>> Exploratory Data Analysis/Descriptive Statistics >>> Summary Statistics</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Generalized Linear Methods >>> Logistic Regression</displayed-value>
-	   <stored-value>Statistics___Generalized_Linear_Methods___Logistic_Regression</stored-value>
+	   <stored-value>Statistics >>> Generalized Linear Methods >>> Logistic Regression</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Hypothesis Tests >>> Chi-squared Test for Goodness of Fit</displayed-value>
-	   <stored-value>Statistics___Hypothesis_Tests___Chi-squared_Test_for_Goodness_of_Fit</stored-value>
+	   <stored-value>Statistics >>> Hypothesis Tests >>> Chi-squared Test for Goodness of Fit</stored-value>
 	</pair>
 
 	<pair>
-	   <displayed-value>Statistics >>> Hypothesis Tests >>> Chi-squared Test for Independence </displayed-value>
-	   <stored-value>Statistics___Hypothesis_Tests___Chi-squared_Test_for_Independence_</stored-value>
+	   <displayed-value>Statistics >>> Hypothesis Tests >>> Chi-squared Test for Independence</displayed-value>
+	   <stored-value>Statistics >>> Hypothesis Tests >>> Chi-squared Test for Independence</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Hypothesis Tests >>> Concepts</displayed-value>
-	   <stored-value>Statistics___Hypothesis_Tests___Concepts</stored-value>
+	   <stored-value>Statistics >>> Hypothesis Tests >>> Concepts</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Hypothesis Tests >>> Independent Samples - t</displayed-value>
-	   <stored-value>Statistics___Hypothesis_Tests___Independent_Samples_-_t</stored-value>
+	   <stored-value>Statistics >>> Hypothesis Tests >>> Independent Samples - t</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Hypothesis Tests >>> Independent Samples - z</displayed-value>
-	   <stored-value>Statistics___Hypothesis_Tests___Independent_Samples_-_z</stored-value>
+	   <stored-value>Statistics >>> Hypothesis Tests >>> Independent Samples - z</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Hypothesis Tests >>> One Sample Mean - t</displayed-value>
-	   <stored-value>Statistics___Hypothesis_Tests___One_Sample_Mean_-_t</stored-value>
+	   <stored-value>Statistics >>> Hypothesis Tests >>> One Sample Mean - t</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Hypothesis Tests >>> One Sample Mean - z</displayed-value>
-	   <stored-value>Statistics___Hypothesis_Tests___One_Sample_Mean_-_z</stored-value>
+	   <stored-value>Statistics >>> Hypothesis Tests >>> One Sample Mean - z</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Hypothesis Tests >>> One Sample Proportion</displayed-value>
-	   <stored-value>Statistics___Hypothesis_Tests___One_Sample_Proportion</stored-value>
+	   <stored-value>Statistics >>> Hypothesis Tests >>> One Sample Proportion</stored-value>
 	</pair>
 
 	<pair>
-	   <displayed-value>Statistics >>> Hypothesis Tests >>> One Sample Variance </displayed-value>
-	   <stored-value>Statistics___Hypothesis_Tests___One_Sample_Variance_</stored-value>
+	   <displayed-value>Statistics >>> Hypothesis Tests >>> One Sample Variance</displayed-value>
+	   <stored-value>Statistics >>> Hypothesis Tests >>> One Sample Variance</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Hypothesis Tests >>> One-Way ANOVA</displayed-value>
-	   <stored-value>Statistics___Hypothesis_Tests___One-Way_ANOVA</stored-value>
+	   <stored-value>Statistics >>> Hypothesis Tests >>> One-Way ANOVA</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Hypothesis Tests >>> Paired Samples</displayed-value>
-	   <stored-value>Statistics___Hypothesis_Tests___Paired_Samples</stored-value>
+	   <stored-value>Statistics >>> Hypothesis Tests >>> Paired Samples</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Hypothesis Tests >>> Two Sample Proportion</displayed-value>
-	   <stored-value>Statistics___Hypothesis_Tests___Two_Sample_Proportion</stored-value>
+	   <stored-value>Statistics >>> Hypothesis Tests >>> Two Sample Proportion</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Hypothesis Tests >>> Two Sample Variances</displayed-value>
-	   <stored-value>Statistics___Hypothesis_Tests___Two_Sample_Variances</stored-value>
+	   <stored-value>Statistics >>> Hypothesis Tests >>> Two Sample Variances</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Hypothesis Tests >>> Two-way ANOVA</displayed-value>
-	   <stored-value>Statistics___Hypothesis_Tests___Two-way_ANOVA</stored-value>
+	   <stored-value>Statistics >>> Hypothesis Tests >>> Two-way ANOVA</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Hypothesis Tests >>> Type I / Type II Errors and Power</displayed-value>
-	   <stored-value>Statistics___Hypothesis_Tests___Type_I__Type_II_Errors_and_Power</stored-value>
+	   <stored-value>Statistics >>> Hypothesis Tests >>> Type I / Type II Errors and Power</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Multiple Regression >>> Hypothesis Tests</displayed-value>
-	   <stored-value>Statistics___Multiple_Regression___Hypothesis_Tests</stored-value>
+	   <stored-value>Statistics >>> Multiple Regression >>> Hypothesis Tests</stored-value>
 	</pair>
 
 	<pair>
-	   <displayed-value>Statistics >>> Multiple Regression >>> Model Selection </displayed-value>
-	   <stored-value>Statistics___Multiple_Regression___Model_Selection_</stored-value>
+	   <displayed-value>Statistics >>> Multiple Regression >>> Model Selection</displayed-value>
+	   <stored-value>Statistics >>> Multiple Regression >>> Model Selection</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Multiple Regression >>> Nonlinear Regression</displayed-value>
-	   <stored-value>Statistics___Multiple_Regression___Nonlinear_Regression</stored-value>
+	   <stored-value>Statistics >>> Multiple Regression >>> Nonlinear Regression</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Multiple Regression >>> Parameter Estimates</displayed-value>
-	   <stored-value>Statistics___Multiple_Regression___Parameter_Estimates</stored-value>
+	   <stored-value>Statistics >>> Multiple Regression >>> Parameter Estimates</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Nonparametric Methods >>> Kruskal-Wallis Tests</displayed-value>
-	   <stored-value>Statistics___Nonparametric_Methods___Kruskal-Wallis_Tests</stored-value>
+	   <stored-value>Statistics >>> Nonparametric Methods >>> Kruskal-Wallis Tests</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Nonparametric Methods >>> Rank Sum Test</displayed-value>
-	   <stored-value>Statistics___Nonparametric_Methods___Rank_Sum_Test</stored-value>
+	   <stored-value>Statistics >>> Nonparametric Methods >>> Rank Sum Test</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Nonparametric Methods >>> Signed Rank Test</displayed-value>
-	   <stored-value>Statistics___Nonparametric_Methods___Signed_Rank_Test</stored-value>
+	   <stored-value>Statistics >>> Nonparametric Methods >>> Signed Rank Test</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Point Estimation >>> Consistency</displayed-value>
-	   <stored-value>Statistics___Point_Estimation___Consistency</stored-value>
+	   <stored-value>Statistics >>> Point Estimation >>> Consistency</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Point Estimation >>> Maximum Likelihood Estimation</displayed-value>
-	   <stored-value>Statistics___Point_Estimation___Maximum_Likelihood_Estimation</stored-value>
+	   <stored-value>Statistics >>> Point Estimation >>> Maximum Likelihood Estimation</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Sample Survey Methods >>> Capture-Recapture Method</displayed-value>
-	   <stored-value>Statistics___Sample_Survey_Methods___Capture-Recapture_Method</stored-value>
+	   <stored-value>Statistics >>> Sample Survey Methods >>> Capture-Recapture Method</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Sample Survey Methods >>> Cluster Sampling</displayed-value>
-	   <stored-value>Statistics___Sample_Survey_Methods___Cluster_Sampling</stored-value>
+	   <stored-value>Statistics >>> Sample Survey Methods >>> Cluster Sampling</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Sample Survey Methods >>> Concepts</displayed-value>
-	   <stored-value>Statistics___Sample_Survey_Methods___Concepts</stored-value>
+	   <stored-value>Statistics >>> Sample Survey Methods >>> Concepts</stored-value>
 	</pair>
 
 	<pair>
-	   <displayed-value>Statistics >>> Sample Survey Methods >>> Ratio Estimators </displayed-value>
-	   <stored-value>Statistics___Sample_Survey_Methods___Ratio_Estimators_</stored-value>
+	   <displayed-value>Statistics >>> Sample Survey Methods >>> Ratio Estimators</displayed-value>
+	   <stored-value>Statistics >>> Sample Survey Methods >>> Ratio Estimators</stored-value>
 	</pair>
 
 	<pair>
-	   <displayed-value>Statistics >>> Sample Survey Methods >>> Regression Estimators </displayed-value>
-	   <stored-value>Statistics___Sample_Survey_Methods___Regression_Estimators_</stored-value>
+	   <displayed-value>Statistics >>> Sample Survey Methods >>> Regression Estimators</displayed-value>
+	   <stored-value>Statistics >>> Sample Survey Methods >>> Regression Estimators</stored-value>
 	</pair>
 
 	<pair>
-	   <displayed-value>Statistics >>> Sample Survey Methods >>> Response Bias </displayed-value>
-	   <stored-value>Statistics___Sample_Survey_Methods___Response_Bias_</stored-value>
+	   <displayed-value>Statistics >>> Sample Survey Methods >>> Response Bias</displayed-value>
+	   <stored-value>Statistics >>> Sample Survey Methods >>> Response Bias</stored-value>
 	</pair>
 
 	<pair>
-	   <displayed-value>Statistics >>> Sample Survey Methods >>> Sampling Bias </displayed-value>
-	   <stored-value>Statistics___Sample_Survey_Methods___Sampling_Bias_</stored-value>
+	   <displayed-value>Statistics >>> Sample Survey Methods >>> Sampling Bias</displayed-value>
+	   <stored-value>Statistics >>> Sample Survey Methods >>> Sampling Bias</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Sample Survey Methods >>> Stratified Sampling</displayed-value>
-	   <stored-value>Statistics___Sample_Survey_Methods___Stratified_Sampling</stored-value>
+	   <stored-value>Statistics >>> Sample Survey Methods >>> Stratified Sampling</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Sampling Distributions >>> General</displayed-value>
-	   <stored-value>Statistics___Sampling_Distributions___General</stored-value>
+	   <stored-value>Statistics >>> Sampling Distributions >>> General</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Sampling Distributions >>> Sample Mean</displayed-value>
-	   <stored-value>Statistics___Sampling_Distributions___Sample_Mean</stored-value>
+	   <stored-value>Statistics >>> Sampling Distributions >>> Sample Mean</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Sampling Distributions >>> Sample Proportion</displayed-value>
-	   <stored-value>Statistics___Sampling_Distributions___Sample_Proportion</stored-value>
+	   <stored-value>Statistics >>> Sampling Distributions >>> Sample Proportion</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Simple Linear Regression >>> Confidence Intervals</displayed-value>
-	   <stored-value>Statistics___Simple_Linear_Regression___Confidence_Intervals</stored-value>
+	   <stored-value>Statistics >>> Simple Linear Regression >>> Confidence Intervals</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Simple Linear Regression >>> Correlation</displayed-value>
-	   <stored-value>Statistics___Simple_Linear_Regression___Correlation</stored-value>
+	   <stored-value>Statistics >>> Simple Linear Regression >>> Correlation</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Simple Linear Regression >>> Diagnostics</displayed-value>
-	   <stored-value>Statistics___Simple_Linear_Regression___Diagnostics</stored-value>
+	   <stored-value>Statistics >>> Simple Linear Regression >>> Diagnostics</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Simple Linear Regression >>> Hypothesis Tests</displayed-value>
-	   <stored-value>Statistics___Simple_Linear_Regression___Hypothesis_Tests</stored-value>
+	   <stored-value>Statistics >>> Simple Linear Regression >>> Hypothesis Tests</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Simple Linear Regression >>> Prediction</displayed-value>
-	   <stored-value>Statistics___Simple_Linear_Regression___Prediction</stored-value>
+	   <stored-value>Statistics >>> Simple Linear Regression >>> Prediction</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Simple Linear Regression >>> Regression</displayed-value>
-	   <stored-value>Statistics___Simple_Linear_Regression___Regression</stored-value>
+	   <stored-value>Statistics >>> Simple Linear Regression >>> Regression</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Simple Linear Regression >>> Residuals</displayed-value>
-	   <stored-value>Statistics___Simple_Linear_Regression___Residuals</stored-value>
+	   <stored-value>Statistics >>> Simple Linear Regression >>> Residuals</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Time Series >>> ARIMA Models</displayed-value>
-	   <stored-value>Statistics___Time_Series___ARIMA_Models</stored-value>
+	   <stored-value>Statistics >>> Time Series >>> ARIMA Models</stored-value>
 	</pair>
 
 	<pair>
-	   <displayed-value>Statistics >>> Time Series >>> Autocorrelation </displayed-value>
-	   <stored-value>Statistics___Time_Series___Autocorrelation_</stored-value>
+	   <displayed-value>Statistics >>> Time Series >>> Autocorrelation</displayed-value>
+	   <stored-value>Statistics >>> Time Series >>> Autocorrelation</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Time Series >>> Descriptive Methods</displayed-value>
-	   <stored-value>Statistics___Time_Series___Descriptive_Methods</stored-value>
+	   <stored-value>Statistics >>> Time Series >>> Descriptive Methods</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Time Series >>> Forecasting</displayed-value>
-	   <stored-value>Statistics___Time_Series___Forecasting</stored-value>
+	   <stored-value>Statistics >>> Time Series >>> Forecasting</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Time Series >>> Frequency Domain</displayed-value>
-	   <stored-value>Statistics___Time_Series___Frequency_Domain</stored-value>
+	   <stored-value>Statistics >>> Time Series >>> Frequency Domain</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Time Series >>> Runs Test</displayed-value>
-	   <stored-value>Statistics___Time_Series___Runs_Test</stored-value>
+	   <stored-value>Statistics >>> Time Series >>> Runs Test</stored-value>
 	</pair>
 
 	<pair>
 	   <displayed-value>Statistics >>> Time Series >>> Seasonal Variation</displayed-value>
-	   <stored-value>Statistics___Time_Series___Seasonal_Variation</stored-value>
+	   <stored-value>Statistics >>> Time Series >>> Seasonal Variation</stored-value>
 
 	</pair>
 </value-pairs>
