@@ -104,12 +104,11 @@
                <li class="<%= currentPage.endsWith("/community-list")? "active" : "" %>"><a href="<%= request.getContextPath() %>/community-list"> <fmt:message key="jsp.layout.navbar-default.communities-collections"/></a></li>    
                            
            <% } else { %>
-               <div class="row">
+               <%-- <div class="row">
                    <h3>Welcome to the soft launch of StatSpace!<br> Feel free to explore this preliminary version and learn more about future versions.</h3>
-               </div>
+               </div> --%>
                <li class="<%= currentPage.endsWith("/home.jsp")? "active" : "" %>"><a href="<%= request.getContextPath() %>/"><span class="glyphicon glyphicon-home"></span> <fmt:message key="jsp.layout.navbar-default.home"/></a></li>
 	           <li class="<%= currentPage.endsWith("/about.jsp")? "active" : "" %>"><a href="<%= request.getContextPath() %>/about.jsp"><span class="glyphicon glyphicon-book"></span> About</a></li>
-               <li><a href="https://ubc.ca1.qualtrics.com/jfe/form/SV_6J4ans7VBN2hpt3"><span class="glyphicon glyphicon-blackboard"></span> <fmt:message key="jsp.register.new-user.register.button"/></a></li>
 	   <% } %>
        </ul>
 
@@ -173,10 +172,8 @@
 		<%
     } else {
 		%>        
-            <!--This will go here once the SoftLaunch is over
         <li><a href="<%= request.getContextPath() %>/register"><fmt:message key="jsp.register.new-user.register.button"/></a></li> 
         <li><a href="<%= request.getContextPath() %>/mydspace"><span class="glyphicon glyphicon-user"></span> <fmt:message key="jsp.layout.navbar-default.sign"/></a>
-            -->
 	<% } %>
           </ul>
           
