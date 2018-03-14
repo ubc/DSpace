@@ -221,7 +221,23 @@
 			<c:forEach items="${itemRetriever.files}" var="result">
 				<div class="media">
 					<div class="pull-left media-left">
-						<img class="media-objec img-thumbnail" src="${result.thumbnail}" />
+						<c:choose>
+							<c:when test="${empty result.thumbnail}">
+								<div class="text-center displayItemThumbnailPlaceholder">
+									<%-- table is a simple but stupid workaround for vertical centering placeholder image --%>
+									<table>
+										<tr>
+											<td>
+												<span class="glyphicon glyphicon-file"></span>
+											</td>
+										</tr>
+									</table>
+								</div>
+							</c:when>
+							<c:otherwise>
+								<img class="media-objec img-thumbnail" src="${result.thumbnail}" />
+							</c:otherwise>
+						</c:choose>
 					</div>
 					<div class="media-body">
 						<h4 class="media-heading">${result.name} <span class="badge">${result.size}</span></h4>

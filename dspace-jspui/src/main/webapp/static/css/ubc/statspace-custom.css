@@ -89,10 +89,27 @@
 	background: steelblue;
 }
 
-/* Show item resource types customization */
+/* Display item resource types customization */
 span.label.labelResource {
 	background: mediumseagreen;
 	display: inline-block;
 	margin-bottom: 0.2em;
 	font-size: 1em;
+}
+
+/* Display item thumbnail placeholder */
+div.displayItemThumbnailPlaceholder {
+	background: cornsilk;
+	height: 100px;
+	width: 100px;
+	color: wheat;
+}
+div.displayItemThumbnailPlaceholder table {
+	height: 90%;
+	width: 100%;
+}
+div.displayItemThumbnailPlaceholder table span {
+	font-size: 2em;
+	vertical-align: middle;
+	text-align: center;
 }
