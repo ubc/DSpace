@@ -169,17 +169,18 @@
          <repeatable>true</repeatable>
          <label>Learning Objectives</label>
          <input-type>onebox</input-type>
-         <hint>Enter the learning objectives of the item. </hint>
+         <hint>Enter the learning objectives of the item.</hint>
        </field>
 
-	   <!-- What We Learned -->
+	   <!-- Suggested Use(s) and Tips -->
        <field>
          <dc-schema>dcterms</dc-schema>
          <dc-element>instructionalMethod</dc-element>
          <dc-qualifier></dc-qualifier>
          <repeatable>false</repeatable>
-         <label>What We Learned</label>
+         <label>Suggested Uses, Tips and Discoveries</label>
          <input-type>textarea</input-type>
+         <hint>Information that will help others to use this material. Also includes lessons you've learned from using this material in practice, e.g.: what worked, what didn't, what was particularly difficult, etc.</hint>
        </field>  
         
      </page>

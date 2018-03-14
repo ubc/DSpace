@@ -325,30 +325,26 @@
 				</div>
 			</div>
 			--%>
-
-			<!-- What We Learned Side Bar -->
-			<c:if test="${!empty itemRetriever.whatWeLearned}">
-			<div class="panel panel-success">
-				<div class="panel-heading">
-					<h3 class="panel-title"><i class="glyphicon glyphicon-book"></i> What we learned</h3>
-				</div>
-				<div class="panel-body">
-					${itemRetriever.whatWeLearned}
-				</div>
-			</div>
-			</c:if>
 		</div> 
 		<!-- END RIGHT SIDE BAR -->
 
 	</div> 
 
 	<!-- SUBMISSION FOOTER -->
-	<h2>Description</h2>
+	<h2><i class="glyphicon glyphicon-list-alt"></i> Description</h2>
 	<div>
 		${itemRetriever.description}
 	</div>
 
-	<h3>About This Resource</h3> 
+	<!-- What We Learned Side Bar -->
+	<c:if test="${!empty itemRetriever.whatWeLearned}">
+	<h3><i class="glyphicon glyphicon-book"></i> Suggested Uses, Tips and Discoveries</h3>
+	<div>
+		${itemRetriever.whatWeLearned}
+	</div>
+	</c:if>
+
+	<h3><i class="glyphicon glyphicon-pencil"></i> About This Resource</h3> 
 	<p> 
 	Created By: 
 		<c:forEach items="${itemRetriever.authors}" var="author" varStatus="loop">
