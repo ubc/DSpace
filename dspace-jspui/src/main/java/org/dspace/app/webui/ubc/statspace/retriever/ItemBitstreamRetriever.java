@@ -92,6 +92,7 @@ public class ItemBitstreamRetriever {
 	private BitstreamResult processBitstream(Bitstream bitstream, String handle,
 		HttpServletRequest request, Bundle[] thumbs) throws UnsupportedEncodingException {
 		String bsName = bitstream.getName();
+		String bsDesc = bitstream.getDescription();
 		String bsLink = request.getContextPath();
 		String bsThumb = "";
 		String size = UIUtil.formatFileSize(bitstream.getSize());
@@ -120,7 +121,7 @@ public class ItemBitstreamRetriever {
 							tb.getName(), Constants.DEFAULT_ENCODING);
 			}
 		}
-		return new BitstreamResult(bsName, bsLink, bsThumb, size);
+		return new BitstreamResult(bsName, bsDesc, bsLink, bsThumb, size);
 	}
 
 }

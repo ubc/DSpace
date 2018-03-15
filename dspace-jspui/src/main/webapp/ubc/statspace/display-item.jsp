@@ -241,6 +241,9 @@
 					</div>
 					<div class="media-body">
 						<h4 class="media-heading">${result.name} <span class="badge">${result.size}</span></h4>
+						<c:if test="${!empty result.description}">
+							<p>${result.description}</p>
+						</c:if>
 						<a class="btn btn-primary" href="${result.link}">Open/View</a>
 					</div>
 				</div>
