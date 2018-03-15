@@ -170,6 +170,16 @@
          <label>Learning Objectives</label>
          <input-type>onebox</input-type>
          <hint>Enter the learning objectives of the item.</hint>
+
+       <!-- Related Materials -->  
+       <field>
+         <dc-schema>dcterms</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Related Materials</label>
+         <input-type>onebox</input-type>
+         <hint>List materials related to this item.</hint>
        </field>
 
 	   <!-- Suggested Use(s) and Tips -->

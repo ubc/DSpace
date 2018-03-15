@@ -310,21 +310,20 @@
 				</div>
 			</div>
 
-			<%-- Not implemented
 			<!-- Related Materials Side Bar -->
-			<div class="panel panel-warning">
-				<div class="panel-heading">
+			<c:if test="${!empty itemRetriever.relatedMaterials}">
+			<div class='panel panel-default'>
+				<div class='panel-heading'>
 					<h3 class="panel-title"><i class="glyphicon glyphicon-link"></i> Related Materials</h3>
-				</div>
-				<div class="panel-body">
-					<ul>
-						<li><a target="_blank" href="http://www.cwsei.ubc.ca/resources/files/Demo_WorkshopSummary_CWSEI-EOY2015.pdf">"Making the most of demonstrations, videos, animations, or simulations in lectures and laboratories" (J. Maxwell and J. Stang) <span class="glyphicon glyphicon-new-window"></span></a></li>
-						<li><a target="_blank" href="video-example.jsp">Video: Sampling Distribution of the Mean <span class="glyphicon glyphicon-new-window"></span></a></li>
-						<li><a target="_blank" href="pdf_folder/Applet1InstructorGuide.pdf">Instructor Guide</a> and <a target="_blank" href="pdf_folder/Applet1Qs.pdf">Activity Sheet</a></li>
-					</ul>
-				</div>
+				</div> 
+				<ul class='list-group'>
+					<c:forEach items="${itemRetriever.relatedMaterials}" var="prereq">
+						<li class='list-group-item'>${prereq}</li>
+					</c:forEach>
+				</ul>
 			</div>
-			--%>
+			</c:if>
+
 		</div> 
 		<!-- END RIGHT SIDE BAR -->
 

@@ -46,6 +46,7 @@ public class ItemRetriever {
 	private List<String> prereqs = new ArrayList<>();
 	private List<String> objectives = new ArrayList<>();
 	private List<String> authors = new ArrayList<>();
+	private List<String> relatedMaterials = new ArrayList<>();
 
 	public ItemRetriever(Item item, PageContext pageContext) throws SQLException, UnsupportedEncodingException {
 		this.item = item;
@@ -81,6 +82,7 @@ public class ItemRetriever {
 		initStringList("dcterms.requires", prereqs);
 		initStringList("dcterms.coverage", objectives);
 		initStringList("dc.contributor.author", authors);
+		initStringList("dcterms.relation", relatedMaterials);
 	}
 
 	private String getSingleValue(String field) {
@@ -134,6 +136,9 @@ public class ItemRetriever {
 	}
 	public List<String> getAuthors() {
 		return authors;
+	}
+	public List<String> getRelatedMaterials() {
+		return relatedMaterials;
 	}
 	
 }
