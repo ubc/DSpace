@@ -11,6 +11,7 @@
   - HTML header for main home page
   --%>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://www.dspace.org/dspace-tags.tld" prefix="dspace" %>
 
@@ -61,8 +62,8 @@
 	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/bootstrap/bootstrap.min.css" type="text/css" />
 	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/bootstrap/bootstrap-theme.min.css" type="text/css" />
 	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/bootstrap/dspace-theme.css" type="text/css" />
-	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/ubc/statspace-clf.css" type="text/css" />
-	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/ubc/statspace-custom.css" type="text/css" />
+		<link rel="stylesheet" href='<c:url value="/static/ubc/statspace-clf.css" />' type="text/css" />
+		<link rel="stylesheet" href='<c:url value="/static/ubc/statspace-custom.css" />' type="text/css" />
 <%
     if (!"NONE".equals(feedRef))
     {
@@ -97,6 +98,25 @@
 
     <%--Gooogle Analytics recording.--%>
     <dspace:include page="google-analytics.jsp" />
+
+	<%-- Include TinyMCE only in submissions --%>
+	<script src='<c:url value="/static/ubc/tinymce/tinymce.min.js" />'></script>
+	<script>
+		tinymce.init({
+			selector: 'textarea',
+			menubar: false,
+			plugins: "autolink colorpicker link lists textcolor",
+			min_height: 200,
+			external_plugins: {
+				'autolink': '<c:url value="/static/ubc/tinymce/plugins/autolink/plugin.min.js" />',
+				'colorpicker': '<c:url value="/static/ubc/tinymce/plugins/colorpicker/plugin.min.js" />', // dependency on textcolor
+				'link': '<c:url value="/static/ubc/tinymce/plugins/link/plugin.min.js" />',
+				'lists': '<c:url value="/static/ubc/tinymce/plugins/lists/plugin.min.js" />',
+				'textcolor': '<c:url value="/static/ubc/tinymce/plugins/textcolor/plugin.min.js" />'
+			},
+			toolbar: 'undo redo styleselect bold italic alignleft aligncenter alignright bullist numlist outdent indent link forecolor backcolor'
+		});
+	</script>
 
     <%
     if (extraHeadDataLast != null)
