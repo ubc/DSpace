@@ -60,8 +60,6 @@ public class SubjectsJson {
 		{
 			String display = subjects.get(i);
 			String value = subjects.get(i+1);
-			log.debug("Display: " + display);
-			log.debug("Value: " + value);
 			String[] components = display.split(" >>> ");
 			if (components.length != 3) {
 				log.warn("Unrecongized entry in StatSpace subjects list: " + display);

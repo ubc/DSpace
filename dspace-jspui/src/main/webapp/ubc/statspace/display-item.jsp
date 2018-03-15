@@ -275,6 +275,28 @@
 				</ul>
 			</div>
 			</c:if>
+			
+			<!-- Item Description -->
+			<h2><i class="glyphicon glyphicon-list-alt"></i> About This Resource</h2>
+			<div>
+				${itemRetriever.description}
+			</div>
+			<p class="text-muted"> 
+			Created By: 
+				<c:forEach items="${itemRetriever.authors}" var="author" varStatus="loop">
+					${author}<c:if test="${!loop.last}">;</c:if>
+				</c:forEach>
+			</p> 
+			<p class="text-muted">Date: ${itemRetriever.date}</p>
+
+			<!-- Suggest Uses & Tips merged with What We Learned-->
+			<c:if test="${!empty itemRetriever.whatWeLearned}">
+			<h3><i class="glyphicon glyphicon-book"></i> Suggested Uses, Tips and Discoveries</h3>
+			<div>
+				${itemRetriever.whatWeLearned}
+			</div>
+			</c:if>
+
 		</div> 
 		<!-- END SUBMISSION MAIN BODY -->
 
@@ -283,7 +305,7 @@
 			<!-- Tags Side Bar -->
 			<div class="panel panel-info">
 				<div class="panel-heading">
-					<h3 class="panel-title"><i class="glyphicon glyphicon-tag"></i> Subjects</h3>
+					<h3 class="panel-title"><i class="glyphicon glyphicon-tag"></i> Tags</h3>
 				</div>
 				<ul class="list-group subjectsList">
 					<c:forEach items="${itemRetriever.subjects}" var="subject">
@@ -330,27 +352,7 @@
 	</div> 
 
 	<!-- SUBMISSION FOOTER -->
-	<h2><i class="glyphicon glyphicon-list-alt"></i> Description</h2>
-	<div>
-		${itemRetriever.description}
-	</div>
 
-	<!-- What We Learned Side Bar -->
-	<c:if test="${!empty itemRetriever.whatWeLearned}">
-	<h3><i class="glyphicon glyphicon-book"></i> Suggested Uses, Tips and Discoveries</h3>
-	<div>
-		${itemRetriever.whatWeLearned}
-	</div>
-	</c:if>
-
-	<h3><i class="glyphicon glyphicon-pencil"></i> About This Resource</h3> 
-	<p> 
-	Created By: 
-		<c:forEach items="${itemRetriever.authors}" var="author" varStatus="loop">
-			${author}<c:if test="${!loop.last}">;</c:if>
-		</c:forEach>
-	</p> 
-	<p>Date: ${itemRetriever.date}</p>
 	<%-- Not implemented yet, should considering moving some of the right side bar here
 	<div class='row'> 
 		<div class='col-md-12'> 

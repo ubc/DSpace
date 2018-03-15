@@ -121,10 +121,10 @@
          <dc-element>subject</dc-element>
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
-         <label>Subjects</label>
+         <label>Tags</label>
          <input-type value-pairs-name="statspace_subjects">dropdown</input-type>
-         <hint>Select the subject or subjects for this item.</hint>
-         <required>Please choose at least one subject.</required>
+		 <hint>Select the tags/subjects for this item.</hint>
+         <required>Please choose at least one tag.</required>
        </field>
          
        <!-- Abstract / Summary -->
@@ -139,7 +139,7 @@
          <required>Please enter a short summary.</required>
        </field>
 
-       <!-- Description -->
+       <!-- Description - About This Resource -->
        <field>
          <dc-schema>dc</dc-schema>
          <dc-element>description</dc-element>
@@ -169,7 +169,8 @@
          <repeatable>true</repeatable>
          <label>Learning Objectives</label>
          <input-type>onebox</input-type>
-         <hint>Enter the learning objectives of the item.</hint>
+         <hint>List the learning objectives of this item.</hint>
+       </field>
 
        <!-- Related Materials -->  
        <field>

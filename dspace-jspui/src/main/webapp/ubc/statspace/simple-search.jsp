@@ -575,6 +575,7 @@ else if( qResults != null)
 	--%>
 <% } %>
 
+<%-- Collections & Communities results, hide for next round of testing as they're not relevant yet.
 <% if (collections.length > 0 ) { %>
     <div class="panel panel-info">
     <div class="panel-heading"><fmt:message key="jsp.search.results.colhits"/></div>
@@ -588,6 +589,7 @@ else if( qResults != null)
     <dspace:communitylist  communities="<%= communities %>" />
     </div>
 <% } %>
+--%>
 </div>
 <%-- if the result page is enought long... --%>
 <% if ((communities.length + collections.length + items.length) > 10) {%>
