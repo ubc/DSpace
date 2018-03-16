@@ -103,18 +103,19 @@
 	<script src='<c:url value="/static/ubc/tinymce/tinymce.min.js" />'></script>
 	<script>
 		tinymce.init({
-			selector: 'textarea',
+			selector: 'textarea.newItemTextArea',
 			menubar: false,
-			plugins: "autolink colorpicker link lists textcolor",
+			plugins: "autolink colorpicker link lists textcolor code",
 			min_height: 200,
 			external_plugins: {
 				'autolink': '<c:url value="/static/ubc/tinymce/plugins/autolink/plugin.min.js" />',
+				'code': '<c:url value="/static/ubc/tinymce/plugins/code/plugin.min.js" />', // be able to edit raw html for power users
 				'colorpicker': '<c:url value="/static/ubc/tinymce/plugins/colorpicker/plugin.min.js" />', // dependency on textcolor
 				'link': '<c:url value="/static/ubc/tinymce/plugins/link/plugin.min.js" />',
 				'lists': '<c:url value="/static/ubc/tinymce/plugins/lists/plugin.min.js" />',
 				'textcolor': '<c:url value="/static/ubc/tinymce/plugins/textcolor/plugin.min.js" />'
 			},
-			toolbar: 'undo redo styleselect bold italic alignleft aligncenter alignright bullist numlist outdent indent link forecolor backcolor'
+			toolbar: 'undo redo styleselect bold italic alignleft aligncenter alignright bullist numlist outdent indent link forecolor backcolor code'
 		});
 	</script>
 

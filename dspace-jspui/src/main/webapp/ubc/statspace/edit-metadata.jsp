@@ -607,7 +607,7 @@
          {
         	 sb.append("<div class=\"col-md-10\">");
          }
-         sb.append("<textarea class=\"form-control\" name=\"").append(fieldNameIdx)
+         sb.append("<textarea class=\"form-control newItemTextArea\" name=\"").append(fieldNameIdx)
            .append("\" rows=\"4\" cols=\"45\" id=\"")
            .append(fieldNameIdx).append("_id\" ")
            .append((hasVocabulary(vocabulary)&&closedVocabulary)||readonly?" disabled=\"disabled\" ":"")
