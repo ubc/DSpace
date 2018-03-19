@@ -22,6 +22,7 @@ import org.apache.commons.cli.MissingArgumentException;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.OptionBuilder;
 import org.apache.commons.cli.Options;
+import org.apache.commons.cli.ParseException;
 import org.apache.commons.cli.PosixParser;
 
 import org.apache.commons.lang.ArrayUtils;
@@ -102,6 +103,287 @@ public class MediaFilterManager
             }
         }
     }
+
+	public static int runFilter(String[] argv) {
+        // create an options object and populate it
+        CommandLineParser parser = new PosixParser();
+
+        int status = 0;
+
+        Options options = new Options();
+        
+        options.addOption("v", "verbose", false,
+                "print all extracted text and other details to STDOUT");
+        options.addOption("q", "quiet", false,
+                "do not print anything except in the event of errors.");
+        options.addOption("f", "force", false,
+                "force all bitstreams to be processed");
+        options.addOption("i", "identifier", true,
+        		"ONLY process bitstreams belonging to identifier");
+        options.addOption("m", "maximum", true,
+				"process no more than maximum items");
+        options.addOption("h", "help", false, "help");
+
+        //create a "plugin" option (to specify specific MediaFilter plugins to run)
+        OptionBuilder.withLongOpt("plugins");
+        OptionBuilder.withValueSeparator(',');
+        OptionBuilder.withDescription(
+                       "ONLY run the specified Media Filter plugin(s)\n" +
+                       "listed from '" + MEDIA_FILTER_PLUGINS_KEY + "' in dspace.cfg.\n" + 
+                       "Separate multiple with a comma (,)\n" +
+                       "(e.g. MediaFilterManager -p \n\"Word Text Extractor\",\"PDF Text Extractor\")");                
+        Option pluginOption = OptionBuilder.create('p');
+        pluginOption.setArgs(Option.UNLIMITED_VALUES); //unlimited number of args
+        options.addOption(pluginOption);	
+        
+         //create a "skip" option (to specify communities/collections/items to skip)
+        OptionBuilder.withLongOpt("skip");
+        OptionBuilder.withValueSeparator(',');
+        OptionBuilder.withDescription(
+                "SKIP the bitstreams belonging to identifier\n" + 
+                "Separate multiple identifiers with a comma (,)\n" +
+                "(e.g. MediaFilterManager -s \n 123456789/34,123456789/323)");                
+        Option skipOption = OptionBuilder.create('s');
+        skipOption.setArgs(Option.UNLIMITED_VALUES); //unlimited number of args
+        options.addOption(skipOption);    
+        
+        CommandLine line = null;
+        try
+        {
+            line = parser.parse(options, argv);
+        }
+        catch(MissingArgumentException e)
+        {
+            System.out.println("ERROR: " + e.getMessage());
+            HelpFormatter myhelp = new HelpFormatter();
+            myhelp.printHelp("MediaFilterManager\n", options);
+            //System.exit(1);
+			return 1;
+        } catch (ParseException e) {          
+            System.out.println("ERROR: " + e.getMessage());
+			return 1;
+		}
+
+        if (line.hasOption('h'))
+        {
+            HelpFormatter myhelp = new HelpFormatter();
+            myhelp.printHelp("MediaFilterManager\n", options);
+
+            //System.exit(0);
+			return 0;
+        }
+
+        if (line.hasOption('v'))
+        {
+            isVerbose = true;
+        }
+
+        isQuiet = line.hasOption('q');
+
+        if (line.hasOption('f'))
+        {
+            isForce = true;
+        }
+        
+        if (line.hasOption('i'))
+        {
+        	identifier = line.getOptionValue('i');
+        }
+        
+        if (line.hasOption('m'))
+        {
+        	max2Process = Integer.parseInt(line.getOptionValue('m'));
+        	if (max2Process <= 1)
+        	{
+        		System.out.println("Invalid maximum value '" + 
+        				     		line.getOptionValue('m') + "' - ignoring");
+        		max2Process = Integer.MAX_VALUE;
+        	}
+        }
+
+        String filterNames[] = null;
+        if(line.hasOption('p'))
+        {
+            //specified which media filter plugins we are using
+            filterNames = line.getOptionValues('p');
+        
+            if(filterNames==null || filterNames.length==0)
+            {   //display error, since no plugins specified
+                System.err.println("\nERROR: -p (-plugin) option requires at least one plugin to be specified.\n" +
+                                          "(e.g. MediaFilterManager -p \"Word Text Extractor\",\"PDF Text Extractor\")\n");
+                HelpFormatter myhelp = new HelpFormatter();
+                myhelp.printHelp("MediaFilterManager\n", options);
+                //System.exit(1);
+				return 1;
+             }
+        }
+        else
+        { 
+            //retrieve list of all enabled media filter plugins!
+            String enabledPlugins = ConfigurationManager.getProperty(MEDIA_FILTER_PLUGINS_KEY);
+            filterNames = enabledPlugins.split(",\\s*");
+        }
+                
+        //initialize an array of our enabled filters
+        List<FormatFilter> filterList = new ArrayList<FormatFilter>();
+                
+        //set up each filter
+        for(int i=0; i< filterNames.length; i++)
+        {
+            //get filter of this name & add to list of filters
+            FormatFilter filter = (FormatFilter) PluginManager.getNamedPlugin(FormatFilter.class, filterNames[i]);
+            if(filter==null)
+            {   
+                System.err.println("\nERROR: Unknown MediaFilter specified (either from command-line or in dspace.cfg): '" + filterNames[i] + "'");
+                //System.exit(1);
+				return 1;
+            }
+            else
+            {   
+                filterList.add(filter);
+                       
+                String filterClassName = filter.getClass().getName();
+                           
+                String pluginName = null;
+                           
+                //If this filter is a SelfNamedPlugin,
+                //then the input formats it accepts may differ for
+                //each "named" plugin that it defines.
+                //So, we have to look for every key that fits the
+                //following format: filter.<class-name>.<plugin-name>.inputFormats
+                if( SelfNamedPlugin.class.isAssignableFrom(filter.getClass()) )
+                {
+                    //Get the plugin instance name for this class
+                    pluginName = ((SelfNamedPlugin) filter).getPluginInstanceName();
+                }
+            
+                
+                //Retrieve our list of supported formats from dspace.cfg
+                //For SelfNamedPlugins, format of key is:  
+                //  filter.<class-name>.<plugin-name>.inputFormats
+                //For other MediaFilters, format of key is: 
+                //  filter.<class-name>.inputFormats
+                String formats = ConfigurationManager.getProperty(
+                    FILTER_PREFIX + "." + filterClassName + 
+                    (pluginName!=null ? "." + pluginName : "") +
+                    "." + INPUT_FORMATS_SUFFIX);
+            
+                //add to internal map of filters to supported formats	
+                if (formats != null)
+                {
+                    //For SelfNamedPlugins, map key is:  
+                    //  <class-name><separator><plugin-name>
+                    //For other MediaFilters, map key is just:
+                    //  <class-name>
+                    filterFormats.put(filterClassName + 
+        	            (pluginName!=null ? FILTER_PLUGIN_SEPARATOR + pluginName : ""),
+        	            Arrays.asList(formats.split(",[\\s]*")));
+                }
+            }//end if filter!=null
+        }//end for
+        
+        //If verbose, print out loaded mediafilter info
+        if(isVerbose)
+        {   
+            System.out.println("The following MediaFilters are enabled: ");
+            Iterator<String> i = filterFormats.keySet().iterator();
+            while(i.hasNext())
+            {
+                String filterName = i.next();
+                System.out.println("Full Filter Name: " + filterName);
+                String pluginName = null;
+                if(filterName.contains(FILTER_PLUGIN_SEPARATOR))
+                {
+                    String[] fields = filterName.split(FILTER_PLUGIN_SEPARATOR);
+                    filterName=fields[0];
+                    pluginName=fields[1];
+                }
+                 
+                System.out.println(filterName +
+                        (pluginName!=null? " (Plugin: " + pluginName + ")": ""));
+             }
+        }
+              
+        //store our filter list into an internal array
+        filterClasses = (FormatFilter[]) filterList.toArray(new FormatFilter[filterList.size()]);
+        
+        
+        //Retrieve list of identifiers to skip (if any)
+        String skipIds[] = null;
+        if(line.hasOption('s'))
+        {
+            //specified which identifiers to skip when processing
+            skipIds = line.getOptionValues('s');
+            
+            if(skipIds==null || skipIds.length==0)
+            {   //display error, since no identifiers specified to skip
+                System.err.println("\nERROR: -s (-skip) option requires at least one identifier to SKIP.\n" +
+                                    "Make sure to separate multiple identifiers with a comma!\n" +
+                                    "(e.g. MediaFilterManager -s 123456789/34,123456789/323)\n");
+                HelpFormatter myhelp = new HelpFormatter();
+                myhelp.printHelp("MediaFilterManager\n", options);
+                //System.exit(0);
+				return 0;
+            }
+            
+            //save to a global skip list
+            skipList = Arrays.asList(skipIds);
+        }
+        
+        Context c = null;
+
+        try
+        {
+            c = new Context();
+
+            // have to be super-user to do the filtering
+            c.turnOffAuthorisationSystem();
+
+            // now apply the filters
+            if (identifier == null)
+            {
+            	applyFiltersAllItems(c);
+            }
+            else  // restrict application scope to identifier
+            {
+            	DSpaceObject dso = HandleManager.resolveToObject(c, identifier);
+            	if (dso == null)
+            	{
+            		throw new IllegalArgumentException("Cannot resolve "
+                                + identifier + " to a DSpace object");
+            	}
+            	
+            	switch (dso.getType())
+            	{
+            		case Constants.COMMUNITY:
+            						applyFiltersCommunity(c, (Community)dso);
+            						break;					
+            		case Constants.COLLECTION:
+            						applyFiltersCollection(c, (Collection)dso);
+            						break;						
+            		case Constants.ITEM:
+            						applyFiltersItem(c, (Item)dso);
+            						break;
+            	}
+            }
+
+            c.complete();
+            c = null;
+        }
+        catch (Exception e)
+        {
+            status = 1;
+        }
+        finally
+        {
+            if (c != null)
+            {
+                c.abort();
+            }
+        }
+        //System.exit(status);
+		return status;
+	}
     
     public static void main(String[] argv) throws Exception
     {
