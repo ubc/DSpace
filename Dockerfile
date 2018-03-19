@@ -15,7 +15,7 @@ ENV PATH=$CATALINA_HOME/bin:$DSPACE_HOME/bin:$PATH
 WORKDIR /tmp
 
 # Install runtime and dependencies
-RUN apt-get update && apt-get install --no-install-recommends --no-install-suggests -y vim ant postgresql-client netcat \
+RUN apt-get update && apt-get install --no-install-recommends --no-install-suggests -y vim ant postgresql-client netcat imagemagick ghostscript \
     && mkdir -p maven dspace "$CATALINA_HOME" \
     && curl -fSL "$TOMCAT_TGZ_URL" -o tomcat.tar.gz \
     && curl -fSL "$MAVEN_TGZ_URL" -o maven.tar.gz \
