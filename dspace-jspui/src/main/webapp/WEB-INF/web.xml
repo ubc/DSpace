@@ -885,4 +885,11 @@
   </jsp-config>
   
 
+  <!-- Quartz Scheduler for periodic thumbnail generation -->
+  <servlet>
+	  <servlet-name>SchedulerStarter</servlet-name>
+	  <servlet-class>org.dspace.app.webui.ubc.statspace.SchedulerStarter</servlet-class>
+	  <load-on-startup>127</load-on-startup> <!-- make sure this servlet loads on startup, cause we need to start the scheduler process -->
+  </servlet>
+
 </web-app>
