@@ -892,4 +892,9 @@
 	  <load-on-startup>127</load-on-startup> <!-- make sure this servlet loads on startup, cause we need to start the scheduler process -->
   </servlet>
 
+  <!-- Override the default sesion timeout -->
+  <session-config>
+      <session-timeout>90</session-timeout>
+  </session-config>
+
 </web-app>
