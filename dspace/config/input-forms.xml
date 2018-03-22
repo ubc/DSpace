@@ -111,6 +111,7 @@
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Resource Type</label>
+         <hint>Select the subject(s) of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).</hint>
          <input-type value-pairs-name="resource_type">dropdown</input-type>
          <required>You must choose one or multiple resource types</required>
        </field>
@@ -159,6 +160,7 @@
          <repeatable>true</repeatable>
          <label>Prerequisite Knowledge</label>
          <input-type>onebox</input-type>
+		 <hint>Please list one prerequisite at a time (press the "Add More" button to add more entries).</hint>
        </field>  
 
        <!-- Learning Objectives -->  
@@ -169,7 +171,7 @@
          <repeatable>true</repeatable>
          <label>Learning Objectives</label>
          <input-type>onebox</input-type>
-         <hint>List the learning objectives of this item.</hint>
+		 <hint>Please list one objective at a time (press the "Add More" button to add more entries).</hint>
        </field>
 
        <!-- Related Materials -->  
@@ -180,7 +182,7 @@
          <repeatable>true</repeatable>
          <label>Related Materials</label>
          <input-type>onebox</input-type>
-         <hint>List materials related to this item.</hint>
+		 <hint>Please list one related material at a time (press the "Add More" button to add more entries).</hint>
        </field>
 
 	   <!-- Suggested Use(s) and Tips -->

@@ -1009,7 +1009,7 @@
 
 		sb.append(
 		"<div class='row'>" +
-			"<label class='col-md-2'>" +
+			"<label class='col-md-2 label-required'>" +
 				"Subject" +
 			"</label>" +
 			"<div class='col-md-8'>" +
