@@ -69,7 +69,7 @@ import java.util.Iterator;
 public class JSPCCLicenseStep extends JSPStep
 {
     /** JSP which displays Creative Commons license information * */
-    private static final String CC_LICENSE_JSP = "/submit/creative-commons.jsp";
+    private static final String CC_LICENSE_JSP = "/ubc/statspace/creative-commons.jsp";
 
     /** JSP which displays information after a license is rejected * */
     private static final String LICENSE_REJECT_JSP = "/submit/license-rejected.jsp";
