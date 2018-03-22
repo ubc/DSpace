@@ -172,6 +172,7 @@
          <label>Learning Objectives</label>
          <input-type>onebox</input-type>
 		 <hint>Please list one objective at a time (press the "Add More" button to add more entries).</hint>
+         <required>Please enter learning objectives for this item.</required>
        </field>
 
        <!-- Related Materials -->  
@@ -787,44 +788,44 @@
        <stored-value>Activities</stored-value>
      </pair>
      <pair>
+       <displayed-value>Audiofile</displayed-value>
+       <stored-value>Audiofile</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Case Studies</displayed-value>
+       <stored-value>Case Studies</stored-value>
+     </pair>
+     <pair>
        <displayed-value>Lecture Slides</displayed-value>
-       <stored-value>Lecture_Slides</stored-value>
+       <stored-value>Lecture Slides</stored-value>
      </pair>
      <pair>
        <displayed-value>Notes</displayed-value>
        <stored-value>Notes</stored-value>
      </pair>
      <pair>
-       <displayed-value>Videos</displayed-value>
-       <stored-value>Videos</stored-value>
-     </pair>
-     <pair>
        <displayed-value>Pencast</displayed-value>
        <stored-value>Pencast</stored-value>
      </pair>
      <pair>
-       <displayed-value>Web Visualization (Applet)</displayed-value>
-       <stored-value>Web_Visualization_Applet</stored-value>
-     </pair>
-     <pair>
        <displayed-value>Questions (Exams/Homework)</displayed-value>
-       <stored-value>Questions_Exams_Homework</stored-value>
+       <stored-value>Questions (Exams/Homework)</stored-value>
      </pair>
      <pair>
        <displayed-value>Questions (Personal Response/Clickers)</displayed-value>
-       <stored-value>Questions_Personal_Clickers</stored-value>
+       <stored-value>Questions (Personal Response/Clickers)</stored-value>
      </pair>
      <pair>
-       <displayed-value>Audiofile</displayed-value>
-       <stored-value>Audiofile</stored-value>
+       <displayed-value>Videos</displayed-value>
+       <stored-value>Videos</stored-value>
      </pair>
      <pair>
        <displayed-value>WeBWork</displayed-value>
        <stored-value>WeBWork</stored-value>
      </pair>
      <pair>
-       <displayed-value>Case Studies</displayed-value>
-       <stored-value>Case_Studies</stored-value>
+       <displayed-value>Web Visualization (Applet)</displayed-value>
+       <stored-value>Web Visualization (Applet)</stored-value>
      </pair>
      <pair>
        <displayed-value>Other</displayed-value>
