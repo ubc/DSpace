@@ -13,7 +13,7 @@
 	display: block;
 }
 .discovery-result-results div.searchResultThumbnailPlaceholder {
-	height: 150px;
+	height: 160px;
 	color: white; /* Remove color from link */
 }
 .discovery-result-results div.searchResultThumbnailPlaceholder table {

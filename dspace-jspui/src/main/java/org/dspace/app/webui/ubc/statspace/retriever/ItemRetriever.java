@@ -93,7 +93,6 @@ public class ItemRetriever {
 	private void initStringList(String field, List<String> list) {
 		MetadataResult result = metadataRetriever.getField(field);
 		for (String val : result.getValues()) {
-			log.debug("REQUIRES? " + val);
 			list.add(val);
 		}
 	}

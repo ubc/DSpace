@@ -592,16 +592,18 @@ else if( qResults != null)
 --%>
 </div>
 <%-- if the result page is enought long... --%>
-<% if ((communities.length + collections.length + items.length) > 10) {%>
+<% if (pageTotal > 1) {%>
 <%-- show again the navigation info/links --%>
 <div class="discovery-result-pagination row container">
     <%-- <p align="center">Results <//%=qResults.getStart()+1%>-<//%=qResults.getStart()+qResults.getHitHandles().size()%> of --%>
+	<%-- TODO: Result count incorrect, so hide it for now
 	<div class="alert alert-info"><fmt:message key="jsp.search.results.results">
         <fmt:param><%=qResults.getStart()+1%></fmt:param>
         <fmt:param><%=lastHint%></fmt:param>
         <fmt:param><%=qResults.getTotalSearchResults()%></fmt:param>
         <fmt:param><%=(float) qResults.getSearchTime() / 1000 %></fmt:param>
     </fmt:message></div>
+	--%>
     <ul class="pagination pull-right">
 <%
 if (pageFirst != pageCurrent)

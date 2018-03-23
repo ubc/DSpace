@@ -380,7 +380,7 @@
                 <value>dc.creator</value>
             </list>
         </property>
-        <property name="facetLimit" value="10"/>
+        <property name="facetLimit" value="5"/>
         <property name="sortOrder" value="COUNT"/>
     </bean>
 
@@ -391,7 +391,7 @@
                 <value>dcterms.type</value>
             </list>
         </property>
-        <property name="facetLimit" value="10"/>
+        <property name="facetLimit" value="5"/>
         <property name="sortOrder" value="COUNT"/>
     </bean>
 
@@ -399,12 +399,13 @@
         <property name="indexFieldName" value="subject"/>
         <property name="metadataFields">
             <list>
-                <value>dc.subject.*</value>
+                <value>dc.subject</value>
             </list>
         </property>
-        <property name="facetLimit" value="10"/>
+		<property name="facetLimit" value="8"/>
         <property name="sortOrder" value="COUNT"/>
-        <property name="splitter" value="::"/>
+		<property name="splitter" value=" >>> "/>
+		<property name="skipFirstNodeLevel" value="false"/>
     </bean>
 
     <bean id="searchFilterIssued" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
