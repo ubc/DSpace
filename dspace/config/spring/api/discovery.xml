@@ -200,8 +200,9 @@
         <!--Which sidebar facets are to be displayed (same as defaultConfiguration above)-->
         <property name="sidebarFacets">
             <list>
-                <ref bean="searchFilterAuthor" />
                 <ref bean="searchFilterSubject" />
+                <ref bean="searchFilterResourceType" />
+                <ref bean="searchFilterAuthor" />
                 <ref bean="searchFilterIssued" />
             </list>
         </property>
@@ -213,6 +214,7 @@
                 <ref bean="searchFilterTitle" />
                 <ref bean="searchFilterAuthor" />
                 <ref bean="searchFilterSubject" />
+                <ref bean="searchFilterResourceType" />
                 <ref bean="searchFilterIssued" />
             </list>
         </property>
@@ -376,6 +378,17 @@
             <list>
                 <value>dc.contributor.author</value>
                 <value>dc.creator</value>
+            </list>
+        </property>
+        <property name="facetLimit" value="10"/>
+        <property name="sortOrder" value="COUNT"/>
+    </bean>
+
+    <bean id="searchFilterResourceType" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="resourceType"/>
+        <property name="metadataFields">
+            <list>
+                <value>dcterms.type</value>
             </list>
         </property>
         <property name="facetLimit" value="10"/>
