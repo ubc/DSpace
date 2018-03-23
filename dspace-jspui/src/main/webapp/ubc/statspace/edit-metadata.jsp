@@ -667,9 +667,17 @@
       StringBuffer sb = new StringBuffer();
       String val, auth;
       int conf= 0;
+	  boolean enableTinymce = false;
 
       if (fieldCount == 0)
          fieldCount = 1;
+
+	  // enable basic TinyMCE for certain fields
+	  if (fieldName.equals("dcterms_requires") ||
+			fieldName.equals("dcterms_coverage") ||
+			fieldName.equals("dcterms_relation")) {
+		  enableTinymce = true;
+	  }
 
       sb.append("<div class=\"row\"><label class=\"col-md-2"+ (required?" label-required":"") +"\">")
         .append(label)
@@ -698,7 +706,7 @@
            {
         	   sb.append("<div class=\"row col-md-10\">");
            }
-           sb.append("<input class=\"form-control\" type=\"text\" name=\"")
+           sb.append("<input class=\"form-control "+ (enableTinymce ? "newItemOneBoxTinyMCE":"") +"\" type=\"text\" name=\"")
              .append(fieldNameIdx)
              .append("\" id=\"")
              .append(fieldNameIdx).append("\" size=\"50\" value=\"")
