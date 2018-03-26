@@ -1,7 +1,6 @@
 package org.dspace.app.webui.ubc.scheduler;
 
 import java.sql.SQLException;
-import java.util.logging.Level;
 import org.apache.log4j.Logger;
 import org.dspace.app.mediafilter.MediaFilterManager;
 import org.quartz.Job;
@@ -14,6 +13,7 @@ public class GenerateThumbnailJob implements Job {
 	
 	@Override
 	public void execute(JobExecutionContext context) throws JobExecutionException {
+		log.debug("Scheduled Job: Generating Thumbnails");
 		try {
 			org.dspace.core.Context dspaceContext = new org.dspace.core.Context();
 			String[] argv = {};
