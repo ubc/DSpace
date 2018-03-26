@@ -23,6 +23,11 @@ RUN apt-get update && apt-get install --no-install-recommends --no-install-sugge
     && tar -xvf maven.tar.gz --strip-components=1  -C maven \
     && rm -fr "$CATALINA_HOME/webapps/*"
 
+# Install updated ghostscript
+ADD ./docker/ghostscript /tmp/ghostscript
+WORKDIR /tmp/ghostscript
+RUN dpkg -i ghostscript_9.20~dfsg-3.2+deb9u1_amd64.deb libgs9-common_9.20~dfsg-3.2+deb9u1_all.deb libpng16-16_1.6.28-1_amd64.deb libgs9_9.20~dfsg-3.2+deb9u1_amd64.deb libopenjp2-7_2.1.2-1.1+deb9u2_amd64.deb
+
 ADD . /dspace-src
 
 WORKDIR /dspace-src
