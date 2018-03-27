@@ -107,7 +107,9 @@
         
         <table class="table" align="center" summary="Table dispalying your submitted files">
             <tr>
+				<%-- hide primary bitstream column
 				<th id="t1" class="oddRowEvenCol"><fmt:message key="jsp.submit.upload-file-list.tableheading1"/></th>
+				--%>
                 <th id="t2" class="oddRowOddCol"><fmt:message key="jsp.submit.upload-file-list.tableheading2"/></th>
                 <th id="t3" class="oddRowEvenCol"><fmt:message key="jsp.submit.upload-file-list.tableheading3"/></th>
                 <th id="t4" class="oddRowOddCol"><fmt:message key="jsp.submit.upload-file-list.tableheading4"/></th>
@@ -167,6 +169,7 @@
         String supportLevelLink = LocaleSupport.getLocalizedMessage(pageContext, "help.formats") +"#" + supportLevel;
 %>
             <tr>
+		<%-- hide primary bitstream column
 		<td headers="t1" class="<%= row %>RowEvenCol" align="center">
 		    <input class="form-control" type="radio" name="primary_bitstream_id" value="<%= bitstreams[i].getID() %>"
 			   <% if (bundles[0] != null) {
@@ -175,6 +178,7 @@
 			   <%   }
 			      } %> />
 		</td>
+		--%>
                 <td headers="t2" class="<%= row %>RowOddCol">
                 	<a href="<%= request.getContextPath() %>/retrieve/<%= bitstreams[i].getID() %>/<%= org.dspace.app.webui.util.UIUtil.encodeBitstreamName(bitstreams[i].getName()) %>" target="_blank"><%= bitstreams[i].getName() %></a>
             <%      // Don't display "remove" button in workflow mode
@@ -263,9 +267,11 @@
         else
         {
 %>
+<%-- hide all mentions of checksums
             <li class="uploadHelp"><fmt:message key="jsp.submit.upload-file-list.info6"/>
             <dspace:popup page="<%= LocaleSupport.getLocalizedMessage(pageContext, \"help.index\") + \"#checksum\"%>"><fmt:message key="jsp.submit.upload-file-list.help2"/></dspace:popup> 
             <input class="btn btn-info" type="submit" name="submit_show_checksums" value="<fmt:message key="jsp.submit.upload-file-list.button3"/>" /></li>
+--%>
 <%
         }
 %>
