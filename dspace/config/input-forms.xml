@@ -111,7 +111,7 @@
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Resource Type</label>
-         <hint>Select the subject(s) of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).</hint>
+         <hint>Select the resource type(s) of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).</hint>
          <input-type value-pairs-name="resource_type">dropdown</input-type>
          <required>You must choose one or multiple resource types</required>
        </field>
@@ -122,10 +122,10 @@
          <dc-element>subject</dc-element>
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
-         <label>Tags</label>
+         <label>Subject</label>
          <input-type value-pairs-name="statspace_subjects">dropdown</input-type>
-		 <hint>Select the tags/subjects for this item.</hint>
-         <required>Please choose at least one tag.</required>
+		 <hint>Please select a subject/tag that describes the primary topic for this item.</hint>
+		 <required>Please choose a subject.</required>
        </field>
          
        <!-- Abstract / Summary -->
@@ -161,6 +161,7 @@
          <label>Prerequisite Knowledge</label>
          <input-type>onebox</input-type>
 		 <hint>Please list one prerequisite at a time (press the "Add More" button to add more entries).</hint>
+         <required>Please enter prerequisite knowledges for this item.</required>
        </field>  
 
        <!-- Learning Objectives -->  
@@ -794,6 +795,10 @@
      <pair>
        <displayed-value>Case Studies</displayed-value>
        <stored-value>Case Studies</stored-value>
+     </pair>
+     <pair>
+   	   <displayed-value>Labs/Tutorials</displayed-value>
+       <stored-value>Labs/Tutorials</stored-value>
      </pair>
      <pair>
        <displayed-value>Lecture Slides</displayed-value>

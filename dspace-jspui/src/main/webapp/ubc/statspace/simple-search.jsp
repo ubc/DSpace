@@ -743,7 +743,9 @@ else
                 + "&amp;filterquery="+URLEncoder.encode(fvalue.getAsFilterQuery(),"UTF-8")
                 + "&amp;filtertype="+URLEncoder.encode(fvalue.getFilterType(),"UTF-8") %>"
                 title="<fmt:message key="jsp.search.facet.narrow"><fmt:param><%=fvalue.getDisplayedValue() %></fmt:param></fmt:message>">
-                <%= StringUtils.abbreviate(fvalue.getDisplayedValue(),36) %></a></li><%
+                <%-- we don't want to truncate the subject <%= StringUtils.abbreviate(fvalue.getDisplayedValue(),36) %> --%>
+                <%= fvalue.getDisplayedValue() %>
+				</a></li><%
                 idx++;
 	        }
 	        if (idx > limit)
