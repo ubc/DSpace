@@ -1041,12 +1041,15 @@
 									"-- Select an Option --</option>" +
 							"</select>" +
 						"</div>" +
+						/* originally built to allow multiselects, stats wants only one subject now
 						"<div class='form-group'>" +
 							"<button class='btn btn-default' type='button' id='addSubjectButton'>" +
 								"<span class='glyphicon glyphicon-plus'></span> Add Subject</button>" +
 						"</div>" +
+						*/
 					"</div>" +
 				"</div>" +
+				/* uncomment to allow multiselect
 				"<div class='row'>" +
 					"<table class='table table-hover' id='selectedSubjectsTable'>" +
 						"<thead>" + 
@@ -1057,6 +1060,7 @@
 						"</tbody>" +
 					"</table>" +
 				"</div>" +
+				*/
 			"</div>" +
 		"</div>");
 	}
@@ -1559,10 +1563,18 @@ jQuery(document).ready(function() {
 		var existingVals = jQuery(subjectsSelectId).val();
 		// no existing values selected
 		if (!existingVals) return;
+		// for only single select
+		var levels = existingVals[0].split(" >>> ");
+		jQuery(level1Id).val(levels[0]).change();
+		jQuery(level2Id).val(levels[1]).change();
+		jQuery(level3Id).val(existingVals[0]).change();
+
+		/* original multiselect code
 		// readd all selected values
 		jQuery.each(existingVals, function(i, val) {
 			addToSelectedSubjectsTable(val);
 		});
+		*/
 	}
 
 	// Remap options from: level 1 > level 2 > level 3 > value
@@ -1600,9 +1612,7 @@ jQuery(document).ready(function() {
 	jQuery(level1Id).prop('disabled', false); // undo disable from reset
 	resetChildSelect(level2Id);
 	resetChildSelect(level3Id);
-	// initial populate
-	populateChildSelect(level1Id, options);
-	reloadSubjectsTable();
+
 	// update select options on selection events
 	jQuery(level1Id).change(function() {
 		// since the first level changed, all child selects needs to be
@@ -1611,14 +1621,28 @@ jQuery(document).ready(function() {
 		resetChildSelect(level3Id);
 		// can only populate the second level select at this level
 		populateChildSelect(level2Id, options[jQuery(level1Id).val()]);
+		jQuery(subjectsSelectId).val(""); // remove for multiselect
 	});
 	jQuery(level2Id).change(function() {
 		resetChildSelect(level3Id);
 		populateChildSelect(level3Id,
 				options[jQuery(level1Id).val()][jQuery(level2Id).val()]);
+		jQuery(subjectsSelectId).val(""); // remove for multiselect
 	});
+	jQuery(level3Id).change(function() {
+		// stats wants to limit subject selection to only one
+		var newVal = jQuery(level3Id).val();
+		jQuery(subjectsSelectId).val(newVal).change();
+	});
+
+	// initial populate
+	populateChildSelect(level1Id, options);
+	reloadSubjectsTable();
+
 	// add the selected value into the hidden subjects form and update the
 	// Selected Subjects table
+	/* Previous code that lets you select multiple subjects
+	// to enable multiselect, uncomment this and the corresponding controls
 	jQuery('#addSubjectButton').click(function() {
 		var existingVals = jQuery(subjectsSelectId).val();
 		var newVal = jQuery(level3Id).val();
@@ -1631,6 +1655,7 @@ jQuery(document).ready(function() {
 		jQuery(subjectsSelectId).val(existingVals).change();
 		addToSelectedSubjectsTable( jQuery(level3Id).val() );
 	});
+	*/
 });
 </script>
 </dspace:layout>
