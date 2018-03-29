@@ -104,6 +104,7 @@
 	<script>
 		tinymce.init({
 			selector: 'textarea.newItemTextArea',
+			browser_spellcheck: true,
 			menubar: false,
 			plugins: "autolink colorpicker link lists textcolor code",
 			min_height: 200,
@@ -119,6 +120,7 @@
 		});
 		tinymce.init({
 			selector: 'input.newItemOneBoxTinyMCE',
+			browser_spellcheck: true,
 			menubar: false,
 			statusbar: false,
 			min_height: 40,
