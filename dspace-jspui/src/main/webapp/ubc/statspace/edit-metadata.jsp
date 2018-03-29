@@ -1005,7 +1005,7 @@
     }
 
 	void doDropDownTripleLevel(StringBuffer sb, SubjectsJson subjects,
-		PageContext pageContext, String subjectsSelectId) {
+		PageContext pageContext, String subjectsSelectId, boolean repeatable) {
 		String subjectsLevel1Id = "subjectsLevel1Id";
 		String subjectsLevel2Id = "subjectsLevel2Id";
 		String subjectsLevel3Id = "subjectsLevel3Id";
@@ -1014,6 +1014,7 @@
 		pageContext.setAttribute("subjectsLevel2Id", subjectsLevel2Id);
 		pageContext.setAttribute("subjectsLevel3Id", subjectsLevel3Id);
 		pageContext.setAttribute("subjectsSelectId", subjectsSelectId);
+		pageContext.setAttribute("subjectsRepeatable", repeatable);
 
 		sb.append(
 		"<div class='row'>" +
@@ -1037,19 +1038,22 @@
 						"</div>" +
 						"<div class='form-group'>" +
 							"<select class='form-control' id='" + subjectsLevel3Id + "' disabled>" +
-								"<option disabled selected value class='hidden'>" +
-									"-- Select an Option --</option>" +
+								"<option id='noThirdLevelOption' selected value>" +
+									"-- None/Other --</option>" +
 							"</select>" +
-						"</div>" +
-						/* originally built to allow multiselects, stats wants only one subject now
+						"</div>");
+		if (repeatable) {
+			sb.append(
 						"<div class='form-group'>" +
 							"<button class='btn btn-default' type='button' id='addSubjectButton'>" +
 								"<span class='glyphicon glyphicon-plus'></span> Add Subject</button>" +
-						"</div>" +
-						*/
+						"</div>");
+		}
+		sb.append(
 					"</div>" +
-				"</div>" +
-				/* uncomment to allow multiselect
+				"</div>");
+		if (repeatable) {
+			sb.append(
 				"<div class='row'>" +
 					"<table class='table table-hover' id='selectedSubjectsTable'>" +
 						"<thead>" + 
@@ -1059,8 +1063,9 @@
 						"<tbody>" +
 						"</tbody>" +
 					"</table>" +
-				"</div>" +
-				*/
+				"</div>");
+		}
+		sb.append(
 			"</div>" +
 		"</div>");
 	}
@@ -1078,9 +1083,9 @@
 
 		SubjectsJson subjects = new SubjectsJson(valueList);
 		String subjectsSelectId = "subjectsSelectId";
-		boolean isSubjects = subjects.isSubjects();
+		boolean isSubjects = subjects.isSubjects(fieldName);
 		if (isSubjects)
-			doDropDownTripleLevel(sb, subjects, pageContext, subjectsSelectId);
+			doDropDownTripleLevel(sb, subjects, pageContext, subjectsSelectId, repeatable);
 
       sb.append("<div class=\"row "+ (isSubjects? "hidden":"")+"\"><label class=\"col-md-2"+ (required?" label-required":"") +"\">")
         .append(label)
@@ -1504,6 +1509,15 @@
 <script>
 jQuery(document).ready(function() {
 	var options = <%= pageContext.getAttribute("subjectOptionsJson") %>;
+	var level1Id = '#<%= pageContext.getAttribute("subjectsLevel1Id") %>';
+	var level2Id = '#<%= pageContext.getAttribute("subjectsLevel2Id") %>';
+	var level3Id = '#<%= pageContext.getAttribute("subjectsLevel3Id") %>';
+	var subjectsSelectId = '#<%= pageContext.getAttribute("subjectsSelectId") %>';
+	var subjectsRepeatable = <%= pageContext.getAttribute("subjectsRepeatable") %>; // true if can select multiple subjects,
+																				// false otherwise (can only select one)
+	var noThirdLevelVal = "NONE"; // value that indicates there is no 3rd lvl
+									// selected
+	
 	// Reset previous selections back to the default option
 	function resetChildSelect(selectId) {
 		jQuery(selectId + ' option:gt(0)').remove();
@@ -1515,7 +1529,7 @@ jQuery(document).ready(function() {
 	// in the parent level.
 	function populateChildSelect(selectId, opts) {
 		jQuery.each(opts, function(k,v) {
-			var optionTag = jQuery("<option></option>").attr("value",k).text(k);
+			var optionTag = jQuery("<option>").attr("value",k).text(k);
 			if (typeof v == 'string')
 				optionTag.attr("value", v);
 			jQuery(selectId).append(optionTag);
@@ -1534,15 +1548,15 @@ jQuery(document).ready(function() {
 		// already entered 
 		if (jQuery("#" + rowId).length) return;
 		// get the friendly label for each level
-		var labels = remappedOpts[val];
-		var level1 = labels['level1']; 
-		var level2 = labels['level2']; 
-		var level3 = labels['level3']; 
+		var labels = val.split(" >>> ");
+		var level1 = labels[0]; 
+		var level2 = labels[1]; 
+		var level3 = labels[2]; 
 
 		var row = jQuery("<tr>").attr('id', rowId);
-		row.append(jQuery("<td>"+ level1 +"</td>"));
-		row.append(jQuery("<td>"+ level2 +"</td>"));
-		row.append(jQuery("<td>"+ level3 +"</td>"));
+		row.append(jQuery("<td>").text(level1));
+		row.append(jQuery("<td>").text(level2));
+		row.append(jQuery("<td>").text(level3));
 		row.append(jQuery("<td>" +
 			"<button id='"+ btnId +"' class='btn btn-danger' type='button'>" +
 			"<span class='glyphicon glyphicon-remove'></span>" +
@@ -1563,55 +1577,70 @@ jQuery(document).ready(function() {
 		var existingVals = jQuery(subjectsSelectId).val();
 		// no existing values selected
 		if (!existingVals) return;
-		// for only single select
-		var levels = existingVals[0].split(" >>> ");
-		jQuery(level1Id).val(levels[0]).change();
-		jQuery(level2Id).val(levels[1]).change();
-		jQuery(level3Id).val(existingVals[0]).change();
 
-		/* original multiselect code
-		// readd all selected values
-		jQuery.each(existingVals, function(i, val) {
-			addToSelectedSubjectsTable(val);
-		});
-		*/
-	}
-
-	// Remap options from: level 1 > level 2 > level 3 > value
-	// to: value > {level 1, level 2, level 3}
-	// Saves a little bit of time at the expense of memory
-	function remapOpts() {
-		var remappedOpts = {};
-		for (var level1 in options) {
-			var level2Map = options[level1];
-			for (var level2 in level2Map) {
-				var level3Map = level2Map[level2];
-				for (var level3 in level3Map) {
-					var val = level3Map[level3];
-					remappedOpts[val] = {
-						'level1': level1,
-						'level2': level2,
-						'level3': level3
-					};
-				}
+		if (subjectsRepeatable) {
+			// can select multiple subjects
+			// readd all selected values
+			jQuery.each(existingVals, function(i, val) {
+				addToSelectedSubjectsTable(val);
+			});
+		}
+		else {
+			// can only select one subject
+			var levels = existingVals.split(" >>> ");
+			jQuery(level1Id).val(levels[0]).change();
+			jQuery(level2Id).val(levels[1]).change();
+			if (levels.length > 2) {
+				jQuery(level3Id).val(existingVals).change();
 			}
 		}
-		return remappedOpts;
+	}
+
+	// There's a hidden select control that holds the actual values transmitted
+	// to the server on form submit. This function updates that select when
+	// called
+	function updateSelectedSubjects() {
+		var selectedVals = jQuery(subjectsSelectId).val();
+		var newVal = jQuery(level3Id).val();
+		// check if we've stopped at the second level
+		if (newVal == noThirdLevelVal) {
+			// we've stopped at the second level at the None/Other option, 
+			// which means we don't have a valid value for the subject
+			// selection, just reconstruct one.
+			newVal = jQuery(level1Id).val() + " >>> " +
+				jQuery(level2Id).val();
+		}
+
+		// add the new value to selected values
+		if (subjectsRepeatable) {
+			// multiselect enabled, should add on to the existing values
+			if (selectedVals) {
+				selectedVals.push(newVal);
+			}
+			else {
+				selectedVals = [newVal];
+			}
+		}
+		else {
+			// only single select, can ditch the old selection
+			selectedVals = newVal
+		}
+		// actually set the selected values
+		jQuery(subjectsSelectId).val(selectedVals).change();
+
+		return newVal;
 	}
 
 	if (!options) return;
-	var remappedOpts = remapOpts();
-	var level1Id = '#subjectsLevel1Id';
-	var level2Id = '#subjectsLevel2Id';
-	var level3Id = '#subjectsLevel3Id';
-	var subjectsSelectId = '#subjectsSelectId';
-
 
 	// initial reset, prevent browser breaking when restoring prev session vals
 	resetChildSelect(level1Id);
 	jQuery(level1Id).prop('disabled', false); // undo disable from reset
 	resetChildSelect(level2Id);
 	resetChildSelect(level3Id);
+
+	// set a special value to indicate when there's no 3rd level selected
+	jQuery("#noThirdLevelOption").attr("value", noThirdLevelVal);
 
 	// update select options on selection events
 	jQuery(level1Id).change(function() {
@@ -1621,41 +1650,41 @@ jQuery(document).ready(function() {
 		resetChildSelect(level3Id);
 		// can only populate the second level select at this level
 		populateChildSelect(level2Id, options[jQuery(level1Id).val()]);
-		jQuery(subjectsSelectId).val(""); // remove for multiselect
+		if (!subjectsRepeatable) {
+			// undo selection
+			jQuery(subjectsSelectId).val("");
+		}
 	});
 	jQuery(level2Id).change(function() {
 		resetChildSelect(level3Id);
 		populateChildSelect(level3Id,
 				options[jQuery(level1Id).val()][jQuery(level2Id).val()]);
-		jQuery(subjectsSelectId).val(""); // remove for multiselect
+		if (!subjectsRepeatable) {
+			updateSelectedSubjects();
+		}
 	});
-	jQuery(level3Id).change(function() {
-		// stats wants to limit subject selection to only one
-		var newVal = jQuery(level3Id).val();
-		jQuery(subjectsSelectId).val(newVal).change();
-	});
+
+	if (subjectsRepeatable) {
+		// Allow multiple subject selection.
+		// Add the selected value into the hidden subjects form and update the
+		// Selected Subjects table.
+		jQuery('#addSubjectButton').click(function() {
+			var newVal = updateSelectedSubjects();
+			if (subjectsRepeatable) {
+				addToSelectedSubjectsTable(newVal);
+			}
+		});
+	}
+	else {
+		// Only allow one subject selection.
+		jQuery(level3Id).change(function() {
+			updateSelectedSubjects();
+		});
+	}
 
 	// initial populate
 	populateChildSelect(level1Id, options);
 	reloadSubjectsTable();
-
-	// add the selected value into the hidden subjects form and update the
-	// Selected Subjects table
-	/* Previous code that lets you select multiple subjects
-	// to enable multiselect, uncomment this and the corresponding controls
-	jQuery('#addSubjectButton').click(function() {
-		var existingVals = jQuery(subjectsSelectId).val();
-		var newVal = jQuery(level3Id).val();
-		if (existingVals) {
-			existingVals.push(newVal)
-		}
-		else {
-			existingVals = [newVal];
-		}
-		jQuery(subjectsSelectId).val(existingVals).change();
-		addToSelectedSubjectsTable( jQuery(level3Id).val() );
-	});
-	*/
 });
 </script>
 </dspace:layout>

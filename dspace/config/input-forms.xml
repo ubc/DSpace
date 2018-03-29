@@ -121,7 +121,7 @@
          <dc-schema>dc</dc-schema>
          <dc-element>subject</dc-element>
          <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
+		 <!-- <repeatable>true</repeatable> -->
          <label>Subject</label>
          <input-type value-pairs-name="statspace_subjects">dropdown</input-type>
 		 <hint>Please select a subject/tag that describes the primary topic for this item.</hint>
@@ -242,11 +242,6 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Exploratory Data Analysis/Classifying Data >>> Graphical Representations >>> Other</displayed-value>
-		<stored-value>Exploratory Data Analysis/Classifying Data >>> Graphical Representations >>> Other</stored-value>
-	</pair>
-
-	<pair>
 		<displayed-value>Exploratory Data Analysis/Classifying Data >>> Graphical Representations >>> Bar Charts</displayed-value>
 		<stored-value>Exploratory Data Analysis/Classifying Data >>> Graphical Representations >>> Bar Charts</stored-value>
 	</pair>
@@ -287,8 +282,8 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Descriptive Statistics/Summary Statistics >>> Measures Of Location >>> Other</displayed-value>
-		<stored-value>Descriptive Statistics/Summary Statistics >>> Measures Of Location >>> Other</stored-value>
+		<displayed-value>Descriptive Statistics/Summary Statistics >>> Measures Of Location</displayed-value>
+		<stored-value>Descriptive Statistics/Summary Statistics >>> Measures Of Location</stored-value>
 	</pair>
 
 	<pair>
@@ -304,11 +299,6 @@
 	<pair>
 		<displayed-value>Descriptive Statistics/Summary Statistics >>> Measures Of Spread</displayed-value>
 		<stored-value>Descriptive Statistics/Summary Statistics >>> Measures Of Spread</stored-value>
-	</pair>
-
-	<pair>
-		<displayed-value>Descriptive Statistics/Summary Statistics >>> Measures Of Spread >>> Other</displayed-value>
-		<stored-value>Descriptive Statistics/Summary Statistics >>> Measures Of Spread >>> Other</stored-value>
 	</pair>
 
 	<pair>
@@ -352,11 +342,6 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Observational Studies And Survey Methods >>> Techniques >>> Other</displayed-value>
-		<stored-value>Observational Studies And Survey Methods >>> Techniques >>> Other</stored-value>
-	</pair>
-
-	<pair>
 		<displayed-value>Observational Studies And Survey Methods >>> Techniques >>> Simple Random Sampling</displayed-value>
 		<stored-value>Observational Studies And Survey Methods >>> Techniques >>> Simple Random Sampling</stored-value>
 	</pair>
@@ -392,8 +377,8 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Confidence Intervals >>> Concepts >>> Other</displayed-value>
-		<stored-value>Confidence Intervals >>> Concepts >>> Other</stored-value>
+		<displayed-value>Confidence Intervals >>> Concepts</displayed-value>
+		<stored-value>Confidence Intervals >>> Concepts</stored-value>
 	</pair>
 
 	<pair>
@@ -457,8 +442,8 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Hypothesis Tests >>> Concepts >>> Other</displayed-value>
-		<stored-value>Hypothesis Tests >>> Concepts >>> Other</stored-value>
+		<displayed-value>Hypothesis Tests >>> Concepts</displayed-value>
+		<stored-value>Hypothesis Tests >>> Concepts</stored-value>
 	</pair>
 
 	<pair>
@@ -482,8 +467,8 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Hypothesis Tests >>> One-sample/Paired >>> Other</displayed-value>
-		<stored-value>Hypothesis Tests >>> One-sample/Paired >>> Other</stored-value>
+		<displayed-value>Hypothesis Tests >>> One-sample/Paired</displayed-value>
+		<stored-value>Hypothesis Tests >>> One-sample/Paired</stored-value>
 	</pair>
 
 	<pair>
@@ -522,8 +507,8 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Hypothesis Tests >>> Two Independent Samples >>> Other</displayed-value>
-		<stored-value>Hypothesis Tests >>> Two Independent Samples >>> Other</stored-value>
+		<displayed-value>Hypothesis Tests >>> Two Independent Samples</displayed-value>
+		<stored-value>Hypothesis Tests >>> Two Independent Samples</stored-value>
 	</pair>
 
 	<pair>
@@ -552,8 +537,8 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Hypothesis Tests >>> Multiple Independent Samples >>> Other</displayed-value>
-		<stored-value>Hypothesis Tests >>> Multiple Independent Samples >>> Other</stored-value>
+		<displayed-value>Hypothesis Tests >>> Multiple Independent Samples</displayed-value>
+		<stored-value>Hypothesis Tests >>> Multiple Independent Samples</stored-value>
 	</pair>
 
 	<pair>
@@ -572,8 +557,8 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Hypothesis Tests >>> Goodness-of-fit >>> Other</displayed-value>
-		<stored-value>Hypothesis Tests >>> Goodness-of-fit >>> Other</stored-value>
+		<displayed-value>Hypothesis Tests >>> Goodness-of-fit</displayed-value>
+		<stored-value>Hypothesis Tests >>> Goodness-of-fit</stored-value>
 	</pair>
 
 	<pair>
@@ -587,8 +572,8 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Regression >>> Simple Linear Regression >>> Other</displayed-value>
-		<stored-value>Regression >>> Simple Linear Regression >>> Other</stored-value>
+		<displayed-value>Regression >>> Simple Linear Regression</displayed-value>
+		<stored-value>Regression >>> Simple Linear Regression</stored-value>
 	</pair>
 
 	<pair>
@@ -622,8 +607,8 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Regression >>> Multiple Regression >>> Other</displayed-value>
-		<stored-value>Regression >>> Multiple Regression >>> Other</stored-value>
+		<displayed-value>Regression >>> Multiple Regression</displayed-value>
+		<stored-value>Regression >>> Multiple Regression</stored-value>
 	</pair>
 
 	<pair>
@@ -662,8 +647,8 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Regression >>> Generalized Linear Methods >>> Other</displayed-value>
-		<stored-value>Regression >>> Generalized Linear Methods >>> Other</stored-value>
+		<displayed-value>Regression >>> Generalized Linear Methods</displayed-value>
+		<stored-value>Regression >>> Generalized Linear Methods</stored-value>
 	</pair>
 
 	<pair>
@@ -672,8 +657,8 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Probability >>> Combinatorics >>> Other</displayed-value>
-		<stored-value>Probability >>> Combinatorics >>> Other</stored-value>
+		<displayed-value>Probability >>> Combinatorics</displayed-value>
+		<stored-value>Probability >>> Combinatorics</stored-value>
 	</pair>
 
 	<pair>
@@ -687,8 +672,8 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Probability >>> Continuous Distributions >>> Other</displayed-value>
-		<stored-value>Probability >>> Continuous Distributions >>> Other</stored-value>
+		<displayed-value>Probability >>> Continuous Distributions</displayed-value>
+		<stored-value>Probability >>> Continuous Distributions</stored-value>
 	</pair>
 
 	<pair>
@@ -712,13 +697,8 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Probability >>> Continuous Distributions >>> Other Distributions</displayed-value>
-		<stored-value>Probability >>> Continuous Distributions >>> Other Distributions</stored-value>
-	</pair>
-
-	<pair>
-		<displayed-value>Probability >>> Discrete Distributions >>> Other</displayed-value>
-		<stored-value>Probability >>> Discrete Distributions >>> Other</stored-value>
+		<displayed-value>Probability >>> Discrete Distributions</displayed-value>
+		<stored-value>Probability >>> Discrete Distributions</stored-value>
 	</pair>
 
 	<pair>
@@ -757,8 +737,8 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Probability >>> Laws, Theory >>> Other</displayed-value>
-		<stored-value>Probability >>> Laws, Theory >>> Other</stored-value>
+		<displayed-value>Probability >>> Laws, Theory</displayed-value>
+		<stored-value>Probability >>> Laws, Theory</stored-value>
 	</pair>
 
 	<pair>
@@ -782,8 +762,8 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Probability >>> Random Variables >>> Other</displayed-value>
-		<stored-value>Probability >>> Random Variables >>> Other</stored-value>
+		<displayed-value>Probability >>> Random Variables</displayed-value>
+		<stored-value>Probability >>> Random Variables</stored-value>
 	</pair>
 
 	<pair>
@@ -812,8 +792,8 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Probability >>> Sample Space >>> Other</displayed-value>
-		<stored-value>Probability >>> Sample Space >>> Other</stored-value>
+		<displayed-value>Probability >>> Sample Space</displayed-value>
+		<stored-value>Probability >>> Sample Space</stored-value>
 	</pair>
 
 	<pair>
@@ -847,8 +827,8 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Probability >>> Several Variables >>> Other</displayed-value>
-		<stored-value>Probability >>> Several Variables >>> Other</stored-value>
+		<displayed-value>Probability >>> Several Variables</displayed-value>
+		<stored-value>Probability >>> Several Variables</stored-value>
 	</pair>
 
 	<pair>
@@ -867,8 +847,8 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Probability >>> Stochastic Process >>> Other</displayed-value>
-		<stored-value>Probability >>> Stochastic Process >>> Other</stored-value>
+		<displayed-value>Probability >>> Stochastic Process</displayed-value>
+		<stored-value>Probability >>> Stochastic Process</stored-value>
 	</pair>
 
 	<pair>

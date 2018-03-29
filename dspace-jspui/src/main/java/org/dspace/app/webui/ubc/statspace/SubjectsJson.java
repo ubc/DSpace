@@ -9,6 +9,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import java.util.ArrayList;
 import java.util.List;
 import org.apache.log4j.Logger;
 
@@ -21,7 +22,7 @@ public class SubjectsJson {
     /** log4j logger */
     private static Logger log = Logger.getLogger(SubjectsJson.class);
 
-	private List<String> subjects;
+	private List<String> subjects = new ArrayList<String>();
 
 	public SubjectsJson(List<String> subjects) {
 		this.subjects = subjects;
@@ -34,15 +35,9 @@ public class SubjectsJson {
 	 * delimiters.
 	 * @return Returns true if we were given a list of subjects, false otherwise.
 	 */
-	public boolean isSubjects() {
-		if (subjects == null || subjects.isEmpty()) return false;
-		String sample = subjects.get(0);
-		String[] components = sample.split(" >>> ");
-		if (components.length != 3) {
-			log.debug("Sample " + sample + " judged not to be a subjects list.");
-			return false;
-		}
-		return true;
+	public boolean isSubjects(String fieldName) {
+		if (fieldName.equals("dc_subject")) return true;
+		return false;
 	}
 
 	/**
@@ -52,7 +47,7 @@ public class SubjectsJson {
 	 */
 	public String getTreeJson() {
 		JsonObject json = new JsonObject();
-		if (!isSubjects()) {
+		if (subjects.isEmpty()) {
 			log.warn("Requesting subjects json when not given a subjects list.");
 			return "{}";
 		} // only proceed if dealing with subjects
@@ -61,18 +56,29 @@ public class SubjectsJson {
 			String display = subjects.get(i);
 			String value = subjects.get(i+1);
 			String[] components = display.split(" >>> ");
-			if (components.length != 3) {
+			String top = "";
+			String mid = "";
+			String bot = "";
+			if (components.length == 2) {
+				top = components[0];
+				mid = components[1];
+			}
+			else if (components.length == 3) {
+				top = components[0];
+				mid = components[1];
+				bot = components[2];
+			}
+			else {
 				log.warn("Unrecongized entry in StatSpace subjects list: " + display);
 				continue;
 			}
-			String top = components[0];
-			String mid = components[1];
-			String bot = components[2];
 			if (!json.has(top)) json.add(top, new JsonObject());
+
 			JsonObject topJson = json.get(top).getAsJsonObject();
 			if (!topJson.has(mid)) topJson.add(mid, new JsonObject());
+
 			JsonObject midJson = topJson.get(mid).getAsJsonObject();
-			if (!midJson.has(bot)) midJson.add(bot, new JsonPrimitive(value));
+			if (!midJson.has(bot) && !bot.isEmpty()) midJson.add(bot, new JsonPrimitive(value));
 		}
 		return json.toString();
 	}
