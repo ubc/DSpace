@@ -559,6 +559,13 @@ else if( qResults != null)
 					<div>
 						${itemRetriever.summary}
 					</div>
+					<div class="searchResultResourceTypes">
+						<c:forEach items="${itemRetriever.resourceTypes}" var="type">
+							<span class="label label-default labelResourceForSearch">
+								${type}
+							</span>
+						</c:forEach>
+					</div>
 				</div>
 				<div class="searchResultBoxButton">
 					<a class="btn btn-primary" href="${itemRetriever.url}">View</a>

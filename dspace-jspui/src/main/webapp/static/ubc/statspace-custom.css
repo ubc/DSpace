@@ -97,6 +97,15 @@ span.label.labelResource {
 	padding-top: 0.4em;
 	font-size: 1em;
 }
+/* Search item resource type customization */
+span.label.labelResourceForSearch {
+	background: mediumseagreen;
+	display: inline-block;
+	font-size: 0.8em;
+}
+div.searchResultResourceTypes {
+	margin-top: 0.5em;
+}
 
 /* Display item thumbnail placeholder */
 div.displayItemThumbnailPlaceholder {
