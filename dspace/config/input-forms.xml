@@ -231,7 +231,7 @@
  <form-value-pairs>
      
    <value-pairs value-pairs-name="statspace_subjects" dc-term="subject">
-    	<pair>
+    <pair>
 		<displayed-value>Exploratory Data Analysis/Classifying Data >>> Description Of Distributions</displayed-value>
 		<stored-value>Exploratory Data Analysis/Classifying Data >>> Description Of Distributions</stored-value>
 	</pair>
@@ -385,8 +385,8 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Sampling Distributions >>> Other Statistics </displayed-value>
-		<stored-value>Sampling Distributions >>> Other Statistics </stored-value>
+		<displayed-value>Sampling Distributions >>> Other Statistics</displayed-value>
+		<stored-value>Sampling Distributions >>> Other Statistics</stored-value>
 	</pair>
 
 	<pair>
@@ -435,8 +435,8 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Confidence Intervals >>> Two Independent Samples - Z</displayed-value>
-		<stored-value>Confidence Intervals >>> Two Independent Samples - Z</stored-value>
+		<displayed-value>Confidence Intervals >>> Two Independent Samples - z</displayed-value>
+		<stored-value>Confidence Intervals >>> Two Independent Samples - z</stored-value>
 	</pair>
 
 	<pair>
@@ -460,8 +460,8 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Hypothesis Tests >>> Concepts >>> P-value And Significance Level</displayed-value>
-		<stored-value>Hypothesis Tests >>> Concepts >>> P-value And Significance Level</stored-value>
+		<displayed-value>Hypothesis Tests >>> Concepts >>> p-value And Significance Level</displayed-value>
+		<stored-value>Hypothesis Tests >>> Concepts >>> p-value And Significance Level</stored-value>
 	</pair>
 
 	<pair>
@@ -485,13 +485,13 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Hypothesis Tests >>> One-sample/Paired >>> One Sample Mean - T</displayed-value>
-		<stored-value>Hypothesis Tests >>> One-sample/Paired >>> One Sample Mean - T</stored-value>
+		<displayed-value>Hypothesis Tests >>> One-sample/Paired >>> One Sample Mean - t</displayed-value>
+		<stored-value>Hypothesis Tests >>> One-sample/Paired >>> One Sample Mean - t</stored-value>
 	</pair>
 
 	<pair>
-		<displayed-value>Hypothesis Tests >>> One-sample/Paired >>> One Sample Mean - Z</displayed-value>
-		<stored-value>Hypothesis Tests >>> One-sample/Paired >>> One Sample Mean - Z</stored-value>
+		<displayed-value>Hypothesis Tests >>> One-sample/Paired >>> One Sample Mean - z</displayed-value>
+		<stored-value>Hypothesis Tests >>> One-sample/Paired >>> One Sample Mean - z</stored-value>
 	</pair>
 
 	<pair>
@@ -525,13 +525,13 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Hypothesis Tests >>> Two Independent Samples >>> Independent Samples - T</displayed-value>
-		<stored-value>Hypothesis Tests >>> Two Independent Samples >>> Independent Samples - T</stored-value>
+		<displayed-value>Hypothesis Tests >>> Two Independent Samples >>> Independent Samples - t</displayed-value>
+		<stored-value>Hypothesis Tests >>> Two Independent Samples >>> Independent Samples - t</stored-value>
 	</pair>
 
 	<pair>
-		<displayed-value>Hypothesis Tests >>> Two Independent Samples >>> Independent Samples - Z</displayed-value>
-		<stored-value>Hypothesis Tests >>> Two Independent Samples >>> Independent Samples - Z</stored-value>
+		<displayed-value>Hypothesis Tests >>> Two Independent Samples >>> Independent Samples - z</displayed-value>
+		<stored-value>Hypothesis Tests >>> Two Independent Samples >>> Independent Samples - z</stored-value>
 	</pair>
 
 	<pair>
@@ -835,8 +835,8 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Probability >>> Sample Space >>> Outcomes & Events</displayed-value>
-		<stored-value>Probability >>> Sample Space >>> Outcomes & Events</stored-value>
+		<displayed-value>Probability >>> Sample Space >>> Outcomes &amp; Events</displayed-value>
+		<stored-value>Probability >>> Sample Space >>> Outcomes &amp; Events</stored-value>
 	</pair>
 
 	<pair>
@@ -850,8 +850,8 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Probability >>> Several Variables >>> Covariance & Correlation</displayed-value>
-		<stored-value>Probability >>> Several Variables >>> Covariance & Correlation</stored-value>
+		<displayed-value>Probability >>> Several Variables >>> Covariance &amp; Correlation</displayed-value>
+		<stored-value>Probability >>> Several Variables >>> Covariance &amp; Correlation</stored-value>
 	</pair>
 
 	<pair>
