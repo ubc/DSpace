@@ -410,13 +410,13 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Confidence Intervals >>> One Sample Mean - T</displayed-value>
-		<stored-value>Confidence Intervals >>> One Sample Mean - T</stored-value>
+		<displayed-value>Confidence Intervals >>> One Sample Mean - t</displayed-value>
+		<stored-value>Confidence Intervals >>> One Sample Mean - t</stored-value>
 	</pair>
 
 	<pair>
-		<displayed-value>Confidence Intervals >>> One Sample Mean - Z</displayed-value>
-		<stored-value>Confidence Intervals >>> One Sample Mean - Z</stored-value>
+		<displayed-value>Confidence Intervals >>> One Sample Mean - z</displayed-value>
+		<stored-value>Confidence Intervals >>> One Sample Mean - z</stored-value>
 	</pair>
 
 	<pair>
@@ -430,8 +430,8 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Confidence Intervals >>> Two Independent Samples - T</displayed-value>
-		<stored-value>Confidence Intervals >>> Two Independent Samples - T</stored-value>
+		<displayed-value>Confidence Intervals >>> Two Independent Samples - t</displayed-value>
+		<stored-value>Confidence Intervals >>> Two Independent Samples - t</stored-value>
 	</pair>
 
 	<pair>
