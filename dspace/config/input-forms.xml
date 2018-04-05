@@ -210,8 +210,19 @@
          <hint>Select the language of the main content of the item.</hint>
          <required>Please select a language.</required>
        </field>
-     </page>
 
+	 <!-- Alternative Language Versions -->
+       <field>
+         <dc-schema>dcterms</dc-schema>
+         <dc-element>isFormatOf</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Available in Alternative Languages</label>
+         <input-type>onebox</input-type>
+		 <hint>If this resource is available in other languages, please list them here.</hint>
+       </field>
+
+     </page>
    </form>
  </form-definitions>
 

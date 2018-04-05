@@ -675,6 +675,7 @@
 	  // enable basic TinyMCE for certain fields
 	  if (fieldName.equals("dcterms_requires") ||
 			fieldName.equals("dcterms_coverage") ||
+			fieldName.equals("dcterms_isFormatOf") ||
 			fieldName.equals("dcterms_relation")) {
 		  enableTinymce = true;
 	  }
