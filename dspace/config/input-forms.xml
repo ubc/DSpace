@@ -128,18 +128,6 @@
 		 <required>Please choose a subject.</required>
        </field>
          
-       <!-- Abstract / Summary -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>description</dc-element>
-         <dc-qualifier>abstract</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Summary</label>
-         <input-type>onebox</input-type>
-         <hint>A short one line summary of what this item contains.</hint>
-         <required>Please enter a short summary.</required>
-       </field>
-
        <!-- Description - About This Resource -->
        <field>
          <dc-schema>dc</dc-schema>
@@ -148,8 +136,21 @@
          <repeatable>false</repeatable>
          <label>Description</label>
          <input-type>textarea</input-type>
-         <hint>Describe this item in detail.</hint>
+		 <hint>Describe this item in detail: Overarching aims for the resource; Expand on the learning outcomes and topics addressed; Mention data sets used or studies referred to; Whether the resource forms part of a larger set of related resources.
+		 </hint>
          <required>Please enter a detailed description.</required>
+       </field>
+
+       <!-- Abstract / Summary -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>description</dc-element>
+         <dc-qualifier>abstract</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Summary</label>
+         <input-type>onebox</input-type>
+         <hint>Please provide a one line summary of the above description that would be most useful for someone browsing your resource. This is used as the short blurb shown in search results. E.g.: "This web visualization demonstrates the concept of a sampling distribution of an estimate, using the example of a mean of a Normally distributed variable."</hint>
+         <required>Please enter a short summary.</required>
        </field>
 
        <!-- Prerequisite Knowledge -->
