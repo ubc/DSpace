@@ -17,15 +17,20 @@ public class SubjectResult {
 
 	public SubjectResult(String subject) {
 		String[] splits = subject.split(" >>> ");
-		if (splits.length != 3) {
+		if (splits.length == 2) {
+			level1 = splits[0];
+			level2 = splits[1];
+		}
+		else if (splits.length == 3) {
+			level1 = splits[0];
+			level2 = splits[1];
+			level3 = splits[2];
+		}
+		else {
 			level1 = "Error";
 			level2 = "Invalid Subject";
 			level3 = subject;
-			return;
 		}
-		level1 = splits[0];
-		level2 = splits[1];
-		level3 = splits[2];
 	}
 	
 	public String getLevel1() {

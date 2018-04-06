@@ -300,6 +300,19 @@
 			</div>
 			</c:if>
 
+			<!-- Available in Alternative Languages -->
+			<c:if test="${!empty itemRetriever.alternativeLanguages}">
+			<div class='panel panel-default'>
+				<div class='panel-heading'>
+					Available in Alternative Languages
+				</div> 
+				<ul class='list-group'>
+					<c:forEach items="${itemRetriever.alternativeLanguages}" var="altLangs">
+						<li class='list-group-item'>${altLangs}</li>
+					</c:forEach>
+				</ul>
+			</div>
+			</c:if>
 		</div> 
 		<!-- END SUBMISSION MAIN BODY -->
 
@@ -308,14 +321,16 @@
 			<!-- Tags Side Bar -->
 			<div class="panel panel-info">
 				<div class="panel-heading">
-					<h3 class="panel-title"><i class="glyphicon glyphicon-tag"></i> Tags</h3>
+					<h3 class="panel-title"><i class="glyphicon glyphicon-tag"></i> Subjects</h3>
 				</div>
 				<ul class="list-group subjectsList">
 					<c:forEach items="${itemRetriever.subjects}" var="subject">
 						<li class="list-group-item">
 							<span class="label label-default level1">${subject.level1}</span>
 							<span class="label label-default level2">${subject.level2}</span>
-							<span class="label label-default level3"><div>${subject.level3}</div></span>
+							<c:if test="${not empty subject.level3}">
+								<span class="label label-default level3"><div>${subject.level3}</div></span>
+							</c:if>
 						</li>
 					</c:forEach>
 				</ul>
