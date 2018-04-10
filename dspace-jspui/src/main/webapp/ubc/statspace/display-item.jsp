@@ -291,6 +291,17 @@
 				</c:forEach>
 			</p> 
 			<p class="text-muted">Date: ${itemRetriever.date}</p>
+			<p class="text-muted">
+				Access:
+				<c:choose>
+					<c:when test="${itemRetriever.instructorOnly}">
+						<i class="glyphicon glyphicon-lock restrictionIconColorInstructorOnly"></i> Instructor Only
+					</c:when>
+					<c:otherwise>
+						<i class="glyphicon glyphicon-globe restrictionIconColorEveryone"></i> Everyone
+					</c:otherwise>
+				</c:choose>
+			</p>
 
 			<!-- Suggest Uses & Tips merged with What We Learned-->
 			<c:if test="${!empty itemRetriever.whatWeLearned}">

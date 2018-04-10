@@ -21,6 +21,10 @@ public class ItemMetadataRetriever
 	private PageContext pageContext;
 	private Item item;
 
+    public ItemMetadataRetriever(Item item) {
+		this.item = item;
+	}
+
     public ItemMetadataRetriever(Item item, PageContext pageContext) {
 		this.pageContext = pageContext;
 		this.item = item;
@@ -30,7 +34,6 @@ public class ItemMetadataRetriever
 	 * Takes a metadata field, e.g.: dc.title, and retrieves the human readable
 	 * label and value associated with it.
 	 * @param field - A metadata registry string, e.g.: dc.description.abstract
-	 * @param item - The submission item we're looking up data for
 	 * @return A MetadataResult object containing the label and the value. 
 	 */
 	public MetadataResult getField(String field) {
@@ -52,11 +55,13 @@ public class ItemMetadataRetriever
 		// Retrieve the metadata based on the field components.
 		Metadatum[] values = item.getMetadata(schema, element, qualifier, Item.ANY);
 		// Try to retrieve the human readable metadata label
-		String label = "";
+		String label = field; // defaults to metadata registry if unable to localize
 		// Don't need i18n support so skipped checking for it
-		label = LocaleSupport.getLocalizedMessage(pageContext,
-				"metadata." + field);
-		result.setLabel(label);
+		if (pageContext != null) {
+			label = LocaleSupport.getLocalizedMessage(pageContext,
+					"metadata." + field);
+			result.setLabel(label);
+		}
 
 		// Try to set the value
 		if (values.length == 0) {

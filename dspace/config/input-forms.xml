@@ -199,6 +199,17 @@
          <hint>Information that will help others to use this material. Also includes lessons you've learned from using this material in practice, e.g.: what worked, what didn't, what was particularly difficult, etc.</hint>
        </field>  
         
+	   <!-- Access Restriction -->
+       <field>
+         <dc-schema>dcterms</dc-schema>
+         <dc-element>accessRights</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <label>Access Restriction</label>
+         <hint>Select who can access this resource.</hint>
+         <input-type value-pairs-name="access_restriction">dropdown</input-type>
+         <required>You must choose an access level.</required>
+       </field>
+
 	   <!-- Language Selection -->
        <field>
          <dc-schema>dc</dc-schema>
@@ -972,7 +983,6 @@
        <displayed-value>Other</displayed-value>
        <stored-value>Other</stored-value>
      </pair>
-
    </value-pairs>
 
    
@@ -1009,6 +1019,17 @@
      <pair>
        <displayed-value>Turkish</displayed-value>
        <stored-value>tr</stored-value>
+     </pair>
+   </value-pairs>
+
+   <value-pairs value-pairs-name="access_restriction">
+     <pair>
+       <displayed-value>Everyone</displayed-value>
+       <stored-value>Everyone</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Instructors Only</displayed-value>
+       <stored-value>Instructors Only</stored-value>
      </pair>
    </value-pairs>
 

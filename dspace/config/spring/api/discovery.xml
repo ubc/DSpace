@@ -110,6 +110,7 @@
                 <ref bean="searchFilterResourceType" />
                 <ref bean="searchFilterSubject" />
                 <ref bean="searchFilterIssued" />
+                <ref bean="searchFilterAccessRights" />
             </list>
         </property>
         <!--The sort filters for the discovery search-->
@@ -418,6 +419,15 @@
         </property>
         <property name="type" value="date"/>
         <property name="sortOrder" value="VALUE"/>
+    </bean>
+
+    <bean id="searchFilterAccessRights" class="org.dspace.discovery.configuration.DiscoverySearchFilter">
+        <property name="indexFieldName" value="accessRights"/>
+        <property name="metadataFields">
+            <list>
+                <value>dcterms.accessRights</value>
+            </list>
+        </property>
     </bean>
 
     <!--Sort properties-->

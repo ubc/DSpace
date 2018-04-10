@@ -16,6 +16,7 @@ import org.apache.log4j.Logger;
 
 import org.dspace.content.Item;
 
+import org.dspace.app.webui.ubc.statspace.InstructorAccessChecker;
 
 /**
  * JSP helper for getting all metadata and files associated with an item.
@@ -40,6 +41,7 @@ public class ItemRetriever {
 	private String url = "";
 	private String whatWeLearned = "";
 	private String date = "";
+	private boolean instructorOnly = false;
 	private List<SubjectResult> subjects = new ArrayList<>();
 	private List<BitstreamResult> files;
 	private List<String> resourceTypes = new ArrayList<>();
@@ -78,6 +80,8 @@ public class ItemRetriever {
 		description = getSingleValue("dc.description");
 		whatWeLearned = getSingleValue("dcterms.instructionalMethod");
 		date = getSingleValue("dc.date.created");
+
+		instructorOnly = InstructorAccessChecker.isInstructorOnly(item);
 
 		initStringList("dcterms.type", resourceTypes);
 		initStringList("dcterms.requires", prereqs);
@@ -122,6 +126,9 @@ public class ItemRetriever {
 	}
 	public String getDate() {
 		return date;
+	}
+	public boolean getInstructorOnly() {
+		return instructorOnly;
 	}
 	public List<SubjectResult> getSubjects() {
 		return subjects;

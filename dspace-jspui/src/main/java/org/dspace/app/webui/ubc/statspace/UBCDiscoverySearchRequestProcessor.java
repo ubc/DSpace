@@ -339,6 +339,18 @@ public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcesso
         request.setAttribute("scope", scope);
         request.setAttribute("scopes", scopes);
 
+		// Exclude instructor only items if user doesn't have access
+		try {
+			if (!InstructorAccessChecker.hasInstructorAccess(context)) {
+				String newFilterQuery = SearchUtils.getSearchService()
+						.toFilterQuery(context, "accessRights", "notcontains", "instructor")
+						.getFilterQuery();
+				queryArgs.addFilterQueries(newFilterQuery);
+			}
+		} catch (SQLException ex) {
+			log.error(ex);
+		}
+
         // Perform the search
         DiscoverResult qResults = null;
         try
