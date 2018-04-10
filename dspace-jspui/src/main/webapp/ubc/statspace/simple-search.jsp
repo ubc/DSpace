@@ -48,6 +48,7 @@
 <%@page import="java.util.Map"%>
 <%@page import="org.dspace.discovery.DiscoverResult.FacetResult"%>
 <%@page import="org.dspace.discovery.DiscoverResult"%>
+<%@page import="org.dspace.discovery.configuration.DiscoveryConfiguration"%>
 <%@page import="org.dspace.content.DSpaceObject"%>
 <%@page import="java.util.List"%>
 <%@ page contentType="text/html;charset=UTF-8" %>
@@ -103,6 +104,7 @@
 	    }
 	}
     int rpp          = qArgs.getMaxResults();
+	int defaultRpp = (new DiscoveryConfiguration()).getDefaultRpp();
     int etAl         = ((Integer) request.getAttribute("etal")).intValue();
 
     String[] options = new String[]{"contains","equals","authority","notequals","notcontains","notauthority"};
@@ -319,7 +321,7 @@
            <label for="rpp"><fmt:message key="search.results.perpage"/></label>
            <select name="rpp">
 <%
-               for (int i = 5; i <= 100 ; i += 5)
+               for (int i = defaultRpp; i <= 100 ; i += defaultRpp)
                {
                    String selected = (i == rpp ? "selected=\"selected\"" : "");
 %>
