@@ -1,0 +1,24 @@
+version: '2'
+services:
+  # Postgres database
+  postgres:
+    image: postgres:9.4-alpine
+    container_name: postgres
+    volumes:
+      - ./volumes/db/var/lib/postgresql/data:/var/lib/postgresql/data
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 5432:5432
+
+  # DSpace
+  statspace:
+    image: ubcctlt/dspace:statspace
+    environment:
+      - POSTGRES_SCHEMA=statspacedev
+      - POSTGRES_USER=statspacedev
+    volumes:
+      - ./volumes/app/assetstore:/dspace/assetstore
+    ports:
+      - 8080:8080
+    depends_on:
+      - postgres

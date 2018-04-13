@@ -1,0 +1,138 @@
+image: lthub/kubernetes-deploy
+
+services:
+  - docker:dind
+
+variables:
+  DOCKER_HOST: tcp://localhost:2375
+  # improve docker build performance
+  DOCKER_DRIVER: overlay
+  # Application deployment domain
+  KUBE_DOMAIN: apps.ctlt.ubc.ca
+  # helm chart to deploy
+  DEPLOYMENT_MANIFEST: ctlt/statspace
+  image__tag: $CI_COMMIT_REF_SLUG
+  # Build
+  CI_REGISTRY_IMAGE: ubcctlt/dspace
+  # GitHub integration
+  GITHUB_REPO: ubc/dspace
+
+stages:
+  - build
+  - review
+  - staging
+  - production
+
+build_image:
+  stage: build
+  before_script:
+    - source docker-entrypoint.sh
+  script:
+    - 'github_post_status pending'
+    - command build
+    - 'github_post_status success'
+
+production:
+  stage: production
+  variables:
+    DEPLOYMENT_VALUE_FILE: configuration/statspace/values_prod.yaml
+    GIT_STRATEGY: none
+  before_script:
+    - source docker-entrypoint.sh
+    - git clone git@repo.code.ubc.ca:devops/configuration.git
+  script:
+    - command deploy-helm
+  environment:
+    name: production
+    url: http://statspace.elearning.ubc.ca
+  when: manual
+  only:
+    - statspace
+production_cwsei:
+  stage: production
+  variables:
+    DEPLOYMENT_VALUE_FILE: configuration/cwseispace/values_prod.yaml
+    GIT_STRATEGY: none
+  before_script:
+    - source docker-entrypoint.sh
+    - git clone git@repo.code.ubc.ca:devops/configuration.git
+  script:
+    - command deploy-helm
+  environment:
+    name: production_cwsei
+    url: http://cwseispace.elearning.ubc.ca
+  when: manual
+  only:
+    - cwseispace
+staging:
+  stage: staging
+  variables:
+    DEPLOYMENT_VALUE_FILE: configuration/statspace/values_staging.yaml
+    GIT_STRATEGY: none
+  before_script:
+    - source docker-entrypoint.sh
+    - git clone git@repo.code.ubc.ca:devops/configuration.git
+  script:
+    - 'github_post_status pending'
+    - command deploy-helm
+    - 'github_post_status success'
+  environment:
+    name: staging
+    url: http://statspace.stg.$KUBE_DOMAIN
+  only:
+    - statspace
+staging_cwsei:
+  stage: staging
+  variables:
+    DEPLOYMENT_VALUE_FILE: configuration/cwseispace/values_staging.yaml
+    GIT_STRATEGY: none
+  before_script:
+    - source docker-entrypoint.sh
+    - git clone git@repo.code.ubc.ca:devops/configuration.git
+  script:
+    - 'github_post_status pending'
+    - command deploy-helm
+    - 'github_post_status success'
+  environment:
+    name: staging_cwsei
+    url: http://cwseispace.stg.$KUBE_DOMAIN
+  only:
+    - cwseispace
+review:
+  stage: review
+  variables:
+    DEPLOYMENT_VALUE_FILE: configuration/statspace/values_review.yaml
+    GIT_STRATEGY: none
+  before_script:
+    - source docker-entrypoint.sh
+    - git clone git@repo.code.ubc.ca:devops/configuration.git
+  script:
+    - 'github_post_status pending'
+    - command deploy-helm
+    - 'github_post_status success "$CI_ENVIRONMENT_URL"'
+  environment:
+    name: review/$CI_COMMIT_REF_SLUG
+    url: http://statspace.$CI_ENVIRONMENT_SLUG.$KUBE_DOMAIN
+    on_stop: stop_review
+  only:
+    - branches
+  except:
+    - statspace
+    - biospace
+    - cwseispace
+stop_review:
+  stage: review
+  variables:
+    GIT_STRATEGY: none
+  script:
+    - command destroy-helm
+  environment:
+    name: review/$CI_COMMIT_REF_SLUG
+    action: stop
+  when: manual
+  only:
+    - branches
+  except:
+    - statspace
+    - biospace
+    - cwseispace
