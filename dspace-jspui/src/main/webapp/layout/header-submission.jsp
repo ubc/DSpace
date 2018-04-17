@@ -108,6 +108,7 @@
 			menubar: false,
 			plugins: "autolink colorpicker link lists textcolor code",
 			min_height: 200,
+			link_assume_external_targets: true,
 			external_plugins: {
 				'autolink': '<c:url value="/static/ubc/tinymce/plugins/autolink/plugin.min.js" />',
 				'code': '<c:url value="/static/ubc/tinymce/plugins/code/plugin.min.js" />', // be able to edit raw html for power users
@@ -126,6 +127,7 @@
 			min_height: 40,
 			forced_root_block: false,
 			plugins: "autolink colorpicker link lists textcolor code",
+			link_assume_external_targets: true,
 			external_plugins: {
 				'autolink': '<c:url value="/static/ubc/tinymce/plugins/autolink/plugin.min.js" />',
 				'code': '<c:url value="/static/ubc/tinymce/plugins/code/plugin.min.js" />', // be able to edit raw html for power users

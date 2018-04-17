@@ -159,10 +159,9 @@
          <dc-element>requires</dc-element>
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
-         <label>Prerequisite Knowledge</label>
+         <label>Pre-requisite Knowledge</label>
          <input-type>onebox</input-type>
 		 <hint>Please list one prerequisite at a time (press the "Add More" button to add more entries).</hint>
-         <required>Please enter prerequisite knowledges for this item.</required>
        </field>  
 
        <!-- Learning Objectives -->  
@@ -230,7 +229,7 @@
          <repeatable>true</repeatable>
          <label>Available in Alternative Languages</label>
          <input-type>onebox</input-type>
-		 <hint>If this resource is available in other languages, please list them here.</hint>
+		 <hint>If this resource is available in other languages, please list the languages here.</hint>
        </field>
 
      </page>

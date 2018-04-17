@@ -255,7 +255,7 @@
 			<c:if test="${!empty itemRetriever.prereqs}">
 			<div class='panel panel-default'>
 				<div class='panel-heading'>
-					Pre-Requisite Knowledge
+					Pre-requisite Knowledge
 				</div> 
 				<ul class='list-group'>
 					<c:forEach items="${itemRetriever.prereqs}" var="prereq">
