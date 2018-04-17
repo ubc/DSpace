@@ -127,7 +127,9 @@ jQuery("#licenseclass_chooser").change(function() {
             var id = result[i].id;            
             var label = result[i].label;
             var description = result[i].description;
-            var htmlCC = " <div class='form-group'><span class='help-block' title='"+description+"'>"+label+"&nbsp;<i class='glyphicon glyphicon-info-sign'></i></span>"
+            var htmlCC = "<div class='form-group'>";
+			htmlCC += "<h3>"+label+"</h3>"
+			htmlCC += "<p class=text-muted>" + description + "</p>";
             var typefield = result[i].type;
             if(typefield=="enum") {            	
             	jQuery.each(result[i].fieldEnum, function(key, value) {
