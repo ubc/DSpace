@@ -133,3 +133,11 @@ div.displayItemThumbnailPlaceholder table span {
 	vertical-align: middle;
 	text-align: center;
 }
+
+/* Verify Submission */
+div.metadataVerifyRow {
+	margin-bottom: 0.75em;
+}
+div.metadataVerifyRow div.metadataFieldLabel {
+	text-align: right;
+}

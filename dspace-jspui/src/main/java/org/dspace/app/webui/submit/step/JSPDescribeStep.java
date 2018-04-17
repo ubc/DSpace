@@ -70,7 +70,7 @@ public class JSPDescribeStep extends JSPStep
     private static final String DISPLAY_JSP = "/ubc/statspace/edit-metadata.jsp";
     
     /** JSP which reviews information gathered by DISPLAY_JSP * */
-    private static final String REVIEW_JSP = "/submit/review-metadata.jsp";
+    private static final String REVIEW_JSP = "/ubc/statspace/review-metadata.jsp";
 
     /** log4j logger */
     private static Logger log = Logger.getLogger(JSPDescribeStep.class);
