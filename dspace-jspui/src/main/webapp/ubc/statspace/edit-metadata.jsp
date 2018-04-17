@@ -356,16 +356,17 @@
               .append(LocaleSupport.getLocalizedMessage(pageContext, "jsp.submit.edit-metadata.button.remove"))
               .append("\"><span class=\"glyphicon glyphicon-trash\"></span>&nbsp;&nbsp;"+LocaleSupport.getLocalizedMessage(pageContext, "jsp.submit.edit-metadata.button.remove")+"</button>");
          }
-         else if (repeatable && !readonly && i == fieldCount - 1)
-         {
-            // put a 'more' button next to the last space
-            sb.append("<button class=\"btn btn-default pull-right col-md-2\" name=\"submit_")
+		// end the input row
+        sb.append("</div>");   
+		if (repeatable && !readonly && i == fieldCount - 1)
+        {
+            // put an 'add more' button below all the input elements
+            sb.append("<div class='col-md-10 addMoreButton'><button class=\"btn btn-default\" name=\"submit_")
               .append(fieldName)
               .append("_add\" value=\"")
               .append(LocaleSupport.getLocalizedMessage(pageContext, "jsp.submit.edit-metadata.button.add"))
-              .append("\"><span class=\"glyphicon glyphicon-plus\"></span>&nbsp;&nbsp;"+LocaleSupport.getLocalizedMessage(pageContext, "jsp.submit.edit-metadata.button.add")+"</button>");
-         }         
-         sb.append("</div>");   
+              .append("\"><span class=\"glyphicon glyphicon-plus\"></span>&nbsp;&nbsp;"+LocaleSupport.getLocalizedMessage(pageContext, "jsp.submit.edit-metadata.button.add")+"</button></div>");
+        }
       }
 	  sb.append("</div></div><br/>");
       out.write(sb.toString());
@@ -737,17 +738,18 @@
                .append(LocaleSupport.getLocalizedMessage(pageContext, "jsp.submit.edit-metadata.button.remove"))
                .append("\"><span class=\"glyphicon glyphicon-trash\"></span>&nbsp;&nbsp;"+LocaleSupport.getLocalizedMessage(pageContext, "jsp.submit.edit-metadata.button.remove")+"</button>");
           }
-          else if (repeatable && !readonly && i == fieldCount - 1)
+		  // end the input row
+          sb.append("</div>");
+          if (repeatable && !readonly && i == fieldCount - 1)
           {
-             // put a 'more' button next to the last space
-             sb.append("<button class=\"btn btn-default col-md-2\" name=\"submit_")
+             // put an 'add more' button below all the inputs
+             sb.append("<div class='addMoreButton col-md-10'><button class=\"btn btn-default\" name=\"submit_")
                .append(fieldName)
                .append("_add\" value=\"")
                .append(LocaleSupport.getLocalizedMessage(pageContext, "jsp.submit.edit-metadata.button.add"))
-               .append("\"><span class=\"glyphicon glyphicon-plus\"></span>&nbsp;&nbsp;"+LocaleSupport.getLocalizedMessage(pageContext, "jsp.submit.edit-metadata.button.add")+"</button>");
+               .append("\"><span class=\"glyphicon glyphicon-plus\"></span>&nbsp;&nbsp;"+LocaleSupport.getLocalizedMessage(pageContext, "jsp.submit.edit-metadata.button.add")+"</button></div>");
           }
 
-          sb.append("</div>");
         }
       sb.append("</div>");
       sb.append("</div><br/>");

@@ -98,6 +98,12 @@ span.label.labelResource {
 	font-size: 1em;
 }
 
+/* Display item add more button */
+div.addMoreButton {
+	margin-top: 0.6em;
+	text-align: center;
+}
+
 /* Display Item Access Restrictions */
 .restrictionIconColorEveryone {
 	color: darkseagreen;
