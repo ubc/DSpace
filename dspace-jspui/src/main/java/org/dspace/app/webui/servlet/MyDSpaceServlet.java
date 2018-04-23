@@ -877,7 +877,7 @@ public class MyDSpaceServlet extends DSpaceServlet
         request.setAttribute("import.uploads", importUploads);
 
         // Forward to main mydspace page
-        JSPManager.showJSP(request, response, "/mydspace/main.jsp");
+        JSPManager.showJSP(request, response, "/ubc/statspace/main.jsp");
     }
 
     /**

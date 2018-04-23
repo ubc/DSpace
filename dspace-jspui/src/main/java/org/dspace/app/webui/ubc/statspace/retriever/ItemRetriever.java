@@ -7,6 +7,7 @@ package org.dspace.app.webui.ubc.statspace.retriever;
 
 import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +18,7 @@ import org.apache.log4j.Logger;
 import org.dspace.content.Item;
 
 import org.dspace.app.webui.ubc.statspace.UBCAccessChecker;
+import org.dspace.content.DCDate;
 
 /**
  * JSP helper for getting all metadata and files associated with an item.
@@ -40,7 +42,8 @@ public class ItemRetriever {
 	private String thumbnail = "";
 	private String url = "";
 	private String whatWeLearned = "";
-	private String date = "";
+	private String dateCreated = "";
+	private String dateSubmitted = "";
 	private boolean instructorOnly = false;
 	private List<SubjectResult> subjects = new ArrayList<>();
 	private List<BitstreamResult> files;
@@ -79,9 +82,15 @@ public class ItemRetriever {
 		summary = getSingleValue("dc.description.abstract");
 		description = getSingleValue("dc.description");
 		whatWeLearned = getSingleValue("dcterms.instructionalMethod");
-		date = getSingleValue("dc.date.created");
-
+		dateCreated = getSingleValue("dc.date.created");
 		instructorOnly = UBCAccessChecker.isInstructorOnly(item);
+
+		dateSubmitted = getSingleValue("dc.date.submitted");
+		if (!dateSubmitted.isEmpty()) {
+			DCDate tmpDate = new DCDate(dateSubmitted);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm a");
+			dateSubmitted = dateFormat.format(tmpDate.toDate());
+		}
 
 		initStringList("dcterms.type", resourceTypes);
 		initStringList("dcterms.requires", prereqs);
@@ -124,8 +133,11 @@ public class ItemRetriever {
 	public String getWhatWeLearned() {
 		return whatWeLearned;
 	}
-	public String getDate() {
-		return date;
+	public String getDateCreated() {
+		return dateCreated;
+	}
+	public String getDateSubmitted() {
+		return dateSubmitted;
 	}
 	public boolean getInstructorOnly() {
 		return instructorOnly;

@@ -13,10 +13,14 @@ import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.log4j.Logger;
 
 import org.dspace.app.webui.submit.JSPStep;
 import org.dspace.app.util.SubmissionInfo;
 import org.dspace.authorize.AuthorizeException;
+import org.dspace.content.DCDate;
+import org.dspace.content.Item;
+import org.dspace.content.Metadatum;
 import org.dspace.core.Context;
 
 /**
@@ -39,6 +43,9 @@ import org.dspace.core.Context;
  */
 public class JSPCompleteStep extends JSPStep
 {
+    /** log4j logger */
+    private static Logger log = Logger.getLogger(JSPCompleteStep.class);
+
     /**
      * Do any pre-processing to determine which JSP (if any) is used to generate
      * the UI for this step. This method should include the gathering and
@@ -67,7 +74,16 @@ public class JSPCompleteStep extends JSPStep
             throws ServletException, IOException, SQLException,
             AuthorizeException
     {
-        //No pre-processing necessary, since submission is complete!
+		// record the time submitted, it doesn't seem to have been recorded by default
+		Item item = subInfo.getSubmissionItem().getItem();
+		// if this is a resubmission, we need to remove the old time submitted
+		Metadatum[] values = item.getMetadata("dc", "date", "submitted", Item.ANY);
+		if (values.length > 0) {
+			item.clearMetadata("dc", "date", "submitted", Item.ANY);
+		}
+		// add the new time submitted
+		DCDate date = DCDate.getCurrent();
+		item.addMetadata("dc", "date", "submitted", Item.ANY, date.toString());
     }
 
     

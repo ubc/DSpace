@@ -290,7 +290,8 @@
 					${author}<c:if test="${!loop.last}">;</c:if>
 				</c:forEach>
 			</p> 
-			<p class="text-muted">Date: ${itemRetriever.date}</p>
+			<p class="text-muted">Date Created: ${itemRetriever.dateCreated}</p>
+			<p class="text-muted">Date Submitted: ${itemRetriever.dateSubmitted}</p>
 			<p class="text-muted">
 				Access:
 				<c:choose>
