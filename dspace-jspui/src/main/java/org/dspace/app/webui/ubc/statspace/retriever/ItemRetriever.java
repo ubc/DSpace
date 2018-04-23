@@ -16,7 +16,7 @@ import org.apache.log4j.Logger;
 
 import org.dspace.content.Item;
 
-import org.dspace.app.webui.ubc.statspace.InstructorAccessChecker;
+import org.dspace.app.webui.ubc.statspace.UBCAccessChecker;
 
 /**
  * JSP helper for getting all metadata and files associated with an item.
@@ -81,7 +81,7 @@ public class ItemRetriever {
 		whatWeLearned = getSingleValue("dcterms.instructionalMethod");
 		date = getSingleValue("dc.date.created");
 
-		instructorOnly = InstructorAccessChecker.isInstructorOnly(item);
+		instructorOnly = UBCAccessChecker.isInstructorOnly(item);
 
 		initStringList("dcterms.type", resourceTypes);
 		initStringList("dcterms.requires", prereqs);

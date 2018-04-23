@@ -341,7 +341,8 @@ public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcesso
 
 		// Exclude instructor only items if user doesn't have access
 		try {
-			if (!InstructorAccessChecker.hasInstructorAccess(context)) {
+			UBCAccessChecker accessChecker = new UBCAccessChecker(context);
+			if (!accessChecker.hasInstructorAccess()) {
 				String newFilterQuery = SearchUtils.getSearchService()
 						.toFilterQuery(context, "accessRights", "notcontains", "instructor")
 						.getFilterQuery();

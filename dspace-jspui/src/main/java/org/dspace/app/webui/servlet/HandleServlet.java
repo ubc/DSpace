@@ -54,7 +54,7 @@ import org.jdom.Text;
 import org.jdom.output.XMLOutputter;
 
 import org.dspace.app.itemexport.ItemExport;
-import org.dspace.app.webui.ubc.statspace.InstructorAccessChecker;
+import org.dspace.app.webui.ubc.statspace.UBCAccessChecker;
 
 /**
  * Servlet for handling requests within a community or collection. The Handle is
@@ -439,7 +439,8 @@ public class HandleServlet extends DSpaceServlet
         // Ensure the user has authorisation
         AuthorizeManager.authorizeAction(context, item, Constants.READ);
 		// Instructor only permissions check
-		if (!InstructorAccessChecker.hasItemAccess(context, item)) {
+		UBCAccessChecker accessChecker = new UBCAccessChecker(context);
+		if (!accessChecker.hasItemAccess(item)) {
             throw new AuthorizeException("Authorization denied for reading instructor only item.");
 		}
 
