@@ -1,3 +1,22 @@
+/* "Backported" features. the CLF is based on an older version of bootstrap 3
+and lacks some bootstrap 3 features. */
+.bg-primary {
+	background: #337ab7;
+}
+.bg-success {
+	background: #dff0d8;
+}
+.bg-info {
+	background: #d9edf7;
+}
+.bg-warning {
+	background-color: #fcf8e3;
+}
+.bg-danger {
+	background: #f2dede;
+}
+
+
 /* Make shared height search results gallery boxes */
 .discovery-result-results div.searchResultsWrap {
 	display: flex;
@@ -146,4 +165,17 @@ div.metadataVerifyRow {
 }
 div.metadataVerifyRow div.metadataFieldLabel {
 	text-align: right;
+}
+
+/* Main Page Approve User Accounts */
+table.usersForApprovalTable ul {
+	list-style: none;
+	list-style-position: outside;
+	padding-left: 0;
+}
+table.usersForApprovalTable ul.usersForApprovalActions li {
+	margin-bottom: 0.5em;
+}
+td.usersForApprovalActionsCol {
+	width: 15em;
 }

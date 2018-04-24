@@ -897,4 +897,15 @@
       <session-timeout>90</session-timeout>
   </session-config>
 
+  <!-- Custom servlets -->
+  <servlet>
+    <servlet-name>approve-user-servlet</servlet-name>
+    <servlet-class>org.dspace.app.webui.ubc.statspace.ApproveUserServlet</servlet-class>
+  </servlet>
+    	
+  <servlet-mapping>
+    <servlet-name>approve-user-servlet</servlet-name>
+    <url-pattern>/approve-user-servlet</url-pattern>
+  </servlet-mapping>
+
 </web-app>

@@ -31,6 +31,9 @@ import org.dspace.app.itemimport.BatchUpload;
 import org.dspace.app.itemimport.ItemImport;
 import org.dspace.app.util.SubmissionConfigReader;
 import org.dspace.app.util.SubmissionConfig;
+import org.dspace.app.webui.ubc.statspace.ApproveUserUtil;
+import org.dspace.app.webui.ubc.statspace.UBCAccessChecker;
+import org.dspace.app.webui.ubc.statspace.retriever.EPersonRetriever;
 import org.dspace.app.webui.util.UIUtil;
 import org.dspace.authorize.AuthorizeException;
 import org.dspace.content.Collection;
@@ -863,7 +866,6 @@ public class MyDSpaceServlet extends DSpaceServlet
 			// nothing to do they just have no export archives available for download
 		}
         
-        
         // Set attributes
         request.setAttribute("mydspace.user", currentUser);
         request.setAttribute("workspace.items", workspaceItems);
@@ -875,6 +877,22 @@ public class MyDSpaceServlet extends DSpaceServlet
         request.setAttribute("supervised.items", supervisedItems);
         request.setAttribute("export.archives", exportArchives);
         request.setAttribute("import.uploads", importUploads);
+
+		// for determining whether to show user vetting controls or not
+		UBCAccessChecker accessChecker = new UBCAccessChecker(context);
+		boolean hasCuratorAccess = accessChecker.hasCuratorAccess();
+		request.setAttribute("hasCuratorAccess", hasCuratorAccess);
+		// get list of users that needs to be vetted
+		ApproveUserUtil approveUtil = new ApproveUserUtil();
+		List<EPerson> tmpUsersForApproval = approveUtil.getUsersForApproval();
+		List<EPersonRetriever> usersForApproval = new ArrayList<EPersonRetriever>();
+		for (EPerson user : tmpUsersForApproval) {
+			EPersonRetriever epersonRetriever = new EPersonRetriever(user);
+			usersForApproval.add(epersonRetriever);
+		}
+		request.setAttribute("usersForApproval", usersForApproval);
+		request.setAttribute("userApprovalActionGrant", ApproveUserUtil.ACTION_GRANT);
+		request.setAttribute("userApprovalActionDeny", ApproveUserUtil.ACTION_DENY);
 
         // Forward to main mydspace page
         JSPManager.showJSP(request, response, "/ubc/statspace/main.jsp");

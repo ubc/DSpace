@@ -28,6 +28,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Hashtable;
+import org.dspace.app.webui.ubc.statspace.ApproveUserUtil;
 
 /**
  * Servlet for handling user registration and forgotten passwords.
@@ -525,6 +526,11 @@ public class RegisterServlet extends DSpaceServlet
 
             JSPManager.showJSP(request, response, "/register/registered.jsp");
             context.complete();
+			// context needs to be flushed to database before the user actually
+			// exists, so we had to wait until now to actually add users to the 
+			// approval list
+			ApproveUserUtil approveUser = new ApproveUserUtil();
+			approveUser.addUserForApproval(eperson);
         }
         else
         {

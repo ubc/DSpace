@@ -22,6 +22,7 @@
 
 <%@ page contentType="text/html;charset=UTF-8" %>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"
     prefix="fmt" %>
 
@@ -478,6 +479,140 @@
 		%>
 	</ul>
 	<%} %>
+
+	<c:if test="${hasCuratorAccess && not empty usersForApproval}">
+		<h3>Access Check for New Accounts</h3>
+		<table class="table usersForApprovalTable">
+			<tr>
+				<th>Name/Email/Phone</th>
+				<th>Role/Unit/Institution</th>
+				<th>Action</th>
+			</tr>
+			<c:forEach items="${usersForApproval}" var="userForApproval">
+				<tr id="UsersForApprovalRow-${userForApproval.ID}">
+					<td>
+						<ul>
+							<li>${userForApproval.name}</li>
+							<li>${userForApproval.email}</li>
+							<c:if test="${not empty userForApproval.phone}">
+								<li>${userForApproval.phone}</li>
+							</c:if>
+						</ul>
+					</td>
+					<td>
+						<ul>
+							<c:if test="${not empty userForApproval.role}">
+								<li>${userForApproval.role}</li>
+							</c:if>
+							<c:if test="${not empty userForApproval.unit}">
+								<li>${userForApproval.unit}</li>
+							</c:if>
+							<c:if test="${not empty userForApproval.institution}">
+								<li>${userForApproval.institution}</li>
+							</c:if>
+						</ul>
+					</td>
+					<td class="usersForApprovalActionsCol">
+						<ul class="usersForApprovalActions">
+							<li id="UsersForApprovalPending-${userForApproval.ID}" class="hidden UsersForApprovalStatus text-warning">
+								<i class="glyphicon glyphicon-time"></i>
+								<strong>Please Wait: </strong> <span id="UsersForApprovalPendingMsg-${userForApproval.ID}"></span>
+							</li>
+							<li id="UsersForApprovalSuccess-${userForApproval.ID}" class="hidden UsersForApprovalStatus text-success">
+								<i class="glyphicon glyphicon-ok"></i>
+								<strong>Success: </strong> <span id="UsersForApprovalSuccessMsg-${userForApproval.ID}"></span>
+							</li>
+							<li id="UsersForApprovalError-${userForApproval.ID}" class="hidden UsersForApprovalStatus text-danger">
+								<i class="glyphicon glyphicon-remove"></i>
+								<strong>Error: </strong> <span id="UsersForApprovalErrorMsg-${userForApproval.ID}"></span>
+							</li>
+							<li>
+								<button id="UsersForApprovalGrant-${userForApproval.ID}" class="btn btn-default btn-warning UsersForApprovalGrant">
+									Grant Instructor Permission</button>
+							</li>
+							<li>
+								<button id="UsersForApprovalDeny-${userForApproval.ID}" class="btn btn-default btn-info UsersForApprovalDeny">
+									Deny Instructor Permission</button>
+							</li>
+						</ul>
+					</td>
+				</tr>
+			</c:forEach>
+		</table>
+		<script type="text/javascript">
+			jQuery(function() {
+				function getUserId(idStr) {
+					return idStr.split('-')[1];
+				}
+				function setPendingStatus(userId, msg) {
+					// change the row's background color
+					jQuery('#UsersForApprovalRow-' + userId).removeClass("bg-danger");
+					jQuery('#UsersForApprovalRow-' + userId).addClass("bg-warning");
+					// hide the control buttons so the user doesn't trigger them multipile times
+					jQuery('#UsersForApprovalGrant-' + userId).addClass("hidden");
+					jQuery('#UsersForApprovalDeny-' + userId).addClass("hidden");
+					// hide other messages
+					jQuery('#UsersForApprovalError-' + userId).addClass('hidden');
+					// update the status message and show it
+					jQuery('#UsersForApprovalPendingMsg-' + userId).text(msg);
+					jQuery('#UsersForApprovalPending-' + userId).removeClass('hidden');
+				}
+				function setSuccessStatus(userId, msg) {
+					// change the row's background color
+					jQuery('#UsersForApprovalRow-' + userId).removeClass("bg-danger");
+					jQuery('#UsersForApprovalRow-' + userId).removeClass("bg-warning");
+					jQuery('#UsersForApprovalRow-' + userId).addClass("bg-success");
+					// hide other messages
+					jQuery('#UsersForApprovalPending-' + userId).addClass('hidden');
+					jQuery('#UsersForApprovalError-' + userId).addClass('hidden');
+					// update the status message and show it
+					jQuery('#UsersForApprovalSuccessMsg-' + userId).text(msg);
+					jQuery('#UsersForApprovalSuccess-' + userId).removeClass('hidden');
+				}
+				function setErrorStatus(userId, msg) {
+					// change the row's background color
+					jQuery('#UsersForApprovalRow-' + userId).removeClass("bg-warning");
+					jQuery('#UsersForApprovalRow-' + userId).addClass("bg-danger");
+					// restore the control buttons so the user can retry if they want to
+					jQuery('#UsersForApprovalGrant-' + userId).removeClass("hidden");
+					jQuery('#UsersForApprovalDeny-' + userId).removeClass("hidden");
+					// hide other messages
+					jQuery('#UsersForApprovalPending-' + userId).addClass('hidden');
+					// update the status message and show it
+					jQuery('#UsersForApprovalErrorMsg-' + userId).text(msg);
+					jQuery('#UsersForApprovalError-' + userId).removeClass('hidden');
+				}
+				function execAction(userId, action, pendingMsg, successMsg) {
+					var statement = {
+						"action": action,
+						"userid": userId
+					};
+					setPendingStatus(userId, pendingMsg);
+					jQuery.post(
+						"<c:url value='/approve-user-servlet' />",
+						statement)
+						.done(function(data) {
+							setSuccessStatus(userId, successMsg);
+						})
+						.fail(function(data) {
+							setErrorStatus(userId, data.responseJSON.error);
+						});
+				}
+				jQuery(".UsersForApprovalGrant").click( function(e) {
+					execAction(getUserId(e.target.id), "${userApprovalActionGrant}",
+						"Granting Instructor Permission",
+						"Instructor Permission Granted!"
+					);
+				});
+				jQuery(".UsersForApprovalDeny").click( function(e) {
+					execAction(getUserId(e.target.id), "${userApprovalActionDeny}",
+						"Denying Instructor Permission",
+						"Instructor Permission Denied!"
+					);
+				});
+			});
+		</script>
+	</c:if>
 	
 	<script>
 		function showMoreClicked(index){
