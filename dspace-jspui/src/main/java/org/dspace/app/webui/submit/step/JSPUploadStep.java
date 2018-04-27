@@ -88,7 +88,8 @@ public class JSPUploadStep extends JSPStep
     private static final String UPLOAD_FILE_JSP = "/submit/show-uploaded-file.jsp";
 
     /** JSP to edit file description * */
-    private static final String FILE_DESCRIPTION_JSP = "/submit/change-file-description.jsp";
+    //private static final String FILE_DESCRIPTION_JSP = "/submit/change-file-description.jsp";
+    private static final String FILE_DESCRIPTION_JSP = "/ubc/statspace/change-file-description.jsp";
 
     /** JSP to edit file format * */
     private static final String FILE_FORMAT_JSP = "/submit/get-file-format.jsp";

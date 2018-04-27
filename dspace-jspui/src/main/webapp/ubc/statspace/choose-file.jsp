@@ -14,7 +14,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"
     prefix="fmt" %>
 
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
 <%@ taglib uri="http://www.dspace.org/dspace-tags.tld" prefix="dspace" %>
 
@@ -433,6 +433,8 @@
                                 <th>Name</th>
                                 <th class="text-center">Status</th>
                                 <th><fmt:message key="jsp.submit.upload-file-list.tableheading4"/></th>
+								<th title='<fmt:message key="jsp.submit.upload-file-list.tooltip.instructor-only"/>' class="text-center">
+									<i class="glyphicon glyphicon-lock"></i></th>
                             </thead>
                             <tbody></tbody>
                         </table>
@@ -484,6 +486,7 @@
                                         '<td class="resumable-file-name"></td>' +
                                         '<td class="resumable-file-progress text-center"></td>' +
                                         '<td class="resumable-file-description-'+file.uniqueIdentifier+'"><input class="form-control" type="text" name="description[' + file.fileName + ']" id="tdescription"></td>' +
+                                        '<td class="resumable-file-instructoronly-'+file.uniqueIdentifier+'"><input class="form-control" type="checkbox" name="instructoronly[' + file.fileName + ']" id="tdescription" title="<fmt:message key="jsp.submit.upload-file-list.tooltip.instructor-only"/>"></td>' +
                                         '</tr>'
                                     );
                                 $('.resumable-file-'+file.uniqueIdentifier+' + .resumable-file-name').html(file.fileName);

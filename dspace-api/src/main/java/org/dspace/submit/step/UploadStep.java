@@ -31,6 +31,7 @@ import org.dspace.content.FormatIdentifier;
 import org.dspace.content.Item;
 import org.dspace.core.ConfigurationManager;
 import org.dspace.core.Context;
+import org.dspace.core.I18nUtil;
 import org.dspace.curate.Curator;
 import org.dspace.submit.AbstractProcessingStep;
 
@@ -269,6 +270,7 @@ public class UploadStep extends AbstractProcessingStep
         // Beginning with the resumable ones.
         Enumeration<String> parameterNames = request.getParameterNames();
         Map<String, String> descriptions = new HashMap<String, String>();
+		Map<String, Boolean> instructorOnly = new HashMap<String, Boolean>();
         while (parameterNames.hasMoreElements())
         {
             String name = parameterNames.nextElement();
@@ -278,8 +280,14 @@ public class UploadStep extends AbstractProcessingStep
                         name.substring("description[".length(), name.length()-1),
                         request.getParameter(name));
             }
+			else if (StringUtils.startsWithIgnoreCase(name, "instructoronly["))
+			{
+                instructorOnly.put(
+                        name.substring("instructoronly[".length(), name.length()-1),
+                        Boolean.TRUE);
+			}
         }
-        if (!descriptions.isEmpty())
+        if (!descriptions.isEmpty() || !instructorOnly.isEmpty())
         {
             // we got descriptions from the resumable upload
             if (item != null)
@@ -295,6 +303,10 @@ public class UploadStep extends AbstractProcessingStep
                             bitstream.setDescription(descriptions.get(bitstream.getName()));
                             bitstream.update();
                         }
+						if (instructorOnly.containsKey(bitstream.getName()))
+						{
+							setFileAccessRight(context, bitstream, true);
+						}
                     }
                 }
             }
@@ -316,6 +328,17 @@ public class UploadStep extends AbstractProcessingStep
                 return status;
             }
         }
+
+		String instructorOnlyAccess = request.getParameter("instructoronly-hidden");
+		if (instructorOnlyAccess != null) {
+			instructorOnlyAccess = request.getParameter("instructoronly");
+			if (instructorOnlyAccess != null) {
+				setFileAccessRight(context, subInfo.getBitstream(), true);
+			}
+			else {
+				setFileAccessRight(context, subInfo.getBitstream(), false);
+			}
+		}
 
         // ------------------------------------------
         // Step #4: Check for a file format change
@@ -733,5 +756,29 @@ public class UploadStep extends AbstractProcessingStep
 
         return STATUS_COMPLETE;
     }
+
+	/**
+	 * Set access rights for the given file.
+	 * 
+	 * @param context
+	 * @param bitstream
+	 * @param instructorOnly - true if file to be set to instructor only, false otherwise.
+	 * @throws SQLException
+	 * @throws AuthorizeException 
+	 */
+	protected void setFileAccessRight(Context context, Bitstream bitstream,
+			boolean instructorOnly) throws SQLException, AuthorizeException {
+		String accessInstructor = I18nUtil.getMessage("ubc-access-checker.permission.instructor-only");
+		String accessEveryone = I18nUtil.getMessage("ubc-access-checker.permission.everyone");
+
+		if (instructorOnly) {
+			bitstream.setAccessRights(accessInstructor);
+		}
+		else {
+			bitstream.setAccessRights(accessEveryone);
+		}
+		bitstream.update();
+		context.commit();
+	}
 
 }

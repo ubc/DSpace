@@ -5,8 +5,10 @@ import java.util.regex.Pattern;
 import org.apache.log4j.Logger;
 import org.dspace.app.webui.ubc.statspace.retriever.ItemMetadataRetriever;
 import org.dspace.authorize.AuthorizeManager;
+import org.dspace.content.Bitstream;
 import org.dspace.content.Item;
 import org.dspace.core.Context;
+import org.dspace.core.I18nUtil;
 import org.dspace.eperson.EPerson;
 import org.dspace.eperson.Group;
 
@@ -19,8 +21,8 @@ public class UBCAccessChecker {
     /** log4j logger */
     private static Logger log = Logger.getLogger(UBCAccessChecker.class);
 
-	public final static String ACCESS_EVERYONE = "Everyone";
-	public final static String ACCESS_INSTRUCTOR_ONLY = "Instructor Only";
+	public final static String ACCESS_EVERYONE = I18nUtil.getMessage("ubc-access-checker.permission.everyone");
+	public final static String ACCESS_INSTRUCTOR_ONLY = I18nUtil.getMessage("ubc-access-checker.permission.instructor-only");
 	public final static String GROUP_NAME_INSTRUCTOR = "Instructor";
 	public final static String GROUP_NAME_CURATOR = "curator";
 
@@ -46,6 +48,14 @@ public class UBCAccessChecker {
 			return false;
 		}
 		return true;
+	}
+
+	public static boolean isInstructorOnly(Bitstream file) {
+		String accessRight = file.getAccessRights();
+		if (accessRight.equals(ACCESS_INSTRUCTOR_ONLY)) {
+			return true;
+		}
+		return false;
 	}
 
 	/**
@@ -105,6 +115,24 @@ public class UBCAccessChecker {
 	public boolean hasItemAccess(Item item) {
 		if (!isInstructorOnly(item)) {
 			// everyone has access to this item
+			return true;
+		}
+		try {
+			return hasInstructorAccess();
+		} catch (SQLException ex) {
+			log.error(ex);
+		}
+		return false;
+	}
+
+	/**
+	 * Check if the currently logged in user has access to the given file.
+	 * @param file the file that the user wants to access
+	 * @return 
+	 */
+	public boolean hasFileAccess(Bitstream file) {
+		if (!isInstructorOnly(file)) {
+			// everyone has access
 			return true;
 		}
 		try {

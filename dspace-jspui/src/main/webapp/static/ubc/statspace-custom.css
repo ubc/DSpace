@@ -179,3 +179,8 @@ table.usersForApprovalTable ul.usersForApprovalActions li {
 td.usersForApprovalActionsCol {
 	width: 15em;
 }
+
+/* File Upload, Select File */
+.resumable-list td input[type="checkbox"] {
+	margin-top: 0; /* override bootstrap top margin since dspace css magnifies the checkbox to a huge size */
+}

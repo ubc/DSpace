@@ -12,23 +12,18 @@ import javax.servlet.jsp.jstl.fmt.LocaleSupport;
 import org.apache.log4j.Logger;
 import org.dspace.content.Metadatum;
 import org.dspace.content.Item;
+import org.dspace.core.I18nUtil;
 
 public class ItemMetadataRetriever
 {
     /** log4j logger */
     private static Logger log = Logger.getLogger(ItemMetadataRetriever.class);
 
-	private PageContext pageContext;
 	private Item item;
 
     public ItemMetadataRetriever(Item item) {
 		this.item = item;
 	}
-
-    public ItemMetadataRetriever(Item item, PageContext pageContext) {
-		this.pageContext = pageContext;
-		this.item = item;
-    }
 
 	/**
 	 * Takes a metadata field, e.g.: dc.title, and retrieves the human readable
@@ -57,11 +52,7 @@ public class ItemMetadataRetriever
 		// Try to retrieve the human readable metadata label
 		String label = field; // defaults to metadata registry if unable to localize
 		// Don't need i18n support so skipped checking for it
-		if (pageContext != null) {
-			label = LocaleSupport.getLocalizedMessage(pageContext,
-					"metadata." + field);
-			result.setLabel(label);
-		}
+		label = I18nUtil.getMessage("metadata." + field);
 
 		// Try to set the value
 		if (values.length == 0) {
