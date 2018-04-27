@@ -14,11 +14,13 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.PageContext;
 import org.apache.log4j.Logger;
+import org.dspace.app.webui.ubc.statspace.UBCAccessChecker;
 import org.dspace.app.webui.util.UIUtil;
 import org.dspace.content.Bundle;
 import org.dspace.content.Item;
 import org.dspace.content.Bitstream;
 import org.dspace.constants.Constants;
+import org.dspace.core.Context;
 
 /**
  * Helper to retrieve a list of files from an item.
@@ -28,12 +30,14 @@ public class ItemBitstreamRetriever {
     /** log4j logger */
     private static final Logger log = Logger.getLogger(ItemMetadataRetriever.class);
 
-	private final Item item;
-	private final PageContext pageContext;
+	private Item item;
+	private Context context;
+	private HttpServletRequest request;
 
-	public ItemBitstreamRetriever(Item item, PageContext pageContext) {
+	public ItemBitstreamRetriever(Context context, HttpServletRequest request, Item item) {
 		this.item = item;
-		this.pageContext = pageContext;
+		this.context = context;
+		this.request = request;
 	}
 
 	/**
@@ -45,10 +49,10 @@ public class ItemBitstreamRetriever {
 	 * @throws java.io.UnsupportedEncodingException 
 	 */
 	public List<BitstreamResult> getBitstreams() throws SQLException, UnsupportedEncodingException {
+		UBCAccessChecker accessChecker = new UBCAccessChecker(context);
 		List<BitstreamResult> results = new ArrayList<>();
 
 		String handle = item.getHandle();
-		HttpServletRequest request = (HttpServletRequest) pageContext.getRequest();
 
 		Bundle[] bundles = item.getBundles("ORIGINAL");
 		Bundle[] thumbs = item.getBundles("THUMBNAIL");
@@ -71,8 +75,9 @@ public class ItemBitstreamRetriever {
 			Bitstream[] bitstreams = bundle.getBitstreams();
 			for (Bitstream bitstream : bitstreams) {
 				if (bitstream.getFormat().isInternal()) continue;
+				if (!accessChecker.hasFileAccess(bitstream)) continue;
 				BitstreamResult result = processBitstream(bitstream, handle,
-						request, thumbs);
+						thumbs);
 				results.add(result);
 			}
 		}
@@ -84,13 +89,12 @@ public class ItemBitstreamRetriever {
 	 * BitstreamResult.
 	 * @param bitstream - the uploaded file being processed
 	 * @param handle - the persistent ID for this submission, if it has one
-	 * @param request - the web request object
 	 * @param thumbs - an array of thumbnail bundles, retrieved from item
 	 * @return A BitstreamResult object with all relevant info
 	 * @throws UnsupportedEncodingException 
 	 */
 	private BitstreamResult processBitstream(Bitstream bitstream, String handle,
-		HttpServletRequest request, Bundle[] thumbs) throws UnsupportedEncodingException {
+		Bundle[] thumbs) throws UnsupportedEncodingException {
 		String bsName = bitstream.getName();
 		String bsDesc = bitstream.getDescription();
 		String bsLink = request.getContextPath();
@@ -121,7 +125,7 @@ public class ItemBitstreamRetriever {
 							tb.getName(), Constants.DEFAULT_ENCODING);
 			}
 		}
-		return new BitstreamResult(bsName, bsDesc, bsLink, bsThumb, size);
+		return new BitstreamResult(bsName, bsDesc, bsLink, bsThumb, size, UBCAccessChecker.isInstructorOnly(bitstream));
 	}
 
 }

@@ -19,6 +19,7 @@ import org.dspace.content.Item;
 
 import org.dspace.app.webui.ubc.statspace.UBCAccessChecker;
 import org.dspace.content.DCDate;
+import org.dspace.core.Context;
 
 /**
  * JSP helper for getting all metadata and files associated with an item.
@@ -31,7 +32,7 @@ public class ItemRetriever {
     private static Logger log = Logger.getLogger(ItemMetadataRetriever.class);
 
 	private Item item;
-	private PageContext pageContext;
+	private HttpServletRequest request;
 
 	private ItemMetadataRetriever metadataRetriever;
 	private ItemBitstreamRetriever bitstreamRetriever;
@@ -54,16 +55,15 @@ public class ItemRetriever {
 	private List<String> relatedMaterials = new ArrayList<>();
 	private List<String> alternativeLanguages = new ArrayList<>();
 
-	public ItemRetriever(Item item, PageContext pageContext) throws SQLException, UnsupportedEncodingException {
+	public ItemRetriever(Context context, HttpServletRequest request, Item item) throws SQLException, UnsupportedEncodingException {
 		this.item = item;
-		this.pageContext = pageContext;
-		metadataRetriever = new ItemMetadataRetriever(item, pageContext);
-		bitstreamRetriever = new ItemBitstreamRetriever(item, pageContext);
+		this.request = request;
+		metadataRetriever = new ItemMetadataRetriever(item);
+		bitstreamRetriever = new ItemBitstreamRetriever(context, request, item);
 		initMetadata();
 	}
 
 	private void initMetadata() throws SQLException, UnsupportedEncodingException {
-		HttpServletRequest request = (HttpServletRequest) pageContext.getRequest();
 		thumbnail = request.getContextPath() + "/image/ubc-logo-lg.png";
 		files = bitstreamRetriever.getBitstreams();
 		if (!files.isEmpty()) {

@@ -47,8 +47,6 @@
 <%@page import="org.dspace.eperson.EPerson"%>
 <%@page import="org.dspace.versioning.VersionHistory"%>
 
-<%@page import="org.dspace.app.webui.ubc.statspace.retriever.ItemRetriever"%>
-
 <%
     // Attributes
     Boolean displayAllBoolean = (Boolean) request.getAttribute("display.all");
@@ -192,12 +190,6 @@
     String displayStyle = (displayAll ? "full" : "");
 %>
 
-<%
-	// all this should be done in the servlet and set as attributes, but
-	// I want to keep servlet modifications to a minimum
-	ItemRetriever itemRetriever = new ItemRetriever(item, pageContext);
-	pageContext.setAttribute("itemRetriever", itemRetriever);
-%>
 	<!-- SUBMISSION TITLE -->
 	<div class='row'>
 		<div class='col-md-12'>
@@ -243,6 +235,11 @@
 						<h4 class="media-heading">${result.name} <span class="badge">${result.size}</span></h4>
 						<c:if test="${!empty result.description}">
 							<p>${result.description}</p>
+						</c:if>
+						<c:if test="${result.instructorOnly}">
+							<p class="text-danger" title='<fmt:message key="jsp.submit.upload-file-list.tooltip.instructor-only"/>'>
+								<i class="glyphicon glyphicon-lock text-danger"></i> Instructor Only
+							</p>
 						</c:if>
 						<a class="btn btn-primary" href="${result.link}">Open/View</a>
 					</div>

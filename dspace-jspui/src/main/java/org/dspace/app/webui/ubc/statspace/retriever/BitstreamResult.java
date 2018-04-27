@@ -13,13 +13,15 @@ public class BitstreamResult {
 	private String link;
 	private String size;
 	private String thumbnail;
+	private boolean instructorOnly;
 
-	public BitstreamResult(String name, String description, String link, String thumbnail, String size) {
+	public BitstreamResult(String name, String description, String link, String thumbnail, String size, boolean instructorOnly) {
 		setName(name);
 		setDescription(description);
 		setLink(link);
 		setThumbnail(thumbnail);
 		setSize(size);
+		this.instructorOnly = instructorOnly;
 	}
 
 	public String getName() {
@@ -36,6 +38,9 @@ public class BitstreamResult {
 	}
 	public String getSize() {
 		return size;
+	}
+	public boolean getInstructorOnly() {
+		return instructorOnly;
 	}
 
 	public void setName(String name) {

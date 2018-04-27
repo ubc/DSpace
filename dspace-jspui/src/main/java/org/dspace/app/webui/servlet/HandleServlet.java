@@ -55,6 +55,7 @@ import org.jdom.output.XMLOutputter;
 
 import org.dspace.app.itemexport.ItemExport;
 import org.dspace.app.webui.ubc.statspace.UBCAccessChecker;
+import org.dspace.app.webui.ubc.statspace.retriever.ItemRetriever;
 
 /**
  * Servlet for handling requests within a community or collection. The Handle is
@@ -557,6 +558,8 @@ public class HandleServlet extends DSpaceServlet
         request.setAttribute("collections", collections);
         request.setAttribute("dspace.layout.head", headMetadata);
 		//JSPManager.showJSP(request, response, "/display-item.jsp");
+
+		request.setAttribute("itemRetriever", new ItemRetriever(context, request, item));
         JSPManager.showJSP(request, response, "/ubc/statspace/display-item.jsp");
     }
     

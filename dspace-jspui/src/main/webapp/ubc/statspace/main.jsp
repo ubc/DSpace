@@ -37,6 +37,7 @@
 <%@ page import="org.dspace.content.Item" %>
 <%@ page import="org.dspace.content.SupervisedItem" %>
 <%@ page import="org.dspace.content.WorkspaceItem" %>
+<%@ page import="org.dspace.core.Context" %>
 <%@ page import="org.dspace.core.Utils" %>
 <%@ page import="org.dspace.eperson.EPerson" %>
 <%@ page import="org.dspace.eperson.Group"   %>
@@ -127,7 +128,7 @@
             String title = (titleArray.length > 0 ? titleArray[0].value
                                                   : LocaleSupport.getLocalizedMessage(pageContext,"jsp.general.untitled") );
             EPerson submitter = owned[i].getItem().getSubmitter();
-			ItemRetriever itemRetriever = new ItemRetriever(owned[i].getItem(), pageContext);
+			ItemRetriever itemRetriever = new ItemRetriever((Context)request.getAttribute("context"), request, owned[i].getItem());
 			pageContext.setAttribute("itemRetriever", itemRetriever);
 %>
         <tr>
@@ -199,7 +200,7 @@
                     : LocaleSupport.getLocalizedMessage(pageContext,"jsp.general.untitled") );
             EPerson submitter = pooled[i].getItem().getSubmitter();
 
-			ItemRetriever itemRetriever = new ItemRetriever(pooled[i].getItem(), pageContext);
+			ItemRetriever itemRetriever = new ItemRetriever((Context)request.getAttribute("context"), request, pooled[i].getItem());
 			pageContext.setAttribute("itemRetriever", itemRetriever);
 %>
         <tr>

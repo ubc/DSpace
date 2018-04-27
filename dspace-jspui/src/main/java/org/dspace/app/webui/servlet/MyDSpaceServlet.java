@@ -894,6 +894,7 @@ public class MyDSpaceServlet extends DSpaceServlet
 		request.setAttribute("userApprovalActionGrant", ApproveUserUtil.ACTION_GRANT);
 		request.setAttribute("userApprovalActionDeny", ApproveUserUtil.ACTION_DENY);
 
+		request.setAttribute("context", context);
         // Forward to main mydspace page
         JSPManager.showJSP(request, response, "/ubc/statspace/main.jsp");
     }

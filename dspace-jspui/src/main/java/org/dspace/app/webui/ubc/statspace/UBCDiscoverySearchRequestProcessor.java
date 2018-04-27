@@ -456,6 +456,7 @@ public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcesso
         }
 
         //JSPManager.showJSP(request, response, "/search/discovery.jsp");
+		request.setAttribute("context", context);
         JSPManager.showJSP(request, response, "/ubc/statspace/simple-search.jsp");
     }
 

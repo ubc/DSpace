@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
+import org.dspace.app.webui.ubc.statspace.UBCAccessChecker;
 import org.dspace.app.webui.util.JSPManager;
 import org.dspace.app.webui.util.UIUtil;
 import org.dspace.authorize.AuthorizeException;
@@ -169,6 +170,17 @@ public class BitstreamServlet extends DSpaceServlet
 
         log.info(LogManager.getHeader(context, "view_bitstream",
                 "bitstream_id=" + bitstream.getID()));
+
+		// check if the logged in user should have access to this file
+		UBCAccessChecker accessChecker = new UBCAccessChecker(context);
+		if (!accessChecker.hasFileAccess(bitstream)) {
+            log.info(LogManager.getHeader(context, "unauthorized_access", "path="
+                    + idString));
+			// pretend the file doesn't exist
+            JSPManager.showInvalidIDError(request, response, idString,
+                    Constants.BITSTREAM);
+            return;
+		}
         
         //new UsageEvent().fire(request, context, AbstractUsageEvent.VIEW,
 		//		Constants.BITSTREAM, bitstream.getID());

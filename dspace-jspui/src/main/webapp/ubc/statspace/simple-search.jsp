@@ -34,6 +34,7 @@
   -   admin_button     - If the user is an admin
   --%>
 
+<%@page import="org.dspace.core.Context"%>
 <%@page import="org.dspace.core.Utils"%>
 <%@page import="com.coverity.security.Escape"%>
 <%@page import="org.dspace.discovery.configuration.DiscoverySearchFilterFacet"%>
@@ -535,8 +536,8 @@ else if( qResults != null)
 		<div class="col-md-12 searchResultsWrap">
 		<c:forEach items="${items}" var="item">
 			<%
-				ItemRetriever itemRetriever = new ItemRetriever(
-					(Item) pageContext.findAttribute("item"), pageContext);
+				ItemRetriever itemRetriever = new ItemRetriever((Context)request.getAttribute("context"),
+						request, (Item) pageContext.findAttribute("item"));
 				pageContext.setAttribute("itemRetriever", itemRetriever);
 			%>
 			<div class="col-md-4 col-sm-6 col-xs-12 thumbnail searchResultBox">
