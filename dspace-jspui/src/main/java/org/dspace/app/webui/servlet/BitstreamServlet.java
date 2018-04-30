@@ -173,7 +173,7 @@ public class BitstreamServlet extends DSpaceServlet
 
 		// check if the logged in user should have access to this file
 		UBCAccessChecker accessChecker = new UBCAccessChecker(context);
-		if (!accessChecker.hasFileAccess(bitstream)) {
+		if (!accessChecker.hasFileAccess(item, bitstream)) {
             log.info(LogManager.getHeader(context, "unauthorized_access", "path="
                     + idString));
 			// pretend the file doesn't exist

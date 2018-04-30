@@ -75,7 +75,7 @@ public class ItemBitstreamRetriever {
 			Bitstream[] bitstreams = bundle.getBitstreams();
 			for (Bitstream bitstream : bitstreams) {
 				if (bitstream.getFormat().isInternal()) continue;
-				if (!accessChecker.hasFileAccess(bitstream)) continue;
+				if (!accessChecker.hasFileAccess(item, bitstream)) continue;
 				BitstreamResult result = processBitstream(bitstream, handle,
 						thumbs);
 				results.add(result);

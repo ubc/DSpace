@@ -107,7 +107,16 @@
 <%
     }
 %>
-        <div><fmt:message key="jsp.submit.upload-file-list.info2"/></div>
+        <div>
+			<p>
+			<fmt:message key="jsp.submit.upload-file-list.info2"/>
+			</p>
+			<c:if test="${disableFileInstructorOnly}">
+				<p>
+					<i class="glyphicon glyphicon-lock text-danger"></i> <fmt:message key="jsp.submit.upload-file-list.tooltip.item-instructor-only" />
+				</p>
+			</c:if>
+		</div>
         
         <table class="table" align="center" summary="Table displaying your submitted files">
             <tr>
@@ -131,8 +140,10 @@
                 <th id="t5" class="oddRowEvenCol"><fmt:message key="jsp.submit.upload-file-list.tableheading5"/></th>
 				--%>
 				<%-- Instructor Only --%>
-				<th class="oddRowOddCol text-center" title="<fmt:message key="jsp.submit.upload-file-list.tooltip.instructor-only"/>">
-					<i class="glyphicon glyphicon-lock"></i></th>
+				<c:if test="${!disableFileInstructorOnly}">
+					<th class="oddRowOddCol text-center" title="<fmt:message key="jsp.submit.upload-file-list.tooltip.instructor-only"/>">
+						<i class="glyphicon glyphicon-lock"></i></th>
+				</c:if>
 				<%-- Edit file description --%>
 				<c:if test="${allowFileEditing}">
 					<th class="oddRowOddCol"></th>
@@ -232,11 +243,13 @@
                 </td>
 				--%>
 				<%-- Restricted Access --%>
-				<td class="text-center">
-					<c:if test="${restrictedAccess}">
-						<i class="glyphicon glyphicon-lock text-danger" title="<fmt:message key="jsp.submit.upload-file-list.tooltip.instructor-only"/>"></i>
-					</c:if>
-				</td>
+				<c:if test="${!disableFileInstructorOnly}">
+					<td class="text-center">
+						<c:if test="${restrictedAccess}">
+							<i class="glyphicon glyphicon-lock text-danger" title="<fmt:message key="jsp.submit.upload-file-list.tooltip.instructor-only"/>"></i>
+						</c:if>
+					</td>
+				</c:if>
 				<%-- Edit file description --%>
 				<c:if test="${allowFileEditing}">
 					<td>
