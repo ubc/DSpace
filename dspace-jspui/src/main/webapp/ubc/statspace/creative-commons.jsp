@@ -16,6 +16,7 @@
 
 <%@ page contentType="text/html;charset=UTF-8" %>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"
     prefix="fmt" %>
 
@@ -48,6 +49,7 @@
     String licenseURL = "";
     if(licenseExists)
         licenseURL = CreativeCommons.getLicenseURL(subInfo.getSubmissionItem().getItem());
+	pageContext.setAttribute("licenseExists", licenseExists);
 %>
 
 <dspace:layout style="submission"
@@ -92,6 +94,14 @@
 	<% } %>
 	<div style="display:none;" id="creativecommons_response">		
 	</div>
+
+	<!-- Checkbox explicitly asking the user to agree to the copyright chosen -->
+	<div>
+		<label>
+			<input type="checkbox" id="agreeCopyrightLicense" required <c:if test="${licenseExists}">checked</c:if> />
+			I have read and understood the terms and intended legal effects of the selected copyright. I hereby voluntarily elect to apply it to this work.
+		</label>
+	</div>
 	<br/>
 		<%-- Hidden fields needed for SubmissionController servlet to know which step is next--%>
     <%= SubmissionController.getSubmissionParameters(context, request) %>
@@ -110,7 +120,7 @@
                 <%  } %>
 
             <input class="btn btn-default col-md-<%= 12 / numButton %>" type="submit" name="<%=AbstractProcessingStep.CANCEL_BUTTON%>" value="<fmt:message key="jsp.submit.general.cancel-or-save.button"/>"/>
-			<input id="nextStepButton" class="btn btn-primary disabled col-md-<%= 12 / numButton %>" type="submit" name="<%=AbstractProcessingStep.NEXT_BUTTON%>" value="<fmt:message key="jsp.submit.general.next"/>" />
+			<input id="nextStepButton" class="btn btn-primary <c:if test="${!licenseExists}">disabled</c:if> col-md-<%= 12 / numButton %>" type="submit" name="<%=AbstractProcessingStep.NEXT_BUTTON%>" value="<fmt:message key="jsp.submit.general.next"/>" />
     </div>
     </form>
     <script type="text/javascript">
@@ -150,14 +160,19 @@ jQuery("#licenseclass_chooser").change(function() {
 	// worry about that case.
 	var licenseSelect = jQuery("#licenseclass_chooser");
 	var nextStepButton = jQuery("#nextStepButton");
-	console.log("Here");
 	if (licenseSelect.val() == "webui.Submission.submit.CCLicenseStep.select_change") {
 		nextStepButton.addClass('disabled');
 	}
 	else {
 		nextStepButton.removeClass('disabled');
 	}
+	jQuery("#agreeCopyrightLicense").prop('checked', false);
 });
+
+<c:if test="${licenseExists}">
+jQuery("#nextStepButton").removeClass('disabled');
+</c:if>
+	
 
 </script>
 </dspace:layout>
