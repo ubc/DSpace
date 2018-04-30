@@ -130,7 +130,7 @@ public class UBCAccessChecker {
 	 * @param file the file that the user wants to access
 	 * @return 
 	 */
-	public boolean hasFileAccess(Bitstream file) {
+	public boolean hasFileAccess(Item item, Bitstream file) {
 		if (!isInstructorOnly(file)) {
 			// everyone has access
 			return true;

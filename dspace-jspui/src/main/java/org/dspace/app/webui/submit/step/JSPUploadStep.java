@@ -42,6 +42,8 @@ import org.dspace.utils.DSpace;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
+import org.dspace.app.webui.ubc.statspace.retriever.ItemRetriever;
+import org.dspace.content.Item;
 
 /**
  * Upload step for DSpace JSP-UI. Handles the pages that revolve around uploading files
@@ -535,6 +537,10 @@ public class JSPUploadStep extends JSPStep
         boolean withEmbargo = SubmissionController.getCurrentStepConfig(request, subInfo).getProcessingClassName().equals("org.dspace.submit.step.UploadWithEmbargoStep") ? true : false;
         request.setAttribute("with_embargo", Boolean.valueOf(withEmbargo));
 
+		Item item = subInfo.getSubmissionItem().getItem();
+		ItemRetriever retriever = new ItemRetriever(context, request, item);
+		request.setAttribute("disableFileInstructorOnly", retriever.getInstructorOnly());
+
         // load JSP which allows the user to select a file to upload
         JSPStepManager.showJSP(request, response, subInfo, CHOOSE_FILE_JSP);
     }
@@ -567,6 +573,10 @@ public class JSPUploadStep extends JSPStep
         // set a flag whether the current step is UploadWithEmbargoStep
         boolean withEmbargo = SubmissionController.getCurrentStepConfig(request, subInfo).getProcessingClassName().equals("org.dspace.submit.step.UploadWithEmbargoStep") ? true : false;
         request.setAttribute("with_embargo", Boolean.valueOf(withEmbargo));
+
+		Item item = subInfo.getSubmissionItem().getItem();
+		ItemRetriever retriever = new ItemRetriever(context, request, item);
+		request.setAttribute("disableFileInstructorOnly", retriever.getInstructorOnly());
 
         // Always go to advanced view in workflow mode
         if (subInfo.isInWorkflow()
