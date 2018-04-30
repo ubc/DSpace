@@ -469,7 +469,9 @@
 
     <a class="btn btn-default" href="<%= request.getContextPath() %>/handle/<%= handle %>/evaluations">Show item evaluations</a>
 
-    <a class="statisticsLink  btn btn-primary" href="<%= request.getContextPath() %>/handle/<%= handle %>/statistics"><fmt:message key="jsp.display-item.display-statistics"/></a>
+	<c:if test="${itemRetriever.instructorOnly}">
+		<a class="statisticsLink  btn btn-primary" href="<%= request.getContextPath() %>/handle/<%= handle %>/statistics"><fmt:message key="jsp.display-item.display-statistics"/></a>
+	</c:if>
 
     <a class="btn btn-default" onclick="download_item()">Download</a>
 
