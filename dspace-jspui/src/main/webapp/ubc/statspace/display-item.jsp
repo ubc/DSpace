@@ -395,7 +395,7 @@
 	</div>
 	--%>
 
-<%-- Not implemented yet
+<%-- Don't want "Show full item record" and "Show item evaluations" to show up and cause user confusion
 
 <div class="container row">
 <%
@@ -468,11 +468,13 @@
 %>
 
     <a class="btn btn-default" href="<%= request.getContextPath() %>/handle/<%= handle %>/evaluations">Show item evaluations</a>
+--%>
 
-	<c:if test="${itemRetriever.instructorOnly}">
+	<%-- DSpace restricts stats access to admins only by default, not sure if we want to change that --%>
+	<c:if test="${hasAdminAccess}">
 		<a class="statisticsLink  btn btn-primary" href="<%= request.getContextPath() %>/handle/<%= handle %>/statistics"><fmt:message key="jsp.display-item.display-statistics"/></a>
 	</c:if>
-
+<%-- Don't want the "Download" button to show up
     <a class="btn btn-default" onclick="download_item()">Download</a>
 
     <div id="downloadProgressInfo" style="display: none">

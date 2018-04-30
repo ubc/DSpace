@@ -560,6 +560,7 @@ public class HandleServlet extends DSpaceServlet
 		//JSPManager.showJSP(request, response, "/display-item.jsp");
 
 		request.setAttribute("itemRetriever", new ItemRetriever(context, request, item));
+		request.setAttribute("hasAdminAccess", accessChecker.hasAdminAccess());
         JSPManager.showJSP(request, response, "/ubc/statspace/display-item.jsp");
     }
     
