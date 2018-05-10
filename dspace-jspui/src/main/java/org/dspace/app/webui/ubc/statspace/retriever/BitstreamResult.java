@@ -7,28 +7,49 @@
  */
 package org.dspace.app.webui.ubc.statspace.retriever;
 
+import org.apache.log4j.Logger;
+import org.dspace.app.webui.ubc.statspace.IdentifyMediaType;
+import org.dspace.app.webui.ubc.statspace.UBCAccessChecker;
+import org.dspace.content.Bitstream;
+
 public class BitstreamResult {
+    /** log4j logger */
+    private static final Logger log = Logger.getLogger(BitstreamResult.class);
+
 	private String name;
 	private String description;
 	private String link;
 	private String size;
 	private String thumbnail;
-	private boolean instructorOnly;
+	private Bitstream bitstream;
 
-	public BitstreamResult(String name, String description, String link, String thumbnail, String size, boolean instructorOnly) {
-		setName(name);
-		setDescription(description);
-		setLink(link);
-		setThumbnail(thumbnail);
-		setSize(size);
-		this.instructorOnly = instructorOnly;
+	private boolean instructorOnly = false;
+	// if these are html5 supported media files which are browser playable
+	private boolean isPlayableVideo = false;
+	private boolean isPlayableAudio = false;
+	private boolean isImage = false;
+	private boolean isViewableImage = false;
+
+	public BitstreamResult(Bitstream bitstream, String link, String thumbnail, String size) {
+		this.bitstream = bitstream;
+		this.link = link;
+		this.thumbnail = thumbnail;
+		this.size = size;
+		this.instructorOnly = UBCAccessChecker.isInstructorOnly(bitstream);
+		this.isPlayableAudio = IdentifyMediaType.isStreamableAudio(bitstream);
+		this.isPlayableVideo = IdentifyMediaType.isStreamableVideo(bitstream);
+		this.isImage = IdentifyMediaType.isImage(bitstream);
+		this.isViewableImage = IdentifyMediaType.isViewableImage(bitstream);
 	}
 
 	public String getName() {
-		return name;
+		return bitstream.getName();
+	}
+	public String getId() {
+		return Integer.toString(bitstream.getID());
 	}
 	public String getDescription() {
-		return description;
+		return bitstream.getDescription();
 	}
 	public String getLink() {
 		return link;
@@ -43,20 +64,24 @@ public class BitstreamResult {
 		return instructorOnly;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public boolean getIsPlayableVideo() {
+		return isPlayableVideo;
 	}
-	public void setDescription(String description) {
-		this.description = description;
+
+	public boolean getIsPlayableAudio() {
+		return isPlayableAudio;
 	}
-	public void setLink(String link) {
-		this.link = link;
+
+	public boolean getIsImage() {
+		return isImage;
 	}
-	public void setThumbnail(String thumbnail) {
-		this.thumbnail = thumbnail;
+
+	public boolean getIsViewableImage() {
+		return isViewableImage;
 	}
-	public void setSize(String size) {
-		this.size = size;
+
+	public String getMimeType() {
+		return bitstream.getFormat().getMIMEType();
 	}
 	
 }

@@ -125,10 +125,10 @@ div.addMoreButton {
 
 /* Display Item Access Restrictions */
 .restrictionIconColorEveryone {
-	color: darkseagreen;
+	color: mediumseagreen;
 }
 .restrictionIconColorInstructorOnly {
-	color: lightpink;
+	color: hotpink;
 }
 
 /* Search item resource type customization */
@@ -144,10 +144,11 @@ div.searchResultResourceTypes {
 
 /* Display item thumbnail placeholder */
 div.displayItemThumbnailPlaceholder {
+	padding-top: 0.4em;
 	background: cornsilk;
-	height: 100px;
-	width: 100px;
-	color: wheat;
+	height: 3.5em;
+	width: 3.5em;
+	color: burlywood;
 }
 div.displayItemThumbnailPlaceholder table {
 	height: 90%;
@@ -183,4 +184,24 @@ td.usersForApprovalActionsCol {
 /* File Upload, Select File */
 .resumable-list td input[type="checkbox"] {
 	margin-top: 0; /* override bootstrap top margin since dspace css magnifies the checkbox to a huge size */
+}
+
+/* VideoJS Audio Only changes, taken from Moodle's modifications at:
+https://github.com/moodle/moodle/blob/MOODLE_34_STABLE/media/player/videojs/styles.css#L1404
+*/
+
+/* Audio: Remove big play button (leave only the button in controls). */
+.video-js.vjs-audio .vjs-big-play-button {
+  display: none;
+}
+/* Audio: Make the controlbar visible by default */
+.video-js.vjs-audio .vjs-control-bar {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+/* Make player height minimum to the controls height so when we hide video/poster area the controls are displayed correctly. */
+.video-js.vjs-audio {
+  min-height: 3em;
 }

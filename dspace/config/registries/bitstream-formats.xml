@@ -236,7 +236,7 @@
   </bitstream-type>
 
   <bitstream-type>
-    <mimetype>audio/x-wav</mimetype>
+    <mimetype>audio/wave</mimetype>
     <short_description>WAV</short_description>
     <description>Broadcase Wave Format</description>
     <support_level>1</support_level>
@@ -733,5 +733,77 @@
       <extension>rdf</extension>
     </bitstream-type>
 
+	<bitstream-type>
+		<mimetype>video/quicktime</mimetype>
+		<short_description>Video Quicktime</short_description>
+		<description>Video Quicktime</description>
+		<support_level>1</support_level>
+		<internal>false</internal>
+		<extension>mov</extension>
+		<extension>qt</extension>
+	</bitstream-type>
+
+	<bitstream-type>
+		<mimetype>video/mp4</mimetype>
+		<short_description>Video MP4</short_description>
+		<description>Video MP4</description>
+		<support_level>1</support_level>
+		<internal>false</internal>
+		<extension>mp4</extension>
+	</bitstream-type>
+
+	<bitstream-type>
+		<mimetype>video/ogg</mimetype>
+		<short_description>Video OGG</short_description>
+		<description>Video OGG</description>
+		<support_level>1</support_level>
+		<internal>false</internal>
+		<extension>ogg</extension>
+	</bitstream-type>
+
+	<bitstream-type>
+		<mimetype>video/ogg</mimetype>
+		<short_description>Video OGG</short_description>
+		<description>Video OGG</description>
+		<support_level>1</support_level>
+		<internal>false</internal>
+		<extension>ogv</extension>
+	</bitstream-type>
+
+	<bitstream-type>
+		<mimetype>audio/ogg</mimetype>
+		<short_description>Audio OGG</short_description>
+		<description>Audio OGG</description>
+		<support_level>1</support_level>
+		<internal>false</internal>
+		<extension>oga</extension>
+	</bitstream-type>
+
+	<bitstream-type>
+		<mimetype>video/webm</mimetype>
+		<short_description>Video WEBM</short_description>
+		<description>Video WEBM</description>
+		<support_level>1</support_level>
+		<internal>false</internal>
+		<extension>webm</extension>
+	</bitstream-type>
+
+    <bitstream-type>
+        <mimetype>audio/mpeg</mimetype>
+        <short_description>mp3</short_description>
+        <description>MPEG audio</description>
+        <support_level>1</support_level>
+        <internal>false</internal>
+        <extension>mp3</extension>
+    </bitstream-type>
+
+    <bitstream-type>
+        <mimetype>audio/flac</mimetype>
+        <short_description>FLAC audio</short_description>
+        <description>Free Lossless Audio Codec</description>
+        <support_level>1</support_level>
+        <internal>false</internal>
+        <extension>flac</extension>
+    </bitstream-type>
 
 </dspace-bitstream-types>
