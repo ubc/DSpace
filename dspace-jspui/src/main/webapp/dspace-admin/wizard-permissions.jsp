@@ -170,7 +170,7 @@
         <input type="hidden" name="permission" value="<%= perm %>" />
 
         <%-- <input type="submit" name="submit_next" value="Next &gt;" onclick="javascript:finishEPerson();finishGroups();"> --%>
-        <div class="row container"><input class="btn btn-primary pull-right col-md-2" type="submit" name="submit_next" value="<fmt:message key="jsp.dspace-admin.general.next.button"/>" onclick="javascript:finishEPerson();finishGroups();"/></div>
+        <div class="row"><input class="btn btn-primary pull-right col-md-2" type="submit" name="submit_next" value="<fmt:message key="jsp.dspace-admin.general.next.button"/>" onclick="javascript:finishEPerson();finishGroups();"/></div>
         
     </form>
 

@@ -466,7 +466,7 @@ else if( qResults != null)
 
 %>
 <hr/>
-<div class="discovery-result-pagination row container">
+<div class="discovery-result-pagination row">
 <%
 	long lastHint = qResults.getStart()+qResults.getMaxResults() <= qResults.getTotalSearchResults()?
 	        qResults.getStart()+qResults.getMaxResults():qResults.getTotalSearchResults();
@@ -604,7 +604,7 @@ else if( qResults != null)
 <%-- if the result page is enought long... --%>
 <% if (pageTotal > 1) {%>
 <%-- show again the navigation info/links --%>
-<div class="discovery-result-pagination row container">
+<div class="discovery-result-pagination row">
     <%-- <p align="center">Results <//%=qResults.getStart()+1%>-<//%=qResults.getStart()+qResults.getHitHandles().size()%> of --%>
 	<%-- TODO: Result count incorrect, so hide it for now
 	<div class="alert alert-info"><fmt:message key="jsp.search.results.results">
