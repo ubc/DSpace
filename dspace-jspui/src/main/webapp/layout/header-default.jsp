@@ -68,7 +68,7 @@
 
 		<!-- VideoJS, for HTML video/audio-->
 		<link href="//vjs.zencdn.net/6.6.3/video-js.css" rel="stylesheet">
-		<script src="http://vjs.zencdn.net/6.6.3/video.js"></script>
+		<script src="//vjs.zencdn.net/6.6.3/video.js"></script>
 
 	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/bootstrap/dspace-theme.css" type="text/css" />
 	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/ubc/statspace-clf.css" type="text/css" />

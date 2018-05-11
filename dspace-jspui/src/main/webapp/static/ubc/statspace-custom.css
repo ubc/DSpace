@@ -159,6 +159,11 @@ div.displayItemThumbnailPlaceholder table span {
 	vertical-align: middle;
 	text-align: center;
 }
+.file-title-overflow {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	padding-bottom: 0.1em;
+}
 
 /* Verify Submission */
 div.metadataVerifyRow {

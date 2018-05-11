@@ -759,14 +759,6 @@
 		<support_level>1</support_level>
 		<internal>false</internal>
 		<extension>ogg</extension>
-	</bitstream-type>
-
-	<bitstream-type>
-		<mimetype>video/ogg</mimetype>
-		<short_description>Video OGG</short_description>
-		<description>Video OGG</description>
-		<support_level>1</support_level>
-		<internal>false</internal>
 		<extension>ogv</extension>
 	</bitstream-type>
 
@@ -791,7 +783,7 @@
     <bitstream-type>
         <mimetype>audio/mpeg</mimetype>
         <short_description>mp3</short_description>
-        <description>MPEG audio</description>
+        <description>Audio MPEG</description>
         <support_level>1</support_level>
         <internal>false</internal>
         <extension>mp3</extension>
@@ -799,7 +791,7 @@
 
     <bitstream-type>
         <mimetype>audio/flac</mimetype>
-        <short_description>FLAC audio</short_description>
+        <short_description>Audio FLAC</short_description>
         <description>Free Lossless Audio Codec</description>
         <support_level>1</support_level>
         <internal>false</internal>

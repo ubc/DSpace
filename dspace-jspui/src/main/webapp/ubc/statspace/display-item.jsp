@@ -213,7 +213,7 @@
 			<c:forEach items="${itemRetriever.files}" var="result">
 				<div class="panel panel-warning">
 					<div class="panel-heading">
-						<h3 class="panel-title">
+						<h3 class="panel-title file-title-overflow">
 							<c:choose>
 								<c:when test="${result.isPlayableVideo}">
 									<span class="glyphicon glyphicon-film"></span>
