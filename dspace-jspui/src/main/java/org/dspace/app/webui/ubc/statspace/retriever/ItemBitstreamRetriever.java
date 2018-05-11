@@ -123,7 +123,7 @@ public class ItemBitstreamRetriever {
 							tb.getName(), Constants.DEFAULT_ENCODING);
 			}
 		}
-		return new BitstreamResult(bitstream, bsLink, bsThumb, size);
+		return new BitstreamResult(item, bitstream, bsLink, bsThumb, size);
 	}
 
 }

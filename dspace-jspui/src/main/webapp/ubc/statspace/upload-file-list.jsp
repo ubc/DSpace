@@ -202,7 +202,7 @@
         // Full param to dspace:popup must be single variable
         String supportLevelLink = LocaleSupport.getLocalizedMessage(pageContext, "help.formats") +"#" + supportLevel;
 
-		pageContext.setAttribute("restrictedAccess", UBCAccessChecker.isInstructorOnly(bitstreams[i]));
+		pageContext.setAttribute("restrictedAccess", UBCAccessChecker.isInstructorOnly(subInfo.getSubmissionItem().getItem(), bitstreams[i]));
 %>
             <tr>
 		<%-- hide primary bitstream column

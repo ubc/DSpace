@@ -76,7 +76,7 @@
     {
         currentDesc="";
     }
-	pageContext.setAttribute("restrictedAccess", UBCAccessChecker.isInstructorOnly(subInfo.getBitstream()));
+	pageContext.setAttribute("restrictedAccess", UBCAccessChecker.isInstructorOnly(subInfo.getSubmissionItem().getItem(), subInfo.getBitstream()));
 %>
 		<div class="row">
 			<label for="tdescription" class="col-md-2"><fmt:message key="jsp.submit.change-file-description.filedescr"/></label>

@@ -50,7 +50,8 @@ public class UBCAccessChecker {
 		return true;
 	}
 
-	public static boolean isInstructorOnly(Bitstream file) {
+	public static boolean isInstructorOnly(Item item, Bitstream file) {
+		if (isInstructorOnly(item)) return true;
 		String accessRight = file.getAccessRights();
 		if (accessRight.equals(ACCESS_INSTRUCTOR_ONLY)) {
 			return true;
@@ -131,7 +132,7 @@ public class UBCAccessChecker {
 	 * @return 
 	 */
 	public boolean hasFileAccess(Item item, Bitstream file) {
-		if (!isInstructorOnly(file)) {
+		if (!isInstructorOnly(item, file)) {
 			// everyone has access
 			return true;
 		}

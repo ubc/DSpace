@@ -11,6 +11,7 @@ import org.apache.log4j.Logger;
 import org.dspace.app.webui.ubc.statspace.IdentifyMediaType;
 import org.dspace.app.webui.ubc.statspace.UBCAccessChecker;
 import org.dspace.content.Bitstream;
+import org.dspace.content.Item;
 
 public class BitstreamResult {
     /** log4j logger */
@@ -30,12 +31,12 @@ public class BitstreamResult {
 	private boolean isImage = false;
 	private boolean isViewableImage = false;
 
-	public BitstreamResult(Bitstream bitstream, String link, String thumbnail, String size) {
+	public BitstreamResult(Item item, Bitstream bitstream, String link, String thumbnail, String size) {
 		this.bitstream = bitstream;
 		this.link = link;
 		this.thumbnail = thumbnail;
 		this.size = size;
-		this.instructorOnly = UBCAccessChecker.isInstructorOnly(bitstream);
+		this.instructorOnly = UBCAccessChecker.isInstructorOnly(item, bitstream);
 		this.isPlayableAudio = IdentifyMediaType.isStreamableAudio(bitstream);
 		this.isPlayableVideo = IdentifyMediaType.isStreamableVideo(bitstream);
 		this.isImage = IdentifyMediaType.isImage(bitstream);
