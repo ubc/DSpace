@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 
     The contents of this file are subject to the license and copyright
@@ -855,4 +855,13 @@
   </jsp-config>
   
 
+    <!-- UBC Config -->
+    <servlet>
+        <servlet-name>ubc-file-upload</servlet-name>
+        <servlet-class>org.dspace.app.webui.ubc.ImportCommunitiesCollectionsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ubc-file-upload</servlet-name>
+        <url-pattern>/dspace-admin/import-communities-collections</url-pattern>
+    </servlet-mapping>
 </web-app>
