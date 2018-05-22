@@ -1,4 +1,4 @@
-package org.dspace.app.webui.ubc;
+package org.dspace.app.webui.ubc.importer;
 
 public class ImportCSVException extends Exception
 {

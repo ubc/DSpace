@@ -858,7 +858,7 @@
     <!-- UBC Config -->
     <servlet>
         <servlet-name>ubc-file-upload</servlet-name>
-        <servlet-class>org.dspace.app.webui.ubc.ImportCommunitiesCollectionsServlet</servlet-class>
+        <servlet-class>org.dspace.app.webui.ubc.importer.ImportCommunitiesCollectionsServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ubc-file-upload</servlet-name>

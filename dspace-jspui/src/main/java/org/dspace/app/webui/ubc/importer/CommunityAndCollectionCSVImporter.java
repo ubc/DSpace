@@ -1,4 +1,4 @@
-package org.dspace.app.webui.ubc;
+package org.dspace.app.webui.ubc.importer;
 
 import java.io.File;
 import java.io.FileNotFoundException;
