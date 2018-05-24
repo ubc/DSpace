@@ -442,7 +442,14 @@
                     $(document).ready(function(){
                         var r = new Resumable({
                             target:'submit',
-                            chunkSize:1024*1024,
+							// On verf, the original 1MiB chunkSize triggered a 413 payload too large.
+							// I'm guessing we have to make sure the payload + header total size is under
+							// 1MiB, so I've set the chunkSize to slightly less than 1MiB to account for
+							// the headers. 1022 KiB seems to work, but I've set it to 1000 KiB for some
+							// additional margin.
+                            chunkSize:1024*1000, // size in bytes
+							// the last chunk might be greater than chunkSize if forceChunkSize isn't true
+							forceChunkSize: true,
                             simultaneousUploads:1,
                             testChunks: true,
                             throttleProgressCallbacks:1,
