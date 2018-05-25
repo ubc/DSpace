@@ -181,8 +181,10 @@ General & Integrated Sciences,,"Lecture slides, videos, photos, tutorials, sylla
 	</dd>
 	<dt>${COLLECTION_DEFAULT_METADATA_HEADER_PREFIX}</dt>
 	<dd>
-		Prefix for setting a default metadata. The metadata field should follow
-		the prefix, e.g.: <code>${COLLECTION_DEFAULT_METADATA_HEADER_PREFIX}
+		Indicates the metadata field to set.
+		"<em>${COLLECTION_DEFAULT_METADATA_HEADER_PREFIX}</em>" is the prefix.
+		The metadata field should follow the prefix, e.g.:
+		<code>${COLLECTION_DEFAULT_METADATA_HEADER_PREFIX}
 			dcterms.accessRights</code>
 	</dd>
 
