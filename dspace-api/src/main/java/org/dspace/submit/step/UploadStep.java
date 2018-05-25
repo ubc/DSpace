@@ -31,6 +31,7 @@ import org.dspace.content.FormatIdentifier;
 import org.dspace.content.Item;
 import org.dspace.core.ConfigurationManager;
 import org.dspace.core.Context;
+import org.dspace.core.I18nUtil;
 import org.dspace.curate.Curator;
 import org.dspace.submit.AbstractProcessingStep;
 
@@ -269,17 +270,24 @@ public class UploadStep extends AbstractProcessingStep
         // Beginning with the resumable ones.
         Enumeration<String> parameterNames = request.getParameterNames();
         Map<String, String> descriptions = new HashMap<String, String>();
+		Map<String, Boolean> restricted = new HashMap<String, Boolean>();
         while (parameterNames.hasMoreElements())
         {
             String name = parameterNames.nextElement();
             if (StringUtils.startsWithIgnoreCase(name, "description["))
             {
                 descriptions.put(
-                        name.substring("description[".length(), name.length()-1),
-                        request.getParameter(name));
+					name.substring("description[".length(), name.length()-1),
+					request.getParameter(name));
             }
+			else if (StringUtils.startsWithIgnoreCase(name,"restrictedaccess["))
+			{
+                restricted.put(
+					name.substring("restrictedaccess[".length(),name.length()-1),
+					Boolean.TRUE);
+			}
         }
-        if (!descriptions.isEmpty())
+        if (!descriptions.isEmpty() || !restricted.isEmpty())
         {
             // we got descriptions from the resumable upload
             if (item != null)
@@ -295,6 +303,10 @@ public class UploadStep extends AbstractProcessingStep
                             bitstream.setDescription(descriptions.get(bitstream.getName()));
                             bitstream.update();
                         }
+						if (restricted.containsKey(bitstream.getName()))
+						{
+							setFileAccessRight(context, bitstream, true);
+						}
                     }
                 }
             }
@@ -304,7 +316,7 @@ public class UploadStep extends AbstractProcessingStep
         // Going on with descriptions from the simple upload
         String fileDescription = request.getParameter("description");
 
-        if (fileDescription != null && fileDescription.length() > 0)
+        if (fileDescription != null && fileDescription.length() >= 0)
         {
             // save this file description
             int status = processSaveFileDescription(context, request, response,
@@ -316,6 +328,17 @@ public class UploadStep extends AbstractProcessingStep
                 return status;
             }
         }
+
+		String restrictedAccess = request.getParameter("restrictedaccess-hidden");
+		if (restrictedAccess != null) {
+			restrictedAccess = request.getParameter("restrictedaccess");
+			if (restrictedAccess != null) {
+				setFileAccessRight(context, subInfo.getBitstream(), true);
+			}
+			else {
+				setFileAccessRight(context, subInfo.getBitstream(), false);
+			}
+		}
 
         // ------------------------------------------
         // Step #4: Check for a file format change
@@ -733,5 +756,29 @@ public class UploadStep extends AbstractProcessingStep
 
         return STATUS_COMPLETE;
     }
+
+	/**
+	 * Set access rights for the given file.
+	 * 
+	 * @param context
+	 * @param bitstream
+	 * @param restrictedAccess - true if file to be set to instructor only, false otherwise.
+	 * @throws SQLException
+	 * @throws AuthorizeException 
+	 */
+	protected void setFileAccessRight(Context context, Bitstream bitstream,
+			boolean restrictedAccess) throws SQLException, AuthorizeException {
+		String accessInstructor = I18nUtil.getMessage("ubc-access-checker.permission.restricted");
+		String accessEveryone = I18nUtil.getMessage("ubc-access-checker.permission.everyone");
+
+		if (restrictedAccess) {
+			bitstream.setAccessRights(accessInstructor);
+		}
+		else {
+			bitstream.setAccessRights(accessEveryone);
+		}
+		bitstream.update();
+		context.commit();
+	}
 
 }

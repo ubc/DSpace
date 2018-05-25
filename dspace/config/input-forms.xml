@@ -151,6 +151,17 @@ it, please enter the types and the actual numbers or codes.</hint>
          <hint>Select the language of the main content of the item.  If the language does not appear in the list, please select 'Other'.  If the content does not really have a language (for example, if it is a dataset or an image) please select 'N/A'.</hint>
          <required></required>
        </field>
+
+	   <!-- Access Restriction -->
+       <field>
+         <dc-schema>dcterms</dc-schema>
+         <dc-element>accessRights</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <label>Access Restriction</label>
+         <hint>Select who can access this resource.</hint>
+         <input-type value-pairs-name="access_restriction">dropdown</input-type>
+         <required>You must choose an access level.</required>
+       </field>
      </page>
 
      <page number="2">
@@ -398,6 +409,17 @@ it, please enter the types and the actual numbers or codes.</hint>
      <pair>
        <displayed-value>(Other)</displayed-value>
        <stored-value>other</stored-value>
+     </pair>
+   </value-pairs>
+
+   <value-pairs value-pairs-name="access_restriction">
+     <pair>
+       <displayed-value>Everyone</displayed-value>
+       <stored-value>Everyone</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Restricted</displayed-value>
+       <stored-value>Restricted</stored-value>
      </pair>
    </value-pairs>
 

@@ -306,7 +306,8 @@ public class SubmissionController extends DSpaceServlet
                                 // In case of any error it won't help to
                                 // reupload the last chunk. That makes the error
                                 // handling realy easy:
-                                if (uploadResult != UploadStep.STATUS_COMPLETE)
+                                if (uploadResult != UploadStep.STATUS_COMPLETE &&
+									uploadResult != UploadStep.STATUS_UNKNOWN_FORMAT)
                                 {
                                     response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
                                     return;

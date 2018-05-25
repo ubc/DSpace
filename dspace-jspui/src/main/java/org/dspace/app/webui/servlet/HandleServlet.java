@@ -22,6 +22,7 @@ import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.dspace.app.util.GoogleMetadata;
+import org.dspace.app.webui.ubc.UBCAccessChecker;
 import org.dspace.app.webui.util.Authenticate;
 import org.dspace.app.webui.util.JSPManager;
 import org.dspace.app.webui.util.UIUtil;
@@ -348,6 +349,14 @@ public class HandleServlet extends DSpaceServlet
         log
                 .info(LogManager.getHeader(context, "view_item", "handle="
                         + handle));
+
+		UBCAccessChecker accessChecker = new UBCAccessChecker(context);
+		if (!accessChecker.hasItemAccess(item))
+		{
+			JSPManager.showInvalidIDError(request, response,
+					StringEscapeUtils.escapeHtml(request.getPathInfo()), -1);
+			return;
+		}
 
         // show edit link
         if (item.canEdit())

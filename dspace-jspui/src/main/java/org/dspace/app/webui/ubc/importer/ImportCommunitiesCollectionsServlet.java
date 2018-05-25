@@ -116,7 +116,7 @@ public class ImportCommunitiesCollectionsServlet extends DSpaceServlet {
 		setCSVHeaderConstants(request);
 		request.setAttribute("isSuccess", isSuccess);
 		JSPManager.showJSP(request, response,
-				"/ubc/import-communities-collections.jsp");
+				"/ubc/dspace-admin/import-communities-collections.jsp");
     }
 
 	private void setImportTypeConstants(HttpServletRequest request)

@@ -32,6 +32,7 @@ import org.apache.log4j.Logger;
 import org.dspace.app.util.DCInputsReaderException;
 import org.dspace.app.util.MetadataExposure;
 import org.dspace.app.util.Util;
+import org.dspace.app.webui.ubc.UBCAccessChecker;
 import org.dspace.app.webui.util.StyleSelection;
 import org.dspace.app.webui.util.UIUtil;
 import org.dspace.authorize.AuthorizeManager;
@@ -918,6 +919,8 @@ public class ItemTag extends TagSupport
 
             			for (int k = 0; k < bitstreams.length; k++)
             			{
+							UBCAccessChecker accessChecker = new UBCAccessChecker(context);
+							if (!accessChecker.hasFileAccess(item, bitstreams[k])) continue;
             				// Skip internal types
             				if (!bitstreams[k].getFormat().isInternal())
             				{
