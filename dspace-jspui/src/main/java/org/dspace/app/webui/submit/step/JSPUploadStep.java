@@ -45,7 +45,7 @@ import com.google.gson.JsonElement;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
-import org.dspace.app.webui.ubc.UBCAccessChecker;
+import org.dspace.ubc.UBCAccessChecker;
 import org.dspace.app.webui.ubc.retriever.ItemRetriever;
 import org.dspace.content.Item;
 

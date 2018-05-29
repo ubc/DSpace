@@ -9,7 +9,7 @@ package org.dspace.app.webui.ubc.retriever;
 
 import org.apache.log4j.Logger;
 import org.dspace.app.webui.ubc.IdentifyMediaType;
-import org.dspace.app.webui.ubc.UBCAccessChecker;
+import org.dspace.ubc.UBCAccessChecker;
 import org.dspace.content.Bitstream;
 import org.dspace.content.Item;
 

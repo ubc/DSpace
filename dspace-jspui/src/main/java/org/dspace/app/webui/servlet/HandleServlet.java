@@ -22,7 +22,7 @@ import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.dspace.app.util.GoogleMetadata;
-import org.dspace.app.webui.ubc.UBCAccessChecker;
+import org.dspace.ubc.UBCAccessChecker;
 import org.dspace.app.webui.util.Authenticate;
 import org.dspace.app.webui.util.JSPManager;
 import org.dspace.app.webui.util.UIUtil;

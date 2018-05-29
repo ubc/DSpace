@@ -12,7 +12,6 @@ import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.Enumeration;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -31,9 +30,9 @@ import org.dspace.content.FormatIdentifier;
 import org.dspace.content.Item;
 import org.dspace.core.ConfigurationManager;
 import org.dspace.core.Context;
-import org.dspace.core.I18nUtil;
 import org.dspace.curate.Curator;
 import org.dspace.submit.AbstractProcessingStep;
+import org.dspace.ubc.UBCAccessChecker;
 
 /**
  * Upload step for DSpace. Processes the actual upload of files
@@ -768,14 +767,11 @@ public class UploadStep extends AbstractProcessingStep
 	 */
 	protected void setFileAccessRight(Context context, Bitstream bitstream,
 			boolean restrictedAccess) throws SQLException, AuthorizeException {
-		String accessInstructor = I18nUtil.getMessage("ubc-access-checker.permission.restricted");
-		String accessEveryone = I18nUtil.getMessage("ubc-access-checker.permission.everyone");
-
 		if (restrictedAccess) {
-			bitstream.setAccessRights(accessInstructor);
+			bitstream.setAccessRights(UBCAccessChecker.ACCESS_RESTRICTED);
 		}
 		else {
-			bitstream.setAccessRights(accessEveryone);
+			bitstream.setAccessRights(UBCAccessChecker.ACCESS_EVERYONE);
 		}
 		bitstream.update();
 		context.commit();

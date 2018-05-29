@@ -32,7 +32,7 @@ import org.apache.log4j.Logger;
 import org.dspace.app.util.DCInputsReaderException;
 import org.dspace.app.util.MetadataExposure;
 import org.dspace.app.util.Util;
-import org.dspace.app.webui.ubc.UBCAccessChecker;
+import org.dspace.ubc.UBCAccessChecker;
 import org.dspace.app.webui.util.StyleSelection;
 import org.dspace.app.webui.util.UIUtil;
 import org.dspace.authorize.AuthorizeManager;

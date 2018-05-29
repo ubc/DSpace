@@ -1,12 +1,12 @@
-package org.dspace.app.webui.ubc;
+package org.dspace.ubc;
 
 import java.sql.SQLException;
 import java.util.regex.Pattern;
 import org.apache.log4j.Logger;
-import org.dspace.app.webui.ubc.retriever.ItemMetadataRetriever;
 import org.dspace.authorize.AuthorizeManager;
 import org.dspace.content.Bitstream;
 import org.dspace.content.Item;
+import org.dspace.content.Metadatum;
 import org.dspace.core.Context;
 import org.dspace.core.I18nUtil;
 import org.dspace.eperson.EPerson;
@@ -39,8 +39,7 @@ public class UBCAccessChecker {
 	 */
 	public static boolean isRestricted(Item item) {
 		// Check if item has access restrictions
-		ItemMetadataRetriever retriever = new ItemMetadataRetriever(item);
-		String restriction = retriever.getField("dcterms.accessRights").getValue();
+		String restriction = getField(item, "dcterms.accessRights");
 		log.debug("RESTRICTION: " + restriction);
 		// No restriction stored, so default to allow access
 		if (restriction.isEmpty()) restriction = ACCESS_EVERYONE;
@@ -220,5 +219,35 @@ public class UBCAccessChecker {
 		EPerson user = context.getCurrentUser();
 		if (user == null) return false; // no user logged in
 		return true;
+	}
+
+
+	/**
+	 * Get a single value from a metadata field.
+	 * @param item
+	 * @param field
+	 * @return 
+	 */
+	private static String getField(Item item, String field) {
+		// Try to parse the field into its components.
+		String[] eq = field.split("\\.");
+		if (eq.length <= 1) {
+			throw new IllegalArgumentException("Metadata field is not in a recognizable metadata registry entry string.");
+		}
+		String schema = eq[0];
+		String element = eq[1];
+		String qualifier = null;
+		if (eq.length > 2)
+		{
+			qualifier = eq[2];
+		}
+
+		// Retrieve the metadata based on the field components.
+		Metadatum[] values = item.getMetadata(schema, element, qualifier, Item.ANY);
+
+		for (Metadatum value : values) {
+			return value.value;
+		}
+		return "";
 	}
 }

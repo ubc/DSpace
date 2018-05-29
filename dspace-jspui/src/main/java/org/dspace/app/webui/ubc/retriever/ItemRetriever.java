@@ -17,7 +17,7 @@ import org.apache.log4j.Logger;
 
 import org.dspace.content.Item;
 
-import org.dspace.app.webui.ubc.UBCAccessChecker;
+import org.dspace.ubc.UBCAccessChecker;
 import org.dspace.content.DCDate;
 import org.dspace.core.Context;
 
