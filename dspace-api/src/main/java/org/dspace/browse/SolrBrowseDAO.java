@@ -7,6 +7,7 @@
  */
 package org.dspace.browse;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -25,7 +26,9 @@ import org.dspace.discovery.DiscoverResult.FacetResult;
 import org.dspace.discovery.DiscoverResult.SearchDocument;
 import org.dspace.discovery.SearchService;
 import org.dspace.discovery.SearchServiceException;
+import org.dspace.discovery.SearchUtils;
 import org.dspace.discovery.configuration.DiscoveryConfigurationParameters;
+import org.dspace.ubc.UBCAccessChecker;
 import org.dspace.utils.DSpace;
 
 /**
@@ -186,6 +189,20 @@ public class SolrBrowseDAO implements BrowseDAO
                     query.setSortField("bi_" + orderField + "_sort",
                             ascending ? SORT_ORDER.asc : SORT_ORDER.desc);
                 }
+
+				// Filter to exclude restricted items if user don't have access
+				try {
+					UBCAccessChecker accessChecker = new UBCAccessChecker(context);
+					if (!accessChecker.hasRestrictedAccess()) {
+						String newFilterQuery = SearchUtils.getSearchService()
+								.toFilterQuery(context, "accessRights", "notcontains",
+										UBCAccessChecker.ACCESS_RESTRICTED)
+								.getFilterQuery();
+						query.addFilterQueries(newFilterQuery);
+					}
+				} catch (SQLException ex) {
+					log.error(ex);
+				}
             }
             try
             {
