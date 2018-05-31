@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 
     The contents of this file are subject to the license and copyright
@@ -885,13 +885,7 @@
   </jsp-config>
   
 
-  <!-- Quartz Scheduler for periodic thumbnail generation -->
-  <servlet>
-	  <servlet-name>SchedulerStarter</servlet-name>
-	  <servlet-class>org.dspace.app.webui.ubc.statspace.scheduler.SchedulerStarter</servlet-class>
-	  <load-on-startup>127</load-on-startup> <!-- make sure this servlet loads on startup, cause we need to start the scheduler process -->
-  </servlet>
-
+  <!-- UBC Config -->
   <!-- Override the default sesion timeout -->
   <session-config>
       <session-timeout>90</session-timeout>
@@ -908,4 +902,19 @@
     <url-pattern>/approve-user-servlet</url-pattern>
   </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ubc-file-upload</servlet-name>
+        <servlet-class>org.dspace.app.webui.ubc.importer.ImportCommunitiesCollectionsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ubc-file-upload</servlet-name>
+        <url-pattern>/dspace-admin/import-communities-collections</url-pattern>
+    </servlet-mapping>
+    <!-- Quartz Scheduler for periodic thumbnail generation -->
+    <servlet>
+        <servlet-name>SchedulerStarter</servlet-name>
+        <servlet-class>org.dspace.app.webui.ubc.scheduler.SchedulerStarter</servlet-class>
+        <load-on-startup>127</load-on-startup>
+        <!-- make sure this servlet loads on startup, cause we need to start the scheduler process -->
+    </servlet>
 </web-app>

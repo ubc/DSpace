@@ -9,8 +9,6 @@ package org.dspace.app.webui.submit.step;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -40,9 +38,11 @@ import org.dspace.submit.step.UploadStep;
 import org.dspace.utils.DSpace;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import org.dspace.app.webui.ubc.statspace.retriever.ItemRetriever;
+import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.Map;
+import org.dspace.ubc.UBCAccessChecker;
+import org.dspace.app.webui.ubc.retriever.ItemRetriever;
 import org.dspace.content.Item;
 
 /**
@@ -80,18 +80,18 @@ public class JSPUploadStep extends JSPStep
 {
     /** JSP to choose files to upload * */
     //private static final String CHOOSE_FILE_JSP = "/submit/choose-file.jsp";
-    private static final String CHOOSE_FILE_JSP = "/ubc/statspace/choose-file.jsp";
+    private static final String CHOOSE_FILE_JSP = "/ubc/submit/choose-file.jsp";
 
     /** JSP to show files that were uploaded * */
     //private static final String UPLOAD_LIST_JSP = "/submit/upload-file-list.jsp";
-    private static final String UPLOAD_LIST_JSP = "/ubc/statspace/upload-file-list.jsp";
+    private static final String UPLOAD_LIST_JSP = "/ubc/statspace/submit/upload-file-list.jsp";
 
     /** JSP to single file that was upload * */
     private static final String UPLOAD_FILE_JSP = "/submit/show-uploaded-file.jsp";
 
     /** JSP to edit file description * */
     //private static final String FILE_DESCRIPTION_JSP = "/submit/change-file-description.jsp";
-    private static final String FILE_DESCRIPTION_JSP = "/ubc/statspace/change-file-description.jsp";
+    private static final String FILE_DESCRIPTION_JSP = "/ubc/submit/change-file-description.jsp";
 
     /** JSP to edit file format * */
     private static final String FILE_FORMAT_JSP = "/submit/get-file-format.jsp";
@@ -533,13 +533,16 @@ public class JSPUploadStep extends JSPStep
         // we don't need any info about previous files...
         subInfo.setBitstream(null);
 
+		setAccessRestrictionAttributes(context, request,
+				subInfo.getSubmissionItem().getItem());
+
         // set a flag whether the current step is UploadWithEmbargoStep
         boolean withEmbargo = SubmissionController.getCurrentStepConfig(request, subInfo).getProcessingClassName().equals("org.dspace.submit.step.UploadWithEmbargoStep") ? true : false;
         request.setAttribute("with_embargo", Boolean.valueOf(withEmbargo));
 
 		Item item = subInfo.getSubmissionItem().getItem();
 		ItemRetriever retriever = new ItemRetriever(context, request, item);
-		request.setAttribute("disableFileInstructorOnly", retriever.getInstructorOnly());
+		request.setAttribute("disableFileInstructorOnly", retriever.getIsRestricted());
 
         // load JSP which allows the user to select a file to upload
         JSPStepManager.showJSP(request, response, subInfo, CHOOSE_FILE_JSP);
@@ -574,9 +577,8 @@ public class JSPUploadStep extends JSPStep
         boolean withEmbargo = SubmissionController.getCurrentStepConfig(request, subInfo).getProcessingClassName().equals("org.dspace.submit.step.UploadWithEmbargoStep") ? true : false;
         request.setAttribute("with_embargo", Boolean.valueOf(withEmbargo));
 
-		Item item = subInfo.getSubmissionItem().getItem();
-		ItemRetriever retriever = new ItemRetriever(context, request, item);
-		request.setAttribute("disableFileInstructorOnly", retriever.getInstructorOnly());
+		setAccessRestrictionAttributes(context, request,
+				subInfo.getSubmissionItem().getItem());
 
         // Always go to advanced view in workflow mode
         if (subInfo.isInWorkflow()
@@ -591,6 +593,38 @@ public class JSPUploadStep extends JSPStep
             JSPStepManager.showJSP(request, response, subInfo, UPLOAD_FILE_JSP);
         }
     }
+
+	/**
+	 * Pass on information about per-file access restrictions to JSPs.
+	 * 
+	 * @param context
+	 * @param request
+	 * @param item
+	 * @throws SQLException
+	 * @throws UnsupportedEncodingException 
+	 */
+	private void setAccessRestrictionAttributes(Context context,
+			HttpServletRequest request, Item item)
+			throws SQLException, UnsupportedEncodingException
+	{
+		// Mark files that are restricted access
+		Map<Integer, Boolean> isRestrictedAccess =
+				new HashMap<Integer, Boolean>();
+		Bitstream[] bitstreams = item.getNonInternalBitstreams();
+		for (int i = 0; i < bitstreams.length; i++)
+		{
+			Bitstream file = bitstreams[i];
+			isRestrictedAccess.put(file.getID(),
+					UBCAccessChecker.isRestricted(item, file));
+		}
+		request.setAttribute("isRestrictedAccess", isRestrictedAccess);
+
+		// Don't allow marking individual file restrictions if the entire item
+		// is already restricted.
+		ItemRetriever retriever = new ItemRetriever(context, request, item);
+		request.setAttribute("disablePerFileRestriction",
+				retriever.getIsRestricted());
+	}
 
     /**
      * Show the page which allows the user to change the format of the file that
@@ -650,6 +684,8 @@ public class JSPUploadStep extends JSPStep
             SubmissionInfo subInfo) throws SQLException, ServletException,
             IOException
     {
+		setAccessRestrictionAttributes(context, request,
+				subInfo.getSubmissionItem().getItem());
         // load JSP which allows the user to select a file to upload
         JSPStepManager.showJSP(request, response, subInfo, FILE_DESCRIPTION_JSP);
     }

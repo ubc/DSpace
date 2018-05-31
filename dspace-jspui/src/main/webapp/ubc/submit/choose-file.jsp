@@ -307,7 +307,6 @@
                navbar="off"
                titlekey="jsp.submit.choose-file.title"
                nocache="true">
-    
     <% if (ajaxProgress) { %>
         <div style="display:none;" id="uploadError" title="<fmt:message key="jsp.submit.upload-error.title" />">
             <p>
@@ -382,7 +381,7 @@
         </div>
 		<br/>
         
-        <div class="row">
+        <div class="row container">
     		<div class="row">
                     <%-- Document File: --%>
                     <div class="simple-upload">
@@ -423,9 +422,9 @@
       
                 <div class="resumable-files">
 					<div>
-						<c:if test="${disableFileInstructorOnly}">
+						<c:if test="${disablePerFileRestriction}">
 							<p>
-								<i class="glyphicon glyphicon-lock text-danger"></i> <fmt:message key="jsp.submit.upload-file-list.tooltip.item-instructor-only" />
+								<i class="glyphicon glyphicon-lock text-danger"></i> <fmt:message key="jsp.submit.upload-file-list.tooltip.item-restricted-access" />
 							</p>
 						</c:if>
 					</div>
@@ -440,8 +439,8 @@
                                 <th>Name</th>
                                 <th class="text-center">Status</th>
                                 <th><fmt:message key="jsp.submit.upload-file-list.tableheading4"/></th>
-								<c:if test="${!disableFileInstructorOnly}">
-									<th title='<fmt:message key="jsp.submit.upload-file-list.tooltip.instructor-only"/>' class="text-center">
+								<c:if test="${!disablePerFileRestriction}">
+									<th title='<fmt:message key="jsp.submit.upload-file-list.tooltip.restricted"/>' class="text-center">
 											<i class="glyphicon glyphicon-lock"></i>
 									</th>
 								</c:if>
@@ -503,9 +502,9 @@
                                         '<td class="resumable-file-name"></td>' +
                                         '<td class="resumable-file-progress text-center"></td>' +
                                         '<td class="resumable-file-description-'+file.uniqueIdentifier+'"><input class="form-control" type="text" name="description[' + file.fileName + ']" id="tdescription"></td>' +
-										<c:if test="${!disableFileInstructorOnly}">
-                                        '<td class="resumable-file-instructoronly-'+file.uniqueIdentifier+'">' +
-											'<input class="form-control" type="checkbox" name="instructoronly[' + file.fileName + ']" id="tdescription" title="<fmt:message key="jsp.submit.upload-file-list.tooltip.instructor-only"/>">' +
+										<c:if test="${!disablePerFileRestriction}">
+                                        '<td class="resumable-file-restrictedaccess-'+file.uniqueIdentifier+'">' +
+											'<input class="form-control" type="checkbox" name="restrictedaccess[' + file.fileName + ']" id="tdescription" title="<fmt:message key="jsp.submit.upload-file-list.tooltip.restricted"/>">' +
 										'</td>' +
 										</c:if>
                                         '</tr>'
@@ -578,18 +577,12 @@
             <% if (subInfo.getSubmissionItem().hasMultipleFiles()) { %>
                 <%-- Please give a brief description of the contents of this file, for
                 example "Main article", or "Experiment data readings." --%>
-				<%-- File description was removed in another commit, the merge
-				with dspace head restored it. I've commented it out for now.
-				Remember to restore ending comment on the submitFormLabel line
-				if uncommenting.
-				
                 <div class="help-block simple-upload"><fmt:message key="jsp.submit.choose-file.info9"/></div>
-                <%-- <td class="submitFormLabel">File Description:</td> -->
+                <%-- <td class="submitFormLabel">File Description:</td> --%>
                 <div class="row simple-upload">
 					<label for="tdescription" class="col-md-<%= bSherpa?"3":"2" %>"><fmt:message key="jsp.submit.choose-file.filedescr"/></label>
                 	<span class="col-md-<%= bSherpa?"9":"10" %> row"><input class="form-control" type="text" name="description" id="tdescription" size="40"/></span>
                 </div>
-				--%>
             <% } %>
 
             <% if (withEmbargo) { %>

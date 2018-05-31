@@ -11,6 +11,7 @@
   - HTML header for main home page
   --%>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://www.dspace.org/dspace-tags.tld" prefix="dspace" %>
 
@@ -73,6 +74,7 @@
 	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/bootstrap/dspace-theme.css" type="text/css" />
 	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/ubc/statspace-clf.css" type="text/css" />
 	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/ubc/statspace-custom.css" type="text/css" />
+	    <link rel="stylesheet" href='<c:url value="/static/ubc/ubc-custom.css" />' type="text/css" />
 <%
     if (!"NONE".equals(feedRef))
     {

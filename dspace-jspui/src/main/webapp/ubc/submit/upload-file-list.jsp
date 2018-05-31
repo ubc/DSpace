@@ -105,48 +105,25 @@
 <%
     }
 %>
-        <div>
-			<p>
-			<fmt:message key="jsp.submit.upload-file-list.info2"/>
-			</p>
-			<c:if test="${disablePerFileRestriction}">
-				<p>
-					<i class="glyphicon glyphicon-lock text-danger"></i> <fmt:message key="jsp.submit.upload-file-list.tooltip.item-restricted-access" />
-				</p>
-			</c:if>
-		</div>
+        <div><fmt:message key="jsp.submit.upload-file-list.info2"/></div>
         
-        <table class="table" align="center" summary="Table displaying your submitted files">
+        <table class="table" align="center" summary="Table dispalying your submitted files">
             <tr>
 				<%-- Primary Bitstream --%>
-				<%-- hide primary bitstream column
 				<th id="t1" class="oddRowEvenCol"><fmt:message key="jsp.submit.upload-file-list.tableheading1"/></th>
-				--%>
-				<%-- Remove --%>
-				<c:if test="${allowFileEditing}">
-					<th class="oddRowOddCol"></th>
-				</c:if>
 				<%-- File Name --%>
                 <th id="t2" class="oddRowOddCol"><fmt:message key="jsp.submit.upload-file-list.tableheading2"/></th>
 				<%-- File Size --%>
-				<%--
                 <th id="t3" class="oddRowEvenCol"><fmt:message key="jsp.submit.upload-file-list.tableheading3"/></th>
-				--%>
-				<%-- File Description --%>
-                <th id="t4" class="oddRowOddCol"><fmt:message key="jsp.submit.upload-file-list.tableheading4"/></th>
-				<%-- File Format --%>
-				<%--
-                <th id="t5" class="oddRowEvenCol"><fmt:message key="jsp.submit.upload-file-list.tableheading5"/></th>
-				--%>
 				<%-- Restricted Access --%>
 				<c:if test="${!disablePerFileRestriction}">
 					<th class="oddRowOddCol text-center" title="<fmt:message key="jsp.submit.upload-file-list.tooltip.restricted"/>">
 						<i class="glyphicon glyphicon-lock"></i></th>
 				</c:if>
-				<%-- Edit file description --%>
-				<c:if test="${allowFileEditing}">
-					<th class="oddRowOddCol"></th>
-				</c:if>
+				<%-- File Description --%>
+                <th id="t4" class="oddRowOddCol"><fmt:message key="jsp.submit.upload-file-list.tableheading4"/></th>
+				<%-- File Format --%>
+                <th id="t5" class="oddRowEvenCol"><fmt:message key="jsp.submit.upload-file-list.tableheading5"/></th>
 <%
     String headerClass = "oddRowEvenCol";
 
@@ -204,7 +181,6 @@
 		pageContext.setAttribute("bitstreamID", bitstreams[i].getID());
 %>
             <tr>
-		<%-- hide primary bitstream column
 		<td headers="t1" class="<%= row %>RowEvenCol" align="center">
 		    <input class="form-control" type="radio" name="primary_bitstream_id" value="<%= bitstreams[i].getID() %>"
 			   <% if (bundles[0] != null) {
@@ -213,34 +189,19 @@
 			   <%   }
 			      } %> />
 		</td>
-		--%>
-				<c:if test="${allowFileEditing}">
-					<td>
-						<%-- Don't display "remove" button in workflow mode --%>
-						<button class="btn btn-danger pull-left" type="submit" name="submit_remove_<%= bitstreams[i].getID() %>" value="<fmt:message key="jsp.submit.upload-file-list.button2"/>" title="<fmt:message key="jsp.submit.upload-file-list.button2"/>">
-							<span class="glyphicon glyphicon-trash"></span>
-						</button>
-					</td>
-				</c:if>
                 <td headers="t2" class="<%= row %>RowOddCol">
                 	<a href="<%= request.getContextPath() %>/retrieve/<%= bitstreams[i].getID() %>/<%= org.dspace.app.webui.util.UIUtil.encodeBitstreamName(bitstreams[i].getName()) %>" target="_blank"><%= bitstreams[i].getName() %></a>
+            <%      // Don't display "remove" button in workflow mode
+			        if (allowFileEditing)
+			        {
+			%>
+	                    <button class="btn btn-danger pull-right" type="submit" name="submit_remove_<%= bitstreams[i].getID() %>" value="<fmt:message key="jsp.submit.upload-file-list.button2"/>" title="<fmt:message key="jsp.submit.upload-file-list.button2"/>">
+							<span class="glyphicon glyphicon-trash"></span>
+	                    </button>
+			<%
+			        } %>	
                 </td>
-				<%-- Size
                 <td headers="t3" class="<%= row %>RowEvenCol"><%= bitstreams[i].getSize() %> bytes</td>
-				--%>
-                <td headers="t4" class="<%= row %>RowOddCol">
-                    <%= (bitstreams[i].getDescription() == null || bitstreams[i].getDescription().equals("")
-                        ? LocaleSupport.getLocalizedMessage(pageContext, "jsp.submit.upload-file-list.empty1")
-                        : bitstreams[i].getDescription()) %>
-                </td>
-				<%-- File Format
-                <td headers="t5" class="<%= row %>RowEvenCol">
-                    <%= description %> <dspace:popup page="<%= supportLevelLink %>">(<%= supportLevel %>)</dspace:popup>
-                    <button type="submit" class="btn btn-default pull-right" name="submit_format_<%= bitstreams[i].getID() %>" value="<fmt:message key="jsp.submit.upload-file-list.button1"/>">
-                    <span class="glyphicon glyphicon-file"></span>&nbsp;&nbsp;<fmt:message key="jsp.submit.upload-file-list.button1"/>
-                    </button>
-                </td>
-				--%>
 				<%-- Restricted Access --%>
 				<c:if test="${!disablePerFileRestriction}">
 					<td class="text-center">
@@ -249,14 +210,21 @@
 						</c:if>
 					</td>
 				</c:if>
-				<%-- Edit file description --%>
-				<c:if test="${allowFileEditing}">
-					<td>
-						<button type="submit" class="btn btn-default pull-right" name="submit_describe_<%= bitstreams[i].getID() %>" value="<fmt:message key="jsp.submit.upload-file-list.button1"/>" title="<fmt:message key="jsp.submit.upload-file-list.button1"/>">
-							<span class="glyphicon glyphicon-pencil"></span>
-						</button>
-					</td>
-				</c:if>
+				<%-- File Description --%>
+                <td headers="t4" class="<%= row %>RowOddCol">
+                    <%= (bitstreams[i].getDescription() == null || bitstreams[i].getDescription().equals("")
+                        ? LocaleSupport.getLocalizedMessage(pageContext, "jsp.submit.upload-file-list.empty1")
+                        : bitstreams[i].getDescription()) %>
+                    <button type="submit" class="btn btn-default pull-right" name="submit_describe_<%= bitstreams[i].getID() %>" value="<fmt:message key="jsp.submit.upload-file-list.button1"/>" title="<fmt:message key="jsp.submit.upload-file-list.button1"/>">
+						<span class="glyphicon glyphicon-pencil"></span>
+                    </button>
+                </td>
+                <td headers="t5" class="<%= row %>RowEvenCol">
+                    <%= description %> <dspace:popup page="<%= supportLevelLink %>">(<%= supportLevel %>)</dspace:popup>
+                    <button type="submit" class="btn btn-default pull-right" name="submit_format_<%= bitstreams[i].getID() %>" value="<fmt:message key="jsp.submit.upload-file-list.button1"/>" title="<fmt:message key="jsp.submit.upload-file-list.button1"/>">
+						<span class="glyphicon glyphicon-pencil">
+                    </button>
+                </td>
 <%
         // Checksum
         if (showChecksums)
@@ -318,11 +286,9 @@
         else
         {
 %>
-<%-- hide all mentions of checksums
             <li class="uploadHelp"><fmt:message key="jsp.submit.upload-file-list.info6"/>
             <dspace:popup page="<%= LocaleSupport.getLocalizedMessage(pageContext, \"help.index\") + \"#checksum\"%>"><fmt:message key="jsp.submit.upload-file-list.help2"/></dspace:popup> 
             <input class="btn btn-info" type="submit" name="submit_show_checksums" value="<fmt:message key="jsp.submit.upload-file-list.button3"/>" /></li>
---%>
 <%
         }
 %>

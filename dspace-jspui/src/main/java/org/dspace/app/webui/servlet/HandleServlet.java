@@ -23,6 +23,7 @@ import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.dspace.app.util.GoogleMetadata;
+import org.dspace.ubc.UBCAccessChecker;
 import org.dspace.app.webui.util.Authenticate;
 import org.dspace.app.webui.util.JSPManager;
 import org.dspace.app.webui.util.UIUtil;
@@ -54,7 +55,7 @@ import org.jdom.Text;
 import org.jdom.output.XMLOutputter;
 
 import org.dspace.app.itemexport.ItemExport;
-import org.dspace.app.webui.ubc.statspace.UBCAccessChecker;
+import org.dspace.ubc.UBCAccessChecker;
 import org.dspace.app.webui.ubc.statspace.retriever.ItemRetriever;
 
 /**
@@ -440,14 +441,17 @@ public class HandleServlet extends DSpaceServlet
         // Ensure the user has authorisation
         AuthorizeManager.authorizeAction(context, item, Constants.READ);
 		// Instructor only permissions check
-		UBCAccessChecker accessChecker = new UBCAccessChecker(context);
-		if (!accessChecker.hasItemAccess(item)) {
-            throw new AuthorizeException("Authorization denied for reading instructor only item.");
-		}
-
         log
                 .info(LogManager.getHeader(context, "view_item", "handle="
                         + handle));
+
+		UBCAccessChecker accessChecker = new UBCAccessChecker(context);
+		if (!accessChecker.hasItemAccess(item))
+		{
+			JSPManager.showInvalidIDError(request, response,
+					StringEscapeUtils.escapeHtml(request.getPathInfo()), -1);
+			return;
+		}
 
         // show edit link
         if (item.canEdit())

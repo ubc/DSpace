@@ -1,0 +1,5 @@
+pre.pre-horiz-scroll
+{
+	white-space: pre;
+	overflow-x: scroll;
+}

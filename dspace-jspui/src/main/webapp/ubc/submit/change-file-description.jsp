@@ -22,8 +22,6 @@
 <%@ page import="org.dspace.content.Bitstream" %>
 <%@ page import="org.dspace.content.BitstreamFormat" %>
 
-<%@ page import="org.dspace.app.webui.ubc.statspace.UBCAccessChecker" %>
-
 <%@ taglib uri="http://www.dspace.org/dspace-tags.tld" prefix="dspace" %>
 
 <%
@@ -76,20 +74,22 @@
     {
         currentDesc="";
     }
-	pageContext.setAttribute("restrictedAccess", UBCAccessChecker.isInstructorOnly(subInfo.getSubmissionItem().getItem(), subInfo.getBitstream()));
+	pageContext.setAttribute("bitstreamID", subInfo.getBitstream().getID());
 %>
 		<div class="row">
 			<label for="tdescription" class="col-md-2"><fmt:message key="jsp.submit.change-file-description.filedescr"/></label>
             <span class="col-md-10"><input class="form-control" type="text" name="description" id="tdescription" size="50" value="<%= currentDesc %>" /></span>
 		</div>
 		<div class="row">
-			<label for="tinstructoronly" class="col-md-2" title='<fmt:message key="jsp.submit.upload-file-list.tooltip.instructor-only"/>'>
-				<fmt:message key="ubc-access-checker.permission.instructor-only"/>:</label>
-            <span class="col-md-10">
-				<input class="form-control" type="hidden" name="instructoronly-hidden" id="tinstructoronly-hidden" value="Everyone" />
-				<input type="checkbox" name="instructoronly" id="tinstructoronly" title='<fmt:message key="jsp.submit.upload-file-list.tooltip.instructor-only"/>'
-					<c:if test="${restrictedAccess}">checked</c:if> />
-			</span>
+			<label for="trestrictedaccess" class="col-md-2" title='<fmt:message key="jsp.submit.upload-file-list.tooltip.restricted"/>'>
+				<fmt:message key="ubc-access-checker.permission.restricted"/>:</label>
+			<c:if test="${!disablePerFileRestriction}">
+				<span class="col-md-10">
+					<input class="form-control" type="hidden" name="restrictedaccess-hidden" id="trestrictedaccess-hidden" value="Everyone" />
+					<input type="checkbox" name="restrictedaccess" id="trestrictedaccess" title='<fmt:message key="jsp.submit.upload-file-list.tooltip.restricted"/>'
+						<c:if test="${isRestrictedAccess[bitstreamID]}">checked</c:if> />
+				</span>
+			</c:if>
 		</div>
 
         <%-- Hidden fields needed for SubmissionController servlet to know which step is next--%>
