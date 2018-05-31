@@ -14,7 +14,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.PageContext;
 import org.apache.log4j.Logger;
-import org.dspace.app.webui.ubc.statspace.UBCAccessChecker;
+import org.dspace.ubc.UBCAccessChecker;
 import org.dspace.app.webui.util.UIUtil;
 import org.dspace.content.Bundle;
 import org.dspace.content.Item;

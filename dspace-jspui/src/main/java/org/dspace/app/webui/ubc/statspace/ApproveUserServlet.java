@@ -16,6 +16,7 @@ import org.dspace.app.webui.servlet.DSpaceServlet;
 import org.dspace.authorize.AuthorizeException;
 import org.dspace.core.Context;
 import org.dspace.eperson.EPerson;
+import org.dspace.ubc.UBCAccessChecker;
 
 /**
  *

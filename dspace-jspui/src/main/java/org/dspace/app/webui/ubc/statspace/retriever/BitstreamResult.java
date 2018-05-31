@@ -9,7 +9,7 @@ package org.dspace.app.webui.ubc.statspace.retriever;
 
 import org.apache.log4j.Logger;
 import org.dspace.app.webui.ubc.statspace.IdentifyMediaType;
-import org.dspace.app.webui.ubc.statspace.UBCAccessChecker;
+import org.dspace.ubc.UBCAccessChecker;
 import org.dspace.content.Bitstream;
 import org.dspace.content.Item;
 
@@ -36,7 +36,7 @@ public class BitstreamResult {
 		this.link = link;
 		this.thumbnail = thumbnail;
 		this.size = size;
-		this.instructorOnly = UBCAccessChecker.isInstructorOnly(item, bitstream);
+		this.instructorOnly = UBCAccessChecker.isRestricted(item, bitstream);
 		this.isPlayableAudio = IdentifyMediaType.isStreamableAudio(bitstream);
 		this.isPlayableVideo = IdentifyMediaType.isStreamableVideo(bitstream);
 		this.isImage = IdentifyMediaType.isImage(bitstream);

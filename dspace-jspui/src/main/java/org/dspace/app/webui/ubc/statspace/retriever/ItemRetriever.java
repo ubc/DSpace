@@ -17,7 +17,7 @@ import org.apache.log4j.Logger;
 
 import org.dspace.content.Item;
 
-import org.dspace.app.webui.ubc.statspace.UBCAccessChecker;
+import org.dspace.ubc.UBCAccessChecker;
 import org.dspace.content.DCDate;
 import org.dspace.core.Context;
 
@@ -83,7 +83,7 @@ public class ItemRetriever {
 		description = getSingleValue("dc.description");
 		whatWeLearned = getSingleValue("dcterms.instructionalMethod");
 		dateCreated = getSingleValue("dc.date.created");
-		instructorOnly = UBCAccessChecker.isInstructorOnly(item);
+		instructorOnly = UBCAccessChecker.isRestricted(item);
 
 		dateSubmitted = getSingleValue("dc.date.submitted");
 		if (!dateSubmitted.isEmpty()) {

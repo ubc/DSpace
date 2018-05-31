@@ -540,10 +540,6 @@ public class JSPUploadStep extends JSPStep
         boolean withEmbargo = SubmissionController.getCurrentStepConfig(request, subInfo).getProcessingClassName().equals("org.dspace.submit.step.UploadWithEmbargoStep") ? true : false;
         request.setAttribute("with_embargo", Boolean.valueOf(withEmbargo));
 
-		Item item = subInfo.getSubmissionItem().getItem();
-		ItemRetriever retriever = new ItemRetriever(context, request, item);
-		request.setAttribute("disableFileInstructorOnly", retriever.getIsRestricted());
-
         // load JSP which allows the user to select a file to upload
         JSPStepManager.showJSP(request, response, subInfo, CHOOSE_FILE_JSP);
     }

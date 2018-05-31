@@ -9,6 +9,7 @@ import org.dspace.authorize.AuthorizeException;
 import org.dspace.core.Context;
 import org.dspace.eperson.EPerson;
 import org.dspace.eperson.Group;
+import org.dspace.ubc.UBCAccessChecker;
 
 /**
  * Manages a list of users who are waiting for confirmation on whether they
