@@ -1,9 +1,3 @@
-<%-- 
-    Document   : import-collections-communities
-    Created on : 3-May-2018, 10:12:24 AM
-    Author     : john
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>

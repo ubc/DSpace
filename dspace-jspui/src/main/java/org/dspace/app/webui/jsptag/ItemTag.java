@@ -917,9 +917,9 @@ public class ItemTag extends TagSupport
             		{
             			Bitstream[] bitstreams = bundles[i].getBitstreams();
 
+						UBCAccessChecker accessChecker = new UBCAccessChecker(context);
             			for (int k = 0; k < bitstreams.length; k++)
             			{
-							UBCAccessChecker accessChecker = new UBCAccessChecker(context);
 							if (!accessChecker.hasFileAccess(item, bitstreams[k])) continue;
             				// Skip internal types
             				if (!bitstreams[k].getFormat().isInternal())
