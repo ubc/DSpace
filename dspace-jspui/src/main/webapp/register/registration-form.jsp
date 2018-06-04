@@ -89,20 +89,7 @@
         again into the second box.  It should be at least six characters long.</p> --%>
 		<p class="alert"><fmt:message key="jsp.register.registration-form.instruct4"/></p>
         
-        <div class="form-group">
-                            <%-- <td align="right" class="standard"><strong>New Password:</strong></td> --%>
-							<label class="col-md-offset-3 col-md-2 control-label" for="tpassword"><fmt:message key="jsp.register.registration-form.pswd.field"/></label>
-							<div class="col-md-3">
-                            	<input class="form-control" type="password" name="password" id="tpassword" />
-                            </div>
-            </div>
-        <div class="form-group">
-	                           <%-- <td align="right" class="standard"><strong>Again to Confirm:</strong></td> --%>
-							<label class="col-md-offset-3 col-md-2 control-label" for="tpassword_confirm"><fmt:message key="jsp.register.registration-form.confirm.field"/></label>
-							<div class="col-md-3">
-                            	<input class="form-control" type="password" name="password_confirm" id="tpassword_confirm" /></td>
-                            </div>
-		</div>
+		<dspace:include page="/components/password-field.jsp" />
        
 <%
     }
