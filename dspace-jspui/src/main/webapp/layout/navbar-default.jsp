@@ -80,7 +80,7 @@
          <ul class="nav navbar-nav">
            <% if (user != null) { %>
                
-               <li><a href="<%= request.getContextPath() %>/logout"><span class="glyphicon glyphicon-home"></span></a></li>
+               <li><a href="<%= request.getContextPath() %>/"><span class="glyphicon glyphicon-home"></span></a></li>
                
                <li class="<%= currentPage.endsWith("/mydspace")? "active" : "" %>"><a href="<%= request.getContextPath() %>/mydspace"> <fmt:message key="jsp.layout.navbar-default.users"/></a></li>
 
@@ -101,8 +101,6 @@
                    </ul>
                </li>
                
-               <li class="<%= currentPage.endsWith("/community-list")? "active" : "" %>"><a href="<%= request.getContextPath() %>/community-list"> <fmt:message key="jsp.layout.navbar-default.communities-collections"/></a></li>    
-                           
            <% } else { %>
                <%-- <div class="row">
                    <h3>Welcome to the soft launch of StatSpace!<br> Feel free to explore this preliminary version and learn more about future versions.</h3>
