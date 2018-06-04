@@ -45,22 +45,6 @@ and lacks some bootstrap 3 features. */
 	text-align: center;
 }
 
-/* Position search result box's view button to the bottom */
-.discovery-result-results div.searchResultBox {
-	position: relative;
-	padding-bottom: 4em;
-}
-.discovery-result-results div.searchResultBoxButton {
-	position: absolute;
-	left: 50%;
-	margin-left: -2.5em;
-	bottom: 0.5em;
-}
-.discovery-result-results div.searchResultBoxButton a {
-	width: 5em;
-	height: 2.5em;
-}
-
 /* Selection step overlay */
 #selectCollectionStepOverlay {
 	position: fixed;

@@ -81,7 +81,7 @@ public class BitstreamServlet extends DSpaceServlet
         {
             idString = "";
         }
-        
+
         // Parse 'handle' and 'sequence' (bitstream seq. number) out
         // of remaining URL path, which is typically of the format:
         // {handle}/{sequence}/{bitstream-name}
@@ -191,6 +191,13 @@ public class BitstreamServlet extends DSpaceServlet
         				request, 
         				context, 
         				bitstream));
+        
+		String forcedownload = request.getParameter("forcedownload");
+		if (forcedownload != null)
+		{
+			response.setHeader ("Content-Disposition", "attachment");
+		}
+
         
         // Modification date
         // Only use last-modified if this is an anonymous access

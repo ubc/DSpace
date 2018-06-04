@@ -558,7 +558,9 @@ else if( qResults != null)
 				</a>
 
 				<div class="caption">
-					<h4>${itemRetriever.title}</h4>
+					<h4 class="text-center">
+						<a href="${itemRetriever.url}">${itemRetriever.title}</a>
+					</h4>
 					<div>
 						${itemRetriever.summary}
 					</div>
@@ -569,9 +571,6 @@ else if( qResults != null)
 							</span>
 						</c:forEach>
 					</div>
-				</div>
-				<div class="searchResultBoxButton">
-					<a class="btn btn-primary" href="${itemRetriever.url}">View</a>
 				</div>
 			</div>
 		</c:forEach>

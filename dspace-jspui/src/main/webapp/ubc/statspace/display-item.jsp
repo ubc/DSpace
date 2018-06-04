@@ -228,7 +228,7 @@
 									<span class="glyphicon glyphicon-file"></span>
 								</c:otherwise>
 							</c:choose>
-							${result.name}
+							<a href="${result.link}">${result.name}</a>
 							<c:choose>
 								<c:when test="${result.instructorOnly}">
 									<i class="glyphicon glyphicon-lock restrictionIconColorInstructorOnly pull-right" title='<fmt:message key="jsp.submit.upload-file-list.tooltip.instructor-only"/>'></i>
@@ -248,7 +248,9 @@
 								<p>${result.description}</p>
 							</c:if>
 							<c:if test="${!empty result.thumbnail}">
-								<img class="img-thumbnail center-block" src="${result.thumbnail}" />
+								<a href="${result.link}">
+									<img class="img-thumbnail center-block" src="${result.thumbnail}" />
+								</a>
 							</c:if>
 							<c:if test="${result.isPlayableAudio}">
 								<audio id="stream-${result.id}" class="video-js vjs-fluid vjs-audio" controls preload="none"
@@ -273,7 +275,7 @@
 						</div>
 					</c:if>
 					<div class="panel-footer">
-						<a class="btn btn-primary" href="${result.link}"><i class="glyphicon glyphicon-download"></i> Download</a>
+						<a class="btn btn-primary" href="${result.link}?forcedownload"><i class="glyphicon glyphicon-download"></i> Download</a>
 						<span class="label label-info">${result.size}</span>
 					</div>
 				</div>
