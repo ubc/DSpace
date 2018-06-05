@@ -20,8 +20,8 @@
 
 <%@ page contentType="text/html;charset=UTF-8" %>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"
-    prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"   %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt" %>
     
 
 <%@ taglib uri="http://www.dspace.org/dspace-tags.tld" prefix="dspace" %>
@@ -84,8 +84,8 @@
 %>
         <%-- <p><strong>Optionally</strong>, you can choose a new password and enter it into the box below, and confirm it by typing it
         again into the second box for verification.  It should be at least six characters long.</p> --%>
-		<p class="alert"><fmt:message key="jsp.register.edit-profile.info5"/></p>
-			<dspace:include page="/components/password-field.jsp" />
+		<div class="text-center"><fmt:message key="jsp.register.edit-profile.info5"/></div>
+		<dspace:include page="/components/password-field.jsp" />
 <%
   }
 %>

@@ -33,6 +33,9 @@ public class EditProfileServlet extends DSpaceServlet
     /** Logger */
     private static Logger log = Logger.getLogger(EditProfileServlet.class);
 
+	//private static String EDIT_PROFILE_JSP = "/register/edit-profile.jsp";
+	private static String EDIT_PROFILE_JSP = "/ubc/register/edit-profile.jsp";
+
     protected void doDSGet(Context context, HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException,
             SQLException, AuthorizeException
@@ -43,7 +46,7 @@ public class EditProfileServlet extends DSpaceServlet
 
         request.setAttribute("eperson", context.getCurrentUser());
 
-        JSPManager.showJSP(request, response, "/register/edit-profile.jsp");
+        JSPManager.showJSP(request, response, EDIT_PROFILE_JSP);
     }
 
     protected void doDSPost(Context context, HttpServletRequest request,
@@ -101,7 +104,7 @@ public class EditProfileServlet extends DSpaceServlet
 
             request.setAttribute("eperson", eperson);
 
-            JSPManager.showJSP(request, response, "/register/edit-profile.jsp");
+            JSPManager.showJSP(request, response, EDIT_PROFILE_JSP);
         }
     }
 
@@ -166,16 +169,9 @@ public class EditProfileServlet extends DSpaceServlet
     {
         // Get the passwords
         String password = request.getParameter("password");
-        String passwordConfirm = request.getParameter("password_confirm");
 
         // Check it's there and long enough
-        if ((password == null) || (password.length() < 6))
-        {
-            return false;
-        }
-
-        // Check the two passwords entered match
-        if (!password.equals(passwordConfirm))
+        if ((password == null) || (password.length() < 8))
         {
             return false;
         }
