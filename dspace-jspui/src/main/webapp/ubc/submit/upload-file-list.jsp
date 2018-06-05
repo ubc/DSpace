@@ -90,9 +90,7 @@
     if (justUploaded)
     {
 %>
-		<h1><fmt:message key="jsp.submit.upload-file-list.heading1"/>
-		<dspace:popup page="<%= LocaleSupport.getLocalizedMessage(pageContext, \"help.index\") + \"#uploadedfile\"%>"><fmt:message key="jsp.morehelp"/></dspace:popup>
-		</h1>
+		<h1><fmt:message key="jsp.submit.upload-file-list.heading1"/></h1>
         <p><fmt:message key="jsp.submit.upload-file-list.info1"/></p>
 <%
     }
@@ -100,7 +98,6 @@
     {
 %>
 	    <h1><fmt:message key="jsp.submit.upload-file-list.heading2"/>
-	    <dspace:popup page="<%= LocaleSupport.getLocalizedMessage(pageContext, \"help.index\") + \"#uploadedfile\"%>"><fmt:message key="jsp.morehelp"/></dspace:popup>
 	    </h1>
 <%
     }
