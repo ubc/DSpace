@@ -84,7 +84,7 @@ public class JSPUploadStep extends JSPStep
 
     /** JSP to show files that were uploaded * */
     //private static final String UPLOAD_LIST_JSP = "/submit/upload-file-list.jsp";
-    private static final String UPLOAD_LIST_JSP = "/ubc/statspace/submit/upload-file-list.jsp";
+    private static final String UPLOAD_LIST_JSP = "/ubc/submit/upload-file-list.jsp";
 
     /** JSP to single file that was upload * */
     private static final String UPLOAD_FILE_JSP = "/submit/show-uploaded-file.jsp";
