@@ -387,9 +387,9 @@
 				</div>
 				<div class="panel-body">
 					<c:forEach items="${itemRetriever.resourceTypes}" var="type">
-						<span class="label label-default labelResource">
-							${type}
-						</span>
+						<jsp:include page="/ubc/statspace/components/resource-type-pill.jsp">
+							<jsp:param name="resource" value="${type}" />
+						</jsp:include>
 					</c:forEach>
 				</div>
 			</div>

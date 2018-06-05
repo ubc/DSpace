@@ -116,14 +116,14 @@ div.addMoreButton {
 }
 
 /* Search item resource type customization */
-span.label.labelResourceForSearch {
-	background: mediumseagreen;
-	display: inline-block;
-	font-size: 0.8em;
-	padding-top: 0.3em;
-}
 div.searchResultResourceTypes {
 	margin-top: 0.5em;
+}
+div.searchResultResourceTypes .labelResource {
+	max-width: 15em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 /* Display item thumbnail placeholder */
@@ -193,4 +193,12 @@ https://github.com/moodle/moodle/blob/MOODLE_34_STABLE/media/player/videojs/styl
 /* Make player height minimum to the controls height so when we hide video/poster area the controls are displayed correctly. */
 .video-js.vjs-audio {
   min-height: 3em;
+}
+
+/* Resource Type Pills */
+a.resourceLink:hover {
+	text-decoration: none;
+}
+a.resourceLink:hover span.labelResource {
+	background: darkgreen;
 }
