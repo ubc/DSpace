@@ -16,7 +16,6 @@ and lacks some bootstrap 3 features. */
 	background: #f2dede;
 }
 
-
 /* Make shared height search results gallery boxes */
 .discovery-result-results div.searchResultsWrap {
 	display: flex;
@@ -45,6 +44,15 @@ and lacks some bootstrap 3 features. */
 	text-align: center;
 }
 
+/* General */
+span.label.labelLarge {
+	font-size: 0.9em;
+	margin-bottom: 0.2em;
+}
+.marginTopNone {
+	margin-top: 0;
+}
+
 /* Selection step overlay */
 #selectCollectionStepOverlay {
 	position: fixed;
@@ -69,36 +77,26 @@ and lacks some bootstrap 3 features. */
     z-index: 1002; /* 1px higher than the overlay layer */
 }
 
-/* Display item subjects list customization */
-.subjectsList span.label {
-	display: inline-flex;
-	padding-top: 0.3em;
-	font-size: 85%;
-	margin-bottom: 0.1em;
-	overflow: hidden;
+/* Display Item Admin Tools */
+.adminToolsAlert {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-bottom: 1em;
 }
-.subjectsList span.label div {
-	overflow: hidden;
-	text-overflow: ellipsis;
-}
-
-.subjectsList span.level1 {
-	background: dimgray;
-}
-.subjectsList span.level2 {
-	background: slategray;
-}
-.subjectsList span.level3 {
-	background: steelblue;
+/* Display item tabs bar */
+.displayItemTabsContent {
+	border: 1px solid lightgray;
+	border-top: none;
+	padding: 0.5em 1em;
+	margin-bottom: 1em;
 }
 
 /* Display item resource types customization */
-span.label.labelResource {
-	background: mediumseagreen;
-	display: inline-block;
+.listResourceType li {
 	margin-bottom: 0.2em;
-	padding-top: 0.4em;
-	font-size: 1em;
+}
+.listResourceType li a:hover {
+	text-decoration: underline;
 }
 
 /* Display item add more button */
@@ -126,27 +124,72 @@ div.searchResultResourceTypes .labelResource {
 	white-space: nowrap;
 }
 
-/* Display item thumbnail placeholder */
-div.displayItemThumbnailPlaceholder {
-	padding-top: 0.4em;
+/* Display Item Section Header */
+.displayItemSectionHeader {
+	padding-bottom: 0.3em;
+	border-bottom: 1px solid lightgray;
+}
+
+/* Display item files list */
+#FilesTab ul.nav-pills {
+	margin-bottom: 0.5em;
+}
+.fileTile {
+}
+.fileTile .panel {
 	background: cornsilk;
-	height: 3.5em;
-	width: 3.5em;
-	color: burlywood;
 }
-div.displayItemThumbnailPlaceholder table {
-	height: 90%;
-	width: 100%;
+.fileTile .panel-heading a {
+	color: black;
 }
-div.displayItemThumbnailPlaceholder table span {
-	font-size: 2em;
-	vertical-align: middle;
-	text-align: center;
+.fileTile .panel-heading {
+	margin-bottom: 0.5em;
 }
-.file-title-overflow {
+.fileTileTitle {
 	text-overflow: ellipsis;
+	white-space: nowrap;
 	overflow: hidden;
 	padding-bottom: 0.1em;
+}
+.fileTile .fileTileMedia {
+	height: 160px;
+	margin-bottom: 5px;
+}
+.fileTile .fileTileMedia img {
+	max-height: 160px;
+	max-width: 200px;
+	margin-top:0;
+	margin-bottom:0;
+}
+.fileTile .fileTilePlaceholder {
+	position: relative;
+	height: 100%;
+}
+.fileTile .fileTilePlaceholder i {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	font-size: 3em;
+	color: burlywood;
+	transform: translate(-50%, -50%); 
+}
+.fileTile .panel-footer {
+	padding: 5px;
+}
+
+.fileList .media-left a {
+	display: inline-block;
+	width: 128px;
+}
+.fileList .media-left img {
+	max-width: 128px;
+	max-height: 128px;
+}
+.fileList .media-left .fileListPlaceholder {
+	background: cornsilk;
+	font-size: 3em;
+	color: burlywood;
+	padding: 0.5em;
 }
 
 /* Verify Submission */
@@ -175,6 +218,22 @@ td.usersForApprovalActionsCol {
 	margin-top: 0; /* override bootstrap top margin since dspace css magnifies the checkbox to a huge size */
 }
 
+/* Resource Type Pills */
+span.label.labelResource {
+	background: mediumseagreen;
+	display: inline-block;
+ 	margin-bottom: 0.2em;
+	padding-top: 0.4em;
+	font-size: 1em;
+}
+a.resourceLink:hover {
+	text-decoration: none;
+}
+a.resourceLink:hover span.labelResource {
+	background: darkgreen;
+}
+
+
 /* VideoJS Audio Only changes, taken from Moodle's modifications at:
 https://github.com/moodle/moodle/blob/MOODLE_34_STABLE/media/player/videojs/styles.css#L1404
 */
@@ -193,12 +252,4 @@ https://github.com/moodle/moodle/blob/MOODLE_34_STABLE/media/player/videojs/styl
 /* Make player height minimum to the controls height so when we hide video/poster area the controls are displayed correctly. */
 .video-js.vjs-audio {
   min-height: 3em;
-}
-
-/* Resource Type Pills */
-a.resourceLink:hover {
-	text-decoration: none;
-}
-a.resourceLink:hover span.labelResource {
-	background: darkgreen;
 }

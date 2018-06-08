@@ -104,6 +104,15 @@
     
     VersionHistory history = (VersionHistory)request.getAttribute("versioning.history");
     List<Version> historyVersions = (List<Version>)request.getAttribute("versioning.historyversions");
+
+	pageContext.setAttribute("itemID", item.getID());
+	pageContext.setAttribute("handle", handle);
+	//pageContext.setAttribute("versionID", history.getVersion(item)!=null?history.getVersion(item).getVersionId():null);
+	pageContext.setAttribute("hasAdminButton", admin_button);
+	pageContext.setAttribute("hasVersionButton", hasVersionButton);
+	pageContext.setAttribute("hasVersionHistory", hasVersionHistory);
+	pageContext.setAttribute("stepExportArchive", MyDSpaceServlet.REQUEST_EXPORT_ARCHIVE);
+	pageContext.setAttribute("stepMigrateArchive", MyDSpaceServlet.REQUEST_MIGRATE_ARCHIVE);
 %>
 
 <%@page import="org.dspace.app.webui.servlet.MyDSpaceServlet"%>
@@ -134,159 +143,56 @@
 		<%
 		    }
 		%>
-		
-
-                <%-- <strong>Please use this identifier to cite or link to this item:
-                <code><%= HandleManager.getCanonicalForm(handle) %></code></strong>--%>
-                <div class="well"><fmt:message key="jsp.display-item.identifier"/>
-                <code><%= HandleManager.getCanonicalForm(handle) %></code></div>
-<%
-        if (admin_button)  // admin edit button
-        { %>
-        <dspace:sidebar>
-            <div class="panel panel-warning">
-            	<div class="panel-heading"><fmt:message key="jsp.admintools"/></div>
-            	<div class="panel-body">
-                <form method="get" action="<%= request.getContextPath() %>/tools/edit-item">
-                    <input type="hidden" name="item_id" value="<%= item.getID() %>" />
-                    <%--<input type="submit" name="submit" value="Edit...">--%>
-                    <input class="btn btn-default col-md-12" type="submit" name="submit" value="<fmt:message key="jsp.general.edit.button"/>" />
-                </form>
-                <form method="post" action="<%= request.getContextPath() %>/mydspace">
-                    <input type="hidden" name="item_id" value="<%= item.getID() %>" />
-                    <input type="hidden" name="step" value="<%= MyDSpaceServlet.REQUEST_EXPORT_ARCHIVE %>" />
-                    <input class="btn btn-default col-md-12" type="submit" name="submit" value="<fmt:message key="jsp.mydspace.request.export.item"/>" />
-                </form>
-                <form method="post" action="<%= request.getContextPath() %>/mydspace">
-                    <input type="hidden" name="item_id" value="<%= item.getID() %>" />
-                    <input type="hidden" name="step" value="<%= MyDSpaceServlet.REQUEST_MIGRATE_ARCHIVE %>" />
-                    <input class="btn btn-default col-md-12" type="submit" name="submit" value="<fmt:message key="jsp.mydspace.request.export.migrateitem"/>" />
-                </form>
-                <form method="post" action="<%= request.getContextPath() %>/dspace-admin/metadataexport">
-                    <input type="hidden" name="handle" value="<%= item.getHandle() %>" />
-                    <input class="btn btn-default col-md-12" type="submit" name="submit" value="<fmt:message key="jsp.general.metadataexport.button"/>" />
-                </form>
-					<% if(hasVersionButton) { %>       
-                	<form method="get" action="<%= request.getContextPath() %>/tools/version">
-                    	<input type="hidden" name="itemID" value="<%= item.getID() %>" />                    
-                    	<input class="btn btn-default col-md-12" type="submit" name="submit" value="<fmt:message key="jsp.general.version.button"/>" />
-                	</form>
-                	<% } %> 
-                	<% if(hasVersionHistory) { %>			                
-                	<form method="get" action="<%= request.getContextPath() %>/tools/history">
-                    	<input type="hidden" name="itemID" value="<%= item.getID() %>" />
-                    	<input type="hidden" name="versionID" value="<%= history.getVersion(item)!=null?history.getVersion(item).getVersionId():null %>" />                    
-                    	<input class="btn btn-info col-md-12" type="submit" name="submit" value="<fmt:message key="jsp.general.version.history.button"/>" />
-                	</form>         	         	
-					<% } %>
-             </div>
-          </div>
-        </dspace:sidebar>
-<%      } %>
-
 <%
     }
 
     String displayStyle = (displayAll ? "full" : "");
 %>
 
-	<!-- SUBMISSION TITLE -->
-	<div class='row'>
-		<div class='col-md-12'>
-			<div class='page-header'>
-				<h1>${itemRetriever.title}</h1> 
-			</div>
-		</div>
-	</div>
-	
-	<div class='row'> 
-		<!-- START SUBMISSION MAIN BODY -->
-		<div class='col-md-7'> 
-			<!-- Summary Main Body-->
-			<div class='lead panel panel-default'> 
-				<div class='panel-body'>
-					${itemRetriever.summary}
-				</div>
-			</div> 
-
-			<!-- Files List -->
-			<c:forEach items="${itemRetriever.files}" var="result">
-				<div class="panel panel-warning">
-					<div class="panel-heading">
-						<h3 class="panel-title file-title-overflow">
-							<c:choose>
-								<c:when test="${result.isPlayableVideo}">
-									<span class="glyphicon glyphicon-film"></span>
-								</c:when>
-								<c:when test="${result.isPlayableAudio}">
-									<span class="glyphicon glyphicon-volume-up"></span>
-								</c:when>
-								<c:when test="${result.isImage}">
-									<span class="glyphicon glyphicon-picture"></span>
-								</c:when>
-								<c:otherwise>
-									<span class="glyphicon glyphicon-file"></span>
-								</c:otherwise>
-							</c:choose>
-							<a href="${result.link}">${result.name}</a>
-							<c:choose>
-								<c:when test="${result.instructorOnly}">
-									<i class="glyphicon glyphicon-lock restrictionIconColorInstructorOnly pull-right" title='<fmt:message key="jsp.submit.upload-file-list.tooltip.instructor-only"/>'></i>
-								</c:when>
-								<c:otherwise>
-									<i class="glyphicon glyphicon-globe restrictionIconColorEveryone pull-right" title='This file is accessible to everyone.'></i>
-								</c:otherwise>
-							</c:choose>
-						</h3>
-					</div>
-					<c:if test="${!empty result.description ||
-								  !empty result.thumbnail ||
-								  result.isPlayableAudio ||
-								  result.isPlayableVideo}">
-						<div class="panel-body">
-							<c:if test="${!empty result.description}">
-								<p>${result.description}</p>
-							</c:if>
-							<c:if test="${!empty result.thumbnail}">
-								<a href="${result.link}">
-									<img class="img-thumbnail center-block" src="${result.thumbnail}" />
-								</a>
-							</c:if>
-							<c:if test="${result.isPlayableAudio}">
-								<audio id="stream-${result.id}" class="video-js vjs-fluid vjs-audio" controls preload="none"
-										data-setup='{"aspectRatio": "1:0", "controlBar": {"fullscreenToggle": false}}'>
-									<source src="${result.link}" type="${result.mimeType}" />
-									<p class="vjs-no-js">
-										To view this video please enable JavaScript, and consider upgrading to a web browser that
-										<a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 media playback</a>
-									</p>
-								</audio>
-							</c:if>
-							<c:if test="${result.isPlayableVideo}">
-								<video id="stream-${result.id}" class="video-js vjs-fluid vjs-big-play-centered" controls preload="metadata"
-										data-setup="{}">
-									<source src="${result.link}" type="${result.mimeType}" />
-									<p class="vjs-no-js">
-										To view this video please enable JavaScript, and consider upgrading to a web browser that
-										<a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-									</p>
-								</video>
-							</c:if>
-						</div>
-					</c:if>
-					<div class="panel-footer">
-						<a class="btn btn-primary" href="${result.link}?forcedownload"><i class="glyphicon glyphicon-download"></i> Download</a>
-						<span class="label label-info">${result.size}</span>
-					</div>
-				</div>
-			</c:forEach>
-
-			<hr />
-
-			<!-- Pre-Reqs Main Body -->
+		
+	<c:if test="${admin_button}">
+		<jsp:include page="/ubc/statspace/components/display-item-admin-tools.jsp">
+			<jsp:param name="itemID" value="${itemID}" />
+			<jsp:param name="handle" value="${handle}" />
+			<jsp:param name="hasAdminButton" value="${hasAdminButton}" />
+			<jsp:param name="hasVersionButton" value="${hasVersionButton}" />
+			<jsp:param name="hasVersionHistory" value="${hasVersionHistory}" />
+			<jsp:param name="stepExportArchive" value="${stepExportArchive}" />
+			<jsp:param name="stepMigrateArchive" value="${stepMigrateArchive}" />
+		</jsp:include>
+	</c:if>
+	<h2 class="marginTopNone">${itemRetriever.title}</h2> 
+	<p>${itemRetriever.summary}</p>
+	<!-- Tabs Bar -->
+	<ul class="nav nav-tabs displayItemTabsBar" role="tablist">
+		<li role="presentation" class="active">
+			<a href="#MetadataTab" aria-controls="MetadataTab" role="tab" data-toggle="tab">
+				<i class="glyphicon glyphicon-list-alt"></i> About This Resource
+			</a>
+		</li>
+		<li role="presentation">
+			<a href="#FilesTab" aria-controls="FilesTab" role="tab" data-toggle="tab">
+				<i class="glyphicon glyphicon-folder-open"></i> Files
+			</a>
+		</li>
+	</ul>
+	<!-- Tabs Content -->
+	<div class="tab-content displayItemTabsContent">
+		<!-- Metadata Tab -->
+		<div role="tabpanel" class="tab-pane active" id="MetadataTab">
+			<!-- Subjects List -->
+			<jsp:include page="/ubc/statspace/components/subjects-list.jsp">
+				<jsp:param name="retrieverVar" value="itemRetriever" />
+			</jsp:include>
+			<!-- Resource Types List -->
+			<jsp:include page="/ubc/statspace/components/resource-types-list.jsp">
+				<jsp:param name="retrieverVar" value="itemRetriever" />
+			</jsp:include>
+			<!-- Pre-Reqs -->
 			<c:if test="${!empty itemRetriever.prereqs}">
-			<div class='panel panel-default'>
+			<div class='panel panel-danger'>
 				<div class='panel-heading'>
+					<i class="glyphicon glyphicon-list"></i>
 					Pre-requisite Knowledge
 				</div> 
 				<ul class='list-group'>
@@ -296,11 +202,11 @@
 				</ul>
 			</div>
 			</c:if>
-
-			<!-- Learning Objectives Main Body -->
+			<!-- Learning Objectives -->
 			<c:if test="${!empty itemRetriever.objectives}">
-			<div class='panel panel-default'>
+			<div class='panel panel-warning'>
 				<div class='panel-heading'>
+					<i class="glyphicon glyphicon-blackboard"></i>
 					Learning Objectives
 				</div> 
 				<ul class='list-group'>
@@ -310,18 +216,19 @@
 				</ul>
 			</div>
 			</c:if>
-			
-			<!-- Item Description -->
-			<h2><i class="glyphicon glyphicon-list-alt"></i> About This Resource</h2>
-			<div>
+			<!-- Description -->
+			<h4 class="displayItemSectionHeader"><i class="glyphicon glyphicon-info-sign"></i> Description</h4>
+			<div> 
 				${itemRetriever.description}
 			</div>
-			<p class="text-muted"> 
-			Created By: 
+			<!-- Author, dates, etc -->
+			<ul class="list-inline text-muted"> 
+				<li>Created By: </li>
 				<c:forEach items="${itemRetriever.authors}" var="author" varStatus="loop">
-					${author}<c:if test="${!loop.last}">;</c:if>
+					<li>${author}</li>
+					<li><c:if test="${!loop.last}">-</c:if></li>
 				</c:forEach>
-			</p> 
+			</ul> 
 			<p class="text-muted">Date Created: ${itemRetriever.dateCreated}</p>
 			<p class="text-muted">Date Submitted: ${itemRetriever.dateSubmitted}</p>
 			<p class="text-muted">
@@ -335,10 +242,9 @@
 					</c:otherwise>
 				</c:choose>
 			</p>
-
 			<!-- Suggest Uses & Tips merged with What We Learned-->
 			<c:if test="${!empty itemRetriever.whatWeLearned}">
-			<h3><i class="glyphicon glyphicon-book"></i> Suggested Uses, Tips and Discoveries</h3>
+			<h4 class="displayItemSectionHeader"><i class="glyphicon glyphicon-education"></i> Suggested Uses, Tips and Discoveries</h4>
 			<div>
 				${itemRetriever.whatWeLearned}
 			</div>
@@ -357,46 +263,9 @@
 				</ul>
 			</div>
 			</c:if>
-		</div> 
-		<!-- END SUBMISSION MAIN BODY -->
-
-		<!-- START RIGHT SIDE BAR -->
-		<div class='col-md-5'> 
-			<!-- Tags Side Bar -->
-			<div class="panel panel-info">
-				<div class="panel-heading">
-					<h3 class="panel-title"><i class="glyphicon glyphicon-tag"></i> Subjects</h3>
-				</div>
-				<ul class="list-group subjectsList">
-					<c:forEach items="${itemRetriever.subjects}" var="subject">
-						<li class="list-group-item">
-							<span class="label label-default level1">${subject.level1}</span>
-							<span class="label label-default level2">${subject.level2}</span>
-							<c:if test="${not empty subject.level3}">
-								<span class="label label-default level3"><div>${subject.level3}</div></span>
-							</c:if>
-						</li>
-					</c:forEach>
-				</ul>
-			</div>
-
-			<!-- Resource Types -->
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h3 class="panel-title"><i class="glyphicon glyphicon-bookmark"></i> Resource Types</h3>
-				</div>
-				<div class="panel-body">
-					<c:forEach items="${itemRetriever.resourceTypes}" var="type">
-						<jsp:include page="/ubc/statspace/components/resource-type-pill.jsp">
-							<jsp:param name="resource" value="${type}" />
-						</jsp:include>
-					</c:forEach>
-				</div>
-			</div>
-
-			<!-- Related Materials Side Bar -->
+			<!-- Related Materials -->
 			<c:if test="${!empty itemRetriever.relatedMaterials}">
-			<div class='panel panel-default'>
+			<div class='panel panel-info'>
 				<div class='panel-heading'>
 					<h3 class="panel-title"><i class="glyphicon glyphicon-link"></i> Related Materials</h3>
 				</div> 
@@ -407,161 +276,36 @@
 				</ul>
 			</div>
 			</c:if>
-
-		</div> 
-		<!-- END RIGHT SIDE BAR -->
-
-	</div> 
-
-	<!-- SUBMISSION FOOTER -->
-
-	<%-- Not implemented yet, should considering moving some of the right side bar here
-	<div class='row'> 
-		<div class='col-md-12'> 
-			<h3>More RESOURCE TYPE</h3> 
-			<p> 
-			Some Resource Type 
-			</p> 
-			<h3>Available in Other Languages</h3> 
-			<p> 
-			Some Other Languages 
-			</p> 
-		</div> 
+		</div>
+		<!-- Files Tab -->
+		<div role="tabpanel" class="tab-pane" id="FilesTab">
+			<ul class="nav nav-pills">
+				<li role="presentation" class="active">
+					<a href="#FilesTabTileView" aria-controls="FilesTabTileView" role="tab" data-toggle="tab">
+						<i class="glyphicon glyphicon-th-large"></i>
+					</a>
+				</li>
+				<li role="presentation">
+					<a href="#FilesTabListView" aria-controls="FilesTabTileView" role="tab" data-toggle="tab">
+						<i class="glyphicon glyphicon-th-list"></i>
+					</a>
+				</li>
+			</ul>
+			<div class="tab-content">
+				<div role="tabpanel" class="tab-pane active" id="FilesTabTileView">
+					<jsp:include page="/ubc/statspace/components/files-tile-view.jsp">
+						<jsp:param name="retrieverVar" value="itemRetriever" />
+					</jsp:include>
+				</div>
+				<div role="tabpanel" class="tab-pane" id="FilesTabListView">
+					<jsp:include page="/ubc/statspace/components/files-list-view.jsp">
+						<jsp:param name="retrieverVar" value="itemRetriever" />
+					</jsp:include>
+				</div>
+			</div>
+		</div>
 	</div>
-	--%>
 
-<%-- Don't want "Show full item record" and "Show item evaluations" to show up and cause user confusion
-
-<div class="container row">
-<%
-    String locationLink = request.getContextPath() + "/handle/" + handle;
-
-    if (displayAll)
-    {
-%>
-<%
-        if (workspace_id != null)
-        {
-%>
-    <form class="col-md-2" method="post" action="<%= request.getContextPath() %>/view-workspaceitem">
-        <input type="hidden" name="workspace_id" value="<%= workspace_id.intValue() %>" />
-        <input class="btn btn-default" type="submit" name="submit_simple" value="<fmt:message key="jsp.display-item.text1"/>" />
-    </form>
-<%
-        }
-        else
-        {
-%>
-    <a class="btn btn-default" href="<%=locationLink %>?mode=simple">
-        <fmt:message key="jsp.display-item.text1"/>
-    </a>
-<%
-        }
-%>
-<%
-    }
-    else
-    {
-%>
-<%
-        if (workspace_id != null)
-        {
-%>
-    <form class="col-md-2" method="post" action="<%= request.getContextPath() %>/view-workspaceitem">
-        <input type="hidden" name="workspace_id" value="<%= workspace_id.intValue() %>" />
-        <input class="btn btn-default" type="submit" name="submit_full" value="<fmt:message key="jsp.display-item.text2"/>" />
-    </form>
-<%
-        }
-        else
-        {
-%>
-    <a class="btn btn-default" href="<%=locationLink %>?mode=full">
-        <fmt:message key="jsp.display-item.text2"/>
-    </a>
-<%
-        }
-    }
-
-    if (workspace_id != null)
-    {
-%>
-   <form class="col-md-2" method="post" action="<%= request.getContextPath() %>/workspace">
-        <input type="hidden" name="workspace_id" value="<%= workspace_id.intValue() %>"/>
-        <input class="btn btn-primary" type="submit" name="submit_open" value="<fmt:message key="jsp.display-item.back_to_workspace"/>"/>
-    </form>
-<%
-    } else {
-
-		if (suggestLink)
-        {
-%>
-    <a class="btn btn-success" href="<%= request.getContextPath() %>/suggest?handle=<%= handle %>" target="new_window">
-       <fmt:message key="jsp.display-item.suggest"/></a>
-<%
-        }
-%>
-
-    <a class="btn btn-default" href="<%= request.getContextPath() %>/handle/<%= handle %>/evaluations">Show item evaluations</a>
---%>
-
-	<%-- DSpace restricts stats access to admins only by default, not sure if we want to change that --%>
-	<c:if test="${hasAdminAccess}">
-		<a class="statisticsLink  btn btn-primary" href="<%= request.getContextPath() %>/handle/<%= handle %>/statistics"><fmt:message key="jsp.display-item.display-statistics"/></a>
-	</c:if>
-<%-- Don't want the "Download" button to show up
-    <a class="btn btn-default" onclick="download_item()">Download</a>
-
-    <div id="downloadProgressInfo" style="display: none">
-        <p class="downloadInProgress">Item is being prepared for download...</p>
-        <div class="progress">
-            <div class="progress-bar progress-bar-striped active" role="progressbar" style="width: 100%">
-                <span class="sr-only">In progress...</span>
-            </div>
-        </div>
-        <p class="downloadError" style="display: none"></p>
-    </div>
-    
-    <script type="text/javascript">
-        function download_item() {
-            var progressDiv = $("#downloadProgressInfo");
-            progressDiv.show();
-            progressDiv.find("div.progress").show();
-            progressDiv.find("p.downloadInProgress").show();
-            progressDiv.find("p.downloadError").hide();
-            $.ajax("<%= request.getContextPath() %>/handle/<%= handle %>/download")
-                .success(function(_, _, jqxhr) {
-                    progressDiv.hide();
-                    window.location.href = jqxhr.getResponseHeader("Location");
-                })
-                .error(function(jqxhr, status, errorText) {
-                    progressDiv.find("div.progress").hide();
-                    progressDiv.find("p.downloadInProgress").hide();
-                    progressDiv.find("p.downloadError").show().text(status || errorText);
-                });
-            }
-    </script>
-    
-    <!-- SFX Link -->
-<%
-    if (ConfigurationManager.getProperty("sfx.server.url") != null)
-    {
-        String sfximage = ConfigurationManager.getProperty("sfx.server.image_url");
-        if (sfximage == null)
-        {
-            sfximage = request.getContextPath() + "/image/sfx-link.gif";
-        }
-%>
-        <a class="btn btn-default" href="<dspace:sfxlink item="<%= item %>"/>" /><img src="<%= sfximage %>" border="0" alt="SFX Query" /></a>
-<%
-    }
-    }
-%>
-</div>
-
---%>
-
-<br/>
     <%-- Versioning table --%>
 <%
     if (versioningEnabled && hasVersionHistory)
@@ -608,7 +352,6 @@
         }
     }
 %>
-<br/>
     <%-- Create Commons Link --%>
 <%
     if (cc_url != null)
@@ -627,4 +370,15 @@
 <%
     } 
 %>    
+
+	<%-- <strong>Please use this identifier to cite or link to this item:
+	<code><%= HandleManager.getCanonicalForm(handle) %></code></strong>--%>
+	<div class="well"><fmt:message key="jsp.display-item.identifier"/>
+	<code><%= HandleManager.getCanonicalForm(handle) %></code></div>
+
+	<%-- DSpace restricts stats access to admins only by default, not sure if we want to change that --%>
+	<c:if test="${hasAdminAccess}">
+		<a class="statisticsLink  btn btn-primary" href="<%= request.getContextPath() %>/handle/<%= handle %>/statistics"><fmt:message key="jsp.display-item.display-statistics"/></a>
+	</c:if>
+
 </dspace:layout>
