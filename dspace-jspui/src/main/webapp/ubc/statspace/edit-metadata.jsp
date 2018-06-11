@@ -1421,10 +1421,18 @@
        if (repeatable && !readonly)
        {
          fieldCountIncr = 1;
+
+		// Can't figure out the intent here. It's adding 2 additional inputs
+		// every time the user presses the "Add More" button. Maybe it's to save
+		// the user from having to click "Add More" many times? In any case, got
+		// a complaint that users only want to add one additional box at a time,
+		// so commenting this out.
+		/*
          if (si.getMoreBoxesFor() != null && si.getMoreBoxesFor().equals(fieldName))
              {
            fieldCountIncr = 2;
          }
+		*/
        }
 
        String inputType = inputs[z].getInputType();
