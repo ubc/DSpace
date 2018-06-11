@@ -233,6 +233,12 @@ a.resourceLink:hover span.labelResource {
 	background: darkgreen;
 }
 
+/* Footer */
+#ubc7-address-web a {
+	color: white;
+}
+
+
 
 /* VideoJS Audio Only changes, taken from Moodle's modifications at:
 https://github.com/moodle/moodle/blob/MOODLE_34_STABLE/media/player/videojs/styles.css#L1404
