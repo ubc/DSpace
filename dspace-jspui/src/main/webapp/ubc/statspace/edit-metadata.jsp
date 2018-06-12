@@ -1014,8 +1014,8 @@
 				"Subject" +
 			"</label>" +
 			"<div class='col-md-8'>" +
-				"<div class='row'>" +
-					"<div class='col-md-12'>" +
+				"<div  class='col-md-12'>" +
+					"<div>" +
 						"<div class='form-group'>" +
 							"<select class='form-control' id='" + subjectsLevel1Id + "'>" +
 								"<option disabled selected value class='hidden'>" +
@@ -1079,11 +1079,11 @@
 		if (isSubjects)
 			doDropDownTripleLevel(sb, subjects, pageContext, subjectsSelectId, repeatable);
 
-      sb.append("<div class=\"row "+ (isSubjects? "":"")+"\"><label class=\"col-md-2"+ (required?" label-required":"") +"\">")
+      sb.append("<div class=\"row "+ (isSubjects? "hidden":"")+"\"><label class=\"col-md-2"+ (required?" label-required":"") +"\">")
         .append(label)
         .append("</label>");
 
-      sb.append("<span class=\"col-md-8\">")
+      sb.append("<span class=\"col-md-8\"><div class='col-md-12'>")
         .append("<select "+(isSubjects? "id='"+subjectsSelectId+"'":"")+" class=\"form-control\" name=\"")
         .append(fieldName)
         .append("\"");
@@ -1113,7 +1113,7 @@
            .append("</option>");
       }
 
-      sb.append("</select></span></div><br/>");
+      sb.append("</select></div></span></div><br/>");
       out.write(sb.toString());
     }
     

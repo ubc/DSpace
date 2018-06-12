@@ -44,6 +44,12 @@ and lacks some bootstrap 3 features. */
 	text-align: center;
 }
 
+/* Override jQuery UI */
+.ui-datepicker-title {
+	/* the month/year dropdown in textpicker is colored white, too hard to see*/
+	color: black;
+}
+
 /* General */
 span.label.labelLarge {
 	font-size: 0.9em;

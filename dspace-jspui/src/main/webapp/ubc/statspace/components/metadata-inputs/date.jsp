@@ -24,44 +24,45 @@
 			<c:set var='fieldNameMonth' value='${param.fieldName}_month${fieldNameIndex}' />
 			<c:set var='fieldNameDay' value='${param.fieldName}_day${fieldNameIndex}' />
 			<c:set var='fieldNameYear' value='${param.fieldName}_year${fieldNameIndex}' />
+			<c:set var='fieldNamePopup' value='${param.fieldName}_popup${fieldNameIndex}' />
+
 			<div class='col-md-12 form-inline'>
 				<!-- Input Elements -->
 				<div class='input-group col-md-10'>
-					<div class='row'>
+					<div>
+						<input class='form-control' type='text' id='${fieldNamePopup}' />
+						<script>
+							jQuery(function() {
+								jQuery('#${fieldNamePopup}').datepicker({
+									changeMonth: true,
+									changeYear: true,
+									dateFormat: 'yy-mm-dd',
+									maxDate: 0,
+									yearRange: "c-50:c+50",
+									onSelect: function(dateText, inst) { 
+										var date = jQuery(this).datepicker('getDate'),
+												day  = date.getDate(),  
+												month = date.getMonth() + 1,              
+												year =  date.getFullYear();
+										console.log(day + '-' + month + '-' + year);
+										jQuery('#${fieldNameYear}').val(year);
+										jQuery('#${fieldNameMonth}').val(month);
+										jQuery('#${fieldNameDay}').val(day);
+									}
+								});
+								<c:if test='${param.curYear > 0}'>
+								jQuery('#${fieldNamePopup}').datepicker("setDate", "${param.curYear}-${param.curMonth}-${param.curDay}");
+								</c:if>
+							});
+						</script>
+					</div>
+					<div class='hidden'>
 						<!-- Month -->
-						<span class='input-group col-md-5'>
-							<span class='input-group-addon'>
-								<fmt:message key='jsp.submit.edit-metadata.month' />
-            				</span>
-							<select class='form-control' id='${fieldNameMonth}' name='${fieldNameMonth}'
-									<c:if test='${param.isReadonly}'>disabled</c:if> >
-								<option value='-1'><fmt:message key='jsp.submit.edit-metadata.no_month' /></option>
-								<c:forEach items='${monthNames}' var='monthName' varStatus='monthLoop'>
-									<option value='${monthLoop.index + 1}'
-										<c:if test="${(monthLoop.index+1) == param.curMonth}">selected='selected'</c:if> >
-										${monthName}
-									</option>
-								</c:forEach> 
-							</select>
-						</span>
+						<input type='text' id='${fieldNameMonth}' name='${fieldNameMonth}' value='<c:if test='${param.curMonth > 0}'>${param.curMonth}</c:if>' />
 						<!-- Day -->
-						<span class='input-group col-md-2'>
-							<span class='input-group-addon'>
-								<fmt:message key='jsp.submit.edit-metadata.day' />
-                			</span>
-							<input class='form-control' type='text' id='${fieldNameDay}' name='${fieldNameDay}'
-									<c:if test='${param.isReadonly}'>disabled</c:if> size='2' maxlength='2'
-									value='<c:if test='${param.curDay > 0}'>${param.curDay}</c:if>' />
-                		</span>
+						<input type='text' id='${fieldNameDay}' name='${fieldNameDay}' value='<c:if test='${param.curDay > 0}'>${param.curDay}</c:if>' />
 						<!-- Year -->
-						<span class='input-group col-md-4'>
-							<span class='input-group-addon'>
-								<fmt:message key='jsp.submit.edit-metadata.year' />
-                			</span>
-							<input class='form-control' type='text' id='${fieldNameYear}' name='${fieldNameYear}'
-									<c:if test='${param.isReadonly}'>disabled</c:if> size='4' maxlength='4'
-									value='<c:if test='${param.curYear > 0}'>${param.curYear}</c:if>' />
-            			</span>
+						<input type='text' id='${fieldNameYear}' name='${fieldNameYear}' value='<c:if test='${param.curYear > 0}'>${param.curYear}</c:if>' />
 					</div>
 				</div>
 				<!-- Remove Entry Button -->
