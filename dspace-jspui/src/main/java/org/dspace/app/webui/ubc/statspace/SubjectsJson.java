@@ -59,7 +59,10 @@ public class SubjectsJson {
 			String top = "";
 			String mid = "";
 			String bot = "";
-			if (components.length == 2) {
+			if (components.length == 1) {
+				top = components[0];
+			}
+			else if (components.length == 2) {
 				top = components[0];
 				mid = components[1];
 			}
@@ -69,12 +72,13 @@ public class SubjectsJson {
 				bot = components[2];
 			}
 			else {
-				log.warn("Unrecongized entry in StatSpace subjects list: " + display);
+				log.warn("Unrecognized entry in StatSpace subjects list: " + display);
 				continue;
 			}
 			if (!json.has(top)) json.add(top, new JsonObject());
 
 			JsonObject topJson = json.get(top).getAsJsonObject();
+			if (mid.isEmpty()) continue; // second level doesn't exist, skip
 			if (!topJson.has(mid)) topJson.add(mid, new JsonObject());
 
 			JsonObject midJson = topJson.get(mid).getAsJsonObject();

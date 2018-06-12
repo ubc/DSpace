@@ -1024,8 +1024,8 @@
 						"</div>" +
 						"<div class='form-group'>" +
 							"<select class='form-control' id='" + subjectsLevel2Id + "' disabled>" +
-								"<option disabled selected value class='hidden'>" +
-									"-- Select an Option --</option>" +
+								"<option id='noSecondLevelOption' selected value>" +
+									"-- None/Other --</option>" +
 							"</select>" +
 						"</div>" +
 						"<div class='form-group'>" +
@@ -1079,7 +1079,7 @@
 		if (isSubjects)
 			doDropDownTripleLevel(sb, subjects, pageContext, subjectsSelectId, repeatable);
 
-      sb.append("<div class=\"row "+ (isSubjects? "hidden":"")+"\"><label class=\"col-md-2"+ (required?" label-required":"") +"\">")
+      sb.append("<div class=\"row "+ (isSubjects? "":"")+"\"><label class=\"col-md-2"+ (required?" label-required":"") +"\">")
         .append(label)
         .append("</label>");
 
@@ -1557,7 +1557,7 @@ jQuery(document).ready(function() {
 	var subjectsSelectId = '#<%= pageContext.getAttribute("subjectsSelectId") %>';
 	var subjectsRepeatable = <%= pageContext.getAttribute("subjectsRepeatable") %>; // true if can select multiple subjects,
 																				// false otherwise (can only select one)
-	var noThirdLevelVal = "NONE"; // value that indicates there is no 3rd lvl
+	var noLevelVal = "NONE"; // value that indicates there is no 3rd lvl
 									// selected
 	
 	// Reset previous selections back to the default option
@@ -1630,8 +1630,12 @@ jQuery(document).ready(function() {
 		else {
 			// can only select one subject
 			var levels = existingVals.split(" >>> ");
-			jQuery(level1Id).val(levels[0]).change();
-			jQuery(level2Id).val(levels[1]).change();
+			if (levels.length >= 1) {
+				jQuery(level1Id).val(levels[0]).change();
+			}
+			if (levels.length >= 2) {
+				jQuery(level2Id).val(levels[1]).change();
+			}
 			if (levels.length > 2) {
 				jQuery(level3Id).val(existingVals).change();
 			}
@@ -1643,14 +1647,21 @@ jQuery(document).ready(function() {
 	// called
 	function updateSelectedSubjects() {
 		var selectedVals = jQuery(subjectsSelectId).val();
-		var newVal = jQuery(level3Id).val();
-		// check if we've stopped at the second level
-		if (newVal == noThirdLevelVal) {
-			// we've stopped at the second level at the None/Other option, 
-			// which means we don't have a valid value for the subject
-			// selection, just reconstruct one.
-			newVal = jQuery(level1Id).val() + " >>> " +
-				jQuery(level2Id).val();
+		var newVal = jQuery(level2Id).val();
+		// check if we've stopped at the first level
+		if (newVal == noLevelVal) {
+			newVal = jQuery(level1Id).val();
+		}
+		else {
+			// check if we've stopped at the second level
+			newVal = jQuery(level3Id).val();
+			if (newVal == noLevelVal) {
+				// we've stopped at the second level at the None/Other option, 
+				// which means we don't have a valid value for the subject
+				// selection, just reconstruct one.
+				newVal = jQuery(level1Id).val() + " >>> " +
+					jQuery(level2Id).val();
+			}
 		}
 
 		// add the new value to selected values
@@ -1675,14 +1686,15 @@ jQuery(document).ready(function() {
 
 	if (!options) return;
 
+	// set a special value to indicate when there's no 3rd level selected
+	jQuery("#noSecondLevelOption").attr("value", noLevelVal);
+	jQuery("#noThirdLevelOption").attr("value", noLevelVal);
+
 	// initial reset, prevent browser breaking when restoring prev session vals
 	resetChildSelect(level1Id);
 	jQuery(level1Id).prop('disabled', false); // undo disable from reset
 	resetChildSelect(level2Id);
 	resetChildSelect(level3Id);
-
-	// set a special value to indicate when there's no 3rd level selected
-	jQuery("#noThirdLevelOption").attr("value", noThirdLevelVal);
 
 	// update select options on selection events
 	jQuery(level1Id).change(function() {
@@ -1695,6 +1707,7 @@ jQuery(document).ready(function() {
 		if (!subjectsRepeatable) {
 			// undo selection
 			jQuery(subjectsSelectId).val("");
+			updateSelectedSubjects();
 		}
 	});
 	jQuery(level2Id).change(function() {
