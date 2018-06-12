@@ -397,16 +397,13 @@
          else
             dateIssued = new org.dspace.content.DCDate("");
     
+		 String fieldNameMonth = fieldName + "_month" + ((repeatable && i>0) ? "_" + i : "");
+		 String fieldNameDay = fieldName + "_day" + ((repeatable && i>0) ? "_" + i : "");
+		 String fieldNameYear = fieldName + "_year" + ((repeatable && i>0) ? "_" + i : "");
          sb.append("<div class=\"col-md-12 form-inline \"><div class=\"input-group col-md-10\"><div class=\"row\">")
 			.append("<span class=\"input-group col-md-5\"><span class=\"input-group-addon\">")
          	.append(LocaleSupport.getLocalizedMessage(pageContext, "jsp.submit.edit-metadata.month"))
-            .append("</span><select class=\"form-control\" name=\"")
-            .append(fieldName)
-            .append("_month");
-         if (repeatable && i>0)
-         {
-            sb.append('_').append(i);
-         }
+            .append("</span><select class=\"form-control\" id='"+ fieldNameMonth +"' name=\"" + fieldNameMonth );
          if (readonly)
          {
              sb.append("\" disabled=\"disabled");
@@ -431,11 +428,7 @@
          sb.append("</select></span>")
 	            .append("<span class=\"input-group col-md-2\"><span class=\"input-group-addon\">")
                 .append(LocaleSupport.getLocalizedMessage(pageContext, "jsp.submit.edit-metadata.day"))
-                .append("</span><input class=\"form-control\" type=\"text\" name=\"")
-            .append(fieldName)
-            .append("_day");
-         if (repeatable && i>0)
-            sb.append("_").append(i);
+                .append("</span><input class=\"form-control\" type=\"text\" id='"+ fieldNameDay +"' name=\"" + fieldNameDay);
          if (readonly)
          {
              sb.append("\" disabled=\"disabled");
@@ -445,11 +438,7 @@
                      String.valueOf(dateIssued.getDay()) : "" ))
                 .append("\"/></span><span class=\"input-group col-md-5\"><span class=\"input-group-addon\">")
                 .append(LocaleSupport.getLocalizedMessage(pageContext, "jsp.submit.edit-metadata.year"))
-                .append("</span><input class=\"form-control\" type=\"text\" name=\"")
-            .append(fieldName)
-            .append("_year");
-         if (repeatable && i>0)
-            sb.append("_").append(i);
+                .append("</span><input class=\"form-control\" type=\"text\" id='"+ fieldNameYear +"' name=\"" + fieldNameYear);
          if (readonly)
          {
              sb.append("\" disabled=\"disabled");
@@ -1451,8 +1440,50 @@
        }
        else if (inputType.equals("date"))
        {
-           doDate(out, item, fieldName, dcSchema, dcElement, dcQualifier,
-                          repeatable, required, readonly, fieldCountIncr, label, pageContext, request);
+			Metadatum[] defaults = item.getMetadata(dcSchema, dcElement, dcQualifier, Item.ANY);
+			int fieldCount = defaults.length + fieldCountIncr;
+			StringBuffer sb = new StringBuffer();
+
+			if (fieldCount == 0)
+				fieldCount = 1;
+
+			org.dspace.content.DCDate dateIssued = new org.dspace.content.DCDate("");
+			for (int i = 0; i < fieldCount; i++)
+			{
+				if (i < defaults.length)
+					dateIssued = new org.dspace.content.DCDate(defaults[i].value);
+				else
+					dateIssued = new org.dspace.content.DCDate("");
+			}
+			request.setAttribute("required", required);
+			request.setAttribute("repeatable", repeatable);
+			request.setAttribute("readonly", readonly);
+			request.setAttribute("label", label);
+			request.setAttribute("fieldCount", fieldCount);
+			request.setAttribute("fieldName", fieldName);
+			request.setAttribute("dateIssued", dateIssued);
+			if (!repeatable)
+			{
+		%>
+			<jsp:include page="/ubc/statspace/components/metadata-inputs/date.jsp">
+				<jsp:param name="isRequired" value="${required}" />
+				<jsp:param name="isRepeatable" value="${repeatable}" />
+				<jsp:param name="isReadonly" value="${readonly}" />
+				<jsp:param name="fieldLabel" value="${label}" />
+				<jsp:param name="fieldCount" value="${fieldCount}" />
+				<jsp:param name="fieldName" value="${fieldName}" />
+				<jsp:param name="monthNamesVar" value="monthNames" />
+				<jsp:param name="curMonth" value="${dateIssued.month}" />
+				<jsp:param name="curDay" value="${dateIssued.day}" />
+				<jsp:param name="curYear" value="${dateIssued.year}" />
+			</jsp:include>
+		<%
+			}
+			else
+			{
+				doDate(out, item, fieldName, dcSchema, dcElement, dcQualifier,
+					repeatable, required, readonly, fieldCountIncr, label, pageContext, request);
+			}
        }
        else if (inputType.equals("series"))
        {
