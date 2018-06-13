@@ -24,7 +24,7 @@ public class BitstreamResult {
 	private String thumbnail;
 	private Bitstream bitstream;
 
-	private boolean instructorOnly = false;
+	private boolean isRestricted = false;
 	// if these are html5 supported media files which are browser playable
 	private boolean isPlayableVideo = false;
 	private boolean isPlayableAudio = false;
@@ -36,7 +36,7 @@ public class BitstreamResult {
 		this.link = link;
 		this.thumbnail = thumbnail;
 		this.size = size;
-		this.instructorOnly = UBCAccessChecker.isRestricted(item, bitstream);
+		this.isRestricted = UBCAccessChecker.isRestricted(item, bitstream);
 		this.isPlayableAudio = IdentifyMediaType.isStreamableAudio(bitstream);
 		this.isPlayableVideo = IdentifyMediaType.isStreamableVideo(bitstream);
 		this.isImage = IdentifyMediaType.isImage(bitstream);
@@ -61,8 +61,8 @@ public class BitstreamResult {
 	public String getSize() {
 		return size;
 	}
-	public boolean getInstructorOnly() {
-		return instructorOnly;
+	public boolean getIsRestricted() {
+		return isRestricted;
 	}
 
 	public boolean getIsPlayableVideo() {
