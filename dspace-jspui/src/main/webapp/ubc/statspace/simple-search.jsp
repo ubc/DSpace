@@ -8,7 +8,6 @@
 
 --%>
 
-<%@page import="org.dspace.app.webui.ubc.statspace.retriever.ItemRetriever"%>
 <%--
   - Display the form to refine the simple-search and dispaly the results of the search
   -
@@ -68,6 +67,9 @@
 <%@ page import="org.dspace.sort.SortOption" %>
 <%@ page import="java.util.Enumeration" %>
 <%@ page import="java.util.Set" %>
+
+<%@page import="org.dspace.app.webui.ubc.retriever.ItemRetriever"%>
+
 <%
     // Get the attributes
     DSpaceObject scope = (DSpaceObject) request.getAttribute("scope" );

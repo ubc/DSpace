@@ -46,7 +46,7 @@
 <%@ page import="java.util.List" %>
 <%@page import="org.dspace.app.itemimport.BatchUpload"%>
 
-<%@page import="org.dspace.app.webui.ubc.statspace.retriever.ItemRetriever"%>
+<%@page import="org.dspace.app.webui.ubc.retriever.ItemRetriever"%>
 
 <%
     EPerson user = (EPerson) request.getAttribute("mydspace.user");

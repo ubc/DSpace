@@ -7,8 +7,6 @@
     http://www.dspace.org/license/
 
 --%>
-<%@page import="org.dspace.app.webui.ubc.statspace.SubjectsJson"%>
-<%@page import="org.apache.commons.lang.StringEscapeUtils"%>
 <%--
   - Edit metadata form
   -
@@ -57,6 +55,10 @@
 <%@ taglib uri="http://www.dspace.org/dspace-tags.tld" prefix="dspace" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+<%@page import="org.dspace.app.webui.ubc.statspace.SubjectsJson"%>
+<%@page import="org.apache.commons.lang.StringEscapeUtils"%>
+
 <%
     request.setAttribute("LanguageSwitch", "hide");
 %>

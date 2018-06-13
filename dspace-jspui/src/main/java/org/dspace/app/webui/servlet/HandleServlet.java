@@ -56,7 +56,7 @@ import org.jdom.output.XMLOutputter;
 
 import org.dspace.app.itemexport.ItemExport;
 import org.dspace.ubc.UBCAccessChecker;
-import org.dspace.app.webui.ubc.statspace.retriever.ItemRetriever;
+import org.dspace.app.webui.ubc.retriever.ItemRetriever;
 
 /**
  * Servlet for handling requests within a community or collection. The Handle is
