@@ -14,6 +14,7 @@ public class SubjectResult {
 	private String level1;
 	private String level2;
 	private String level3;
+	private String subject;
 
 	public SubjectResult(String subject) {
 		String[] splits = subject.split(" >>> ");
@@ -31,8 +32,12 @@ public class SubjectResult {
 			level2 = "Invalid Subject";
 			level3 = subject;
 		}
+		this.subject = subject;
 	}
 	
+	public String getSubject() {
+		return subject;
+	}
 	public String getLevel1() {
 		return level1;
 	}
