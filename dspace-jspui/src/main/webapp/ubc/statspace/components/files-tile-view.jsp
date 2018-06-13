@@ -65,7 +65,7 @@
 				<span class="label label-info">${result.size}</span>
 				<span class="fileTileRestriction">
 				<c:choose>
-					<c:when test="${result.instructorOnly}">
+					<c:when test="${result.isRestricted}">
 						<i class="glyphicon glyphicon-lock restrictionIconColorInstructorOnly" title='<fmt:message key="jsp.submit.upload-file-list.tooltip.instructor-only"/>'></i>
 					</c:when>
 					<c:otherwise>

@@ -22,8 +22,8 @@
 				</c:choose>
 				<a href="${result.link}">${result.name}</a>
 				<c:choose>
-					<c:when test="${result.instructorOnly}">
-						<i class="glyphicon glyphicon-lock restrictionIconColorInstructorOnly pull-right" title='<fmt:message key="jsp.submit.upload-file-list.tooltip.instructor-only"/>'></i>
+					<c:when test="${result.isRestricted}">
+						<i class="glyphicon glyphicon-lock restrictionIconColorInstructorOnly pull-right" title='<fmt:message key="jsp.submit.upload-file-list.tooltip.restricted"/>'></i>
 					</c:when>
 					<c:otherwise>
 						<i class="glyphicon glyphicon-globe restrictionIconColorEveryone pull-right" title='This file is accessible to everyone.'></i>

@@ -234,7 +234,7 @@
 			<p class="text-muted">
 				Access:
 				<c:choose>
-					<c:when test="${itemRetriever.instructorOnly}">
+					<c:when test="${itemRetriever.isRestricted}">
 						<i class="glyphicon glyphicon-lock restrictionIconColorInstructorOnly"></i> Instructor Only
 					</c:when>
 					<c:otherwise>
