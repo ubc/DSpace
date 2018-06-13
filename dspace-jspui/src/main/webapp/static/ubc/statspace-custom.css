@@ -50,6 +50,11 @@ and lacks some bootstrap 3 features. */
 	color: black;
 }
 
+/* Override UBC Theme */
+#ubc-wordmark {
+	height: auto; /* hardcoded height from theme wasn't working in Chrome */
+}
+
 /* General */
 span.label.labelLarge {
 	font-size: 0.9em;
@@ -245,6 +250,11 @@ a.resourceLink:hover span.labelResource {
 }
 
 
+/* Media Streaming */
+.mediaFormatError {
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}
 
 /* VideoJS Audio Only changes, taken from Moodle's modifications at:
 https://github.com/moodle/moodle/blob/MOODLE_34_STABLE/media/player/videojs/styles.css#L1404

@@ -11,7 +11,7 @@ public class IdentifyMediaType
 	// mimetypes set in bitstream-formats.xml
 	public static final String STREAMABLE_AUDIO_MP3 = "audio/mpeg";
 	public static final String STREAMABLE_AUDIO_FLAC = "audio/flac";
-	public static final String STREAMABLE_AUDIO_WAV = "audio/wave";
+	public static final String STREAMABLE_AUDIO_WAV = "audio/wav";
 	public static final String STREAMABLE_AUDIO_OGG = "audio/ogg";
 	public static final String STREAMABLE_VIDEO_WEBM = "video/webm";
 	public static final String STREAMABLE_VIDEO_MP4 = "video/mp4";

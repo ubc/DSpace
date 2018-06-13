@@ -45,24 +45,18 @@
 					</a>
 				</c:if>
 				<c:if test="${result.isPlayableAudio}">
-					<audio id="stream-${result.id}" class="video-js vjs-fluid vjs-audio" controls preload="none"
-							data-setup='{"aspectRatio": "1:0", "controlBar": {"fullscreenToggle": false}}'>
-						<source src="${result.link}" type="${result.mimeType}" />
-						<p class="vjs-no-js">
-							To view this video please enable JavaScript, and consider upgrading to a web browser that
-							<a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 media playback</a>
-						</p>
-					</audio>
+					<jsp:include page="/ubc/statspace/components/media-tags/audio.jsp">
+						<jsp:param name="id" value="${result.id}" />
+						<jsp:param name="link" value="${result.link}" />
+						<jsp:param name="mimeType" value="${result.mimeType}" />
+					</jsp:include>
 				</c:if>
 				<c:if test="${result.isPlayableVideo}">
-					<video id="stream-${result.id}" class="video-js vjs-fluid vjs-big-play-centered" controls preload="metadata"
-							data-setup="{}">
-						<source src="${result.link}" type="${result.mimeType}" />
-						<p class="vjs-no-js">
-							To view this video please enable JavaScript, and consider upgrading to a web browser that
-							<a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-						</p>
-					</video>
+					<jsp:include page="/ubc/statspace/components/media-tags/video.jsp">
+						<jsp:param name="id" value="${result.id}" />
+						<jsp:param name="link" value="${result.link}" />
+						<jsp:param name="mimeType" value="${result.mimeType}" />
+					</jsp:include>
 				</c:if>
 			</div>
 		</c:if>

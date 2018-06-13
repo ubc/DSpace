@@ -236,7 +236,7 @@
   </bitstream-type>
 
   <bitstream-type>
-    <mimetype>audio/wave</mimetype>
+    <mimetype>audio/wav</mimetype>
     <short_description>WAV</short_description>
     <description>Broadcase Wave Format</description>
     <support_level>1</support_level>
