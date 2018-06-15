@@ -29,11 +29,12 @@
 				</a>
 			</div>
 			<!-- Thumbnail/Media player -->
-			<div class="fileTileMedia" title="${result.description}">
+			<div class="fileTileMedia text-center" title="${result.description}">
 			<c:choose>
 				<c:when test="${result.isPlayableAudio}">
 					<jsp:include page="/ubc/statspace/components/media-tags/audio.jsp">
 						<jsp:param name="id" value="${result.id}" />
+						<jsp:param name="prefix" value="tile" />
 						<jsp:param name="link" value="${result.link}" />
 						<jsp:param name="mimeType" value="${result.mimeType}" />
 					</jsp:include>
@@ -41,6 +42,7 @@
 				<c:when test="${result.isPlayableVideo}">
 					<jsp:include page="/ubc/statspace/components/media-tags/video.jsp">
 						<jsp:param name="id" value="${result.id}" />
+						<jsp:param name="prefix" value="tile" />
 						<jsp:param name="link" value="${result.link}" />
 						<jsp:param name="mimeType" value="${result.mimeType}" />
 					</jsp:include>

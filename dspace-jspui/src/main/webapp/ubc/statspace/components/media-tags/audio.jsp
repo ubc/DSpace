@@ -1,7 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<audio id="stream-${param.id}" class="video-js vjs-fluid vjs-audio" controls preload="none"
-		data-setup='{"aspectRatio": "1:0", "controlBar": {"fullscreenToggle": false}}'>
+<audio id="${param.prefix}-stream-${param.id}" class="mejs__player"
+		preload="none" controls width="100%"
+		data-mejsoptions='{"pluginPath": "https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.9/", "shimScriptAccess":"always"}'>
 	<source src="${param.link}" type="${param.mimeType}" />
 	<p class="vjs-no-js">
 		To view this video please enable JavaScript, and consider upgrading to a web browser that

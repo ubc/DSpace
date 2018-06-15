@@ -1,7 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<video style="vertical-align: middle;" id="stream-${param.id}" class="video-js vjs-fluid vjs-big-play-centered vjs-16-9" controls preload="metadata"
-		data-setup='{}'>
+<video id="${param.prefix}-stream-${param.id}" class="mejs__player"
+	   preload="metadata" controls width="100%" height="<c:choose><c:when test="${param.prefix == 'tile'}">160</c:when><c:otherwise>480</c:otherwise></c:choose>"
+		data-mejsoptions='{"pluginPath": "https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.9/", "shimScriptAccess":"always"}'>
 	<source src="${param.link}" type="${param.mimeType}" />
 	<p class="vjs-no-js">
 		To view this video please enable JavaScript, and consider upgrading to a web browser that

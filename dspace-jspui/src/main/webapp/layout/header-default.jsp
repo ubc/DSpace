@@ -62,10 +62,6 @@
 	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/bootstrap/bootstrap.min.css" type="text/css" />
 	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/bootstrap/bootstrap-theme.min.css" type="text/css" />
 
-		<!-- VideoJS, for HTML video/audio-->
-		<link  href="//vjs.zencdn.net/7.0.3/video-js.min.css" rel="stylesheet">
-		<script src="//vjs.zencdn.net/7.0.3/video.min.js"></script>
-
 	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/bootstrap/dspace-theme.css" type="text/css" />
 	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/ubc/statspace-clf.css" type="text/css" />
 	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/ubc/statspace-custom.css" type="text/css" />
@@ -101,6 +97,10 @@
 	<script type="text/javascript" src="<%= request.getContextPath() %>/utils.js"></script>
     <script type="text/javascript" src="<%= request.getContextPath() %>/static/js/choice-support.js"> </script>
 	<script type='text/javascript' src='<%= request.getContextPath() %>/static/js/bootstrap/bootstrap.min.js'></script>
+
+	<!-- MediaElementJS, for HTML video/audio-->
+	<script src="//cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.9/mediaelement-and-player.min.js"></script>
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.9/mediaelementplayer.min.css" />
 
     <%--Gooogle Analytics recording.--%>
     <dspace:include page="google-analytics.jsp" />

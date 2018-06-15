@@ -35,7 +35,7 @@
 					  !empty result.thumbnail ||
 					  result.isPlayableAudio ||
 					  result.isPlayableVideo}">
-			<div class="panel-body">
+			<div class="panel-body text-center">
 				<c:if test="${!empty result.description}">
 					<p>${result.description}</p>
 				</c:if>
@@ -47,6 +47,7 @@
 				<c:if test="${result.isPlayableAudio}">
 					<jsp:include page="/ubc/statspace/components/media-tags/audio.jsp">
 						<jsp:param name="id" value="${result.id}" />
+						<jsp:param name="prefix" value="list" />
 						<jsp:param name="link" value="${result.link}" />
 						<jsp:param name="mimeType" value="${result.mimeType}" />
 					</jsp:include>
@@ -54,6 +55,7 @@
 				<c:if test="${result.isPlayableVideo}">
 					<jsp:include page="/ubc/statspace/components/media-tags/video.jsp">
 						<jsp:param name="id" value="${result.id}" />
+						<jsp:param name="prefix" value="list" />
 						<jsp:param name="link" value="${result.link}" />
 						<jsp:param name="mimeType" value="${result.mimeType}" />
 					</jsp:include>
