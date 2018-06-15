@@ -633,7 +633,8 @@ public class MyDSpaceServlet extends DSpaceServlet
             try {
                 String item_id = request.getParameter("item_id");
                 EPerson eperson = context.getCurrentUser();
-                Metadatum[] exported_ids = eperson.getMetadataByMetadataString("statspace.activity.exported");
+                //Metadatum[] exported_ids = eperson.getMetadataByMetadataString("statspace.activity.exported");
+                Metadatum[] exported_ids = {};
                 boolean found = false;
                 for (Metadatum exported_id : exported_ids) {
                     if (exported_id.value.equals(item_id)) {
@@ -641,10 +642,12 @@ public class MyDSpaceServlet extends DSpaceServlet
                     }
                 }
                 if (!found) {
+					/*
                     eperson.addMetadata("statspace", "activity", "exported", null,
                                         item_id);
                     eperson.update();
                     context.complete();
+					*/
                 }
             } catch (Exception e) {
                 throw new ServletException(e);
@@ -966,7 +969,8 @@ public class MyDSpaceServlet extends DSpaceServlet
             AuthorizeException
     {
         EPerson eperson = context.getCurrentUser();
-        Metadatum[] exported_ids = eperson.getMetadataByMetadataString("statspace.activity.exported");
+        //Metadatum[] exported_ids = eperson.getMetadataByMetadataString("statspace.activity.exported");
+        Metadatum[] exported_ids = {};
         
         ArrayList<Item> items = new ArrayList<>(exported_ids.length);
         for (int i = 0; i < exported_ids.length; i++) {

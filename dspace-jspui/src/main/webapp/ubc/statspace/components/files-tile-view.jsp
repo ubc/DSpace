@@ -63,7 +63,7 @@
 			</div>
 			<!-- Download button -->
 			<div class="panel-footer">
-				<a class="btn btn-primary" href="${result.link}?forcedownload" title="Download"><i class="glyphicon glyphicon-save"></i> Download</a>
+				<a class="btn btn-primary" href="${result.link}?forcedownload" title="Download" download="${result.name}"><i class="glyphicon glyphicon-save"></i> Download</a>
 				<span class="label label-info">${result.size}</span>
 				<span class="fileTileRestriction">
 				<c:choose>

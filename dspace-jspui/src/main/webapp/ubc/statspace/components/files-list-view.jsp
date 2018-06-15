@@ -63,7 +63,7 @@
 			</div>
 		</c:if>
 		<div class="panel-footer">
-			<a class="btn btn-primary" href="${result.link}?forcedownload"><i class="glyphicon glyphicon-download"></i> Download</a>
+			<a class="btn btn-primary" href="${result.link}?forcedownload" title="Download" download="${result.name}"><i class="glyphicon glyphicon-download"></i> Download</a>
 			<span class="label label-info">${result.size}</span>
 		</div>
 	</div>

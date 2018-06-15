@@ -195,13 +195,6 @@ public class BitstreamServlet extends DSpaceServlet
         				context, 
         				bitstream));
         
-		String forcedownload = request.getParameter("forcedownload");
-		if (forcedownload != null)
-		{
-			response.setHeader ("Content-Disposition", "attachment");
-		}
-
-        
         // Modification date
         // Only use last-modified if this is an anonymous access
         // - caching content that may be generated under authorisation
@@ -231,7 +224,9 @@ public class BitstreamServlet extends DSpaceServlet
 		// Set the response MIME type
         response.setContentType(bitstream.getFormat().getMIMEType());
 
-		if(threshold != -1 && bitstream.getSize() >= threshold)
+		String forcedownload = request.getParameter("forcedownload");
+		// files that are too large will be downloaded instead of viewed in the browser
+		if((threshold != -1 && bitstream.getSize() >= threshold) || forcedownload != null)
 		{
 			UIUtil.setBitstreamDisposition(bitstream.getName(), request, response);
 		}
