@@ -3,7 +3,7 @@
 <input-forms>
 
   <form-map>
-    <name-map collection-handle="REPLACE" form-name="General and Integrated Sciences"/>
+    <name-map collection-handle="default" form-name="General and Integrated Sciences"/>
     <name-map collection-handle="REPLACE" form-name="Physics and Astronomy"/>
     <name-map collection-handle="REPLACE" form-name="Math"/>
     <name-map collection-handle="REPLACE" form-name="EOAES"/>
@@ -12,7 +12,6 @@
     <name-map collection-handle="REPLACE" form-name="Life Sciences"/>
     <name-map collection-handle="123456789/23" form-name="Chemistry"/>
   </form-map>
-
   <form-definitions>
 
     <form name="Physics and Astronomy">
@@ -99,673 +98,7 @@
         <field>
           <dc-schema>dcterms</dc-schema>
           <dc-element>type</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Item Type</label>
-          <hint>Please select a category that best describes this item or set of items.</hint>
-          <input-type value-pairs-name="Category">dropdown</input-type>
-          <repeatable>false</repeatable>
-          <required>Please select a type.</required>
-        </field>
-        <field>
-          <dc-schema>schema</dc-schema>
-          <dc-element>accessibility</dc-element>
-          <dc-qualifier>Feature</dc-qualifier>
-          <label>Accessibility Features</label>
-          <hint>Select all accessibility features that apply for this item. If unknown, please select "unknown".</hint>
-          <input-type value-pairs-name="Accessibility Features">dropdown</input-type>
-          <repeatable>true</repeatable>
-        </field>
-        <field>
-          <dc-schema>schema</dc-schema>
-          <dc-element>accessibility</dc-element>
-          <dc-qualifier>Hazard</dc-qualifier>
-          <label>Accessibility Hazards</label>
-          <hint>Select all accessibility hazards that apply for this item. If unknown, please select "unknown".</hint>
-          <input-type value-pairs-name="Accessibility Hazards">dropdown</input-type>
-          <repeatable>true</repeatable>
-        </field>
-      </page>
-    </form>
-    <form name="Math">
-      <page number="1">
-        <field>
-          <dc-schema>dc</dc-schema>
-          <dc-element>contributor</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Author(s)</label>
-          <hint>Enter the name(s) of the author(s) for this item:</hint>
-          <input-type>name</input-type>
-          <repeatable>true</repeatable>
-          <required>Please enter a name.</required>
-        </field>
-        <field>
-          <dc-schema>dc</dc-schema>
-          <dc-element>date</dc-element>
-          <dc-qualifier>issued</dc-qualifier>
-          <label>Date of Distribution</label>
-          <hint>Please enter the date of any previous public publication or distribution. If this is the first time the item is being published, please enter today's date. You must enter at least the year.</hint>
-          <input-type>date</input-type>
-          <repeatable>false</repeatable>
-          <required>Please enter a date.</required>
-        </field>
-        <field>
-          <dc-schema>dc</dc-schema>
-          <dc-element>description</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Description</label>
-          <hint>Enter a description of the item. Please include specifics about course content, pedagogy, or any important features the item might have.</hint>
-          <input-type>textarea</input-type>
-          <repeatable>false</repeatable>
-        </field>
-        <field>
-          <dc-schema>dc</dc-schema>
-          <dc-element>subject</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Subject</label>
-          <hint>Select a keyword from the list provided. If no keyword is appropriate, please select "Other" and enter one in the box below.</hint>
-          <input-type value-pairs-name="Math - subjects">dropdown</input-type>
-          <repeatable>true</repeatable>
-          <required>Please select a keyword.</required>
-        </field>
-        <field>
-          <dc-schema>dc</dc-schema>
-          <dc-element>subject</dc-element>
-          <dc-qualifier>other</dc-qualifier>
-          <label>Subject (Other)</label>
-          <hint>If no keyword is appropriate, please enter one in the box provided.</hint>
-          <input-type>onebox</input-type>
-          <repeatable>false</repeatable>
-        </field>
-        <field>
-          <dc-schema>dc</dc-schema>
-          <dc-element>title</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Title</label>
-          <hint>Enter a descriptive title of the item.</hint>
-          <input-type>onebox</input-type>
-          <repeatable>false</repeatable>
-          <required>Please enter a title.</required>
-        </field>
-      </page>
-      <page number="2">
-        <field>
-          <dc-schema>dcterms</dc-schema>
-          <dc-element>accessRights</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Access to Item</label>
-          <hint>Please assign the desired item permissions. "Restricted" should be chosen only if the item contains information that the author(s) do/does not want to make publicly available, e.g. exam solutions.</hint>
-          <input-type value-pairs-name="Access Rights">dropdown</input-type>
-          <repeatable>false</repeatable>
-          <required>Please select an access level.</required>
-        </field>
-        <field>
-          <dc-schema>dcterms</dc-schema>
-          <dc-element>educationLevel</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Level</label>
-          <hint>Please select the educational level. If this does not apply, select "N/A".</hint>
-          <input-type value-pairs-name="Education Level">dropdown</input-type>
-          <repeatable>false</repeatable>
-        </field>
-        <field>
-          <dc-schema>dcterms</dc-schema>
-          <dc-element>type</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Item Type</label>
-          <hint>Please select a category that best describes this item or set of items.</hint>
-          <input-type value-pairs-name="Category">dropdown</input-type>
-          <repeatable>false</repeatable>
-          <required>Please select a type.</required>
-        </field>
-        <field>
-          <dc-schema>schema</dc-schema>
-          <dc-element>accessibility</dc-element>
-          <dc-qualifier>Feature</dc-qualifier>
-          <label>Accessibility Features</label>
-          <hint>Select all accessibility features that apply for this item. If unknown, please select "unknown".</hint>
-          <input-type value-pairs-name="Accessibility Features">dropdown</input-type>
-          <repeatable>true</repeatable>
-        </field>
-        <field>
-          <dc-schema>schema</dc-schema>
-          <dc-element>accessibility</dc-element>
-          <dc-qualifier>Hazard</dc-qualifier>
-          <label>Accessibility Hazards</label>
-          <hint>Select all accessibility hazards that apply for this item. If unknown, please select "unknown".</hint>
-          <input-type value-pairs-name="Accessibility Hazards">dropdown</input-type>
-          <repeatable>true</repeatable>
-        </field>
-      </page>
-    </form>
-    <form name="Chemistry">
-      <page number="1">
-        <field>
-          <dc-schema>dc</dc-schema>
-          <dc-element>contributor</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Author(s)</label>
-          <hint>Enter the name(s) of the author(s) for this item:</hint>
-          <input-type>name</input-type>
-          <repeatable>true</repeatable>
-          <required>Please enter a name.</required>
-        </field>
-        <field>
-          <dc-schema>dc</dc-schema>
-          <dc-element>date</dc-element>
-          <dc-qualifier>issued</dc-qualifier>
-          <label>Date of Distribution</label>
-          <hint>Please enter the date of any previous public publication or distribution. If this is the first time the item is being published, please enter today's date. You must enter at least the year.</hint>
-          <input-type>date</input-type>
-          <repeatable>false</repeatable>
-          <required>Please enter a date.</required>
-        </field>
-        <field>
-          <dc-schema>dc</dc-schema>
-          <dc-element>description</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Description</label>
-          <hint>Enter a description of the item. Please include specifics about course content, pedagogy, or any important features the item might have.</hint>
-          <input-type>textarea</input-type>
-          <repeatable>false</repeatable>
-        </field>
-        <field>
-          <dc-schema>dc</dc-schema>
-          <dc-element>subject</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Subject</label>
-          <hint>Select a keyword from the list provided. If no keyword is appropriate, please select "Other" and enter one in the box below.</hint>
-          <input-type value-pairs-name="Chemistry - subjects">dropdown</input-type>
-          <repeatable>true</repeatable>
-          <required>Please select a keyword.</required>
-        </field>
-        <field>
-          <dc-schema>dc</dc-schema>
-          <dc-element>subject</dc-element>
-          <dc-qualifier>other</dc-qualifier>
-          <label>Subject (Other)</label>
-          <hint>If no keyword is appropriate, please enter one in the box provided.</hint>
-          <input-type>onebox</input-type>
-          <repeatable>false</repeatable>
-        </field>
-        <field>
-          <dc-schema>dc</dc-schema>
-          <dc-element>title</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Title</label>
-          <hint>Enter a descriptive title of the item.</hint>
-          <input-type>onebox</input-type>
-          <repeatable>false</repeatable>
-          <required>Please enter a title.</required>
-        </field>
-      </page>
-      <page number="2">
-        <field>
-          <dc-schema>dcterms</dc-schema>
-          <dc-element>accessRights</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Access to Item</label>
-          <hint>Please assign the desired item permissions. "Restricted" should be chosen only if the item contains information that the author(s) do/does not want to make publicly available, e.g. exam solutions.</hint>
-          <input-type value-pairs-name="Access Rights">dropdown</input-type>
-          <repeatable>false</repeatable>
-          <required>Please select an access level.</required>
-        </field>
-        <field>
-          <dc-schema>dcterms</dc-schema>
-          <dc-element>educationLevel</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Level</label>
-          <hint>Please select the educational level. If this does not apply, select "N/A".</hint>
-          <input-type value-pairs-name="Education Level">dropdown</input-type>
-          <repeatable>false</repeatable>
-        </field>
-        <field>
-          <dc-schema>dcterms</dc-schema>
-          <dc-element>type</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Item Type</label>
-          <hint>Please select a category that best describes this item or set of items.</hint>
-          <input-type value-pairs-name="Category">dropdown</input-type>
-          <repeatable>false</repeatable>
-          <required>Please select a type.</required>
-        </field>
-        <field>
-          <dc-schema>schema</dc-schema>
-          <dc-element>accessibility</dc-element>
-          <dc-qualifier>Feature</dc-qualifier>
-          <label>Accessibility Features</label>
-          <hint>Select all accessibility features that apply for this item. If unknown, please select "unknown".</hint>
-          <input-type value-pairs-name="Accessibility Features">dropdown</input-type>
-          <repeatable>true</repeatable>
-        </field>
-        <field>
-          <dc-schema>schema</dc-schema>
-          <dc-element>accessibility</dc-element>
-          <dc-qualifier>Hazard</dc-qualifier>
-          <label>Accessibility Hazards</label>
-          <hint>Select all accessibility hazards that apply for this item. If unknown, please select "unknown".</hint>
-          <input-type value-pairs-name="Accessibility Hazards">dropdown</input-type>
-          <repeatable>true</repeatable>
-        </field>
-      </page>
-    </form>
-    <form name="General and Integrated Sciences">
-      <page number="1">
-        <field>
-          <dc-schema>dc</dc-schema>
-          <dc-element>contributor</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Author(s)</label>
-          <hint>Enter the name(s) of the author(s) for this item:</hint>
-          <input-type>name</input-type>
-          <repeatable>true</repeatable>
-          <required>Please enter a name.</required>
-        </field>
-        <field>
-          <dc-schema>dc</dc-schema>
-          <dc-element>date</dc-element>
-          <dc-qualifier>issued</dc-qualifier>
-          <label>Date of Distribution</label>
-          <hint>Please enter the date of any previous public publication or distribution. If this is the first time the item is being published, please enter today's date. You must enter at least the year.</hint>
-          <input-type>date</input-type>
-          <repeatable>false</repeatable>
-          <required>Please enter a date.</required>
-        </field>
-        <field>
-          <dc-schema>dc</dc-schema>
-          <dc-element>description</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Description</label>
-          <hint>Enter a description of the item. Please include specifics about course content, pedagogy, or any important features the item might have.</hint>
-          <input-type>textarea</input-type>
-          <repeatable>false</repeatable>
-        </field>
-        <field>
-          <dc-schema>dc</dc-schema>
-          <dc-element>subject</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Subject</label>
-          <hint>Select a keyword from the list provided. If no keyword is appropriate, please select "Other" and enter one in the box below.</hint>
-          <input-type value-pairs-name="General and Integrated Sciences - subjects">dropdown</input-type>
-          <repeatable>true</repeatable>
-          <required>Please select a keyword.</required>
-        </field>
-        <field>
-          <dc-schema>dc</dc-schema>
-          <dc-element>subject</dc-element>
-          <dc-qualifier>other</dc-qualifier>
-          <label>Subject (Other)</label>
-          <hint>If no keyword is appropriate, please enter one in the box provided.</hint>
-          <input-type>onebox</input-type>
-          <repeatable>false</repeatable>
-        </field>
-        <field>
-          <dc-schema>dc</dc-schema>
-          <dc-element>title</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Title</label>
-          <hint>Enter a descriptive title of the item.</hint>
-          <input-type>onebox</input-type>
-          <repeatable>false</repeatable>
-          <required>Please enter a title.</required>
-        </field>
-      </page>
-      <page number="2">
-        <field>
-          <dc-schema>dcterms</dc-schema>
-          <dc-element>accessRights</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Access to Item</label>
-          <hint>Please assign the desired item permissions. "Restricted" should be chosen only if the item contains information that the author(s) do/does not want to make publicly available, e.g. exam solutions.</hint>
-          <input-type value-pairs-name="Access Rights">dropdown</input-type>
-          <repeatable>false</repeatable>
-          <required>Please select an access level.</required>
-        </field>
-        <field>
-          <dc-schema>dcterms</dc-schema>
-          <dc-element>educationLevel</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Level</label>
-          <hint>Please select the educational level. If this does not apply, select "N/A".</hint>
-          <input-type value-pairs-name="Education Level">dropdown</input-type>
-          <repeatable>false</repeatable>
-        </field>
-        <field>
-          <dc-schema>dcterms</dc-schema>
-          <dc-element>type</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Item Type</label>
-          <hint>Please select a category that best describes this item or set of items.</hint>
-          <input-type value-pairs-name="Category">dropdown</input-type>
-          <repeatable>false</repeatable>
-          <required>Please select a type.</required>
-        </field>
-        <field>
-          <dc-schema>schema</dc-schema>
-          <dc-element>accessibility</dc-element>
-          <dc-qualifier>Feature</dc-qualifier>
-          <label>Accessibility Features</label>
-          <hint>Select all accessibility features that apply for this item. If unknown, please select "unknown".</hint>
-          <input-type value-pairs-name="Accessibility Features">dropdown</input-type>
-          <repeatable>true</repeatable>
-        </field>
-        <field>
-          <dc-schema>schema</dc-schema>
-          <dc-element>accessibility</dc-element>
-          <dc-qualifier>Hazard</dc-qualifier>
-          <label>Accessibility Hazards</label>
-          <hint>Select all accessibility hazards that apply for this item. If unknown, please select "unknown".</hint>
-          <input-type value-pairs-name="Accessibility Hazards">dropdown</input-type>
-          <repeatable>true</repeatable>
-        </field>
-      </page>
-    </form>
-    <form name="EOAES">
-      <page number="1">
-        <field>
-          <dc-schema>dc</dc-schema>
-          <dc-element>contributor</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Author(s)</label>
-          <hint>Enter the name(s) of the author(s) for this item:</hint>
-          <input-type>name</input-type>
-          <repeatable>true</repeatable>
-          <required>Please enter a name.</required>
-        </field>
-        <field>
-          <dc-schema>dc</dc-schema>
-          <dc-element>date</dc-element>
-          <dc-qualifier>issued</dc-qualifier>
-          <label>Date of Distribution</label>
-          <hint>Please enter the date of any previous public publication or distribution. If this is the first time the item is being published, please enter today's date. You must enter at least the year.</hint>
-          <input-type>date</input-type>
-          <repeatable>false</repeatable>
-          <required>Please enter a date.</required>
-        </field>
-        <field>
-          <dc-schema>dc</dc-schema>
-          <dc-element>description</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Description</label>
-          <hint>Enter a description of the item. Please include specifics about course content, pedagogy, or any important features the item might have.</hint>
-          <input-type>textarea</input-type>
-          <repeatable>false</repeatable>
-        </field>
-        <field>
-          <dc-schema>dc</dc-schema>
-          <dc-element>subject</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Subject</label>
-          <hint>Select a keyword from the list provided. If no keyword is appropriate, please select "Other" and enter one in the box below.</hint>
-          <input-type value-pairs-name="EOAES - subjects">dropdown</input-type>
-          <repeatable>true</repeatable>
-          <required>Please select a keyword.</required>
-        </field>
-        <field>
-          <dc-schema>dc</dc-schema>
-          <dc-element>subject</dc-element>
-          <dc-qualifier>other</dc-qualifier>
-          <label>Subject (Other)</label>
-          <hint>If no keyword is appropriate, please enter one in the box provided.</hint>
-          <input-type>onebox</input-type>
-          <repeatable>false</repeatable>
-        </field>
-        <field>
-          <dc-schema>dc</dc-schema>
-          <dc-element>title</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Title</label>
-          <hint>Enter a descriptive title of the item.</hint>
-          <input-type>onebox</input-type>
-          <repeatable>false</repeatable>
-          <required>Please enter a title.</required>
-        </field>
-      </page>
-      <page number="2">
-        <field>
-          <dc-schema>dcterms</dc-schema>
-          <dc-element>accessRights</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Access to Item</label>
-          <hint>Please assign the desired item permissions. "Restricted" should be chosen only if the item contains information that the author(s) do/does not want to make publicly available, e.g. exam solutions.</hint>
-          <input-type value-pairs-name="Access Rights">dropdown</input-type>
-          <repeatable>false</repeatable>
-          <required>Please select an access level.</required>
-        </field>
-        <field>
-          <dc-schema>dcterms</dc-schema>
-          <dc-element>educationLevel</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Level</label>
-          <hint>Please select the educational level. If this does not apply, select "N/A".</hint>
-          <input-type value-pairs-name="Education Level">dropdown</input-type>
-          <repeatable>false</repeatable>
-        </field>
-        <field>
-          <dc-schema>dcterms</dc-schema>
-          <dc-element>type</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Item Type</label>
-          <hint>Please select a category that best describes this item or set of items.</hint>
-          <input-type value-pairs-name="Category">dropdown</input-type>
-          <repeatable>false</repeatable>
-          <required>Please select a type.</required>
-        </field>
-        <field>
-          <dc-schema>schema</dc-schema>
-          <dc-element>accessibility</dc-element>
-          <dc-qualifier>Feature</dc-qualifier>
-          <label>Accessibility Features</label>
-          <hint>Select all accessibility features that apply for this item. If unknown, please select "unknown".</hint>
-          <input-type value-pairs-name="Accessibility Features">dropdown</input-type>
-          <repeatable>true</repeatable>
-        </field>
-        <field>
-          <dc-schema>schema</dc-schema>
-          <dc-element>accessibility</dc-element>
-          <dc-qualifier>Hazard</dc-qualifier>
-          <label>Accessibility Hazards</label>
-          <hint>Select all accessibility hazards that apply for this item. If unknown, please select "unknown".</hint>
-          <input-type value-pairs-name="Accessibility Hazards">dropdown</input-type>
-          <repeatable>true</repeatable>
-        </field>
-      </page>
-    </form>
-    <form name="Computer Science">
-      <page number="1">
-        <field>
-          <dc-schema>dc</dc-schema>
-          <dc-element>contributor</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Author(s)</label>
-          <hint>Enter the name(s) of the author(s) for this item:</hint>
-          <input-type>name</input-type>
-          <repeatable>true</repeatable>
-          <required>Please enter a name.</required>
-        </field>
-        <field>
-          <dc-schema>dc</dc-schema>
-          <dc-element>date</dc-element>
-          <dc-qualifier>issued</dc-qualifier>
-          <label>Date of Distribution</label>
-          <hint>Please enter the date of any previous public publication or distribution. If this is the first time the item is being published, please enter today's date. You must enter at least the year.</hint>
-          <input-type>date</input-type>
-          <repeatable>false</repeatable>
-          <required>Please enter a date.</required>
-        </field>
-        <field>
-          <dc-schema>dc</dc-schema>
-          <dc-element>description</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Description</label>
-          <hint>Enter a description of the item. Please include specifics about course content, pedagogy, or any important features the item might have.</hint>
-          <input-type>textarea</input-type>
-          <repeatable>false</repeatable>
-        </field>
-        <field>
-          <dc-schema>dc</dc-schema>
-          <dc-element>subject</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Subject</label>
-          <hint>Select a keyword from the list provided. If no keyword is appropriate, please select "Other" and enter one in the box below.</hint>
-          <input-type value-pairs-name="Computer Science - subjects">dropdown</input-type>
-          <repeatable>true</repeatable>
-          <required>Please select a keyword.</required>
-        </field>
-        <field>
-          <dc-schema>dc</dc-schema>
-          <dc-element>subject</dc-element>
-          <dc-qualifier>other</dc-qualifier>
-          <label>Subject (Other)</label>
-          <hint>If no keyword is appropriate, please enter one in the box provided.</hint>
-          <input-type>onebox</input-type>
-          <repeatable>false</repeatable>
-        </field>
-        <field>
-          <dc-schema>dc</dc-schema>
-          <dc-element>title</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Title</label>
-          <hint>Enter a descriptive title of the item.</hint>
-          <input-type>onebox</input-type>
-          <repeatable>false</repeatable>
-          <required>Please enter a title.</required>
-        </field>
-      </page>
-      <page number="2">
-        <field>
-          <dc-schema>dcterms</dc-schema>
-          <dc-element>accessRights</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Access to Item</label>
-          <hint>Please assign the desired item permissions. "Restricted" should be chosen only if the item contains information that the author(s) do/does not want to make publicly available, e.g. exam solutions.</hint>
-          <input-type value-pairs-name="Access Rights">dropdown</input-type>
-          <repeatable>false</repeatable>
-          <required>Please select an access level.</required>
-        </field>
-        <field>
-          <dc-schema>dcterms</dc-schema>
-          <dc-element>educationLevel</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Level</label>
-          <hint>Please select the educational level. If this does not apply, select "N/A".</hint>
-          <input-type value-pairs-name="Education Level">dropdown</input-type>
-          <repeatable>false</repeatable>
-        </field>
-        <field>
-          <dc-schema>dcterms</dc-schema>
-          <dc-element>type</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Item Type</label>
-          <hint>Please select a category that best describes this item or set of items.</hint>
-          <input-type value-pairs-name="Category">dropdown</input-type>
-          <repeatable>false</repeatable>
-          <required>Please select a type.</required>
-        </field>
-        <field>
-          <dc-schema>schema</dc-schema>
-          <dc-element>accessibility</dc-element>
-          <dc-qualifier>Feature</dc-qualifier>
-          <label>Accessibility Features</label>
-          <hint>Select all accessibility features that apply for this item. If unknown, please select "unknown".</hint>
-          <input-type value-pairs-name="Accessibility Features">dropdown</input-type>
-          <repeatable>true</repeatable>
-        </field>
-        <field>
-          <dc-schema>schema</dc-schema>
-          <dc-element>accessibility</dc-element>
-          <dc-qualifier>Hazard</dc-qualifier>
-          <label>Accessibility Hazards</label>
-          <hint>Select all accessibility hazards that apply for this item. If unknown, please select "unknown".</hint>
-          <input-type value-pairs-name="Accessibility Hazards">dropdown</input-type>
-          <repeatable>true</repeatable>
-        </field>
-      </page>
-    </form>
-    <form name="Statistics">
-      <page number="1">
-        <field>
-          <dc-schema>dc</dc-schema>
-          <dc-element>contributor</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Author(s)</label>
-          <hint>Enter the name(s) of the author(s) for this item:</hint>
-          <input-type>name</input-type>
-          <repeatable>true</repeatable>
-          <required>Please enter a name.</required>
-        </field>
-        <field>
-          <dc-schema>dc</dc-schema>
-          <dc-element>date</dc-element>
-          <dc-qualifier>issued</dc-qualifier>
-          <label>Date of Distribution</label>
-          <hint>Please enter the date of any previous public publication or distribution. If this is the first time the item is being published, please enter today's date. You must enter at least the year.</hint>
-          <input-type>date</input-type>
-          <repeatable>false</repeatable>
-          <required>Please enter a date.</required>
-        </field>
-        <field>
-          <dc-schema>dc</dc-schema>
-          <dc-element>description</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Description</label>
-          <hint>Enter a description of the item. Please include specifics about course content, pedagogy, or any important features the item might have.</hint>
-          <input-type>textarea</input-type>
-          <repeatable>false</repeatable>
-        </field>
-        <field>
-          <dc-schema>dc</dc-schema>
-          <dc-element>subject</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Subject</label>
-          <hint>Select a keyword from the list provided. If no keyword is appropriate, please select "Other" and enter one in the box below.</hint>
-          <input-type value-pairs-name="Statistics - subjects">dropdown</input-type>
-          <repeatable>true</repeatable>
-          <required>Please select a keyword.</required>
-        </field>
-        <field>
-          <dc-schema>dc</dc-schema>
-          <dc-element>subject</dc-element>
-          <dc-qualifier>other</dc-qualifier>
-          <label>Subject (Other)</label>
-          <hint>If no keyword is appropriate, please enter one in the box provided.</hint>
-          <input-type>onebox</input-type>
-          <repeatable>false</repeatable>
-        </field>
-        <field>
-          <dc-schema>dc</dc-schema>
-          <dc-element>title</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Title</label>
-          <hint>Enter a descriptive title of the item.</hint>
-          <input-type>onebox</input-type>
-          <repeatable>false</repeatable>
-          <required>Please enter a title.</required>
-        </field>
-      </page>
-      <page number="2">
-        <field>
-          <dc-schema>dcterms</dc-schema>
-          <dc-element>accessRights</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Access to Item</label>
-          <hint>Please assign the desired item permissions. "Restricted" should be chosen only if the item contains information that the author(s) do/does not want to make publicly available, e.g. exam solutions.</hint>
-          <input-type value-pairs-name="Access Rights">dropdown</input-type>
-          <repeatable>false</repeatable>
-          <required>Please select an access level.</required>
-        </field>
-        <field>
-          <dc-schema>dcterms</dc-schema>
-          <dc-element>educationLevel</dc-element>
-          <dc-qualifier></dc-qualifier>
-          <label>Level</label>
-          <hint>Please select the educational level. If this does not apply, select "N/A".</hint>
-          <input-type value-pairs-name="Education Level">dropdown</input-type>
-          <repeatable>false</repeatable>
-        </field>
-        <field>
-          <dc-schema>dcterms</dc-schema>
-          <dc-element>type</dc-element>
-          <dc-qualifier></dc-qualifier>
+          <dc-qualifier>category</dc-qualifier>
           <label>Item Type</label>
           <hint>Please select a category that best describes this item or set of items.</hint>
           <input-type value-pairs-name="Category">dropdown</input-type>
@@ -876,7 +209,673 @@
         <field>
           <dc-schema>dcterms</dc-schema>
           <dc-element>type</dc-element>
+          <dc-qualifier>category</dc-qualifier>
+          <label>Item Type</label>
+          <hint>Please select a category that best describes this item or set of items.</hint>
+          <input-type value-pairs-name="Category">dropdown</input-type>
+          <repeatable>false</repeatable>
+          <required>Please select a type.</required>
+        </field>
+        <field>
+          <dc-schema>schema</dc-schema>
+          <dc-element>accessibility</dc-element>
+          <dc-qualifier>Feature</dc-qualifier>
+          <label>Accessibility Features</label>
+          <hint>Select all accessibility features that apply for this item. If unknown, please select "unknown".</hint>
+          <input-type value-pairs-name="Accessibility Features">dropdown</input-type>
+          <repeatable>true</repeatable>
+        </field>
+        <field>
+          <dc-schema>schema</dc-schema>
+          <dc-element>accessibility</dc-element>
+          <dc-qualifier>Hazard</dc-qualifier>
+          <label>Accessibility Hazards</label>
+          <hint>Select all accessibility hazards that apply for this item. If unknown, please select "unknown".</hint>
+          <input-type value-pairs-name="Accessibility Hazards">dropdown</input-type>
+          <repeatable>true</repeatable>
+        </field>
+      </page>
+    </form>
+    <form name="Computer Science">
+      <page number="1">
+        <field>
+          <dc-schema>dc</dc-schema>
+          <dc-element>contributor</dc-element>
           <dc-qualifier></dc-qualifier>
+          <label>Author(s)</label>
+          <hint>Enter the name(s) of the author(s) for this item:</hint>
+          <input-type>name</input-type>
+          <repeatable>true</repeatable>
+          <required>Please enter a name.</required>
+        </field>
+        <field>
+          <dc-schema>dc</dc-schema>
+          <dc-element>date</dc-element>
+          <dc-qualifier>issued</dc-qualifier>
+          <label>Date of Distribution</label>
+          <hint>Please enter the date of any previous public publication or distribution. If this is the first time the item is being published, please enter today's date. You must enter at least the year.</hint>
+          <input-type>date</input-type>
+          <repeatable>false</repeatable>
+          <required>Please enter a date.</required>
+        </field>
+        <field>
+          <dc-schema>dc</dc-schema>
+          <dc-element>description</dc-element>
+          <dc-qualifier></dc-qualifier>
+          <label>Description</label>
+          <hint>Enter a description of the item. Please include specifics about course content, pedagogy, or any important features the item might have.</hint>
+          <input-type>textarea</input-type>
+          <repeatable>false</repeatable>
+        </field>
+        <field>
+          <dc-schema>dc</dc-schema>
+          <dc-element>subject</dc-element>
+          <dc-qualifier></dc-qualifier>
+          <label>Subject</label>
+          <hint>Select a keyword from the list provided. If no keyword is appropriate, please select "Other" and enter one in the box below.</hint>
+          <input-type value-pairs-name="Computer Science - subjects">dropdown</input-type>
+          <repeatable>true</repeatable>
+          <required>Please select a keyword.</required>
+        </field>
+        <field>
+          <dc-schema>dc</dc-schema>
+          <dc-element>subject</dc-element>
+          <dc-qualifier>other</dc-qualifier>
+          <label>Subject (Other)</label>
+          <hint>If no keyword is appropriate, please enter one in the box provided.</hint>
+          <input-type>onebox</input-type>
+          <repeatable>false</repeatable>
+        </field>
+        <field>
+          <dc-schema>dc</dc-schema>
+          <dc-element>title</dc-element>
+          <dc-qualifier></dc-qualifier>
+          <label>Title</label>
+          <hint>Enter a descriptive title of the item.</hint>
+          <input-type>onebox</input-type>
+          <repeatable>false</repeatable>
+          <required>Please enter a title.</required>
+        </field>
+      </page>
+      <page number="2">
+        <field>
+          <dc-schema>dcterms</dc-schema>
+          <dc-element>accessRights</dc-element>
+          <dc-qualifier></dc-qualifier>
+          <label>Access to Item</label>
+          <hint>Please assign the desired item permissions. "Restricted" should be chosen only if the item contains information that the author(s) do/does not want to make publicly available, e.g. exam solutions.</hint>
+          <input-type value-pairs-name="Access Rights">dropdown</input-type>
+          <repeatable>false</repeatable>
+          <required>Please select an access level.</required>
+        </field>
+        <field>
+          <dc-schema>dcterms</dc-schema>
+          <dc-element>educationLevel</dc-element>
+          <dc-qualifier></dc-qualifier>
+          <label>Level</label>
+          <hint>Please select the educational level. If this does not apply, select "N/A".</hint>
+          <input-type value-pairs-name="Education Level">dropdown</input-type>
+          <repeatable>false</repeatable>
+        </field>
+        <field>
+          <dc-schema>dcterms</dc-schema>
+          <dc-element>type</dc-element>
+          <dc-qualifier>category</dc-qualifier>
+          <label>Item Type</label>
+          <hint>Please select a category that best describes this item or set of items.</hint>
+          <input-type value-pairs-name="Category">dropdown</input-type>
+          <repeatable>false</repeatable>
+          <required>Please select a type.</required>
+        </field>
+        <field>
+          <dc-schema>schema</dc-schema>
+          <dc-element>accessibility</dc-element>
+          <dc-qualifier>Feature</dc-qualifier>
+          <label>Accessibility Features</label>
+          <hint>Select all accessibility features that apply for this item. If unknown, please select "unknown".</hint>
+          <input-type value-pairs-name="Accessibility Features">dropdown</input-type>
+          <repeatable>true</repeatable>
+        </field>
+        <field>
+          <dc-schema>schema</dc-schema>
+          <dc-element>accessibility</dc-element>
+          <dc-qualifier>Hazard</dc-qualifier>
+          <label>Accessibility Hazards</label>
+          <hint>Select all accessibility hazards that apply for this item. If unknown, please select "unknown".</hint>
+          <input-type value-pairs-name="Accessibility Hazards">dropdown</input-type>
+          <repeatable>true</repeatable>
+        </field>
+      </page>
+    </form>
+    <form name="Statistics">
+      <page number="1">
+        <field>
+          <dc-schema>dc</dc-schema>
+          <dc-element>contributor</dc-element>
+          <dc-qualifier></dc-qualifier>
+          <label>Author(s)</label>
+          <hint>Enter the name(s) of the author(s) for this item:</hint>
+          <input-type>name</input-type>
+          <repeatable>true</repeatable>
+          <required>Please enter a name.</required>
+        </field>
+        <field>
+          <dc-schema>dc</dc-schema>
+          <dc-element>date</dc-element>
+          <dc-qualifier>issued</dc-qualifier>
+          <label>Date of Distribution</label>
+          <hint>Please enter the date of any previous public publication or distribution. If this is the first time the item is being published, please enter today's date. You must enter at least the year.</hint>
+          <input-type>date</input-type>
+          <repeatable>false</repeatable>
+          <required>Please enter a date.</required>
+        </field>
+        <field>
+          <dc-schema>dc</dc-schema>
+          <dc-element>description</dc-element>
+          <dc-qualifier></dc-qualifier>
+          <label>Description</label>
+          <hint>Enter a description of the item. Please include specifics about course content, pedagogy, or any important features the item might have.</hint>
+          <input-type>textarea</input-type>
+          <repeatable>false</repeatable>
+        </field>
+        <field>
+          <dc-schema>dc</dc-schema>
+          <dc-element>subject</dc-element>
+          <dc-qualifier></dc-qualifier>
+          <label>Subject</label>
+          <hint>Select a keyword from the list provided. If no keyword is appropriate, please select "Other" and enter one in the box below.</hint>
+          <input-type value-pairs-name="Statistics - subjects">dropdown</input-type>
+          <repeatable>true</repeatable>
+          <required>Please select a keyword.</required>
+        </field>
+        <field>
+          <dc-schema>dc</dc-schema>
+          <dc-element>subject</dc-element>
+          <dc-qualifier>other</dc-qualifier>
+          <label>Subject (Other)</label>
+          <hint>If no keyword is appropriate, please enter one in the box provided.</hint>
+          <input-type>onebox</input-type>
+          <repeatable>false</repeatable>
+        </field>
+        <field>
+          <dc-schema>dc</dc-schema>
+          <dc-element>title</dc-element>
+          <dc-qualifier></dc-qualifier>
+          <label>Title</label>
+          <hint>Enter a descriptive title of the item.</hint>
+          <input-type>onebox</input-type>
+          <repeatable>false</repeatable>
+          <required>Please enter a title.</required>
+        </field>
+      </page>
+      <page number="2">
+        <field>
+          <dc-schema>dcterms</dc-schema>
+          <dc-element>accessRights</dc-element>
+          <dc-qualifier></dc-qualifier>
+          <label>Access to Item</label>
+          <hint>Please assign the desired item permissions. "Restricted" should be chosen only if the item contains information that the author(s) do/does not want to make publicly available, e.g. exam solutions.</hint>
+          <input-type value-pairs-name="Access Rights">dropdown</input-type>
+          <repeatable>false</repeatable>
+          <required>Please select an access level.</required>
+        </field>
+        <field>
+          <dc-schema>dcterms</dc-schema>
+          <dc-element>educationLevel</dc-element>
+          <dc-qualifier></dc-qualifier>
+          <label>Level</label>
+          <hint>Please select the educational level. If this does not apply, select "N/A".</hint>
+          <input-type value-pairs-name="Education Level">dropdown</input-type>
+          <repeatable>false</repeatable>
+        </field>
+        <field>
+          <dc-schema>dcterms</dc-schema>
+          <dc-element>type</dc-element>
+          <dc-qualifier>category</dc-qualifier>
+          <label>Item Type</label>
+          <hint>Please select a category that best describes this item or set of items.</hint>
+          <input-type value-pairs-name="Category">dropdown</input-type>
+          <repeatable>false</repeatable>
+          <required>Please select a type.</required>
+        </field>
+        <field>
+          <dc-schema>schema</dc-schema>
+          <dc-element>accessibility</dc-element>
+          <dc-qualifier>Feature</dc-qualifier>
+          <label>Accessibility Features</label>
+          <hint>Select all accessibility features that apply for this item. If unknown, please select "unknown".</hint>
+          <input-type value-pairs-name="Accessibility Features">dropdown</input-type>
+          <repeatable>true</repeatable>
+        </field>
+        <field>
+          <dc-schema>schema</dc-schema>
+          <dc-element>accessibility</dc-element>
+          <dc-qualifier>Hazard</dc-qualifier>
+          <label>Accessibility Hazards</label>
+          <hint>Select all accessibility hazards that apply for this item. If unknown, please select "unknown".</hint>
+          <input-type value-pairs-name="Accessibility Hazards">dropdown</input-type>
+          <repeatable>true</repeatable>
+        </field>
+      </page>
+    </form>
+    <form name="General and Integrated Sciences">
+      <page number="1">
+        <field>
+          <dc-schema>dc</dc-schema>
+          <dc-element>contributor</dc-element>
+          <dc-qualifier></dc-qualifier>
+          <label>Author(s)</label>
+          <hint>Enter the name(s) of the author(s) for this item:</hint>
+          <input-type>name</input-type>
+          <repeatable>true</repeatable>
+          <required>Please enter a name.</required>
+        </field>
+        <field>
+          <dc-schema>dc</dc-schema>
+          <dc-element>date</dc-element>
+          <dc-qualifier>issued</dc-qualifier>
+          <label>Date of Distribution</label>
+          <hint>Please enter the date of any previous public publication or distribution. If this is the first time the item is being published, please enter today's date. You must enter at least the year.</hint>
+          <input-type>date</input-type>
+          <repeatable>false</repeatable>
+          <required>Please enter a date.</required>
+        </field>
+        <field>
+          <dc-schema>dc</dc-schema>
+          <dc-element>description</dc-element>
+          <dc-qualifier></dc-qualifier>
+          <label>Description</label>
+          <hint>Enter a description of the item. Please include specifics about course content, pedagogy, or any important features the item might have.</hint>
+          <input-type>textarea</input-type>
+          <repeatable>false</repeatable>
+        </field>
+        <field>
+          <dc-schema>dc</dc-schema>
+          <dc-element>subject</dc-element>
+          <dc-qualifier></dc-qualifier>
+          <label>Subject</label>
+          <hint>Select a keyword from the list provided. If no keyword is appropriate, please select "Other" and enter one in the box below.</hint>
+          <input-type value-pairs-name="General and Integrated Sciences - subjects">dropdown</input-type>
+          <repeatable>true</repeatable>
+          <required>Please select a keyword.</required>
+        </field>
+        <field>
+          <dc-schema>dc</dc-schema>
+          <dc-element>subject</dc-element>
+          <dc-qualifier>other</dc-qualifier>
+          <label>Subject (Other)</label>
+          <hint>If no keyword is appropriate, please enter one in the box provided.</hint>
+          <input-type>onebox</input-type>
+          <repeatable>false</repeatable>
+        </field>
+        <field>
+          <dc-schema>dc</dc-schema>
+          <dc-element>title</dc-element>
+          <dc-qualifier></dc-qualifier>
+          <label>Title</label>
+          <hint>Enter a descriptive title of the item.</hint>
+          <input-type>onebox</input-type>
+          <repeatable>false</repeatable>
+          <required>Please enter a title.</required>
+        </field>
+      </page>
+      <page number="2">
+        <field>
+          <dc-schema>dcterms</dc-schema>
+          <dc-element>accessRights</dc-element>
+          <dc-qualifier></dc-qualifier>
+          <label>Access to Item</label>
+          <hint>Please assign the desired item permissions. "Restricted" should be chosen only if the item contains information that the author(s) do/does not want to make publicly available, e.g. exam solutions.</hint>
+          <input-type value-pairs-name="Access Rights">dropdown</input-type>
+          <repeatable>false</repeatable>
+          <required>Please select an access level.</required>
+        </field>
+        <field>
+          <dc-schema>dcterms</dc-schema>
+          <dc-element>educationLevel</dc-element>
+          <dc-qualifier></dc-qualifier>
+          <label>Level</label>
+          <hint>Please select the educational level. If this does not apply, select "N/A".</hint>
+          <input-type value-pairs-name="Education Level">dropdown</input-type>
+          <repeatable>false</repeatable>
+        </field>
+        <field>
+          <dc-schema>dcterms</dc-schema>
+          <dc-element>type</dc-element>
+          <dc-qualifier>category</dc-qualifier>
+          <label>Item Type</label>
+          <hint>Please select a category that best describes this item or set of items.</hint>
+          <input-type value-pairs-name="Category">dropdown</input-type>
+          <repeatable>false</repeatable>
+          <required>Please select a type.</required>
+        </field>
+        <field>
+          <dc-schema>schema</dc-schema>
+          <dc-element>accessibility</dc-element>
+          <dc-qualifier>Feature</dc-qualifier>
+          <label>Accessibility Features</label>
+          <hint>Select all accessibility features that apply for this item. If unknown, please select "unknown".</hint>
+          <input-type value-pairs-name="Accessibility Features">dropdown</input-type>
+          <repeatable>true</repeatable>
+        </field>
+        <field>
+          <dc-schema>schema</dc-schema>
+          <dc-element>accessibility</dc-element>
+          <dc-qualifier>Hazard</dc-qualifier>
+          <label>Accessibility Hazards</label>
+          <hint>Select all accessibility hazards that apply for this item. If unknown, please select "unknown".</hint>
+          <input-type value-pairs-name="Accessibility Hazards">dropdown</input-type>
+          <repeatable>true</repeatable>
+        </field>
+      </page>
+    </form>
+    <form name="Chemistry">
+      <page number="1">
+        <field>
+          <dc-schema>dc</dc-schema>
+          <dc-element>contributor</dc-element>
+          <dc-qualifier></dc-qualifier>
+          <label>Author(s)</label>
+          <hint>Enter the name(s) of the author(s) for this item:</hint>
+          <input-type>name</input-type>
+          <repeatable>true</repeatable>
+          <required>Please enter a name.</required>
+        </field>
+        <field>
+          <dc-schema>dc</dc-schema>
+          <dc-element>date</dc-element>
+          <dc-qualifier>issued</dc-qualifier>
+          <label>Date of Distribution</label>
+          <hint>Please enter the date of any previous public publication or distribution. If this is the first time the item is being published, please enter today's date. You must enter at least the year.</hint>
+          <input-type>date</input-type>
+          <repeatable>false</repeatable>
+          <required>Please enter a date.</required>
+        </field>
+        <field>
+          <dc-schema>dc</dc-schema>
+          <dc-element>description</dc-element>
+          <dc-qualifier></dc-qualifier>
+          <label>Description</label>
+          <hint>Enter a description of the item. Please include specifics about course content, pedagogy, or any important features the item might have.</hint>
+          <input-type>textarea</input-type>
+          <repeatable>false</repeatable>
+        </field>
+        <field>
+          <dc-schema>dc</dc-schema>
+          <dc-element>subject</dc-element>
+          <dc-qualifier></dc-qualifier>
+          <label>Subject</label>
+          <hint>Select a keyword from the list provided. If no keyword is appropriate, please select "Other" and enter one in the box below.</hint>
+          <input-type value-pairs-name="Chemistry - subjects">dropdown</input-type>
+          <repeatable>true</repeatable>
+          <required>Please select a keyword.</required>
+        </field>
+        <field>
+          <dc-schema>dc</dc-schema>
+          <dc-element>subject</dc-element>
+          <dc-qualifier>other</dc-qualifier>
+          <label>Subject (Other)</label>
+          <hint>If no keyword is appropriate, please enter one in the box provided.</hint>
+          <input-type>onebox</input-type>
+          <repeatable>false</repeatable>
+        </field>
+        <field>
+          <dc-schema>dc</dc-schema>
+          <dc-element>title</dc-element>
+          <dc-qualifier></dc-qualifier>
+          <label>Title</label>
+          <hint>Enter a descriptive title of the item.</hint>
+          <input-type>onebox</input-type>
+          <repeatable>false</repeatable>
+          <required>Please enter a title.</required>
+        </field>
+      </page>
+      <page number="2">
+        <field>
+          <dc-schema>dcterms</dc-schema>
+          <dc-element>accessRights</dc-element>
+          <dc-qualifier></dc-qualifier>
+          <label>Access to Item</label>
+          <hint>Please assign the desired item permissions. "Restricted" should be chosen only if the item contains information that the author(s) do/does not want to make publicly available, e.g. exam solutions.</hint>
+          <input-type value-pairs-name="Access Rights">dropdown</input-type>
+          <repeatable>false</repeatable>
+          <required>Please select an access level.</required>
+        </field>
+        <field>
+          <dc-schema>dcterms</dc-schema>
+          <dc-element>educationLevel</dc-element>
+          <dc-qualifier></dc-qualifier>
+          <label>Level</label>
+          <hint>Please select the educational level. If this does not apply, select "N/A".</hint>
+          <input-type value-pairs-name="Education Level">dropdown</input-type>
+          <repeatable>false</repeatable>
+        </field>
+        <field>
+          <dc-schema>dcterms</dc-schema>
+          <dc-element>type</dc-element>
+          <dc-qualifier>category</dc-qualifier>
+          <label>Item Type</label>
+          <hint>Please select a category that best describes this item or set of items.</hint>
+          <input-type value-pairs-name="Category">dropdown</input-type>
+          <repeatable>false</repeatable>
+          <required>Please select a type.</required>
+        </field>
+        <field>
+          <dc-schema>schema</dc-schema>
+          <dc-element>accessibility</dc-element>
+          <dc-qualifier>Feature</dc-qualifier>
+          <label>Accessibility Features</label>
+          <hint>Select all accessibility features that apply for this item. If unknown, please select "unknown".</hint>
+          <input-type value-pairs-name="Accessibility Features">dropdown</input-type>
+          <repeatable>true</repeatable>
+        </field>
+        <field>
+          <dc-schema>schema</dc-schema>
+          <dc-element>accessibility</dc-element>
+          <dc-qualifier>Hazard</dc-qualifier>
+          <label>Accessibility Hazards</label>
+          <hint>Select all accessibility hazards that apply for this item. If unknown, please select "unknown".</hint>
+          <input-type value-pairs-name="Accessibility Hazards">dropdown</input-type>
+          <repeatable>true</repeatable>
+        </field>
+      </page>
+    </form>
+    <form name="Math">
+      <page number="1">
+        <field>
+          <dc-schema>dc</dc-schema>
+          <dc-element>contributor</dc-element>
+          <dc-qualifier></dc-qualifier>
+          <label>Author(s)</label>
+          <hint>Enter the name(s) of the author(s) for this item:</hint>
+          <input-type>name</input-type>
+          <repeatable>true</repeatable>
+          <required>Please enter a name.</required>
+        </field>
+        <field>
+          <dc-schema>dc</dc-schema>
+          <dc-element>date</dc-element>
+          <dc-qualifier>issued</dc-qualifier>
+          <label>Date of Distribution</label>
+          <hint>Please enter the date of any previous public publication or distribution. If this is the first time the item is being published, please enter today's date. You must enter at least the year.</hint>
+          <input-type>date</input-type>
+          <repeatable>false</repeatable>
+          <required>Please enter a date.</required>
+        </field>
+        <field>
+          <dc-schema>dc</dc-schema>
+          <dc-element>description</dc-element>
+          <dc-qualifier></dc-qualifier>
+          <label>Description</label>
+          <hint>Enter a description of the item. Please include specifics about course content, pedagogy, or any important features the item might have.</hint>
+          <input-type>textarea</input-type>
+          <repeatable>false</repeatable>
+        </field>
+        <field>
+          <dc-schema>dc</dc-schema>
+          <dc-element>subject</dc-element>
+          <dc-qualifier></dc-qualifier>
+          <label>Subject</label>
+          <hint>Select a keyword from the list provided. If no keyword is appropriate, please select "Other" and enter one in the box below.</hint>
+          <input-type value-pairs-name="Math - subjects">dropdown</input-type>
+          <repeatable>true</repeatable>
+          <required>Please select a keyword.</required>
+        </field>
+        <field>
+          <dc-schema>dc</dc-schema>
+          <dc-element>subject</dc-element>
+          <dc-qualifier>other</dc-qualifier>
+          <label>Subject (Other)</label>
+          <hint>If no keyword is appropriate, please enter one in the box provided.</hint>
+          <input-type>onebox</input-type>
+          <repeatable>false</repeatable>
+        </field>
+        <field>
+          <dc-schema>dc</dc-schema>
+          <dc-element>title</dc-element>
+          <dc-qualifier></dc-qualifier>
+          <label>Title</label>
+          <hint>Enter a descriptive title of the item.</hint>
+          <input-type>onebox</input-type>
+          <repeatable>false</repeatable>
+          <required>Please enter a title.</required>
+        </field>
+      </page>
+      <page number="2">
+        <field>
+          <dc-schema>dcterms</dc-schema>
+          <dc-element>accessRights</dc-element>
+          <dc-qualifier></dc-qualifier>
+          <label>Access to Item</label>
+          <hint>Please assign the desired item permissions. "Restricted" should be chosen only if the item contains information that the author(s) do/does not want to make publicly available, e.g. exam solutions.</hint>
+          <input-type value-pairs-name="Access Rights">dropdown</input-type>
+          <repeatable>false</repeatable>
+          <required>Please select an access level.</required>
+        </field>
+        <field>
+          <dc-schema>dcterms</dc-schema>
+          <dc-element>educationLevel</dc-element>
+          <dc-qualifier></dc-qualifier>
+          <label>Level</label>
+          <hint>Please select the educational level. If this does not apply, select "N/A".</hint>
+          <input-type value-pairs-name="Education Level">dropdown</input-type>
+          <repeatable>false</repeatable>
+        </field>
+        <field>
+          <dc-schema>dcterms</dc-schema>
+          <dc-element>type</dc-element>
+          <dc-qualifier>category</dc-qualifier>
+          <label>Item Type</label>
+          <hint>Please select a category that best describes this item or set of items.</hint>
+          <input-type value-pairs-name="Category">dropdown</input-type>
+          <repeatable>false</repeatable>
+          <required>Please select a type.</required>
+        </field>
+        <field>
+          <dc-schema>schema</dc-schema>
+          <dc-element>accessibility</dc-element>
+          <dc-qualifier>Feature</dc-qualifier>
+          <label>Accessibility Features</label>
+          <hint>Select all accessibility features that apply for this item. If unknown, please select "unknown".</hint>
+          <input-type value-pairs-name="Accessibility Features">dropdown</input-type>
+          <repeatable>true</repeatable>
+        </field>
+        <field>
+          <dc-schema>schema</dc-schema>
+          <dc-element>accessibility</dc-element>
+          <dc-qualifier>Hazard</dc-qualifier>
+          <label>Accessibility Hazards</label>
+          <hint>Select all accessibility hazards that apply for this item. If unknown, please select "unknown".</hint>
+          <input-type value-pairs-name="Accessibility Hazards">dropdown</input-type>
+          <repeatable>true</repeatable>
+        </field>
+      </page>
+    </form>
+    <form name="EOAES">
+      <page number="1">
+        <field>
+          <dc-schema>dc</dc-schema>
+          <dc-element>contributor</dc-element>
+          <dc-qualifier></dc-qualifier>
+          <label>Author(s)</label>
+          <hint>Enter the name(s) of the author(s) for this item:</hint>
+          <input-type>name</input-type>
+          <repeatable>true</repeatable>
+          <required>Please enter a name.</required>
+        </field>
+        <field>
+          <dc-schema>dc</dc-schema>
+          <dc-element>date</dc-element>
+          <dc-qualifier>issued</dc-qualifier>
+          <label>Date of Distribution</label>
+          <hint>Please enter the date of any previous public publication or distribution. If this is the first time the item is being published, please enter today's date. You must enter at least the year.</hint>
+          <input-type>date</input-type>
+          <repeatable>false</repeatable>
+          <required>Please enter a date.</required>
+        </field>
+        <field>
+          <dc-schema>dc</dc-schema>
+          <dc-element>description</dc-element>
+          <dc-qualifier></dc-qualifier>
+          <label>Description</label>
+          <hint>Enter a description of the item. Please include specifics about course content, pedagogy, or any important features the item might have.</hint>
+          <input-type>textarea</input-type>
+          <repeatable>false</repeatable>
+        </field>
+        <field>
+          <dc-schema>dc</dc-schema>
+          <dc-element>subject</dc-element>
+          <dc-qualifier></dc-qualifier>
+          <label>Subject</label>
+          <hint>Select a keyword from the list provided. If no keyword is appropriate, please select "Other" and enter one in the box below.</hint>
+          <input-type value-pairs-name="EOAES - subjects">dropdown</input-type>
+          <repeatable>true</repeatable>
+          <required>Please select a keyword.</required>
+        </field>
+        <field>
+          <dc-schema>dc</dc-schema>
+          <dc-element>subject</dc-element>
+          <dc-qualifier>other</dc-qualifier>
+          <label>Subject (Other)</label>
+          <hint>If no keyword is appropriate, please enter one in the box provided.</hint>
+          <input-type>onebox</input-type>
+          <repeatable>false</repeatable>
+        </field>
+        <field>
+          <dc-schema>dc</dc-schema>
+          <dc-element>title</dc-element>
+          <dc-qualifier></dc-qualifier>
+          <label>Title</label>
+          <hint>Enter a descriptive title of the item.</hint>
+          <input-type>onebox</input-type>
+          <repeatable>false</repeatable>
+          <required>Please enter a title.</required>
+        </field>
+      </page>
+      <page number="2">
+        <field>
+          <dc-schema>dcterms</dc-schema>
+          <dc-element>accessRights</dc-element>
+          <dc-qualifier></dc-qualifier>
+          <label>Access to Item</label>
+          <hint>Please assign the desired item permissions. "Restricted" should be chosen only if the item contains information that the author(s) do/does not want to make publicly available, e.g. exam solutions.</hint>
+          <input-type value-pairs-name="Access Rights">dropdown</input-type>
+          <repeatable>false</repeatable>
+          <required>Please select an access level.</required>
+        </field>
+        <field>
+          <dc-schema>dcterms</dc-schema>
+          <dc-element>educationLevel</dc-element>
+          <dc-qualifier></dc-qualifier>
+          <label>Level</label>
+          <hint>Please select the educational level. If this does not apply, select "N/A".</hint>
+          <input-type value-pairs-name="Education Level">dropdown</input-type>
+          <repeatable>false</repeatable>
+        </field>
+        <field>
+          <dc-schema>dcterms</dc-schema>
+          <dc-element>type</dc-element>
+          <dc-qualifier>category</dc-qualifier>
           <label>Item Type</label>
           <hint>Please select a category that best describes this item or set of items.</hint>
           <input-type value-pairs-name="Category">dropdown</input-type>
@@ -969,224 +968,10 @@
       </pair>
     </value-pairs>
 
-    <value-pairs value-pairs-name="Math - subjects" dc-term="identifier">
-      <pair>
-        <displayed-value>Abstract Algebra</displayed-value>
-        <stored-value>Abstract Algebra</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Analysis</displayed-value>
-        <stored-value>Analysis</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Applied Mathematics</displayed-value>
-        <stored-value>Applied Mathematics</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Calculus</displayed-value>
-        <stored-value>Calculus</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Complex Analysis</displayed-value>
-        <stored-value>Complex Analysis</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Data Analysis</displayed-value>
-        <stored-value>Data Analysis</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Discrete Mathematics</displayed-value>
-        <stored-value>Discrete Mathematics</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Dynamical Systems</displayed-value>
-        <stored-value>Dynamical Systems</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Ethics</displayed-value>
-        <stored-value>Ethics</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Geometry</displayed-value>
-        <stored-value>Geometry</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>History of Mathematics</displayed-value>
-        <stored-value>History of Mathematics</stored-value>
-      </pair>
+    <value-pairs value-pairs-name="Life Sciences - subjects" dc-term="identifier">
       <pair>
         <displayed-value>Laboratory</displayed-value>
         <stored-value>Laboratory</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Linear Algebra</displayed-value>
-        <stored-value>Linear Algebra</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Mathematical Proof</displayed-value>
-        <stored-value>Mathematical Proof</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Number Theory</displayed-value>
-        <stored-value>Number Theory</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Numerical Methods</displayed-value>
-        <stored-value>Numerical Methods</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Ordinary Differential Equations</displayed-value>
-        <stored-value>Ordinary Differential Equations</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Partial Differential Equations</displayed-value>
-        <stored-value>Partial Differential Equations</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Pre-Calculus</displayed-value>
-        <stored-value>Pre-Calculus</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Probability</displayed-value>
-        <stored-value>Probability</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Research Projects and Methods</displayed-value>
-        <stored-value>Research Projects and Methods</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Scientific Communication</displayed-value>
-        <stored-value>Scientific Communication</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Teaching STEM</displayed-value>
-        <stored-value>Teaching STEM</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Topology</displayed-value>
-        <stored-value>Topology</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Other</displayed-value>
-        <stored-value>Other</stored-value>
-      </pair>
-    </value-pairs>
-
-    <value-pairs value-pairs-name="Chemistry - subjects" dc-term="identifier">
-      <pair>
-        <displayed-value>Analytical Chemistry</displayed-value>
-        <stored-value>Analytical Chemistry</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Biochemistry &amp; Chemical Biology</displayed-value>
-        <stored-value>Biochemistry &amp; Chemical Biology</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Chemistry in our World</displayed-value>
-        <stored-value>Chemistry in our World</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Computational Chemistry</displayed-value>
-        <stored-value>Computational Chemistry</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Data Analysis</displayed-value>
-        <stored-value>Data Analysis</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Electrochemistry</displayed-value>
-        <stored-value>Electrochemistry</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Environmental Chemistry</displayed-value>
-        <stored-value>Environmental Chemistry</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Ethics</displayed-value>
-        <stored-value>Ethics</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Inorganic Chemistry</displayed-value>
-        <stored-value>Inorganic Chemistry</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Instrumental Chemistry</displayed-value>
-        <stored-value>Instrumental Chemistry</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Introductory Chemistry</displayed-value>
-        <stored-value>Introductory Chemistry</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Laboratory</displayed-value>
-        <stored-value>Laboratory</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Materials Chemistry</displayed-value>
-        <stored-value>Materials Chemistry</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Nuclear Chemistry</displayed-value>
-        <stored-value>Nuclear Chemistry</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Organic Chemistry</displayed-value>
-        <stored-value>Organic Chemistry</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Organometallic Chemistry</displayed-value>
-        <stored-value>Organometallic Chemistry</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Physical Chemistry</displayed-value>
-        <stored-value>Physical Chemistry</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Polymer Chemistry</displayed-value>
-        <stored-value>Polymer Chemistry</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Research Projects and Methods</displayed-value>
-        <stored-value>Research Projects and Methods</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Scientific Communication</displayed-value>
-        <stored-value>Scientific Communication</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Spectroscopy</displayed-value>
-        <stored-value>Spectroscopy</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Surface Chemistry</displayed-value>
-        <stored-value>Surface Chemistry</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Teaching STEM</displayed-value>
-        <stored-value>Teaching STEM</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Theoretical Chemistry</displayed-value>
-        <stored-value>Theoretical Chemistry</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Other</displayed-value>
-        <stored-value>Other</stored-value>
-      </pair>
-    </value-pairs>
-
-    <value-pairs value-pairs-name="General and Integrated Sciences - subjects" dc-term="identifier">
-      <pair>
-        <displayed-value>Bioinformatics</displayed-value>
-        <stored-value>Bioinformatics</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Communicating Science</displayed-value>
-        <stored-value>Communicating Science</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Darwinian Medicine</displayed-value>
-        <stored-value>Darwinian Medicine</stored-value>
       </pair>
       <pair>
         <displayed-value>Data Analysis</displayed-value>
@@ -1197,191 +982,124 @@
         <stored-value>Ethics</stored-value>
       </pair>
       <pair>
-        <displayed-value>Field Studies</displayed-value>
-        <stored-value>Field Studies</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>First-Year Science</displayed-value>
-        <stored-value>First-Year Science</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Games in Economics and Evolution</displayed-value>
-        <stored-value>Games in Economics and Evolution</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Global Issues</displayed-value>
-        <stored-value>Global Issues</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Instrumentation</displayed-value>
-        <stored-value>Instrumentation</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Integrated Sciences</displayed-value>
-        <stored-value>Integrated Sciences</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Laboratory</displayed-value>
-        <stored-value>Laboratory</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Measurement</displayed-value>
-        <stored-value>Measurement</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Models</displayed-value>
-        <stored-value>Models</stored-value>
+        <displayed-value>Scientific Communication</displayed-value>
+        <stored-value>Scientific Communication</stored-value>
       </pair>
       <pair>
         <displayed-value>Research Projects and Methods</displayed-value>
         <stored-value>Research Projects and Methods</stored-value>
       </pair>
       <pair>
-        <displayed-value>Scientific Communication</displayed-value>
-        <stored-value>Scientific Communication</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Sizes</displayed-value>
-        <stored-value>Sizes</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Sustainability</displayed-value>
-        <stored-value>Sustainability</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Systems Approaches</displayed-value>
-        <stored-value>Systems Approaches</stored-value>
-      </pair>
-      <pair>
         <displayed-value>Teaching STEM</displayed-value>
         <stored-value>Teaching STEM</stored-value>
       </pair>
       <pair>
-        <displayed-value>Other</displayed-value>
-        <stored-value>Other</stored-value>
-      </pair>
-    </value-pairs>
-
-    <value-pairs value-pairs-name="EOAES - subjects" dc-term="identifier">
-      <pair>
-        <displayed-value>Atmospheric Science</displayed-value>
-        <stored-value>Atmospheric Science</stored-value>
+        <displayed-value>Animal Behaviour</displayed-value>
+        <stored-value>Animal Behaviour</stored-value>
       </pair>
       <pair>
-        <displayed-value>Climate Science</displayed-value>
-        <stored-value>Climate Science</stored-value>
+        <displayed-value>Biodiversity</displayed-value>
+        <stored-value>Biodiversity</stored-value>
       </pair>
       <pair>
-        <displayed-value>Data Analysis</displayed-value>
-        <stored-value>Data Analysis</stored-value>
+        <displayed-value>Biological diversity</displayed-value>
+        <stored-value>Biological diversity</stored-value>
       </pair>
       <pair>
-        <displayed-value>Environmental Science</displayed-value>
-        <stored-value>Environmental Science</stored-value>
+        <displayed-value>Biomechanics</displayed-value>
+        <stored-value>Biomechanics</stored-value>
       </pair>
       <pair>
-        <displayed-value>Ethics</displayed-value>
-        <stored-value>Ethics</stored-value>
+        <displayed-value>Cell Biology</displayed-value>
+        <stored-value>Cell Biology</stored-value>
       </pair>
       <pair>
-        <displayed-value>Field Methods and Techniques</displayed-value>
-        <stored-value>Field Methods and Techniques</stored-value>
+        <displayed-value>Chemical Ecology</displayed-value>
+        <stored-value>Chemical Ecology</stored-value>
       </pair>
       <pair>
-        <displayed-value>Geobiology</displayed-value>
-        <stored-value>Geobiology</stored-value>
+        <displayed-value>Comparative biochemistry/animal biochemistry</displayed-value>
+        <stored-value>Comparative biochemistry/animal biochemistry</stored-value>
       </pair>
       <pair>
-        <displayed-value>Geochemistry</displayed-value>
-        <stored-value>Geochemistry</stored-value>
+        <displayed-value>Comparative physiology/animal physiology</displayed-value>
+        <stored-value>Comparative physiology/animal physiology</stored-value>
       </pair>
       <pair>
-        <displayed-value>Geological Engineering</displayed-value>
-        <stored-value>Geological Engineering</stored-value>
+        <displayed-value>Conservation Biology</displayed-value>
+        <stored-value>Conservation Biology</stored-value>
       </pair>
       <pair>
-        <displayed-value>Geophysics</displayed-value>
-        <stored-value>Geophysics</stored-value>
+        <displayed-value>Developmental Biology</displayed-value>
+        <stored-value>Developmental Biology</stored-value>
       </pair>
       <pair>
-        <displayed-value>Geoscience Education</displayed-value>
-        <stored-value>Geoscience Education</stored-value>
+        <displayed-value>Ecology</displayed-value>
+        <stored-value>Ecology</stored-value>
       </pair>
       <pair>
-        <displayed-value>Glaciology</displayed-value>
-        <stored-value>Glaciology</stored-value>
+        <displayed-value>Environmental physiology</displayed-value>
+        <stored-value>Environmental physiology</stored-value>
       </pair>
       <pair>
-        <displayed-value>Hydrogeology</displayed-value>
-        <stored-value>Hydrogeology</stored-value>
+        <displayed-value>Evolution</displayed-value>
+        <stored-value>Evolution</stored-value>
       </pair>
       <pair>
-        <displayed-value>Laboratory</displayed-value>
-        <stored-value>Laboratory</stored-value>
+        <displayed-value>Freshwater Biology</displayed-value>
+        <stored-value>Freshwater Biology</stored-value>
       </pair>
       <pair>
-        <displayed-value>Meteorology</displayed-value>
-        <stored-value>Meteorology</stored-value>
+        <displayed-value>Genomics</displayed-value>
+        <stored-value>Genomics</stored-value>
       </pair>
       <pair>
-        <displayed-value>Mineralogy</displayed-value>
-        <stored-value>Mineralogy</stored-value>
+        <displayed-value>Immunology</displayed-value>
+        <stored-value>Immunology</stored-value>
       </pair>
       <pair>
-        <displayed-value>Natural Disasters</displayed-value>
-        <stored-value>Natural Disasters</stored-value>
+        <displayed-value>Invertebrate biology</displayed-value>
+        <stored-value>Invertebrate biology</stored-value>
       </pair>
       <pair>
-        <displayed-value>Numerical Techniques</displayed-value>
-        <stored-value>Numerical Techniques</stored-value>
+        <displayed-value>Marine Biology</displayed-value>
+        <stored-value>Marine Biology</stored-value>
       </pair>
       <pair>
-        <displayed-value>Oceanography</displayed-value>
-        <stored-value>Oceanography</stored-value>
+        <displayed-value>Microbiology</displayed-value>
+        <stored-value>Microbiology</stored-value>
       </pair>
       <pair>
-        <displayed-value>Paleontology</displayed-value>
-        <stored-value>Paleontology</stored-value>
+        <displayed-value>Molecular Biology</displayed-value>
+        <stored-value>Molecular Biology</stored-value>
       </pair>
       <pair>
-        <displayed-value>Petrology</displayed-value>
-        <stored-value>Petrology</stored-value>
+        <displayed-value>Molecular Genetics</displayed-value>
+        <stored-value>Molecular Genetics</stored-value>
       </pair>
       <pair>
-        <displayed-value>Planetary Science</displayed-value>
-        <stored-value>Planetary Science</stored-value>
+        <displayed-value>Natural history </displayed-value>
+        <stored-value>Natural history </stored-value>
       </pair>
       <pair>
-        <displayed-value>Remote Sensing</displayed-value>
-        <stored-value>Remote Sensing</stored-value>
+        <displayed-value>Parasitology</displayed-value>
+        <stored-value>Parasitology</stored-value>
       </pair>
       <pair>
-        <displayed-value>Research Projects and Methods</displayed-value>
-        <stored-value>Research Projects and Methods</stored-value>
+        <displayed-value>Plant Biochemistry</displayed-value>
+        <stored-value>Plant Biochemistry</stored-value>
       </pair>
       <pair>
-        <displayed-value>Scientific Communication</displayed-value>
-        <stored-value>Scientific Communication</stored-value>
+        <displayed-value>Plant Physiology</displayed-value>
+        <stored-value>Plant Physiology</stored-value>
       </pair>
       <pair>
-        <displayed-value>Sedimentology</displayed-value>
-        <stored-value>Sedimentology</stored-value>
+        <displayed-value>Systematics &amp; Phylogenetics</displayed-value>
+        <stored-value>Systematics &amp; Phylogenetics</stored-value>
       </pair>
       <pair>
-        <displayed-value>Seismology</displayed-value>
-        <stored-value>Seismology</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Teaching STEM</displayed-value>
-        <stored-value>Teaching STEM</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Time</displayed-value>
-        <stored-value>Time</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>Volcanology</displayed-value>
-        <stored-value>Volcanology</stored-value>
+        <displayed-value>Vertebrate biology</displayed-value>
+        <stored-value>Vertebrate biology</stored-value>
       </pair>
       <pair>
         <displayed-value>Other</displayed-value>
@@ -1575,10 +1293,18 @@
       </pair>
     </value-pairs>
 
-    <value-pairs value-pairs-name="Life Sciences - subjects" dc-term="identifier">
+    <value-pairs value-pairs-name="General and Integrated Sciences - subjects" dc-term="identifier">
       <pair>
-        <displayed-value>Laboratory</displayed-value>
-        <stored-value>Laboratory</stored-value>
+        <displayed-value>Bioinformatics</displayed-value>
+        <stored-value>Bioinformatics</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Communicating Science</displayed-value>
+        <stored-value>Communicating Science</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Darwinian Medicine</displayed-value>
+        <stored-value>Darwinian Medicine</stored-value>
       </pair>
       <pair>
         <displayed-value>Data Analysis</displayed-value>
@@ -1589,124 +1315,397 @@
         <stored-value>Ethics</stored-value>
       </pair>
       <pair>
-        <displayed-value>Scientific Communication</displayed-value>
-        <stored-value>Scientific Communication</stored-value>
+        <displayed-value>Field Studies</displayed-value>
+        <stored-value>Field Studies</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>First-Year Science</displayed-value>
+        <stored-value>First-Year Science</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Games in Economics and Evolution</displayed-value>
+        <stored-value>Games in Economics and Evolution</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Global Issues</displayed-value>
+        <stored-value>Global Issues</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Instrumentation</displayed-value>
+        <stored-value>Instrumentation</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Integrated Sciences</displayed-value>
+        <stored-value>Integrated Sciences</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Laboratory</displayed-value>
+        <stored-value>Laboratory</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Measurement</displayed-value>
+        <stored-value>Measurement</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Models</displayed-value>
+        <stored-value>Models</stored-value>
       </pair>
       <pair>
         <displayed-value>Research Projects and Methods</displayed-value>
         <stored-value>Research Projects and Methods</stored-value>
       </pair>
       <pair>
+        <displayed-value>Scientific Communication</displayed-value>
+        <stored-value>Scientific Communication</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Sizes</displayed-value>
+        <stored-value>Sizes</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Sustainability</displayed-value>
+        <stored-value>Sustainability</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Systems Approaches</displayed-value>
+        <stored-value>Systems Approaches</stored-value>
+      </pair>
+      <pair>
         <displayed-value>Teaching STEM</displayed-value>
         <stored-value>Teaching STEM</stored-value>
       </pair>
       <pair>
-        <displayed-value>Animal Behaviour</displayed-value>
-        <stored-value>Animal Behaviour</stored-value>
+        <displayed-value>Other</displayed-value>
+        <stored-value>Other</stored-value>
+      </pair>
+    </value-pairs>
+
+    <value-pairs value-pairs-name="Chemistry - subjects" dc-term="identifier">
+      <pair>
+        <displayed-value>Analytical Chemistry</displayed-value>
+        <stored-value>Analytical Chemistry</stored-value>
       </pair>
       <pair>
-        <displayed-value>Biodiversity</displayed-value>
-        <stored-value>Biodiversity</stored-value>
+        <displayed-value>Biochemistry &amp; Chemical Biology</displayed-value>
+        <stored-value>Biochemistry &amp; Chemical Biology</stored-value>
       </pair>
       <pair>
-        <displayed-value>Biological diversity</displayed-value>
-        <stored-value>Biological diversity</stored-value>
+        <displayed-value>Chemistry in our World</displayed-value>
+        <stored-value>Chemistry in our World</stored-value>
       </pair>
       <pair>
-        <displayed-value>Biomechanics</displayed-value>
-        <stored-value>Biomechanics</stored-value>
+        <displayed-value>Computational Chemistry</displayed-value>
+        <stored-value>Computational Chemistry</stored-value>
       </pair>
       <pair>
-        <displayed-value>Cell Biology</displayed-value>
-        <stored-value>Cell Biology</stored-value>
+        <displayed-value>Data Analysis</displayed-value>
+        <stored-value>Data Analysis</stored-value>
       </pair>
       <pair>
-        <displayed-value>Chemical Ecology</displayed-value>
-        <stored-value>Chemical Ecology</stored-value>
+        <displayed-value>Electrochemistry</displayed-value>
+        <stored-value>Electrochemistry</stored-value>
       </pair>
       <pair>
-        <displayed-value>Comparative biochemistry/animal biochemistry</displayed-value>
-        <stored-value>Comparative biochemistry/animal biochemistry</stored-value>
+        <displayed-value>Environmental Chemistry</displayed-value>
+        <stored-value>Environmental Chemistry</stored-value>
       </pair>
       <pair>
-        <displayed-value>Comparative physiology/animal physiology</displayed-value>
-        <stored-value>Comparative physiology/animal physiology</stored-value>
+        <displayed-value>Ethics</displayed-value>
+        <stored-value>Ethics</stored-value>
       </pair>
       <pair>
-        <displayed-value>Conservation Biology</displayed-value>
-        <stored-value>Conservation Biology</stored-value>
+        <displayed-value>Inorganic Chemistry</displayed-value>
+        <stored-value>Inorganic Chemistry</stored-value>
       </pair>
       <pair>
-        <displayed-value>Developmental Biology</displayed-value>
-        <stored-value>Developmental Biology</stored-value>
+        <displayed-value>Instrumental Chemistry</displayed-value>
+        <stored-value>Instrumental Chemistry</stored-value>
       </pair>
       <pair>
-        <displayed-value>Ecology</displayed-value>
-        <stored-value>Ecology</stored-value>
+        <displayed-value>Introductory Chemistry</displayed-value>
+        <stored-value>Introductory Chemistry</stored-value>
       </pair>
       <pair>
-        <displayed-value>Environmental physiology</displayed-value>
-        <stored-value>Environmental physiology</stored-value>
+        <displayed-value>Laboratory</displayed-value>
+        <stored-value>Laboratory</stored-value>
       </pair>
       <pair>
-        <displayed-value>Evolution</displayed-value>
-        <stored-value>Evolution</stored-value>
+        <displayed-value>Materials Chemistry</displayed-value>
+        <stored-value>Materials Chemistry</stored-value>
       </pair>
       <pair>
-        <displayed-value>Freshwater Biology</displayed-value>
-        <stored-value>Freshwater Biology</stored-value>
+        <displayed-value>Nuclear Chemistry</displayed-value>
+        <stored-value>Nuclear Chemistry</stored-value>
       </pair>
       <pair>
-        <displayed-value>Genomics</displayed-value>
-        <stored-value>Genomics</stored-value>
+        <displayed-value>Organic Chemistry</displayed-value>
+        <stored-value>Organic Chemistry</stored-value>
       </pair>
       <pair>
-        <displayed-value>Immunology</displayed-value>
-        <stored-value>Immunology</stored-value>
+        <displayed-value>Organometallic Chemistry</displayed-value>
+        <stored-value>Organometallic Chemistry</stored-value>
       </pair>
       <pair>
-        <displayed-value>Invertebrate biology</displayed-value>
-        <stored-value>Invertebrate biology</stored-value>
+        <displayed-value>Physical Chemistry</displayed-value>
+        <stored-value>Physical Chemistry</stored-value>
       </pair>
       <pair>
-        <displayed-value>Marine Biology</displayed-value>
-        <stored-value>Marine Biology</stored-value>
+        <displayed-value>Polymer Chemistry</displayed-value>
+        <stored-value>Polymer Chemistry</stored-value>
       </pair>
       <pair>
-        <displayed-value>Microbiology</displayed-value>
-        <stored-value>Microbiology</stored-value>
+        <displayed-value>Research Projects and Methods</displayed-value>
+        <stored-value>Research Projects and Methods</stored-value>
       </pair>
       <pair>
-        <displayed-value>Molecular Biology</displayed-value>
-        <stored-value>Molecular Biology</stored-value>
+        <displayed-value>Scientific Communication</displayed-value>
+        <stored-value>Scientific Communication</stored-value>
       </pair>
       <pair>
-        <displayed-value>Molecular Genetics</displayed-value>
-        <stored-value>Molecular Genetics</stored-value>
+        <displayed-value>Spectroscopy</displayed-value>
+        <stored-value>Spectroscopy</stored-value>
       </pair>
       <pair>
-        <displayed-value>Natural history </displayed-value>
-        <stored-value>Natural history </stored-value>
+        <displayed-value>Surface Chemistry</displayed-value>
+        <stored-value>Surface Chemistry</stored-value>
       </pair>
       <pair>
-        <displayed-value>Parasitology</displayed-value>
-        <stored-value>Parasitology</stored-value>
+        <displayed-value>Teaching STEM</displayed-value>
+        <stored-value>Teaching STEM</stored-value>
       </pair>
       <pair>
-        <displayed-value>Plant Biochemistry</displayed-value>
-        <stored-value>Plant Biochemistry</stored-value>
+        <displayed-value>Theoretical Chemistry</displayed-value>
+        <stored-value>Theoretical Chemistry</stored-value>
       </pair>
       <pair>
-        <displayed-value>Plant Physiology</displayed-value>
-        <stored-value>Plant Physiology</stored-value>
+        <displayed-value>Other</displayed-value>
+        <stored-value>Other</stored-value>
+      </pair>
+    </value-pairs>
+
+    <value-pairs value-pairs-name="Math - subjects" dc-term="identifier">
+      <pair>
+        <displayed-value>Abstract Algebra</displayed-value>
+        <stored-value>Abstract Algebra</stored-value>
       </pair>
       <pair>
-        <displayed-value>Systematics &amp; Phylogenetics</displayed-value>
-        <stored-value>Systematics &amp; Phylogenetics</stored-value>
+        <displayed-value>Analysis</displayed-value>
+        <stored-value>Analysis</stored-value>
       </pair>
       <pair>
-        <displayed-value>Vertebrate biology</displayed-value>
-        <stored-value>Vertebrate biology</stored-value>
+        <displayed-value>Applied Mathematics</displayed-value>
+        <stored-value>Applied Mathematics</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Calculus</displayed-value>
+        <stored-value>Calculus</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Complex Analysis</displayed-value>
+        <stored-value>Complex Analysis</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Data Analysis</displayed-value>
+        <stored-value>Data Analysis</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Discrete Mathematics</displayed-value>
+        <stored-value>Discrete Mathematics</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Dynamical Systems</displayed-value>
+        <stored-value>Dynamical Systems</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Ethics</displayed-value>
+        <stored-value>Ethics</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Geometry</displayed-value>
+        <stored-value>Geometry</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>History of Mathematics</displayed-value>
+        <stored-value>History of Mathematics</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Laboratory</displayed-value>
+        <stored-value>Laboratory</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Linear Algebra</displayed-value>
+        <stored-value>Linear Algebra</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Mathematical Proof</displayed-value>
+        <stored-value>Mathematical Proof</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Number Theory</displayed-value>
+        <stored-value>Number Theory</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Numerical Methods</displayed-value>
+        <stored-value>Numerical Methods</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Ordinary Differential Equations</displayed-value>
+        <stored-value>Ordinary Differential Equations</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Partial Differential Equations</displayed-value>
+        <stored-value>Partial Differential Equations</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Pre-Calculus</displayed-value>
+        <stored-value>Pre-Calculus</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Probability</displayed-value>
+        <stored-value>Probability</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Research Projects and Methods</displayed-value>
+        <stored-value>Research Projects and Methods</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Scientific Communication</displayed-value>
+        <stored-value>Scientific Communication</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Teaching STEM</displayed-value>
+        <stored-value>Teaching STEM</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Topology</displayed-value>
+        <stored-value>Topology</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Other</displayed-value>
+        <stored-value>Other</stored-value>
+      </pair>
+    </value-pairs>
+
+    <value-pairs value-pairs-name="EOAES - subjects" dc-term="identifier">
+      <pair>
+        <displayed-value>Atmospheric Science</displayed-value>
+        <stored-value>Atmospheric Science</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Climate Science</displayed-value>
+        <stored-value>Climate Science</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Data Analysis</displayed-value>
+        <stored-value>Data Analysis</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Environmental Science</displayed-value>
+        <stored-value>Environmental Science</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Ethics</displayed-value>
+        <stored-value>Ethics</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Field Methods and Techniques</displayed-value>
+        <stored-value>Field Methods and Techniques</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Geobiology</displayed-value>
+        <stored-value>Geobiology</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Geochemistry</displayed-value>
+        <stored-value>Geochemistry</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Geological Engineering</displayed-value>
+        <stored-value>Geological Engineering</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Geophysics</displayed-value>
+        <stored-value>Geophysics</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Geoscience Education</displayed-value>
+        <stored-value>Geoscience Education</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Glaciology</displayed-value>
+        <stored-value>Glaciology</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Hydrogeology</displayed-value>
+        <stored-value>Hydrogeology</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Laboratory</displayed-value>
+        <stored-value>Laboratory</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Meteorology</displayed-value>
+        <stored-value>Meteorology</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Mineralogy</displayed-value>
+        <stored-value>Mineralogy</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Natural Disasters</displayed-value>
+        <stored-value>Natural Disasters</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Numerical Techniques</displayed-value>
+        <stored-value>Numerical Techniques</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Oceanography</displayed-value>
+        <stored-value>Oceanography</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Paleontology</displayed-value>
+        <stored-value>Paleontology</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Petrology</displayed-value>
+        <stored-value>Petrology</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Planetary Science</displayed-value>
+        <stored-value>Planetary Science</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Remote Sensing</displayed-value>
+        <stored-value>Remote Sensing</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Research Projects and Methods</displayed-value>
+        <stored-value>Research Projects and Methods</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Scientific Communication</displayed-value>
+        <stored-value>Scientific Communication</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Sedimentology</displayed-value>
+        <stored-value>Sedimentology</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Seismology</displayed-value>
+        <stored-value>Seismology</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Teaching STEM</displayed-value>
+        <stored-value>Teaching STEM</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Time</displayed-value>
+        <stored-value>Time</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>Volcanology</displayed-value>
+        <stored-value>Volcanology</stored-value>
       </pair>
       <pair>
         <displayed-value>Other</displayed-value>
