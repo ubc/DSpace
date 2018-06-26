@@ -9,8 +9,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -53,33 +51,35 @@ public class ImportCommunitiesCollectionsServlet extends DSpaceServlet {
             SQLException, AuthorizeException
     {
 		boolean isSuccess = true;
-		List<String> errorMsgs = new ArrayList<String>();
+		String retMsg = "";
 
         String contentType = request.getContentType();
-        if ((contentType != null) &&
-			(contentType.indexOf("multipart/form-data") != -1))
-		{
-			log.debug("I think this request has a file upload");
-		}
-		else
-		{
-			log.debug("This request doesn't seem to have a file upload");
-		}
 		try {
-			// Don't know how to use the fancier resumable.js upload, so using
-			// the simple upload type. This might cause issues on our deployment
-			// servers as the load balancer has a request size limit of 1MiB, so
-			// files larger than that might fail. Given that the initial CWSEI
-			// import file tops out at 557KiB, I'm not going to worry about
-			// larger files for now.
 			log.debug("Processing Communities/Collections CSV Import File.");
-			FileUploadRequest fileUploadReq = new FileUploadRequest(request);
-			File csvFile = fileUploadReq.getFile("file");
+			File csvFile;
+			FlowJSHandler uploadHandler = new FlowJSHandler(request);
+			if (uploadHandler.isFlowJSRequest())
+			{
+				log.debug("Processing as a flow.js request.");
+				uploadHandler.processChunk();
+				if (uploadHandler.isComplete()) 
+					csvFile = uploadHandler.getFile();
+				else
+				{
+					response.setContentType("text/plain"); // avoid the unable to parse xml error msgs in javascript console
+					return;
+				}
+			}
+			else
+			{
+				response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+				return;
+			}
 			CommunityAndCollectionCSVImporter csvImporter =
 					new CommunityAndCollectionCSVImporter(context);
 
 			String importToggle =
-					fileUploadReq.getParameter(TOGGLE_COMMUNITIES_COLLECTIONS);
+					request.getParameter(TOGGLE_COMMUNITIES_COLLECTIONS);
 			log.debug("Import Toggle: " + importToggle);
 			if (csvFile == null)
 			{
@@ -100,23 +100,28 @@ public class ImportCommunitiesCollectionsServlet extends DSpaceServlet {
 		} catch (FileUploadBase.FileSizeLimitExceededException ex) {
 			isSuccess = false;
 			log.error(ex);
-			request.setAttribute("error",
-					"File size too large: " + ex.getMessage());
+			retMsg = "File size too large: " + ex.getMessage();
 		} catch (FileNotFoundException ex) {
 			isSuccess = false;
 			log.error(ex);
-			request.setAttribute("error",
-				"Upload failed with server error, couldn't find uploaded CSV");
+			retMsg = "Upload failed with server error, couldn't find uploaded CSV";
 		} catch (ImportCSVException ex) {
 			isSuccess = false;
 			log.error(ex);
-			request.setAttribute("error", ex.getMessage());
+			retMsg = ex.getMessage();
 		}
-		setImportTypeConstants(request);
-		setCSVHeaderConstants(request);
-		request.setAttribute("isSuccess", isSuccess);
-		JSPManager.showJSP(request, response,
-				"/ubc/dspace-admin/import-communities-collections.jsp");
+
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		if (isSuccess)
+		{
+			response.getWriter().write("{\"success\":\"true\"}");
+		}
+		else 
+		{
+			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+			response.getWriter().write("{\"error\":\""+retMsg+"\"}");
+		}
     }
 
 	private void setImportTypeConstants(HttpServletRequest request)
