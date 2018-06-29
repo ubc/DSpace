@@ -78,6 +78,13 @@ public class FlowJSHandler
 		if (flowChunkNumber >= flowTotalChunks) isComplete = true;
 	}
 
+	public static boolean isFlowJSRequest(HttpServletRequest request)
+	{
+		if (request.getParameter("flowIdentifier") != null)
+			return true;
+		return false;
+	}
+
 	public boolean isFlowJSRequest()
 	{
 		return isFlowJSRequest;
