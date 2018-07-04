@@ -663,6 +663,9 @@
 
       if (fieldCount == 0)
          fieldCount = 1;
+	  // default to 4 fields cause clicking "Add More" is annoying
+	  if (fieldCount == 1 && repeatable)
+		  fieldCount = 4;
 
 	  // enable basic TinyMCE for certain fields
 	  if (fieldName.equals("dcterms_requires") ||
