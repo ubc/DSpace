@@ -107,7 +107,7 @@
         <table class="table" align="center" summary="Table dispalying your submitted files">
             <tr>
 				<%-- Primary Bitstream --%>
-				<th id="t1" class="oddRowEvenCol"><fmt:message key="jsp.submit.upload-file-list.tableheading1"/></th>
+				<%-- <th id="t1" class="oddRowEvenCol"><fmt:message key="jsp.submit.upload-file-list.tableheading1"/></th> --%>
 				<%-- File Name --%>
                 <th id="t2" class="oddRowOddCol"><fmt:message key="jsp.submit.upload-file-list.tableheading2"/></th>
 				<%-- File Size --%>
@@ -178,6 +178,7 @@
 		pageContext.setAttribute("bitstreamID", bitstreams[i].getID());
 %>
             <tr>
+		<%-- Hide primary bitstream, cause users don't know what it means
 		<td headers="t1" class="<%= row %>RowEvenCol" align="center">
 		    <input class="form-control" type="radio" name="primary_bitstream_id" value="<%= bitstreams[i].getID() %>"
 			   <% if (bundles[0] != null) {
@@ -186,6 +187,7 @@
 			   <%   }
 			      } %> />
 		</td>
+		--%>
                 <td headers="t2" class="<%= row %>RowOddCol">
                 	<a href="<%= request.getContextPath() %>/retrieve/<%= bitstreams[i].getID() %>/<%= org.dspace.app.webui.util.UIUtil.encodeBitstreamName(bitstreams[i].getName()) %>" target="_blank"><%= bitstreams[i].getName() %></a>
             <%      // Don't display "remove" button in workflow mode
@@ -272,6 +274,7 @@
         <p class="uploadHelp"><fmt:message key="jsp.submit.upload-file-list.info3"/></p>
         <ul class="uploadHelp">
             <li class="uploadHelp"><fmt:message key="jsp.submit.upload-file-list.info4"/></li>
+<%-- Hide checksum mechanism, cause users don't know what it means
 <%
         if (showChecksums)
         {
@@ -289,6 +292,7 @@
 <%
         }
 %>
+--%>
         </ul>
         <br />
 <%
