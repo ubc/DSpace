@@ -397,8 +397,10 @@
                 </div>
                 <div id="resumable-upload">
                       <div class="resumable-drop col-md-12" ondragenter="jQuery(this).addClass('resumable-dragover');" ondragend="jQuery(this).removeClass('resumable-dragover');" ondrop="jQuery(this).removeClass('resumable-dragover');">
-                          <span class="glyphicon glyphicon-upload"></span>
-                          <a class="resumable-browse"><fmt:message key="jsp.submit.choose-file.upload-resumable.button.select-file"/></a>
+						  <a class="resumable-browse">
+							  <span class="glyphicon glyphicon-upload"></span>
+							  <fmt:message key="jsp.submit.choose-file.upload-resumable.button.select-file"/>
+						  </a>
                       </div>
                 </div>
             
