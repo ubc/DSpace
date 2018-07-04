@@ -12,8 +12,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.jsp.PageContext;
 import org.apache.log4j.Logger;
+import org.dspace.app.webui.ubc.FileSizeTag;
 import org.dspace.ubc.UBCAccessChecker;
 import org.dspace.app.webui.util.UIUtil;
 import org.dspace.content.Bundle;
@@ -97,7 +97,7 @@ public class ItemBitstreamRetriever {
 		Bundle[] thumbs) throws UnsupportedEncodingException {
 		String bsLink = request.getContextPath();
 		String bsThumb = "";
-		String size = UIUtil.formatFileSize(bitstream.getSize());
+		String size = FileSizeTag.humanReadableByteCount(bitstream.getSize());
 		// Skip internal types
 		// Work out what the bitstream link should be
 		// (persistent ID if item has Handle)
