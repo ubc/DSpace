@@ -28,9 +28,9 @@ public class SubjectResult {
 			level3 = splits[2];
 		}
 		else {
-			level1 = "Error";
-			level2 = "Invalid Subject";
-			level3 = subject;
+			level1 = subject;
+			level2 = "";
+			level3 = "";
 		}
 		this.subject = subject;
 	}
