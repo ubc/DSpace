@@ -1457,16 +1457,15 @@
 				else
 					dateIssued = new org.dspace.content.DCDate("");
 			}
-			request.setAttribute("required", required);
-			request.setAttribute("repeatable", repeatable);
-			request.setAttribute("readonly", readonly);
-			request.setAttribute("label", label);
-			request.setAttribute("fieldCount", fieldCount);
-			request.setAttribute("fieldName", fieldName);
+			request.setAttribute("dateIsRequired", required);
+			request.setAttribute("dateFieldLabel", label);
+			request.setAttribute("dateFieldCount", fieldCount);
+			request.setAttribute("dateFieldName", fieldName);
 			request.setAttribute("dateIssued", dateIssued);
 			if (!repeatable)
 			{
 		%>
+		<%-- WARNING, breaks "Previous" button: see date.jsp for more
 			<jsp:include page="/ubc/statspace/components/metadata-inputs/date.jsp">
 				<jsp:param name="isRequired" value="${required}" />
 				<jsp:param name="isRepeatable" value="${repeatable}" />
@@ -1479,6 +1478,63 @@
 				<jsp:param name="curDay" value="${dateIssued.day}" />
 				<jsp:param name="curYear" value="${dateIssued.year}" />
 			</jsp:include>
+		--%>
+ <div class='row'>
+	 <!-- Field Label -->
+	<label class='col-md-2 <c:if test="${dateIsRequired}">label-required</c:if>' >
+		${dateFieldLabel}
+	</label>
+	<!-- Controls -->
+	<div class='col-md-10'>
+		<%-- The API expects the date to be split up into month, day, and year fields.
+			Configure the expected field names here. --%>
+		<c:set var='fieldNameMonth' value='${dateFieldName}_month' />
+		<c:set var='fieldNameDay' value='${dateFieldName}_day' />
+		<c:set var='fieldNameYear' value='${dateFieldName}_year' />
+		<c:set var='fieldNamePopup' value='${dateFieldName}_popup' />
+
+		<div class='col-md-12 form-inline'>
+			<!-- Input Elements -->
+			<div class='input-group col-md-10'>
+				<div>
+					<input class='form-control' type='text' id='${fieldNamePopup}' />
+					<script>
+						jQuery(function() {
+							jQuery('#${fieldNamePopup}').datepicker({
+								changeMonth: true,
+								changeYear: true,
+								dateFormat: 'yy-mm-dd',
+								maxDate: 0,
+								yearRange: "c-50:c+50",
+								onSelect: function(dateText, inst) { 
+									var date = jQuery(this).datepicker('getDate'),
+											day  = date.getDate(),  
+											month = date.getMonth() + 1,              
+											year =  date.getFullYear();
+									console.log(day + '-' + month + '-' + year);
+									jQuery('#${fieldNameYear}').val(year);
+									jQuery('#${fieldNameMonth}').val(month);
+									jQuery('#${fieldNameDay}').val(day);
+								}
+							});
+							<c:if test='${dateIssued.year > 0}'>
+							jQuery('#${fieldNamePopup}').datepicker("setDate", "${dateIssued.year}-${dateIssued.month}-${dateIssued.day}");
+							</c:if>
+						});
+					</script>
+				</div>
+				<div class='hidden'>
+					<!-- Month -->
+					<input type='text' id='${fieldNameMonth}' name='${fieldNameMonth}' value='<c:if test='${dateIssued.month > 0}'>${dateIssued.month}</c:if>' />
+					<!-- Day -->
+					<input type='text' id='${fieldNameDay}' name='${fieldNameDay}' value='<c:if test='${dateIssued.day > 0}'>${dateIssued.day}</c:if>' />
+					<!-- Year -->
+					<input type='text' id='${fieldNameYear}' name='${fieldNameYear}' value='<c:if test='${dateIssued.year > 0}'>${dateIssued.year}</c:if>' />
+				</div>
+			</div>
+		</div>
+	</div>
+ </div>
 		<%
 			}
 			else

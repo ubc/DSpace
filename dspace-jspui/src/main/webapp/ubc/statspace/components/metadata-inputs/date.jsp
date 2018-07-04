@@ -1,6 +1,29 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
+<%--
+WARNING: Unused because the jsp:include breaks the "Previous" button.
+It seems that parameters set in jsp:include in scriptlets doesn't take effect
+for jsp:include somehow?! They print correctly when used directly in the jsp.
+For now, workaround is to just put this stuff directly into edit-metadata.jsp
+Revisit later if possible.
+
+Repeatable and readOnly support is also incomplete, so only usable for single entries.
+
+Example include:
+	<jsp:include page="/ubc/statspace/components/metadata-inputs/date.jsp">
+		<jsp:param name="isRequired" value="${required}" />
+		<jsp:param name="isRepeatable" value="${repeatable}" />
+		<jsp:param name="isReadonly" value="${readonly}" />
+		<jsp:param name="fieldLabel" value="${label}" />
+		<jsp:param name="fieldCount" value="${fieldCount}" />
+		<jsp:param name="fieldName" value="${fieldName}" />
+		<jsp:param name="monthNamesVar" value="monthNames" />
+		<jsp:param name="curMonth" value="${dateIssued.month}" />
+		<jsp:param name="curDay" value="${dateIssued.day}" />
+		<jsp:param name="curYear" value="${dateIssued.year}" />
+	</jsp:include>
+--%>
 <c:set var="monthNames" value="${requestScope[param.monthNamesVar]}"></c:set>
 
  <div class='row'>
