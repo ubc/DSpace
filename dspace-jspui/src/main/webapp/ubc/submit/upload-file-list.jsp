@@ -40,6 +40,7 @@
 <%@ taglib uri="http://www.dspace.org/dspace-tags.tld" prefix="dspace" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="/WEB-INF/file-size-formatter.tld" prefix="sz" %>
 
 <%
     // Obtain DSpace context
@@ -175,7 +176,7 @@
         // Full param to dspace:popup must be single variable
         String supportLevelLink = LocaleSupport.getLocalizedMessage(pageContext, "help.formats") +"#" + supportLevel;
 
-		pageContext.setAttribute("bitstreamID", bitstreams[i].getID());
+		pageContext.setAttribute("bitstream", bitstreams[i]);
 %>
             <tr>
 		<td headers="t1" class="<%= row %>RowEvenCol" align="center">
@@ -198,11 +199,11 @@
 			<%
 			        } %>	
                 </td>
-                <td headers="t3" class="<%= row %>RowEvenCol"><%= bitstreams[i].getSize() %> bytes</td>
+                <td headers="t3" class="<%= row %>RowEvenCol">${sz:humanReadableByteCount(bitstream.size)}</td>
 				<%-- Restricted Access --%>
 				<c:if test="${!disablePerFileRestriction}">
 					<td class="text-center">
-						<c:if test="${isRestrictedAccess[bitstreamID]}">
+						<c:if test="${isRestrictedAccess[bitstream.ID]}">
 							<i class="glyphicon glyphicon-lock text-danger" title="<fmt:message key="jsp.submit.upload-file-list.tooltip.restricted"/>"></i>
 						</c:if>
 					</td>
