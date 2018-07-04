@@ -357,12 +357,31 @@
     if (cc_url != null)
     {
 %>
-    <p class="submitFormHelp alert alert-info"><fmt:message key="jsp.display-item.text3"/> <a href="<%= cc_url %>"><fmt:message key="jsp.display-item.license"/></a>
-    <a href="<%= cc_url %>"><img src="<%= request.getContextPath() %>/image/cc-somerights.gif" border="0" alt="Creative Commons" style="margin-top: -5px;" class="pull-right"/></a>
-    </p>
-    <!--
-    <%= cc_rdf %>
-    -->
+	<c:choose>
+		<c:when test="${not empty licenseInfo}">
+			<div class="submitFormHelp alert alert-info">
+				<div class="media">
+					<div class="media-left">
+						<a href="<c:url value='${licenseInfo.licenseUrl}' />" target="_blank">
+							<img src="<c:url value='${licenseInfo.badgeUrl}' />" alt="${licenseInfo.shortName} Commons" class="media-object" />
+						</a>
+					</div>
+					<div class="media-body">
+						<fmt:message key="jsp.display-item.text3"/>
+						<a href="<c:url value='${licenseInfo.licenseUrl}' />">${licenseInfo.fullName} (${licenseInfo.shortName})</a>
+					</div>
+				</div>
+			</div>
+		</c:when>
+		<c:otherwise>
+			<p class="submitFormHelp alert alert-info"><fmt:message key="jsp.display-item.text3"/> <a href="<%= cc_url %>"><fmt:message key="jsp.display-item.license"/></a>
+			<a href="<%= cc_url %>"><img src="<%= request.getContextPath() %>/image/cc-somerights.gif" border="0" alt="Creative Commons" style="margin-top: -5px;" class="pull-right"/></a>
+			</p>
+			<!--
+			<%= cc_rdf %>
+			-->
+		</c:otherwise>
+	</c:choose>
 <%
     } else {
 %>
