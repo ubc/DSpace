@@ -12,8 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.jsp.PageContext;
 import org.apache.log4j.Logger;
+import org.dspace.app.webui.ubc.license.UBCLicenseInfo;
+import org.dspace.app.webui.ubc.license.UBCLicenseUtil;
 
 import org.dspace.content.Item;
 
@@ -45,6 +46,7 @@ public class ItemRetriever {
 	private String whatWeLearned = "";
 	private String dateCreated = "";
 	private String dateSubmitted = "";
+	private String license = "";
 	private boolean isRestricted = false;
 	private List<SubjectResult> subjects = new ArrayList<>();
 	private List<BitstreamResult> files;
@@ -83,6 +85,7 @@ public class ItemRetriever {
 		description = getSingleValue("dc.description");
 		whatWeLearned = getSingleValue("dcterms.instructionalMethod");
 		dateCreated = getSingleValue("dc.date.created");
+		license = getSingleValue("dc.rights");
 		isRestricted = UBCAccessChecker.isRestricted(item);
 
 		dateSubmitted = getSingleValue("dc.date.submitted");
@@ -138,6 +141,12 @@ public class ItemRetriever {
 	}
 	public String getDateSubmitted() {
 		return dateSubmitted;
+	}
+	public String getLicense() {
+		return license;
+	}
+	public UBCLicenseInfo getLicenseInfo() {
+		return UBCLicenseUtil.getLicense(license);
 	}
 	public boolean getIsRestricted() {
 		return isRestricted;

@@ -15,39 +15,105 @@
 		<fmt:message key="jsp.dspace-admin.import-communities-collections.title"/>
 	</h1>
 	<h2>Upload CSV</h2>
-	<c:if test="${not empty error}">
-		<div class="alert alert-danger" role="alert">
-			<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-			<span class="sr-only">Error:</span>
-			${error}
-		</div>
-	</c:if>
-	<c:if test="${isSuccess}">
-		<div class="alert alert-success" role="alert">
-			<span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
-			<span class="sr-only">Success:</span>
-			Import was successful!
-		</div>
-	</c:if>
-    <form method="post" action="<%= request.getContextPath() %>/dspace-admin/import-communities-collections" enctype="multipart/form-data">
-        <div class="form-group" id="input-file">
-			<label for="file"><fmt:message key="jsp.dspace-admin.batchmetadataimport.selectfile"/></label>
-            <input class="form-control" type="file" size="40" name="file"/>
-        </div>
-		<div class="form-group">
-			<label>What are you importing:
-				<label class="radio-inline">
-					<input type="radio" name="${TOGGLE_COMMUNITIES_COLLECTIONS}" value="${IMPORT_COMMUNITIES}" />
-					Communities
-				</label>
-				<label class="radio-inline">
-					<input type="radio" name="${TOGGLE_COMMUNITIES_COLLECTIONS}" value="${IMPORT_COLLECTIONS}" checked />
-					Collections
-				</label>
+	<!-- File Selection Area -->
+	<div id='dropTarget' class='text-center well well-lg'>
+		<h3>
+			<span class='btn btn-primary' id='browseButton'>Browse</span> or drag &amp; drop CSV here.
+		</h3>
+	</div>
+	<!-- Import Type Selection Area -->
+	<div class="form-group">
+		<label>What are you importing:
+			<label class="radio-inline">
+				<input type="radio" name="${TOGGLE_COMMUNITIES_COLLECTIONS}" value="${IMPORT_COMMUNITIES}" />
+				Communities
 			</label>
+			<label class="radio-inline">
+				<input type="radio" name="${TOGGLE_COMMUNITIES_COLLECTIONS}" value="${IMPORT_COLLECTIONS}" checked />
+				Collections
+			</label>
+		</label>
+	</div>
+	<!-- File Upload Status Display Area -->
+	<div id='fileStatus' class='row hidden'>
+		<div class='col-sm-4 text-center' id='statusFilename'>Some File Name</div>
+		<div class='col-sm-2 text-center' id='statusProgressText'>
+			Status
 		</div>
-        <input class="btn btn-success" type="submit" name="submit" value="<fmt:message key="jsp.dspace-admin.general.upload"/>" />
-    </form>
+		<div class='col-sm-6'>
+			<div class="progress">
+				<div id='statusProgress' class="progress-bar" role="progressbar"
+					aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+					style="width: 60%; min-width: 2em">
+					60%
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id='fileStatusError' class="alert alert-danger hidden" role="alert">
+		<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+		<span class="sr-only">Error:</span>
+		<span class='messageSpan'>Unknown error occurred while processing upload.</span>
+	</div>
+	<div id='fileStatusSuccess' class="alert alert-success hidden" role="alert">
+		<span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
+		<span class="sr-only">Success:</span>
+		<span class='messageSpan'>Import was successful!</span>
+	</div>
+	<script src='<c:url value="/static/ubc/lib/flow.min.js" />' type="text/javascript"></script>
+	<script>
+		jQuery(function() {	
+			var updateProgress = function (percent) {
+				var percentage = Math.round(100 * percent);
+				progressBarElem.css('width', percentage + '%')
+				progressBarElem.text(percentage + '%')
+			};
+			var flow = new Flow({
+				target: '<c:url value="/dspace-admin/import-communities-collections" />',
+				singleFile: true,
+				forceChunkSize: true,
+				chunkSize: 1024*1000,
+				testChunks: false,
+				method: "octet",
+				query: function(file, chunk, isTest) {
+					return {
+						"${TOGGLE_COMMUNITIES_COLLECTIONS}": jQuery("input:radio[name='${TOGGLE_COMMUNITIES_COLLECTIONS}']:checked").val()
+					};
+				}
+			});
+			var filenameElem = jQuery('#statusFilename')
+			var progressBarElem = jQuery('#statusProgress');
+			var progressTextElem = jQuery('#statusProgressText');
+			var statusSuccessElem = jQuery('#fileStatusSuccess')
+			var statusErrorElem = jQuery('#fileStatusError')
+			var statusSuccessMsg = jQuery('#fileStatusSuccess .messageSpan')
+			var statusErrorMsg = jQuery('#fileStatusError .messageSpan')
+			flow.assignBrowse(document.getElementById('browseButton'), false, true);
+			flow.assignDrop(document.getElementById('dropTarget'));
+			flow.on('fileAdded', function(file, event){
+				filenameElem.text(file.name);
+				progressTextElem.text('Uploading')
+				updateProgress(0);
+				jQuery('#fileStatus').removeClass('hidden');
+				statusSuccessElem.addClass('hidden');
+				statusErrorElem.addClass('hidden');
+			});
+			flow.on('filesSubmitted', function(array, event){
+				flow.upload();
+			});
+			flow.on('fileProgress', function(file, chunk){
+				updateProgress(flow.progress());
+			});
+			flow.on('fileSuccess', function(file,message){
+				statusSuccessElem.removeClass('hidden');
+			});
+			flow.on('fileError', function(file, message){
+				var retObj = JSON.parse(message);
+				statusErrorMsg.text(retObj.error);
+				statusErrorElem.removeClass('hidden');
+			});
+		});
+	</script>
 	<h2>Preparing the CSV File</h2>
 	<p>
 		The import CSV file should follow RFC4180. In short: use double quotes

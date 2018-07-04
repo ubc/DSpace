@@ -23,6 +23,7 @@ import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.dspace.app.util.GoogleMetadata;
+import org.dspace.app.webui.ubc.retriever.ItemRetriever;
 import org.dspace.ubc.UBCAccessChecker;
 import org.dspace.app.webui.util.Authenticate;
 import org.dspace.app.webui.util.JSPManager;
@@ -563,7 +564,9 @@ public class HandleServlet extends DSpaceServlet
         request.setAttribute("dspace.layout.head", headMetadata);
 		//JSPManager.showJSP(request, response, "/display-item.jsp");
 
-		request.setAttribute("itemRetriever", new ItemRetriever(context, request, item));
+		ItemRetriever itemRetriever = new ItemRetriever(context, request, item);
+		request.setAttribute("itemRetriever", itemRetriever);
+		request.setAttribute("licenseInfo", itemRetriever.getLicenseInfo());
 		request.setAttribute("hasAdminAccess", accessChecker.hasAdminAccess());
         JSPManager.showJSP(request, response, "/ubc/statspace/display-item.jsp");
     }

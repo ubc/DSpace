@@ -15,6 +15,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -27,6 +28,7 @@ import org.dspace.app.webui.util.JSPManager;
 import org.dspace.app.webui.util.FileUploadRequest;
 import org.dspace.app.itemimport.BTEBatchImportService;
 import org.dspace.app.itemimport.ItemImport;
+import org.dspace.app.webui.ubc.importer.FlowJSHandler;
 import org.dspace.authorize.AuthorizeException;
 import org.dspace.content.Collection;
 import org.dspace.core.*;
@@ -41,6 +43,8 @@ public class BatchImportServlet extends DSpaceServlet
 {
     /** log4j category */
     private static Logger log = Logger.getLogger(BatchImportServlet.class);
+
+	public static String BATCH_IMPORT_JSP = "/ubc/dspace-admin/batchimport.jsp";
 
     /**
      * Respond to a post request for metadata bulk importing via csv
@@ -58,175 +62,68 @@ public class BatchImportServlet extends DSpaceServlet
             HttpServletResponse response) throws ServletException, IOException,
             SQLException, AuthorizeException
     {
+		// Check what type of import we're dealing with.
+		String TYPE_ZIP_URL = "ZIPURL"; // zip file hosted on a remote server
+		String TYPE_FLOWJS = "FLOWJS"; // file uploaded by flow.js
+		String TYPE_UNKNOWN = "UNKNOWN"; // unknown type
+		String importType = TYPE_UNKNOWN;
 
-    	// First, see if we have a multipart request (uploading a metadata file)
-    	String contentType = request.getContentType();
-    	if ((contentType != null) && (contentType.indexOf("multipart/form-data") != -1))
-    	{
-    		String message = null;
+		String inputType = request.getParameter("inputType");
+		if (inputType != null && inputType.equals("saf")) 
+			importType = TYPE_ZIP_URL;
+		else if (FlowJSHandler.isFlowJSRequest(request))
+			importType = TYPE_FLOWJS;
+		
+		// Stop here if we don't know what type of import
+		if (importType.equals(TYPE_UNKNOWN))
+		{
+			request.setAttribute("has-error", "true");
+			request.setAttribute("message", "Unknown import type being used.");
+			JSPManager.showJSP(request, response, BATCH_IMPORT_JSP);
+			return;
+		}
 
-    		// Process the file uploaded
-    		try {
-    			// Wrap multipart request to get the submission info
-    			FileUploadRequest wrapper = new FileUploadRequest(request);
+		// Parse shared parameters that are necessary for calling the importer
+		List<String> reqCollectionsTmp = getRepeatedParameter(request, "collections", "collections");
+		String[] reqCollections = new String[reqCollectionsTmp.size()];
+		String uploadId = request.getParameter("uploadId");
+		Collection owningCollection = null;
 
-    			String inputType = wrapper.getParameter("inputType");
-    			List<String> reqCollectionsTmp = getRepeatedParameter(wrapper, "collections", "collections");
-    			String[] reqCollections = new String[reqCollectionsTmp.size()];
-    			reqCollectionsTmp.toArray(reqCollections);
-    			
-    			//Get all collections
-    	    	List<Collection> collections = null;
-    	    	String colIdS = wrapper.getParameter("colId");
-    	    	if (colIdS!=null){
-    	    		collections = new ArrayList<Collection>();
-    	    		collections.add(Collection.find(context, Integer.parseInt(colIdS)));
+		reqCollectionsTmp.toArray(reqCollections);
 
-    	    	}
-    	    	else {
-    	    		collections = Arrays.asList(Collection.findAll(context));
-    	    	}
-    	    	request.setAttribute("collections", collections);
-    	    	
-    	    	
-    	    	Collection owningCollection = null;
-    			if (wrapper.getParameter("collection") != null) {
-    				int colId = Integer.parseInt(wrapper.getParameter("collection"));
-    				if (colId > 0)
-    					owningCollection = Collection.find(context, colId);
-    			}
-    			
-    	    	//Get all the possible data loaders from the Spring configuration
-        		BTEBatchImportService dls  = new DSpace().getSingletonService(BTEBatchImportService.class);
-        		List<String> inputTypes =dls.getFileDataLoaders();
-        		request.setAttribute("input-types", inputTypes);
-        		
-        		if (reqCollectionsTmp!=null)
-        			request.setAttribute("otherCollections", reqCollectionsTmp);
-        		if (owningCollection!=null)
-        			request.setAttribute("owningCollection", owningCollection.getID());
-        		request.setAttribute("inputType", inputType);
-        		
-        		File f = null;
-    			String zipurl = null;
+		if (request.getParameter("collection") != null) {
+			int colId = Integer.parseInt(request.getParameter("collection"));
+			if (colId > 0)
+				owningCollection = Collection.find(context, colId);
+		}
 
-    			if (inputType.equals("saf")){
-    				zipurl = wrapper.getParameter("zipurl");
-    				if (StringUtils.isEmpty(zipurl)) {
-    					request.setAttribute("has-error", "true");
-    					Locale locale = request.getLocale();
-    					ResourceBundle msgs = ResourceBundle.getBundle("Messages", locale);
-    					try {
-    						message = msgs.getString("jsp.layout.navbar-admin.batchimport.fileurlempty");
-    					} catch (Exception e) {
-    						message = "???jsp.layout.navbar-admin.batchimport.fileurlempty???";
-    					}
-    					
-    					request.setAttribute("message", message);
+		// Deal with remotely hosted zip file url
+		if (importType.equals(TYPE_ZIP_URL))
+		{
+			processZipUrl(context, request, response, owningCollection,
+				reqCollections, uploadId);
+			return;
+		}
 
-        				JSPManager.showJSP(request, response, "/dspace-admin/batchimport.jsp");
-
-        				return;
-    				}
-    			}
-    			else {
-    				f = wrapper.getFile("file");
-    				if (f == null) {
-    					request.setAttribute("has-error", "true");
-    					Locale locale = request.getLocale();
-    					ResourceBundle msgs = ResourceBundle.getBundle("Messages", locale);
-    					try {
-    						message = msgs.getString("jsp.layout.navbar-admin.batchimport.fileempty");
-    					} catch (Exception e) {
-    						message = "???jsp.layout.navbar-admin.batchimport.fileempty???";
-    					}
-    					
-    					request.setAttribute("message", message);
-
-        				JSPManager.showJSP(request, response, "/dspace-admin/batchimport.jsp");
-
-        				return;
-    				}
-    				else if (owningCollection==null){
-    					request.setAttribute("has-error", "true");
-    					Locale locale = request.getLocale();
-    					ResourceBundle msgs = ResourceBundle.getBundle("Messages", locale);
-    					try {
-    						message = msgs.getString("jsp.layout.navbar-admin.batchimport.owningcollectionempty");
-    					} catch (Exception e) {
-    						message = "???jsp.layout.navbar-admin.batchimport.owningcollectionempty???";
-    					}
-    					
-    					request.setAttribute("message", message);
-
-        				JSPManager.showJSP(request, response, "/dspace-admin/batchimport.jsp");
-
-        				return;
-    				}
-    			}
-
-    			String uploadId = wrapper.getParameter("uploadId");
-    			if (uploadId != null){
-    				request.setAttribute("uploadId", uploadId);
-    			}
-
-    			if (owningCollection==null && reqCollections != null && reqCollections.length > 0){
-    				request.setAttribute("has-error", "true");
-
-    				Locale locale = request.getLocale();
-    				ResourceBundle msgs = ResourceBundle.getBundle("Messages", locale);
-    				String ms = msgs.getString("jsp.layout.navbar-admin.batchimport.owningcollection");
-    				if (ms == null){
-    					ms = "???jsp.layout.navbar-admin.batchimport.owningcollection???";
-    				}
-    				request.setAttribute("message", ms);
-
-    				JSPManager.showJSP(request, response, "/dspace-admin/batchimport.jsp");
-
-    				return;
-    			}
-
-    			try {
-    				String finalInputType = "saf";
-    				String filePath = zipurl;
-    				if (f!=null){
-    					finalInputType = inputType;
-        				filePath = f.getAbsolutePath();
-    				}
-    				
-    				ItemImport.processUIImport(filePath, owningCollection, reqCollections, uploadId, finalInputType, context);
-    				
-    				request.setAttribute("has-error", "false");
-    				request.setAttribute("uploadId", null);
-
-    			} catch (Exception e) {
-    				request.setAttribute("has-error", "true");
-    				message = e.getMessage();
-    				e.printStackTrace();
-    			}
-    		} catch (FileSizeLimitExceededException e) {
-    			request.setAttribute("has-error", "true");
-    			message = e.getMessage();
-    			e.printStackTrace();
-    		} catch (Exception e) {
-    			request.setAttribute("has-error", "true");
-    			message = e.getMessage();
-    			e.printStackTrace();
-    		}
-
-       		request.setAttribute("message", message);
-
-    		// Show the upload screen
-    		JSPManager.showJSP(request, response, "/dspace-admin/batchimport.jsp");
-
-    	}
-    	else
-    	{
-    		request.setAttribute("has-error", "true");
-
-    		// Show the upload screen
-    		JSPManager.showJSP(request, response, "/dspace-admin/batchimport.jsp");
-    	}
+		// Deal with FlowJS uploaded file
+		try {
+			FlowJSHandler flowHandler = new FlowJSHandler(request);
+			flowHandler.processChunk();
+			if (!flowHandler.isComplete()) return; // wait for next chunk
+			// FlowJS has finished uploading, let's process the file.
+			ItemImport.processUIImport(flowHandler.getFile().getAbsolutePath(),
+				owningCollection, reqCollections, uploadId, inputType, context);
+		} catch (FileSizeLimitExceededException ex) {
+			log.error(ex);
+			sendJSON(response, false, ex.getMessage());
+			return;
+		} catch (Exception ex) {
+			log.error(ex);
+			sendJSON(response, false, ex.getMessage());
+			return;
+		}
+		sendJSON(response, true, "");
+		return;
     }
 
     /**
@@ -248,27 +145,9 @@ public class BatchImportServlet extends DSpaceServlet
             HttpServletResponse response) throws ServletException, IOException,
             SQLException, AuthorizeException
     {
-    	//Get all collections
-		List<Collection> collections = null;
-		String colIdS = request.getParameter("colId");
-		if (colIdS!=null){
-			collections = new ArrayList<Collection>();
-			collections.add(Collection.find(context, Integer.parseInt(colIdS)));
-
-		}
-		else {
-			collections = Arrays.asList(Collection.findAll(context));
-		}
-
-		request.setAttribute("collections", collections);
-
-		//Get all the possible data loaders from the Spring configuration
-		BTEBatchImportService dls  = new DSpace().getSingletonService(BTEBatchImportService.class);
-		List<String> inputTypes = dls.getFileDataLoaders();
-		request.setAttribute("input-types", inputTypes);
-
+		setPageAttributes(context, request);
 		// Show the upload screen
-		JSPManager.showJSP(request, response, "/dspace-admin/batchimport.jsp");
+		JSPManager.showJSP(request, response, BATCH_IMPORT_JSP);
     }
     
     /**
@@ -352,4 +231,108 @@ public class BatchImportServlet extends DSpaceServlet
 
         return vals;
     }
+
+	/**
+	 * Set attributes used to render the batchimport JSP. 
+	 * @param context
+	 * @param request 
+	 */
+	private void setPageAttributes(Context context, HttpServletRequest request)
+		throws SQLException
+	{
+    	//Get all collections
+		List<Collection> collections = null;
+		String colIdS = request.getParameter("colId");
+		if (colIdS!=null){
+			collections = new ArrayList<Collection>();
+			collections.add(Collection.find(context, Integer.parseInt(colIdS)));
+
+		}
+		else {
+			collections = Arrays.asList(Collection.findAll(context));
+		}
+
+		request.setAttribute("collections", collections);
+
+		//Get all the possible data loaders from the Spring configuration
+		BTEBatchImportService dls  = new DSpace().getSingletonService(BTEBatchImportService.class);
+		List<String> inputTypes = dls.getFileDataLoaders();
+		request.setAttribute("input-types", inputTypes);
+	}
+
+	/**
+	 * Respond with JSON for the FlowJS handlers.
+	 * @param response
+	 * @param isSuccess
+	 * @param errorMsg
+	 * @throws IOException 
+	 */
+	private void sendJSON(HttpServletResponse response, boolean isSuccess, String errorMsg) throws IOException
+	{
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		if (isSuccess)
+		{
+			response.getWriter().write("{\"success\":\"true\"}");
+		}
+		else 
+		{
+			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+			response.getWriter().write("{\"error\":\""+errorMsg+"\"}");
+		}
+	}
+
+	/**
+	 * Process a zip file that's hosted on a remote server. Refactored out of
+	 * the doPost method for cleaner organization.
+	 * @param context
+	 * @param request
+	 * @param response
+	 * @param owningCollection
+	 * @param reqCollections
+	 * @param uploadId
+	 * @throws ServletException
+	 * @throws IOException 
+	 */
+	private void processZipUrl(Context context, HttpServletRequest request,
+		HttpServletResponse response, Collection owningCollection,
+		String[] reqCollections, String uploadId)
+		throws ServletException, IOException, SQLException
+	{
+		String zipurl = request.getParameter("zipurl");
+		String message = "";
+		setPageAttributes(context, request);
+		if (StringUtils.isEmpty(zipurl)) {
+			request.setAttribute("has-error", "true");
+			Locale locale = request.getLocale();
+			ResourceBundle msgs = ResourceBundle.getBundle("Messages", locale);
+			try {
+				message = msgs.getString("jsp.layout.navbar-admin.batchimport.fileurlempty");
+			} catch (Exception e) {
+				message = "???jsp.layout.navbar-admin.batchimport.fileurlempty???";
+			}
+			
+			request.setAttribute("message", message);
+
+			JSPManager.showJSP(request, response, BATCH_IMPORT_JSP);
+
+			return;
+		}
+		try {
+			String finalInputType = "saf";
+			String filePath = zipurl;
+			
+			ItemImport.processUIImport(filePath, owningCollection, reqCollections, uploadId, finalInputType, context);
+			
+			request.setAttribute("has-error", "false");
+			request.setAttribute("uploadId", null);
+
+		} catch (Exception e) {
+			request.setAttribute("has-error", "true");
+			message = e.getMessage();
+			e.printStackTrace();
+		}
+		request.setAttribute("message", message);
+		JSPManager.showJSP(request, response, BATCH_IMPORT_JSP);
+	}
 }
