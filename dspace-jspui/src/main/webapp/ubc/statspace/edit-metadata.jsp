@@ -663,19 +663,24 @@
 
       if (fieldCount == 0)
          fieldCount = 1;
-	  // default to 4 fields cause clicking "Add More" is annoying
-	  if (fieldCount == 1 && repeatable)
-		  fieldCount = 4;
-
+	  
 	  // enable basic TinyMCE for certain fields
 	  if (fieldName.equals("dcterms_requires") ||
 			fieldName.equals("dcterms_coverage") ||
 			fieldName.equals("dcterms_isFormatOf") ||
 			fieldName.equals("dcterms_relation")) {
 		  enableTinymce = true;
+		  // default to 4 fields cause clicking "Add More" is annoying
+		  if (fieldCount < 4 && repeatable)
+			  fieldCount = 4;
 	  }
 
-      sb.append("<div class=\"row\"><label class=\"col-md-2"+ (required?" label-required":"") +"\">")
+	  if (fieldName.equals("dc_subject_other"))
+	  {
+		pageContext.setAttribute("subjectsOtherRowId", fieldName+"_row");
+	  }
+
+      sb.append("<div class=\"row\" id='"+fieldName+"_row'><label class=\"col-md-2"+ (required?" label-required":"") +"\">")
         .append(label)
         .append("</label>");
       sb.append("<div class=\"col-md-10\">");  
@@ -1029,14 +1034,14 @@
 						"</div>" +
 						"<div class='form-group'>" +
 							"<select class='form-control' id='" + subjectsLevel2Id + "' disabled>" +
-								"<option id='noSecondLevelOption' selected value>" +
-									"-- None/Other --</option>" +
+								"<option id='noSecondLevelOption' selected value disabled class='hidden'>" +
+									"-- None --</option>" +
 							"</select>" +
 						"</div>" +
 						"<div class='form-group'>" +
 							"<select class='form-control' id='" + subjectsLevel3Id + "' disabled>" +
-								"<option id='noThirdLevelOption' selected value>" +
-									"-- None/Other --</option>" +
+								"<option id='noThirdLevelOption' value>" +
+									"-- None --</option>" +
 							"</select>" +
 						"</div>");
 		if (repeatable) {
@@ -1514,7 +1519,6 @@
 											day  = date.getDate(),  
 											month = date.getMonth() + 1,              
 											year =  date.getFullYear();
-									console.log(day + '-' + month + '-' + year);
 									jQuery('#${fieldNameYear}').val(year);
 									jQuery('#${fieldNameMonth}').val(month);
 									jQuery('#${fieldNameDay}').val(day);
@@ -1611,20 +1615,19 @@
 <%-- Statspace Subjects Selection JavaScript --%>
 <script>
 jQuery(document).ready(function() {
-	var options = <%= pageContext.getAttribute("subjectOptionsJson") %>;
-	var level1Id = '#<%= pageContext.getAttribute("subjectsLevel1Id") %>';
-	var level2Id = '#<%= pageContext.getAttribute("subjectsLevel2Id") %>';
-	var level3Id = '#<%= pageContext.getAttribute("subjectsLevel3Id") %>';
-	var subjectsSelectId = '#<%= pageContext.getAttribute("subjectsSelectId") %>';
-	var subjectsRepeatable = <%= pageContext.getAttribute("subjectsRepeatable") %>; // true if can select multiple subjects,
+	var options = ${subjectOptionsJson};
+	var level1Id = '#${subjectsLevel1Id}';
+	var level2Id = '#${subjectsLevel2Id}';
+	var level3Id = '#${subjectsLevel3Id}';
+	var subjectsSelectId = '#${subjectsSelectId}';
+	var subjectsRepeatable = ${subjectsRepeatable}; // true if can select multiple subjects,
 																				// false otherwise (can only select one)
 	var noLevelVal = "NONE"; // value that indicates there is no 3rd lvl
 									// selected
 	
 	// Reset previous selections back to the default option
 	function resetChildSelect(selectId) {
-		jQuery(selectId + ' option:gt(0)').remove();
-		jQuery(selectId + ' option').prop('selected', 'selected');
+		jQuery(selectId + ' option:not(:last-child)').remove();
 		jQuery(selectId).prop('disabled', true);
 	}
 
@@ -1635,9 +1638,12 @@ jQuery(document).ready(function() {
 			var optionTag = jQuery("<option>").attr("value",k).text(k);
 			if (typeof v == 'string')
 				optionTag.attr("value", v);
-			jQuery(selectId).append(optionTag);
+			jQuery(selectId + ' option:last').before(optionTag);
 		});
-		jQuery(selectId).prop('disabled', false);
+		// only enable the dropdown if there are options to select from
+		if (!jQuery.isEmptyObject(opts))
+			jQuery(selectId).prop('disabled', false);
+		jQuery(selectId + ' option:first').prop('selected', 'selected');
 	}
 
 	function sanitizeForId(str) {
@@ -1710,7 +1716,7 @@ jQuery(document).ready(function() {
 		var selectedVals = jQuery(subjectsSelectId).val();
 		var newVal = jQuery(level2Id).val();
 		// check if we've stopped at the first level
-		if (newVal == noLevelVal) {
+		if (newVal == null) {
 			newVal = jQuery(level1Id).val();
 		}
 		else {
@@ -1746,6 +1752,17 @@ jQuery(document).ready(function() {
 	}
 
 	if (!options) return;
+	
+	// show fill-in-the-blank if user selects "Other" at first level
+	jQuery(level1Id).change(function() {
+		var otherRow = jQuery('#${subjectsOtherRowId}');
+		if (jQuery(level1Id).val() == "Other") {
+			otherRow.show();
+		}
+		else {
+			otherRow.hide();
+		}
+	});
 
 	// set a special value to indicate when there's no 3rd level selected
 	jQuery("#noSecondLevelOption").attr("value", noLevelVal);

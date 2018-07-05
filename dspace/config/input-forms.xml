@@ -124,10 +124,21 @@
 		 <!-- <repeatable>true</repeatable> -->
          <label>Subject</label>
          <input-type value-pairs-name="statspace_subjects">dropdown</input-type>
-		 <hint>Please select a subject/tag that describes the primary topic for this item.</hint>
+		 <hint>Please select a subject tag that describes the primary topic for this item.</hint>
 		 <required>Please choose a subject.</required>
        </field>
          
+	   <!-- if first level subject is "Other", let them enter their own subject tag -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>subject</dc-element>
+         <dc-qualifier>other</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Subject (Other)</label>
+         <input-type>onebox</input-type>
+		 <hint>Please enter a custom subject tag.</hint>
+       </field>
+
        <!-- Description - About This Resource -->
        <field>
          <dc-schema>dc</dc-schema>
@@ -259,8 +270,8 @@
 	</pair>
 
     <pair>
-		<displayed-value>Exploratory Data Analysis/Classifying Data >>> Description Of Distributions</displayed-value>
-		<stored-value>Exploratory Data Analysis/Classifying Data >>> Description Of Distributions</stored-value>
+		<displayed-value>Exploratory Data Analysis/Classifying Data >>> Description of Distributions</displayed-value>
+		<stored-value>Exploratory Data Analysis/Classifying Data >>> Description of Distributions</stored-value>
 	</pair>
 
 	<pair>
@@ -299,6 +310,11 @@
 	</pair>
 
 	<pair>
+		<displayed-value>Exploratory Data Analysis/Classifying Data >>> Graphical Representations >>> Other</displayed-value>
+		<stored-value>Exploratory Data Analysis/Classifying Data >>> Graphical Representations >>> Other</stored-value>
+	</pair>
+
+	<pair>
 		<displayed-value>Exploratory Data Analysis/Classifying Data >>> Summarizing Data In Tables</displayed-value>
 		<stored-value>Exploratory Data Analysis/Classifying Data >>> Summarizing Data In Tables</stored-value>
 	</pair>
@@ -309,43 +325,58 @@
 	</pair>
 
 	<pair>
+		<displayed-value>Exploratory Data Analysis/Classifying Data >>> Other</displayed-value>
+		<stored-value>Exploratory Data Analysis/Classifying Data >>> Other</stored-value>
+	</pair>
+
+	<pair>
 		<displayed-value>Descriptive Statistics/Summary Statistics</displayed-value>
 		<stored-value>Descriptive Statistics/Summary Statistics</stored-value>
 	</pair>
 
 	<pair>
-		<displayed-value>Descriptive Statistics/Summary Statistics >>> Measures Of Location</displayed-value>
-		<stored-value>Descriptive Statistics/Summary Statistics >>> Measures Of Location</stored-value>
+		<displayed-value>Descriptive Statistics/Summary Statistics >>> Measures of Location</displayed-value>
+		<stored-value>Descriptive Statistics/Summary Statistics >>> Measures of Location</stored-value>
 	</pair>
 
 	<pair>
-		<displayed-value>Descriptive Statistics/Summary Statistics >>> Measures Of Location >>> Median</displayed-value>
-		<stored-value>Descriptive Statistics/Summary Statistics >>> Measures Of Location >>> Median</stored-value>
+		<displayed-value>Descriptive Statistics/Summary Statistics >>> Measures of Location >>> Median</displayed-value>
+		<stored-value>Descriptive Statistics/Summary Statistics >>> Measures of Location >>> Median</stored-value>
 	</pair>
 
 	<pair>
-		<displayed-value>Descriptive Statistics/Summary Statistics >>> Measures Of Location >>> Mean</displayed-value>
-		<stored-value>Descriptive Statistics/Summary Statistics >>> Measures Of Location >>> Mean</stored-value>
+		<displayed-value>Descriptive Statistics/Summary Statistics >>> Measures of Location >>> Mean</displayed-value>
+		<stored-value>Descriptive Statistics/Summary Statistics >>> Measures of Location >>> Mean</stored-value>
 	</pair>
 
 	<pair>
-		<displayed-value>Descriptive Statistics/Summary Statistics >>> Measures Of Spread</displayed-value>
-		<stored-value>Descriptive Statistics/Summary Statistics >>> Measures Of Spread</stored-value>
+		<displayed-value>Descriptive Statistics/Summary Statistics >>> Measures of Location >>> Other</displayed-value>
+		<stored-value>Descriptive Statistics/Summary Statistics >>> Measures of Location >>> Other</stored-value>
 	</pair>
 
 	<pair>
-		<displayed-value>Descriptive Statistics/Summary Statistics >>> Measures Of Spread >>> Variance</displayed-value>
-		<stored-value>Descriptive Statistics/Summary Statistics >>> Measures Of Spread >>> Variance</stored-value>
+		<displayed-value>Descriptive Statistics/Summary Statistics >>> Measures of Spread</displayed-value>
+		<stored-value>Descriptive Statistics/Summary Statistics >>> Measures of Spread</stored-value>
 	</pair>
 
 	<pair>
-		<displayed-value>Descriptive Statistics/Summary Statistics >>> Measures Of Spread >>> Interquartile Range</displayed-value>
-		<stored-value>Descriptive Statistics/Summary Statistics >>> Measures Of Spread >>> Interquartile Range</stored-value>
+		<displayed-value>Descriptive Statistics/Summary Statistics >>> Measures of Spread >>> Variance</displayed-value>
+		<stored-value>Descriptive Statistics/Summary Statistics >>> Measures of Spread >>> Variance</stored-value>
 	</pair>
 
 	<pair>
-		<displayed-value>Descriptive Statistics/Summary Statistics >>> Measures Of Spread >>> Range</displayed-value>
-		<stored-value>Descriptive Statistics/Summary Statistics >>> Measures Of Spread >>> Range</stored-value>
+		<displayed-value>Descriptive Statistics/Summary Statistics >>> Measures of Spread >>> Interquartile Range</displayed-value>
+		<stored-value>Descriptive Statistics/Summary Statistics >>> Measures of Spread >>> Interquartile Range</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Descriptive Statistics/Summary Statistics >>> Measures of Spread >>> Range</displayed-value>
+		<stored-value>Descriptive Statistics/Summary Statistics >>> Measures of Spread >>> Range</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Descriptive Statistics/Summary Statistics >>> Measures of Spread >>> Other</displayed-value>
+		<stored-value>Descriptive Statistics/Summary Statistics >>> Measures of Spread >>> Other</stored-value>
 	</pair>
 
 	<pair>
@@ -364,43 +395,58 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Observational Studies And Survey Methods</displayed-value>
-		<stored-value>Observational Studies And Survey Methods</stored-value>
+		<displayed-value>Experiments >>> Other</displayed-value>
+		<stored-value>Experiments >>> Other</stored-value>
 	</pair>
 
 	<pair>
-		<displayed-value>Observational Studies And Survey Methods >>> Concepts</displayed-value>
-		<stored-value>Observational Studies And Survey Methods >>> Concepts</stored-value>
+		<displayed-value>Observational Studies and Survey Methods</displayed-value>
+		<stored-value>Observational Studies and Survey Methods</stored-value>
 	</pair>
 
 	<pair>
-		<displayed-value>Observational Studies And Survey Methods >>> Sources Of Bias</displayed-value>
-		<stored-value>Observational Studies And Survey Methods >>> Sources Of Bias</stored-value>
+		<displayed-value>Observational Studies and Survey Methods >>> Concepts</displayed-value>
+		<stored-value>Observational Studies and Survey Methods >>> Concepts</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Observational Studies and Survey Methods >>> Sources of Bias</displayed-value>
+		<stored-value>Observational Studies and Survey Methods >>> Sources of Bias</stored-value>
 	</pair>
 		
 	<pair>
-		<displayed-value>Observational Studies And Survey Methods >>> Techniques</displayed-value>
-		<stored-value>Observational Studies And Survey Methods >>> Techniques</stored-value>
+		<displayed-value>Observational Studies and Survey Methods >>> Techniques</displayed-value>
+		<stored-value>Observational Studies and Survey Methods >>> Techniques</stored-value>
 	</pair>
 
 	<pair>
-		<displayed-value>Observational Studies And Survey Methods >>> Techniques >>> Simple Random Sampling</displayed-value>
-		<stored-value>Observational Studies And Survey Methods >>> Techniques >>> Simple Random Sampling</stored-value>
+		<displayed-value>Observational Studies and Survey Methods >>> Techniques >>> Simple Random Sampling</displayed-value>
+		<stored-value>Observational Studies and Survey Methods >>> Techniques >>> Simple Random Sampling</stored-value>
 	</pair>
 
 	<pair>
-		<displayed-value>Observational Studies And Survey Methods >>> Techniques >>> Stratified Sampling</displayed-value>
-		<stored-value>Observational Studies And Survey Methods >>> Techniques >>> Stratified Sampling</stored-value>
+		<displayed-value>Observational Studies and Survey Methods >>> Techniques >>> Stratified Sampling</displayed-value>
+		<stored-value>Observational Studies and Survey Methods >>> Techniques >>> Stratified Sampling</stored-value>
 	</pair>
 
 	<pair>
-		<displayed-value>Observational Studies And Survey Methods >>> Techniques >>> Cluster Sampling</displayed-value>
-		<stored-value>Observational Studies And Survey Methods >>> Techniques >>> Cluster Sampling</stored-value>
+		<displayed-value>Observational Studies and Survey Methods >>> Techniques >>> Cluster Sampling</displayed-value>
+		<stored-value>Observational Studies and Survey Methods >>> Techniques >>> Cluster Sampling</stored-value>
 	</pair>
 
 	<pair>
-		<displayed-value>Observational Studies And Survey Methods >>> Techniques >>> Systematic Sampling</displayed-value>
-		<stored-value>Observational Studies And Survey Methods >>> Techniques >>> Systematic Sampling</stored-value>
+		<displayed-value>Observational Studies and Survey Methods >>> Techniques >>> Systematic Sampling</displayed-value>
+		<stored-value>Observational Studies and Survey Methods >>> Techniques >>> Systematic Sampling</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Observational Studies and Survey Methods >>> Techniques >>> Other</displayed-value>
+		<stored-value>Observational Studies and Survey Methods >>> Techniques >>> Other</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Observational Studies and Survey Methods >>> Other</displayed-value>
+		<stored-value>Observational Studies and Survey Methods >>> Other</stored-value>
 	</pair>
 
 	<pair>
@@ -441,6 +487,11 @@
 	<pair>
 		<displayed-value>Confidence Intervals >>> Concepts >>> Standard Error</displayed-value>
 		<stored-value>Confidence Intervals >>> Concepts >>> Standard Error</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Confidence Intervals >>> Concepts >>> Other</displayed-value>
+		<stored-value>Confidence Intervals >>> Concepts >>> Other</stored-value>
 	</pair>
 
 	<pair>
@@ -489,8 +540,13 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Confidence Intervals >>> Measures Of Independence</displayed-value>
-		<stored-value>Confidence Intervals >>> Measures Of Independence</stored-value>
+		<displayed-value>Confidence Intervals >>> Measures of Independence</displayed-value>
+		<stored-value>Confidence Intervals >>> Measures of Independence</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Confidence Intervals >>> Other</displayed-value>
+		<stored-value>Confidence Intervals >>> Other</stored-value>
 	</pair>
 
 	<pair>
@@ -504,13 +560,18 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Hypothesis Tests >>> Concepts >>> p-value And Significance Level</displayed-value>
-		<stored-value>Hypothesis Tests >>> Concepts >>> p-value And Significance Level</stored-value>
+		<displayed-value>Hypothesis Tests >>> Concepts >>> p-value and Significance Level</displayed-value>
+		<stored-value>Hypothesis Tests >>> Concepts >>> p-value and Significance Level</stored-value>
 	</pair>
 
 	<pair>
-		<displayed-value>Hypothesis Tests >>> Concepts >>> Type I/Type II Errors And Power</displayed-value>
-		<stored-value>Hypothesis Tests >>> Concepts >>> Type I/Type II Errors And Power</stored-value>
+		<displayed-value>Hypothesis Tests >>> Concepts >>> Type I/Type II Errors and Power</displayed-value>
+		<stored-value>Hypothesis Tests >>> Concepts >>> Type I/Type II Errors and Power</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Hypothesis Tests >>> Concepts >>> Other</displayed-value>
+		<stored-value>Hypothesis Tests >>> Concepts >>> Other</stored-value>
 	</pair>
 
 	<pair>
@@ -564,6 +625,11 @@
 	</pair>
 
 	<pair>
+		<displayed-value>Hypothesis Tests >>> One-sample/Paired >>> Other</displayed-value>
+		<stored-value>Hypothesis Tests >>> One-sample/Paired >>> Other</stored-value>
+	</pair>
+
+	<pair>
 		<displayed-value>Hypothesis Tests >>> Two Independent Samples</displayed-value>
 		<stored-value>Hypothesis Tests >>> Two Independent Samples</stored-value>
 	</pair>
@@ -594,6 +660,11 @@
 	</pair>
 
 	<pair>
+		<displayed-value>Hypothesis Tests >>> Two Independent Samples >>> Other</displayed-value>
+		<stored-value>Hypothesis Tests >>> Two Independent Samples >>> Other</stored-value>
+	</pair>
+
+	<pair>
 		<displayed-value>Hypothesis Tests >>> Multiple Independent Samples</displayed-value>
 		<stored-value>Hypothesis Tests >>> Multiple Independent Samples</stored-value>
 	</pair>
@@ -614,18 +685,33 @@
 	</pair>
 
 	<pair>
+		<displayed-value>Hypothesis Tests >>> Multiple Independent Samples >>> Other</displayed-value>
+		<stored-value>Hypothesis Tests >>> Multiple Independent Samples >>> Other</stored-value>
+	</pair>
+
+	<pair>
 		<displayed-value>Hypothesis Tests >>> Goodness-of-fit</displayed-value>
 		<stored-value>Hypothesis Tests >>> Goodness-of-fit</stored-value>
 	</pair>
 
 	<pair>
-		<displayed-value>Hypothesis Tests >>> Goodness-of-fit >>> Chi-squared Test For Goodness Of Fit</displayed-value>
-		<stored-value>Hypothesis Tests >>> Goodness-of-fit >>> Chi-squared Test For Goodness Of Fit</stored-value>
+		<displayed-value>Hypothesis Tests >>> Goodness-of-fit >>> Chi-squared Test For Goodness of Fit</displayed-value>
+		<stored-value>Hypothesis Tests >>> Goodness-of-fit >>> Chi-squared Test For Goodness of Fit</stored-value>
 	</pair>
 
 	<pair>
 		<displayed-value>Hypothesis Tests >>> Goodness-of-fit >>> Chi-squared Test For Independence</displayed-value>
 		<stored-value>Hypothesis Tests >>> Goodness-of-fit >>> Chi-squared Test For Independence</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Hypothesis Tests >>> Goodness-of-fit >>> Other</displayed-value>
+		<stored-value>Hypothesis Tests >>> Goodness-of-fit >>> Other</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Hypothesis Tests >>> Other</displayed-value>
+		<stored-value>Hypothesis Tests >>> Other</stored-value>
 	</pair>
 
 	<pair>
@@ -669,6 +755,11 @@
 	</pair>
 
 	<pair>
+		<displayed-value>Regression >>> Simple Linear Regression >>> Other</displayed-value>
+		<stored-value>Regression >>> Simple Linear Regression >>> Other</stored-value>
+	</pair>
+
+	<pair>
 		<displayed-value>Regression >>> Multiple Regression</displayed-value>
 		<stored-value>Regression >>> Multiple Regression</stored-value>
 	</pair>
@@ -704,6 +795,11 @@
 	</pair>
 
 	<pair>
+		<displayed-value>Regression >>> Multiple Regression >>> Other</displayed-value>
+		<stored-value>Regression >>> Multiple Regression >>> Other</stored-value>
+	</pair>
+
+	<pair>
 		<displayed-value>Regression >>> Nonlinear Regression</displayed-value>
 		<stored-value>Regression >>> Nonlinear Regression</stored-value>
 	</pair>
@@ -716,6 +812,16 @@
 	<pair>
 		<displayed-value>Regression >>> Generalized Linear Methods >>> Logistic Regression</displayed-value>
 		<stored-value>Regression >>> Generalized Linear Methods >>> Logistic Regression</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Regression >>> Generalized Linear Methods >>> Other</displayed-value>
+		<stored-value>Regression >>> Generalized Linear Methods >>> Other</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Regression >>> Other</displayed-value>
+		<stored-value>Regression >>> Other</stored-value>
 	</pair>
 
 	<pair>
@@ -739,6 +845,11 @@
 	</pair>
 
 	<pair>
+		<displayed-value>Probability >>> Combinatorics >>> Other</displayed-value>
+		<stored-value>Probability >>> Combinatorics >>> Other</stored-value>
+	</pair>
+
+	<pair>
 		<displayed-value>Probability >>> Continuous Distributions</displayed-value>
 		<stored-value>Probability >>> Continuous Distributions</stored-value>
 	</pair>
@@ -754,13 +865,18 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Probability >>> Continuous Distributions >>> Normal Approximation To Binomial</displayed-value>
-		<stored-value>Probability >>> Continuous Distributions >>> Normal Approximation To Binomial</stored-value>
+		<displayed-value>Probability >>> Continuous Distributions >>> Normal Approximation to Binomial</displayed-value>
+		<stored-value>Probability >>> Continuous Distributions >>> Normal Approximation to Binomial</stored-value>
 	</pair>
 
 	<pair>
 		<displayed-value>Probability >>> Continuous Distributions >>> Uniform</displayed-value>
 		<stored-value>Probability >>> Continuous Distributions >>> Uniform</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Probability >>> Continuous Distributions >>> Other</displayed-value>
+		<stored-value>Probability >>> Continuous Distributions >>> Other</stored-value>
 	</pair>
 
 	<pair>
@@ -799,8 +915,13 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Probability >>> Discrete Distributions >>> Poisson Approximation To Binomial</displayed-value>
-		<stored-value>Probability >>> Discrete Distributions >>> Poisson Approximation To Binomial</stored-value>
+		<displayed-value>Probability >>> Discrete Distributions >>> Poisson Approximation to Binomial</displayed-value>
+		<stored-value>Probability >>> Discrete Distributions >>> Poisson Approximation to Binomial</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Probability >>> Discrete Distributions >>> Other</displayed-value>
+		<stored-value>Probability >>> Discrete Distributions >>> Other</stored-value>
 	</pair>
 
 	<pair>
@@ -814,8 +935,8 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Probability >>> Laws, Theory >>> Law Of Large Numbers</displayed-value>
-		<stored-value>Probability >>> Laws, Theory >>> Law Of Large Numbers</stored-value>
+		<displayed-value>Probability >>> Laws, Theory >>> Law of Large Numbers</displayed-value>
+		<stored-value>Probability >>> Laws, Theory >>> Law of Large Numbers</stored-value>
 	</pair>
 
 	<pair>
@@ -826,6 +947,11 @@
 	<pair>
 		<displayed-value>Probability >>> Laws, Theory >>> Markov's Inequality</displayed-value>
 		<stored-value>Probability >>> Laws, Theory >>> Markov's Inequality</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Probability >>> Laws, Theory >>> Other</displayed-value>
+		<stored-value>Probability >>> Laws, Theory >>> Other</stored-value>
 	</pair>
 
 	<pair>
@@ -856,6 +982,11 @@
 	<pair>
 		<displayed-value>Probability >>> Random Variables >>> Variance, Standard Deviation</displayed-value>
 		<stored-value>Probability >>> Random Variables >>> Variance, Standard Deviation</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Probability >>> Random Variables >>> Other</displayed-value>
+		<stored-value>Probability >>> Random Variables >>> Other</stored-value>
 	</pair>
 
 	<pair>
@@ -894,6 +1025,11 @@
 	</pair>
 
 	<pair>
+		<displayed-value>Probability >>> Sample Space >>> Other</displayed-value>
+		<stored-value>Probability >>> Sample Space >>> Other</stored-value>
+	</pair>
+
+	<pair>
 		<displayed-value>Probability >>> Several Variables</displayed-value>
 		<stored-value>Probability >>> Several Variables</stored-value>
 	</pair>
@@ -914,6 +1050,11 @@
 	</pair>
 
 	<pair>
+		<displayed-value>Probability >>> Several Variables >>> Other</displayed-value>
+		<stored-value>Probability >>> Several Variables >>> Other</stored-value>
+	</pair>
+
+	<pair>
 		<displayed-value>Probability >>> Stochastic Process</displayed-value>
 		<stored-value>Probability >>> Stochastic Process</stored-value>
 	</pair>
@@ -921,6 +1062,16 @@
 	<pair>
 		<displayed-value>Probability >>> Stochastic Process >>> Markov Chain</displayed-value>
 		<stored-value>Probability >>> Stochastic Process >>> Markov Chain</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Probability >>> Stochastic Process >>> Other</displayed-value>
+		<stored-value>Probability >>> Stochastic Process >>> Other</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Probability >>> Other</displayed-value>
+		<stored-value>Probability >>> Other</stored-value>
 	</pair>
 
 	<pair>
@@ -936,6 +1087,11 @@
 	<pair>
 		<displayed-value>Theory of Point Estimation >>> Maximum Likelihood Estimation</displayed-value>
 		<stored-value>Theory of Point Estimation >>> Maximum Likelihood Estimation</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Theory of Point Estimation >>> Other</displayed-value>
+		<stored-value>Theory of Point Estimation >>> Other</stored-value>
 	</pair>
 
 	<pair>
@@ -969,6 +1125,11 @@
 	</pair>
 
 	<pair>
+		<displayed-value>Time Series >>> Other</displayed-value>
+		<stored-value>Time Series >>> Other</stored-value>
+	</pair>
+
+	<pair>
 		<displayed-value>Bayesian Inference</displayed-value>
 		<stored-value>Bayesian Inference</stored-value>
 	</pair>
@@ -986,6 +1147,11 @@
 	<pair>
 		<displayed-value>Bayesian Inference >>> Posterior Distribution</displayed-value>
 		<stored-value>Bayesian Inference >>> Posterior Distribution</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Bayesian Inference >>> Other</displayed-value>
+		<stored-value>Bayesian Inference >>> Other</stored-value>
 	</pair>
 
     <pair>

@@ -76,6 +76,15 @@ public class ItemRetriever {
 		MetadataResult result = metadataRetriever.getField("dc.subject");
 		for (String subject : result.getValues()) {
 			SubjectResult subjectResult = new SubjectResult(subject);
+			// custom display for fill-in-the-blank subjects, which only happens
+			// when the first level is "Other". 
+			if (subjectResult.getLevel1().equals("Other")) {
+				String otherSubject = getSingleValue("dc.subject.other");
+				// other subject might be empty since it's not a required field
+				if (!otherSubject.isEmpty()) {
+					subjectResult = new SubjectResult("Other ("+ otherSubject +")");
+				}
+			}
 			subjects.add(subjectResult);
 		}
 
