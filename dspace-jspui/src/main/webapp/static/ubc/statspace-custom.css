@@ -94,6 +94,11 @@ span.label.labelLarge {
 	padding-bottom: 5px;
 	margin-bottom: 1em;
 }
+/* Display item title thumbnail */
+.displayItemTitleThumbnail {
+	max-width: 100px;
+	margin-bottom: 1em;
+}
 /* Display item tabs bar */
 .displayItemTabsContent {
 	border: 1px solid lightgray;

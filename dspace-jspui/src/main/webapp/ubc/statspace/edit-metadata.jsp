@@ -1757,9 +1757,11 @@ jQuery(document).ready(function() {
 	jQuery(level1Id).change(function() {
 		var otherRow = jQuery('#${subjectsOtherRowId}');
 		if (jQuery(level1Id).val() == "Other") {
+			otherRow.prev().show();
 			otherRow.show();
 		}
 		else {
+			otherRow.prev().hide(); // hide the help
 			otherRow.hide();
 		}
 	});

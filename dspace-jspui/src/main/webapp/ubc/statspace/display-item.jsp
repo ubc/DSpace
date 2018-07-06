@@ -161,8 +161,16 @@
 			<jsp:param name="stepMigrateArchive" value="${stepMigrateArchive}" />
 		</jsp:include>
 	</c:if>
-	<h2 class="marginTopNone">${itemRetriever.title}</h2> 
-	<p>${itemRetriever.summary}</p>
+	<!-- Title & Summary Section -->
+	<div class='media'>
+		<div class='media-left'>
+			<img class='media-object displayItemTitleThumbnail' src='${itemRetriever.thumbnail}' alt='thumbnail'>
+		</div>
+		<div class='media-body'>
+			<h2 class="marginTopNone">${itemRetriever.title}</h2> 
+			<p>${itemRetriever.summary}</p>
+		</div>
+	</div>
 	<!-- Tabs Bar -->
 	<ul class="nav nav-tabs displayItemTabsBar" role="tablist">
 		<li role="presentation" class="active">
