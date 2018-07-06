@@ -99,7 +99,7 @@ know what step the submission is on.
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<h4 class="text-center">Public Domain</h4>
-					<p>In selecting the public domain mark, you agree that this material(s) is free of known copyright restrictions, as described in detail at <a href='https://creativecommons.org/share-your-work/public-domain/'>https://creativecommons.org/share-your-work/public-domain/</a>.</p>
+					<p>In selecting the Public Domain Mark, you agree that this material(s) is free of known copyright restrictions, as described in detail at <a href='https://creativecommons.org/share-your-work/public-domain/'>https://creativecommons.org/share-your-work/public-domain/</a>.</p>
 					<p>If at any time after submitting this work you learn that the above statement is inaccurate, you agree to inform StatSpace of any inaccuracies as soon as possible.</p>
 				</div>
 			</div>
