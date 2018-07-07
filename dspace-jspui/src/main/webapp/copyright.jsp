@@ -109,6 +109,7 @@
 		    </div>
 		</div>
 	      
+		<!-- Hide evaluations as not implemented yet
 		<div class="panel panel-info">
 		    <div class="panel-heading">
                 <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-comment"></i> &nbsp;Evaluate what you use</a></h3>
@@ -117,6 +118,7 @@
 			<p>Evaluate the introductory statistics material in StatSpace by giving <strong>detailed private feedback</strong> for any resources you use, to help other educators improve their designs.</p>
 		    </div>
 		</div>
+  		-->
             
         <div class="panel panel-info" >
             <div class="panel-heading">

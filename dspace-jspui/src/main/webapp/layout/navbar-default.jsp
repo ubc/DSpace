@@ -80,7 +80,8 @@
          <ul class="nav navbar-nav">
            <% if (user != null) { %>
                
-               <li><a href="<%= request.getContextPath() %>/"><span class="glyphicon glyphicon-home"></span></a></li>
+		   		<%-- NOTE: modified this to /home.jsp instead of / The root home page / is different when users are logged in! --%>
+               <li><a href="<%= request.getContextPath() %>/home.jsp"><span class="glyphicon glyphicon-home"></span></a></li>
                
                <li class="<%= currentPage.endsWith("/mydspace")? "active" : "" %>"><a href="<%= request.getContextPath() %>/mydspace"> <fmt:message key="jsp.layout.navbar-default.users"/></a></li>
 

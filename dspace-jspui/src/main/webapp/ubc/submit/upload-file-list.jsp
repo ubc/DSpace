@@ -116,7 +116,7 @@
 				<%-- Restricted Access --%>
 				<c:if test="${!disablePerFileRestriction}">
 					<th class="oddRowOddCol text-center" title="<fmt:message key="jsp.submit.upload-file-list.tooltip.restricted"/>">
-						<i class="glyphicon glyphicon-lock"></i></th>
+						<i class="glyphicon glyphicon-lock"></i> Instructor Only</th>
 				</c:if>
 				<%-- File Description --%>
                 <th id="t4" class="oddRowOddCol"><fmt:message key="jsp.submit.upload-file-list.tableheading4"/></th>

@@ -442,7 +442,7 @@
                                 <th><fmt:message key="jsp.submit.upload-file-list.tableheading4"/></th>
 								<c:if test="${!disablePerFileRestriction}">
 									<th title='<fmt:message key="jsp.submit.upload-file-list.tooltip.restricted"/>' class="text-center">
-											<i class="glyphicon glyphicon-lock"></i>
+											<i class="glyphicon glyphicon-lock"></i> Instructor Only
 									</th>
 								</c:if>
                             </thead>

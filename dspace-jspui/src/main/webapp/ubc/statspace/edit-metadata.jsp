@@ -1296,8 +1296,17 @@
   <form action="<%= request.getContextPath() %>/submit#<%= si.getJumpToField()%>" method="post" name="edit_metadata" id="edit_metadata" onkeydown="return disableEnterKey(event);">
 
         <jsp:include page="/submit/progressbar.jsp"></jsp:include>
-
-    <h1><fmt:message key="jsp.submit.edit-metadata.heading"/>
+		<h1 class='text-center'>Thank you for your interest in submitting a statistics resource to StatSpace.</h1>
+		<p>Through this process, you will:</p>
+		<ol>
+			<li><strong>Describe</strong>: provide some information about your resource, such as pre-requisite knowledge and learning objectives, that will be useful to other StatSpace users.</li>
+			<li><strong>Upload</strong>: upload file(s), indicating who can access each file.  You will have the option to make individual files, or the entire submission, accessible to instructors only.</li>
+			<li><strong>Verify</strong>: review your material before submitting.</li>
+			<li><strong>License</strong>: assign the appropriate Creative Commons license to your resource, or specify that it is in the public domain.</li>
+			<li><strong>Complete</strong>: after your submission is complete, a member of the StatSpace team will review the resource and you will be notified if the item has been accepted or if revisions are requested.</li>
+		</ol>
+		
+    <h2><fmt:message key="jsp.submit.edit-metadata.heading"/>
 <%-- help section not really applicable since written for stock dspace, comment it out
 <%
      //figure out which help page to display
@@ -1317,7 +1326,7 @@
      }
 %>
 --%>
-    </h1>
+    </h2>
 
 <%
      //figure out which help page to display
