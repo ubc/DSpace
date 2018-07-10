@@ -11,14 +11,21 @@ package org.dspace.app.webui.ubc.retriever;
  */
 public class SubjectResult {
 
+	private static String OTHER = "Other";
+
 	private String level1;
 	private String level2;
 	private String level3;
 	private String subject;
 
-	public SubjectResult(String subject) {
+	public SubjectResult(String subject, String other) {
 		String[] splits = subject.split(" >>> ");
-		if (splits.length == 2) {
+		if (splits.length == 1) {
+			level1 = subject;
+			level2 = "";
+			level3 = "";
+		}
+		else if (splits.length == 2) {
 			level1 = splits[0];
 			level2 = splits[1];
 		}
@@ -28,9 +35,19 @@ public class SubjectResult {
 			level3 = splits[2];
 		}
 		else {
-			level1 = subject;
-			level2 = "";
+			level1 = "ERROR WITH SUBJECT";
+			level2 = subject;
 			level3 = "";
+		}
+		// custom display for fill-in-the-blank subjects, which only happens
+		// when the user selects "Other" in the first or second level. 
+		if (!other.isEmpty()) {
+			if (level1.equals(OTHER)) {
+				level1 += " (" + other + ")";
+			}
+			else if (level2.equals(OTHER)) {
+				level2 += " (" + other + ")";
+			}
 		}
 		this.subject = subject;
 	}

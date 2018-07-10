@@ -1759,13 +1759,11 @@ jQuery(document).ready(function() {
 
 		return newVal;
 	}
-
-	if (!options) return;
 	
-	// show fill-in-the-blank if user selects "Other" at first level
-	jQuery(level1Id).change(function() {
+	// show fill-in-the-blank if user selects "Other"
+	function showFillInTheBlankOption(selectedValue) {
 		var otherRow = jQuery('#${subjectsOtherRowId}');
-		if (jQuery(level1Id).val() == "Other") {
+		if (selectedValue == "Other") {
 			otherRow.prev().show();
 			otherRow.show();
 		}
@@ -1773,8 +1771,10 @@ jQuery(document).ready(function() {
 			otherRow.prev().hide(); // hide the help
 			otherRow.hide();
 		}
-	});
+	}
 
+	if (!options) return;
+	
 	// set a special value to indicate when there's no 3rd level selected
 	jQuery("#noSecondLevelOption").attr("value", noLevelVal);
 	jQuery("#noThirdLevelOption").attr("value", noLevelVal);
@@ -1798,6 +1798,8 @@ jQuery(document).ready(function() {
 			jQuery(subjectsSelectId).val("");
 			updateSelectedSubjects();
 		}
+		// check if we need to show the fill in the blank option
+		showFillInTheBlankOption(jQuery(level1Id).val());
 	});
 	jQuery(level2Id).change(function() {
 		resetChildSelect(level3Id);
@@ -1806,6 +1808,8 @@ jQuery(document).ready(function() {
 		if (!subjectsRepeatable) {
 			updateSelectedSubjects();
 		}
+		// check if we need to show the fill in the blank option
+		showFillInTheBlankOption(jQuery(level2Id).val());
 	});
 
 	if (subjectsRepeatable) {

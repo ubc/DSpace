@@ -19,6 +19,7 @@
 <%@page import="org.dspace.content.Bitstream"%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <%@ taglib uri="http://www.dspace.org/dspace-tags.tld" prefix="dspace" %>
@@ -80,19 +81,16 @@
                     <h2>Find and share vetted learning materials for teaching introductory statistics in any discipline</h2>
 		    
                     <p>StatSpace brings together high-quality open education materials vetted by instructors from UBC and around the world, with the goal of supporting cooperation among statistics instruction experts and sharing resources that address common cross-disciplinary challenges of teaching in this area.</p>
-                    <p class="text-center cta">
-                        <a href="<%= request.getContextPath() %>/register" class="btn btn-success btn-lg">Join</a> &nbsp;or&nbsp; <a href="<%= request.getContextPath() %>/mydspace" class="btn btn-success btn-lg">Sign In</a>
-                    </p>
                 </div>
 		
                 <div class="row after-jumbotron">
                     <div class="col-md-6">
                         <h4>About Us</h4>
-                        <p>Learn about StatSpace and how open education resouces help teaching and learning. &nbsp;<a href="/about.jsp">read more &raquo;</a></p>
+                        <p>Learn about StatSpace and how open education resouces help teaching and learning. &nbsp;<a href="<c:url value='/about.jsp' />">More &raquo;</a></p>
                     </div>    
                     <div class="col-md-6">
                         <h4>Copyright</h4>
-                        <p>Understand how content copyright works for the materials available in StatSpace. &nbsp;<a href="/copyright.jsp">read more &raquo;</a></p>                        
+                        <p>Understand how content copyright works for the materials available in StatSpace. &nbsp;<a href="<c:url value='/copyright.jsp' />">More &raquo;</a></p>                        
                     </div>
                 </div>
 		
@@ -103,33 +101,32 @@
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         <h3 class="panel-title">
-                            <i class="glyphicon glyphicon-search"></i>&nbsp; Search for materials
+                            <i class="glyphicon glyphicon-search"></i>Search for Materials
                         </h3>
                     </div>
                     <div class="panel-body">
-                        <p>Search our high-quality archive of <strong>100+ curated introductory statistics materials</strong>.</p>
-                        <label>Search StatSpace now:</label>
-			<%-- Search Box --%>
-			<form method="get" action="<%= request.getContextPath() %>/simple-search">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
-                    <span class="input-group-btn">
-                        <button type="submit" class="btn btn-primary">
-                            <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                    </span>
-                </div>
-                </form>
-                </div>
-                    </div>
+						<%-- Search Box --%>
+						<form method="get" action="<%= request.getContextPath() %>/simple-search">
+							<div class="input-group">
+								<input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
+								<span class="input-group-btn">
+									<button type="submit" class="btn btn-primary">
+										<span class="glyphicon glyphicon-search"></span>
+									</button>
+								</span>
+							</div>
+						</form>
+					</div>
+				</div>
 
 
 		<div class="panel panel-info" >
 		    <div class="panel-heading">
-                <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
+                <h3 class="panel-title"><i class="glyphicon glyphicon-open"></i> Contribute Materials</h3>
 		    </div>
 		    <div class="panel-body">
 			 <p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
+			 <p>Contributing material requires StatSpace registration and signing in.  In this current pilot stage, contributing also requires approval from <a href='mailto:statspace@stat.ubc.ca'>statspace@stat.ubc.ca</a>.</p>
 		    </div>
 		</div>
         
@@ -216,14 +213,6 @@
                     </div>
                 </div>
             </div>
-	
-            <div class="row text-center">
-                <div class="col-md-12">
-                    <h4 class="more-heading">To see more resources:</h4>
-                    <a href="https://ubc.ca1.qualtrics.com/jfe/form/SV_6J4ans7VBN2hpt3" class="btn btn-success btn-lg">Join</a> <!-- &nbsp;or&nbsp; <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>-->
-                </div>
-            </div>
-    
     <% } %>
 
     <% if (user != null) { %>
