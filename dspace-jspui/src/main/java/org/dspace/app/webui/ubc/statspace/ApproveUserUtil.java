@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.apache.log4j.Logger;
+import org.dspace.app.webui.ubc.retriever.EPersonRetriever;
 import org.dspace.authorize.AuthorizeException;
 import org.dspace.core.Context;
 import org.dspace.eperson.EPerson;
@@ -31,8 +32,8 @@ public class ApproveUserUtil {
 
 	public Context context;
 
-	public ApproveUserUtil() throws SQLException {
-		this.context = new Context();
+	public ApproveUserUtil(Context context) throws SQLException {
+		this.context = context;
 	}
 
 	/**
@@ -56,6 +57,11 @@ public class ApproveUserUtil {
 	 * @throws AuthorizeException 
 	 */
 	public void addUserForApproval(EPerson person) throws SQLException, AuthorizeException {
+		UBCAccessChecker accessChecker = new UBCAccessChecker(context);
+		// user already have instructor access
+		//if (accessChecker.hasInstructorAccess()) return;
+		// user is already in queue for approval
+		if (getUsersForApproval().contains(person)) return;
 		Group group = getToBeVettedGroup();
 		addUserToGroup(person, group);
 	}
@@ -68,6 +74,23 @@ public class ApproveUserUtil {
 	public void grantUserInstructorPermission(EPerson person) throws SQLException, AuthorizeException {
 		Group group = getInstructorPermissionGroup();
 		addUserToGroup(person, group);
+		removeUserForApproval(person);
+	}
+
+	/**
+	 * Deny the given user instructor permission.
+	 * 
+	 * @param person
+	 * @throws SQLException
+	 * @throws AuthorizeException 
+	 */
+	public void denyUserInstructorPermission(EPerson person) throws SQLException, AuthorizeException {
+		removeUserForApproval(person);
+		// need to clear this check so they can request permission again. note that there's
+		// no indicator that they were rejected, hopefully they were contacted by email or something?
+        person.clearMetadata("eperson", EPersonRetriever.REQUEST_INSTRUCTOR_ACCESS_ELEMENT, null, "*");
+		person.update();
+		context.commit();
 	}
 
 	/**

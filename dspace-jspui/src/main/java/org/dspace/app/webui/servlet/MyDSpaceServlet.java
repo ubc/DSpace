@@ -886,7 +886,7 @@ public class MyDSpaceServlet extends DSpaceServlet
 		boolean hasCuratorAccess = accessChecker.hasCuratorAccess();
 		request.setAttribute("hasCuratorAccess", hasCuratorAccess);
 		// get list of users that needs to be vetted
-		ApproveUserUtil approveUtil = new ApproveUserUtil();
+		ApproveUserUtil approveUtil = new ApproveUserUtil(context);
 		List<EPerson> tmpUsersForApproval = approveUtil.getUsersForApproval();
 		List<EPersonRetriever> usersForApproval = new ArrayList<EPersonRetriever>();
 		for (EPerson user : tmpUsersForApproval) {

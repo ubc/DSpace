@@ -217,16 +217,8 @@ div.metadataVerifyRow div.metadataFieldLabel {
 }
 
 /* Main Page Approve User Accounts */
-table.usersForApprovalTable ul {
-	list-style: none;
-	list-style-position: outside;
-	padding-left: 0;
-}
-table.usersForApprovalTable ul.usersForApprovalActions li {
-	margin-bottom: 0.5em;
-}
-td.usersForApprovalActionsCol {
-	width: 15em;
+ul.usersForApprovalActions li {
+	margin-top: 1em;
 }
 
 /* File Upload, Select File */

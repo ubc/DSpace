@@ -74,7 +74,7 @@
     
     <form class="form-horizontal" action="<%= request.getContextPath() %>/profile" method="post">
 
-        <dspace:include page="/register/profile-form.jsp" />
+        <dspace:include page="/ubc/register/profile-form.jsp" />
 
 <%
     // Only show password update section if the user doesn't use
@@ -84,7 +84,7 @@
 %>
         <%-- <p><strong>Optionally</strong>, you can choose a new password and enter it into the box below, and confirm it by typing it
         again into the second box for verification.  It should be at least six characters long.</p> --%>
-		<div class="text-center"><fmt:message key="jsp.register.edit-profile.info5"/></div>
+		<h3 class="text-center"><fmt:message key="jsp.register.edit-profile.info5"/></h3>
 		<dspace:include page="/components/password-field.jsp" />
 <%
   }

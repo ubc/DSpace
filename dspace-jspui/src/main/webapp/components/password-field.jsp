@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <div class="form-group">
-	<label class="col-md-offset-3 col-md-2 control-label" for="tpassword">
+	<label class="col-md-offset-2 col-md-2 control-label" for="tpassword">
 		<fmt:message key="jsp.register.edit-profile.pswd.field"/></label>
 	<div class="col-md-3">
 		<div class="input-group">
@@ -13,7 +13,7 @@
 			</a>
 		</div>
 	</div>
-	<div id="passwordFeedback" class="col-md-offset-5 col-md-4 help-block">
+	<div id="passwordFeedback" class="col-md-offset-4 col-md-4 help-block">
 		<span id="passwordFeedbackStrength" class="password-strength">Strength:
 			<span></span></span>
 		<p id="passwordFeedbackText"></p>

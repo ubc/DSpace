@@ -16,6 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
+import org.dspace.app.webui.ubc.retriever.EPersonRetriever;
+import org.dspace.app.webui.ubc.statspace.ApproveUserUtil;
 import org.dspace.app.webui.util.JSPManager;
 import org.dspace.authorize.AuthorizeException;
 import org.dspace.core.Context;
@@ -44,7 +46,9 @@ public class EditProfileServlet extends DSpaceServlet
         // filter means we have a user.
         log.info(LogManager.getHeader(context, "view_profile", ""));
 
-        request.setAttribute("eperson", context.getCurrentUser());
+        EPerson eperson = context.getCurrentUser();
+        request.setAttribute("eperson", eperson);
+		request.setAttribute("user", new EPersonRetriever(eperson));
 
         JSPManager.showJSP(request, response, EDIT_PROFILE_JSP);
     }
@@ -63,6 +67,8 @@ public class EditProfileServlet extends DSpaceServlet
         {
             settingPassword = true;
         }
+		// check for request to be added to instructor access
+		updateUserRequestInstructorAccess(context, eperson, request);
 
         // Set the user profile info
         boolean ok = updateUserProfile(eperson, request);
@@ -103,10 +109,26 @@ public class EditProfileServlet extends DSpaceServlet
                     "problem=true"));
 
             request.setAttribute("eperson", eperson);
+			request.setAttribute("user", new EPersonRetriever(eperson));
 
             JSPManager.showJSP(request, response, EDIT_PROFILE_JSP);
         }
     }
+
+	/**
+	 * If a user requests instructor access, add them to the list of users to be vetted.
+	 * @param context
+	 * @param person 
+	 */
+	public static void updateUserRequestInstructorAccess(Context context, EPerson person, HttpServletRequest request) throws SQLException, AuthorizeException
+	{
+		String requestInstructorAccess = request.getParameter("requestInstructorAccess");
+		if (requestInstructorAccess != null && !requestInstructorAccess.isEmpty())
+		{ // someone is requesting instructor access
+			ApproveUserUtil approveUser = new ApproveUserUtil(context);
+			approveUser.addUserForApproval(person);
+		}
+	}
 
     /**
      * Update a user's profile information with the information in the given
@@ -132,6 +154,12 @@ public class EditProfileServlet extends DSpaceServlet
         String unit = request.getParameter("unit");
         String institution = request.getParameter("institution");
         String language = request.getParameter("language");
+        String institutionType = request.getParameter("institution_type");
+        String institutionUrl = request.getParameter("institution_url");
+        String institutionAddress = request.getParameter("institution_address");
+        String supervisorContact = request.getParameter("supervisor_contact");
+		String additionalInfo = request.getParameter("additional");
+		String requestInstructorAccess = request.getParameter("requestInstructorAccess");
 
         // Update the eperson
         eperson.setFirstName(firstName);
@@ -148,6 +176,23 @@ public class EditProfileServlet extends DSpaceServlet
         eperson.clearMetadata("eperson", "institution", null, "*");
         eperson.addMetadata("eperson", "institution", null, "*", institution);
         
+        eperson.clearMetadata("eperson", EPersonRetriever.INSTITUTION_ELEMENT, EPersonRetriever.TYPE_QUALIFIER, "*");
+        eperson.addMetadata("eperson", EPersonRetriever.INSTITUTION_ELEMENT, EPersonRetriever.TYPE_QUALIFIER, "*", institutionType);
+
+        eperson.clearMetadata("eperson", EPersonRetriever.INSTITUTION_ELEMENT, EPersonRetriever.ADDRESS_QUALIFIER, "*");
+        eperson.addMetadata("eperson", EPersonRetriever.INSTITUTION_ELEMENT, EPersonRetriever.ADDRESS_QUALIFIER, "*", institutionAddress);
+
+        eperson.clearMetadata("eperson", EPersonRetriever.INSTITUTION_ELEMENT, EPersonRetriever.URL_QUALIFIER, "*");
+        eperson.addMetadata("eperson", EPersonRetriever.INSTITUTION_ELEMENT, EPersonRetriever.URL_QUALIFIER, "*", institutionUrl);
+
+        eperson.clearMetadata("eperson", EPersonRetriever.SUPERVISOR_ELEMENT, null, "*");
+        eperson.addMetadata("eperson", EPersonRetriever.SUPERVISOR_ELEMENT, null, "*", supervisorContact);
+
+        eperson.clearMetadata("eperson", EPersonRetriever.ADDITIONALINFO_ELEMENT, null, "*");
+        eperson.addMetadata("eperson", EPersonRetriever.ADDITIONALINFO_ELEMENT, null, "*", additionalInfo);
+
+        eperson.clearMetadata("eperson", EPersonRetriever.REQUEST_INSTRUCTOR_ACCESS_ELEMENT, null, "*");
+        eperson.addMetadata("eperson", EPersonRetriever.REQUEST_INSTRUCTOR_ACCESS_ELEMENT, null, "*", requestInstructorAccess);
         // Check all required fields are there
         return (!StringUtils.isEmpty(lastName) && !StringUtils.isEmpty(firstName));
     }

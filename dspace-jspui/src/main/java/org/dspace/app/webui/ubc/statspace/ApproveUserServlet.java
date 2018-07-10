@@ -69,18 +69,16 @@ public class ApproveUserServlet extends DSpaceServlet {
 			return;
 		}
 
-		ApproveUserUtil approveUtil = new ApproveUserUtil();
+		ApproveUserUtil approveUtil = new ApproveUserUtil(context);
 		String successMsg = "";
 		if (action.equals(ApproveUserUtil.ACTION_GRANT)) {
 			// if grant permission, add user to instructor group
 			approveUtil.grantUserInstructorPermission(person);
-			// remove user from toBeVetted group
-			approveUtil.removeUserForApproval(person);
 			successMsg = "Granted user instructor permission.";
 		}
 		else if (action.equals(ApproveUserUtil.ACTION_DENY)) {
 			// remove user from toBeVetted group
-			approveUtil.removeUserForApproval(person);
+			approveUtil.denyUserInstructorPermission(person);
 			successMsg = "Denied user instructor permission.";
 		}
 		else {

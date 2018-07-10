@@ -490,6 +490,7 @@ public class RegisterServlet extends DSpaceServlet
 
         // Set the user profile info
         boolean infoOK = EditProfileServlet.updateUserProfile(eperson, request);
+		EditProfileServlet.updateUserRequestInstructorAccess(context, eperson, request);
 
         eperson.setCanLogIn(true);
         eperson.setSelfRegistered(true);
@@ -526,11 +527,6 @@ public class RegisterServlet extends DSpaceServlet
 
             JSPManager.showJSP(request, response, "/register/registered.jsp");
             context.complete();
-			// context needs to be flushed to database before the user actually
-			// exists, so we had to wait until now to actually add users to the 
-			// approval list
-			ApproveUserUtil approveUser = new ApproveUserUtil();
-			approveUser.addUserForApproval(eperson);
         }
         else
         {

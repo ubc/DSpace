@@ -482,64 +482,60 @@
 	<%} %>
 
 	<c:if test="${hasCuratorAccess && not empty usersForApproval}">
-		<h3>Access Check for New Accounts</h3>
-		<table class="table usersForApprovalTable">
-			<tr>
-				<th>Name/Email/Phone</th>
-				<th>Role/Unit/Institution</th>
-				<th>Action</th>
-			</tr>
-			<c:forEach items="${usersForApproval}" var="userForApproval">
-				<tr id="UsersForApprovalRow-${userForApproval.ID}">
-					<td>
-						<ul>
-							<li>${userForApproval.name}</li>
-							<li>${userForApproval.email}</li>
-							<c:if test="${not empty userForApproval.phone}">
-								<li>${userForApproval.phone}</li>
-							</c:if>
-						</ul>
-					</td>
-					<td>
-						<ul>
-							<c:if test="${not empty userForApproval.role}">
-								<li>${userForApproval.role}</li>
-							</c:if>
-							<c:if test="${not empty userForApproval.unit}">
-								<li>${userForApproval.unit}</li>
-							</c:if>
-							<c:if test="${not empty userForApproval.institution}">
-								<li>${userForApproval.institution}</li>
-							</c:if>
-						</ul>
-					</td>
-					<td class="usersForApprovalActionsCol">
-						<ul class="usersForApprovalActions">
-							<li id="UsersForApprovalPending-${userForApproval.ID}" class="hidden UsersForApprovalStatus text-warning">
-								<i class="glyphicon glyphicon-time"></i>
-								<strong>Please Wait: </strong> <span id="UsersForApprovalPendingMsg-${userForApproval.ID}"></span>
-							</li>
-							<li id="UsersForApprovalSuccess-${userForApproval.ID}" class="hidden UsersForApprovalStatus text-success">
-								<i class="glyphicon glyphicon-ok"></i>
-								<strong>Success: </strong> <span id="UsersForApprovalSuccessMsg-${userForApproval.ID}"></span>
-							</li>
-							<li id="UsersForApprovalError-${userForApproval.ID}" class="hidden UsersForApprovalStatus text-danger">
-								<i class="glyphicon glyphicon-remove"></i>
-								<strong>Error: </strong> <span id="UsersForApprovalErrorMsg-${userForApproval.ID}"></span>
-							</li>
-							<li>
-								<button id="UsersForApprovalGrant-${userForApproval.ID}" class="btn btn-default btn-warning UsersForApprovalGrant">
-									Grant Instructor Permission</button>
-							</li>
-							<li>
-								<button id="UsersForApprovalDeny-${userForApproval.ID}" class="btn btn-default btn-info UsersForApprovalDeny">
-									Deny Instructor Permission</button>
-							</li>
-						</ul>
-					</td>
-				</tr>
-			</c:forEach>
-		</table>
+		<h3>Users Requesting Instructor Access</h3>
+		<c:forEach items="${usersForApproval}" var="userForApproval">
+			<div class="row">
+				<div class="col-md-4">
+					<h4>Personal Information</h4>
+					<ul class="list-unstyled">
+						<li><strong>First Name:</strong> ${userForApproval.firstName}</li>
+						<li><strong>Last Name:</strong> ${userForApproval.lastName}</li>
+						<li><strong>Role:</strong> ${userForApproval.role}</li>
+						<li><strong>Phone:</strong> ${userForApproval.phone}</li>
+						<li><strong>Email:</strong> ${userForApproval.email}</li>
+					</ul>
+				</div>
+				<div class="col-md-4">
+					<h4>Institution Information</h4>
+					<ul class="list-unstyled">
+						<li><strong>Institution Type:</strong> ${userForApproval.institutionType}</li>
+						<li><strong>Institution Name:</strong> ${userForApproval.institution}</li>
+						<li><strong>Department:</strong> ${userForApproval.unit}</li>
+						<li><strong>URL:</strong> <a href="${userForApproval.institutionUrl}" target="_blank">${userForApproval.institutionUrl}</a></li>
+						<li><strong>Address:</strong> ${userForApproval.institutionAddress}</li>
+						<li><strong>Supervisor:</strong> ${userForApproval.supervisorContact}</li>
+						<li><strong>Additional Info:</strong> <pre>${userForApproval.additionalInfo}</pre></li>
+					</ul>
+				</div>
+				<div class="col-md-4">
+					<ul class="list-unstyled usersForApprovalActions">
+						<li id="UsersForApprovalPending-${userForApproval.ID}" class="hidden UsersForApprovalStatus text-warning">
+							<i class="glyphicon glyphicon-time"></i>
+							<strong>Please Wait: </strong> <span id="UsersForApprovalPendingMsg-${userForApproval.ID}"></span>
+						</li>
+						<li id="UsersForApprovalSuccess-${userForApproval.ID}" class="hidden UsersForApprovalStatus text-success">
+							<i class="glyphicon glyphicon-ok"></i>
+							<strong>Success: </strong> <span id="UsersForApprovalSuccessMsg-${userForApproval.ID}"></span>
+						</li>
+						<li id="UsersForApprovalError-${userForApproval.ID}" class="hidden UsersForApprovalStatus text-danger">
+							<i class="glyphicon glyphicon-remove"></i>
+							<strong>Error: </strong> <span id="UsersForApprovalErrorMsg-${userForApproval.ID}"></span>
+						</li>
+						<li>
+							<button id="UsersForApprovalGrant-${userForApproval.ID}" class="btn btn-default btn-success UsersForApprovalGrant">
+								<span class="glyphicon glyphicon-ok"></span>
+								Grant Instructor Permission</button>
+						</li>
+						<li>
+							<button id="UsersForApprovalDeny-${userForApproval.ID}" class="btn btn-default btn-danger UsersForApprovalDeny">
+								<span class="glyphicon glyphicon-remove"></span>
+								Deny Instructor Permission</button>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<hr />
+		</c:forEach>
 		<script type="text/javascript">
 			jQuery(function() {
 				function getUserId(idStr) {

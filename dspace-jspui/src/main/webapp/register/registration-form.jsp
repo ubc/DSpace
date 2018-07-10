@@ -79,7 +79,7 @@
     <form class="form-horizontal" action="<%= request.getContextPath() %>/register" method="post">
     <% if (netid!=null) { %> <input type="hidden" name="netid" value="<%= netid %>" /> <% } %>
     <% if (email!=null) { %> <input type="hidden" name="email" value="<%= email %>" /> <% } %>
-        <dspace:include page="/register/profile-form.jsp" />
+        <dspace:include page="/ubc/register/profile-form.jsp" />
 <%
 
     if (setPassword)
