@@ -18,6 +18,7 @@
 <%@page import="org.dspace.content.Bitstream"%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <%@ taglib uri="http://www.dspace.org/dspace-tags.tld" prefix="dspace" %>
@@ -47,7 +48,7 @@
 <dspace:layout locbar="nolink" titlekey="jsp.about.title" feedData="<%= feedData %>">
 
     <div class="example">
-        <p><a href="/">Home</a> <span class="text-muted">&raquo; Video Example</span></p>
+        <p><a href="<c:url value='/home.jsp' />">Home</a> <span class="text-muted">&raquo; Video Example</span></p>
 
         <div class="row">  
             <div class="col-md-8">
@@ -124,46 +125,6 @@
             </div>
 
             <div class="col-md-4">
-                <div class="value-prop">
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            <h3 class="panel-title"><i class="glyphicon glyphicon-stats"></i> About StatSpace</h3>
-                        </div>
-                        <div class="panel-body">
-                            <p>StatSpace brings together vetted open education materials for use across disciplines. Members of our community can <strong>search and use materials</strong> in the repository, <strong>contribute materials</strong> of their own, and <strong>evaluate materials</strong> they use.</p>
-                            <label>Search StatSpace now:</label>
-                            <%-- Search Box --%>
-                                <form method="get" action="<%= request.getContextPath() %>/simple-search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
-                                        <span class="input-group-btn">
-                                            <button type="submit" class="btn btn-primary">
-                                                <span class="glyphicon glyphicon-search"></span>
-                                            </button>
-                                        </span>
-                                    </div>
-                                </form>		
-                        </div>
-                    </div>
-
-                        <div class="panel panel-info">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
-                            </div>
-                            <div class="panel-body">
-                                <p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
-                            </div>
-                        </div>
-                        <div class="panel panel-info" >
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><a href="https://ubc.ca1.qualtrics.com/jfe/form/SV_6J4ans7VBN2hpt3"><i class="glyphicon glyphicon-open"></i>&nbsp;Survey</a></h3>
-                            </div>
-                            <div class="panel-body">
-                                <p>When you have explored StatSpace, we would appreciate your opinion, via a brief <a href="https://ubc.ca1.qualtrics.com/jfe/form/SV_6J4ans7VBN2hpt3">survey</a>.<span class="glyphicon glyphicon-new-window"></span></p>
-                            </div>
-                        </div>
-
-                    </div>
 
                     <div class="tags">
                         <div class="panel panel-default">
@@ -184,7 +145,7 @@
                             <div class="panel-body">
                                 <ul>
                                     <li><a href="http://www.cwsei.ubc.ca/resources/files/Demo_WorkshopSummary_CWSEI-EOY2015.pdf">“Making the most of demonstrations, videos, animations, or simulations in lectures and laboratories” J. Maxwell and J. Stang <span class="glyphicon glyphicon-new-window"></span></a></li>
-                                    <li><a href="/iClicker-example.jsp">Interactive Engagement Questions: Sampling distributions of means<span class="glyphicon glyphicon-new-window"></span></a></li>
+                                    <li><a href="<c:url value='/demo/iClicker-example.jsp' />">Interactive Engagement Questions: Sampling distributions of means<span class="glyphicon glyphicon-new-window"></span></a></li>
                                 </ul>
                             </div>
                         </div>     
@@ -204,7 +165,7 @@
                         <div class="caption">
                             <h5>Video: Confidence Interval for a Population Mean</h5>
                             <p class="text-left"><strong>Topics:</strong> <br>&bull; Confidence intervals - One sample mean t</p><br>
-                            <p class="see-more"><a href="/LP-VideoCIs.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+                            <p class="see-more"><a href="<c:url value='/demo/LP-VideoCIs.jsp' />" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>
                     </div>
                 </div>
@@ -215,16 +176,9 @@
                         <div class="caption">
                             <h5>Video: One Sample T-Test</h5>
                             <p class="text-left"><strong>Topics:</strong> <br>&bull; Hypothesis tests - One sample/paired - One sample mean t</p>
-                            <p class="see-more"><a href="/LP-VideoOne-Sample-T-Test.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+                            <p class="see-more"><a href="<c:url value='/demo/LP-VideoOne-Sample-T-Test.jsp' />" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="row text-center">
-                <div class="col-md-12">
-                    <h4 class="more-heading">To see more resources:</h4>
-                    <a href="https://ubc.ca1.qualtrics.com/jfe/form/SV_6J4ans7VBN2hpt3" class="btn btn-success btn-lg">Join</a><!-- &nbsp;or&nbsp; <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>-->
                 </div>
             </div>
             

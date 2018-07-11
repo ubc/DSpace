@@ -892,15 +892,14 @@
   </session-config>
 
   <!-- Custom servlets -->
-  <servlet>
-    <servlet-name>approve-user-servlet</servlet-name>
-    <servlet-class>org.dspace.app.webui.ubc.statspace.ApproveUserServlet</servlet-class>
-  </servlet>
-    	
-  <servlet-mapping>
-    <servlet-name>approve-user-servlet</servlet-name>
-    <url-pattern>/approve-user-servlet</url-pattern>
-  </servlet-mapping>
+	<servlet>
+		<servlet-name>approve-user-servlet</servlet-name>
+		<servlet-class>org.dspace.app.webui.ubc.statspace.ApproveUserServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>approve-user-servlet</servlet-name>
+		<url-pattern>/approve-user-servlet</url-pattern>
+	</servlet-mapping>
 
     <servlet>
         <servlet-name>ubc-file-upload</servlet-name>
@@ -910,6 +909,16 @@
         <servlet-name>ubc-file-upload</servlet-name>
         <url-pattern>/dspace-admin/import-communities-collections</url-pattern>
     </servlet-mapping>
+
+	<servlet>
+		<servlet-name>hard-coded-content-servlet</servlet-name>
+		<servlet-class>org.dspace.app.webui.ubc.statspace.HardCodedContentServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>hard-coded-content-servlet</servlet-name>
+		<url-pattern>/demo/*</url-pattern>
+	</servlet-mapping>
+
     <!-- Quartz Scheduler for periodic thumbnail generation -->
     <servlet>
         <servlet-name>SchedulerStarter</servlet-name>

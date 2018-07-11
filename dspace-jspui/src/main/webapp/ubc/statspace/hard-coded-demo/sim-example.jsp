@@ -18,6 +18,7 @@
 <%@page import="org.dspace.content.Bitstream"%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <%@ taglib uri="http://www.dspace.org/dspace-tags.tld" prefix="dspace" %>
@@ -47,7 +48,7 @@
 <dspace:layout locbar="nolink" titlekey="jsp.about.title" feedData="<%= feedData %>">
 
     <div class="example">
-        <p><a href="">Home</a> <span class="text-muted">&raquo; Simulation Example</span></p>
+        <p><a href="<c:url value='/home.jsp' />">Home</a> <span class="text-muted">&raquo; Simulation Example</span></p>
 
         <div class="row">  
                 <div class="col-md-8">
@@ -95,7 +96,7 @@
                             <ul>
                                 <li>as a visual aid during lectures;</li>
                                 <li>as an open-ended learning tool for active learning;</li>
-                                <li>as a guided learning experience, using either the built-in tutorials, guided activity sheet (click here for <a target="_blank" href="pdf_folder/Applet1InstructorGuide.pdf">Instructor Guide<span class="glyphicon glyphicon-new-window"></span></a> and <a target="_blank" href="pdf_folder/Applet1Qs.pdf">Activity Sheet<span class="glyphicon glyphicon-new-window"></span>)</a>, or other instructor-supplied material.</li>
+                                <li>as a guided learning experience, using either the built-in tutorials, guided activity sheet (click here for <a target="_blank" href="<c:url value='/pdf_folder/Applet1InstructorGuide.pdf' />">Instructor Guide<span class="glyphicon glyphicon-new-window"></span></a> and <a target="_blank" href="<c:url value='/pdf_folder/Applet1Qs.pdf' />">Activity Sheet<span class="glyphicon glyphicon-new-window"></span>)</a>, or other instructor-supplied material.</li>
                             </ul>
 
                             <h2>About this resource</h2>
@@ -112,46 +113,6 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div clas="value-prop">
-                        <div class="panel panel-info">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="glyphicon glyphicon-stats"></i> About StatSpace</h3>
-                            </div>
-                            <div class="panel-body">
-                                <p>StatSpace brings together vetted open education materials for use across disciplines. Members of our community can <strong>search and use materials</strong> in the repository, <strong>contribute materials</strong> of their own, and <strong>evaluate materials</strong> they use.</p>
-                                <label>Search StatSpace now:</label>
-                                <%-- Search Box --%>
-                                    <form method="get" action="<%= request.getContextPath() %>/simple-search">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
-                                            <span class="input-group-btn">
-                                                <button type="submit" class="btn btn-primary">
-                                                    <span class="glyphicon glyphicon-search"></span>
-                                                </button>
-                                            </span>
-                                        </div>
-                                    </form>		
-                                    </div>
-                            </div>
-
-                            <div class="panel panel-info">
-                                <div class="panel-heading">
-
-                                    <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
-                                </div>
-                                <div class="panel-body">
-                                    <p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
-                                </div>
-                            </div>
-                            <div class="panel panel-info" >
-                                <div class="panel-heading">
-                                    <h3 class="panel-title"><a href="https://ubc.ca1.qualtrics.com/jfe/form/SV_6J4ans7VBN2hpt3"><i class="glyphicon glyphicon-open"></i>&nbsp;Survey</a></h3>
-                                </div>
-                                <div class="panel-body">
-                                    <p>When you have explored StatSpace, we would appreciate your opinion, via a brief <a href="https://ubc.ca1.qualtrics.com/jfe/form/SV_6J4ans7VBN2hpt3">survey</a>.<span class="glyphicon glyphicon-new-window"></span></p>
-                                </div>
-                            </div>
-                        </div>
 
                         <div class="details tags">
                             <div class="panel panel-default">
@@ -172,8 +133,8 @@
                                 <div class="panel-body">
                                     <ul>
                                         <li><a target="_blank" href="http://www.cwsei.ubc.ca/resources/files/Demo_WorkshopSummary_CWSEI-EOY2015.pdf">"Making the most of demonstrations, videos, animations, or simulations in lectures and laboratories" (J. Maxwell and J. Stang) <span class="glyphicon glyphicon-new-window"></span></a></li>
-                                        <li><a target="_blank" href="video-example.jsp">Video: Sampling Distribution of the Mean <span class="glyphicon glyphicon-new-window"></span></a></li>
-                                        <li><a target="_blank" href="pdf_folder/Applet1InstructorGuide.pdf">Instructor Guide</a> and <a target="_blank" href="pdf_folder/Applet1Qs.pdf">Activity Sheet</a></li>
+                                        <li><a target="_blank" href="<c:url value='/demo/video-example.jsp' />">Video: Sampling Distribution of the Mean <span class="glyphicon glyphicon-new-window"></span></a></li>
+                                        <li><a target="_blank" href="<c:url value='/pdf_folder/Applet1InstructorGuide.pdf' />">Instructor Guide</a> and <a target="_blank" href="<c:url value='/pdf_folder/Applet1Qs.pdf' />">Activity Sheet</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -183,7 +144,7 @@
                                     <h3 class="panel-title"><i class="glyphicon glyphicon-book"></i> What we learned</h3>
                                 </div>
                                 <div class="panel-body">
-                                    <p>We learned a lot about this resource from trialling with students. The sampling distribution is a complex concept.  For instance, from our teaching, we have found that students often confuse the histogram of values from a random sample and the histogram of sample means from many random samples.<br><a target="_blank" href="SampNorm_WhatWeLearned.jsp">Read More <span class="glyphicon glyphicon-new-window"></span></a></p>
+                                    <p>We learned a lot about this resource from trialling with students. The sampling distribution is a complex concept.  For instance, from our teaching, we have found that students often confuse the histogram of values from a random sample and the histogram of sample means from many random samples.<br><a target="_blank" href="<c:url value='/demo/SampNorm_WhatWeLearned.jsp' />">Read More <span class="glyphicon glyphicon-new-window"></span></a></p>
                                 </div>
                             </div>
                         </div>
@@ -203,28 +164,28 @@
                         <div class="caption">
                             <h5>Web visualization: Sampling from a non-Normally distributed population (CLT)</h5>
                             <p class="text-left"><strong>Topics:</strong> <br>&bull; Probability - Laws, Theory - Central Limit Theorem <br>&bull; Sampling distributions - Sample mean</p>
-                            <p class="see-more"><a href="WV-SamplingNon-Normal.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+                            <p class="see-more"><a href="<c:url value='/demo/WV-SamplingNon-Normal.jsp' />" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>
                     </div>
                 </div>
               
                 <div class="col-md-3 text-center">
                     <div class="thumbnail">
-                        <img src="image/contingency_analysis_image.jpg" class="sim-image-large" width="170" >
+                        <img src="<c:url value='/image/contingency_analysis_image.jpg'/>" class="sim-image-large" width="170" >
                         <div class="caption">
                             <h5>Web Visualization: Chi-square contingency analysis</h5>
                             <p class="text-left"><strong>Topics:</strong> <br>&bull; Hypothesis tests - Goodness of fit - Chi-squared test for independence</p><br><br> 
-                            <p class="see-more"><a href="WV-ChiSquarecontingencyanalysis.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+                            <p class="see-more"><a href="<c:url value='/demo/WV-ChiSquarecontingencyanalysis.jsp'/>" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>     
                     </div>
                 </div>
                 <div class="col-md-3 text-center">
                     <div class="thumbnail">
-                        <img src="image/confidence_interval_image.JPG" class="sim-image-small" width="170">
+                        <img src="<c:url value='/image/confidence_interval_image.JPG'/>" class="sim-image-small" width="170">
                         <div class="caption"><br>
                             <h5>Web Visualization: Confidence intervals for the mean</h5>
                             <p class="text-left"><strong>Topics:</strong><br>&bull; Confidence intervals - One sample mean t</p><br><br>
-                            <p class="see-more"><a href="WV-ConfidenceIntervals.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+                            <p class="see-more"><a href="<c:url value='/demo/WV-ConfidenceIntervals.jsp'/>" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>
                     </div>
                 </div>
@@ -234,12 +195,6 @@
                 <h3>Web Visualizations are also available in <a target="_blank" href="http://www.zoology.ubc.ca/~whitlock/Kingfisher/KFhomepage_FR.htm">French</a> and <a target="_blank" href="http://www.zoology.ubc.ca/~whitlock/Kingfisher/KFhomepage_ES.htm">Spanish</a></h3>
             </div>
 
-            <div class="row text-center">
-                <div class="col-md-12">
-                    <h4 class="more-heading">To see more resources:</h4>
-                    <a href="https://ubc.ca1.qualtrics.com/jfe/form/SV_6J4ans7VBN2hpt3" class="btn btn-success btn-lg">Join</a><!-- &nbsp;or&nbsp; <a href="mydspace" class="btn btn-success btn-lg">Sign In</a>-->
-                </div>
-            </div>
         </div>
 
 </dspace:layout>

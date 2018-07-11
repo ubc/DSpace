@@ -18,6 +18,7 @@
 <%@page import="org.dspace.content.Bitstream"%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <%@ taglib uri="http://www.dspace.org/dspace-tags.tld" prefix="dspace" %>
@@ -47,7 +48,7 @@
 <dspace:layout locbar="nolink" titlekey="jsp.about.title" feedData="<%= feedData %>">
 
     <div class="example">
-        <p><a href="/">Home</a> <span class="text-muted">&raquo;</span> <a href="/sim-example.jsp">Simulation Example</a> <span class="text-muted">&raquo; Web Visualization: Chi-square contingency analysis</span></p>
+        <p><a href="<c:url value='/home.jsp' />">Home</a> <span class="text-muted">&raquo;</span> <a href="<c:url value='/demo/sim-example.jsp'/>">Simulation Example</a> <span class="text-muted">&raquo; Web Visualization: Chi-square contingency analysis</span></p>
 
         <div class="row">  
             <div class="col-md-8">
@@ -57,7 +58,7 @@
                 <div class="row description">
                     <div class="col-md-12">
 
-                        <img class="pull-left zoology-fish" src="image/contingency_analysis_image.jpg" class="sim-image" width="250">
+                        <img class="pull-left zoology-fish" src="<c:url value='/image/contingency_analysis_image.jpg' />" class="sim-image" width="250">
 
                         <p class="intro-text">This web visualization simulates samples of a 2x2 contingency analysis. It demonstrates that the &chi;<sup>2</sup> test statistic follows a &chi;<sup>2</sup> distribution and illustrates the meaning of the P-value. It may be most useful as a demonstration of the meaning of Type I error and power. <i>This visualization has no tutorial version.</i></p>
 
@@ -115,44 +116,6 @@
             </div>
 
             <div class="col-md-4">
-                <div class="value-prop">
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            <h3 class="panel-title"><i class="glyphicon glyphicon-stats"></i> About StatSpace</h3>
-                        </div>
-                        <div class="panel-body">
-                            <p>StatSpace brings together vetted open education materials for use across disciplines. Members of our community can <strong>search and use materials</strong> in the repository, <strong>contribute materials</strong> of their own, and <strong>evaluate materials</strong> they use.</p>
-                            <label>Search StatSpace now:</label>
-                            <%-- Search Box --%>
-                                <form method="get" action="<%= request.getContextPath() %>/simple-search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
-                                        <span class="input-group-btn">
-                                            <button type="submit" class="btn btn-primary">
-                                                <span class="glyphicon glyphicon-search"></span>
-                                            </button>
-                                        </span>
-                                    </div>
-                                </form>		
-                                </div>
-                        </div>                        
-                        <div class="panel panel-info">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
-                            </div>
-                            <div class="panel-body">
-                                <p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
-                            </div>
-                        </div>
-                        <div class="panel panel-info" >
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><a href="https://ubc.ca1.qualtrics.com/jfe/form/SV_6J4ans7VBN2hpt3"><i class="glyphicon glyphicon-open"></i>&nbsp;Survey</a></h3>
-                            </div>
-                            <div class="panel-body">
-                                <p>When you have explored StatSpace, we would appreciate your opinion, via a brief <a href="https://ubc.ca1.qualtrics.com/jfe/form/SV_6J4ans7VBN2hpt3">survey</a>.<span class="glyphicon glyphicon-new-window"></span></p>
-                            </div>
-                        </div>
-                    </div>
 
                     <div class="details tags">
                         <div class="panel panel-default">
@@ -194,7 +157,7 @@
                         <div class="caption">
                             <h5>Web visualization: Sampling from a non-Normally distributed population (CLT)</h5>
                             <p class="text-left"><strong>Topics:</strong> <br>&bull; Probability - Laws, Theory - Central Limit Theorem <br>&bull; Sampling distributions - Sample mean</p><br><br> 
-                            <p class="see-more"><a href="/WV-SamplingNon-Normal.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+                            <p class="see-more"><a href="<c:url value='/demo/WV-SamplingNon-Normal.jsp'/>" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>
                     </div>
                 </div>
@@ -206,18 +169,18 @@
                             <br>
                             <h5>Web Visualization: Sampling from a Normal distribution</h5>
                             <p class="text-left"><strong>Topics:</strong> <br>&bull; Sampling distributions - Sample mean <br>&bull; Exploratory data analysis/Classifying data - Graphical representations - Histograms</p> <br>
-                            <p class="see-more"><a href="/sim-example.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+                            <p class="see-more"><a href="<c:url value='/demo/sim-example.jsp'/>" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>     
                     </div>
                 </div>
                 <div class="col-md-3 text-center">
                     <div class="thumbnail">
-                        <img src="image/confidence_interval_image.JPG" class="sim-image-small" width="170">
+                        <img src="<c:url value='/image/confidence_interval_image.JPG'/>" class="sim-image-small" width="170">
                         <div class="caption">
                             <br>
                             <h5>Web Visualization: Confidence intervals of the mean</h5>
                             <p class="text-left"><strong>Topics:</strong><br>&bull; Confidence intervals - One sample mean t</p><br><br><br><br> 
-                            <p class="see-more"><a href="/WV-ConfidenceIntervals.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+                            <p class="see-more"><a href="<c:url value='/demo/WV-ConfidenceIntervals.jsp'/>" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>
                     </div>
                 </div>
@@ -228,12 +191,6 @@
                 <h3>Web Visualizations are also available in <a target="_blank" href="http://www.zoology.ubc.ca/~whitlock/Kingfisher/KFhomepage_FR.htm">French</a> and <a target="_blank" href="http://www.zoology.ubc.ca/~whitlock/Kingfisher/KFhomepage_ES.htm">Spanish</a></h3>
             </div>
 
-            <div class="row text-center">
-                <div class="col-md-12">
-                    <h4 class="more-heading">To see more resources:</h4>
-                    <a href="https://ubc.ca1.qualtrics.com/jfe/form/SV_6J4ans7VBN2hpt3" class="btn btn-success btn-lg">Join</a><!-- &nbsp;or&nbsp; <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>-->
-                </div>
-            </div>     
         </div>
 
 </dspace:layout>

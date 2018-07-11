@@ -18,6 +18,7 @@
 <%@page import="org.dspace.content.Bitstream"%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <%@ taglib uri="http://www.dspace.org/dspace-tags.tld" prefix="dspace" %>
@@ -56,9 +57,9 @@
                         <div class="row">
                             <h2>Sample Question</h2>
                         </div>
-                        <img class="pull-left zoology-fish" src="image/sample_question_image.JPG" width="220">
+                        <img class="pull-left zoology-fish" src="<c:url value='/image/sample_question_image.JPG' />" width="220">
                         <p class="intro-text">Suppose that we are to draw many random samples of 120 employees from a large company. The average of the hourly wages of the 120 employees is computed for each sample. Below is the sampling distribution of the average values from the repeated samples.</p>
-                        <p class="text-center access-btn"><a target="_blank" class="btn btn-success btn-md" href="/iClicker_question.jsp">See More</a></p>   
+                        <p class="text-center access-btn"><a target="_blank" class="btn btn-success btn-md" href="<c:url value='/demo/iClicker_question.jsp' />">See More</a></p>   
                     </div>
                 </div>
 
@@ -104,47 +105,6 @@
             </div>
 
             <div class="col-md-4">                
-                <div class="value-prop">
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            <h3 class="panel-title"><i class="glyphicon glyphicon-stats"></i> About StatSpace</h3>
-                        </div>
-                        <div class="panel-body">
-                            <p>StatSpace brings together vetted open education materials for use across disciplines. Members of our community can <strong>search and use materials</strong> in the repository, <strong>contribute materials</strong> of their own, and <strong>evaluate materials</strong> they use.</p>
-                            <label>Search StatSpace now:</label>
-                            <%-- Search Box --%>
-                                <form method="get" action="<%= request.getContextPath() %>/simple-search.jsp">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
-                                        <span class="input-group-btn">
-                                            <button type="submit" class="btn btn-primary">
-                                                <span class="glyphicon glyphicon-search"></span>
-                                            </button>
-                                        </span>
-                                    </div>
-                                </form>		
-                                </div>
-                        </div>
-
-                        <div class="panel panel-info">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
-                            </div>
-                            <div class="panel-body">
-                                <p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="panel panel-info" >
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><a href="https://ubc.ca1.qualtrics.com/jfe/form/SV_6J4ans7VBN2hpt3"><i class="glyphicon glyphicon-open"></i>&nbsp;Survey</a></h3>
-                            </div>
-                            <div class="panel-body">
-                                <p>When you have explored StatSpace, we would appreciate your opinion, via a brief <a href="https://ubc.ca1.qualtrics.com/jfe/form/SV_6J4ans7VBN2hpt3">survey</a>.<span class="glyphicon glyphicon-new-window"></span></p>
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="details tags">
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -166,10 +126,10 @@
                                     <li><a href="http://www.cwsei.ubc.ca/resources/clickers.htm">iClicker Resources <span class="glyphicon glyphicon-new-window"></span></a></li>
                                     <li>Web visualization&colon; Instructors may assign the following accompanying web visualizations as homework before teaching the topic in class</li>
                                     <ul>
-                                        <li><a target="_blank" href="/WV-SamplingNon-Normal.jsp"> Sampling from a non-Normally distributed population (CLT)<span class="glyphicon glyphicon-new-window"></span></a></li>
-                                        <li><a target="_blank" href="/sim-example.jsp">Sampling from a Normal distribution<span class="glyphicon glyphicon-new-window"></span></a></li>
+                                        <li><a target="_blank" href="<c:url value='/demo/WV-SamplingNon-Normal.jsp' />"> Sampling from a non-Normally distributed population (CLT)<span class="glyphicon glyphicon-new-window"></span></a></li>
+                                        <li><a target="_blank" href="<c:url value='/demo/sim-example.jsp' />">Sampling from a Normal distribution<span class="glyphicon glyphicon-new-window"></span></a></li>
                                     </ul>
-                                    <li><a target="_blank" href="/video-example.jsp">Video: Sampling Distribution of the Mean<span class="glyphicon glyphicon-new-window"></span></a></li>            
+                                    <li><a target="_blank" href="<c:url value='/demo/video-example.jsp' />">Video: Sampling Distribution of the Mean<span class="glyphicon glyphicon-new-window"></span></a></li>            
                                     <!-- removed for soft launch
                                     <li><a target="_blank" href="http://www.zoology.ubc.ca/~whitlock/kingfisher/SamplingNormal.htm">Activity: Introducing the sampling distribution (French protest)<span class="glyphicon glyphicon-new-window"></span></a></li>-->
                                 </ul>
@@ -188,32 +148,25 @@
                 <div class="col-md-4 text-center">
                     <div class="thumbnail">
                         <div class="col-md-12 text-center">
-                            <img src="image/canadian_shopping.JPG" class="sim-image-large" width="220">
+                            <img src="<c:url value='/image/canadian_shopping.JPG' />" class="sim-image-large" width="220">
                         </div>
                         <div class="caption">
                             <h5>Interactive engagement (clicker) questions: Confidence intervals for means</h5>
                             <p class="text-left"><strong>Topics:</strong> <br>&bull; Confidence intervals – One sample mean – t <br>&bull; Confidence intervals – One sample mean – z <br>&bull; Confidence intervals – Concepts – Sample size <br>&bull; Confidence intervals – Concepts – Standard error</p><br><br><br> 
-                            <p class="see-more"><a href="/iClicker-example-2-ConfidenceIntervals.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+                            <p class="see-more"><a href="<c:url value='/demo/iClicker-example-2-ConfidenceIntervals.jsp' />" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-md-4 text-center">
                     <div class="thumbnail">
-                        <img src="image/olli_jam.jpg" class="sim-image-large" width="220">
+                        <img src="<c:url value='/image/olli_jam.jpg' />" class="sim-image-large" width="220">
                         <div class="caption">
                             <h5>Interactive engagement (clicker) questions: Hypothesis testing for means</h5>
                             <p class="text-left"><strong>Topics:</strong> <br>&bull; Hypothesis tests – One sample / paired – One sample mean - t <br>&bull; Hypothesis tests – One sample / paired – One sample mean - z <br>&bull; Hypothesis tests – Concepts – P-value and significance level <br>&bull; Hypothesis tests – Type I / type II errors and power</p> 
-                            <p class="see-more"><a href="/iClicker-example-3-Hypothesistesting.jsp" class="btn btn-primary">Read more &raquo;</a></p>
+                            <p class="see-more"><a href="<c:url value='/demo/iClicker-example-3-Hypothesistesting.jsp' />" class="btn btn-primary">Read more &raquo;</a></p>
                         </div>     
                     </div>
-                </div>
-            </div>
-
-            <div class="row text-center">
-                <div class="col-md-12">
-                    <h4 class="more-heading">To see more resources:</h4>
-                    <a href="https://ubc.ca1.qualtrics.com/jfe/form/SV_6J4ans7VBN2hpt3" class="btn btn-success btn-lg">Join</a><!-- &nbsp;or&nbsp; <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>-->
                 </div>
             </div>
 
