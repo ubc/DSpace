@@ -65,8 +65,8 @@
 <%-- ====================================================== --%>
 <div class="col-md-10">
                                     <div class="row">
-                                        <span class="metadataFieldLabel col-md-4"><%= (subInfo.getSubmissionItem().hasMultipleFiles() ? LocaleSupport.getLocalizedMessage(pageContext, "jsp.submit.review.upload1") : LocaleSupport.getLocalizedMessage(pageContext, "jsp.submit.review.upload2")) %></span>
-                                        <span class="metadataFieldValue col-md-8">
+                                        <span class="metadataFieldLabel col-md-2"><%= (subInfo.getSubmissionItem().hasMultipleFiles() ? LocaleSupport.getLocalizedMessage(pageContext, "jsp.submit.review.upload1") : LocaleSupport.getLocalizedMessage(pageContext, "jsp.submit.review.upload2")) %></span>
+                                        <span class="metadataFieldValue col-md-10">
 <%
     Bitstream[] bitstreams = item.getNonInternalBitstreams();
 
@@ -97,6 +97,7 @@
 	            %><fmt:message key="jsp.submit.review.supported"/><%
 	        }
 %>    
+ - Access: <%= bitstreams[i].getAccessRights() %>
 <%
 if(isUploadWithEmbargo) {
 List<ResourcePolicy> rpolicies = AuthorizeManager.findPoliciesByDSOAndType(context, bitstreams[i], ResourcePolicy.TYPE_CUSTOM); %>

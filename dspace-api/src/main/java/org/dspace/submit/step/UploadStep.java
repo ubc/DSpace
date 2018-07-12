@@ -307,6 +307,10 @@ public class UploadStep extends AbstractProcessingStep
 						{
 							setFileAccessRight(context, bitstream, true);
 						}
+						else
+						{
+							setFileAccessRight(context, bitstream, false);
+						}
                     }
                 }
             }
