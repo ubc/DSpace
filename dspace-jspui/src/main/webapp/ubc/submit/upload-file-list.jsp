@@ -272,10 +272,11 @@
     if (allowFileEditing)
     {
 %>
-        <p class="uploadHelp"><fmt:message key="jsp.submit.upload-file-list.info3"/></p>
+        <p class="uploadHelp"><fmt:message key="jsp.submit.upload-file-list.info3"/> <fmt:message key="jsp.submit.upload-file-list.info4"/></p>
+
+<%-- Hide checksum mechanism, cause users don't know what it means
         <ul class="uploadHelp">
             <li class="uploadHelp"><fmt:message key="jsp.submit.upload-file-list.info4"/></li>
-<%-- Hide checksum mechanism, cause users don't know what it means
 <%
         if (showChecksums)
         {
@@ -293,8 +294,8 @@
 <%
         }
 %>
---%>
         </ul>
+--%>
         <br />
 <%
     }

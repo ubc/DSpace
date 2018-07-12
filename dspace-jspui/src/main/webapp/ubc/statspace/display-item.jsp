@@ -301,6 +301,9 @@
 					</a>
 				</li>
 			</ul>
+			<c:if test='${empty itemRetriever.files}'>
+				<div class="alert alert-info" role="alert"><strong>No Files Found!</strong> Files may be restricted to instructors only. </div>
+			</c:if>
 			<div class="tab-content">
 				<div role="tabpanel" class="tab-pane active" id="FilesTabTileView">
 					<jsp:include page="/ubc/statspace/components/files-tile-view.jsp">

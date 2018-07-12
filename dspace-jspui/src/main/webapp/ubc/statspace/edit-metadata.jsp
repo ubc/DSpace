@@ -1031,12 +1031,14 @@
 								"<option disabled selected value class='hidden'>" +
 									"-- Select an Option --</option>" +
 							"</select>" +
+							"<span class='help-block bg-warning hidden'><strong>Please enter a subject in the box below.</strong></span>" +
 						"</div>" +
 						"<div class='form-group'>" +
 							"<select class='form-control' id='" + subjectsLevel2Id + "' disabled>" +
 								"<option id='noSecondLevelOption' selected value disabled class='hidden'>" +
 									"-- None --</option>" +
 							"</select>" +
+							"<span class='help-block bg-warning hidden'><strong>Please enter a subject in the box below.</strong></span>" +
 						"</div>" +
 						"<div class='form-group'>" +
 							"<select class='form-control' id='" + subjectsLevel3Id + "' disabled>" +
@@ -1761,15 +1763,18 @@ jQuery(document).ready(function() {
 	}
 	
 	// show fill-in-the-blank if user selects "Other"
-	function showFillInTheBlankOption(selectedValue) {
+	function showFillInTheBlankOption(levelElem) {
 		var otherRow = jQuery('#${subjectsOtherRowId}');
+		var selectedValue = levelElem.val();
 		if (selectedValue == "Other") {
 			otherRow.prev().show();
 			otherRow.show();
+			levelElem.next('span').removeClass('hidden');
 		}
 		else {
 			otherRow.prev().hide(); // hide the help
 			otherRow.hide();
+			levelElem.next('span').addClass('hidden');
 		}
 	}
 
@@ -1799,7 +1804,7 @@ jQuery(document).ready(function() {
 			updateSelectedSubjects();
 		}
 		// check if we need to show the fill in the blank option
-		showFillInTheBlankOption(jQuery(level1Id).val());
+		showFillInTheBlankOption(jQuery(level1Id));
 	});
 	jQuery(level2Id).change(function() {
 		resetChildSelect(level3Id);
@@ -1809,7 +1814,7 @@ jQuery(document).ready(function() {
 			updateSelectedSubjects();
 		}
 		// check if we need to show the fill in the blank option
-		showFillInTheBlankOption(jQuery(level2Id).val());
+		showFillInTheBlankOption(jQuery(level2Id));
 	});
 
 	if (subjectsRepeatable) {
