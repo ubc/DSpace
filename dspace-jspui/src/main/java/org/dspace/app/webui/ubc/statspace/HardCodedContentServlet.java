@@ -53,6 +53,7 @@ public class HardCodedContentServlet extends DSpaceServlet {
 		// only serve recognized paths
 		if (ACCEPTABLE_PATHS.contains(pathInfo))
 			JSPManager.showJSP(request, response, "/ubc/statspace/hard-coded-demo" + pathInfo);
-		JSPManager.showInvalidIDError(request, response, StringEscapeUtils.escapeHtml(pathInfo), -1);
+		else
+			JSPManager.showInvalidIDError(request, response, StringEscapeUtils.escapeHtml(pathInfo), -1);
 	}
 }
