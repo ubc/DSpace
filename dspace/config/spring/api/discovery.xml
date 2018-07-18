@@ -107,8 +107,10 @@
             <list>
                 <ref bean="searchFilterTitle" />
                 <ref bean="searchFilterAuthor" />
+                <ref bean="searchFilterResourceType" />
                 <ref bean="searchFilterSubject" />
                 <ref bean="searchFilterIssued" />
+                <ref bean="searchFilterAccessRights" />
             </list>
         </property>
         <!--The sort filters for the discovery search-->
@@ -200,8 +202,9 @@
         <!--Which sidebar facets are to be displayed (same as defaultConfiguration above)-->
         <property name="sidebarFacets">
             <list>
-                <ref bean="searchFilterAuthor" />
                 <ref bean="searchFilterSubject" />
+                <ref bean="searchFilterResourceType" />
+                <ref bean="searchFilterAuthor" />
                 <ref bean="searchFilterIssued" />
             </list>
         </property>
@@ -213,6 +216,7 @@
                 <ref bean="searchFilterTitle" />
                 <ref bean="searchFilterAuthor" />
                 <ref bean="searchFilterSubject" />
+                <ref bean="searchFilterResourceType" />
                 <ref bean="searchFilterIssued" />
             </list>
         </property>
@@ -378,7 +382,18 @@
                 <value>dc.creator</value>
             </list>
         </property>
-        <property name="facetLimit" value="10"/>
+        <property name="facetLimit" value="5"/>
+        <property name="sortOrder" value="COUNT"/>
+    </bean>
+
+    <bean id="searchFilterResourceType" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="resourceType"/>
+        <property name="metadataFields">
+            <list>
+                <value>dcterms.type</value>
+            </list>
+        </property>
+        <property name="facetLimit" value="5"/>
         <property name="sortOrder" value="COUNT"/>
     </bean>
 
@@ -386,12 +401,13 @@
         <property name="indexFieldName" value="subject"/>
         <property name="metadataFields">
             <list>
-                <value>dc.subject.*</value>
+                <value>dc.subject</value>
             </list>
         </property>
-        <property name="facetLimit" value="10"/>
+		<property name="facetLimit" value="8"/>
         <property name="sortOrder" value="COUNT"/>
-        <property name="splitter" value="::"/>
+		<property name="splitter" value=" >>> "/>
+		<property name="skipFirstNodeLevel" value="false"/>
     </bean>
 
     <bean id="searchFilterIssued" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
@@ -403,6 +419,15 @@
         </property>
         <property name="type" value="date"/>
         <property name="sortOrder" value="VALUE"/>
+    </bean>
+
+    <bean id="searchFilterAccessRights" class="org.dspace.discovery.configuration.DiscoverySearchFilter">
+        <property name="indexFieldName" value="accessRights"/>
+        <property name="metadataFields">
+            <list>
+                <value>dcterms.accessRights</value>
+            </list>
+        </property>
     </bean>
 
     <!--Sort properties-->

@@ -51,7 +51,7 @@
                         <div class="ubc7-address-location">
                             <span class="ubc7-address-city">Vancouver</span>, <span class="ubc7-address-province" title="British Columbia">British Columbia</span> <span class="ubc7-address-country">Canada</span> <span class="ubc7-address-postal">V6T 1Z4</span>
                         </div>
-                	    <div id="ubc7-address-phone">Tel 604.822.0570</div>
+						<div id="ubc7-address-web">Web <a href="https://www.stat.ubc.ca/">https://www.stat.ubc.ca/</a></div>
                 	    <div id="ubc7-address-email">E-mail lt.support@science.ubc.ca</div>
                 	</div>
                     <div class="col-md-4">

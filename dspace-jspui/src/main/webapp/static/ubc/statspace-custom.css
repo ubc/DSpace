@@ -1,0 +1,254 @@
+/* "Backported" features. the CLF is based on an older version of bootstrap 3
+and lacks some bootstrap 3 features. */
+.bg-primary {
+	background: #337ab7;
+}
+.bg-success {
+	background: #dff0d8;
+}
+.bg-info {
+	background: #d9edf7;
+}
+.bg-warning {
+	background-color: #fcf8e3;
+}
+.bg-danger {
+	background: #f2dede;
+}
+
+/* Make shared height search results gallery boxes */
+.discovery-result-results div.searchResultsWrap {
+	display: flex;
+	flex-wrap: wrap;
+}
+.discovery-result-results div.searchResultBox {
+	margin-bottom: 1em;
+	border-radius: 0;
+}
+
+/* Make fixed width but still proportional thumbnails. */
+.discovery-result-results a.searchResultThumbnail {
+	display: block;
+}
+.discovery-result-results div.searchResultThumbnailPlaceholder {
+	height: 160px;
+	color: white; /* Remove color from link */
+}
+.discovery-result-results div.searchResultThumbnailPlaceholder table {
+	height: 100%;
+	width: 100%;
+}
+.discovery-result-results div.searchResultThumbnailPlaceholder table span {
+	font-size: 4em;
+	vertical-align: middle;
+	text-align: center;
+}
+
+/* Override jQuery UI */
+.ui-datepicker-title {
+	/* the month/year dropdown in textpicker is colored white, too hard to see*/
+	color: black;
+}
+
+/* Override UBC Theme */
+#ubc-wordmark {
+	height: auto; /* hardcoded height from theme wasn't working in Chrome */
+}
+
+/* General */
+span.label.labelLarge {
+	font-size: 0.9em;
+	margin-bottom: 0.2em;
+}
+.marginTopNone {
+	margin-top: 0;
+}
+
+/* Selection step overlay */
+#selectCollectionStepOverlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 1001; /* navbar has an z-index of 1000 for some reason */
+	background-color: rgba(0,0,0,0.9);
+}
+#selectCollectionStepOverlayModal {
+	width: 30em;
+    height: 5.5em;
+    position: fixed;
+    top: 50%; 
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -150px;
+    background-color: rgba(255,255,255,0.7);
+    border-radius: 5px;
+    text-align: center;
+    z-index: 1002; /* 1px higher than the overlay layer */
+}
+
+/* Display Item Admin Tools */
+.adminToolsAlert {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-bottom: 1em;
+}
+/* Display item title thumbnail */
+.displayItemTitleThumbnail {
+	max-width: 100px;
+	margin-bottom: 1em;
+}
+/* Display item tabs bar */
+.displayItemTabsContent {
+	border: 1px solid lightgray;
+	border-top: none;
+	padding: 0.5em 1em;
+	margin-bottom: 1em;
+}
+
+/* Display item resource types customization */
+.listResourceType li {
+	margin-bottom: 0.2em;
+}
+.listResourceType li a:hover {
+	text-decoration: underline;
+}
+
+/* Display item add more button */
+div.addMoreButton {
+	margin-top: 0.6em;
+	text-align: center;
+}
+
+/* Display Item Access Restrictions */
+.restrictionIconColorEveryone {
+	color: mediumseagreen;
+}
+.restrictionIconColorInstructorOnly {
+	color: hotpink;
+}
+
+/* Search item resource type customization */
+div.searchResultResourceTypes {
+	margin-top: 0.5em;
+}
+div.searchResultResourceTypes .labelResource {
+	max-width: 15em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+/* Display Item Section Header */
+.displayItemSectionHeader {
+	padding-bottom: 0.3em;
+	border-bottom: 1px solid lightgray;
+}
+
+/* Display item files list */
+#FilesTab ul.nav-pills {
+	margin-bottom: 0.5em;
+}
+.fileTile {
+}
+.fileTile .panel {
+	background: cornsilk;
+}
+.fileTile .panel-heading a {
+	color: black;
+}
+.fileTile .panel-heading {
+	margin-bottom: 0.5em;
+}
+.fileTileTitle {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	padding-bottom: 0.1em;
+}
+.fileTile .fileTileMedia {
+	height: 160px;
+	margin-bottom: 5px;
+}
+.fileTile .fileTileMedia img {
+	max-height: 160px;
+	max-width: 200px;
+	margin-top:0;
+	margin-bottom:0;
+}
+.fileTile .fileTilePlaceholder {
+	position: relative;
+	height: 100%;
+}
+.fileTile .fileTilePlaceholder i {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	font-size: 3em;
+	color: burlywood;
+	transform: translate(-50%, -50%); 
+}
+.fileTile .panel-footer {
+	padding: 5px;
+}
+
+.fileList .media-left a {
+	display: inline-block;
+	width: 128px;
+}
+.fileList .media-left img {
+	max-width: 128px;
+	max-height: 128px;
+}
+.fileList .media-left .fileListPlaceholder {
+	background: cornsilk;
+	font-size: 3em;
+	color: burlywood;
+	padding: 0.5em;
+}
+
+/* Verify Submission */
+div.metadataVerifyRow {
+	margin-bottom: 0.75em;
+}
+div.metadataVerifyRow div.metadataFieldLabel {
+	text-align: right;
+}
+
+/* Main Page Approve User Accounts */
+ul.usersForApprovalActions li {
+	margin-top: 1em;
+}
+
+/* File Upload, Select File */
+.resumable-list td input[type="checkbox"] {
+	margin-top: 0; /* override bootstrap top margin since dspace css magnifies the checkbox to a huge size */
+}
+
+/* Resource Type Pills */
+span.label.labelResource {
+	background: mediumseagreen;
+	display: inline-block;
+ 	margin-bottom: 0.2em;
+	padding-top: 0.4em;
+	font-size: 1em;
+}
+a.resourceLink:hover {
+	text-decoration: none;
+}
+a.resourceLink:hover span.labelResource {
+	background: darkgreen;
+}
+
+/* Footer */
+#ubc7-address-web a {
+	color: white;
+}
+
+
+/* Media Streaming */
+.mediaFormatError {
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}

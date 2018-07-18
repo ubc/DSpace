@@ -354,6 +354,25 @@ public class Bitstream extends DSpaceObject
         setMetadataSingleValue(MetadataSchema.DC_SCHEMA, "description", null, null, n);
     }
 
+	/**
+	 * Get the dcterms.accessRights of this bitstream.
+	 * @return information on the access rights of this bitstream
+	 */
+    public String getAccessRights()
+    {
+        String ret = getMetadataFirstValue("dcterms", "accessRights", null, Item.ANY);
+		if (ret == null) ret = "";
+		return ret;
+    }
+
+	/**
+	 * Set the dcterms.accessRights metadata of this bitstream.
+	 * @param n 
+	 */
+    public void setAccessRights(String n) {
+        setMetadataSingleValue("dcterms", "accessRights", null, null, n);
+    }
+
     /**
      * Get the checksum of the content of the bitstream, for integrity checking
      * 

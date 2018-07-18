@@ -23,6 +23,8 @@ import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.dspace.app.util.GoogleMetadata;
+import org.dspace.app.webui.ubc.retriever.ItemRetriever;
+import org.dspace.ubc.UBCAccessChecker;
 import org.dspace.app.webui.util.Authenticate;
 import org.dspace.app.webui.util.JSPManager;
 import org.dspace.app.webui.util.UIUtil;
@@ -54,6 +56,8 @@ import org.jdom.Text;
 import org.jdom.output.XMLOutputter;
 
 import org.dspace.app.itemexport.ItemExport;
+import org.dspace.ubc.UBCAccessChecker;
+import org.dspace.app.webui.ubc.retriever.ItemRetriever;
 
 /**
  * Servlet for handling requests within a community or collection. The Handle is
@@ -253,12 +257,32 @@ public class HandleServlet extends DSpaceServlet
             // and firing a usage event for the DSO we're reporting for
             return;
         } else if ("/browse".equals((extraPathInfo)) || StringUtils.startsWith(extraPathInfo, "/browse?")) {
+        	// Add the location if we got a community or collection
+        	if (dso instanceof Community)
+        	{
+        		Community c = (Community) dso;
+        		request.setAttribute("dspace.community", c);
+        	} else if (dso instanceof Collection)
+        	{
+        		Collection c = (Collection) dso;
+        		request.setAttribute("dspace.collection", c);
+        	}
             request.getRequestDispatcher(extraPathInfo).forward(request, response);
             // If we don't return here, we keep processing and end up
             // throwing a NPE when checking community authorization
             // and firing a usage event for the DSO we're reporting for
             return;
         } else if ("/simple-search".equals(extraPathInfo) || StringUtils.startsWith(extraPathInfo, "simple-search?")) {
+        	// Add the location if we got a community or collection
+        	if (dso instanceof Community)
+        	{
+        		Community c = (Community) dso;
+        		request.setAttribute("dspace.community", c);
+        	} else if (dso instanceof Collection)
+        	{
+        		Collection c = (Collection) dso;
+        		request.setAttribute("dspace.collection", c);
+        	}
             request.getRequestDispatcher(extraPathInfo).forward(request, response);
             // If we don't return here, we keep processing and end up
             // throwing a NPE when checking community authorization
@@ -417,10 +441,18 @@ public class HandleServlet extends DSpaceServlet
 
         // Ensure the user has authorisation
         AuthorizeManager.authorizeAction(context, item, Constants.READ);
-
+		// Instructor only permissions check
         log
                 .info(LogManager.getHeader(context, "view_item", "handle="
                         + handle));
+
+		UBCAccessChecker accessChecker = new UBCAccessChecker(context);
+		if (!accessChecker.hasItemAccess(item))
+		{
+			JSPManager.showInvalidIDError(request, response,
+					StringEscapeUtils.escapeHtml(request.getPathInfo()), -1);
+			return;
+		}
 
         // show edit link
         if (item.canEdit())
@@ -530,7 +562,13 @@ public class HandleServlet extends DSpaceServlet
         request.setAttribute("item", item);
         request.setAttribute("collections", collections);
         request.setAttribute("dspace.layout.head", headMetadata);
-        JSPManager.showJSP(request, response, "/display-item.jsp");
+		//JSPManager.showJSP(request, response, "/display-item.jsp");
+
+		ItemRetriever itemRetriever = new ItemRetriever(context, request, item);
+		request.setAttribute("itemRetriever", itemRetriever);
+		request.setAttribute("licenseInfo", itemRetriever.getLicenseInfo());
+		request.setAttribute("hasAdminAccess", accessChecker.hasAdminAccess());
+        JSPManager.showJSP(request, response, "/ubc/statspace/display-item.jsp");
     }
     
     private void preProcessItemHome(Context context, HttpServletRequest request,
@@ -563,11 +601,15 @@ public class HandleServlet extends DSpaceServlet
      *            the HTTP response
      * @param community
      *            the community
+     * @throws AuthorizeException 
      */
     private void communityHome(Context context, HttpServletRequest request,
             HttpServletResponse response, Community community)
-            throws ServletException, IOException, SQLException
+            throws ServletException, IOException, SQLException, AuthorizeException
     {
+        // Ensure the user has authorisation
+    	AuthorizeManager.authorizeAction(context, community, Constants.READ);
+
         // Handle click on a browse or search button
         if (!handleButton(request, response, community.getHandle()))
         {
@@ -662,6 +704,9 @@ public class HandleServlet extends DSpaceServlet
             Collection collection) throws ServletException, IOException,
             SQLException, AuthorizeException
     {
+    	// Ensure the user has authorisation
+    	AuthorizeManager.authorizeAction(context, collection, Constants.READ);
+        
         // Handle click on a browse or search button
         if (!handleButton(request, response, collection.getHandle()))
         {

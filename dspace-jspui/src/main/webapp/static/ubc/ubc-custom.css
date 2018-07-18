@@ -1,0 +1,36 @@
+/* Edit Profile */
+.password-strength-0 /* weakest */
+{
+	color: crimson;
+}
+.password-strength-1
+{
+	color: orangered;
+}
+.password-strength-2
+{
+	color:goldenrod;
+}
+.password-strength-3
+{
+	color: olivedrab;
+}
+.password-strength-4 /* strongest */
+{
+	color: green;
+}
+a#showHidePassword
+{
+	cursor: pointer;
+	color: dodgerblue;
+}
+a#showHidePassword:hover
+{
+	color: black;
+}
+/* Import Community & Collection */
+pre.pre-horiz-scroll
+{
+	white-space: pre;
+	overflow-x: scroll;
+}

@@ -31,6 +31,9 @@ import org.dspace.app.itemimport.BatchUpload;
 import org.dspace.app.itemimport.ItemImport;
 import org.dspace.app.util.SubmissionConfigReader;
 import org.dspace.app.util.SubmissionConfig;
+import org.dspace.app.webui.ubc.statspace.ApproveUserUtil;
+import org.dspace.ubc.UBCAccessChecker;
+import org.dspace.app.webui.ubc.retriever.EPersonRetriever;
 import org.dspace.app.webui.util.UIUtil;
 import org.dspace.authorize.AuthorizeException;
 import org.dspace.content.Collection;
@@ -630,7 +633,8 @@ public class MyDSpaceServlet extends DSpaceServlet
             try {
                 String item_id = request.getParameter("item_id");
                 EPerson eperson = context.getCurrentUser();
-                Metadatum[] exported_ids = eperson.getMetadataByMetadataString("statspace.activity.exported");
+                //Metadatum[] exported_ids = eperson.getMetadataByMetadataString("statspace.activity.exported");
+                Metadatum[] exported_ids = {};
                 boolean found = false;
                 for (Metadatum exported_id : exported_ids) {
                     if (exported_id.value.equals(item_id)) {
@@ -638,10 +642,12 @@ public class MyDSpaceServlet extends DSpaceServlet
                     }
                 }
                 if (!found) {
+					/*
                     eperson.addMetadata("statspace", "activity", "exported", null,
                                         item_id);
                     eperson.update();
                     context.complete();
+					*/
                 }
             } catch (Exception e) {
                 throw new ServletException(e);
@@ -863,7 +869,6 @@ public class MyDSpaceServlet extends DSpaceServlet
 			// nothing to do they just have no export archives available for download
 		}
         
-        
         // Set attributes
         request.setAttribute("mydspace.user", currentUser);
         request.setAttribute("workspace.items", workspaceItems);
@@ -876,8 +881,25 @@ public class MyDSpaceServlet extends DSpaceServlet
         request.setAttribute("export.archives", exportArchives);
         request.setAttribute("import.uploads", importUploads);
 
+		// for determining whether to show user vetting controls or not
+		UBCAccessChecker accessChecker = new UBCAccessChecker(context);
+		boolean hasCuratorAccess = accessChecker.hasCuratorAccess();
+		request.setAttribute("hasCuratorAccess", hasCuratorAccess);
+		// get list of users that needs to be vetted
+		ApproveUserUtil approveUtil = new ApproveUserUtil(context);
+		List<EPerson> tmpUsersForApproval = approveUtil.getUsersForApproval();
+		List<EPersonRetriever> usersForApproval = new ArrayList<EPersonRetriever>();
+		for (EPerson user : tmpUsersForApproval) {
+			EPersonRetriever epersonRetriever = new EPersonRetriever(user);
+			usersForApproval.add(epersonRetriever);
+		}
+		request.setAttribute("usersForApproval", usersForApproval);
+		request.setAttribute("userApprovalActionGrant", ApproveUserUtil.ACTION_GRANT);
+		request.setAttribute("userApprovalActionDeny", ApproveUserUtil.ACTION_DENY);
+
+		request.setAttribute("context", context);
         // Forward to main mydspace page
-        JSPManager.showJSP(request, response, "/mydspace/main.jsp");
+        JSPManager.showJSP(request, response, "/ubc/statspace/main.jsp");
     }
 
     /**
@@ -947,7 +969,8 @@ public class MyDSpaceServlet extends DSpaceServlet
             AuthorizeException
     {
         EPerson eperson = context.getCurrentUser();
-        Metadatum[] exported_ids = eperson.getMetadataByMetadataString("statspace.activity.exported");
+        //Metadatum[] exported_ids = eperson.getMetadataByMetadataString("statspace.activity.exported");
+        Metadatum[] exported_ids = {};
         
         ArrayList<Item> items = new ArrayList<>(exported_ids.length);
         for (int i = 0; i < exported_ids.length; i++) {

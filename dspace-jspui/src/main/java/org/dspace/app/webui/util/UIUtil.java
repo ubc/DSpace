@@ -111,6 +111,17 @@ public class UIUtil extends Util
 
             if (userID != null)
             {
+				EPerson e = EPerson.find(c, userID.intValue());
+				Authenticate.loggedIn(c, request, e);
+
+				// Removed checking to see if user's IP address changed.
+				// This was causing short session timeout issues due to us
+				// using 2 load balancers. If a user hits a different load balancer
+				// it looks as if their IP changed and so their authentication
+				// gets rejected. 
+				// Also note that mobile users will see a lot of IP changes
+				// so removing this will help mobile compatibility too.
+				/*
                 String remAddr = (String)session.getAttribute("dspace.current.remote.addr");
                 if (remAddr != null && remAddr.equals(request.getRemoteAddr()))
                 {
@@ -124,6 +135,7 @@ public class UIUtil extends Util
                              request.getRemoteAddr()+" does not match original "+
                              "session address: "+remAddr+". Authentication rejected.");
                 }
+				*/
             }
 
             // Set any special groups - invoke the authentication mgr.
@@ -474,7 +486,7 @@ public class UIUtil extends Util
 		}
 		finally
 		{
-			response.setHeader("Content-Disposition", "attachment;filename=" + name);
+			response.setHeader("Content-Disposition", "attachment;filename=\"" + name + "\"");
 		}
 	}
 	

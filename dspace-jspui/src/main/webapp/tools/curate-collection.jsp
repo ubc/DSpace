@@ -54,7 +54,7 @@
           <fmt:param value="<%= title %>"/>
         </fmt:message>
     </h1>
-	<div class="row container">
+	<div class="row">
       <form action="<%=request.getContextPath()%>/tools/curate" method="post">
 
 <%
@@ -83,7 +83,7 @@
         </form>
 		</div>
 		<br/>
-		<div class="row container">
+		<div class="row">
           <form method="post" action="<%=request.getContextPath()%>/tools/edit-communities">
             <input type="hidden" name="collection_id" value="<%= collectionID %>"/>
             <input type="hidden" name="community_id" value="<%= communityID %>" />

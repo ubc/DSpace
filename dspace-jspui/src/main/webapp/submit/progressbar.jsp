@@ -68,7 +68,7 @@
 %>
 
 <!--Progress Bar-->
-<div class="row container btn-group">
+<div class="row btn-group">
 <%    
     //get progress bar info, used to build progress bar
 	HashMap progressBarInfo = (HashMap) subInfo.getProgressBarInfo();
@@ -129,14 +129,14 @@
 		   else if(workflowMode) //if in workflow mode, can jump to any step/page
     	   {
 		     %>
-            <input class="submitProgressButtonDone btn btn-success" type="submit" name="<%=AbstractProcessingStep.PROGRESS_BAR_PREFIX + stepAndPage%>" value="<%=heading%>" />
+            <input class="submitProgressButtonDone btn btn-success" type="submit" name="<%=AbstractProcessingStep.PROGRESS_BAR_PREFIX + stepAndPage%>" value="<%=heading%>" formnovalidate />
 			 <%
     	   }
 		  //else if this step & page has been completed
 		  else if( (stepNum < stepReached) || ((stepNum == stepReached) && (pageNum <= pageReached)) )
     	  {
 %>
-            <input class="submitProgressButtonDone btn btn-info" type="submit" name="<%=AbstractProcessingStep.PROGRESS_BAR_PREFIX + stepAndPage%>" value="<%=heading%>" />
+            <input class="submitProgressButtonDone btn btn-info" type="submit" name="<%=AbstractProcessingStep.PROGRESS_BAR_PREFIX + stepAndPage%>" value="<%=heading%>" formnovalidate />
 <%
           }
 		  else //else this is a step that has not been done, yet

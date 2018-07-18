@@ -9,6 +9,7 @@ package org.dspace.app.webui.submit.step;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -26,6 +27,7 @@ import org.dspace.app.webui.util.JSPManager;
 import org.dspace.app.webui.util.UIUtil;
 import org.dspace.authorize.AuthorizeException;
 import org.dspace.content.Collection;
+import org.dspace.content.DCDate;
 import org.dspace.core.Context;
 import org.dspace.core.I18nUtil;
 import org.dspace.core.LogManager;
@@ -66,10 +68,11 @@ import org.dspace.submit.step.DescribeStep;
 public class JSPDescribeStep extends JSPStep
 {
     /** JSP which displays HTML for this Class * */
-    private static final String DISPLAY_JSP = "/submit/edit-metadata.jsp";
+    //private static final String DISPLAY_JSP = "/submit/edit-metadata.jsp";
+    private static final String DISPLAY_JSP = "/ubc/statspace/edit-metadata.jsp";
     
     /** JSP which reviews information gathered by DISPLAY_JSP * */
-    private static final String REVIEW_JSP = "/submit/review-metadata.jsp";
+    private static final String REVIEW_JSP = "/ubc/statspace/review-metadata.jsp";
 
     /** log4j logger */
     private static Logger log = Logger.getLogger(JSPDescribeStep.class);
@@ -217,6 +220,14 @@ public class JSPDescribeStep extends JSPStep
             throw new ServletException(e);
         }
 
+		// for the date field, list month names
+		List<String> monthNames = new ArrayList<String>();
+		for (int i = 1; i < 13; i++)
+		{
+			monthNames.add(DCDate.getMonthName(i,
+					I18nUtil.getSupportedLocale(request.getLocale())));
+		}
+		request.setAttribute("monthNames", monthNames);
 
         // forward to edit-metadata JSP
         JSPStepManager.showJSP(request, response, subInfo, DISPLAY_JSP);

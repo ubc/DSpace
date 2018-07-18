@@ -80,7 +80,8 @@
          <ul class="nav navbar-nav">
            <% if (user != null) { %>
                
-               <li><a href="<%= request.getContextPath() %>/logout"><span class="glyphicon glyphicon-home"></span></a></li>
+		   		<%-- NOTE: modified this to /home.jsp instead of / The root home page / is different when users are logged in! --%>
+               <li><a href="<%= request.getContextPath() %>/home.jsp"><span class="glyphicon glyphicon-home"></span></a></li>
                
                <li class="<%= currentPage.endsWith("/mydspace")? "active" : "" %>"><a href="<%= request.getContextPath() %>/mydspace"> <fmt:message key="jsp.layout.navbar-default.users"/></a></li>
 
@@ -101,15 +102,12 @@
                    </ul>
                </li>
                
-               <li class="<%= currentPage.endsWith("/community-list")? "active" : "" %>"><a href="<%= request.getContextPath() %>/community-list"> <fmt:message key="jsp.layout.navbar-default.communities-collections"/></a></li>    
-                           
            <% } else { %>
-               <div class="row">
+               <%-- <div class="row">
                    <h3>Welcome to the soft launch of StatSpace!<br> Feel free to explore this preliminary version and learn more about future versions.</h3>
-               </div>
+               </div> --%>
                <li class="<%= currentPage.endsWith("/home.jsp")? "active" : "" %>"><a href="<%= request.getContextPath() %>/"><span class="glyphicon glyphicon-home"></span> <fmt:message key="jsp.layout.navbar-default.home"/></a></li>
 	           <li class="<%= currentPage.endsWith("/about.jsp")? "active" : "" %>"><a href="<%= request.getContextPath() %>/about.jsp"><span class="glyphicon glyphicon-book"></span> About</a></li>
-               <li><a href="https://survey.ubc.ca/surveys/37-ebe7b07545dc43f1e9090f86433/statspace-user-analytics/"><span class="glyphicon glyphicon-blackboard"></span> <fmt:message key="jsp.register.new-user.register.button"/></a></li>
 	   <% } %>
        </ul>
 
@@ -153,7 +151,9 @@
 		      <fmt:param><%= StringUtils.abbreviate(navbarEmail, 20) %></fmt:param>
 		  </fmt:message> <b class="caret"></b></a>
              <ul class="dropdown-menu">
+				 <%-- don't know if subscriptions are working
                <li><a href="<%= request.getContextPath() %>/subscribe"><fmt:message key="jsp.layout.navbar-default.receive"/></a></li>
+				 --%>
                <li><a href="<%= request.getContextPath() %>/profile"><fmt:message key="jsp.layout.navbar-default.edit"/></a></li>
 
 		<%
@@ -173,10 +173,8 @@
 		<%
     } else {
 		%>        
-            <!--This will go here once the SoftLaunch is over
         <li><a href="<%= request.getContextPath() %>/register"><fmt:message key="jsp.register.new-user.register.button"/></a></li> 
         <li><a href="<%= request.getContextPath() %>/mydspace"><span class="glyphicon glyphicon-user"></span> <fmt:message key="jsp.layout.navbar-default.sign"/></a>
-            -->
 	<% } %>
           </ul>
           

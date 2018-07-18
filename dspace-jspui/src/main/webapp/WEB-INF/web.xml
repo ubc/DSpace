@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 
     The contents of this file are subject to the license and copyright
@@ -127,7 +127,11 @@
   </filter-mapping>
  
 
-  <!-- kernel start listener (from impl), starts up the kernel for standalong webapps -->
+  <!--
+       DSpace Kernel startup listener. This listener is in charge of initializing/starting the
+       DSpace Kernel. It MUST be listed BEFORE any other DSpace listeners, as DSpace services
+       will not function until the Kernel is initialized.
+  -->
   <listener>
      <listener-class>org.dspace.servicemanager.servlet.DSpaceKernelServletContextListener</listener-class>
   </listener>
@@ -881,4 +885,45 @@
   </jsp-config>
   
 
+  <!-- UBC Config -->
+  <!-- Override the default sesion timeout -->
+  <session-config>
+      <session-timeout>90</session-timeout>
+  </session-config>
+
+  <!-- Custom servlets -->
+	<servlet>
+		<servlet-name>approve-user-servlet</servlet-name>
+		<servlet-class>org.dspace.app.webui.ubc.statspace.ApproveUserServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>approve-user-servlet</servlet-name>
+		<url-pattern>/approve-user-servlet</url-pattern>
+	</servlet-mapping>
+
+    <servlet>
+        <servlet-name>ubc-file-upload</servlet-name>
+        <servlet-class>org.dspace.app.webui.ubc.importer.ImportCommunitiesCollectionsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ubc-file-upload</servlet-name>
+        <url-pattern>/dspace-admin/import-communities-collections</url-pattern>
+    </servlet-mapping>
+
+	<servlet>
+		<servlet-name>hard-coded-content-servlet</servlet-name>
+		<servlet-class>org.dspace.app.webui.ubc.statspace.HardCodedContentServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>hard-coded-content-servlet</servlet-name>
+		<url-pattern>/demo/*</url-pattern>
+	</servlet-mapping>
+
+    <!-- Quartz Scheduler for periodic thumbnail generation -->
+    <servlet>
+        <servlet-name>SchedulerStarter</servlet-name>
+        <servlet-class>org.dspace.app.webui.ubc.scheduler.SchedulerStarter</servlet-class>
+        <load-on-startup>127</load-on-startup>
+        <!-- make sure this servlet loads on startup, cause we need to start the scheduler process -->
+    </servlet>
 </web-app>

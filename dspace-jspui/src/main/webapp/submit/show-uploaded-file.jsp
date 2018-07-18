@@ -188,9 +188,11 @@
     else
     {
 %>
+<%-- we want to hide all mention of checksums
   		<li class="uploadHelp"><fmt:message key="jsp.submit.show-uploaded-file.info7"/>
             <dspace:popup page="<%= LocaleSupport.getLocalizedMessage(pageContext, \"help.index\") + \"#checksum\"%>"><fmt:message key="jsp.submit.show-uploaded-file.info8"/></dspace:popup>
             <input class="btn btn-info" type="submit" name="submit_show_checksums" value="<fmt:message key="jsp.submit.show-uploaded-file.show.button"/>" /></li>
+--%>
 <%
     }
 %>

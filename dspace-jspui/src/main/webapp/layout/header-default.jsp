@@ -11,6 +11,7 @@
   - HTML header for main home page
   --%>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://www.dspace.org/dspace-tags.tld" prefix="dspace" %>
 
@@ -60,8 +61,11 @@
 	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/jquery-ui-1.10.3.custom/redmond/jquery-ui-1.10.3.custom.css" type="text/css" />
 	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/bootstrap/bootstrap.min.css" type="text/css" />
 	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/bootstrap/bootstrap-theme.min.css" type="text/css" />
+
 	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/bootstrap/dspace-theme.css" type="text/css" />
-	    <link rel="stylesheet" href="/static/css/statspace-clf.css" type="text/css" />
+	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/ubc/statspace-clf.css" type="text/css" />
+	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/ubc/statspace-custom.css" type="text/css" />
+	    <link rel="stylesheet" href='<c:url value="/static/ubc/ubc-custom.css" />' type="text/css" />
 <%
     if (!"NONE".equals(feedRef))
     {
@@ -87,31 +91,21 @@
         }
 %>
         
-	<script type='text/javascript' src="<%= request.getContextPath() %>/static/js/jquery/jquery-1.10.2.min.js"></script>
+	<script type='text/javascript' src="<%= request.getContextPath() %>/static/js/jquery/jquery-1.12.4.min.js"></script>
 	<script type='text/javascript' src='<%= request.getContextPath() %>/static/js/jquery/jquery-ui-1.10.3.custom.min.js'></script>
-	<script type='text/javascript' src='<%= request.getContextPath() %>/static/js/bootstrap/bootstrap.min.js'></script>
 	<script type='text/javascript' src='<%= request.getContextPath() %>/static/js/holder.js'></script>
 	<script type="text/javascript" src="<%= request.getContextPath() %>/utils.js"></script>
     <script type="text/javascript" src="<%= request.getContextPath() %>/static/js/choice-support.js"> </script>
+	<script type='text/javascript' src='<%= request.getContextPath() %>/static/js/bootstrap/bootstrap.min.js'></script>
+
+	<!-- MediaElementJS, for HTML video/audio-->
+	<script src="//cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.9/mediaelement-and-player.min.js"></script>
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.9/mediaelementplayer.min.css" />
 
     <%--Gooogle Analytics recording.--%>
-    <%
-    if (analyticsKey != null && analyticsKey.length() > 0)
-    {
-    %>
-        <script type="text/javascript">
-            var _gaq = _gaq || [];
-            _gaq.push(['_setAccount', '<%= analyticsKey %>']);
-            _gaq.push(['_trackPageview']);
+    <dspace:include page="google-analytics.jsp" />
 
-            (function() {
-                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-            })();
-        </script>
     <%
-    }
     if (extraHeadDataLast != null)
     { %>
 		<%= extraHeadDataLast %>

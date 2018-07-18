@@ -32,6 +32,7 @@ import org.apache.log4j.Logger;
 import org.dspace.app.util.DCInputsReaderException;
 import org.dspace.app.util.MetadataExposure;
 import org.dspace.app.util.Util;
+import org.dspace.ubc.UBCAccessChecker;
 import org.dspace.app.webui.util.StyleSelection;
 import org.dspace.app.webui.util.UIUtil;
 import org.dspace.authorize.AuthorizeManager;
@@ -916,8 +917,10 @@ public class ItemTag extends TagSupport
             		{
             			Bitstream[] bitstreams = bundles[i].getBitstreams();
 
+						UBCAccessChecker accessChecker = new UBCAccessChecker(context);
             			for (int k = 0; k < bitstreams.length; k++)
             			{
+							if (!accessChecker.hasFileAccess(item, bitstreams[k])) continue;
             				// Skip internal types
             				if (!bitstreams[k].getFormat().isInternal())
             				{
@@ -982,11 +985,13 @@ public class ItemTag extends TagSupport
 
             						if (tb != null)
             						{
-            							String myPath = request.getContextPath()
-                                            	+ "/retrieve/"
-                                            	+ tb.getID()
-                                            	+ "/"
-                                            	+ UIUtil.encodeBitstreamName(tb
+                                                            if (AuthorizeManager.authorizeActionBoolean(context, tb, Constants.READ))
+                                                            {
+                                                                String myPath = request.getContextPath()
+                                                                    + "/retrieve/"
+                                                                    + tb.getID()
+                                                                    + "/"
+                                                                    + UIUtil.encodeBitstreamName(tb
                                             			.getName(),
                                             			Constants.DEFAULT_ENCODING);
 
@@ -995,6 +1000,7 @@ public class ItemTag extends TagSupport
             							out.print("<img src=\"" + myPath + "\" ");
             							out.print("alt=\"" + tAltText
             									+ "\" /></a><br />");
+                                                            }
             						}
             					}
 

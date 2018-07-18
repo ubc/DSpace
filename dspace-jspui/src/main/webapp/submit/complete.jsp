@@ -55,7 +55,7 @@
 	<p class="alert alert-info"><fmt:message key="jsp.submit.complete.info"/></p> 
     <p><a href="<%= request.getContextPath() %>/mydspace"><fmt:message key="jsp.submit.complete.link"/></a></p>
      
-    <p><a href="<%= request.getContextPath() %>/community-list"><fmt:message key="jsp.community-list.title"/></a></p>
+    <%-- <p><a href="<%= request.getContextPath() %>/community-list"><fmt:message key="jsp.community-list.title"/></a></p> --%>
      
     <form action="<%= request.getContextPath() %>/submit" method="post" onkeydown="return disableEnterKey(event);">
         <input type="hidden" name="collection" value="<%= collection.getID() %>"/>
