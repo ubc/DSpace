@@ -4,13 +4,14 @@
 
   <form-map>
     <name-map collection-handle="default" form-name="General and Integrated Sciences"/>
-    <name-map collection-handle="REPLACE" form-name="Physics and Astronomy"/>
-    <name-map collection-handle="REPLACE" form-name="Math"/>
-    <name-map collection-handle="REPLACE" form-name="EOAES"/>
-    <name-map collection-handle="REPLACE" form-name="Statistics"/>
-    <name-map collection-handle="REPLACE" form-name="Computer Science"/>
-    <name-map collection-handle="REPLACE" form-name="Life Sciences"/>
-    <name-map collection-handle="123456789/23" form-name="Chemistry"/>
+    <name-map community-name="General &amp; Integrated Sciences" form-name="General and Integrated Sciences"/>
+    <name-map community-name="Physics &amp; Astronomy" form-name="Physics and Astronomy"/>
+    <name-map community-name="Mathematics" form-name="Math"/>
+    <name-map community-name="Statistics" form-name="Statistics"/>
+    <name-map community-name="Computer Science" form-name="Computer Science"/>
+    <name-map community-name="Life Sciences" form-name="Life Sciences"/>
+    <name-map community-name="Chemistry" form-name="Chemistry"/>
+	<name-map community-name="Earth, Ocean, Atmospheric, &amp; Environmental Science" form-name="EOAES"/>
   </form-map>
   <form-definitions>
 
