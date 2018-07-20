@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Map;
 import org.dspace.authorize.AuthorizeException;
 import org.dspace.content.Item;
-import org.dspace.content.Metadatum;
 
 /**
  * Build and provides information on all licenses. 

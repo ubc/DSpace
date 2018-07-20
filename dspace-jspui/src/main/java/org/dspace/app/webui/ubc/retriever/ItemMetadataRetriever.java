@@ -7,8 +7,6 @@
  */
 package org.dspace.app.webui.ubc.retriever;
 
-import javax.servlet.jsp.PageContext;
-import javax.servlet.jsp.jstl.fmt.LocaleSupport;
 import org.apache.log4j.Logger;
 import org.dspace.content.Metadatum;
 import org.dspace.content.Item;
