@@ -462,7 +462,7 @@ else if( qResults != null)
 
 %>
 <hr/>
-<div class="discovery-result-pagination row">
+<div class="discovery-result-pagination ">
 <%
 	long lastHint = qResults.getStart()+qResults.getMaxResults() <= qResults.getTotalSearchResults()?
 	        qResults.getStart()+qResults.getMaxResults():qResults.getTotalSearchResults();
@@ -474,7 +474,7 @@ else if( qResults != null)
         <fmt:param><%=qResults.getTotalSearchResults()%></fmt:param>
         <fmt:param><%=(float) qResults.getSearchTime() / 1000%></fmt:param>
     </fmt:message></div>
-    <ul class="pagination pull-right">
+    <ul class="pagination">
 	<%
 	if (pageFirst != pageCurrent)
 	{

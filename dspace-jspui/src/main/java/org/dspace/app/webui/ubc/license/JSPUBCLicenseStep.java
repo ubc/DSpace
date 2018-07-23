@@ -7,7 +7,6 @@
  */
 package org.dspace.app.webui.ubc.license;
 
-import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.dspace.app.util.SubmissionInfo;
 import org.dspace.app.util.Util;
@@ -18,12 +17,8 @@ import org.dspace.app.webui.util.JSPManager;
 import org.dspace.authorize.AuthorizeException;
 import org.dspace.content.Item;
 import org.dspace.content.WorkspaceItem;
-import org.dspace.core.ConfigurationManager;
 import org.dspace.core.Context;
 import org.dspace.core.LogManager;
-import org.dspace.license.CCLicense;
-import org.dspace.license.CCLookup;
-import org.dspace.license.CreativeCommons;
 import org.dspace.submit.step.LicenseStep;
 
 import javax.servlet.ServletException;
@@ -31,7 +26,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Collection;
 import org.dspace.app.webui.ubc.retriever.ItemRetriever;
 
 

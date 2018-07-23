@@ -17,7 +17,6 @@ import org.apache.commons.fileupload.FileUploadBase;
 import org.apache.log4j.Logger;
 
 import org.dspace.app.webui.servlet.DSpaceServlet;
-import org.dspace.app.webui.util.FileUploadRequest;
 import org.dspace.app.webui.util.JSPManager;
 import org.dspace.authorize.AuthorizeException;
 import org.dspace.core.Context;

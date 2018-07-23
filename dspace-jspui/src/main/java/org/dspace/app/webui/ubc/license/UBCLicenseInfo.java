@@ -1,7 +1,5 @@
 package org.dspace.app.webui.ubc.license;
 
-import org.dspace.app.webui.ubc.license.UBCLicenseUtil;
-
 /**
  * Combines license information together into one class for easier use in JSPs.
  * Each object is one license.
