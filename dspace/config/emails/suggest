@@ -10,7 +10,7 @@
 #             {7} sender message 
 # See org.dspace.core.Email for information on the format of this file.
 #
-Subject: An item of interest from StatSpace
+Subject: An item of interest from BioSpace
 
 Hello {0}:
 

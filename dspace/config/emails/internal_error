@@ -10,7 +10,7 @@
 #
 # See org.dspace.core.Email for information on the format of this file.
 #
-Subject: StatSpace: Internal Server Error
+Subject: BioSpace: Internal Server Error
 An internal server error occurred on {0}:
 
 Date:       {1}

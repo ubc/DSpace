@@ -6,7 +6,7 @@
 # {3}  Reason for the rejection
 # {4}  Link to 'My DSpace' page
 #
-Subject: StatSpace: Submission Status Update on "{0}"
+Subject: BioSpace: Submission Status Update on "{0}"
 
 You submitted: {0}
 
@@ -15,8 +15,8 @@ A curator has sent the following note about your submission:
 
 {3}
 
-Your submission has been returned to your work space. It has not been deleted. You can access it from your "My StatSpace Submissions/Resources" page: {4} in the "Unfinished Submissions" section.
+Your submission has been returned to your work space. It has not been deleted. You can access it from your "My BioSpace Submissions/Resources" page: {4} in the "Unfinished Submissions" section.
 
-To re-submit your resource, please open it on your “My StatSpace Submissions/Resources” page, and make the appropriate changes. Once you are done editing, you will have the option to resubmit the resource.
+To re-submit your resource, please open it on your “My BioSpace Submissions/Resources” page, and make the appropriate changes. Once you are done editing, you will have the option to resubmit the resource.
 
 Skylight LT

@@ -75,8 +75,8 @@ know what step the submission is on.
 					<h4 class="text-center ccLicenseName">Creative Commons License</h4>
 					<p>In selecting and assigning this <em class='ccLicenseName'></em> license, you agree that the submitted material is either already licensed under or should be made available according to the terms of the license, as described in detail at <a target='_blank' id='ccLicenseLink' href=''></a>.</p>
 					<p>You represent that (i) the submission is your original work, and that you have the right to grant the rights contained in this license, (ii) (where applicable) all co-authors have approved the submission and have agreed to the terms of this license, (iii) your submission does not, to the best of your knowledge, infringe upon anyone's copyright, (iv) the submission, to the best of your knowledge, does not contain any confidential information or violate anyone’s right to privacy, and (v) for material contained within for which you do not hold copyright, you have obtained the unrestricted permission of the copyright owner to grant the rights required by this license and that such third-party owned material is clearly identified and acknowledged within the text or content of the submission.</p>
-					<p>If at any time after submitting this work you learn that any of the above statements are inaccurate, you agree to inform StatSpace of any inaccuracies as soon as possible.</p>
-					<p>StatSpace will clearly identify your name(s) as the author(s) or owner(s) of the submission as required by the license you have chosen (if applicable).  Agreeing to this statement does not affect ownership of copyright.</p>
+					<p>If at any time after submitting this work you learn that any of the above statements are inaccurate, you agree to inform BioSpace of any inaccuracies as soon as possible.</p>
+					<p>BioSpace will clearly identify your name(s) as the author(s) or owner(s) of the submission as required by the license you have chosen (if applicable).  Agreeing to this statement does not affect ownership of copyright.</p>
 				</div>
 			</div>
 			<!-- Checkboxes explicitly asking the user to agree to the copyright chosen -->
@@ -100,7 +100,7 @@ know what step the submission is on.
 				<div class="panel-body">
 					<h4 class="text-center">Public Domain</h4>
 					<p>In selecting the Public Domain Mark, you agree that this material(s) is free of known copyright restrictions, as described in detail at <a href='https://creativecommons.org/share-your-work/public-domain/'>https://creativecommons.org/share-your-work/public-domain/</a>.</p>
-					<p>If at any time after submitting this work you learn that the above statement is inaccurate, you agree to inform StatSpace of any inaccuracies as soon as possible.</p>
+					<p>If at any time after submitting this work you learn that the above statement is inaccurate, you agree to inform BioSpace of any inaccuracies as soon as possible.</p>
 				</div>
 			</div>
 			<!-- Checkboxes explicitly asking the user to agree to the copyright chosen -->
