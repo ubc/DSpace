@@ -8,14 +8,19 @@
 package org.dspace.app.util;
 
 import java.io.File;
+import java.sql.SQLException;
 import java.util.*;
 
 import org.xml.sax.SAXException;
 import org.w3c.dom.*;
 import javax.xml.parsers.*;
+import org.apache.log4j.Logger;
+import org.dspace.content.Community;
+import org.dspace.content.Collection;
 
 import org.dspace.content.MetadataSchema;
 import org.dspace.core.ConfigurationManager;
+import org.dspace.core.Context;
 
 /**
  * Submission form generator for DSpace. Reads and parses the installation
@@ -41,6 +46,9 @@ import org.dspace.core.ConfigurationManager;
 
 public class DCInputsReader
 {
+    /** log4j logger */
+    private static Logger log = Logger.getLogger(DCInputsReader.class);
+
     /**
      * The ID of the default collection. Will never be the ID of a named
      * collection
@@ -52,6 +60,9 @@ public class DCInputsReader
 
     /** Keyname for storing dropdown value-pair set name */
     static final String PAIR_TYPE_NAME = "value-pairs-name";
+
+	/** Lets us easily find a community using the community name. */
+	private Map<String, Community> COMMUNITIES_BY_NAME = createCommunitiesByName();
 
     /** The fully qualified pathname of the form definition XML file */
     private String defsFile = ConfigurationManager.getProperty("dspace.dir")
@@ -263,9 +274,10 @@ public class DCInputsReader
                         String id = getAttribute(nd, "collection-handle");
                         String value = getAttribute(nd, "form-name");
                         String content = getValue(nd);
-                        if (id == null)
+						String communityName = getAttribute(nd, "community-name");
+                        if (id == null && communityName == null)
                         {
-                                throw new SAXException("name-map element is missing collection-handle attribute");
+                                throw new SAXException("name-map element is missing collection-handle or community-name attribute");
                         }
                         if (value == null)
                         {
@@ -275,7 +287,28 @@ public class DCInputsReader
                         {
                                 throw new SAXException("name-map element has content, it should be empty.");
                         }
-                        whichForms.put(id, value);
+						if (communityName != null)
+						{ // add all collections in this community to use the given form value
+							Community community = COMMUNITIES_BY_NAME.get(communityName);
+							if (community == null) {
+								log.error("input-forms.xml processing, invalid community-name attribute, community not found: " + communityName);
+								continue;
+							}
+							Collection[] collections;
+							try {
+								collections = community.getCollections();
+							} catch (SQLException ex) {
+                                throw new SAXException(ex);
+							}
+							for (Collection collection : collections)
+							{
+								whichForms.put(collection.getHandle(), value);
+							}
+						}
+						else
+						{
+							whichForms.put(id, value);
+						}
                 }  // ignore any child node that isn't a "name-map"
         }
     }
@@ -685,4 +718,24 @@ public class DCInputsReader
         // Didn't find a text node
         return null;
     }
+
+	/**
+	 * Generate a map of community name to community objects.
+	 * @return 
+	 */
+	private static Map<String, Community> createCommunitiesByName()
+	{
+		HashMap<String, Community> ret = new HashMap<String, Community>();
+		try {
+			Context context = new Context();
+			Community[] communities = Community.findAll(context);
+			for (Community community : communities)
+			{
+				ret.put(community.getName(), community);
+			}
+		} catch (SQLException ex) {
+			log.error(ex);
+		}
+		return ret;
+	}
 }

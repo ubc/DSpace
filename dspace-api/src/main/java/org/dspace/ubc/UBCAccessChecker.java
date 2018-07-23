@@ -40,10 +40,9 @@ public class UBCAccessChecker {
 	public static boolean isRestricted(Item item) {
 		// Check if item has access restrictions
 		String restriction = getField(item, "dcterms.accessRights");
-		log.debug("RESTRICTION: " + restriction);
 		// No restriction stored, so default to allow access
 		if (restriction.isEmpty()) restriction = ACCESS_EVERYONE;
-		log.debug("AccessEveryone: " + ACCESS_EVERYONE);
+		log.debug("Item Restriction Is: " + restriction);
 
 		if (restriction.equalsIgnoreCase(ACCESS_EVERYONE)) {
 			return false;
