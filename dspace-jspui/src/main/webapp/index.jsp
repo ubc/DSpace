@@ -39,7 +39,8 @@
 <%@ page import="org.dspace.core.LogManager" %>
 <%@ page import="org.dspace.core.PluginManager" %>
 <%@ page import="org.dspace.plugin.SiteHomeProcessor" %>
-
+<%-- NOTE:UNUSED. This was being used sort of as a home page servlet, which I've
+moved into HomeServlet --%>
 <%
     Context context = null;
     
