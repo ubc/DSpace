@@ -56,4 +56,42 @@
         <scope_note>Metadata field used for the institution</scope_note>
     </dc-type>
 
+    <dc-type>
+        <schema>eperson</schema>
+        <element>additionalInfo</element>
+        <scope_note>Metadata field used to store any other information the user wishes to enter to help with instructor validation.</scope_note>
+    </dc-type>
+
+    <dc-type>
+        <schema>eperson</schema>
+        <element>institution</element>
+        <qualifier>address</qualifier>
+        <scope_note>Metadata field used for the institution's address</scope_note>
+	</dc-type>
+
+    <dc-type>
+        <schema>eperson</schema>
+        <element>institution</element>
+        <qualifier>type</qualifier>
+        <scope_note>Metadata field used for the type of institution</scope_note>
+	</dc-type>
+
+    <dc-type>
+        <schema>eperson</schema>
+        <element>institution</element>
+        <qualifier>url</qualifier>
+        <scope_note>Metadata field used for the url that shows this user's position within their institution.</scope_note>
+	</dc-type>
+
+    <dc-type>
+        <schema>eperson</schema>
+        <element>requestedInstructorAccess</element>
+        <scope_note>Metadata field used for determining whether the user has asked for instructor access.</scope_note>
+	</dc-type>
+
+    <dc-type>
+        <schema>eperson</schema>
+        <element>supervisor</element>
+        <scope_note>Metadata field used to store contact information for this user's supervisor.</scope_note>
+    </dc-type>
 </dspace-dc-types>

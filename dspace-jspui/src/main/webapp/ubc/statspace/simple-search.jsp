@@ -468,7 +468,7 @@ else if( qResults != null)
 
 %>
 <hr/>
-<div class="discovery-result-pagination row">
+<div class="discovery-result-pagination">
 <%
 	long lastHint = qResults.getStart()+qResults.getMaxResults() <= qResults.getTotalSearchResults()?
 	        qResults.getStart()+qResults.getMaxResults():qResults.getTotalSearchResults();
