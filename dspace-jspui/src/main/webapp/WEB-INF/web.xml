@@ -919,6 +919,14 @@
 		<url-pattern>/demo/*</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>home-servlet</servlet-name>
+		<servlet-class>org.dspace.app.webui.ubc.statspace.home.HomeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>home-servlet</servlet-name>
+		<url-pattern></url-pattern>
+	</servlet-mapping>
     <!-- Quartz Scheduler for periodic thumbnail generation -->
     <servlet>
         <servlet-name>SchedulerStarter</servlet-name>
