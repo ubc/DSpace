@@ -674,6 +674,11 @@
 		  if (fieldCount < 4 && repeatable)
 			  fieldCount = 4;
 	  }
+	  if (fieldName.equals("dcterms_subject")) {
+		  // default to 4 fields cause clicking "Add More" is annoying
+		  if (fieldCount < 4 && repeatable)
+			  fieldCount = 4;
+	  }
 
 	  if (fieldName.equals("dc_subject_other"))
 	  {
@@ -1089,9 +1094,9 @@
 		String subjectsSelectId = "subjectsSelectId";
 		boolean isSubjects = subjects.isSubjects(fieldName);
 		if (isSubjects)
-			doDropDownTripleLevel(sb, subjects, pageContext, subjectsSelectId, repeatable);
+			pageContext.setAttribute("subjectsSelectId", subjectsSelectId);
 
-      sb.append("<div class=\"row "+ (isSubjects? "hidden":"")+"\"><label class=\"col-md-2"+ (required?" label-required":"") +"\">")
+      sb.append("<div class=\"row \"><label class=\"col-md-2"+ (required?" label-required":"") +"\">")
         .append(label)
         .append("</label>");
 
@@ -1298,14 +1303,14 @@
   <form action="<%= request.getContextPath() %>/submit#<%= si.getJumpToField()%>" method="post" name="edit_metadata" id="edit_metadata" onkeydown="return disableEnterKey(event);">
 
         <jsp:include page="/submit/progressbar.jsp"></jsp:include>
-		<h1 class='text-center'>Thank you for your interest in submitting a statistics resource to StatSpace.</h1>
+		<h1 class='text-center'>Thank you for your interest in submitting a statistics resource to BioSpace.</h1>
 		<p>Through this process, you will:</p>
 		<ol>
-			<li><strong>Describe</strong>: provide some information about your resource, such as pre-requisite knowledge and learning objectives, that will be useful to other StatSpace users.</li>
+			<li><strong>Describe</strong>: provide some information about your resource, such as pre-requisite knowledge and learning objectives, that will be useful to other BioSpace users.</li>
 			<li><strong>Upload</strong>: upload file(s), indicating who can access each file.  You will have the option to make individual files, or the entire submission, accessible to instructors only.</li>
 			<li><strong>Verify</strong>: review your material before submitting.</li>
 			<li><strong>License</strong>: assign the appropriate Creative Commons license to your resource, or specify that it is in the public domain.</li>
-			<li><strong>Complete</strong>: after your submission is complete, a member of the StatSpace team will review the resource and you will be notified if the item has been accepted or if revisions are requested.</li>
+			<li><strong>Complete</strong>: after your submission is complete, a member of the BioSpace team will review the resource and you will be notified if the item has been accepted or if revisions are requested.</li>
 		</ol>
 		
     <h2><fmt:message key="jsp.submit.edit-metadata.heading"/>
@@ -1626,141 +1631,7 @@
 <%-- Statspace Subjects Selection JavaScript --%>
 <script>
 jQuery(document).ready(function() {
-	var options = ${subjectOptionsJson};
-	var level1Id = '#${subjectsLevel1Id}';
-	var level2Id = '#${subjectsLevel2Id}';
-	var level3Id = '#${subjectsLevel3Id}';
 	var subjectsSelectId = '#${subjectsSelectId}';
-	var subjectsRepeatable = ${subjectsRepeatable}; // true if can select multiple subjects,
-																				// false otherwise (can only select one)
-	var noLevelVal = "NONE"; // value that indicates there is no 3rd lvl
-									// selected
-	
-	// Reset previous selections back to the default option
-	function resetChildSelect(selectId) {
-		jQuery(selectId + ' option:not(:last-child)').remove();
-		jQuery(selectId).prop('disabled', true);
-	}
-
-	// Populate level 2 and level 3 select boxes based on what was selected
-	// in the parent level.
-	function populateChildSelect(selectId, opts) {
-		jQuery.each(opts, function(k,v) {
-			var optionTag = jQuery("<option>").attr("value",k).text(k);
-			if (typeof v == 'string')
-				optionTag.attr("value", v);
-			jQuery(selectId + ' option:last').before(optionTag);
-		});
-		// only enable the dropdown if there are options to select from
-		if (!jQuery.isEmptyObject(opts))
-			jQuery(selectId).prop('disabled', false);
-		jQuery(selectId + ' option:first').prop('selected', 'selected');
-	}
-
-	function sanitizeForId(str) {
-		return str.replace(/[^\w]/g, 'a');
-	}
-
-	// Add a new entry into the Selected Subjects table
-	function addToSelectedSubjectsTable(val) {
-		var rowId = sanitizeForId("subjectsRow" + val);
-		var btnId = sanitizeForId("subjectsBtn" + val);
-		// already entered 
-		if (jQuery("#" + rowId).length) return;
-		// get the friendly label for each level
-		var labels = val.split(" >>> ");
-		var level1 = labels[0]; 
-		var level2 = labels[1]; 
-		var level3 = labels[2]; 
-
-		var row = jQuery("<tr>").attr('id', rowId);
-		row.append(jQuery("<td>").text(level1));
-		row.append(jQuery("<td>").text(level2));
-		row.append(jQuery("<td>").text(level3));
-		row.append(jQuery("<td>" +
-			"<button id='"+ btnId +"' class='btn btn-danger' type='button'>" +
-			"<span class='glyphicon glyphicon-remove'></span>" +
-			"</button></td>"));
-		jQuery("#selectedSubjectsTable > tbody:last-child").append(row);
-		jQuery("#" + btnId).click(function() {
-			// remove from table
-			jQuery("#" + rowId).remove();
-			// deselect from subjects
-			jQuery(subjectsSelectId + " option[value='"+ val +"']").
-				prop('selected', false);
-		});
-	}
-
-	// Rebuild the Selected Subjects table based on existing selections.
-	// This is needed for editing a saved item.
-	function reloadSubjectsTable() {
-		var existingVals = jQuery(subjectsSelectId).val();
-		// no existing values selected
-		if (!existingVals) return;
-
-		if (subjectsRepeatable) {
-			// can select multiple subjects
-			// readd all selected values
-			jQuery.each(existingVals, function(i, val) {
-				addToSelectedSubjectsTable(val);
-			});
-		}
-		else {
-			// can only select one subject
-			var levels = existingVals.split(" >>> ");
-			if (levels.length >= 1) {
-				jQuery(level1Id).val(levels[0]).change();
-			}
-			if (levels.length >= 2) {
-				jQuery(level2Id).val(levels[1]).change();
-			}
-			if (levels.length > 2) {
-				jQuery(level3Id).val(existingVals).change();
-			}
-		}
-	}
-
-	// There's a hidden select control that holds the actual values transmitted
-	// to the server on form submit. This function updates that select when
-	// called
-	function updateSelectedSubjects() {
-		var selectedVals = jQuery(subjectsSelectId).val();
-		var newVal = jQuery(level2Id).val();
-		// check if we've stopped at the first level
-		if (newVal == null) {
-			newVal = jQuery(level1Id).val();
-		}
-		else {
-			// check if we've stopped at the second level
-			newVal = jQuery(level3Id).val();
-			if (newVal == noLevelVal) {
-				// we've stopped at the second level at the None/Other option, 
-				// which means we don't have a valid value for the subject
-				// selection, just reconstruct one.
-				newVal = jQuery(level1Id).val() + " >>> " +
-					jQuery(level2Id).val();
-			}
-		}
-
-		// add the new value to selected values
-		if (subjectsRepeatable) {
-			// multiselect enabled, should add on to the existing values
-			if (selectedVals) {
-				selectedVals.push(newVal);
-			}
-			else {
-				selectedVals = [newVal];
-			}
-		}
-		else {
-			// only single select, can ditch the old selection
-			selectedVals = newVal
-		}
-		// actually set the selected values
-		jQuery(subjectsSelectId).val(selectedVals).change();
-
-		return newVal;
-	}
 	
 	// show fill-in-the-blank if user selects "Other"
 	function showFillInTheBlankOption(levelElem) {
@@ -1778,66 +1649,11 @@ jQuery(document).ready(function() {
 		}
 	}
 
-	if (!options) return;
-	
-	// set a special value to indicate when there's no 3rd level selected
-	jQuery("#noSecondLevelOption").attr("value", noLevelVal);
-	jQuery("#noThirdLevelOption").attr("value", noLevelVal);
-
-	// initial reset, prevent browser breaking when restoring prev session vals
-	resetChildSelect(level1Id);
-	jQuery(level1Id).prop('disabled', false); // undo disable from reset
-	resetChildSelect(level2Id);
-	resetChildSelect(level3Id);
-
 	// update select options on selection events
-	jQuery(level1Id).change(function() {
-		// since the first level changed, all child selects needs to be
-		// updated
-		resetChildSelect(level2Id);
-		resetChildSelect(level3Id);
-		// can only populate the second level select at this level
-		populateChildSelect(level2Id, options[jQuery(level1Id).val()]);
-		if (!subjectsRepeatable) {
-			// undo selection
-			jQuery(subjectsSelectId).val("");
-			updateSelectedSubjects();
-		}
-		// check if we need to show the fill in the blank option
-		showFillInTheBlankOption(jQuery(level1Id));
+	jQuery(subjectsSelectId).change(function() {
+		showFillInTheBlankOption(jQuery(subjectsSelectId));
 	});
-	jQuery(level2Id).change(function() {
-		resetChildSelect(level3Id);
-		populateChildSelect(level3Id,
-				options[jQuery(level1Id).val()][jQuery(level2Id).val()]);
-		if (!subjectsRepeatable) {
-			updateSelectedSubjects();
-		}
-		// check if we need to show the fill in the blank option
-		showFillInTheBlankOption(jQuery(level2Id));
-	});
-
-	if (subjectsRepeatable) {
-		// Allow multiple subject selection.
-		// Add the selected value into the hidden subjects form and update the
-		// Selected Subjects table.
-		jQuery('#addSubjectButton').click(function() {
-			var newVal = updateSelectedSubjects();
-			if (subjectsRepeatable) {
-				addToSelectedSubjectsTable(newVal);
-			}
-		});
-	}
-	else {
-		// Only allow one subject selection.
-		jQuery(level3Id).change(function() {
-			updateSelectedSubjects();
-		});
-	}
-
-	// initial populate
-	populateChildSelect(level1Id, options);
-	reloadSubjectsTable();
+	showFillInTheBlankOption(jQuery(subjectsSelectId));
 });
 </script>
 </dspace:layout>

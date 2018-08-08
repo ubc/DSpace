@@ -120,7 +120,7 @@
          <dc-qualifier></dc-qualifier>
 		 <!-- <repeatable>true</repeatable> -->
          <label>Subject</label>
-         <input-type value-pairs-name="statspace_subjects">dropdown</input-type>
+         <input-type value-pairs-name="biospace_subjects">dropdown</input-type>
 		 <hint>Please select a subject tag that describes the primary topic for this item.</hint>
 		 <required>Please choose a subject.</required>
        </field>
@@ -136,6 +136,17 @@
 		 <hint>Please enter a custom subject tag.</hint>
        </field>
 
+	   <!-- Keywords/Phrases -->
+       <field>
+         <dc-schema>dcterms</dc-schema>
+         <dc-element>subject</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+		 <label>Keywords/Keyphrases</label>
+         <input-type>onebox</input-type>
+		 <hint>Please enter keywords for this resource. Users searching for these keywords will see this resource in their search results.</hint>
+       </field>
+
        <!-- Description - About This Resource -->
        <field>
          <dc-schema>dc</dc-schema>
@@ -144,21 +155,9 @@
          <repeatable>false</repeatable>
          <label>Description</label>
          <input-type>textarea</input-type>
-		 <hint>Describe this item in detail: Overarching aims for the resource; Expand on the learning outcomes and topics addressed; Mention data sets used or studies referred to; Whether the resource forms part of a larger set of related resources.
+		 <hint>
+			 Optional, any additional details you'd like to share about this resource.
 		 </hint>
-         <required>Please enter a detailed description.</required>
-       </field>
-
-       <!-- Abstract / Summary -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>description</dc-element>
-         <dc-qualifier>abstract</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Summary</label>
-         <input-type>onebox</input-type>
-         <hint>Please provide a one line summary of the above description that would be most useful for someone browsing your resource. This is used as the short blurb shown in search results. E.g.: "This web visualization demonstrates the concept of a sampling distribution of an estimate, using the example of a mean of a Normally distributed variable."</hint>
-         <required>Please enter a short summary.</required>
        </field>
 
        <!-- Prerequisite Knowledge -->
@@ -1257,6 +1256,49 @@
      <pair>
        <displayed-value>Instructors Only</displayed-value>
        <stored-value>Instructors Only</stored-value>
+     </pair>
+   </value-pairs>
+
+   <value-pairs value-pairs-name="biospace_subjects">
+     <pair>
+       <displayed-value>Cell Molecular Biochemistry</displayed-value>
+       <stored-value>Cell Molecular Biochemistry</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Ecology</displayed-value>
+       <stored-value>Ecology</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Evolution</displayed-value>
+       <stored-value>Evolution</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Genetics</displayed-value>
+       <stored-value>Genetics</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>BioMath &amp; BioInformatics</displayed-value>
+       <stored-value>BioMath &amp; BioInformatics</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Physiology &amp; Anatomy</displayed-value>
+       <stored-value>Physiology &amp; Anatomy</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Organismal Biology</displayed-value>
+       <stored-value>Organismal Biology</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Laboratory Techniques</displayed-value>
+       <stored-value>Laboratory Techniques</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Process of Science Skills</displayed-value>
+       <stored-value>Process of Science Skills</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Other</displayed-value>
+       <stored-value>Other</stored-value>
      </pair>
    </value-pairs>
 
