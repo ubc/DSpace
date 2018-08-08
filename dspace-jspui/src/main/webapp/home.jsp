@@ -22,144 +22,31 @@
 <%@ taglib uri="http://www.dspace.org/dspace-tags.tld" prefix="dspace" %>
 
 <dspace:layout locbar="nolink" titlekey="jsp.home.title">
-        <div class="row landing-page">  
-            <div class="col-md-8">
-		
-                <div class="jumbotron">
-                    <h1><i class="glyphicon glyphicon-stats"></i> BioSpace</h1>
-                    <h2>Find and share vetted learning materials for teaching introductory biology in any discipline</h2>
-		    
-                    <p>BioSpace brings together high-quality open education materials vetted by instructors from UBC and around the world, with the goal of supporting cooperation among biology instruction experts and sharing resources that address common cross-disciplinary challenges of teaching in this area.</p>
-                </div>
-		
-                <div class="row after-jumbotron">
-                    <div class="col-md-6">
-                        <h4>About Us</h4>
-                        <p>Learn about BioSpace and how open education resouces help teaching and learning. <a href="<c:url value='/demo/about.jsp' />">More &raquo;</a></p>
-                    </div>    
-                    <div class="col-md-6">
-                        <h4>Copyright</h4>
-                        <p>Understand how content copyright works for the materials available in BioSpace. <a href="<c:url value='/demo/copyright.jsp' />">More &raquo;</a></p>                        
-                    </div>
-                </div>
-		
-            </div>
-	    
-            <div class="col-md-4 intro-sidebar">
-	    
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">
-                            <i class="glyphicon glyphicon-search"></i>Search for Materials
-                        </h3>
-                    </div>
-                    <div class="panel-body">
-						<%-- Search Box --%>
-						<form method="get" action="<%= request.getContextPath() %>/simple-search">
-							<div class="input-group">
-								<input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
-								<span class="input-group-btn">
-									<button type="submit" class="btn btn-primary">
-										<span class="glyphicon glyphicon-search"></span>
-									</button>
-								</span>
-							</div>
-						</form>
+	<h1 class='text-center'>Welcome to BioSpace</h1>
+	<p class='text-center'>BioSpace is a space for storing stuff related to biology education. Morbi tincidunt augue interdum velit euismod in. Mi sit amet mauris commodo quis imperdiet massa. Massa placerat duis ultricies lacus sed. Ultrices vitae auctor eu augue ut lectus arcu bibendum at.</p>
+
+	<h2 class='text-center'>Explore</h2>
+	<div class='row'>
+		<c:forEach items="${subjects}" var="subject" varStatus="loopStatus">
+			<div class='col-md-4'>
+				<div class='media'>
+					<div class='media-left'>
+						<img src='http://placecorgi.com/80/80?no_track=${loopStatus.count}' />
+					</div>
+					<div class='media-body'>
+						<h4 class='media-heading text-center'>${subject}</h4>
+						<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
 					</div>
 				</div>
+			</div>
+		</c:forEach>
+	</div>
 
-
-		<div class="panel panel-info" >
-		    <div class="panel-heading">
-                <h3 class="panel-title"><i class="glyphicon glyphicon-open"></i> Contribute Materials</h3>
-		    </div>
-		    <div class="panel-body">
-			 <p>Easily share introductory biology material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
-			 <p>Contributing material requires BioSpace registration and signing in.  In this current pilot stage, contributing also requires approval from BioSpace staff.</p>
-		    </div>
+	<h2 class='text-center'>Featured Articles</h2>
+	<c:forEach var='i' begin='1' end='3' step='1'>
+		<div class='col-md-4'>
+			<h4 class='media-heading text-center'>Feature Number ${i}</h4>
+			<img src='http://placekitten.com/10${i}/10${i}' class='pull-left' style='margin-right: 0.5em' /> <p style='display:inline'>Porta lorem mollis aliquam ut porttitor leo a diam sollicitudin. Hendrerit dolor magna eget est lorem ipsum dolor sit. Consectetur purus ut faucibus pulvinar elementum integer enim neque volutpat. Tellus cras adipiscing enim eu. Tortor aliquam nulla facilisi cras fermentum odio eu feugiat pretium. Massa sed elementum tempus egestas sed sed risus pretium. At augue eget arcu dictum varius. Maecenas accumsan lacus vel facilisis volutpat est velit. Lacus vel facilisis volutpat est velit.</p>
 		</div>
-        
-        <div class="panel panel-info" >
-                <div class="panel-heading">
-                    <h3 class="panel-title"><a href="https://ubc.ca1.qualtrics.com/jfe/form/SV_6J4ans7VBN2hpt3"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;Survey</a></h3>
-                </div>
-                <div class="panel-body">
-                    <p>When you have explored BioSpace, we would appreciate your opinion, via a brief <a href="https://ubc.ca1.qualtrics.com/jfe/form/SV_6J4ans7VBN2hpt3">survey</a>.<span class="glyphicon glyphicon-new-window"></span></p>
-                </div>
-		</div>
-	   <!--Will be using at a later date
-            <div class="panel panel-info">
-		      <div class="panel-heading">
-                <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-comment"></i> &nbsp;Evaluate what you use</a></h3>
-		      </div>
-		      <div class="panel-body">
-			     <p>Evaluate the introductory biology material in BioSpace by giving <strong>detailed private feedback</strong> for any resources you use, to help other educators improve their designs.</p>
-		      </div>
-            </div>
-	    -->
-                </div>
-            </div>
-	
-            <div class="row">
-                <div class="col-md-12">
-                    <h3 class="featured-heading">Featured BioSpace materials</h3>
-                </div>
-            </div>
-	
-            <div class="row featured-items">
-                <div class="col-md-4 text-center">
-                    <h4>Simulation</h4>
-                    <div class="thumbnail">
-                        <img src="http://www.zoology.ubc.ca/~whitlock/kingfisher/Common/Images/fish.svg" class="sim-image" width="250">
-                        <div class="caption">
-                            <h5>Web Visualization: Sampling from a Normal distribution</h5>
-                            <p class="text-left"><strong>About:</strong> This web visualization demonstrates the concept of a sampling distribution of an estimate, using the example of a mean of a Normally distributed variable. It also reinforces the idea of a histogram.</p>
-                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Sampling distributions - Sample mean <br>&bull; Exploratory data analysis/Classifying data - Graphical representations - Histograms</p> 
-                            <p class="see-more"><a href="<c:url value='/demo/sim-example.jsp' />" class="btn btn-primary">Read more &raquo;</a></p>
-                        </div>
-                    </div>
-                </div>
-	    
-                <div class="col-md-4 text-center">
-                    <h4>Video</h4>
-                    <div class="thumbnail video-iframe">
-                        <iframe src="https://player.vimeo.com/video/196027417?byline=0&portrait=0" width="300" height="169" frameborder="0" ></iframe>
-                        <div class="caption">
-                            <h5>Video: Sampling distribution of the mean</h5>
-                            <p class="text-left"><strong>About:</strong> This video explores the concept of a sampling distribution of the mean. It highlights how we can draw conclusions about a population mean based on a sample mean by understanding how sample means behave when we know the true values of the population.</p>
-                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Sampling distribution -  Sample mean</p>
-                            <br>
-                            <p class="see-more"><a href="<c:url value='/demo/video-example.jsp' />" class="btn btn-primary">Read more &raquo;</a></p>
-                        </div>     
-                    </div>
-                </div>
-                <div class="col-md-4 text-center">
-                    <h4>WeBWorK Questions</h4>
-                    <div class="thumbnail">
-                            <img src="image/webwork_homepage.JPG"  class="sim-image-large">
-                        <div class="caption">
-                            <br>
-                            <h5>WeBWorK Web Application</h5>
-                            <p class="text-left"><strong>About:</strong> WeBWorK is a free on-line individualized assessment tool that provides students with automatic feedback on their work and is used at over 700 institutions globally. </p>
-                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Normal distribution, Histograms, Sampling variability, Sampling from a Normal distribution</p><br><br>
-                            <p class="see-more"><a href="<c:url value='/demo/WebWork_Questions.jsp' />" class="btn btn-primary">Read more &raquo;</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-            <div class="row featured-items">
-                <div class="col-md-4 text-center">
-                    <h4>iClicker</h4>
-                    <div class="thumbnail">
-                        <img src="image/iClicker_home_image.JPG" class="sim-image-large" width="220">
-                        <div class="caption">
-                            <h5>Interactive engagement (clicker) questions: Sampling distributions of means</h5>
-                            <p class="text-left"><strong>About:</strong> With a personal response system, students can answer questions and instructors can monitor understanding in real time. Turn the classroom into a conversation and allow students to participate with smartphones, laptops, tablets, or clickers.</p>
-                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Probability -- Laws, theory -- Central Limit Theorem <br>&bull; Sampling distributions -- Sample mean</p> 
-                            <p class="see-more"><a href="<c:url value='/demo/iClicker-example.jsp' />" class="btn btn-primary">Read more &raquo;</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+	</c:forEach>
 </dspace:layout>

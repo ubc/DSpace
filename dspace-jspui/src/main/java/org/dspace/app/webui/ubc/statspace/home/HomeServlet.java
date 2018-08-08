@@ -54,6 +54,18 @@ public class HomeServlet extends DSpaceServlet {
 				log.error("caught exception: ", e);
 				throw new ServletException(e);
 			}
+
+			String[] subjects = {"Cell Molecular Biochemistry",
+			"Ecology",
+			"Evolution",
+			"Genetics",
+			"BioMath &amp; BioInformatics",
+			"Physiology &amp; Anatomy",
+			"Organismal Biology",
+			"Laboratory Techniques",
+			"Process of Science Skills"};
+			request.setAttribute("subjects", subjects);
+
 			
 			// Show home page JSP
 			JSPManager.showJSP(request, response, "/home.jsp");
