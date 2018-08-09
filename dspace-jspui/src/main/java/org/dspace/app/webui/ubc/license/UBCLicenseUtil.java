@@ -28,7 +28,7 @@ public class UBCLicenseUtil {
 
 	// preserves the order in which we should present the licenses to the user
 	private static List<String> LICENSE_ORDER = Arrays.asList(
-		CCBY, CCBYNC, CCBYSA, CCBYND, CCBYNCSA, CCBYNCND, CC0, PUBLIC);
+		CCBYNC, CCBY, CCBYSA, CCBYND, CCBYNCSA, CCBYNCND, CC0, PUBLIC);
 	private static Map<String,String> BADGE_URLS = initBadgeUrls();
 	private static Map<String,String> FULLNAMES = initFullnames();
 	private static Map<String,String> LICENSE_URLS = initLicenseUrls();

@@ -60,7 +60,7 @@ know what step the submission is on.
 						<label>
 							<input type='radio' name='licenseclass_chooser' required value="${license.value.shortName}" 
 								   <c:if test="${existingLicense.shortName == license.value.shortName}">checked</c:if> />
-							${license.value.fullName}
+							${status.first ? '<em>(Recommended)</em>' : ''} ${license.value.fullName}
 							<a href='${license.value.licenseUrl}' target='_blank'>(${license.value.shortName})</a>
 						</label>
 					</div>
