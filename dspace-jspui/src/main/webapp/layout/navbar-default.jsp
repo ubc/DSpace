@@ -107,7 +107,7 @@
                    <h3>Welcome to the soft launch of StatSpace!<br> Feel free to explore this preliminary version and learn more about future versions.</h3>
                </div> --%>
                <li class="<%= currentPage.endsWith("/home.jsp")? "active" : "" %>"><a href="<%= request.getContextPath() %>/"><span class="glyphicon glyphicon-home"></span> <fmt:message key="jsp.layout.navbar-default.home"/></a></li>
-	           <li class="<%= currentPage.endsWith("/about.jsp")? "active" : "" %>"><a href="<%= request.getContextPath() %>/about.jsp"><span class="glyphicon glyphicon-book"></span> About</a></li>
+	           <li class="<%= currentPage.endsWith("/about.jsp")? "active" : "" %>"><a href="<%= request.getContextPath() %>/demo/about.jsp"><span class="glyphicon glyphicon-book"></span> About</a></li>
 	   <% } %>
        </ul>
 
