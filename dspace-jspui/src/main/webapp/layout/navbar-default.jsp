@@ -80,7 +80,6 @@
          <ul class="nav navbar-nav">
            <% if (user != null) { %>
                
-		   		<%-- NOTE: modified this to /home.jsp instead of / The root home page / is different when users are logged in! --%>
                <li class="<%= currentPage.endsWith("/")? "active" : "" %>"><a href="<%= request.getContextPath() %>/"><span class="glyphicon glyphicon-home"></span></a></li>
                
                <li class="<%= currentPage.endsWith("/mydspace")? "active" : "" %>"><a href="<%= request.getContextPath() %>/mydspace"> <fmt:message key="jsp.layout.navbar-default.users"/></a></li>
@@ -106,7 +105,7 @@
                <%-- <div class="row">
                    <h3>Welcome to the soft launch of StatSpace!<br> Feel free to explore this preliminary version and learn more about future versions.</h3>
                </div> --%>
-               <li class="<%= currentPage.endsWith("/home.jsp")? "active" : "" %>"><a href="<%= request.getContextPath() %>/"><span class="glyphicon glyphicon-home"></span> <fmt:message key="jsp.layout.navbar-default.home"/></a></li>
+               <li class="<%= currentPage.endsWith("/")? "active" : "" %>"><a href="<%= request.getContextPath() %>/"><span class="glyphicon glyphicon-home"></span> <fmt:message key="jsp.layout.navbar-default.home"/></a></li>
 	           <li class="<%= currentPage.endsWith("/about.jsp")? "active" : "" %>"><a href="<%= request.getContextPath() %>/demo/about.jsp"><span class="glyphicon glyphicon-book"></span> About</a></li>
 	   <% } %>
        </ul>
