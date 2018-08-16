@@ -63,20 +63,6 @@
          <required>You must enter a main title for this item.</required>
        </field>
        
-       <!-- Date -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>date</dc-element>
-         <dc-qualifier>issued</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Publication Date</label>
-         <input-type>date</input-type>
-         <visibility>workflow</visibility>
-         <hint>Please give the date of previous publication or public distribution.
-                        You can leave out the day and/or month if they aren't
-                        applicable.</hint>
-       </field>
-
        <!-- Publisher -->
        <field>
          <dc-schema>dc</dc-schema>
@@ -90,17 +76,6 @@
          <required></required>
        </field>
        
-       <!-- Creation Date -->
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>date</dc-element>
-         <dc-qualifier>created</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Creation Date</label>
-         <input-type>date</input-type>
-         <hint>If you know when this item was created, please give the date.</hint>
-       </field>
-         
        <!-- Resource Type -->
        <field>
          <dc-schema>dcterms</dc-schema>
@@ -136,40 +111,17 @@
 		 <hint>Please enter a custom subject tag.</hint>
        </field>
 
-	   <!-- Keywords/Phrases -->
-       <field>
-         <dc-schema>dcterms</dc-schema>
-         <dc-element>subject</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-		 <label>Keywords/Keyphrases</label>
-         <input-type>onebox</input-type>
-		 <hint>Please enter keywords for this resource. Users searching for these keywords will see this resource in their search results.</hint>
-       </field>
-
-       <!-- Description - About This Resource -->
+       <!-- Abstract / Summary -->
        <field>
          <dc-schema>dc</dc-schema>
          <dc-element>description</dc-element>
-         <dc-qualifier></dc-qualifier>
+         <dc-qualifier>abstract</dc-qualifier>
          <repeatable>false</repeatable>
          <label>Description</label>
-         <input-type>textarea</input-type>
-		 <hint>
-			 Optional, any additional details you'd like to share about this resource.
-		 </hint>
-       </field>
-
-       <!-- Prerequisite Knowledge -->
-       <field>
-         <dc-schema>dcterms</dc-schema>
-         <dc-element>requires</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Pre-requisite Knowledge</label>
          <input-type>onebox</input-type>
-		 <hint>Please list one prerequisite at a time (press the "Add More" button to add more entries). Some examples of pre-requisites are "familiarity with interpreting histograms" and "central limit theorem".</hint>
-       </field>  
+         <hint>Please provide a one or two sentence description of this resource.</hint>
+         <required>Please enter a short description.</required>
+       </field>
 
        <!-- Learning Objectives -->  
        <field>
@@ -182,6 +134,39 @@
 		 <hint>Please list one objective at a time (press the "Add More" button to add more entries).</hint>
          <required>Please enter learning objectives for this item.</required>
        </field>
+        
+	   <!-- Access Restriction -->
+       <field>
+         <dc-schema>dcterms</dc-schema>
+         <dc-element>accessRights</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <label>Access Restriction</label>
+         <hint>You may make this entire submission instructor-only, only instructors will know this submission exists. Alternatively, if you choose to let everyone access this submission, you may configure individual files to be instructor-only in the Upload step.</hint>
+         <input-type value-pairs-name="access_restriction">dropdown</input-type>
+         <required>You must choose an access level.</required>
+       </field>
+
+	   <!-- Keywords/Phrases -->
+       <field>
+         <dc-schema>dcterms</dc-schema>
+         <dc-element>subject</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+		 <label>Keywords/Keyphrases</label>
+         <input-type>onebox</input-type>
+		 <hint>Please enter keywords for this resource. Users searching for these keywords will see this resource in their search results.</hint>
+       </field>
+
+       <!-- Prerequisite Knowledge -->
+       <field>
+         <dc-schema>dcterms</dc-schema>
+         <dc-element>requires</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Pre-requisite Knowledge</label>
+         <input-type>onebox</input-type>
+		 <hint>Please list one prerequisite at a time (press the "Add More" button to add more entries). Some examples of pre-requisites are "familiarity with information flow in biology", "Mendelian genetics", "mitosis", etc.</hint>
+       </field>  
 
        <!-- Related Materials -->  
        <field>
@@ -204,16 +189,30 @@
          <input-type>textarea</input-type>
          <hint>Information that will help others to use this material. Also includes lessons you've learned from using this material in practice, e.g.: what worked, what didn't, what was particularly difficult, etc.</hint>
        </field>  
-        
-	   <!-- Access Restriction -->
+
+       <!-- Date -->
        <field>
-         <dc-schema>dcterms</dc-schema>
-         <dc-element>accessRights</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <label>Access Restriction</label>
-         <hint>You may make this entire submission instructor-only, only instructors will know this submission exists. Alternatively, if you choose to let everyone access this submission, you may configure individual files to be instructor-only in the Upload step.</hint>
-         <input-type value-pairs-name="access_restriction">dropdown</input-type>
-         <required>You must choose an access level.</required>
+         <dc-schema>dc</dc-schema>
+         <dc-element>date</dc-element>
+         <dc-qualifier>issued</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Publication Date</label>
+         <input-type>date</input-type>
+         <visibility>workflow</visibility>
+         <hint>Please give the date of previous publication or public distribution.
+                        You can leave out the day and/or month if they aren't
+                        applicable.</hint>
+       </field>
+
+       <!-- Creation Date -->
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>date</dc-element>
+         <dc-qualifier>created</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Creation Date</label>
+         <input-type>date</input-type>
+         <hint>If you know when this item was created, please give the date.</hint>
        </field>
 
 	   <!-- Language Selection -->
@@ -225,18 +224,6 @@
          <label>Language</label>
          <input-type value-pairs-name="common_iso_languages">dropdown</input-type>
          <hint>Select the language of the main content of the item.</hint>
-         <required>Please select a language.</required>
-       </field>
-
-	 <!-- Alternative Language Versions -->
-       <field>
-         <dc-schema>dcterms</dc-schema>
-         <dc-element>isFormatOf</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Available in Alternative Languages</label>
-         <input-type>onebox</input-type>
-		 <hint>If this resource is available in other languages, please list the languages here.</hint>
        </field>
 
      </page>

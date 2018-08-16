@@ -665,14 +665,19 @@
          fieldCount = 1;
 	  
 	  // enable basic TinyMCE for certain fields
-	  if (fieldName.equals("dcterms_requires") ||
-			fieldName.equals("dcterms_coverage") ||
+	  if (fieldName.equals("dcterms_coverage") ||
 			fieldName.equals("dcterms_isFormatOf") ||
 			fieldName.equals("dcterms_relation")) {
 		  enableTinymce = true;
 		  // default to 4 fields cause clicking "Add More" is annoying
 		  if (fieldCount < 4 && repeatable)
 			  fieldCount = 4;
+	  }
+	  if (fieldName.equals("dcterms_requires")) {
+		  enableTinymce = true;
+		  // default to 2 fields cause clicking "Add More" is annoying
+		  if (fieldCount < 2 && repeatable)
+			  fieldCount = 2;
 	  }
 	  if (fieldName.equals("dcterms_subject")) {
 		  // default to 4 fields cause clicking "Add More" is annoying
@@ -1303,7 +1308,7 @@
   <form action="<%= request.getContextPath() %>/submit#<%= si.getJumpToField()%>" method="post" name="edit_metadata" id="edit_metadata" onkeydown="return disableEnterKey(event);">
 
         <jsp:include page="/submit/progressbar.jsp"></jsp:include>
-		<h1 class='text-center'>Thank you for your interest in submitting a statistics resource to BioSpace.</h1>
+		<h1 class='text-center'>Thank you for your interest in submitting a resource to BioSpace.</h1>
 		<p>Through this process, you will:</p>
 		<ol>
 			<li><strong>Describe</strong>: provide some information about your resource, such as pre-requisite knowledge and learning objectives, that will be useful to other BioSpace users.</li>
