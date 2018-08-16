@@ -6,13 +6,19 @@
 package org.dspace.app.webui.ubc.statspace.home;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.jsp.jstl.core.Config;
 import org.apache.log4j.Logger;
+import org.dspace.app.util.DCInput;
+import org.dspace.app.util.DCInputsReader;
+import org.dspace.app.util.DCInputsReaderException;
 import org.dspace.app.webui.servlet.DSpaceServlet;
 import org.dspace.app.webui.util.JSPManager;
 import org.dspace.app.webui.util.UIUtil;
@@ -55,18 +61,8 @@ public class HomeServlet extends DSpaceServlet {
 				throw new ServletException(e);
 			}
 
-			String[] subjects = {"Cell Molecular Biochemistry",
-			"Ecology",
-			"Evolution",
-			"Genetics",
-			"BioMath &amp; BioInformatics",
-			"Physiology &amp; Anatomy",
-			"Organismal Biology",
-			"Laboratory Techniques",
-			"Process of Science Skills"};
-			request.setAttribute("subjects", subjects);
+			setSubjectAttribute(request);
 
-			
 			// Show home page JSP
 			JSPManager.showJSP(request, response, "/home.jsp");
 		}
@@ -89,5 +85,46 @@ public class HomeServlet extends DSpaceServlet {
 				context.abort();
 			}
 		}
+	}
+
+	/** 
+	 * Retrieve subjects information to be used in the "Explore" section of the 
+	 * home page. Reads the subjects list from input-forms.xml and then set it
+	 * as an attribute to be used by the home page jsp.
+	 */
+	private void setSubjectAttribute(HttpServletRequest request) throws ServletException, UnsupportedEncodingException
+	{
+			// get the list of bio subjects from input-forms.xml
+			// for showing the explore section on the home page
+			List<SubjectInfo> subjects = new ArrayList<SubjectInfo>();
+			try {
+				DCInputsReader inputsReader = new DCInputsReader();
+				DCInput[] inputs = inputsReader.getInputs("default").getPageRows(0, true, true);
+				log.debug("Checking Inputs: " + inputs.length);
+				for (DCInput input : inputs)
+				{
+					if (input.getPairsType() != null && input.getPairsType().equals("biospace_subjects"))
+					{
+						List<String> pairs = input.getPairs();
+						boolean skip = false;
+						for (String entry : pairs)
+						{
+							if (skip)
+							{
+								skip = false;
+								continue;
+							}
+							if (entry.equalsIgnoreCase("other")) continue;
+							subjects.add(new SubjectInfo(entry));
+							skip = true;
+						}
+					}
+				}
+			} catch (DCInputsReaderException ex) {
+				log.error(ex);
+				throw new ServletException(ex);
+			}
+			request.setAttribute("subjects", subjects);
+			
 	}
 }

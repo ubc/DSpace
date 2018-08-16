@@ -44,14 +44,16 @@
                 <div class="container">
                 	<div class="col-md-8" id="ubc7-unit-address">
                         <div class="ubc7-address-unit-name">
-                            <strong>UBC StatSpace</strong>
+                            <strong>UBC BioSpace</strong>
                         </div>
-                	    <div class="ubc7-address-street">Department of Statistics<br>3178 Earth Sciences Building
-                            <br>2207 Main Mall</div>
+                	    <div class="ubc7-address-street">Biology Program<br>
+							2604-2146 Health Sciences Mall<br>
+							DH Copp Building<br>
+						</div>
                         <div class="ubc7-address-location">
-                            <span class="ubc7-address-city">Vancouver</span>, <span class="ubc7-address-province" title="British Columbia">British Columbia</span> <span class="ubc7-address-country">Canada</span> <span class="ubc7-address-postal">V6T 1Z4</span>
+                            <span class="ubc7-address-city">Vancouver</span>, <span class="ubc7-address-province" title="British Columbia">British Columbia</span> <span class="ubc7-address-country">Canada</span> <span class="ubc7-address-postal">V6T 1Z3</span>
                         </div>
-						<div id="ubc7-address-web">Web <a href="https://www.stat.ubc.ca/">https://www.stat.ubc.ca/</a></div>
+						<div id="ubc7-address-web">Web <a href="http://www.biology.ubc.ca/">http://www.biology.ubc.ca/</a></div>
                 	    <div id="ubc7-address-email">E-mail lt.support@science.ubc.ca</div>
                 	</div>
                     <div class="col-md-4">

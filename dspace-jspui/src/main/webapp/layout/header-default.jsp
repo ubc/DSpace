@@ -66,6 +66,7 @@
 	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/ubc/statspace-clf.css" type="text/css" />
 	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/ubc/statspace-custom.css" type="text/css" />
 	    <link rel="stylesheet" href='<c:url value="/static/ubc/ubc-custom.css" />' type="text/css" />
+	    <link rel="stylesheet" href='<c:url value="/static/ubc/biospace-custom.css" />' type="text/css" />
 <%
     if (!"NONE".equals(feedRef))
     {

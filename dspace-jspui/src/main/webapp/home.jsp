@@ -22,31 +22,89 @@
 <%@ taglib uri="http://www.dspace.org/dspace-tags.tld" prefix="dspace" %>
 
 <dspace:layout locbar="nolink" titlekey="jsp.home.title">
-	<h1 class='text-center'>Welcome to BioSpace</h1>
-	<p class='text-center'>BioSpace is a space for storing stuff related to biology education. Morbi tincidunt augue interdum velit euismod in. Mi sit amet mauris commodo quis imperdiet massa. Massa placerat duis ultricies lacus sed. Ultrices vitae auctor eu augue ut lectus arcu bibendum at.</p>
 
-	<h2 class='text-center'>Explore</h2>
 	<div class='row'>
-		<c:forEach items="${subjects}" var="subject" varStatus="loopStatus">
-			<div class='col-md-4'>
-				<div class='media'>
-					<div class='media-left'>
-						<img src='http://placecorgi.com/80/80?no_track=${loopStatus.count}' />
+		<div class='col-sm-6'>
+			<h1 class='text-center'>Welcome to BioSpace</h1>
+			<p>BioSpace is a space for archiving and disseminating teaching and learning resources related to Biology courses at UBC. We archive resources that are organized around courses in biological disciplines and aligned with learning goals established by the curriculum committees representing those disciplines. The tried-and-tested resources archived here are <em>peer-reviewed internally by Biology Instructors at UBC</em> and contain documentations for strategies for effective implementation. To allow for some uniformity in archiving resources in BioSpace, we have developed a template to guide your documentation process. We encourage you to use the template. We are aware that no template is ever going to meet everyone's needs, so we look forward to receiving feedback from you on making it better. We also welcome feedback on all of the archived resources – kudos, things that worked, things that could be changed to improve, things that did not work and why, etc.</p>
+		</div>
+		<div class='col-sm-6'>
+			<h2 class='text-center'>Explore</h2>
+			<div class='row'>
+				<c:forEach items="${subjects}" var="subject" varStatus="loopStatus">
+					<div class='col-lg-4 col-md-6 col-sm-6 homePageSubject'>
+						<a href='<c:url value='${subject.searchURL}'/>'>
+							<div class='media'>
+								<div class='media-left'>
+									<img src='<c:url value="${subject.icon}" />' />
+								</div>
+								<div class='media-body' style='vertical-align:middle;'>
+									<p class='media-heading text-center'>${subject.name}</p>
+								</div>
+							</div>
+						</a>
 					</div>
-					<div class='media-body'>
-						<h4 class='media-heading text-center'>${subject}</h4>
-						<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-					</div>
-				</div>
+				</c:forEach>
 			</div>
-		</c:forEach>
+		</div>
 	</div>
 
 	<h2 class='text-center'>Featured Articles</h2>
-	<c:forEach var='i' begin='1' end='3' step='1'>
-		<div class='col-md-4'>
-			<h4 class='media-heading text-center'>Feature Number ${i}</h4>
-			<img src='http://placekitten.com/10${i}/10${i}' class='pull-left' style='margin-right: 0.5em' /> <p style='display:inline'>Porta lorem mollis aliquam ut porttitor leo a diam sollicitudin. Hendrerit dolor magna eget est lorem ipsum dolor sit. Consectetur purus ut faucibus pulvinar elementum integer enim neque volutpat. Tellus cras adipiscing enim eu. Tortor aliquam nulla facilisi cras fermentum odio eu feugiat pretium. Massa sed elementum tempus egestas sed sed risus pretium. At augue eget arcu dictum varius. Maecenas accumsan lacus vel facilisis volutpat est velit. Lacus vel facilisis volutpat est velit.</p>
+	<div class="row">
+		<div class="col-xs-offset-1 col-xs-10">
+			<div class="featured-articles">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<div class="media">
+							<div class="media-left">
+								<img class="media-object" src="http://placekitten.com/80/70">
+							</div>
+							<div class="media-body">
+								<h4 class="media-heading">Feature Number 1</h4>
+								<p style='display: inline'>Consectetur purus ut faucibus pulvinar elementum integer enim neque volutpat. Tellus cras adipiscing enim eu. Tortor aliquam nulla facilisi cras fermentum odio eu feugiat pretium. Massa sed elementum tempus egestas sed sed risus pretium. At augue eget arcu dictum varius. Maecenas accumsan lacus vel facilisis volutpat est velit. Lacus vel facilisis volutpat est velit.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<div class="media">
+							<div class="media-left">
+								<img class="media-object" src="http://placekitten.com/80/80">
+							</div>
+							<div class="media-body">
+								<h4 class="media-heading">Feature Number 2</h4>
+								<p style='display: inline'>Porta lorem mollis aliquam ut porttitor leo a diam sollicitudin. Hendrerit dolor magna eget est lorem ipsum dolor sit. Tortor aliquam nulla facilisi cras fermentum odio eu feugiat pretium. Massa sed elementum tempus egestas sed sed risus pretium. At augue eget arcu dictum varius.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<div class="media">
+							<div class="media-left">
+								<img class="media-object" src="http://placekitten.com/90/80">
+							</div>
+							<div class="media-body">
+								<h4 class="media-heading">Feature Number 3</h4>
+								<p style='display: inline'>Maecenas accumsan lacus vel facilisis volutpat est velit. Lacus vel facilisis volutpat est velit.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-	</c:forEach>
+	</div>
+	<%-- Only using carousel on this page, so including the library here from cdn --%>
+	<link rel="stylesheet" type="text/css" href="<c:url value="/static/ubc/lib/slick/slick.css" />" />
+	<link rel="stylesheet" type="text/css" href="<c:url value="/static/ubc/lib/slick/slick-theme.css" />"/>
+	<script type="text/javascript" src="<c:url value="/static/ubc/lib/slick/slick.min.js" />"></script>
+	<script>
+		$(document).ready(function(){
+			$('.featured-articles').slick({
+				dots: true,
+				autoplay: true
+			});
+		});
+	</script>
 </dspace:layout>
