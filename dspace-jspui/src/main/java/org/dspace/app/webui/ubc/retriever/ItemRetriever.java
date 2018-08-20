@@ -13,6 +13,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import org.apache.log4j.Logger;
+import org.dspace.app.webui.ubc.packager.ItemPackager;
 import org.dspace.app.webui.ubc.license.UBCLicenseInfo;
 import org.dspace.app.webui.ubc.license.UBCLicenseUtil;
 
@@ -47,6 +48,7 @@ public class ItemRetriever {
 	private String dateCreated = "";
 	private String dateSubmitted = "";
 	private String license = "";
+	private String packageZipUrl = "";
 	private boolean isRestricted = false;
 	private List<SubjectResult> subjects = new ArrayList<>();
 	private List<BitstreamResult> files;
@@ -63,6 +65,7 @@ public class ItemRetriever {
 		metadataRetriever = new ItemMetadataRetriever(item);
 		bitstreamRetriever = new ItemBitstreamRetriever(context, request, item);
 		initMetadata();
+		packageZipUrl = "/zippackage/" + item.getID();
 	}
 
 	private void initMetadata() throws SQLException, UnsupportedEncodingException {
@@ -145,6 +148,9 @@ public class ItemRetriever {
 	}
 	public String getLicense() {
 		return license;
+	}
+	public String getPackageZipUrl() {
+		return packageZipUrl;
 	}
 	public UBCLicenseInfo getLicenseInfo() {
 		return UBCLicenseUtil.getLicense(license);

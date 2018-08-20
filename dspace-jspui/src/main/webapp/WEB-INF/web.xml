@@ -927,6 +927,16 @@
 		<servlet-name>home-servlet</servlet-name>
 		<url-pattern></url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>zip-package-servlet</servlet-name>
+		<servlet-class>org.dspace.app.webui.ubc.packager.ItemZipPackageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>zip-package-servlet</servlet-name>
+		<url-pattern>/zippackage/*</url-pattern>
+	</servlet-mapping>
+
     <!-- Quartz Scheduler for periodic thumbnail generation -->
     <servlet>
         <servlet-name>SchedulerStarter</servlet-name>

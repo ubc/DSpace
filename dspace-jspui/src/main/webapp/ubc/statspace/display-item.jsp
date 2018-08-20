@@ -185,6 +185,11 @@
 				<i class="glyphicon glyphicon-folder-open"></i> Files
 			</a>
 		</li>
+		<li role="presentation">
+			<a href="<c:url value='${itemRetriever.packageZipUrl}' />">
+				<i class="glyphicon glyphicon-save-file"></i> Download All Files
+			</a>
+		</li>
 	</ul>
 	<!-- Tabs Content -->
 	<div class="tab-content displayItemTabsContent">
