@@ -26,7 +26,9 @@
 	<div class='row'>
 		<div class='col-sm-6'>
 			<h1 class='text-center'>Welcome to BioSpace</h1>
-			<p>BioSpace is a space for archiving and disseminating teaching and learning resources related to Biology courses at UBC. We archive resources that are organized around courses in biological disciplines and aligned with learning goals established by the curriculum committees representing those disciplines. The tried-and-tested resources archived here are <em>peer-reviewed internally by Biology Instructors at UBC</em> and contain documentations for strategies for effective implementation. To allow for some uniformity in archiving resources in BioSpace, we have developed a template to guide your documentation process. We encourage you to use the template. We are aware that no template is ever going to meet everyone's needs, so we look forward to receiving feedback from you on making it better. We also welcome feedback on all of the archived resources – kudos, things that worked, things that could be changed to improve, things that did not work and why, etc.</p>
+			<p>BioSpace is a shared space for archiving and sharing teaching and learning resources related to Biology courses at UBC.</p>
+			<p>Resources are organized according to biological disciplines and learning goals. These tried-and-tested resources undergo an internal peer-review and feedback process before posting.</p>
+			<p>If you are interested in posting resources, we encourage you to use our template! Although no template is ever going to meet everyone's needs, we hope that this will provide helpful guidelines and standards, ultimately making BioSpace easier to use for both posters and downloaders. If you have any feedback (regarding the template, the site, the resources, or otherwise), please let us know! We would love to hear from you.</p>
 		</div>
 		<div class='col-sm-6'>
 			<h2 class='text-center'>Explore</h2>
