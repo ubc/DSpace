@@ -1481,6 +1481,7 @@
 			request.setAttribute("dateFieldCount", fieldCount);
 			request.setAttribute("dateFieldName", fieldName);
 			request.setAttribute("dateIssued", dateIssued);
+			request.setAttribute("dateIssuedStr", dateIssued.toString());
 			if (!repeatable)
 			{
 		%>
@@ -1505,50 +1506,110 @@
 	</label>
 	<!-- Controls -->
 	<div class='col-md-10'>
-		<%-- The API expects the date to be split up into month, day, and year fields.
+		<%-- DSpace expects the date to be split up into month, day, and year fields.
 			Configure the expected field names here. --%>
 		<c:set var='fieldNameMonth' value='${dateFieldName}_month' />
 		<c:set var='fieldNameDay' value='${dateFieldName}_day' />
 		<c:set var='fieldNameYear' value='${dateFieldName}_year' />
-		<c:set var='fieldNamePopup' value='${dateFieldName}_popup' />
+		<c:set var='fieldNameDatepicker' value='${dateFieldName}_datepicker' />
+		<c:set var='fieldNameBtn' value='${dateFieldName}_btn' />
 
 		<div class='col-md-12 form-inline'>
 			<!-- Input Elements -->
 			<div class='input-group col-md-10'>
 				<div>
-					<input class='form-control' type='text' id='${fieldNamePopup}' />
-					<script>
-						jQuery(function() {
-							jQuery('#${fieldNamePopup}').datepicker({
-								changeMonth: true,
-								changeYear: true,
-								dateFormat: 'yy-mm-dd',
-								maxDate: 0,
-								yearRange: "c-50:c+50",
-								onSelect: function(dateText, inst) { 
-									var date = jQuery(this).datepicker('getDate'),
-											day  = date.getDate(),  
-											month = date.getMonth() + 1,              
-											year =  date.getFullYear();
-									jQuery('#${fieldNameYear}').val(year);
-									jQuery('#${fieldNameMonth}').val(month);
-									jQuery('#${fieldNameDay}').val(day);
-								}
-							});
-							<c:if test='${dateIssued.year > 0}'>
-							jQuery('#${fieldNamePopup}').datepicker("setDate", "${dateIssued.year}-${dateIssued.month}-${dateIssued.day}");
-							</c:if>
-						});
-					</script>
-				</div>
-				<div class='hidden'>
-					<!-- Month -->
-					<input type='text' id='${fieldNameMonth}' name='${fieldNameMonth}' value='<c:if test='${dateIssued.month > 0}'>${dateIssued.month}</c:if>' />
-					<!-- Day -->
-					<input type='text' id='${fieldNameDay}' name='${fieldNameDay}' value='<c:if test='${dateIssued.day > 0}'>${dateIssued.day}</c:if>' />
+					<!-- These are the actual fields read & stored on form submit -->
 					<!-- Year -->
-					<input type='text' id='${fieldNameYear}' name='${fieldNameYear}' value='<c:if test='${dateIssued.year > 0}'>${dateIssued.year}</c:if>' />
+					<input type='text' pattern="[1-2]\d\d\d" maxlength="4" size="8" id='${fieldNameYear}' name='${fieldNameYear}' value='<c:if test='${dateIssued.year > 0}'>${dateIssued.year}</c:if>' class="text-center" placeholder="Year" /> -
+					<!-- Month -->
+					<input type='text' pattern="[1-9]|[0][1-9]|[1][0-2]" maxlength="5" size="5" id='${fieldNameMonth}' name='${fieldNameMonth}' value='<c:if test='${dateIssued.month > 0}'>${dateIssued.month}</c:if>' class="text-center" placeholder="Month" /> -
+					<!-- Day -->
+					<input type='text' pattern="[1-9]|[0][1-9]|[1-2]\d|[3][0-1]" maxlength="5" size="5" id='${fieldNameDay}' name='${fieldNameDay}' value='<c:if test='${dateIssued.day > 0}'>${dateIssued.day}</c:if>' class="text-center" placeholder="Day" />
+					<button id="${fieldNameBtn}" class='btn btn-default' type="button"><span class="glyphicon glyphicon-calendar"></span></button>
 				</div>
+				<div id="${fieldNameDatepicker}" class="hidden"></div>
+				<script>
+					jQuery(function() {
+						var datepicker = jQuery('#${fieldNameDatepicker}');
+						datepicker.datepicker({
+							startView: ${dateIssued.month > 0 ? (dateIssued.day > 0 ? '0' : '1') : '2'},
+							immediateUpdates: true,
+							todayHighlight: true,
+							clearBtn: true
+						});
+						console.log(new Date(${dateIssuedStr}));
+						var date = new Date();
+						<c:if test='${dateIssued.day > 0}'>
+							date.setDate(${dateIssued.day});
+							jQuery('#${fieldNameDay}').val(${dateIssued.day});
+						</c:if>
+						<c:if test='${dateIssued.month > 0}'>
+							date.setMonth(${dateIssued.month - 1});
+							jQuery('#${fieldNameMonth}').val(${dateIssued.month});
+						</c:if>
+						<c:if test='${dateIssued.year > 0}'>
+							date.setFullYear(${dateIssued.year});
+							jQuery('#${fieldNameYear}').val(${dateIssued.year});
+						</c:if>
+						console.log(date.toDateString());
+						<c:if test='${not empty dateIssuedStr}'>
+							datepicker.datepicker('update', date);
+						</c:if>
+						function updateFields(date) {
+							if (jQuery('#${fieldNameYear}').val()) 
+								jQuery('#${fieldNameYear}').val(date.getFullYear());
+							if (jQuery('#${fieldNameMonth}').val()) 
+								jQuery('#${fieldNameMonth}').val(date.getMonth() + 1);
+							if (jQuery('#${fieldNameDay}').val()) 
+								jQuery('#${fieldNameDay}').val(date.getDate());
+						}
+						// update fields display when user interacts with datepicker
+						datepicker.datepicker().on("changeYear", function(e) {
+							updateFields(e.date);
+							jQuery('#${fieldNameYear}').val(e.date.getFullYear());
+						});
+						datepicker.datepicker().on("changeMonth", function(e) {
+							updateFields(e.date);
+							jQuery('#${fieldNameMonth}').val(e.date.getMonth() + 1);
+						});
+						datepicker.datepicker().on("changeDate", function(e) {
+							updateFields(e.date);
+							jQuery('#${fieldNameDay}').val(e.date.getDate());
+						});
+						datepicker.datepicker().on("clearDate", function(e) {
+							jQuery('#${fieldNameYear}').val("");
+							jQuery('#${fieldNameMonth}').val("");
+							jQuery('#${fieldNameDay}').val("");
+						});
+						// if user manually types in numbers, need to update datepicker
+						jQuery('#${fieldNameYear}').change(function() {
+							var oldDate = datepicker.datepicker('getDate');
+							oldDate.setFullYear(jQuery(this).val());
+							if (isNaN(oldDate.getTime())) return; // invalid date
+							datepicker.datepicker('update', oldDate);
+						});
+						jQuery('#${fieldNameMonth}').change(function() {
+							var oldDate = datepicker.datepicker('getDate');
+							oldDate.setMonth(jQuery(this).val() - 1);
+							if (isNaN(oldDate.getTime())) return; // invalid date
+							datepicker.datepicker('update', oldDate);
+						});
+						jQuery('#${fieldNameDay}').change(function() {
+							var oldDate = datepicker.datepicker('getDate');
+							oldDate.setDate(jQuery(this).val());
+							if (isNaN(oldDate.getTime())) return; // invalid date
+							datepicker.datepicker('update', oldDate);
+						});
+						// button to toggle showing the calendar
+						jQuery('#${fieldNameBtn}').click(function() {
+							if (datepicker.hasClass('hidden'))
+								datepicker.removeClass('hidden');
+							else
+								datepicker.addClass('hidden');
+								
+						});
+					});
+				</script>
 			</div>
 		</div>
 	</div>
