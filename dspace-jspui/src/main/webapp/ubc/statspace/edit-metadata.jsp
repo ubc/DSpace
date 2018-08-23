@@ -1525,11 +1525,11 @@
 				<div>
 					<!-- These are the actual fields read & stored on form submit -->
 					<!-- Year -->
-					<input type='text' pattern="[1-2]\d\d\d" maxlength="4" size="8" id='${fieldNameYear}' name='${fieldNameYear}' value='<c:if test='${dateIssued.year > 0}'>${dateIssued.year}</c:if>' class="text-center" placeholder="Year" /> -
+					<input type='text' pattern="[1-2]\d\d\d" maxlength="4" size="8" id='${fieldNameYear}' name='${fieldNameYear}' value='<c:if test='${dateIssued.year > 0}'>${dateIssued.year}</c:if>' class="text-center form-control" placeholder="Year" />
 					<!-- Month -->
-					<input type='text' pattern="[1-9]|[0][1-9]|[1][0-2]" maxlength="2" size="5" id='${fieldNameMonth}' name='${fieldNameMonth}' value='<c:if test='${dateIssued.month > 0}'>${dateIssued.month}</c:if>' class="text-center" placeholder="Month" /> -
+					<input type='text' pattern="[1-9]|[0][1-9]|[1][0-2]" maxlength="2" size="5" id='${fieldNameMonth}' name='${fieldNameMonth}' value='<c:if test='${dateIssued.month > 0}'>${dateIssued.month}</c:if>' class="text-center form-control" placeholder="Month" />
 					<!-- Day -->
-					<input type='text' pattern="[1-9]|[0][1-9]|[1-2]\d|[3][0-1]" maxlength="2" size="5" id='${fieldNameDay}' name='${fieldNameDay}' value='<c:if test='${dateIssued.day > 0}'>${dateIssued.day}</c:if>' class="text-center" placeholder="Day" />
+					<input type='text' pattern="[1-9]|[0][1-9]|[1-2]\d|[3][0-1]" maxlength="2" size="5" id='${fieldNameDay}' name='${fieldNameDay}' value='<c:if test='${dateIssued.day > 0}'>${dateIssued.day}</c:if>' class="text-center form-control" placeholder="Day" />
 				</div>
 				<script>
 					jQuery(function() {
