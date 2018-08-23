@@ -1281,12 +1281,17 @@
     }
 %>
 
+<%-- Prototype conflicts with bootstrap-datepicker being used for date entry, datepicker inputs will hide themselves on blur because
+	prototype intrusively injected a "hide" method to all DOM elements.
+	Only thing we seem to be using for scriptaculous is the controlled library auto-complete? Since no one is using that feature, commenting this
+	out for now.
 <c:set var="dspace.layout.head.last" scope="request">
 	<script type="text/javascript" src="<%= request.getContextPath() %>/static/js/scriptaculous/prototype.js"></script>
 	<script type="text/javascript" src="<%= request.getContextPath() %>/static/js/scriptaculous/builder.js"></script>
 	<script type="text/javascript" src="<%= request.getContextPath() %>/static/js/scriptaculous/effects.js"></script>
 	<script type="text/javascript" src="<%= request.getContextPath() %>/static/js/scriptaculous/controls.js"></script>
 </c:set>
+--%>
 <dspace:layout style="submission" locbar="off" navbar="off" titlekey="jsp.submit.edit-metadata.title">
 
 <%
@@ -1522,91 +1527,130 @@
 					<!-- Year -->
 					<input type='text' pattern="[1-2]\d\d\d" maxlength="4" size="8" id='${fieldNameYear}' name='${fieldNameYear}' value='<c:if test='${dateIssued.year > 0}'>${dateIssued.year}</c:if>' class="text-center" placeholder="Year" /> -
 					<!-- Month -->
-					<input type='text' pattern="[1-9]|[0][1-9]|[1][0-2]" maxlength="5" size="5" id='${fieldNameMonth}' name='${fieldNameMonth}' value='<c:if test='${dateIssued.month > 0}'>${dateIssued.month}</c:if>' class="text-center" placeholder="Month" /> -
+					<input type='text' pattern="[1-9]|[0][1-9]|[1][0-2]" maxlength="2" size="5" id='${fieldNameMonth}' name='${fieldNameMonth}' value='<c:if test='${dateIssued.month > 0}'>${dateIssued.month}</c:if>' class="text-center" placeholder="Month" /> -
 					<!-- Day -->
-					<input type='text' pattern="[1-9]|[0][1-9]|[1-2]\d|[3][0-1]" maxlength="5" size="5" id='${fieldNameDay}' name='${fieldNameDay}' value='<c:if test='${dateIssued.day > 0}'>${dateIssued.day}</c:if>' class="text-center" placeholder="Day" />
-					<button id="${fieldNameBtn}" class='btn btn-default' type="button"><span class="glyphicon glyphicon-calendar"></span></button>
+					<input type='text' pattern="[1-9]|[0][1-9]|[1-2]\d|[3][0-1]" maxlength="2" size="5" id='${fieldNameDay}' name='${fieldNameDay}' value='<c:if test='${dateIssued.day > 0}'>${dateIssued.day}</c:if>' class="text-center" placeholder="Day" />
 				</div>
-				<div id="${fieldNameDatepicker}" class="hidden"></div>
 				<script>
 					jQuery(function() {
-						var datepicker = jQuery('#${fieldNameDatepicker}');
-						datepicker.datepicker({
-							startView: ${dateIssued.month > 0 ? (dateIssued.day > 0 ? '0' : '1') : '2'},
-							immediateUpdates: true,
-							todayHighlight: true,
-							clearBtn: true
-						});
-						console.log(new Date(${dateIssuedStr}));
-						var date = new Date();
-						<c:if test='${dateIssued.day > 0}'>
-							date.setDate(${dateIssued.day});
-							jQuery('#${fieldNameDay}').val(${dateIssued.day});
-						</c:if>
-						<c:if test='${dateIssued.month > 0}'>
-							date.setMonth(${dateIssued.month - 1});
-							jQuery('#${fieldNameMonth}').val(${dateIssued.month});
-						</c:if>
-						<c:if test='${dateIssued.year > 0}'>
-							date.setFullYear(${dateIssued.year});
-							jQuery('#${fieldNameYear}').val(${dateIssued.year});
-						</c:if>
-						console.log(date.toDateString());
-						<c:if test='${not empty dateIssuedStr}'>
-							datepicker.datepicker('update', date);
-						</c:if>
-						function updateFields(date) {
-							if (jQuery('#${fieldNameYear}').val()) 
-								jQuery('#${fieldNameYear}').val(date.getFullYear());
-							if (jQuery('#${fieldNameMonth}').val()) 
-								jQuery('#${fieldNameMonth}').val(date.getMonth() + 1);
-							if (jQuery('#${fieldNameDay}').val()) 
-								jQuery('#${fieldNameDay}').val(date.getDate());
+						var latestDate = new Date();
+						// The problem with instantiating a datepicker for each
+						// year/month/date fields is that we have to sync the
+						// underlying Date object for all 3 fields together.
+						// This issue is exacerbated by the fact that we need to
+						// allow users to only partially enter data, e.g. only
+						// year or year & month. And the Date object underlying
+						// bootstrap-datepicker requires all time information to
+						// be present. Working around this by not instantiating
+						// the datepicker for fields that have no data.
+						var yearField = {
+							'jq': jQuery('#${fieldNameYear}'),
+							'params': {
+								startView: 2,
+								minViewMode: 2,
+								format: "yyyy",
+								autoclose: true,
+								clearBtn: true
+							}
+						};
+						var monthField = {
+							'jq': jQuery('#${fieldNameMonth}'),
+							'params': {
+								startView: 1,
+								minViewMode: 1,
+								format: "m",
+								autoclose: true,
+								clearBtn: true
+							}
+						};
+						var dayField = {
+							'jq': jQuery('#${fieldNameDay}'),
+							'params': {
+								startView: 0,
+								minViewMode: 0,
+								format: "dd",
+								autoclose: true,
+								clearBtn: true
+							}
+						};
+						// true if the given field has a datepicker instance
+						function hasDatepicker(field) {
+							if (field.jq.data('datepicker'))
+								return true;
+							return false;
 						}
-						// update fields display when user interacts with datepicker
-						datepicker.datepicker().on("changeYear", function(e) {
-							updateFields(e.date);
-							jQuery('#${fieldNameYear}').val(e.date.getFullYear());
+						// change the date for each datepicker depending on what
+						// is entered in the fields
+						function updateDateFromFields() {
+							function getFieldValue(field, fallbackVal) {
+								// make sure the field is validated (html5's pattern attribute) before accepting value
+								if (field.val() && field.is(":valid"))
+									return field.val();
+								return fallbackVal;
+							}
+							function shouldUpdateField(field) {
+								if (!hasDatepicker(field)) return false;
+								var oldDate = field.jq.datepicker('getDate');
+								if (!oldDate) return false;
+								if (oldDate.getFullYear() == latestDate.getFullYear() &&
+									oldDate.getMonth() == latestDate.getMonth() &&
+									oldDate.getDate() == latestDate.getDate())
+									return false;
+								return true;
+							}
+							var year = getFieldValue(yearField.jq, latestDate.getFullYear());
+							// month is special cause it's zero indexed in the Date object while the field isn't
+							var month = getFieldValue(monthField.jq, (latestDate.getMonth() + 1)) -1;
+							var day = getFieldValue(dayField.jq, latestDate.getDate());
+							latestDate.setFullYear(year);
+							latestDate.setMonth(month);
+							latestDate.setDate(day);
+							if (shouldUpdateField(yearField))
+								yearField.jq.datepicker('update', latestDate);
+							if (shouldUpdateField(monthField))
+								monthField.jq.datepicker('update', latestDate);
+							if (shouldUpdateField(dayField))
+								dayField.jq.datepicker('update', latestDate);
+						}
+						// Disable or enable fields based on whether their 
+						// prereq field has been filled in yet. i.e.: month
+						// needs year, day needs month. Also instantiates or
+						// destroys the datepicker on those fields as necessary.
+						function enableOrDisableFields() {
+							function toggleField(field, prereqField) {
+								if (prereqField.jq.val()) { // enable field
+									field.jq.prop('disabled', false);
+									if (!hasDatepicker(field))
+										field.jq.datepicker(field.params);
+								}
+								else { // disable field
+									field.jq.prop('disabled', true);
+									if (hasDatepicker(field)) {
+										field.jq.datepicker('destroy');
+										field.jq.val("");
+									}
+								}
+							}
+							toggleField(monthField, yearField);
+							toggleField(dayField, monthField);
+						}
+						// INITIALIZATION
+						// Year field should always have a datepicker on it
+						yearField.jq.datepicker(yearField.params);
+						enableOrDisableFields();
+						updateDateFromFields();
+						// make sure all 3 datepickers get updated on changes
+						yearField.jq.change(function() {
+							enableOrDisableFields();
+							updateDateFromFields();
 						});
-						datepicker.datepicker().on("changeMonth", function(e) {
-							updateFields(e.date);
-							jQuery('#${fieldNameMonth}').val(e.date.getMonth() + 1);
+						monthField.jq.change(function() {
+							enableOrDisableFields();
+							updateDateFromFields();
 						});
-						datepicker.datepicker().on("changeDate", function(e) {
-							updateFields(e.date);
-							jQuery('#${fieldNameDay}').val(e.date.getDate());
-						});
-						datepicker.datepicker().on("clearDate", function(e) {
-							jQuery('#${fieldNameYear}').val("");
-							jQuery('#${fieldNameMonth}').val("");
-							jQuery('#${fieldNameDay}').val("");
-						});
-						// if user manually types in numbers, need to update datepicker
-						jQuery('#${fieldNameYear}').change(function() {
-							var oldDate = datepicker.datepicker('getDate');
-							oldDate.setFullYear(jQuery(this).val());
-							if (isNaN(oldDate.getTime())) return; // invalid date
-							datepicker.datepicker('update', oldDate);
-						});
-						jQuery('#${fieldNameMonth}').change(function() {
-							var oldDate = datepicker.datepicker('getDate');
-							oldDate.setMonth(jQuery(this).val() - 1);
-							if (isNaN(oldDate.getTime())) return; // invalid date
-							datepicker.datepicker('update', oldDate);
-						});
-						jQuery('#${fieldNameDay}').change(function() {
-							var oldDate = datepicker.datepicker('getDate');
-							oldDate.setDate(jQuery(this).val());
-							if (isNaN(oldDate.getTime())) return; // invalid date
-							datepicker.datepicker('update', oldDate);
-						});
-						// button to toggle showing the calendar
-						jQuery('#${fieldNameBtn}').click(function() {
-							if (datepicker.hasClass('hidden'))
-								datepicker.removeClass('hidden');
-							else
-								datepicker.addClass('hidden');
-								
+						dayField.jq.change(function() {
+							enableOrDisableFields();
+							updateDateFromFields();
 						});
 					});
 				</script>

@@ -98,7 +98,9 @@
          <repeatable>false</repeatable>
          <label>Creation Date</label>
          <input-type>date</input-type>
-         <hint>If you know when this item was created, please give the date.</hint>
+         <hint>If you know when this item was created, please give the date. You
+         can leave out the day and/or month if they aren't
+		 applicable.</hint>
        </field>
          
        <!-- Resource Type -->
