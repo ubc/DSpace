@@ -94,12 +94,17 @@
 %>
         
 	<script type='text/javascript' src="<%= request.getContextPath() %>/static/js/jquery/jquery-1.12.4.min.js"></script>
-	<script type='text/javascript' src='<%= request.getContextPath() %>/static/js/jquery/jquery-ui-1.10.3.custom.min.js'></script>
+	<!-- <script type='text/javascript' src='<%= request.getContextPath() %>/static/js/jquery/jquery-ui-1.10.3.custom.min.js'></script> -->
 	<script type='text/javascript' src='<%= request.getContextPath() %>/static/js/bootstrap/bootstrap.min.js'></script>
 	<script type='text/javascript' src='<%= request.getContextPath() %>/static/js/holder.js'></script>
 	<script type="text/javascript" src="<%= request.getContextPath() %>/utils.js"></script>
     <script type="text/javascript" src="<%= request.getContextPath() %>/static/js/choice-support.js"> </script>
 
+	<%-- Bootstrap Datepicker --%>
+	<script src="<c:url value='/static/ubc/lib/bootstrap-datepicker/js/bootstrap-datepicker.min.js' />"></script>
+	<script src="<c:url value='/static/ubc/lib/bootstrap-datepicker/locales/bootstrap-datepicker.en-CA.min.js' />"></script>
+	<link rel="stylesheet" href="<c:url value='/static/ubc/lib/bootstrap-datepicker/css/bootstrap-datepicker3.min.css' />" />
+	
     <%--Gooogle Analytics recording.--%>
     <dspace:include page="google-analytics.jsp" />
 
