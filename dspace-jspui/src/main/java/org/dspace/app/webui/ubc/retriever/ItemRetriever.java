@@ -58,6 +58,7 @@ public class ItemRetriever {
 	private List<String> authors = new ArrayList<>();
 	private List<String> relatedMaterials = new ArrayList<>();
 	private List<String> alternativeLanguages = new ArrayList<>();
+	private List<String> keywords = new ArrayList<>();
 
 	public ItemRetriever(Context context, HttpServletRequest request, Item item) throws SQLException, UnsupportedEncodingException {
 		this.item = item;
@@ -105,6 +106,7 @@ public class ItemRetriever {
 		initStringList("dc.contributor.author", authors);
 		initStringList("dcterms.relation", relatedMaterials);
 		initStringList("dcterms.isFormatOf", alternativeLanguages);
+		initStringList("dcterms.subject", keywords);
 	}
 
 	private String getSingleValue(String field) {
@@ -178,6 +180,9 @@ public class ItemRetriever {
 	}
 	public List<String> getAlternativeLanguages() {
 		return alternativeLanguages;
+	}
+	public List<String> getKeywords() {
+		return keywords;
 	}
 	
 }

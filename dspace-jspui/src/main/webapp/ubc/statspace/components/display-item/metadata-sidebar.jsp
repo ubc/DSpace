@@ -17,6 +17,29 @@
 <jsp:include page="/ubc/statspace/components/display-item/subjects-list.jsp">
 	<jsp:param name="retrieverVar" value="itemRetriever" />
 </jsp:include>
+<!-- Keywords -->
+<c:if test='${!empty itemRetriever.keywords}'>
+	<div class='panel panel-default'>
+		<div class='panel-heading'>
+			<h4 class="panel-title"><span class='glyphicon glyphicon-tag'></span> Keywords</h4>
+		</div>
+		<ul class='list-group'>
+			<c:forEach items="${itemRetriever.keywords}" var="keyword" varStatus="loopStatus">
+				<li class='list-group-item'>
+					<c:url value="/simple-search" var="url">
+						<c:param name="filtername" value="keyword" />
+						<c:param name="filterquery" value="${keyword}" />
+						<c:param name="filtertype" value="equals" />
+					</c:url>
+
+					<a class="resourceLink" href="${url}" target="_blank" title="${keyword}">
+						${keyword}
+					</a>
+				</li>
+			</c:forEach>
+		</ul>
+	</div>
+</c:if>
 <!-- Resource Types -->
 <div class='panel panel-default'>
 	<div class='panel-heading'>

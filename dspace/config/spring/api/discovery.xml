@@ -108,6 +108,7 @@
                 <ref bean="searchFilterTitle" />
                 <ref bean="searchFilterAuthor" />
                 <ref bean="searchFilterResourceType" />
+                <ref bean="searchFilterKeyword" />
                 <ref bean="searchFilterSubject" />
                 <ref bean="searchFilterIssued" />
                 <ref bean="searchFilterAccessRights" />
@@ -217,6 +218,7 @@
                 <ref bean="searchFilterAuthor" />
                 <ref bean="searchFilterSubject" />
                 <ref bean="searchFilterResourceType" />
+                <ref bean="searchFilterKeyword" />
                 <ref bean="searchFilterIssued" />
             </list>
         </property>
@@ -391,6 +393,17 @@
         <property name="metadataFields">
             <list>
                 <value>dcterms.type</value>
+            </list>
+        </property>
+        <property name="facetLimit" value="5"/>
+        <property name="sortOrder" value="COUNT"/>
+    </bean>
+
+    <bean id="searchFilterKeyword" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="keyword"/>
+        <property name="metadataFields">
+            <list>
+                <value>dcterms.subject</value>
             </list>
         </property>
         <property name="facetLimit" value="5"/>

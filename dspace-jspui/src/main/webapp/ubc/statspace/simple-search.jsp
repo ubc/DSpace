@@ -326,12 +326,45 @@
 								${itemRetriever.summary}
 							</div>
 							<div class="searchResultResourceTypes">
-								<c:forEach items="${itemRetriever.resourceTypes}" var="type">
-									<jsp:include page="/ubc/statspace/components/resource-type-pill.jsp">
-										<jsp:param name="resource" value="${type}" />
-									</jsp:include>
-								</c:forEach>
+								<small>
+									<strong>Resource Type:</strong>
+									<ul class='list-inline'>
+										<c:forEach items="${itemRetriever.resourceTypes}" var="type">
+											<c:url value="/simple-search" var="url">
+												<c:param name="filtername" value="resourceType" />
+												<c:param name="filterquery" value="${type}" />
+												<c:param name="filtertype" value="equals" />
+											</c:url>
+											<li>
+												<a class="resourceLink" href="${url}" target="_blank" title="${type}">
+													${type}
+												</a>
+											</li>
+										</c:forEach>
+									</ul>
+								</small>
 							</div>
+							<c:if test="${!empty itemRetriever.keywords}">
+								<div>
+									<small>
+										<strong>Keywords:</strong>
+										<ul class='list-inline'>
+											<c:forEach items="${itemRetriever.keywords}" var="keyword">
+												<c:url value="/simple-search" var="url">
+													<c:param name="filtername" value="keyword" />
+													<c:param name="filterquery" value="${keyword}" />
+													<c:param name="filtertype" value="equals" />
+												</c:url>
+												<li>
+													<a class="resourceLink" href="${url}" target="_blank" title="${keyword}">
+														${keyword}
+													</a>
+												</li>
+											</c:forEach>
+										</ul>
+									</small>
+								</div>
+							</c:if>
 						</div>
 					</div>
 				</c:forEach>
