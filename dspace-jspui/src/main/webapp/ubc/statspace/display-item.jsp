@@ -151,7 +151,7 @@
 
 		
 	<c:if test="${admin_button}">
-		<jsp:include page="/ubc/statspace/components/display-item-admin-tools.jsp">
+		<jsp:include page="/ubc/statspace/components/display-item/display-item-admin-tools.jsp">
 			<jsp:param name="itemID" value="${itemID}" />
 			<jsp:param name="handle" value="${handle}" />
 			<jsp:param name="hasAdminButton" value="${hasAdminButton}" />
@@ -169,7 +169,7 @@
 			</div>
 		</c:if>
 		<div class='media-body'>
-			<h2 class="marginTopNone">${itemRetriever.title}</h2> 
+			<h1 class="marginTopNone">${itemRetriever.title}</h1> 
 			<p>${itemRetriever.summary}</p>
 		</div>
 	</div>
@@ -195,102 +195,55 @@
 	<div class="tab-content displayItemTabsContent">
 		<!-- Metadata Tab -->
 		<div role="tabpanel" class="tab-pane active" id="MetadataTab">
-			<!-- Subjects List -->
-			<jsp:include page="/ubc/statspace/components/subjects-list.jsp">
-				<jsp:param name="retrieverVar" value="itemRetriever" />
-			</jsp:include>
-			<!-- Resource Types List -->
-			<jsp:include page="/ubc/statspace/components/resource-types-list.jsp">
-				<jsp:param name="retrieverVar" value="itemRetriever" />
-			</jsp:include>
-			<!-- Pre-Reqs -->
-			<c:if test="${!empty itemRetriever.prereqs}">
-			<div class='panel panel-danger'>
-				<div class='panel-heading'>
-					<i class="glyphicon glyphicon-list"></i>
-					Pre-requisite Knowledge
-				</div> 
-				<ul class='list-group'>
-					<c:forEach items="${itemRetriever.prereqs}" var="prereq">
-						<li class='list-group-item'>${prereq}</li>
-					</c:forEach>
-				</ul>
+			<div class='row'>
+				<!-- Metadata Main Content -->
+				<div class='col-sm-9'>
+					<!-- Pre-Reqs -->
+					<c:if test="${!empty itemRetriever.prereqs}">
+						<h3 class='displayItemSectionHeader'>
+							<i class="glyphicon glyphicon-list"></i>
+							Pre-requisite Knowledge
+						</h3> 
+						<ul>
+							<c:forEach items="${itemRetriever.prereqs}" var="prereq">
+								<li>${prereq}</li>
+							</c:forEach>
+						</ul>
+					</c:if>
+					<!-- Learning Objectives -->
+					<c:if test="${!empty itemRetriever.objectives}">
+						<h3 class='displayItemSectionHeader'>
+							<i class="glyphicon glyphicon-blackboard"></i>
+							Learning Objectives
+						</h3>
+						<ul>
+							<c:forEach items="${itemRetriever.objectives}" var="prereq">
+								<li>${prereq}</li>
+							</c:forEach>
+						</ul>
+					</c:if>
+					<!-- Description -->
+					<c:if test="${!empty itemRetriever.description}">
+						<h3 class="displayItemSectionHeader"><i class="glyphicon glyphicon-info-sign"></i> Description</h3>
+						<div> 
+							${itemRetriever.description}
+						</div>
+					</c:if>
+					<!-- Suggest Uses & Tips merged with What We Learned-->
+					<c:if test="${!empty itemRetriever.whatWeLearned}">
+						<h3 class="displayItemSectionHeader"><i class="glyphicon glyphicon-education"></i> Suggested Uses, Tips and Discoveries</h3>
+						<div>
+							${itemRetriever.whatWeLearned}
+						</div>
+					</c:if>
+				</div>
+				<!-- Metadata Side Bar -->
+				<div class='col-sm-3'>
+					<jsp:include page="/ubc/statspace/components/display-item/metadata-sidebar.jsp">
+						<jsp:param name="retrieverVar" value="itemRetriever" />
+					</jsp:include>
+				</div>
 			</div>
-			</c:if>
-			<!-- Learning Objectives -->
-			<c:if test="${!empty itemRetriever.objectives}">
-			<div class='panel panel-warning'>
-				<div class='panel-heading'>
-					<i class="glyphicon glyphicon-blackboard"></i>
-					Learning Objectives
-				</div> 
-				<ul class='list-group'>
-					<c:forEach items="${itemRetriever.objectives}" var="prereq">
-						<li class='list-group-item'>${prereq}</li>
-					</c:forEach>
-				</ul>
-			</div>
-			</c:if>
-			<!-- Description -->
-			<h4 class="displayItemSectionHeader"><i class="glyphicon glyphicon-info-sign"></i> Description</h4>
-			<div> 
-				${itemRetriever.description}
-			</div>
-			<!-- Author, dates, etc -->
-			<ul class="list-inline text-muted"> 
-				<li>Created By: </li>
-				<c:forEach items="${itemRetriever.authors}" var="author" varStatus="loop">
-					<li>${author}</li>
-					<li><c:if test="${!loop.last}">-</c:if></li>
-				</c:forEach>
-			</ul> 
-			<p class="text-muted">Date Created: ${itemRetriever.dateCreated}</p>
-			<p class="text-muted">Date Submitted: ${itemRetriever.dateSubmitted}</p>
-			<p class="text-muted">
-				Access:
-				<c:choose>
-					<c:when test="${itemRetriever.isRestricted}">
-						<i class="glyphicon glyphicon-lock restrictionIconColorInstructorOnly"></i> Instructor Only
-					</c:when>
-					<c:otherwise>
-						<i class="glyphicon glyphicon-globe restrictionIconColorEveryone"></i> Everyone
-					</c:otherwise>
-				</c:choose>
-			</p>
-			<!-- Suggest Uses & Tips merged with What We Learned-->
-			<c:if test="${!empty itemRetriever.whatWeLearned}">
-			<h4 class="displayItemSectionHeader"><i class="glyphicon glyphicon-education"></i> Suggested Uses, Tips and Discoveries</h4>
-			<div>
-				${itemRetriever.whatWeLearned}
-			</div>
-			</c:if>
-
-			<!-- Available in Alternative Languages -->
-			<c:if test="${!empty itemRetriever.alternativeLanguages}">
-			<div class='panel panel-default'>
-				<div class='panel-heading'>
-					Available in Alternative Languages
-				</div> 
-				<ul class='list-group'>
-					<c:forEach items="${itemRetriever.alternativeLanguages}" var="altLangs">
-						<li class='list-group-item'>${altLangs}</li>
-					</c:forEach>
-				</ul>
-			</div>
-			</c:if>
-			<!-- Related Materials -->
-			<c:if test="${!empty itemRetriever.relatedMaterials}">
-			<div class='panel panel-info'>
-				<div class='panel-heading'>
-					<h3 class="panel-title"><i class="glyphicon glyphicon-link"></i> Related Materials</h3>
-				</div> 
-				<ul class='list-group'>
-					<c:forEach items="${itemRetriever.relatedMaterials}" var="prereq">
-						<li class='list-group-item'>${prereq}</li>
-					</c:forEach>
-				</ul>
-			</div>
-			</c:if>
 		</div>
 		<!-- Files Tab -->
 		<div role="tabpanel" class="tab-pane" id="FilesTab">
@@ -311,12 +264,12 @@
 			</c:if>
 			<div class="tab-content">
 				<div role="tabpanel" class="tab-pane active" id="FilesTabTileView">
-					<jsp:include page="/ubc/statspace/components/files-tile-view.jsp">
+					<jsp:include page="/ubc/statspace/components/display-item/files-tile-view.jsp">
 						<jsp:param name="retrieverVar" value="itemRetriever" />
 					</jsp:include>
 				</div>
 				<div role="tabpanel" class="tab-pane" id="FilesTabListView">
-					<jsp:include page="/ubc/statspace/components/files-list-view.jsp">
+					<jsp:include page="/ubc/statspace/components/display-item/files-list-view.jsp">
 						<jsp:param name="retrieverVar" value="itemRetriever" />
 					</jsp:include>
 				</div>
