@@ -98,6 +98,7 @@
          <input-type value-pairs-name="biospace_subjects">dropdown</input-type>
 		 <hint>Please select a subject tag that describes the primary topic for this item.</hint>
 		 <required>Please choose a subject.</required>
+         <repeatable>true</repeatable>
        </field>
          
 	   <!-- if first level subject is "Other", let them enter their own subject tag -->
@@ -135,17 +136,6 @@
          <required>Please enter learning objectives for this item.</required>
        </field>
         
-	   <!-- Access Restriction -->
-       <field>
-         <dc-schema>dcterms</dc-schema>
-         <dc-element>accessRights</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <label>Access Restriction</label>
-         <hint>You may make this entire submission instructor-only, only instructors will know this submission exists. Alternatively, if you choose to let everyone access this submission, you may configure individual files to be instructor-only in the Upload step.</hint>
-         <input-type value-pairs-name="access_restriction">dropdown</input-type>
-         <required>You must choose an access level.</required>
-       </field>
-
 	   <!-- Keywords/Phrases -->
        <field>
          <dc-schema>dcterms</dc-schema>

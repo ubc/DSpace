@@ -105,7 +105,9 @@
 		$(document).ready(function(){
 			$('.featured-articles').slick({
 				dots: true,
-				autoplay: true
+				autoplay: true,
+				autoplaySpeed: 10000,
+				speed: 1500
 			});
 		});
 	</script>
