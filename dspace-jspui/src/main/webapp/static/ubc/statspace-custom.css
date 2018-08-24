@@ -107,14 +107,6 @@ span.label.labelLarge {
 	margin-bottom: 1em;
 }
 
-/* Display item resource types customization */
-.listResourceType li {
-	margin-bottom: 0.2em;
-}
-.listResourceType li a:hover {
-	text-decoration: underline;
-}
-
 /* Display item add more button */
 div.addMoreButton {
 	margin-top: 0.6em;
