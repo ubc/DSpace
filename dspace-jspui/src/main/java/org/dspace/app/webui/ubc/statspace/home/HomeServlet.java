@@ -34,6 +34,7 @@ import org.dspace.core.Context;
 import org.dspace.core.LogManager;
 import org.dspace.core.PluginManager;
 import org.dspace.plugin.SiteHomeProcessor;
+import org.postgresql.util.PSQLException;
 
 /**
  *
@@ -144,7 +145,7 @@ public class HomeServlet extends DSpaceServlet {
 	 * @param request 
 	 */
 	private void setFeaturedArticlesAttribute(Context context, HttpServletRequest request)
-		throws SQLException, UnsupportedEncodingException
+		throws UnsupportedEncodingException, SQLException
 	{
 		Random random = new Random();
 		int totalItemCount = 0;
@@ -166,7 +167,7 @@ public class HomeServlet extends DSpaceServlet {
 		}
 
 		int curCount = 0;
-		List<ItemRetriever> featuredArticles = new ArrayList<ItemRetriever>();
+		List<Item> itemsToRetrieve = new ArrayList<Item>();
 		// Since DSpace only provides an ItemIterator that doesn't let you skip
 		// instantiating the item object, we need to go through the iterator
 		// creating a whole bunch of unnecessary item objects until we find the
@@ -182,8 +183,7 @@ public class HomeServlet extends DSpaceServlet {
 				Item item = iter.next();
 				if (selectedNums.contains(curCount))
 				{
-					ItemRetriever retriever = new ItemRetriever(context, request, item);
-					featuredArticles.add(retriever);
+					itemsToRetrieve.add(item);
 					selectedNums.remove(curCount);
 				}
 				if (selectedNums.isEmpty()) break;
@@ -192,6 +192,19 @@ public class HomeServlet extends DSpaceServlet {
 			if (selectedNums.isEmpty()) break;
 		}
 
+		// Instantiating the item retriever here because it was throwing
+		// exceptions when I was doing this inside the ItemIterator loop.
+		// The exceptions only occur on verf, not on my dev setup. I'm guessing
+		// that verf has an older jdbc driver. It probably has something to do
+		// with the driver only being able to keep one result set open for each
+		// sql statement. Since ItemRetriever does a bnuch of sql queries, some
+		// of them might be conflicting with ItemIterator.
+		List<ItemRetriever> featuredArticles = new ArrayList<ItemRetriever>();
+		for (Item item : itemsToRetrieve)
+		{
+			ItemRetriever retriever = new ItemRetriever(context, request, item);
+			featuredArticles.add(retriever);
+		}
 		request.setAttribute("featuredArticles", featuredArticles);
 		
 	}
