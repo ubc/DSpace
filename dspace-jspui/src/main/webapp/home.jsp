@@ -61,10 +61,14 @@
 							<div class="panel-body">
 								<div class="media">
 									<div class="media-left">
-										<img class="media-object" src="${featuredArticle.thumbnail}">
+										<a href="${featuredArticle.url}" title="${featuredArticle.title}">
+											<img class="media-object" src="${featuredArticle.thumbnail}">
+										</a>
 									</div>
 									<div class="media-body">
-										<h4 class="media-heading">${featuredArticle.title}</h4>
+										<a href="${featuredArticle.url}" title="${featuredArticle.title}">
+											<h4 class="media-heading">${featuredArticle.title}</h4>
+										</a>
 										<p>${featuredArticle.summary}</p>
 									</div>
 								</div>
