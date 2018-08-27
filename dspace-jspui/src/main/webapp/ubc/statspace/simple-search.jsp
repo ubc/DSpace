@@ -343,16 +343,10 @@
 										<strong>Keywords:</strong>
 										<ul class='list-inline'>
 											<c:forEach items="${itemRetriever.keywords}" var="keyword">
-												<c:url value="/simple-search" var="url">
-													<c:param name="filtername" value="keyword" />
-													<c:param name="filterquery" value="${keyword}" />
-													<c:param name="filtertype" value="equals" />
-												</c:url>
-												<li>
-													<a class="resourceLink" href="${url}" target="_blank" title="${keyword}">
-														${keyword}
-													</a>
-												</li>
+												<jsp:include page="/ubc/statspace/components/search-result-tag-list-item.jsp">
+													<jsp:param name="listItem" value="${keyword}" />
+													<jsp:param name="searchFilterName" value="keyword" />
+												</jsp:include>
 											</c:forEach>
 										</ul>
 									</small>
