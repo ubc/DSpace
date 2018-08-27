@@ -322,30 +322,23 @@
 							<h4 class="text-center">
 								<a href="${itemRetriever.url}">${itemRetriever.title}</a>
 							</h4>
-							<div>
+							<p>
 								${itemRetriever.summary}
-							</div>
-							<div class="searchResultResourceTypes">
+							</p>
+							<div>
+								<!-- List Resource Types -->
 								<small>
 									<strong>Resource Type:</strong>
 									<ul class='list-inline'>
 										<c:forEach items="${itemRetriever.resourceTypes}" var="type">
-											<c:url value="/simple-search" var="url">
-												<c:param name="filtername" value="resourceType" />
-												<c:param name="filterquery" value="${type}" />
-												<c:param name="filtertype" value="equals" />
-											</c:url>
-											<li>
-												<a class="resourceLink" href="${url}" target="_blank" title="${type}">
-													${type}
-												</a>
-											</li>
+											<jsp:include page="/ubc/statspace/components/search-result-tag-list-item.jsp">
+												<jsp:param name="listItem" value="${type}" />
+												<jsp:param name="searchFilterName" value="resourceType" />
+											</jsp:include>
 										</c:forEach>
 									</ul>
 								</small>
-							</div>
-							<c:if test="${!empty itemRetriever.keywords}">
-								<div>
+								<c:if test="${!empty itemRetriever.keywords}">
 									<small>
 										<strong>Keywords:</strong>
 										<ul class='list-inline'>
@@ -363,8 +356,8 @@
 											</c:forEach>
 										</ul>
 									</small>
-								</div>
-							</c:if>
+								</c:if>
+							</div>
 						</div>
 					</div>
 				</c:forEach>

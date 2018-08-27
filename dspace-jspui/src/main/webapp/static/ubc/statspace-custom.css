@@ -121,17 +121,6 @@ div.addMoreButton {
 	color: hotpink;
 }
 
-/* Search item resource type customization */
-div.searchResultResourceTypes {
-	margin-top: 0.5em;
-}
-div.searchResultResourceTypes .labelResource {
-	max-width: 15em;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-}
-
 /* Display Item Section Header */
 .displayItemSectionHeader {
 	padding-bottom: 0.3em;
