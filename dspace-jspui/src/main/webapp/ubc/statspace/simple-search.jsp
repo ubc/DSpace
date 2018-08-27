@@ -563,15 +563,22 @@ else if( qResults != null)
 					<h4 class="text-center">
 						<a href="${itemRetriever.url}">${itemRetriever.title}</a>
 					</h4>
-					<div>
+					<p>
 						${itemRetriever.summary}
-					</div>
-					<div class="searchResultResourceTypes">
-						<c:forEach items="${itemRetriever.resourceTypes}" var="type">
-							<jsp:include page="/ubc/statspace/components/resource-type-pill.jsp">
-								<jsp:param name="resource" value="${type}" />
-							</jsp:include>
-						</c:forEach>
+					</p>
+					<div>
+						<!-- List Resource Types -->
+						<small>
+							<strong>Resource Type:</strong>
+							<ul class='list-inline'>
+								<c:forEach items="${itemRetriever.resourceTypes}" var="type">
+									<jsp:include page="/ubc/statspace/components/search-result-tag-list-item.jsp">
+										<jsp:param name="listItem" value="${type}" />
+										<jsp:param name="searchFilterName" value="resourceType" />
+									</jsp:include>
+								</c:forEach>
+							</ul>
+						</small>
 					</div>
 				</div>
 			</div>
