@@ -172,8 +172,12 @@
 		<%
     } else {
 		%>        
-        <li><a href="<%= request.getContextPath() %>/register"><fmt:message key="jsp.register.new-user.register.button"/></a></li> 
-        <li><a href="<%= request.getContextPath() %>/mydspace"><span class="glyphicon glyphicon-user"></span> <fmt:message key="jsp.layout.navbar-default.sign"/></a>
+        <li class="<%= currentPage.endsWith("/register")? "active" : "" %>">
+			<a href="<%= request.getContextPath() %>/register">
+				<span class="glyphicon glyphicon-envelope"></span> <fmt:message key="jsp.register.new-user.register.button"/>
+			</a>
+		</li> 
+        <li class="<%= currentPage.endsWith("/password-login")? "active" : "" %>"><a href="<%= request.getContextPath() %>/mydspace"><span class="glyphicon glyphicon-user"></span> <fmt:message key="jsp.layout.navbar-default.sign"/></a>
 	<% } %>
           </ul>
           

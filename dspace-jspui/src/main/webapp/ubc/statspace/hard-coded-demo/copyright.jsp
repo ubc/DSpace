@@ -131,22 +131,6 @@
 	    
 	    </div>			
 	</div>
-	
-	<div class="row">
-	    <div class="col-md-12">
-		<div class="divider"></div>
-	    </div>
-	</div>
-	
-	
-	
-	<div class="row text-center">
-	    <div class="col-md-12">
-		<h4 class="more-heading">To see more resources:</h4>
-		<a href="https://ubc.ca1.qualtrics.com/jfe/form/SV_6J4ans7VBN2hpt3" class="btn btn-success btn-lg">Join</a><!-- &nbsp;or&nbsp; <a href="/mydspace" class="btn btn-success btn-lg">Sign In</a>-->
-	    </div>
-	    
-	</div>
 
     </div>
 
