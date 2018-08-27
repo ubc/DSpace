@@ -72,7 +72,13 @@ public class ItemRetriever {
 		thumbnail = request.getContextPath() + "/image/ubc-logo-lg.png";
 		files = bitstreamRetriever.getBitstreams();
 		if (!files.isEmpty()) {
-			thumbnail = files.get(0).getThumbnail();
+			for (BitstreamResult file: files) {
+				String tmpThumb = file.getThumbnail();
+				if (!tmpThumb.isEmpty()) {
+					thumbnail = tmpThumb;
+					break;
+				}
+			}
 		}
 		url = request.getContextPath() + "/handle/" + item.getHandle();
 
