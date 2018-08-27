@@ -1,3 +1,4 @@
+/* Home Page */
 .homePageSubject {
 	margin-top: 0.2em;
 	margin-bottom: 0.2em;
@@ -22,4 +23,7 @@
 }
 .homePageSubject a:hover {
 	text-decoration: none;
+}
+.featured-articles .media img {
+	height: 80px;
 }

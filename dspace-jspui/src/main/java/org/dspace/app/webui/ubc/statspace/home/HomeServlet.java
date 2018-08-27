@@ -9,8 +9,11 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
+import java.util.Random;
+import java.util.Set;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,9 +23,13 @@ import org.dspace.app.util.DCInput;
 import org.dspace.app.util.DCInputsReader;
 import org.dspace.app.util.DCInputsReaderException;
 import org.dspace.app.webui.servlet.DSpaceServlet;
+import org.dspace.app.webui.ubc.retriever.ItemRetriever;
 import org.dspace.app.webui.util.JSPManager;
 import org.dspace.app.webui.util.UIUtil;
 import org.dspace.authorize.AuthorizeException;
+import org.dspace.content.Collection;
+import org.dspace.content.Item;
+import org.dspace.content.ItemIterator;
 import org.dspace.core.Context;
 import org.dspace.core.LogManager;
 import org.dspace.core.PluginManager;
@@ -34,6 +41,8 @@ import org.dspace.plugin.SiteHomeProcessor;
  */
 public class HomeServlet extends DSpaceServlet {
     private static Logger log = Logger.getLogger(HomeServlet.class);
+
+	public static final int FEATURED_ARTICLES_COUNT = 3;
 	
     protected void doDSGet(Context context, HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException,
@@ -62,6 +71,7 @@ public class HomeServlet extends DSpaceServlet {
 			}
 
 			setSubjectAttribute(request);
+			setFeaturedArticlesAttribute(context, request);
 
 			// Show home page JSP
 			JSPManager.showJSP(request, response, "/home.jsp");
@@ -126,5 +136,63 @@ public class HomeServlet extends DSpaceServlet {
 			}
 			request.setAttribute("subjects", subjects);
 			
+	}
+
+	/**
+	 * Randomly select resources to be shown on the featured articles carousel.
+	 * @param context
+	 * @param request 
+	 */
+	private void setFeaturedArticlesAttribute(Context context, HttpServletRequest request)
+		throws SQLException, UnsupportedEncodingException
+	{
+		Random random = new Random();
+		int totalItemCount = 0;
+		Set<Integer> selectedNums = new HashSet<Integer>();
+
+		// find out how many resources in total we have
+		Collection[] collections = Collection.findAll(context);
+		for (Collection collection : collections)
+		{
+			totalItemCount += collection.countItems();
+		}
+
+		if (!(totalItemCount > 0)) return; // nothing to feature
+
+		// randomly pick which articles to feature
+		for(int i = 0; i < FEATURED_ARTICLES_COUNT; i++)
+		{
+			selectedNums.add(random.nextInt(totalItemCount));
+		}
+
+		int curCount = 0;
+		List<ItemRetriever> featuredArticles = new ArrayList<ItemRetriever>();
+		// Since DSpace only provides an ItemIterator that doesn't let you skip
+		// instantiating the item object, we need to go through the iterator
+		// creating a whole bunch of unnecessary item objects until we find the
+		// random one we picked.
+		// Kinda stupid and wouldn't scale well with larger collections, but
+		// this should be a temporary measure as we want to be able to pick
+		// featured articles in the future.
+		for (Collection collection : collections)
+		{
+			ItemIterator iter = collection.getAllItems();
+			while (iter.hasNext())
+			{
+				Item item = iter.next();
+				if (selectedNums.contains(curCount))
+				{
+					ItemRetriever retriever = new ItemRetriever(context, request, item);
+					featuredArticles.add(retriever);
+					selectedNums.remove(curCount);
+				}
+				if (selectedNums.isEmpty()) break;
+				curCount++;
+			}
+			if (selectedNums.isEmpty()) break;
+		}
+
+		request.setAttribute("featuredArticles", featuredArticles);
+		
 	}
 }

@@ -51,64 +51,42 @@
 		</div>
 	</div>
 
-	<h2 class='text-center'>Featured Articles</h2>
-	<div class="row">
-		<div class="col-xs-offset-1 col-xs-10">
-			<div class="featured-articles">
-				<div class="panel panel-default">
-					<div class="panel-body">
-						<div class="media">
-							<div class="media-left">
-								<img class="media-object" src="http://placekitten.com/80/70">
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">Feature Number 1</h4>
-								<p style='display: inline'>Consectetur purus ut faucibus pulvinar elementum integer enim neque volutpat. Tellus cras adipiscing enim eu. Tortor aliquam nulla facilisi cras fermentum odio eu feugiat pretium. Massa sed elementum tempus egestas sed sed risus pretium. At augue eget arcu dictum varius. Maecenas accumsan lacus vel facilisis volutpat est velit. Lacus vel facilisis volutpat est velit.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="panel panel-default">
-					<div class="panel-body">
-						<div class="media">
-							<div class="media-left">
-								<img class="media-object" src="http://placekitten.com/80/80">
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">Feature Number 2</h4>
-								<p style='display: inline'>Porta lorem mollis aliquam ut porttitor leo a diam sollicitudin. Hendrerit dolor magna eget est lorem ipsum dolor sit. Tortor aliquam nulla facilisi cras fermentum odio eu feugiat pretium. Massa sed elementum tempus egestas sed sed risus pretium. At augue eget arcu dictum varius.</p>
+	<c:if test='${!empty featuredArticles}'>
+		<h2 class='text-center'>Featured Articles</h2>
+		<div class="row">
+			<div class="col-xs-offset-1 col-xs-10">
+				<div class="featured-articles">
+					<c:forEach items="${featuredArticles}" var="featuredArticle">
+						<div class="panel panel-default">
+							<div class="panel-body">
+								<div class="media">
+									<div class="media-left">
+										<img class="media-object" src="${featuredArticle.thumbnail}">
+									</div>
+									<div class="media-body">
+										<h4 class="media-heading">${featuredArticle.title}</h4>
+										<p>${featuredArticle.summary}</p>
+									</div>
+								</div>
 							</div>
 						</div>
-					</div>
-				</div>
-				<div class="panel panel-default">
-					<div class="panel-body">
-						<div class="media">
-							<div class="media-left">
-								<img class="media-object" src="http://placekitten.com/90/80">
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">Feature Number 3</h4>
-								<p style='display: inline'>Maecenas accumsan lacus vel facilisis volutpat est velit. Lacus vel facilisis volutpat est velit.</p>
-							</div>
-						</div>
-					</div>
+					</c:forEach>
 				</div>
 			</div>
 		</div>
-	</div>
-	<%-- Only using carousel on this page, so including the library here from cdn --%>
-	<link rel="stylesheet" type="text/css" href="<c:url value="/static/ubc/lib/slick/slick.css" />" />
-	<link rel="stylesheet" type="text/css" href="<c:url value="/static/ubc/lib/slick/slick-theme.css" />"/>
-	<script type="text/javascript" src="<c:url value="/static/ubc/lib/slick/slick.min.js" />"></script>
-	<script>
-		$(document).ready(function(){
-			$('.featured-articles').slick({
-				dots: true,
-				autoplay: true,
-				autoplaySpeed: 10000,
-				speed: 1500
+		<%-- Only using carousel on this page, so including the library here from cdn --%>
+		<link rel="stylesheet" type="text/css" href="<c:url value="/static/ubc/lib/slick/slick.css" />" />
+		<link rel="stylesheet" type="text/css" href="<c:url value="/static/ubc/lib/slick/slick-theme.css" />"/>
+		<script type="text/javascript" src="<c:url value="/static/ubc/lib/slick/slick.min.js" />"></script>
+		<script>
+			$(document).ready(function(){
+				$('.featured-articles').slick({
+					dots: true,
+					autoplay: true,
+					autoplaySpeed: 10000,
+					speed: 1500
+				});
 			});
-		});
-	</script>
+		</script>
+	</c:if>
 </dspace:layout>
