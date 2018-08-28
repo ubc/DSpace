@@ -161,8 +161,13 @@ public class HomeServlet extends DSpaceServlet {
 		if (!(totalItemCount > 0)) return; // nothing to feature
 
 		// randomly pick which articles to feature
-		for(int i = 0; i < FEATURED_ARTICLES_COUNT; i++)
+		int numRandomArticles = FEATURED_ARTICLES_COUNT;
+		if (totalItemCount < FEATURED_ARTICLES_COUNT)
 		{
+			numRandomArticles = totalItemCount;
+		}
+		while (selectedNums.size() < numRandomArticles)
+		{ // while loop insertion into a set in order to prevent repeats
 			selectedNums.add(random.nextInt(totalItemCount));
 		}
 
