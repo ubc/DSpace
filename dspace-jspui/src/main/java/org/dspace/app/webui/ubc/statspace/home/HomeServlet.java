@@ -183,18 +183,24 @@ public class HomeServlet extends DSpaceServlet {
 		for (Collection collection : collections)
 		{
 			ItemIterator iter = collection.getAllItems();
-			while (iter.hasNext())
-			{
-				Item item = iter.next();
-				if (selectedNums.contains(curCount))
+			try {
+				while (iter.hasNext())
 				{
-					itemsToRetrieve.add(item);
-					selectedNums.remove(curCount);
+					Item item = iter.next();
+					if (selectedNums.contains(curCount))
+					{
+						itemsToRetrieve.add(item);
+						selectedNums.remove(curCount);
+					}
+					if (selectedNums.isEmpty()) break;
+					curCount++;
 				}
 				if (selectedNums.isEmpty()) break;
-				curCount++;
+			} catch (PSQLException ex)
+			{ // TODO: figure out why it's throwing this on verf but not on dev
+				log.error(ex);
+				break;
 			}
-			if (selectedNums.isEmpty()) break;
 		}
 
 		// Instantiating the item retriever here because it was throwing
@@ -203,7 +209,9 @@ public class HomeServlet extends DSpaceServlet {
 		// that verf has an older jdbc driver. It probably has something to do
 		// with the driver only being able to keep one result set open for each
 		// sql statement. Since ItemRetriever does a bnuch of sql queries, some
-		// of them might be conflicting with ItemIterator.
+		// of them might be conflicting with ItemIterator. Unfortunately, this
+		// only reduced the exceptions and didn't eliminate it, maybe it's
+		// conflicting with the Quartz job for packaging items?
 		List<ItemRetriever> featuredArticles = new ArrayList<ItemRetriever>();
 		for (Item item : itemsToRetrieve)
 		{
