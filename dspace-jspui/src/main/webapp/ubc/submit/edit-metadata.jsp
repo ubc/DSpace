@@ -110,7 +110,8 @@
 						<%-- TEXTAREA input type --%>
 						<c:when test="${field.inputType == field.INPUT_TYPE_TEXTAREA}">
 							<div>
-								<textarea class="form-control" id="${field.inputID}_id" name="${field.inputID}" <c:if test='${field.isReadOnly}'>readonly</c:if>>${field.value}</textarea>
+								<textarea class="form-control tinyMCETextArea" id="${field.inputID}_id" name="${field.inputID}"
+									<c:if test='${field.isReadOnly}'>readonly</c:if>>${field.value}</textarea>
 							</div>
 							<%-- Don't bother implementing repeatable support, as we're not using it --%>
 							<c:if test="${field.isRepeatable}">

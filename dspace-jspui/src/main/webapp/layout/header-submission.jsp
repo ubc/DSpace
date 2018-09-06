@@ -103,45 +103,45 @@
 	<script src="<c:url value='/static/ubc/lib/bootstrap-datepicker/js/bootstrap-datepicker.min.js' />"></script>
 	<script src="<c:url value='/static/ubc/lib/bootstrap-datepicker/locales/bootstrap-datepicker.en-CA.min.js' />"></script>
 	<link rel="stylesheet" href="<c:url value='/static/ubc/lib/bootstrap-datepicker/css/bootstrap-datepicker3.min.css' />" />
-	
-    <%--Gooogle Analytics recording.--%>
-    <dspace:include page="google-analytics.jsp" />
 
 	<%-- Include TinyMCE only in submissions --%>
-	<script src='<c:url value="/static/ubc/tinymce/tinymce.min.js" />'></script>
+	<script src='<c:url value="/static/ubc/lib/tinymce/tinymce.min.js" />'></script>
 	<script>
 		tinymce.init({
-			selector: 'textarea.newItemTextArea',
+			selector: 'textarea.tinyMCETextArea',
 			browser_spellcheck: true,
 			menubar: false,
 			plugins: "autolink link lists code",
 			min_height: 200,
 			link_assume_external_targets: true,
 			external_plugins: {
-				'autolink': '<c:url value="/static/ubc/tinymce/plugins/autolink/plugin.min.js" />',
-				'code': '<c:url value="/static/ubc/tinymce/plugins/code/plugin.min.js" />', // be able to edit raw html for power users
-				'link': '<c:url value="/static/ubc/tinymce/plugins/link/plugin.min.js" />',
-				'lists': '<c:url value="/static/ubc/tinymce/plugins/lists/plugin.min.js" />',
+				'autolink': '<c:url value="/static/ubc/lib/tinymce/plugins/autolink/plugin.min.js" />',
+				'code': '<c:url value="/static/ubc/lib/tinymce/plugins/code/plugin.min.js" />', // be able to edit raw html for power users
+				'link': '<c:url value="/static/ubc/lib/tinymce/plugins/link/plugin.min.js" />',
+				'lists': '<c:url value="/static/ubc/lib/tinymce/plugins/lists/plugin.min.js" />',
 			},
 			toolbar: 'undo redo styleselect bold italic alignleft aligncenter alignright bullist numlist outdent indent link code'
 		});
 		tinymce.init({
-			selector: 'input.newItemOneBoxTinyMCE',
+			selector: 'input.tinyMCEInput',
 			browser_spellcheck: true,
 			menubar: false,
 			statusbar: false,
 			min_height: 40,
 			forced_root_block: false,
-			plugins: "autolink link lists code",
+			plugins: "autolink link code",
 			link_assume_external_targets: true,
 			external_plugins: {
-				'autolink': '<c:url value="/static/ubc/tinymce/plugins/autolink/plugin.min.js" />',
-				'code': '<c:url value="/static/ubc/tinymce/plugins/code/plugin.min.js" />', // be able to edit raw html for power users
-				'link': '<c:url value="/static/ubc/tinymce/plugins/link/plugin.min.js" />',
+				'autolink': '<c:url value="/static/ubc/lib/tinymce/plugins/autolink/plugin.min.js" />',
+				'code': '<c:url value="/static/ubc/lib/tinymce/plugins/code/plugin.min.js" />', // be able to edit raw html for power users
+				'link': '<c:url value="/static/ubc/lib/tinymce/plugins/link/plugin.min.js" />',
 			},
 			toolbar: 'undo redo bold italic link code'
 		});
 	</script>
+
+    <%--Gooogle Analytics recording.--%>
+    <dspace:include page="google-analytics.jsp" />
 
     <%
     if (extraHeadDataLast != null)
