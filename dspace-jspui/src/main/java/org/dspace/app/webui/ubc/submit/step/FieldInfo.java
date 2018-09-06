@@ -7,7 +7,8 @@ package org.dspace.app.webui.ubc.submit.step;
 
 import java.util.ArrayList;
 import java.util.List;
-import javafx.util.Pair;
+import org.apache.commons.lang3.tuple.Pair;
+import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.log4j.Logger;
 import org.dspace.app.util.DCInput;
 import org.dspace.app.util.SubmissionInfo;
@@ -101,7 +102,7 @@ public class FieldInfo {
 			String displayedValue = optionsRaw.get(i);
 			String storedValue = optionsRaw.get(i+1);
 			// we're treating the displayedValue as the key, and the storedValue as the value
-			Pair<String,String> pair = new Pair<String,String>(displayedValue, storedValue);
+			Pair<String,String> pair = new ImmutablePair<String,String>(displayedValue, storedValue);
 			options.add(pair);
 		}
 	}
