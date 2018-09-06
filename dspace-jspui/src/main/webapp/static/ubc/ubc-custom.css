@@ -34,3 +34,14 @@ pre.pre-horiz-scroll
 	white-space: pre;
 	overflow-x: scroll;
 }
+/* Edit Metadata / Describe Step */
+.editMetadataRemovableField {
+	margin-top: 0.5em;
+}
+.editMetadataRemovableField input {
+	width: 90%;
+	display: inline-block;
+}
+.editMetadataRemoveEntryButton {
+	float: none;
+}

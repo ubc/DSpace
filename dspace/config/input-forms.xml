@@ -20,7 +20,7 @@
         <field>
           <dc-schema>dc</dc-schema>
           <dc-element>contributor</dc-element>
-          <dc-qualifier></dc-qualifier>
+          <dc-qualifier>author</dc-qualifier>
           <label>Author(s)</label>
           <hint>Enter the name(s) of the author(s) for this item:</hint>
           <input-type>name</input-type>
@@ -131,7 +131,7 @@
         <field>
           <dc-schema>dc</dc-schema>
           <dc-element>contributor</dc-element>
-          <dc-qualifier></dc-qualifier>
+          <dc-qualifier>author</dc-qualifier>
           <label>Author(s)</label>
           <hint>Enter the name(s) of the author(s) for this item:</hint>
           <input-type>name</input-type>
@@ -242,7 +242,7 @@
         <field>
           <dc-schema>dc</dc-schema>
           <dc-element>contributor</dc-element>
-          <dc-qualifier></dc-qualifier>
+          <dc-qualifier>author</dc-qualifier>
           <label>Author(s)</label>
           <hint>Enter the name(s) of the author(s) for this item:</hint>
           <input-type>name</input-type>
@@ -353,7 +353,7 @@
         <field>
           <dc-schema>dc</dc-schema>
           <dc-element>contributor</dc-element>
-          <dc-qualifier></dc-qualifier>
+          <dc-qualifier>author</dc-qualifier>
           <label>Author(s)</label>
           <hint>Enter the name(s) of the author(s) for this item:</hint>
           <input-type>name</input-type>
@@ -464,7 +464,7 @@
         <field>
           <dc-schema>dc</dc-schema>
           <dc-element>contributor</dc-element>
-          <dc-qualifier></dc-qualifier>
+          <dc-qualifier>author</dc-qualifier>
           <label>Author(s)</label>
           <hint>Enter the name(s) of the author(s) for this item:</hint>
           <input-type>name</input-type>
@@ -575,7 +575,7 @@
         <field>
           <dc-schema>dc</dc-schema>
           <dc-element>contributor</dc-element>
-          <dc-qualifier></dc-qualifier>
+          <dc-qualifier>author</dc-qualifier>
           <label>Author(s)</label>
           <hint>Enter the name(s) of the author(s) for this item:</hint>
           <input-type>name</input-type>
@@ -686,7 +686,7 @@
         <field>
           <dc-schema>dc</dc-schema>
           <dc-element>contributor</dc-element>
-          <dc-qualifier></dc-qualifier>
+          <dc-qualifier>author</dc-qualifier>
           <label>Author(s)</label>
           <hint>Enter the name(s) of the author(s) for this item:</hint>
           <input-type>name</input-type>
@@ -797,7 +797,7 @@
         <field>
           <dc-schema>dc</dc-schema>
           <dc-element>contributor</dc-element>
-          <dc-qualifier></dc-qualifier>
+          <dc-qualifier>author</dc-qualifier>
           <label>Author(s)</label>
           <hint>Enter the name(s) of the author(s) for this item:</hint>
           <input-type>name</input-type>

@@ -17,11 +17,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
+import org.dspace.app.util.DCInputSet;
 
 import org.dspace.app.util.DCInputsReaderException;
 import org.dspace.app.util.SubmissionInfo;
 import org.dspace.app.webui.submit.JSPStep;
 import org.dspace.app.webui.submit.JSPStepManager;
+import org.dspace.app.webui.ubc.submit.step.DescribeStepInfo;
 import org.dspace.app.webui.util.JSPManager;
 import org.dspace.app.webui.util.UIUtil;
 import org.dspace.authorize.AuthorizeException;
@@ -66,7 +68,7 @@ import org.dspace.submit.step.DescribeStep;
 public class JSPDescribeStep extends JSPStep
 {
     /** JSP which displays HTML for this Class * */
-    private static final String DISPLAY_JSP = "/submit/edit-metadata.jsp";
+    private static final String DISPLAY_JSP = "/ubc/submit/edit-metadata.jsp";
     
     /** JSP which reviews information gathered by DISPLAY_JSP * */
     private static final String REVIEW_JSP = "/submit/review-metadata.jsp";
@@ -209,8 +211,11 @@ public class JSPDescribeStep extends JSPStep
         // requires configurable form info per collection
         try
         {
-            request.setAttribute("submission.inputs", DescribeStep.getInputsReader(formFileName).getInputs(c
-                    .getHandle()));
+			DCInputSet inputs = DescribeStep.getInputsReader(formFileName).getInputs(c
+                    .getHandle());
+			DescribeStepInfo stepInfo = new DescribeStepInfo(context, request, inputs);
+			request.setAttribute("stepInfo", stepInfo);
+            request.setAttribute("submission.inputs", inputs);
         }
         catch (DCInputsReaderException e)
         {
