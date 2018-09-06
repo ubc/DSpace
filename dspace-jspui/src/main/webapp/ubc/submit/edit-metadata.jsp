@@ -48,7 +48,7 @@
 
 	<c:forEach items="${stepInfo.fields}" var="field">
 		<c:if test='${field.isVisible}'>
-			<div class="form-group <c:if test ='${field.hasValidationError}'>has-error</c:if>">
+			<div id="${field.formGroupID}" class="form-group <c:if test ='${field.hasValidationError}'>has-error</c:if>">
 				<c:if test='${field.hasValidationError}'>
 					<div class="alert alert-danger text-center" role="alert">${field.validationErrorMsg}</div>
 				</c:if>
@@ -122,7 +122,7 @@
 						</c:when>
 						<%-- DROPDOWN input type --%>
 						<c:when test="${field.inputType == field.INPUT_TYPE_DROPDOWN}">
-							<div>
+							<div id="${field.inputWrapperID}">
 								<select class="form-control" name="${field.inputID}" <c:if test='${field.isRepeatable}'>multiple</c:if> <c:if test='${field.isReadOnly}'>disabled</c:if>>
 									<c:forEach items="${field.options}" var="option">
 										<option value="${option.value}" <c:if test='${field.values.contains(option.value)}'>selected</c:if>>${option.key}</option>
@@ -377,7 +377,9 @@
 									incrementFieldIDs(clone);
 									clone.find("input").prop("value", "");
 									clone.find("button").removeClass("hidden");
+									clone.hide();
 									jQuery(lastFieldWrapperID).after(clone);
+									clone.show("blind", "fast");
 									// make the newly added remove button functional
 									clone.find("button").click(function() {
 										removeElement(clone);
@@ -413,5 +415,23 @@
 	</div>
 </form>
 
+<!-- BioSpace, when "Other" is selected as the subject, show the custom subject field. -->
+<script>
+jQuery(document).ready(function() {
+	var subjectOtherFormGroup = jQuery('#dc_subject_other_form_group');
+	var subjectSelect = jQuery('#dc_subject_wrapper select');
+	var showHideSubjectOther = function() {
+		var selectedVals = subjectSelect.val();
+		if (selectedVals != null && selectedVals.includes("Other")) {
+			subjectOtherFormGroup.show("highlight", 1000);
+		}
+		else {
+			subjectOtherFormGroup.hide("blind", "fast");
+		}
+	};
+	showHideSubjectOther();
+	subjectSelect.change(showHideSubjectOther);
+});
+</script>
 
 </dspace:layout>

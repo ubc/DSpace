@@ -165,6 +165,7 @@ public class FieldInfo {
 
 	public String getHint() { return input.getHints(); }
 	public String getInputID() { return fieldID; }
+	public String getFormGroupID() { return fieldID + "_form_group"; }
 	public String getInputWrapperID() { return fieldID + "_wrapper"; }
 	public String getInputAddMoreButtonID() { return fieldID + "_addmore_button"; }
 	public String getInputType() { return input.getInputType(); }
