@@ -422,7 +422,7 @@ jQuery(document).ready(function() {
 	var subjectSelect = jQuery('#dc_subject_wrapper select');
 	var showHideSubjectOther = function() {
 		var selectedVals = subjectSelect.val();
-		if (selectedVals != null && selectedVals.includes("Other")) {
+		if (selectedVals != null && selectedVals.indexOf("Other") >= 0) {
 			subjectOtherFormGroup.show("highlight", 1000);
 		}
 		else {
