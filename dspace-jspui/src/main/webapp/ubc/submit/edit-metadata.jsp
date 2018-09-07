@@ -335,7 +335,7 @@
 									else return fieldID;
 								}
 								// update the index on the wrapper, input, buttons, etc fields as appropriate
-								function updateFieldIDs(field, isIncrement = true) {
+								function updateFieldIDs(field, isIncrement) {
 									var operation = function(i, fieldID) {
 										if (isIncrement) return incrementFieldID(fieldID);
 										return decrementFieldID(fieldID);
