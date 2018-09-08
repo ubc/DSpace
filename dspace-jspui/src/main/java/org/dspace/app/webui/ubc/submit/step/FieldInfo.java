@@ -7,11 +7,13 @@ package org.dspace.app.webui.ubc.submit.step;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.log4j.Logger;
 import org.dspace.app.util.DCInput;
 import org.dspace.app.util.SubmissionInfo;
+import org.dspace.app.webui.ubc.statspace.SubjectsJson;
 import org.dspace.content.DCDate;
 import org.dspace.content.DCPersonName;
 import org.dspace.content.Item;
@@ -33,12 +35,14 @@ public class FieldInfo {
 	public static final String INPUT_TYPE_ONEBOX = "onebox";
 	public static final String INPUT_TYPE_TWOBOX = "twobox";
 	public static final String INPUT_TYPE_LIST = "list";
+	public static final String INPUT_TYPE_TRIPLE_LEVEL_DROPDOWN = "triple_level_dropdown";
 
 	private DCInput input;
 	private boolean isVisible = true;
 	private boolean hasValidationError = false;
 
 	private String fieldID = "";
+	private String inputType = "";
 	private String submissionMode = "";
 	private String validationErrorMsg = "Please fill in this required field.";
 
@@ -48,6 +52,7 @@ public class FieldInfo {
 	public FieldInfo(SubmissionInfo submissionInfo, DCInput input)
 	{
 		this.input = input;
+		this.inputType = input.getInputType();
 		this.submissionMode = submissionInfo.isInWorkflow() ? "workflow" : "submit";
 		setIsVisible();
 		// TODO: also a good place for refactoring
@@ -82,6 +87,21 @@ public class FieldInfo {
 		// we have to pair them up manually. The first one is the option's displayed
 		// value, the second one is the option's actual stored value.
 		setOptions(input.getPairs());
+		// special treatment for the 3 level subject tree used by statspace
+		// the subject tree dropdown can't be displayed as a normal dropdown
+		if (fieldID.contains("subject") && inputType.equals(INPUT_TYPE_DROPDOWN))
+		{
+			boolean isTripleLevelDropdown = false;
+			for (Pair<String, String> option : options)
+			{
+				if (StringUtils.countMatches(option.getKey(), ">>>") == 2)
+				{
+					isTripleLevelDropdown = true;
+					break;
+				}
+			}
+			if (isTripleLevelDropdown) inputType = INPUT_TYPE_TRIPLE_LEVEL_DROPDOWN;
+		}
 	}
 
 	private void setIsVisible()
@@ -157,6 +177,16 @@ public class FieldInfo {
 	 * @return 
 	 */
 	public List<Pair<String,String>> getOptions() { return options; }
+	/**
+	 * Only used for StatSpace's triple level subject dropdown, get the options
+	 * in JSON form.
+	 * @return 
+	 */
+	public String getOptionsJsonString()
+	{
+		SubjectsJson subjects = new SubjectsJson(input.getPairs());
+		return subjects.getTreeJson();
+	}
 
 	public boolean getHasValidationError() { return hasValidationError; }
 	public boolean getIsReadOnly() { return input.isReadOnly(submissionMode); }
@@ -166,9 +196,10 @@ public class FieldInfo {
 
 	public String getHint() { return input.getHints(); }
 	public String getInputID() { return fieldID; }
+	public String getFormGroupID() { return fieldID + "_form_group"; }
 	public String getInputWrapperID() { return fieldID + "_wrapper"; }
 	public String getInputAddMoreButtonID() { return fieldID + "_addmore_button"; }
-	public String getInputType() { return input.getInputType(); }
+	public String getInputType() { return inputType; }
 	public String getLabel() { return input.getLabel(); }
 	public String getValidationErrorMsg() { return validationErrorMsg; }
 
@@ -181,4 +212,5 @@ public class FieldInfo {
 	public String getINPUT_TYPE_ONEBOX()	{ return INPUT_TYPE_ONEBOX; }
 	public String getINPUT_TYPE_TWOBOX()	{ return INPUT_TYPE_TWOBOX; }
 	public String getINPUT_TYPE_LIST()		{ return INPUT_TYPE_LIST; }
+	public String getINPUT_TYPE_TRIPLE_LEVEL_DROPDOWN()	{ return INPUT_TYPE_TRIPLE_LEVEL_DROPDOWN; }
 }

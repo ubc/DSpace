@@ -264,11 +264,6 @@
      
    <value-pairs value-pairs-name="statspace_subjects" dc-term="subject">
     <pair>
-		<displayed-value>Exploratory Data Analysis/Classifying Data</displayed-value>
-		<stored-value>Exploratory Data Analysis/Classifying Data</stored-value>
-	</pair>
-
-    <pair>
 		<displayed-value>Exploratory Data Analysis/Classifying Data >>> Description of Distributions</displayed-value>
 		<stored-value>Exploratory Data Analysis/Classifying Data >>> Description of Distributions</stored-value>
 	</pair>
@@ -329,11 +324,6 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Descriptive Statistics/Summary Statistics</displayed-value>
-		<stored-value>Descriptive Statistics/Summary Statistics</stored-value>
-	</pair>
-
-	<pair>
 		<displayed-value>Descriptive Statistics/Summary Statistics >>> Measures of Location</displayed-value>
 		<stored-value>Descriptive Statistics/Summary Statistics >>> Measures of Location</stored-value>
 	</pair>
@@ -384,11 +374,6 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Experiments</displayed-value>
-		<stored-value>Experiments</stored-value>
-	</pair>
-
-	<pair>
 		<displayed-value>Experiments >>> Concepts</displayed-value>
 		<stored-value>Experiments >>> Concepts</stored-value>
 	</pair>
@@ -396,11 +381,6 @@
 	<pair>
 		<displayed-value>Experiments >>> Other</displayed-value>
 		<stored-value>Experiments >>> Other</stored-value>
-	</pair>
-
-	<pair>
-		<displayed-value>Observational Studies and Survey Methods</displayed-value>
-		<stored-value>Observational Studies and Survey Methods</stored-value>
 	</pair>
 
 	<pair>
@@ -449,11 +429,6 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Sampling Distributions</displayed-value>
-		<stored-value>Sampling Distributions</stored-value>
-	</pair>
-
-	<pair>
 		<displayed-value>Sampling Distributions >>> Sample Mean</displayed-value>
 		<stored-value>Sampling Distributions >>> Sample Mean</stored-value>
 	</pair>
@@ -466,11 +441,6 @@
 	<pair>
 		<displayed-value>Sampling Distributions >>> Other Statistics</displayed-value>
 		<stored-value>Sampling Distributions >>> Other Statistics</stored-value>
-	</pair>
-
-	<pair>
-		<displayed-value>Confidence Intervals</displayed-value>
-		<stored-value>Confidence Intervals</stored-value>
 	</pair>
 
 	<pair>
@@ -546,11 +516,6 @@
 	<pair>
 		<displayed-value>Confidence Intervals >>> Other</displayed-value>
 		<stored-value>Confidence Intervals >>> Other</stored-value>
-	</pair>
-
-	<pair>
-		<displayed-value>Hypothesis Tests</displayed-value>
-		<stored-value>Hypothesis Tests</stored-value>
 	</pair>
 
 	<pair>
@@ -714,11 +679,6 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Regression</displayed-value>
-		<stored-value>Regression</stored-value>
-	</pair>
-
-	<pair>
 		<displayed-value>Regression >>> Simple Linear Regression</displayed-value>
 		<stored-value>Regression >>> Simple Linear Regression</stored-value>
 	</pair>
@@ -821,11 +781,6 @@
 	<pair>
 		<displayed-value>Regression >>> Other</displayed-value>
 		<stored-value>Regression >>> Other</stored-value>
-	</pair>
-
-	<pair>
-		<displayed-value>Probability</displayed-value>
-		<stored-value>Probability</stored-value>
 	</pair>
 
 	<pair>
@@ -1074,11 +1029,6 @@
 	</pair>
 
 	<pair>
-		<displayed-value>Theory of Point Estimation</displayed-value>
-		<stored-value>Theory of Point Estimation</stored-value>
-	</pair>
-
-	<pair>
 		<displayed-value>Theory of Point Estimation >>> Consistency</displayed-value>
 		<stored-value>Theory of Point Estimation >>> Consistency</stored-value>
 	</pair>
@@ -1091,11 +1041,6 @@
 	<pair>
 		<displayed-value>Theory of Point Estimation >>> Other</displayed-value>
 		<stored-value>Theory of Point Estimation >>> Other</stored-value>
-	</pair>
-
-	<pair>
-		<displayed-value>Time Series</displayed-value>
-		<stored-value>Time Series</stored-value>
 	</pair>
 
 	<pair>
@@ -1126,11 +1071,6 @@
 	<pair>
 		<displayed-value>Time Series >>> Other</displayed-value>
 		<stored-value>Time Series >>> Other</stored-value>
-	</pair>
-
-	<pair>
-		<displayed-value>Bayesian Inference</displayed-value>
-		<stored-value>Bayesian Inference</stored-value>
 	</pair>
 
 	<pair>
