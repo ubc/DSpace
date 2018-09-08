@@ -16,6 +16,10 @@ and lacks some bootstrap 3 features. */
 	background: #f2dede;
 }
 
+/* Edit Metadata / Describe Step */
+.editMetadataTripleLevelDropdown select {
+	margin-bottom: 0.5em;
+}
 /* Make shared height search results gallery boxes */
 .discovery-result-results div.searchResultsWrap {
 	display: flex;

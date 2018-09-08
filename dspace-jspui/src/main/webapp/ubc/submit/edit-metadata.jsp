@@ -287,6 +287,172 @@
 								});
 							</script>
 						</c:when>
+						<c:when test="${field.inputType == field.INPUT_TYPE_TRIPLE_LEVEL_DROPDOWN}">
+							<c:set var="subjectsLevel1ID" value="${field.inputID}_level_1"/>
+							<c:set var="subjectsLevel2ID" value="${field.inputID}_level_2"/>
+							<c:set var="subjectsLevel3ID" value="${field.inputID}_level_3"/>
+							<c:set var="requiredHiddenOptionText" value="-- Select a sub-level topic (Required) --"/>
+							<c:set var="optionalHiddenOptionText" value="-- Select a sub-level topic (Optional) --"/>
+							<c:set var="noneHiddenOptionText" value="-- None --"/>
+							<%--
+							TODO:
+							1. tell user to enter a custom subject in the Subject (Other) box when "Other" is selected as subject
+							--%>
+							<div class="editMetadataTripleLevelDropdown">
+								<select class='form-control' id='${subjectsLevel1ID}'>
+									<option selected value disabled hidden>-- Select a subject to see sub-level topics --</option>
+								</select>
+								<select class='form-control' id='${subjectsLevel2ID}' disabled>
+									<option selected value disabled hidden>${requiredHiddenOptionText}</option>
+								</select>
+								<select class='form-control' id='${subjectsLevel3ID}' disabled>
+									<option selected value>${noneHiddenOptionText}</option>
+								</select>
+								<select class="form-control hidden" id="${field.inputID}" name="${field.inputID}">
+									<option value>-- None --</option>
+									<c:forEach items="${field.options}" var="option">
+										<option value="${option.value}" <c:if test='${field.values.contains(option.value)}'>selected</c:if>>${option.key}</option>
+									</c:forEach>
+								</select>
+							</div>
+							<%-- Statspace Subjects Selection JavaScript --%>
+							<script>
+								jQuery(document).ready(function() {
+									var options = ${field.optionsJsonString};
+									var level1Id = '#${subjectsLevel1ID}';
+									var level2Id = '#${subjectsLevel2ID}';
+									var level3Id = '#${subjectsLevel3ID}';
+									var subjectsSelectId = '#${field.inputID}';
+									var requiredHiddenOptionText = "${requiredHiddenOptionText}";
+									var optionalHiddenOptionText = "${optionalHiddenOptionText}";
+									var noneHiddenOptionText = "${noneHiddenOptionText}";
+
+									// show/hide Subject (Other)
+									var subjectOtherFormGroup = jQuery('#dc_subject_other_form_group');
+									var subjectSelect = jQuery(subjectsSelectId);
+									var showHideSubjectOther = function() {
+										var selectedVals = subjectSelect.val();
+										if (selectedVals && /Other$/.test(selectedVals)) {
+											subjectOtherFormGroup.show("highlight", 1000);
+										}
+										else {
+											subjectOtherFormGroup.hide("blind", "fast");
+										}
+									};
+									showHideSubjectOther();
+									subjectSelect.change(showHideSubjectOther);
+
+									// Reset previous selections back to the default option
+									function resetChildSelect(selectId) {
+										jQuery(selectId + ' option:not(:first-child)').remove();
+										jQuery(selectId).prop('disabled', true);
+										jQuery(selectId + ' option:first').prop('selected', true);
+									}
+									function isLevel2(selectId) {
+										if (selectId.indexOf("level_2") > 0) return true;
+										return false;
+									}
+									function isLevel3(selectId) {
+										if (selectId.indexOf("level_3") > 0) return true;
+										return false;
+									}
+									
+									// Populate level 2 and level 3 select boxes based on what was selected
+									// in the parent level.
+									function populateChildSelect(selectId, opts) {
+										jQuery.each(opts, function(k,v) {
+											var optionTag = jQuery("<option>").attr("value",k).text(k);
+											if (typeof v == 'string')
+												optionTag.attr("value", v);
+											jQuery(selectId + ' option:last').after(optionTag);
+										});
+										// only enable the dropdown if there are options to select from
+										var hiddenOptionElem = jQuery(selectId + ' option:first');
+										if (jQuery.isEmptyObject(opts)) {
+											hiddenOptionElem.text(noneHiddenOptionText);
+										}
+										else {
+											jQuery(selectId).prop('disabled', false);
+											if (isLevel2(selectId))
+												hiddenOptionElem.text(requiredHiddenOptionText);
+											else if (isLevel3(selectId))
+												hiddenOptionElem.text(optionalHiddenOptionText);
+										}
+									}
+									
+									// Rebuild the Selected Subjects table based on existing selections.
+									// This is needed for editing a saved item.
+									function reloadSubjectsTable() {
+										var existingVals = jQuery(subjectsSelectId).val();
+										// no existing values selected
+										if (!existingVals) return;
+										var levels = existingVals.split(" >>> ");
+										if (levels.length >= 1) {
+											jQuery(level1Id).val(levels[0]).change();
+										}
+										if (levels.length >= 2) {
+											jQuery(level2Id).val(levels[1]).change();
+										}
+										if (levels.length > 2) {
+											jQuery(level3Id).val(existingVals).change();
+										}
+									}
+									
+									// There's a hidden select control that holds the actual values transmitted
+									// to the server on form submit. This function updates that select when
+									// called
+									function updateSelectedSubjects() {
+										var newVal = jQuery(level3Id).val();
+										if (!newVal) { // no 3rd level value, try 2nd level
+											newVal = jQuery(level2Id).val();
+											if (newVal) // has 2nd level value
+												newVal = jQuery(level1Id).val() + " >>> " + jQuery(level2Id).val();
+											else // no 2nd level value, try 1st level value
+												newVal = jQuery(level1Id).val();
+										}
+										// actually set the selected values
+										if (newVal) jQuery(subjectsSelectId).val(newVal).change();
+									}
+									
+									if (!options) return;
+									
+									// initial reset, prevent browser breaking when restoring prev session vals
+									/*resetChildSelect(level1Id);
+									jQuery(level1Id).prop('disabled', false); // undo disable from reset
+									resetChildSelect(level2Id);
+									resetChildSelect(level3Id);*/
+									
+									// update select options on selection events
+									jQuery(level1Id).change(function() {
+										// since the first level changed, all child selects needs to be
+										// updated
+										resetChildSelect(level2Id);
+										resetChildSelect(level3Id);
+										// can only populate the second level select at this level
+										populateChildSelect(level2Id, options[jQuery(level1Id).val()]);
+										updateSelectedSubjects();
+									});
+									jQuery(level2Id).change(function() {
+										resetChildSelect(level3Id);
+										populateChildSelect(level3Id, options[jQuery(level1Id).val()][jQuery(level2Id).val()]);
+										updateSelectedSubjects();
+									});
+									jQuery(level3Id).change(function() {
+										updateSelectedSubjects();
+									});
+									
+									// initial populate
+									populateChildSelect(level1Id, options);
+									reloadSubjectsTable();
+								});
+							</script>
+							<%-- Don't bother implementing repeatable support, as we're not using it --%>
+							<c:if test="${field.isRepeatable}">
+								<jsp:include page="/ubc/submit/components/not-implemented.jsp">
+									<jsp:param name="fieldType" value="repeatable ${field.inputType}" />
+								</jsp:include>
+							</c:if>
+						</c:when>
 						<%-- Unimplemented field types, since we're not using 
 							them, save some time by not implementing them for 
 							the rewrite. This should be qualdrop, series, twobox
@@ -335,7 +501,7 @@
 									else return fieldID;
 								}
 								// update the index on the wrapper, input, buttons, etc fields as appropriate
-								function updateFieldIDs(field, isIncrement = true) {
+								function updateFieldIDs(field, isIncrement) {
 									var operation = function(i, fieldID) {
 										if (isIncrement) return incrementFieldID(fieldID);
 										return decrementFieldID(fieldID);
