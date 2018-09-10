@@ -24,26 +24,11 @@
 <script>
 	jQuery(function() {
 		var scoreMap = {
-			0: {
-				text: "None",
-				css: "password-strength-0"
-			},
-			1: {
-				text: "Bad",
-				css: "password-strength-1"
-			},
-			2: {
-				text: "Weak",
-				css: "password-strength-2"
-			},
-			3: {
-				text: "Good",
-				css: "password-strength-3"
-			},
-			4: {
-				text: "Strong",
-				css: "password-strength-4"
-			}
+			0: "None",
+			1: "Bad",
+			2: "Weak",
+			3: "Good",
+			4: "Strong",
 		}
 		var pwField = jQuery("#tnewpassword");
 		var showHidePasswordBtn = jQuery("#showHidePassword");
@@ -57,18 +42,7 @@
 				jQuery("#passwordFeedbackText").text(ret.feedback.warning);
 			else
 				jQuery("#passwordFeedbackText").text(ret.feedback.suggestions);
-			// change the strength text color
-			jQuery("#passwordFeedbackStrength").removeClass(function(index, names) {
-				// remove the old color
-				var classNames = names.split(" ");
-				for (var i in scoreMap) {
-					for (var j in classNames) {
-						if (classNames[j] == scoreMap[i].css) return classNames[j];
-					}
-				}
-			});
-			jQuery("#passwordFeedbackStrength").addClass(scoreMap[ret.score].css);
-			jQuery("#passwordFeedbackStrength span").text(scoreMap[ret.score].text);
+			jQuery("#passwordFeedbackStrength span").text(scoreMap[ret.score]);
 		});
 		// controls the icon for hiding or showing passwords
 		showHidePasswordBtn.click(function() {
