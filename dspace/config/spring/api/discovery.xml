@@ -134,6 +134,12 @@
                 <!--<value>search.resourcetype:2</value>-->
             <!--</list>-->
         <!--</property>-->
+        <property name="defaultFilterQueries">
+            <list>
+                <!--Only find items-->
+                <value>search.resourcetype:2</value>
+            </list>
+        </property>
         <!--The configuration for the recent submissions-->
         <property name="recentSubmissionConfiguration">
             <bean class="org.dspace.discovery.configuration.DiscoveryRecentSubmissionsConfiguration">
@@ -218,6 +224,12 @@
                 <ref bean="searchFilterSubject" />
                 <ref bean="searchFilterResourceType" />
                 <ref bean="searchFilterIssued" />
+            </list>
+        </property>
+        <property name="defaultFilterQueries">
+            <list>
+                <!--Only find items-->
+                <value>search.resourcetype:2</value>
             </list>
         </property>
         <!--The sort filters for the discovery search (same as defaultConfiguration above)-->
