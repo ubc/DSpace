@@ -20,14 +20,97 @@ and lacks some bootstrap 3 features. */
 .editMetadataTripleLevelDropdown select {
 	margin-bottom: 0.5em;
 }
+
+/* Simple Search */
+label.SimpleSearchBigLabel {
+	padding-top: 2px !important;
+}
+.SimpleSearchBigLabel h1{
+	margin-top: 0;
+	padding-top: 0;
+}
+.SimpleSearchResultListItem .media-object {
+	width: 80px;
+}
+.SimpleSearchResultListItem {
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	border-bottom: 1px solid transparent;
+	border-top: 1px solid transparent;
+}
+.SimpleSearchResultListItem:hover {
+	border-top-color: whitesmoke;
+	border-bottom-color: whitesmoke;
+	border-image: linear-gradient(to right, whitesmoke, gainsboro, whitesmoke);
+	border-image-slice: 1;
+}
+.SimpleSearchBigSearchBox {
+	padding-top: 2em;
+	padding-bottom: 0.5em;
+	margin-bottom: 0.8em;
+}
+.SimpleSearchBigSearchBox .form-group {
+	margin-bottom: 0;
+}
+.SimpleSearchPagination {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.SimpleSearchSidebar {
+	background: #f9f9f9;
+	border: 1px solid gainsboro;
+}
+.SimpleSearchResultFilters {
+	padding-bottom: 1em;
+}
+.SimpleSearchResultFilters h3 {
+	margin-top: 0.5em;
+}
+.SimpleSearchResultFilters .panel {
+	margin-bottom: 0.5em;
+}
+.SimpleSearchResultFilters .panel-heading {
+	padding: 0.2em 0.5em;
+}
+.SimpleSearchResultFilters .panel a {
+	display: inline-block;
+	width: 100%;
+	color: black;
+}
+.SimpleSearchResultFilters .panel a:hover {
+	text-decoration: none;
+}
+.SimpleSearchResultControls {
+	padding: 0.5em;
+	border: 1px solid gainsboro;
+	margin-bottom: 0.5em;
+}
+.SimpleSearchAddFilterToggle button{
+	padding: 0.2em 0.5em;
+}
+.SimpleSearchAddFilter  {
+	padding: 1em;
+	margin-top: 2em;
+	margin-bottom: 0.5em;
+	border: 1px solid gainsboro;
+	background: whitesmoke;
+}
+
 /* Make shared height search results gallery boxes */
 .discovery-result-results div.searchResultsWrap {
 	display: flex;
 	flex-wrap: wrap;
 }
+.discovery-result-results div.searchResultBox:hover {
+	border-left-color: lightgray;
+	border-right-color: lightgray;
+	border-image: linear-gradient(to bottom, whitesmoke, gainsboro, whitesmoke);
+	border-image-slice: 1;
+}
 .discovery-result-results div.searchResultBox {
+	border-left: 1px solid transparent;
+	border-right: 1px solid transparent;
 	margin-bottom: 1em;
-	border-radius: 0;
 }
 
 /* Make fixed width but still proportional thumbnails. */

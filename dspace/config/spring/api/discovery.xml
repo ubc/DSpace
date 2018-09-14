@@ -111,6 +111,7 @@
                 <ref bean="searchFilterKeyword" />
                 <ref bean="searchFilterSubject" />
                 <ref bean="searchFilterIssued" />
+                <ref bean="searchFilterSubmitted" />
                 <ref bean="searchFilterAccessRights" />
             </list>
         </property>
@@ -135,6 +136,12 @@
                 <!--<value>search.resourcetype:2</value>-->
             <!--</list>-->
         <!--</property>-->
+        <property name="defaultFilterQueries">
+            <list>
+                <!--Only find items-->
+                <value>search.resourcetype:2</value>
+            </list>
+        </property>
         <!--The configuration for the recent submissions-->
         <property name="recentSubmissionConfiguration">
             <bean class="org.dspace.discovery.configuration.DiscoveryRecentSubmissionsConfiguration">
@@ -206,6 +213,7 @@
                 <ref bean="searchFilterSubject" />
                 <ref bean="searchFilterResourceType" />
                 <ref bean="searchFilterAuthor" />
+                <ref bean="searchFilterKeyword" />
                 <ref bean="searchFilterIssued" />
             </list>
         </property>
@@ -220,6 +228,13 @@
                 <ref bean="searchFilterResourceType" />
                 <ref bean="searchFilterKeyword" />
                 <ref bean="searchFilterIssued" />
+                <ref bean="searchFilterSubmitted" />
+            </list>
+        </property>
+        <property name="defaultFilterQueries">
+            <list>
+                <!--Only find items-->
+                <value>search.resourcetype:2</value>
             </list>
         </property>
         <!--The sort filters for the discovery search (same as defaultConfiguration above)-->
@@ -428,6 +443,17 @@
         <property name="metadataFields">
             <list>
                 <value>dc.date.issued</value>
+            </list>
+        </property>
+        <property name="type" value="date"/>
+        <property name="sortOrder" value="VALUE"/>
+    </bean>
+
+    <bean id="searchFilterSubmitted" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="dateSubmitted"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.date.submitted</value>
             </list>
         </property>
         <property name="type" value="date"/>
