@@ -201,7 +201,6 @@
 					<!-- Pre-Reqs -->
 					<c:if test="${!empty itemRetriever.prereqs}">
 						<h3 class='displayItemSectionHeader'>
-							<i class="glyphicon glyphicon-list"></i>
 							Pre-requisite Knowledge
 						</h3> 
 						<ul>
@@ -213,7 +212,6 @@
 					<!-- Learning Objectives -->
 					<c:if test="${!empty itemRetriever.objectives}">
 						<h3 class='displayItemSectionHeader'>
-							<i class="glyphicon glyphicon-blackboard"></i>
 							Learning Objectives
 						</h3>
 						<ul>
@@ -224,14 +222,14 @@
 					</c:if>
 					<!-- Description -->
 					<c:if test="${!empty itemRetriever.description}">
-						<h3 class="displayItemSectionHeader"><i class="glyphicon glyphicon-info-sign"></i> Description</h3>
+						<h3 class="displayItemSectionHeader">Description</h3>
 						<div> 
 							${itemRetriever.description}
 						</div>
 					</c:if>
 					<!-- Suggest Uses & Tips merged with What We Learned-->
 					<c:if test="${!empty itemRetriever.whatWeLearned}">
-						<h3 class="displayItemSectionHeader"><i class="glyphicon glyphicon-education"></i> Suggested Uses, Tips and Discoveries</h3>
+						<h3 class="displayItemSectionHeader">Suggested Uses, Tips and Discoveries</h3>
 						<div>
 							${itemRetriever.whatWeLearned}
 						</div>
