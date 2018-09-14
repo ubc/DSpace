@@ -10,803 +10,387 @@
 
 <%--
   - Display the form to refine the simple-search and dispaly the results of the search
-  -
-  - Attributes to pass in:
-  -
-  -   scope            - pass in if the scope of the search was a community
-  -                      or a collection
-  -   scopes 		   - the list of available scopes where limit the search
-  -   sortOptions	   - the list of available sort options
-  -   availableFilters - the list of filters available to the user
-  -
-  -   query            - The original query
-  -   queryArgs		   - The query configuration parameters (rpp, sort, etc.)
-  -   appliedFilters   - The list of applied filters (user input or facet)
-  -
-  -   search.error     - a flag to say that an error has occurred
-  -   spellcheck	   - the suggested spell check query (if any)
-  -   qResults		   - the discovery results
-  -   items            - the results.  An array of Items, most relevant first
-  -   communities      - results, Community[]
-  -   collections      - results, Collection[]
-  -
-  -   admin_button     - If the user is an admin
-  --%>
+--%>
 
-<%@page import="org.dspace.core.Context"%>
-<%@page import="org.dspace.core.Utils"%>
-<%@page import="com.coverity.security.Escape"%>
-<%@page import="org.dspace.discovery.configuration.DiscoverySearchFilterFacet"%>
-<%@page import="org.dspace.app.webui.util.UIUtil"%>
-<%@page import="java.util.HashMap"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="org.dspace.discovery.DiscoverFacetField"%>
-<%@page import="org.dspace.discovery.configuration.DiscoverySearchFilter"%>
-<%@page import="org.dspace.discovery.DiscoverFilterQuery"%>
-<%@page import="org.dspace.discovery.DiscoverQuery"%>
-<%@page import="org.apache.commons.lang.StringUtils"%>
-<%@page import="java.util.Map"%>
-<%@page import="org.dspace.discovery.DiscoverResult.FacetResult"%>
-<%@page import="org.dspace.discovery.DiscoverResult"%>
-<%@page import="org.dspace.discovery.configuration.DiscoveryConfiguration"%>
-<%@page import="org.dspace.content.DSpaceObject"%>
-<%@page import="java.util.List"%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"
-    prefix="fmt" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core"
-    prefix="c" %>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.dspace.org/dspace-tags.tld" prefix="dspace" %>
-<%@ page import="java.net.URLEncoder"            %>
-<%@ page import="org.dspace.content.Community"   %>
-<%@ page import="org.dspace.content.Collection"  %>
-<%@ page import="org.dspace.content.Item"        %>
-<%@ page import="org.dspace.search.QueryResults" %>
-<%@ page import="org.dspace.sort.SortOption" %>
-<%@ page import="java.util.Enumeration" %>
-<%@ page import="java.util.Set" %>
-
-<%@page import="org.dspace.app.webui.ubc.retriever.ItemRetriever"%>
-
-<%
-    // Get the attributes
-    DSpaceObject scope = (DSpaceObject) request.getAttribute("scope" );
-    String searchScope = scope!=null?scope.getHandle():"";
-    List<DSpaceObject> scopes = (List<DSpaceObject>) request.getAttribute("scopes");
-    List<String> sortOptions = (List<String>) request.getAttribute("sortOptions");
-
-    String query = (String) request.getAttribute("query");
-	if (query == null)
-	{
-	    query = "";
-	}
-    Boolean error_b = (Boolean)request.getAttribute("search.error");
-    boolean error = (error_b == null ? false : error_b.booleanValue());
-    
-    DiscoverQuery qArgs = (DiscoverQuery) request.getAttribute("queryArgs");
-    String sortedBy = qArgs.getSortField();
-    String order = qArgs.getSortOrder().toString();
-    String ascSelected = (SortOption.ASCENDING.equalsIgnoreCase(order)   ? "selected=\"selected\"" : "");
-    String descSelected = (SortOption.DESCENDING.equalsIgnoreCase(order) ? "selected=\"selected\"" : "");
-    String httpFilters ="";
-	String spellCheckQuery = (String) request.getAttribute("spellcheck");
-    List<DiscoverySearchFilter> availableFilters = (List<DiscoverySearchFilter>) request.getAttribute("availableFilters");
-	List<String[]> appliedFilters = (List<String[]>) request.getAttribute("appliedFilters");
-	List<String> appliedFilterQueries = (List<String>) request.getAttribute("appliedFilterQueries");
-	if (appliedFilters != null && appliedFilters.size() >0 ) 
-	{
-	    int idx = 1;
-	    for (String[] filter : appliedFilters)
-	    {
-	        httpFilters += "&amp;filter_field_"+idx+"="+URLEncoder.encode(filter[0],"UTF-8");
-	        httpFilters += "&amp;filter_type_"+idx+"="+URLEncoder.encode(filter[1],"UTF-8");
-	        httpFilters += "&amp;filter_value_"+idx+"="+URLEncoder.encode(filter[2],"UTF-8");
-	        idx++;
-	    }
-	}
-    int rpp          = qArgs.getMaxResults();
-	int defaultRpp = (new DiscoveryConfiguration()).getDefaultRpp();
-    int etAl         = ((Integer) request.getAttribute("etal")).intValue();
-
-    String[] options = new String[]{"contains","equals","authority","notequals","notcontains","notauthority"};
-    
-    // Admin user or not
-    Boolean admin_b = (Boolean)request.getAttribute("admin_button");
-    boolean admin_button = (admin_b == null ? false : admin_b.booleanValue());
-%>
-
-<c:set var="dspace.layout.head.last" scope="request">
-<script type="text/javascript">
-	var jQ = jQuery.noConflict();
-	jQ(document).ready(function() {
-		jQ( "#spellCheckQuery").click(function(){
-			jQ("#query").val(jQ(this).attr('data-spell'));
-			jQ("#main-query-submit").click();
-		});
-		jQ( "#filterquery" )
-			.autocomplete({
-				source: function( request, response ) {
-					jQ.ajax({
-						url: "<%= request.getContextPath() %>/json/discovery/autocomplete?query=<%= URLEncoder.encode(query,"UTF-8")%><%= httpFilters.replaceAll("&amp;","&") %>",
-						dataType: "json",
-						cache: false,
-						data: {
-							auto_idx: jQ("#filtername").val(),
-							auto_query: request.term,
-							auto_sort: 'count',
-							auto_type: jQ("#filtertype").val(),
-							location: '<%= searchScope %>'	
-						},
-						success: function( data ) {
-							response( jQ.map( data.autocomplete, function( item ) {
-								var tmp_val = item.authorityKey;
-								if (tmp_val == null || tmp_val == '')
-								{
-									tmp_val = item.displayedValue;
-								}
-								return {
-									label: item.displayedValue + " (" + item.count + ")",
-									value: tmp_val
-								};
-							}))			
-						}
-					})
-				}
-			});
-	});
-	function validateFilters() {
-		return document.getElementById("filterquery").value.length > 0;
-	}
-</script>		
-</c:set>
 
 <dspace:layout titlekey="jsp.search.title">
 
-    <%-- <h1>Search Results</h1> --%>
-
-<h2><fmt:message key="jsp.search.title"/></h2>
-
-<div class="discovery-search-form panel panel-default">
-    <%-- Controls for a repeat search --%>
-	<div class="discovery-query panel-heading">
-    <form action="simple-search" method="get">
-         <label for="tlocation">
-         	<fmt:message key="jsp.search.results.searchin"/>
-         </label>
-         <select name="location" id="tlocation">
-<%
-    if (scope == null)
-    {
-        // Scope of the search was all of DSpace.  The scope control will list
-        // "all of DSpace" and the communities.
-%>
-                                    <%-- <option selected value="/">All of DSpace</option> --%>
-                                    <option selected="selected" value="/"><fmt:message key="jsp.general.genericScope"/></option>
-<%  }
-    else
-    {
-%>
-									<option value="/"><fmt:message key="jsp.general.genericScope"/></option>
-<%  }      
-    for (DSpaceObject dso : scopes)
-    {
-%>
-                                <option value="<%= dso.getHandle() %>" <%=dso.getHandle().equals(searchScope)?"selected=\"selected\"":"" %>>
-                                	<%= dso.getName() %></option>
-<%
-    }
-%>                                </select><br/>
-                                <label for="query"><fmt:message key="jsp.search.results.searchfor"/></label>
-                                <input type="text" size="50" id="query" name="query" value="<%= (query==null ? "" : Utils.addEntities(query)) %>"/>
-                                <input type="submit" id="main-query-submit" class="btn btn-primary" value="<fmt:message key="jsp.general.go"/>" />
-<% if (StringUtils.isNotBlank(spellCheckQuery)) {%>
-	<p class="lead"><fmt:message key="jsp.search.didyoumean"><fmt:param><a id="spellCheckQuery" data-spell="<%= Utils.addEntities(spellCheckQuery) %>" href="#"><%= spellCheckQuery %></a></fmt:param></fmt:message></p>
-<% } %>                  
-                                <input type="hidden" value="<%= rpp %>" name="rpp" />
-                                <input type="hidden" value="<%= Utils.addEntities(sortedBy) %>" name="sort_by" />
-                                <input type="hidden" value="<%= Utils.addEntities(order) %>" name="order" />
-<% if (appliedFilters.size() > 0 ) { %>                                
-		<div class="discovery-search-appliedFilters">
-		<span><fmt:message key="jsp.search.filter.applied" /></span>
-		<%
-			int idx = 1;
-			for (String[] filter : appliedFilters)
-			{
-			    boolean found = false;
-			    %>
-			    <select id="filter_field_<%=idx %>" name="filter_field_<%=idx %>">
-				<%
-					for (DiscoverySearchFilter searchFilter : availableFilters)
-					{
-					    String fkey = "jsp.search.filter." + Escape.uriParam(searchFilter.getIndexFieldName());
-					    %><option value="<%= Utils.addEntities(searchFilter.getIndexFieldName()) %>"<% 
-					            if (filter[0].equals(searchFilter.getIndexFieldName()))
-					            {
-					                %> selected="selected"<%
-					                found = true;
-					            }
-					            %>><fmt:message key="<%= fkey %>"/></option><%
-					}
-					if (!found)
-					{
-					    String fkey = "jsp.search.filter." + Escape.uriParam(filter[0]);
-					    %><option value="<%= Utils.addEntities(filter[0]) %>" selected="selected"><fmt:message key="<%= fkey %>"/></option><%
-					}
-				%>
-				</select>
-				<select id="filter_type_<%=idx %>" name="filter_type_<%=idx %>">
-				<%
-					for (String opt : options)
-					{
-					    String fkey = "jsp.search.filter.op." + Escape.uriParam(opt);
-					    %><option value="<%= Utils.addEntities(opt) %>"<%= opt.equals(filter[1])?" selected=\"selected\"":"" %>><fmt:message key="<%= fkey %>"/></option><%
-					}
-				%>
-				</select>
-				<input type="text" id="filter_value_<%=idx %>" name="filter_value_<%=idx %>" value="<%= Utils.addEntities(filter[2]) %>" size="45"/>
-				<input class="btn btn-default" type="submit" id="submit_filter_remove_<%=idx %>" name="submit_filter_remove_<%=idx %>" value="X" />
-				<br/>
-				<%
-				idx++;
-			}
-		%>
-		</div>
-<% } %>
-<a class="btn btn-default" href="<%= request.getContextPath()+"/simple-search" %>"><fmt:message key="jsp.search.general.new-search" /></a>	
-		</form>
-		</div>
-<% if (availableFilters.size() > 0) { %>
-		<div class="discovery-search-filters panel-body">
-		<h5><fmt:message key="jsp.search.filter.heading" /></h5>
-		<p class="discovery-search-filters-hint"><fmt:message key="jsp.search.filter.hint" /></p>
-		<form action="simple-search" method="get">
-		<input type="hidden" value="<%= Utils.addEntities(searchScope) %>" name="location" />
-		<input type="hidden" value="<%= Utils.addEntities(query) %>" name="query" />
-		<% if (appliedFilterQueries.size() > 0 ) { 
-				int idx = 1;
-				for (String[] filter : appliedFilters)
-				{
-				    boolean found = false;
-				    %>
-				    <input type="hidden" id="filter_field_<%=idx %>" name="filter_field_<%=idx %>" value="<%= Utils.addEntities(filter[0]) %>" />
-					<input type="hidden" id="filter_type_<%=idx %>" name="filter_type_<%=idx %>" value="<%= Utils.addEntities(filter[1]) %>" />
-					<input type="hidden" id="filter_value_<%=idx %>" name="filter_value_<%=idx %>" value="<%= Utils.addEntities(filter[2]) %>" />
-					<%
-					idx++;
-				}
-		} %>
-		<select id="filtername" name="filtername">
-		<%
-			for (DiscoverySearchFilter searchFilter : availableFilters)
-			{
-			    String fkey = "jsp.search.filter." + Escape.uriParam(searchFilter.getIndexFieldName());
-			    %><option value="<%= Utils.addEntities(searchFilter.getIndexFieldName()) %>"><fmt:message key="<%= fkey %>"/></option><%
-			}
-		%>
-		</select>
-		<select id="filtertype" name="filtertype">
-		<%
-			for (String opt : options)
-			{
-			    String fkey = "jsp.search.filter.op." + Escape.uriParam(opt);
-			    %><option value="<%= Utils.addEntities(opt) %>"><fmt:message key="<%= fkey %>"/></option><%
-			}
-		%>
-		</select>
-		<input type="text" id="filterquery" name="filterquery" size="45" required="required" />
-		<input type="hidden" value="<%= rpp %>" name="rpp" />
-		<input type="hidden" value="<%= Utils.addEntities(sortedBy) %>" name="sort_by" />
-		<input type="hidden" value="<%= Utils.addEntities(order) %>" name="order" />
-		<input class="btn btn-default" type="submit" value="<fmt:message key="jsp.search.filter.add"/>" onclick="return validateFilters()" />
-		</form>
-		</div>        
-<% } %>
-        <%-- Include a component for modifying sort by, order, results per page, and et-al limit --%>
-   <div class="discovery-pagination-controls panel-footer">
-   <form action="simple-search" method="get">
-   <input type="hidden" value="<%= Utils.addEntities(searchScope) %>" name="location" />
-   <input type="hidden" value="<%= Utils.addEntities(query) %>" name="query" />
-	<% if (appliedFilterQueries.size() > 0 ) { 
-				int idx = 1;
-				for (String[] filter : appliedFilters)
-				{
-				    boolean found = false;
-				    %>
-				    <input type="hidden" id="filter_field_<%=idx %>" name="filter_field_<%=idx %>" value="<%= Utils.addEntities(filter[0]) %>" />
-					<input type="hidden" id="filter_type_<%=idx %>" name="filter_type_<%=idx %>" value="<%= Utils.addEntities(filter[1]) %>" />
-					<input type="hidden" id="filter_value_<%=idx %>" name="filter_value_<%=idx %>" value="<%= Utils.addEntities(filter[2]) %>" />
-					<%
-					idx++;
-				}
-	} %>	
-           <label for="rpp"><fmt:message key="search.results.perpage"/></label>
-           <select name="rpp">
-<%
-               for (int i = defaultRpp; i <= 100 ; i += defaultRpp)
-               {
-                   String selected = (i == rpp ? "selected=\"selected\"" : "");
-%>
-                   <option value="<%= i %>" <%= selected %>><%= i %></option>
-<%
-               }
-%>
-           </select>
-           &nbsp;|&nbsp;
-<%
-           if (sortOptions.size() > 0)
-           {
-%>
-               <label for="sort_by"><fmt:message key="search.results.sort-by"/></label>
-               <select name="sort_by">
-                   <option value="score"><fmt:message key="search.sort-by.relevance"/></option>
-<%
-               for (String sortBy : sortOptions)
-               {
-                   String selected = (sortBy.equals(sortedBy) ? "selected=\"selected\"" : "");
-                   String mKey = "search.sort-by." + Utils.addEntities(sortBy);
-                   %> <option value="<%= Utils.addEntities(sortBy) %>" <%= selected %>><fmt:message key="<%= mKey %>"/></option><%
-               }
-%>
-               </select>
-<%
-           }
-%>
-           <label for="order"><fmt:message key="search.results.order"/></label>
-           <select name="order">
-               <option value="ASC" <%= ascSelected %>><fmt:message key="search.order.asc" /></option>
-               <option value="DESC" <%= descSelected %>><fmt:message key="search.order.desc" /></option>
-           </select>
-           <label for="etal"><fmt:message key="search.results.etal" /></label>
-           <select name="etal">
-<%
-               String unlimitedSelect = "";
-               if (etAl < 1)
-               {
-                   unlimitedSelect = "selected=\"selected\"";
-               }
-%>
-               <option value="0" <%= unlimitedSelect %>><fmt:message key="browse.full.etal.unlimited"/></option>
-<%
-               boolean insertedCurrent = false;
-               for (int i = 0; i <= 50 ; i += 5)
-               {
-                   // for the first one, we want 1 author, not 0
-                   if (i == 0)
-                   {
-                       String sel = (i + 1 == etAl ? "selected=\"selected\"" : "");
-                       %><option value="1" <%= sel %>>1</option><%
-                   }
-
-                   // if the current i is greated than that configured by the user,
-                   // insert the one specified in the right place in the list
-                   if (i > etAl && !insertedCurrent && etAl > 1)
-                   {
-                       %><option value="<%= etAl %>" selected="selected"><%= etAl %></option><%
-                       insertedCurrent = true;
-                   }
-
-                   // determine if the current not-special case is selected
-                   String selected = (i == etAl ? "selected=\"selected\"" : "");
-
-                   // do this for all other cases than the first and the current
-                   if (i != 0 && i != etAl)
-                   {
-%>
-                       <option value="<%= i %>" <%= selected %>><%= i %></option>
-<%
-                   }
-               }
-%>
-           </select>
-           <input class="btn btn-default" type="submit" name="submit_search" value="<fmt:message key="search.update" />" />
-
-<%
-    if (admin_button)
-    {
-        %><input type="submit" class="btn btn-default" name="submit_export_metadata" value="<fmt:message key="jsp.general.metadataexport.button"/>" /><%
-    }
-%>
-</form>
-   </div>
-</div>   
-<% 
-
-DiscoverResult qResults = (DiscoverResult)request.getAttribute("queryresults");
-Item      [] items       = (Item[]      )request.getAttribute("items");
-Community [] communities = (Community[] )request.getAttribute("communities");
-Collection[] collections = (Collection[])request.getAttribute("collections");
-
-if( error )
-{
- %>
-	<p align="center" class="submitFormWarn">
-		<fmt:message key="jsp.search.error.discovery" />
-	</p>
-	<%
-}
-else if( qResults != null && qResults.getTotalSearchResults() == 0 )
-{
- %>
-    <%-- <p align="center">Search produced no results.</p> --%>
-    <p align="center"><fmt:message key="jsp.search.general.noresults"/></p>
-<%
-}
-else if( qResults != null)
-{
-    long pageTotal   = ((Long)request.getAttribute("pagetotal"  )).longValue();
-    long pageCurrent = ((Long)request.getAttribute("pagecurrent")).longValue();
-    long pageLast    = ((Long)request.getAttribute("pagelast"   )).longValue();
-    long pageFirst   = ((Long)request.getAttribute("pagefirst"  )).longValue();
-    
-    // create the URLs accessing the previous and next search result pages
-    String baseURL =  request.getContextPath()
-                    + (!searchScope.equals("") ? "/handle/" + searchScope : "")
-                    + "/simple-search?query="
-                    + URLEncoder.encode(query,"UTF-8")
-                    + httpFilters
-                    + "&amp;sort_by=" + sortedBy
-                    + "&amp;order=" + order
-                    + "&amp;rpp=" + rpp
-                    + "&amp;etal=" + etAl
-                    + "&amp;start=";
-
-    String nextURL = baseURL;
-    String firstURL = baseURL;
-    String lastURL = baseURL;
-
-    String prevURL = baseURL
-            + (pageCurrent-2) * qResults.getMaxResults();
-
-    nextURL = nextURL
-            + (pageCurrent) * qResults.getMaxResults();
-    
-    firstURL = firstURL +"0";
-    lastURL = lastURL + (pageTotal-1) * qResults.getMaxResults();
-
-
-%>
-<hr/>
-<div class="discovery-result-pagination">
-<%
-	long lastHint = qResults.getStart()+qResults.getMaxResults() <= qResults.getTotalSearchResults()?
-	        qResults.getStart()+qResults.getMaxResults():qResults.getTotalSearchResults();
-%>
-    <%-- <p align="center">Results <//%=qResults.getStart()+1%>-<//%=qResults.getStart()+qResults.getHitHandles().size()%> of --%>
-    <ul class="pagination pull-right">
-	<%
-	if (pageFirst != pageCurrent)
-	{
-	    %><li><a href="<%= prevURL %>"><fmt:message key="jsp.search.general.previous" /></a></li><%
-	}
-	else
-	{
-	    %><li class="disabled"><span><fmt:message key="jsp.search.general.previous" /></span></li><%
-	}
-	
-	if (pageFirst != 1)
-	{
-	    %><li><a href="<%= firstURL %>">1</a></li><li class="disabled"><span>...</span></li><%
-	}
-	
-	for( long q = pageFirst; q <= pageLast; q++ )
-	{
-	    String myLink = "<li><a href=\""
-	                    + baseURL;
-	
-	
-	    if( q == pageCurrent )
-	    {
-	        myLink = "<li class=\"active\"><span>" + q + "</span></li>";
-	    }
-	    else
-	    {
-	        myLink = myLink
-	            + (q-1) * qResults.getMaxResults()
-	            + "\">"
-	            + q
-	            + "</a></li>";
-	    }
-	%>
-	
-	<%= myLink %>
-
-	<%
-	}
-	
-	if (pageTotal > pageLast)
-	{
-	    %><li class="disabled"><span>...</span></li><li><a href="<%= lastURL %>"><%= pageTotal %></a></li><%
-	}
-	if (pageTotal > pageCurrent)
-	{
-	    %><li><a href="<%= nextURL %>"><fmt:message key="jsp.search.general.next" /></a></li><%
-	}
-	else
-	{
-	    %><li class="disabled"><span><fmt:message key="jsp.search.general.next" /></span></li><%
-	}
-	%>
-	</ul>
-<!-- give a content to the div -->
-</div>
-<div class="discovery-result-results">
-
-<% if (items.length > 0) { %>
-	<div class="row">
-		<div class="col-md-12 searchResultsWrap">
-		<c:forEach items="${items}" var="item">
-			<%
-				ItemRetriever itemRetriever = new ItemRetriever((Context)request.getAttribute("context"),
-						request, (Item) pageContext.findAttribute("item"));
-				pageContext.setAttribute("itemRetriever", itemRetriever);
-			%>
-			<div class="col-md-4 col-sm-6 col-xs-12 thumbnail searchResultBox">
-				<a class="center-block searchResultThumbnail img-rounded" href="${itemRetriever.url}" 
-				   style='background: center / contain no-repeat url(${itemRetriever.thumbnail}), slategray;'>
-					<div class="text-center searchResultThumbnailPlaceholder">
-						<c:if test="${empty itemRetriever.thumbnail}">
-						<%-- table is a simple but stupid workaround for vertical centering placeholder image --%>
-						<table>
-							<tr>
-								<td>
-									<span class="glyphicon glyphicon-file"></span>
-								</td>
-							</tr>
-						</table>
-						</c:if>
+<!-- Big Search Box -->
+<%--
+TODO:
+2. Autocomplete for search
+3. Persist list/tile view selection
+4. Higher resolution UBC logo placeholder
+--%>
+<div class="row SimpleSearchBigSearchRow">
+	<div class="col-sm-12 SimpleSearchBigSearchBox">
+		<!-- Main Search Box -->
+		<c:set var="SearchFormID" value="SearchForm" />
+		<c:set var="SearchFormResultsPerPageID" value="SearchFormResultsPerPage" />
+		<c:set var="SearchFormSortedByID" value="SearchFormSortedBy" />
+		<c:set var="SearchFormSortOrderID" value="SearchFormSortOrder" />
+		<form id='${SearchFormID}' action="simple-search" method="get" class='form-horizontal'>
+			<div class="form-group">
+				<label for="query" class="col-sm-2 SimpleSearchBigLabel control-label">
+					<h1><fmt:message key="jsp.search.title"/></h1>
+				</label>
+				<div class="col-sm-10 col-md-9 col-lg-8">
+					<div class="input-group">
+						<input class="form-control input-lg" type="text" id="query" name="query" value="${queryStr}"/>
+						<span class="input-group-btn">
+							<input class="btn btn-primary btn-lg" type="submit" id="main-query-submit" value="<fmt:message key="jsp.general.go"/>" />
+						</span>
 					</div>
-				</a>
-
-				<div class="caption">
-					<h4 class="text-center">
-						<a href="${itemRetriever.url}">${itemRetriever.title}</a>
-					</h4>
-					<p>
-						${itemRetriever.summary}
-					</p>
-					<div>
-						<!-- List Resource Types -->
-						<small>
-							<strong>Resource Type:</strong>
-							<ul class='list-inline'>
-								<c:forEach items="${itemRetriever.resourceTypes}" var="type">
-									<jsp:include page="/ubc/statspace/components/search-result-tag-list-item.jsp">
-										<jsp:param name="listItem" value="${type}" />
-										<jsp:param name="searchFilterName" value="resourceType" />
-									</jsp:include>
+					<!-- Advanced Filters -->
+					<c:set var='AddFilterToggleID' value='AddFilterToggle'/>
+					<c:set var='AddFilterSectionID' value='AddFilterSection'/>
+					<div class='SimpleSearchAddFilterToggle'>
+						<button type='button' class='pull-right btn btn-link' id='${AddFilterToggleID}'>
+							<small>Advanced Search</small>
+						</button>
+					</div>
+					<div id='${AddFilterSectionID}' class='SimpleSearchAddFilter hidden'>
+						<div class='form-inline'>
+							<label>Add Filter</label>
+							<select class='form-control' name='filtername' disabled required>
+								<option class='hidden' selected disabled>- Select Field -</option>
+								<c:forEach items='${filterNameOptions}' var='filterNameOption'>
+									<option value="${filterNameOption}"><fmt:message key="jsp.search.filter.${filterNameOption}"/></option>
 								</c:forEach>
-							</ul>
-						</small>
+							</select>
+							<select class='form-control' name='filtertype' disabled required>
+								<option class='hidden' selected disabled>- Select Operation -</option>
+								<c:forEach items='${filterTypeOptions}' var='filterTypeOption'>
+									<option value="${filterTypeOption}"><fmt:message key="jsp.search.filter.op.${filterTypeOption}"/></option>
+								</c:forEach>
+							</select>
+							<input class='form-control' type="text" id="filterquery" name="filterquery" placeholder='Filter Term' disabled required />
+							<button class='btn btn-default'><span class='glyphicon glyphicon-plus'></span> <fmt:message key="jsp.search.filter.add"/></button>
+						</div>
 					</div>
+					<!-- Show/Hide Advanced Search -->
+					<script>
+						// need to disable inputs so they don't get submitted, otherwise,
+						// dspace API gets confused by the empty fields
+						jQuery(function() {
+							var toggle = jQuery('#${AddFilterToggleID}');
+							var section = jQuery('#${AddFilterSectionID}');
+							function hideSection() {
+								section.find('select').prop('disabled', true);
+								section.find('input').prop('disabled', true);
+								section.addClass('hidden');
+							};
+							function showSection() {
+								section.find('select').prop('disabled', false);
+								section.find('input').prop('disabled', false);
+								section.removeClass('hidden');
+							}
+							toggle.click(function() {
+								if (section.hasClass('hidden')) showSection();
+								else hideSection();
+							});
+						});
+					</script>
 				</div>
 			</div>
-		</c:forEach>
+			<!-- List Applied Filters -->
+			<c:set var='AppliedFilterClass' value='AppliedFilterFormGroup' />
+			<c:forEach items='${appliedFilters}' var='filter' varStatus='filterLoop'>
+				<div class='form-group form-group-sm ${AppliedFilterClass}' id='${AppliedFilterClass}_${filterLoop.index}'>
+					<div class='form-inline col-sm-10 col-sm-offset-2'>
+						<label>Filter</label>
+						<select class='form-control' name='filter_field_${filterLoop.index+1}'>
+							<c:forEach items='${filterNameOptions}' var='filterNameOption'>
+								<option value="${filterNameOption}" ${filter[0] == filterNameOption?'selected':''}>
+									<fmt:message key="jsp.search.filter.${filterNameOption}"/>
+								</option>
+							</c:forEach>
+						</select>
+						<select class='form-control' name='filter_type_${filterLoop.index+1}'>
+							<c:forEach items='${filterTypeOptions}' var='filterTypeOption'>
+								<option value="${filterTypeOption}" ${filter[1] == filterTypeOption?'selected':''}>
+									<fmt:message key="jsp.search.filter.op.${filterTypeOption}"/>
+								</option>
+							</c:forEach>
+						</select>
+						<input class='form-control' size='35' style='max-width: 100%;' type='text' name='filter_value_${filterLoop.index+1}' value='${filter[2]}' required />
+						<button id="filter_remove_${filterLoop.index+1}" type="button" class="close editMetadataRemoveEntryButton" aria-label="Remove">
+							<span class="glyphicon">&times;</span>
+						</button>
+					</div>
+				</div>
+			</c:forEach>
+			<script>
+				// TODO: This is almost identical to edit-metadata.jsp's renumbering script, should merge them together into one
+				jQuery(function() {
+						// Because of the way DSpace rely on sequentially numbering repeated fields, if you have
+						// say fields 1,2,3,4, and you remove field 2, it'll also remove fields 3 and 4 cause
+						// it stops after seeing that 2 is gone. The proper way to fix this is to use form arrays,
+						// but I don't have the time required to fix the api, so this is a workaround to renumber 
+						// the fields to make sure they're sequential. 
+						function getIndex(elementID) {
+							var index = elementID.match(/\d+/g);
+							// dspace cannot handle elements numbered with 0, it expects the first element
+							// to not be numbered, so have to compensate here. Assume that if we didn't
+							// find a number, it's the first element.
+							if (index === null) index = 0;
+							index = parseInt(index, 10);
+							return index;
+						}
+						function incrementFieldID(fieldID) {
+							var prevIndex = getIndex(fieldID);
+							if (fieldID.match("_"+prevIndex))
+								return fieldID.replace("_"+prevIndex, "_"+(prevIndex+1));
+							// special case if starting from element 0, since it isn't numbered
+							return fieldID+"_"+(prevIndex+1);
+						}
+						function decrementFieldID(fieldID) {
+							var fieldIndex = getIndex(fieldID);
+							// normal case, just decrement the index
+							if (fieldIndex > 0) return fieldID.replace("_"+fieldIndex,"_"+(fieldIndex-1));
+							// something messed up if we reach this case, don't do anything
+							else return fieldID;
+						}
+						// update the index on the wrapper, input, buttons, etc fields as appropriate
+						function updateFieldIDs(field, isIncrement) {
+							var operation = function(i, fieldID) {
+								if (isIncrement) return incrementFieldID(fieldID);
+								return decrementFieldID(fieldID);
+							};
+							field.prop("id", operation);
+							field.find("select").prop("name", operation);
+							field.find("input").prop("name", operation);
+							field.find("button").prop("id", operation);
+						}
+						function incrementFieldIDs(field) {
+							updateFieldIDs(field, true);
+						}
+						function decrementFieldIDs(field) {
+							updateFieldIDs(field, false);
+						}
+						function renumberFields(removedElementID) {
+							var nextElementID = incrementFieldID(removedElementID);
+							var nextElement = jQuery("#"+nextElementID);
+							while (nextElement.length) {
+								decrementFieldIDs(nextElement);
+								nextElementID = incrementFieldID(nextElementID);
+								nextElement = jQuery("#"+nextElementID);
+							}
+						}
+					var removeButtons = jQuery('.${AppliedFilterClass} button');
+					removeButtons.click(function() {
+						var elemToRemove = jQuery(this).parent().parent();
+						var elemToRemoveID = elemToRemove.prop('id');
+						elemToRemove.remove();
+						renumberFields(elemToRemoveID);
+					});
+				});
+			</script>
+			<!-- Preserve existing search settings -->
+			<div class='form-group hidden'>
+				<input type="text" value="${resultsPerPage}" name="rpp" id='${SearchFormResultsPerPageID}' />
+				<input type="text" value="${sortedBy}" name="sort_by" id='${SearchFormSortedByID}' />
+				<input type="text" value="${sortOrder}" name="order" id='${SearchFormSortOrderID}' />
+			</div>
+		</form>
+	</div>
+</div>
+
+<div class="row">
+	<!-- Side Filters -->
+	<div class="col-sm-3 SimpleSearchSidebar">
+		<div class="SimpleSearchResultFilters" id='SimpleSearchResultFilters'>
+			<h3><fmt:message key="jsp.search.facet.refine" /></h3>
+			<c:if test='${empty facetNameToResults}'>
+				<h5 class='text-info text-center'>No Filters Available</h4>
+			</c:if>
+			<c:forEach items='${facetNameToResults}' var='facet'>
+				<c:set var='FacetCollapseID' value='${facet.key}_facet_collapse_id' />	
+				<c:set var='FacetCollapseHeadingID' value='${facet.key}_facet_collapse_heading_id' />	
+				<div class='panel panel-default'>
+					<a role="button" data-toggle="collapse" data-parent="#SimpleSearchResultFilters" href="#${FacetCollapseID}" aria-expanded="true" aria-controls="${FacetCollapseID}">
+						<div class='panel-heading' id='${FacetCollapseHeadingID}'>
+							<span class='glyphicon glyphicon-chevron-down'></span>
+							<fmt:message key="jsp.search.facet.refine.${facet.key}" />
+						</div>
+					</a>
+					<div id='${FacetCollapseID}' class='panel-collapse collapse' role='tabpanel' aria-labelledby='${FacetCollapseHeadingID}'>
+						<table class='table table-condensed table-hover'>
+							<tbody>
+								<c:forEach items='${facet.value}' var='facetResult'>
+									<c:set var="FacetResultURL" 
+									  value="${pagination.baseURL}0&amp;filtername=${facet.key}&amp;filterquery=${facetResult.asFilterQuery}&amp;filtertype=${facetResult.filterType}"/>
+									<tr>
+										<td>
+											<a href='${FacetResultURL}'
+											   title='<fmt:message key="jsp.search.facet.narrow"><fmt:param>${facetResult.displayedValue}</fmt:param></fmt:message>'>
+												${facetResult.displayedValue}
+											</a>
+										</td>
+										<td class='text-info'>${facetResult.count}</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</div>
+				</div>	
+				<script>
+					// swap the indicator icon when showing and hiding content
+					jQuery(function() {
+						var buttonIcon = jQuery('#${FacetCollapseHeadingID} span');
+						jQuery('#${FacetCollapseID}').on('show.bs.collapse', function () {
+							buttonIcon.removeClass('glyphicon-chevron-down');
+							buttonIcon.addClass('glyphicon-chevron-up');
+						});
+						jQuery('#${FacetCollapseID}').on('hide.bs.collapse', function () {
+							buttonIcon.removeClass('glyphicon-chevron-up');
+							buttonIcon.addClass('glyphicon-chevron-down');
+						});
+					});
+				</script>
+			</c:forEach>
 		</div>
 	</div>
-	<%--
-    <div class="panel panel-info">
-    <div class="panel-heading"><fmt:message key="jsp.search.results.itemhits"/></div>
-    <dspace:itemlist items="<%= items %>" />
-    </div>
-	--%>
-<% } %>
-
-<%-- Collections & Communities results, hide for next round of testing as they're not relevant yet.
-<% if (collections.length > 0 ) { %>
-    <div class="panel panel-info">
-    <div class="panel-heading"><fmt:message key="jsp.search.results.colhits"/></div>
-    <dspace:collectionlist collections="<%= collections %>" />
-    </div>
-<% } %>
-
-<% if (communities.length > 0 ) { %>
-    <div class="panel panel-info">
-    <div class="panel-heading"><fmt:message key="jsp.search.results.comhits"/></div>
-    <dspace:communitylist  communities="<%= communities %>" />
-    </div>
-<% } %>
---%>
+	<!-- Results Display -->
+	<div class="col-sm-9">
+		<!-- Controls for Displaying Results -->
+		<div class=''>
+			<div class='row text-center'>
+				<c:set var="ResultsControlResultsPerPageID" value="ResultsControlResultsPerPage" />
+				<c:set var="ResultsControlSortedByID" value="ResultsControlSortedBy" />
+				<c:set var="ResultsControlSortOrderID" value="ResultsControlSortOrder" />
+				<c:set var="SearchSortAscending" value="ASC" />
+				<c:set var="SearchSortDescending" value="DESC" />
+				<form class='form-inline center-block col-sm-12'>
+					<div class='SimpleSearchResultControls'>
+					<!-- Results Count -->
+					<span><strong>${numResults}</strong> Results</span>
+					<!-- Results Per Page -->
+					<div class='form-group'>
+						<select id="${ResultsControlResultsPerPageID}" name="rpp" class='form-control'>
+							<c:forEach items="${resultsPerPageOptions}" var="resultsPerPageOption">
+								<option value='${resultsPerPageOption}' ${resultsPerPage == resultsPerPageOption? "selected":""}>${resultsPerPageOption} per page</option>
+							</c:forEach>
+						</select>
+					</div>
+					<!-- Sorting Controls -->
+					<div class='form-group'>
+						<c:if test='${!empty sortOptions}'>
+							<select id="${ResultsControlSortedByID}" name="sort_by" class='form-control'>
+							   <option value="score"><fmt:message key="search.results.sort-by"/> <fmt:message key="search.sort-by.relevance"/></option>
+								<c:forEach items='${sortOptions}' var='sortOption'>
+									<option value='${sortOption}' ${sortedBy == sortOption ? "selected" : ""}>
+										<fmt:message key="search.results.sort-by"/>
+										<fmt:message key="search.sort-by.${sortOption}"/>
+									</option>
+								</c:forEach>
+							</select>
+						</c:if>
+					</div>
+					<!-- Ascending vs Descending -->
+					<div class='form-group'>
+						<ul id='${ResultsControlSortOrderID}' class="nav nav-pills">
+							<li role="presentation" class="${isSortedAscending ? 'active':''}">
+								<a href="#SearchAscending" aria-controls="FilesTabTileView" role="tab" data-toggle="tab" title="Ascending">
+									<span class='glyphicon glyphicon-sort-by-attributes'></span>
+								</a>
+							</li>
+							<li role="presentation" class="${!isSortedAscending ? 'active':''}">
+								<a href="#SearchDescending" aria-controls="FilesTabTileView" role="tab" data-toggle="tab" title="Descending">
+									<span class='glyphicon glyphicon-sort-by-attributes-alt'></span>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<!-- List vs Thumbnail view -->
+					<div class="form-group">
+						<ul class="nav nav-pills">
+							<li role="presentation" class="active">
+								<a href="#SearchListView" aria-controls="SearchListView" role="tab" data-toggle="tab" title="List View">
+									<i class="glyphicon glyphicon-th-list"></i>
+								</a>
+							</li>
+							<li role="presentation">
+								<a href="#SearchTileView" aria-controls="SearchTileView" role="tab" data-toggle="tab" title="Tile View">
+									<i class="glyphicon glyphicon-th-large"></i>
+								</a>
+							</li>
+						</ul>
+					</div>
+					</div>
+				</form>
+				<!-- Search Result Controls JS -->
+				<script>
+					jQuery(function() {
+						var searchForm = jQuery('#${SearchFormID}');
+						var searchResultsPerPage = jQuery('#${SearchFormResultsPerPageID}');
+						var searchSortedBy = jQuery('#${SearchFormSortedByID}');
+						var searchSortOrder = jQuery('#${SearchFormSortOrderID}');
+						var resultsControlResultsPerPage = jQuery('#${ResultsControlResultsPerPageID}');
+						var resultsControlSortedBy = jQuery('#${ResultsControlSortedByID}');
+						var resultsControlSortOrderToggle = jQuery('#${ResultsControlSortOrderID} a[data-toggle="tab"]');
+						// copy changes over to the main search form and then do a submit in order to preserve search settings
+						resultsControlResultsPerPage.change(function() {
+							searchResultsPerPage.val(resultsControlResultsPerPage.val());
+							searchForm.submit();
+						});
+						resultsControlSortedBy.change(function() {
+							searchSortedBy.val(resultsControlSortedBy.val());
+							searchForm.submit();
+						});
+						resultsControlSortOrderToggle.on('shown.bs.tab', function(e) {
+							if (jQuery(e.target).prop('title') == 'Ascending')
+								searchSortOrder.val('${SearchSortAscending}');
+							else
+								searchSortOrder.val('${SearchSortDescending}');
+							searchForm.submit();
+						});
+					});
+				</script>
+			</div>
+			<!-- Pagination Controls -->
+			<c:if test='${!empty results}'>
+				<jsp:include page="/ubc/statspace/components/simple-search/pagination.jsp">
+					<jsp:param name="paginationVar" value="pagination" />
+				</jsp:include>
+			</c:if>
+			<!-- Warning for Empty Results -->
+			<c:if test='${empty results}'>
+				<div class="row">
+					<div class='col-sm-12'>
+						<div class="alert alert-info h4 text-center">
+							<span class="glyphicon glyphicon-search"></span> <fmt:message key="jsp.search.general.noresults"/>
+						</div>
+					</div>
+				</div>
+			</c:if>
+		</div>
+		<!-- Display Results -->
+		<div class="tab-content">
+			<div role="tabpanel" class="tab-pane active" id="SearchListView">
+				<jsp:include page="/ubc/statspace/components/simple-search/results-list-view.jsp">
+					<jsp:param name="resultsVar" value="results" />
+				</jsp:include>
+			</div>
+			<div role="tabpanel" class="tab-pane" id="SearchTileView">
+				<jsp:include page="/ubc/statspace/components/simple-search/results-tile-view.jsp">
+					<jsp:param name="resultsVar" value="results" />
+				</jsp:include>
+			</div>
+		</div>
+		<!-- Repeat Pagination Controls -->
+		<c:if test='${!empty results}'>
+			<jsp:include page="/ubc/statspace/components/simple-search/pagination.jsp">
+				<jsp:param name="paginationVar" value="pagination" />
+			</jsp:include>
+		</c:if>
+	</div>
 </div>
-<%-- if the result page is enought long... --%>
-<% if (pageTotal > 1) {%>
-<%-- show again the navigation info/links --%>
-<div class="discovery-result-pagination row">
-    <%-- <p align="center">Results <//%=qResults.getStart()+1%>-<//%=qResults.getStart()+qResults.getHitHandles().size()%> of --%>
-	<%-- TODO: Result count incorrect, so hide it for now
-	<div class="alert alert-info"><fmt:message key="jsp.search.results.results">
-        <fmt:param><%=qResults.getStart()+1%></fmt:param>
-        <fmt:param><%=lastHint%></fmt:param>
-        <fmt:param><%=qResults.getTotalSearchResults()%></fmt:param>
-        <fmt:param><%=(float) qResults.getSearchTime() / 1000 %></fmt:param>
-    </fmt:message></div>
-	--%>
-    <ul class="pagination pull-right">
-<%
-if (pageFirst != pageCurrent)
-{
-    %><li><a href="<%= prevURL %>"><fmt:message key="jsp.search.general.previous" /></a></li><%
-}
-else
-{
-    %><li class="disabled"><span><fmt:message key="jsp.search.general.previous" /></span></li><%
-}    
-
-if (pageFirst != 1)
-{
-    %><li><a href="<%= firstURL %>">1</a></li><li class="disabled"><span>...</span></li><%
-}
-
-for( long q = pageFirst; q <= pageLast; q++ )
-{
-    String myLink = "<li><a href=\""
-                    + baseURL;
 
 
-    if( q == pageCurrent )
-    {
-        myLink = "<li class=\"active\"><span>" + q + "</span></li>";
-    }
-    else
-    {
-        myLink = myLink
-            + (q-1) * qResults.getMaxResults()
-            + "\">"
-            + q
-            + "</a></li>";
-    }
-%>
-
-<%= myLink %>
-
-<%
-}
-
-if (pageTotal > pageLast)
-{
-    %><li class="disabled"><span>...</span></li><li><a href="<%= lastURL %>"><%= pageTotal %></a></li><%
-}
-if (pageTotal > pageCurrent)
-{
-    %><li><a href="<%= nextURL %>"><fmt:message key="jsp.search.general.next" /></a></li><%
-}
-else
-{
-    %><li class="disabled"><span><fmt:message key="jsp.search.general.next" /></span></li><%
-}
-%>
-</ul>
-<!-- give a content to the div -->
-</div>
-<% } %>
-<% } %>
-<dspace:sidebar>
-<%
-	boolean brefine = false;
-	
-	List<DiscoverySearchFilterFacet> facetsConf = (List<DiscoverySearchFilterFacet>) request.getAttribute("facetsConfig");
-	Map<String, Boolean> showFacets = new HashMap<String, Boolean>();
-		
-	for (DiscoverySearchFilterFacet facetConf : facetsConf)
-	{
-		if(qResults!=null) {
-		    String f = facetConf.getIndexFieldName();
-		    List<FacetResult> facet = qResults.getFacetResult(f);
-		    if (facet.size() == 0)
-		    {
-		        facet = qResults.getFacetResult(f+".year");
-			    if (facet.size() == 0)
-			    {
-			        showFacets.put(f, false);
-			        continue;
-			    }
-		    }
-		    boolean showFacet = false;
-		    for (FacetResult fvalue : facet)
-		    { 
-				if(!appliedFilterQueries.contains(f+"::"+fvalue.getFilterType()+"::"+fvalue.getAsFilterQuery()))
-			    {
-			        showFacet = true;
-			        break;
-			    }
-		    }
-		    showFacets.put(f, showFacet);
-		    brefine = brefine || showFacet;
-		}
-	}
-	if (brefine) {
-%>
-
-<h3 class="facets"><fmt:message key="jsp.search.facet.refine" /></h3>
-<div id="facets" class="facetsBox">
-
-<%
-	for (DiscoverySearchFilterFacet facetConf : facetsConf)
-	{
-	    String f = facetConf.getIndexFieldName();
-	    if (!showFacets.get(f))
-	        continue;
-	    List<FacetResult> facet = qResults.getFacetResult(f);
-	    if (facet.size() == 0)
-	    {
-	        facet = qResults.getFacetResult(f+".year");
-	    }
-	    int limit = facetConf.getFacetLimit()+1;
-	    
-	    String fkey = "jsp.search.facet.refine."+f;
-	    %><div id="facet_<%= f %>" class="panel panel-success">
-	    <div class="panel-heading"><fmt:message key="<%= fkey %>" /></div>
-	    <ul class="list-group"><%
-	    int idx = 1;
-	    int currFp = UIUtil.getIntParameter(request, f+"_page");
-	    if (currFp < 0)
-	    {
-	        currFp = 0;
-	    }
-	    for (FacetResult fvalue : facet)
-	    { 
-	        if (idx != limit && !appliedFilterQueries.contains(f+"::"+fvalue.getFilterType()+"::"+fvalue.getAsFilterQuery()))
-	        {
-	        %><li class="list-group-item"><span class="badge"><%= fvalue.getCount() %></span> <a href="<%= request.getContextPath()
-                + (!searchScope.equals("")?"/handle/"+searchScope:"")
-                + "/simple-search?query="
-                + URLEncoder.encode(query,"UTF-8")
-                + "&amp;sort_by=" + sortedBy
-                + "&amp;order=" + order
-                + "&amp;rpp=" + rpp
-                + httpFilters
-                + "&amp;etal=" + etAl
-                + "&amp;filtername="+URLEncoder.encode(f,"UTF-8")
-                + "&amp;filterquery="+URLEncoder.encode(fvalue.getAsFilterQuery(),"UTF-8")
-                + "&amp;filtertype="+URLEncoder.encode(fvalue.getFilterType(),"UTF-8") %>"
-                title="<fmt:message key="jsp.search.facet.narrow"><fmt:param><%=fvalue.getDisplayedValue() %></fmt:param></fmt:message>">
-                <%-- we don't want to truncate the subject <%= StringUtils.abbreviate(fvalue.getDisplayedValue(),36) %> --%>
-                <%= fvalue.getDisplayedValue() %>
-				</a></li><%
-                idx++;
-	        }
-	        if (idx > limit)
-	        {
-	            break;
-	        }
-	    }
-	    if (currFp > 0 || idx == limit)
-	    {
-	        %><li class="list-group-item"><span style="visibility: hidden;">.</span>
-	        <% if (currFp > 0) { %>
-	        <a class="pull-left" href="<%= request.getContextPath()
-	            + (!searchScope.equals("")?"/handle/"+searchScope:"")
-                + "/simple-search?query="
-                + URLEncoder.encode(query,"UTF-8")
-                + "&amp;sort_by=" + sortedBy
-                + "&amp;order=" + order
-                + "&amp;rpp=" + rpp
-                + httpFilters
-                + "&amp;etal=" + etAl  
-                + "&amp;"+f+"_page="+(currFp-1) %>"><fmt:message key="jsp.search.facet.refine.previous" /></a>
-            <% } %>
-            <% if (idx == limit) { %>
-            <a href="<%= request.getContextPath()
-	            + (!searchScope.equals("")?"/handle/"+searchScope:"")
-                + "/simple-search?query="
-                + URLEncoder.encode(query,"UTF-8")
-                + "&amp;sort_by=" + sortedBy
-                + "&amp;order=" + order
-                + "&amp;rpp=" + rpp
-                + httpFilters
-                + "&amp;etal=" + etAl  
-                + "&amp;"+f+"_page="+(currFp+1) %>"><span class="pull-right"><fmt:message key="jsp.search.facet.refine.next" /></span></a>
-            <%
-            }
-            %></li><%
-	    }
-	    %></ul></div><%
-	}
-
-%>
-
-</div>
-<% } %>
-</dspace:sidebar>
 </dspace:layout>

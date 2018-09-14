@@ -10,12 +10,16 @@ package org.dspace.app.webui.ubc;
 import org.dspace.ubc.UBCAccessChecker;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.LinkedHashMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -56,6 +60,10 @@ import org.dspace.discovery.configuration.DiscoveryConfiguration;
 import org.dspace.discovery.configuration.DiscoverySearchFilter;
 import org.dspace.discovery.configuration.DiscoverySearchFilterFacet;
 import org.dspace.discovery.configuration.DiscoverySortFieldConfiguration;
+import org.dspace.app.webui.ubc.retriever.ItemRetriever;
+import org.dspace.app.webui.ubc.statspace.search.PaginationInfo;
+import org.dspace.discovery.DiscoverResult.FacetResult;
+import org.dspace.sort.SortOption;
 import org.w3c.dom.Document;
 
 public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcessor
@@ -71,6 +79,9 @@ public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcesso
     private Map<String, Map<String, String>> localeLabels = null;
 
     private List<String> searchIndices = null;
+
+	public static final int PAGINATION_RANGE = 3;
+	public static final int MAX_RESULTS_PER_PAGE = 100;
     
     public synchronized void init()
     {
@@ -217,7 +228,7 @@ public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcesso
     
     public void doSimpleSearch(Context context, HttpServletRequest request,
             HttpServletResponse response) throws SearchProcessorException,
-            IOException, ServletException
+            IOException, ServletException, UnsupportedEncodingException
     {
         Item[] resultsItems;
         Collection[] resultsCollections;
@@ -405,11 +416,11 @@ public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcesso
                     .getMaxResults());
 
             // pageLast = min(pageCurrent+3,pageTotal)
-            long pageLast = ((pageCurrent + 3) > pageTotal) ? pageTotal
-                    : (pageCurrent + 3);
+            long pageLast = ((pageCurrent + PAGINATION_RANGE) > pageTotal) ? pageTotal
+                    : (pageCurrent + PAGINATION_RANGE);
 
-            // pageFirst = max(1,pageCurrent-3)
-            long pageFirst = ((pageCurrent - 3) > 1) ? (pageCurrent - 3) : 1;
+            // pageFirst = max(1,pageCurrent-PAGINATION_RANGE)
+            long pageFirst = ((pageCurrent - PAGINATION_RANGE) > 1) ? (pageCurrent - PAGINATION_RANGE) : 1;
 
             // Pass the results to the display JSP
             request.setAttribute("items", resultsItems);
@@ -441,6 +452,52 @@ public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcesso
             {
                 exportMetadata(context, response, resultsItems);
             }
+
+
+
+
+
+
+			// new simple search params
+			// items
+			List<ItemRetriever> results = new ArrayList<ItemRetriever>();
+			for (Item item : resultsItems)
+			{
+				ItemRetriever retriever = new ItemRetriever(context, request, item);
+				results.add(retriever);
+			}
+			// pagination
+			request.setAttribute("numResults", qResults.getTotalSearchResults());
+			request.setAttribute("numCollections", resultsCollections.length);
+			request.setAttribute("numCommunities", resultsCommunities.length);
+			request.setAttribute("results", results);
+			request.setAttribute("queryStr", query);
+
+			setPaginationAttributes(request, scope, appliedFilters, queryArgs, qResults);
+
+			// params for 'sorted by' dropdown
+			String sortedBy = queryArgs.getSortField();
+			request.setAttribute("sortedBy", sortedBy);
+			// sort order
+			String sortOrder = queryArgs.getSortOrder().toString();
+			boolean isSortedAscending = SortOption.ASCENDING.equalsIgnoreCase(sortOrder);
+			request.setAttribute("sortOrder", sortOrder);
+			request.setAttribute("isSortedAscending", isSortedAscending);
+			// advanced filters
+			setAdvancedFilterAttributes(request, availableFilters);
+			// request filters
+			setResultFilterAttributes(request, availableFacet, qResults, appliedFilterQueries);
+
+			// params for 'results per page' dropdown
+			List<Integer> resultsPerPageOptions = new ArrayList<Integer>();
+			int defaultRpp = (new DiscoveryConfiguration()).getDefaultRpp();
+			for (int i = defaultRpp; i <= MAX_RESULTS_PER_PAGE; i += defaultRpp)
+			{
+				resultsPerPageOptions.add(i);
+			}
+			request.setAttribute("resultsPerPageOptions", resultsPerPageOptions);
+			request.setAttribute("resultsPerPage", queryArgs.getMaxResults());
+
         }
         catch (SearchServiceException e)
         {
@@ -450,12 +507,166 @@ public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcesso
                             + ",error=" + e.getMessage()), e);
             request.setAttribute("search.error", true);
             request.setAttribute("search.error.message", e.getMessage());
-        }
+        } catch (SQLException e) {
+            log.error(
+                    LogManager.getHeader(context, "search", "query="
+                            + queryArgs.getQuery() + ",scope=" + scope
+                            + ",error=" + e.getMessage()), e);
+            request.setAttribute("search.error", true);
+            request.setAttribute("search.error.message", e.getMessage());
+		}
 
         //JSPManager.showJSP(request, response, "/search/discovery.jsp");
 		request.setAttribute("context", context);
 		JSPManager.showJSP(request, response, "/ubc/statspace/simple-search.jsp");
     }
+
+	/**
+	 * Set attributes required for search filters.
+	 * @param request
+	 * @param availableFilters 
+	 */
+	private void setAdvancedFilterAttributes(HttpServletRequest request, List<DiscoverySearchFilter> availableFilters)
+	{
+		List<String> filterNameOptions = new ArrayList<String>();
+		for (DiscoverySearchFilter filter : availableFilters)
+		{
+			filterNameOptions.add(filter.getIndexFieldName());
+		}
+
+		List<String> filterTypeOptions = new ArrayList<String>(Arrays.asList(
+			"contains","equals","authority","notequals","notcontains","notauthority"
+		));
+
+		request.setAttribute("filterNameOptions", filterNameOptions);
+		request.setAttribute("filterTypeOptions", filterTypeOptions);
+	}
+
+	/**
+	 * Set attributes needed to render the sidebar results filter.
+	 * @param request
+	 * @param facetsConf
+	 * @param qResults
+	 * @param appliedFilterQueries 
+	 */
+	private void setResultFilterAttributes(HttpServletRequest request, List<DiscoverySearchFilterFacet> facetsConf, DiscoverResult qResults, List<String> appliedFilterQueries)
+	{
+		if (facetsConf == null) return;
+		if (qResults == null) return;
+		List<DiscoverySearchFilterFacet> facetsToShow = new ArrayList<DiscoverySearchFilterFacet>();
+		Map<String, List<FacetResult>> facetNameToResults = new LinkedHashMap<String, List<FacetResult>>();
+		Map<String, Boolean> showFacets = new HashMap<String, Boolean>();
+			
+		for (DiscoverySearchFilterFacet facetConf : facetsConf)
+		{
+			String facetName = facetConf.getIndexFieldName();
+			List<FacetResult> facetResults = qResults.getFacetResult(facetName);
+			if (facetResults.size() == 0)
+			{
+				facetResults = qResults.getFacetResult(facetName+".year");
+				if (facetResults.size() == 0) continue;
+			}
+			boolean showFacet = false;
+			for (FacetResult fvalue : facetResults)
+			{ 
+				if(!appliedFilterQueries.contains(facetName+"::"+fvalue.getFilterType()+"::"+fvalue.getAsFilterQuery()))
+				{
+					facetsToShow.add(facetConf);
+					facetNameToResults.put(facetName, facetResults);
+					break;
+				}
+			}
+		}
+		request.setAttribute("facetNameToResults", facetNameToResults);
+	}
+
+	/**
+	 * Configure the parameters required to generate the pagination controls.
+	 * @param request
+	 * @param scope
+	 * @param appliedFilters
+	 * @param qArgs
+	 * @param qResults
+	 * @param pageCurrent - page user is currently on
+	 * @param pageTotal - total number of pages
+	 * @param pageFirst - we only show a sliding range to the user, this is the smallest page number we'll show to the user
+	 * @param pageLast - we only show a sliding range to the user, this is the largest page number we'll show to the user
+	 * @throws UnsupportedEncodingException 
+	 */
+	private void setPaginationAttributes(HttpServletRequest request, DSpaceObject scope, List<String[]> appliedFilters,
+			DiscoverQuery qArgs, DiscoverResult qResults)
+		throws UnsupportedEncodingException
+	{
+		// total number of pages
+		long pageTotal = 1 + ((qResults.getTotalSearchResults() - 1) / qResults.getMaxResults());
+		// current page being displayed
+		long pageCurrent = 1 + (qResults.getStart() / qResults.getMaxResults());
+		// pageLast = min(pageCurrent+3,pageTotal)
+		long pageRangeEnd = ((pageCurrent + PAGINATION_RANGE) > pageTotal) ? pageTotal : (pageCurrent + PAGINATION_RANGE);
+		// pageFirst = max(1,pageCurrent-PAGINATION_RANGE)
+		long pageRangeStart = ((pageCurrent - PAGINATION_RANGE) > 1) ? (pageCurrent - PAGINATION_RANGE) : 1;
+
+		String query = qArgs.getQuery();
+		if (query == null) query = "";
+		String searchScope = scope!=null?scope.getHandle():"";
+		int rpp          = qArgs.getMaxResults();
+		int etAl         = ((Integer) request.getAttribute("etal")).intValue();
+		String sortedBy = qArgs.getSortField();
+		String order = qArgs.getSortOrder().toString();
+		String httpFilters ="";
+		if (appliedFilters != null && appliedFilters.size() >0 )
+		{
+			int idx = 1;
+			for (String[] filter : appliedFilters)
+			{
+				httpFilters += "&amp;filter_field_"+idx+"="+URLEncoder.encode(filter[0],"UTF-8");
+				httpFilters += "&amp;filter_type_"+idx+"="+URLEncoder.encode(filter[1],"UTF-8");
+				httpFilters += "&amp;filter_value_"+idx+"="+URLEncoder.encode(filter[2],"UTF-8");
+				idx++;
+			}
+		}
+		// create the URLs accessing the previous and next search result pages
+		String baseURL =  request.getContextPath()
+				+ (!searchScope.equals("") ? "/handle/" + searchScope : "")
+				+ "/simple-search?query="
+				+ URLEncoder.encode(query,"UTF-8")
+				+ httpFilters
+				+ "&amp;sort_by=" + sortedBy
+				+ "&amp;order=" + order
+				+ "&amp;rpp=" + rpp
+				+ "&amp;etal=" + etAl
+				+ "&amp;start=";
+		
+		// previous page from current
+		String prevURL = baseURL
+				+ (pageCurrent-2) * qResults.getMaxResults();
+		// next page from current
+		String nextURL = baseURL
+				+ (pageCurrent) * qResults.getMaxResults();
+		// page 1, note this is NOT the firstPage param passed in, as that might not be page 1
+		String firstURL = baseURL +"0";
+		// very last page, note this is NOT the lastPage param passed in, as lagePage can be a smaller page number
+		String lastURL = baseURL + (pageTotal-1) * qResults.getMaxResults();
+		// one page beyond lastPage
+		String skipForwardURL = baseURL + (pageRangeEnd) * qResults.getMaxResults();
+		// one page behind firstPage
+		String skipBackURL = baseURL + (pageRangeStart - 2) * qResults.getMaxResults();
+
+		PaginationInfo paginationInfo = new PaginationInfo();
+		paginationInfo.setBaseURL(baseURL);
+		paginationInfo.setFirstPageURL(firstURL);
+		paginationInfo.setLastPageURL(lastURL);
+		paginationInfo.setNextPageURL(nextURL);
+		paginationInfo.setPreviousPageURL(prevURL);
+		paginationInfo.setSkipForwardURL(skipForwardURL);
+		paginationInfo.setSkipBackURL(skipBackURL);
+		paginationInfo.setMultiplier(qResults.getMaxResults());
+		paginationInfo.setPageCurrent(pageCurrent);
+		paginationInfo.setPageTotal(pageTotal);
+		paginationInfo.setPageRangeStart(pageRangeStart);
+		paginationInfo.setPageRangeEnd(pageRangeEnd);
+		request.setAttribute("pagination", paginationInfo);
+	}
 
     /**
      * Export the search results as a csv file

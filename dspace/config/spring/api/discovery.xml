@@ -110,6 +110,7 @@
                 <ref bean="searchFilterResourceType" />
                 <ref bean="searchFilterSubject" />
                 <ref bean="searchFilterIssued" />
+                <ref bean="searchFilterSubmitted" />
                 <ref bean="searchFilterAccessRights" />
             </list>
         </property>
@@ -224,6 +225,7 @@
                 <ref bean="searchFilterSubject" />
                 <ref bean="searchFilterResourceType" />
                 <ref bean="searchFilterIssued" />
+                <ref bean="searchFilterSubmitted" />
             </list>
         </property>
         <property name="defaultFilterQueries">
@@ -427,6 +429,17 @@
         <property name="metadataFields">
             <list>
                 <value>dc.date.issued</value>
+            </list>
+        </property>
+        <property name="type" value="date"/>
+        <property name="sortOrder" value="VALUE"/>
+    </bean>
+
+    <bean id="searchFilterSubmitted" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="dateSubmitted"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.date.submitted</value>
             </list>
         </property>
         <property name="type" value="date"/>
