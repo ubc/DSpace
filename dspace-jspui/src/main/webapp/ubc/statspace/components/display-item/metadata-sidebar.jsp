@@ -20,7 +20,7 @@
 <!-- Resource Types -->
 <div class='panel panel-default'>
 	<div class='panel-heading'>
-		<h4 class="panel-title"><span class='glyphicon glyphicon-bookmark'></span> Resource Types</h4>
+		<h4 class="panel-title"><span class='glyphicon glyphicon-bookmark'></span> Resource Type</h4>
 	</div>
 	<ul class='list-group'>
 		<c:forEach items="${itemRetriever.resourceTypes}" var="type" varStatus="loopStatus">
@@ -42,7 +42,7 @@
 <c:if test="${!empty itemRetriever.relatedMaterials}">
 	<div class='panel panel-default'>
 		<div class='panel-heading'>
-			<h4 class="panel-title"><span class='glyphicon glyphicon-link'></span> Related Materials</h4>
+			<h4 class="panel-title"><span class='glyphicon glyphicon-link'></span> Related Material</h4>
 		</div>
 		<ul class='list-group'>
 			<c:forEach items="${itemRetriever.relatedMaterials}" var="prereq">
@@ -55,7 +55,7 @@
 <c:if test="${!empty itemRetriever.alternativeLanguages}">
 	<div class='panel panel-default'>
 		<div class='panel-heading'>
-			<h4 class="panel-title"><span class='glyphicon glyphicon-plane'></span> Alternative Languages</h4>
+			<h4 class="panel-title"><span class='glyphicon glyphicon-plane'></span> Alternative Language</h4>
 		</div>
 		<ul class='list-group'>
 			<c:forEach items="${itemRetriever.alternativeLanguages}" var="altLangs">
