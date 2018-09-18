@@ -70,7 +70,7 @@ public class ItemRetriever {
 	}
 
 	private void initMetadata() throws SQLException, UnsupportedEncodingException {
-		thumbnail = request.getContextPath() + "/image/ubc-logo-lg.png";
+		thumbnail = request.getContextPath() + "/image/ubc-logo-xl.png";
 		files = bitstreamRetriever.getBitstreams();
 		if (!files.isEmpty()) {
 			for (BitstreamResult file: files) {
