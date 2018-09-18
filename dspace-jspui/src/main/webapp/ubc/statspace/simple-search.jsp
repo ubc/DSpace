@@ -49,28 +49,36 @@ TODO:
 					<!-- Advanced Filters -->
 					<c:set var='AddFilterToggleID' value='AddFilterToggle'/>
 					<c:set var='AddFilterSectionID' value='AddFilterSection'/>
+					<c:set var='ClearAllFiltersButtonID' value='ClearAllFilters'/>
 					<div class='SimpleSearchAddFilterToggle'>
 						<button type='button' class='pull-right btn btn-link' id='${AddFilterToggleID}'>
 							<small>Advanced Search</small>
 						</button>
+						<c:if test='${!empty appliedFilters}'>
+							<button id='${ClearAllFiltersButtonID}' type='button' class='pull-left btn btn-default btn-xs' style=''>
+								<span class='glyphicon glyphicon-remove'></span> Clear All Filters
+							</button>
+						</c:if>
 					</div>
 					<div id='${AddFilterSectionID}' class='SimpleSearchAddFilter hidden'>
 						<div class='form-inline'>
-							<label>Add Filter</label>
-							<select class='form-control' name='filtername' disabled required>
+							<label>Filter</label>
+							<select class='form-control input-sm' name='filtername' disabled required>
 								<option class='hidden' selected disabled>- Select Field -</option>
 								<c:forEach items='${filterNameOptions}' var='filterNameOption'>
 									<option value="${filterNameOption}"><fmt:message key="jsp.search.filter.${filterNameOption}"/></option>
 								</c:forEach>
 							</select>
-							<select class='form-control' name='filtertype' disabled required>
-								<option class='hidden' selected disabled>- Select Operation -</option>
+							<select class='form-control input-sm' name='filtertype' disabled required>
+								<%-- Defaulting to 'Select Operation' increases the size of the field to the point that it forces the following form inputs to wrap around on sm sizes,
+									 if we default to the first option, this wraparound deson't happen. Not sure what's a good way to solve this. --%>
+								<!--<option class='hidden' selected disabled>- Select Operation -</option>-->
 								<c:forEach items='${filterTypeOptions}' var='filterTypeOption'>
 									<option value="${filterTypeOption}"><fmt:message key="jsp.search.filter.op.${filterTypeOption}"/></option>
 								</c:forEach>
 							</select>
-							<input class='form-control' type="text" id="filterquery" name="filterquery" placeholder='Filter Term' disabled required />
-							<button class='btn btn-default'><span class='glyphicon glyphicon-plus'></span> <fmt:message key="jsp.search.filter.add"/></button>
+							<input class='form-control input-sm' type="text" id="filterquery" name="filterquery" placeholder='Filter Term' disabled required />
+							<button class='btn btn-default btn-sm'><span class='glyphicon glyphicon-plus'></span> <fmt:message key="jsp.search.filter.add"/></button>
 						</div>
 					</div>
 					<!-- Show/Hide Advanced Search -->
@@ -128,66 +136,74 @@ TODO:
 			<script>
 				// TODO: This is almost identical to edit-metadata.jsp's renumbering script, should merge them together into one
 				jQuery(function() {
-						// Because of the way DSpace rely on sequentially numbering repeated fields, if you have
-						// say fields 1,2,3,4, and you remove field 2, it'll also remove fields 3 and 4 cause
-						// it stops after seeing that 2 is gone. The proper way to fix this is to use form arrays,
-						// but I don't have the time required to fix the api, so this is a workaround to renumber 
-						// the fields to make sure they're sequential. 
-						function getIndex(elementID) {
-							var index = elementID.match(/\d+/g);
-							// dspace cannot handle elements numbered with 0, it expects the first element
-							// to not be numbered, so have to compensate here. Assume that if we didn't
-							// find a number, it's the first element.
-							if (index === null) index = 0;
-							index = parseInt(index, 10);
-							return index;
+					var searchForm = jQuery('#${SearchFormID}');
+					// Because of the way DSpace rely on sequentially numbering repeated fields, if you have
+					// say fields 1,2,3,4, and you remove field 2, it'll also remove fields 3 and 4 cause
+					// it stops after seeing that 2 is gone. The proper way to fix this is to use form arrays,
+					// but I don't have the time required to fix the api, so this is a workaround to renumber 
+					// the fields to make sure they're sequential. 
+					function getIndex(elementID) {
+						var index = elementID.match(/\d+/g);
+						// dspace cannot handle elements numbered with 0, it expects the first element
+						// to not be numbered, so have to compensate here. Assume that if we didn't
+						// find a number, it's the first element.
+						if (index === null) index = 0;
+						index = parseInt(index, 10);
+						return index;
+					}
+					function incrementFieldID(fieldID) {
+						var prevIndex = getIndex(fieldID);
+						if (fieldID.match("_"+prevIndex))
+							return fieldID.replace("_"+prevIndex, "_"+(prevIndex+1));
+						// special case if starting from element 0, since it isn't numbered
+						return fieldID+"_"+(prevIndex+1);
+					}
+					function decrementFieldID(fieldID) {
+						var fieldIndex = getIndex(fieldID);
+						// normal case, just decrement the index
+						if (fieldIndex > 0) return fieldID.replace("_"+fieldIndex,"_"+(fieldIndex-1));
+						// something messed up if we reach this case, don't do anything
+						else return fieldID;
+					}
+					// update the index on the wrapper, input, buttons, etc fields as appropriate
+					function updateFieldIDs(field, isIncrement) {
+						var operation = function(i, fieldID) {
+							if (isIncrement) return incrementFieldID(fieldID);
+							return decrementFieldID(fieldID);
+						};
+						field.prop("id", operation);
+						field.find("select").prop("name", operation);
+						field.find("input").prop("name", operation);
+						field.find("button").prop("id", operation);
+					}
+					function incrementFieldIDs(field) {
+						updateFieldIDs(field, true);
+					}
+					function decrementFieldIDs(field) {
+						updateFieldIDs(field, false);
+					}
+					function renumberFields(removedElementID) {
+						var nextElementID = incrementFieldID(removedElementID);
+						var nextElement = jQuery("#"+nextElementID);
+						while (nextElement.length) {
+							decrementFieldIDs(nextElement);
+							nextElementID = incrementFieldID(nextElementID);
+							nextElement = jQuery("#"+nextElementID);
 						}
-						function incrementFieldID(fieldID) {
-							var prevIndex = getIndex(fieldID);
-							if (fieldID.match("_"+prevIndex))
-								return fieldID.replace("_"+prevIndex, "_"+(prevIndex+1));
-							// special case if starting from element 0, since it isn't numbered
-							return fieldID+"_"+(prevIndex+1);
-						}
-						function decrementFieldID(fieldID) {
-							var fieldIndex = getIndex(fieldID);
-							// normal case, just decrement the index
-							if (fieldIndex > 0) return fieldID.replace("_"+fieldIndex,"_"+(fieldIndex-1));
-							// something messed up if we reach this case, don't do anything
-							else return fieldID;
-						}
-						// update the index on the wrapper, input, buttons, etc fields as appropriate
-						function updateFieldIDs(field, isIncrement) {
-							var operation = function(i, fieldID) {
-								if (isIncrement) return incrementFieldID(fieldID);
-								return decrementFieldID(fieldID);
-							};
-							field.prop("id", operation);
-							field.find("select").prop("name", operation);
-							field.find("input").prop("name", operation);
-							field.find("button").prop("id", operation);
-						}
-						function incrementFieldIDs(field) {
-							updateFieldIDs(field, true);
-						}
-						function decrementFieldIDs(field) {
-							updateFieldIDs(field, false);
-						}
-						function renumberFields(removedElementID) {
-							var nextElementID = incrementFieldID(removedElementID);
-							var nextElement = jQuery("#"+nextElementID);
-							while (nextElement.length) {
-								decrementFieldIDs(nextElement);
-								nextElementID = incrementFieldID(nextElementID);
-								nextElement = jQuery("#"+nextElementID);
-							}
-						}
+					}
 					var removeButtons = jQuery('.${AppliedFilterClass} button');
+					var canSubmit = true;
 					removeButtons.click(function() {
 						var elemToRemove = jQuery(this).parent().parent();
 						var elemToRemoveID = elemToRemove.prop('id');
 						elemToRemove.remove();
 						renumberFields(elemToRemoveID);
+						if (canSubmit) searchForm.submit();
+					});
+					var clearAllFiltersButton = jQuery('#${ClearAllFiltersButtonID}');
+					clearAllFiltersButton.click(function() {
+						jQuery('.${AppliedFilterClass}').remove();
+						searchForm.submit();
 					});
 				});
 			</script>
@@ -211,45 +227,49 @@ TODO:
 			</c:if>
 			<c:forEach items='${facetNameToResults}' var='facet'>
 				<c:set var='FacetCollapseID' value='${facet.key}_facet_collapse_id' />	
+				<c:set var='FacetCollapseToggleID' value='${facet.key}_facet_collapse_toggle_id' />	
 				<c:set var='FacetCollapseHeadingID' value='${facet.key}_facet_collapse_heading_id' />	
 				<div class='panel panel-default'>
-					<a role="button" data-toggle="collapse" data-parent="#SimpleSearchResultFilters" href="#${FacetCollapseID}" aria-expanded="true" aria-controls="${FacetCollapseID}">
+					<a role="button" id='${FacetCollapseToggleID}'>
 						<div class='panel-heading' id='${FacetCollapseHeadingID}'>
 							<span class='glyphicon glyphicon-chevron-down'></span>
 							<fmt:message key="jsp.search.facet.refine.${facet.key}" />
 						</div>
 					</a>
-					<div id='${FacetCollapseID}' class='panel-collapse collapse' role='tabpanel' aria-labelledby='${FacetCollapseHeadingID}'>
-						<table class='table table-condensed table-hover'>
-							<tbody>
-								<c:forEach items='${facet.value}' var='facetResult'>
-									<c:set var="FacetResultURL" 
-									  value="${pagination.baseURL}0&amp;filtername=${facet.key}&amp;filterquery=${facetResult.asFilterQuery}&amp;filtertype=${facetResult.filterType}"/>
-									<tr>
-										<td>
-											<a href='${FacetResultURL}'
-											   title='<fmt:message key="jsp.search.facet.narrow"><fmt:param>${facetResult.displayedValue}</fmt:param></fmt:message>'>
-												${facetResult.displayedValue}
-											</a>
-										</td>
-										<td class='text-info'>${facetResult.count}</td>
-									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
-					</div>
+					<table id='${FacetCollapseID}' class='table table-condensed table-hover hidden'>
+						<tbody>
+							<c:forEach items='${facet.value}' var='facetResult'>
+								<c:set var="FacetResultURL" 
+								  value="${pagination.baseURL}0&amp;filtername=${facet.key}&amp;filterquery=${facetResult.asFilterQuery}&amp;filtertype=${facetResult.filterType}"/>
+								<tr>
+									<td>
+										<a href='${FacetResultURL}'
+										   title='<fmt:message key="jsp.search.facet.narrow"><fmt:param>${facetResult.displayedValue}</fmt:param></fmt:message>'>
+											${facetResult.displayedValue}
+										</a>
+									</td>
+									<td class='text-info'>${facetResult.count}</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
 				</div>	
 				<script>
 					// swap the indicator icon when showing and hiding content
 					jQuery(function() {
 						var buttonIcon = jQuery('#${FacetCollapseHeadingID} span');
-						jQuery('#${FacetCollapseID}').on('show.bs.collapse', function () {
-							buttonIcon.removeClass('glyphicon-chevron-down');
-							buttonIcon.addClass('glyphicon-chevron-up');
-						});
-						jQuery('#${FacetCollapseID}').on('hide.bs.collapse', function () {
-							buttonIcon.removeClass('glyphicon-chevron-up');
-							buttonIcon.addClass('glyphicon-chevron-down');
+						jQuery('#${FacetCollapseToggleID}').click(function () {
+							var facet = jQuery('#${FacetCollapseID}');
+							if (facet.is(':visible'))
+								buttonIcon.switchClass('glyphicon-chevron-up', 'glyphicon-chevron-down');
+							else {
+								buttonIcon.switchClass('glyphicon-chevron-down', 'glyphicon-chevron-up');
+								if (facet.hasClass('hidden')) {
+									facet.hide();
+									facet.removeClass('hidden');
+								}
+							}
+							facet.toggle({ effect: 'blind', duration: 'fast' });
 						});
 					});
 				</script>
@@ -263,65 +283,63 @@ TODO:
 			<div class='row text-center'>
 				<c:set var="ResultsControlResultsPerPageID" value="ResultsControlResultsPerPage" />
 				<c:set var="ResultsControlSortedByID" value="ResultsControlSortedBy" />
-				<c:set var="ResultsControlSortOrderID" value="ResultsControlSortOrder" />
+				<c:set var="ResultsControlSortAscending" value="ResultsControlSortAscending" />
+				<c:set var="ResultsControlSortDescending" value="ResultsControlSortOrder" />
 				<c:set var="SearchSortAscending" value="ASC" />
 				<c:set var="SearchSortDescending" value="DESC" />
 				<form class='form-inline center-block col-sm-12'>
 					<div class='SimpleSearchResultControls'>
-					<!-- Results Count -->
-					<span><strong>${numResults}</strong> Results</span>
-					<!-- Results Per Page -->
-					<div class='form-group'>
-						<select id="${ResultsControlResultsPerPageID}" name="rpp" class='form-control'>
-							<c:forEach items="${resultsPerPageOptions}" var="resultsPerPageOption">
-								<option value='${resultsPerPageOption}' ${resultsPerPage == resultsPerPageOption? "selected":""}>${resultsPerPageOption} per page</option>
-							</c:forEach>
-						</select>
-					</div>
-					<!-- Sorting Controls -->
-					<div class='form-group'>
-						<c:if test='${!empty sortOptions}'>
-							<select id="${ResultsControlSortedByID}" name="sort_by" class='form-control'>
-							   <option value="score"><fmt:message key="search.results.sort-by"/> <fmt:message key="search.sort-by.relevance"/></option>
-								<c:forEach items='${sortOptions}' var='sortOption'>
-									<option value='${sortOption}' ${sortedBy == sortOption ? "selected" : ""}>
-										<fmt:message key="search.results.sort-by"/>
-										<fmt:message key="search.sort-by.${sortOption}"/>
-									</option>
+						<!-- Results Count -->
+						<span><strong>${numResults}</strong> Results</span>
+						<!-- Results Per Page -->
+						<div class='form-group'>
+							<select id="${ResultsControlResultsPerPageID}" name="rpp" class='form-control'>
+								<c:forEach items="${resultsPerPageOptions}" var="resultsPerPageOption">
+									<option value='${resultsPerPageOption}' ${resultsPerPage == resultsPerPageOption? "selected":""}>${resultsPerPageOption} per page</option>
 								</c:forEach>
 							</select>
-						</c:if>
-					</div>
-					<!-- Ascending vs Descending -->
-					<div class='form-group'>
-						<ul id='${ResultsControlSortOrderID}' class="nav nav-pills">
-							<li role="presentation" class="${isSortedAscending ? 'active':''}">
-								<a href="#SearchAscending" aria-controls="FilesTabTileView" role="tab" data-toggle="tab" title="Ascending">
+						</div>
+						<!-- Sorting Controls -->
+						<div class='form-group'>
+							<c:if test='${!empty sortOptions}'>
+								<select id="${ResultsControlSortedByID}" name="sort_by" class='form-control'>
+								   <option value="score"><fmt:message key="search.results.sort-by"/> <fmt:message key="search.sort-by.relevance"/></option>
+									<c:forEach items='${sortOptions}' var='sortOption'>
+										<option value='${sortOption}' ${sortedBy == sortOption ? "selected" : ""}>
+											<fmt:message key="search.results.sort-by"/>
+											<fmt:message key="search.sort-by.${sortOption}"/>
+										</option>
+									</c:forEach>
+								</select>
+							</c:if>
+						</div>
+						<!-- Ascending vs Descending -->
+						<div class="clearfix visible-sm-block SimpleSearchResultControlsSeparator"></div>
+						<div class='form-group'>
+							<label>Order</label>
+							<div class="btn-group">
+								<button id='${ResultsControlSortAscending}' type="button" class="btn btn-default ${isSortedAscending ? 'active':''}" title='Ascending'>
 									<span class='glyphicon glyphicon-sort-by-attributes'></span>
-								</a>
-							</li>
-							<li role="presentation" class="${!isSortedAscending ? 'active':''}">
-								<a href="#SearchDescending" aria-controls="FilesTabTileView" role="tab" data-toggle="tab" title="Descending">
+								</button>
+								<button id='${ResultsControlSortDescending}' type="button" class="btn btn-default ${!isSortedAscending ? 'active':''}" title='Descending'>
 									<span class='glyphicon glyphicon-sort-by-attributes-alt'></span>
-								</a>
-							</li>
-						</ul>
-					</div>
-					<!-- List vs Thumbnail view -->
-					<div class="form-group">
-						<ul class="nav nav-pills">
-							<li role="presentation" class="active">
-								<a href="#SearchListView" aria-controls="SearchListView" role="tab" data-toggle="tab" title="List View">
+								</button>
+							</div>
+						</div>
+						<!-- List vs Thumbnail view -->
+						<div class="form-group">
+							<c:set var='ListViewButtonID' value='ListViewButton' />
+							<c:set var='TileViewButtonID' value='TileViewButton' />
+							<label>View</label>
+							<div class="btn-group">
+								<button id='${ListViewButtonID}' class='btn btn-default active' type='button' title="List View">
 									<i class="glyphicon glyphicon-th-list"></i>
-								</a>
-							</li>
-							<li role="presentation">
-								<a href="#SearchTileView" aria-controls="SearchTileView" role="tab" data-toggle="tab" title="Tile View">
+								</button>
+								<button id='${TileViewButtonID}' class='btn btn-default' type='button' title="Tile View">
 									<i class="glyphicon glyphicon-th-large"></i>
-								</a>
-							</li>
-						</ul>
-					</div>
+								</button>
+							</div>
+						</div>
 					</div>
 				</form>
 				<!-- Search Result Controls JS -->
@@ -331,24 +349,42 @@ TODO:
 						var searchResultsPerPage = jQuery('#${SearchFormResultsPerPageID}');
 						var searchSortedBy = jQuery('#${SearchFormSortedByID}');
 						var searchSortOrder = jQuery('#${SearchFormSortOrderID}');
-						var resultsControlResultsPerPage = jQuery('#${ResultsControlResultsPerPageID}');
-						var resultsControlSortedBy = jQuery('#${ResultsControlSortedByID}');
-						var resultsControlSortOrderToggle = jQuery('#${ResultsControlSortOrderID} a[data-toggle="tab"]');
+						var resultsPerPage = jQuery('#${ResultsControlResultsPerPageID}');
+						var sortedBy = jQuery('#${ResultsControlSortedByID}');
+						var sortAscending = jQuery('#${ResultsControlSortAscending}');
+						var sortDescending = jQuery('#${ResultsControlSortDescending}');
+						var resultsListView = jQuery('#ResultsListView');
+						var resultsTileView = jQuery('#ResultsTileView');
+						var listViewButton = jQuery('#${ListViewButtonID}');
+						var tileViewButton = jQuery('#${TileViewButtonID}');
 						// copy changes over to the main search form and then do a submit in order to preserve search settings
-						resultsControlResultsPerPage.change(function() {
-							searchResultsPerPage.val(resultsControlResultsPerPage.val());
+						resultsPerPage.change(function() {
+							searchResultsPerPage.val(resultsPerPage.val());
 							searchForm.submit();
 						});
-						resultsControlSortedBy.change(function() {
-							searchSortedBy.val(resultsControlSortedBy.val());
+						sortedBy.change(function() {
+							searchSortedBy.val(sortedBy.val());
 							searchForm.submit();
 						});
-						resultsControlSortOrderToggle.on('shown.bs.tab', function(e) {
-							if (jQuery(e.target).prop('title') == 'Ascending')
-								searchSortOrder.val('${SearchSortAscending}');
-							else
-								searchSortOrder.val('${SearchSortDescending}');
+						sortAscending.click(function(e) {
+							searchSortOrder.val('${SearchSortAscending}');
 							searchForm.submit();
+						});
+						sortDescending.click(function(e) {
+							searchSortOrder.val('${SearchSortDescending}');
+							searchForm.submit();
+						});
+						listViewButton.click(function(e){
+							tileViewButton.removeClass('active');
+							listViewButton.addClass('active');
+							resultsTileView.removeClass('active');
+							resultsListView.addClass('active');
+						});
+						tileViewButton.click(function(e){
+							listViewButton.removeClass('active');
+							tileViewButton.addClass('active');
+							resultsListView.removeClass('active');
+							resultsTileView.addClass('active');
 						});
 					});
 				</script>
@@ -371,13 +407,13 @@ TODO:
 			</c:if>
 		</div>
 		<!-- Display Results -->
-		<div class="tab-content">
-			<div role="tabpanel" class="tab-pane active" id="SearchListView">
+		<div class="tab-content SimpleSearchResults">
+			<div role="tabpanel" class="tab-pane active" id="ResultsListView">
 				<jsp:include page="/ubc/statspace/components/simple-search/results-list-view.jsp">
 					<jsp:param name="resultsVar" value="results" />
 				</jsp:include>
 			</div>
-			<div role="tabpanel" class="tab-pane" id="SearchTileView">
+			<div role="tabpanel" class="tab-pane" id="ResultsTileView">
 				<jsp:include page="/ubc/statspace/components/simple-search/results-tile-view.jsp">
 					<jsp:param name="resultsVar" value="results" />
 				</jsp:include>

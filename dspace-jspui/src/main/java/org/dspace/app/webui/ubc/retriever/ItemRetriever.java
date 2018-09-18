@@ -50,6 +50,7 @@ public class ItemRetriever {
 	private String license = "";
 	private String packageZipUrl = "";
 	private boolean isRestricted = false;
+	private boolean hasPlaceholderThumbnail = true;
 	private List<SubjectResult> subjects = new ArrayList<>();
 	private List<BitstreamResult> files;
 	private List<String> resourceTypes = new ArrayList<>();
@@ -76,6 +77,7 @@ public class ItemRetriever {
 				String tmpThumb = file.getThumbnail();
 				if (!tmpThumb.isEmpty()) {
 					thumbnail = tmpThumb;
+					hasPlaceholderThumbnail = false;
 					break;
 				}
 			}
@@ -163,6 +165,15 @@ public class ItemRetriever {
 	}
 	public boolean getIsRestricted() {
 		return isRestricted;
+	}
+	/**
+	 * True if we default to the placeholder thumbnail cause this item doesn't 
+	 * have files that has a thumbnail. Used so we can apply a fadeout to the
+	 * placeholder thumbnail, making it obvious it's a placeholder.
+	 * @return 
+	 */
+	public boolean getHasPlaceholderThumbnail() {
+		return hasPlaceholderThumbnail;
 	}
 	public List<SubjectResult> getSubjects() {
 		return subjects;

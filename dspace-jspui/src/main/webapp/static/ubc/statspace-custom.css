@@ -29,20 +29,21 @@ label.SimpleSearchBigLabel {
 	margin-top: 0;
 	padding-top: 0;
 }
+.SimpleSearchPlaceholderThumbnail {
+	opacity: 0.4;
+}
 .SimpleSearchResultListItem .media-object {
-	width: 80px;
+	width: 82px;
 }
 .SimpleSearchResultListItem {
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;
-	border-bottom: 1px solid transparent;
-	border-top: 1px solid transparent;
+	border-top: 1px solid white;
+	border-bottom: 1px solid white;
 }
 .SimpleSearchResultListItem:hover {
-	border-top-color: whitesmoke;
-	border-bottom-color: whitesmoke;
-	border-image: linear-gradient(to right, whitesmoke, gainsboro, whitesmoke);
-	border-image-slice: 1;
+	border-top-color: gainsboro;
+	border-bottom-color: gainsboro;
 }
 .SimpleSearchBigSearchBox {
 	padding-top: 2em;
@@ -60,8 +61,14 @@ label.SimpleSearchBigLabel {
 	background: #f9f9f9;
 	border: 1px solid gainsboro;
 }
+.SimpleSearchResults {
+	margin-bottom: 0.5em;
+}
 .SimpleSearchResultFilters {
 	padding-bottom: 1em;
+}
+.SimpleSearchResultFilters .panel > .table > tbody:first-child > tr:first-child td {
+	border-top: 1px solid #ddd;
 }
 .SimpleSearchResultFilters h3 {
 	margin-top: 0.5em;
@@ -85,15 +92,25 @@ label.SimpleSearchBigLabel {
 	border: 1px solid gainsboro;
 	margin-bottom: 0.5em;
 }
-.SimpleSearchAddFilterToggle button{
+.SimpleSearchResultControls label {
+	margin-left: 0.6em;
+}
+.SimpleSearchAddFilterToggle .btn-link {
 	padding: 0.2em 0.5em;
+}
+.SimpleSearchAddFilterToggle .btn-xs {
+	margin-top: 0.4em;
+	margin-bottom: 0.4em;
 }
 .SimpleSearchAddFilter  {
 	padding: 1em;
-	margin-top: 2em;
+	margin-top: 2.3em;
 	margin-bottom: 0.5em;
 	border: 1px solid gainsboro;
 	background: whitesmoke;
+}
+.SimpleSearchResultControlsSeparator {
+	margin-top: 0.5em;
 }
 
 /* Make shared height search results gallery boxes */
@@ -102,10 +119,8 @@ label.SimpleSearchBigLabel {
 	flex-wrap: wrap;
 }
 .discovery-result-results div.searchResultBox:hover {
-	border-left-color: lightgray;
-	border-right-color: lightgray;
-	border-image: linear-gradient(to bottom, whitesmoke, gainsboro, whitesmoke);
-	border-image-slice: 1;
+	border-left-color: gainsboro;
+	border-right-color: gainsboro;
 }
 .discovery-result-results div.searchResultBox {
 	border-left: 1px solid transparent;

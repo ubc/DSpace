@@ -6,7 +6,7 @@
 	<div class="media SimpleSearchResultListItem">
 		<div class="media-left">
 			<a href="${result.url}">
-				<img class="media-object" src="${result.thumbnail}" alt="Thumbnail for ${result.title}">
+				<img class="media-object ${result.hasPlaceholderThumbnail ? "SimpleSearchPlaceholderThumbnail":""}" src="${result.thumbnail}" alt="Thumbnail for ${result.title}">
 			</a>
 		</div>
 		<div class="media-body">
