@@ -6,7 +6,7 @@
 	<div class="col-md-12 searchResultsWrap">
 	<c:forEach items="${results}" var="result">
 		<div class="col-md-4 col-sm-6 col-xs-12 searchResultBox">
-			<a class="center-block searchResultThumbnail img-rounded" href="${result.url}" 
+			<a class="center-block searchResultThumbnail img-rounded ${result.hasPlaceholderThumbnail ? "SimpleSearchPlaceholderThumbnail":""}" href="${result.url}" 
 			   style='background: center / contain no-repeat url(${result.thumbnail});'>
 				<div class="text-center searchResultThumbnailPlaceholder">
 					<c:if test="${empty result.thumbnail}">

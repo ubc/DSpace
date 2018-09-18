@@ -97,7 +97,7 @@
             <list>
                 <ref bean="searchFilterAuthor" />
                 <ref bean="searchFilterSubject" />
-                <ref bean="searchFilterIssued" />
+				<!-- <ref bean="searchFilterIssued" /> -->
             </list>
         </property>
         <!-- Set TagCloud configuration per discovery configuration -->
@@ -110,7 +110,8 @@
                 <ref bean="searchFilterResourceType" />
                 <ref bean="searchFilterKeyword" />
                 <ref bean="searchFilterSubject" />
-                <ref bean="searchFilterIssued" />
+				<!-- <ref bean="searchFilterIssued" /> -->
+                <ref bean="searchFilterCreated" />
                 <ref bean="searchFilterSubmitted" />
                 <ref bean="searchFilterAccessRights" />
             </list>
@@ -124,7 +125,8 @@
                 <property name="sortFields">
                     <list>
                         <ref bean="sortTitle" />
-                        <ref bean="sortDateIssued" />
+                        <ref bean="sortAuthor" />
+						<!-- <ref bean="sortDateIssued" /> -->
                     </list>
                 </property>
             </bean>
@@ -214,7 +216,7 @@
                 <ref bean="searchFilterResourceType" />
                 <ref bean="searchFilterAuthor" />
                 <ref bean="searchFilterKeyword" />
-                <ref bean="searchFilterIssued" />
+				<!-- <ref bean="searchFilterIssued" /> -->
             </list>
         </property>
         <!-- Set TagCloud configuration per discovery configuration -->
@@ -227,7 +229,8 @@
                 <ref bean="searchFilterSubject" />
                 <ref bean="searchFilterResourceType" />
                 <ref bean="searchFilterKeyword" />
-                <ref bean="searchFilterIssued" />
+				<!-- <ref bean="searchFilterIssued" /> -->
+                <ref bean="searchFilterCreated" />
                 <ref bean="searchFilterSubmitted" />
             </list>
         </property>
@@ -246,7 +249,8 @@
                 <property name="sortFields">
                     <list>
                         <ref bean="sortTitle" />
-                        <ref bean="sortDateIssued" />
+                        <ref bean="sortAuthor" />
+						<!-- <ref bean="sortDateIssued" /> -->
                     </list>
                 </property>
             </bean>
@@ -460,6 +464,17 @@
         <property name="sortOrder" value="VALUE"/>
     </bean>
 
+    <bean id="searchFilterCreated" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="dateCreated"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.date.created</value>
+            </list>
+        </property>
+        <property name="type" value="date"/>
+        <property name="sortOrder" value="VALUE"/>
+    </bean>
+
     <bean id="searchFilterAccessRights" class="org.dspace.discovery.configuration.DiscoverySearchFilter">
         <property name="indexFieldName" value="accessRights"/>
         <property name="metadataFields">
@@ -479,4 +494,8 @@
         <property name="type" value="date"/>
     </bean>
     
+    <bean id="sortAuthor" class="org.dspace.discovery.configuration.DiscoverySortFieldConfiguration">
+        <property name="metadataField" value="dc.contributor.author"/>
+    </bean>
+
 </beans>
