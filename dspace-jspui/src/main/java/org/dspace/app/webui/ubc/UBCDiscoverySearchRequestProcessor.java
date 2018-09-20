@@ -82,6 +82,10 @@ public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcesso
 
 	public static final int PAGINATION_RANGE = 3;
 	public static final int MAX_RESULTS_PER_PAGE = 100;
+
+	public static final String VIEW_TYPE_LIST = "list";
+	public static final String VIEW_TYPE_TILE = "tile";
+
     
     public synchronized void init()
     {
@@ -491,6 +495,9 @@ public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcesso
 			String autocompleteURL = "/json/discovery/autocomplete?query="+ URLEncoder.encode(query,"UTF-8") + getFiltersAsURLParams(appliedFilters).replaceAll("&amp;","&");
 			request.setAttribute("autocompleteURL", autocompleteURL);
 			request.setAttribute("searchScope", searchScope);
+			// whether we should be in list view or tile view
+			String viewType = getViewType(request);
+			request.setAttribute("viewType", viewType);
 
 			// params for 'results per page' dropdown
 			List<Integer> resultsPerPageOptions = new ArrayList<Integer>();
@@ -617,6 +624,7 @@ public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcesso
 		String sortedBy = qArgs.getSortField();
 		String order = qArgs.getSortOrder().toString();
 		String httpFilters = getFiltersAsURLParams(appliedFilters);
+		String viewType = getViewType(request);
 
 		// create the URLs accessing the previous and next search result pages
 		String baseURL =  request.getContextPath()
@@ -628,6 +636,7 @@ public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcesso
 				+ "&amp;order=" + order
 				+ "&amp;rpp=" + rpp
 				+ "&amp;etal=" + etAl
+				+ "&amp;viewType=" + viewType
 				+ "&amp;start=";
 		
 		// previous page from current
@@ -659,6 +668,20 @@ public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcesso
 		paginationInfo.setPageRangeStart(pageRangeStart);
 		paginationInfo.setPageRangeEnd(pageRangeEnd);
 		request.setAttribute("pagination", paginationInfo);
+	}
+
+	/**
+	 * Get the string that indicates whether user is in list view or tile view.
+	 * @param request
+	 * @return 
+	 */
+	private String getViewType(HttpServletRequest request) {
+		String viewType = request.getParameter("viewType");
+		if (viewType != null && viewType.equalsIgnoreCase(VIEW_TYPE_TILE))
+			viewType = VIEW_TYPE_TILE;
+		else
+			viewType = VIEW_TYPE_LIST;
+		return viewType;
 	}
 
 	/**

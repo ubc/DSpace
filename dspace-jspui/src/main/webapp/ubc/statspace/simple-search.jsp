@@ -21,12 +21,6 @@
 <dspace:layout titlekey="jsp.search.title">
 
 <!-- Big Search Box -->
-<%--
-TODO:
-2. Autocomplete for search
-3. Persist list/tile view selection
-4. Higher resolution UBC logo placeholder
---%>
 <div class="row SimpleSearchBigSearchRow">
 	<div class="col-sm-12 SimpleSearchBigSearchBox">
 		<!-- Main Search Box -->
@@ -34,6 +28,9 @@ TODO:
 		<c:set var="SearchFormResultsPerPageID" value="SearchFormResultsPerPage" />
 		<c:set var="SearchFormSortedByID" value="SearchFormSortedBy" />
 		<c:set var="SearchFormSortOrderID" value="SearchFormSortOrder" />
+		<c:set var="SearchFormViewTypeID" value="SearchFormViewType" />
+		<c:set var="VIEW_TYPE_TILE" value="tile" />
+		<c:set var="VIEW_TYPE_LIST" value="list" />
 		<form id='${SearchFormID}' action="simple-search" method="get" class='form-horizontal'>
 			<div class="form-group">
 				<label for="query" class="col-sm-2 SimpleSearchBigLabel control-label">
@@ -264,9 +261,10 @@ TODO:
 			</script>
 			<!-- Preserve existing search settings -->
 			<div class='form-group hidden'>
-				<input type="text" value="${resultsPerPage}" name="rpp" id='${SearchFormResultsPerPageID}' />
-				<input type="text" value="${sortedBy}" name="sort_by" id='${SearchFormSortedByID}' />
-				<input type="text" value="${sortOrder}" name="order" id='${SearchFormSortOrderID}' />
+				<input type="hidden" value="${resultsPerPage}" name="rpp" id='${SearchFormResultsPerPageID}' />
+				<input type="hidden" value="${sortedBy}" name="sort_by" id='${SearchFormSortedByID}' />
+				<input type="hidden" value="${sortOrder}" name="order" id='${SearchFormSortOrderID}' />
+				<input type="hidden" value="${viewType}" name="viewType" id='${SearchFormViewTypeID}' />
 			</div>
 		</form>
 	</div>
@@ -388,10 +386,10 @@ TODO:
 							<c:set var='TileViewButtonID' value='TileViewButton' />
 							<label>View</label>
 							<div class="btn-group">
-								<button id='${ListViewButtonID}' class='btn btn-default active' type='button' title="List View">
+								<button id='${ListViewButtonID}' class='btn btn-default ${viewType!=VIEW_TYPE_TILE?'active':''}' type='button' title="List View">
 									<i class="glyphicon glyphicon-th-list"></i>
 								</button>
-								<button id='${TileViewButtonID}' class='btn btn-default' type='button' title="Tile View">
+								<button id='${TileViewButtonID}' class='btn btn-default ${viewType==VIEW_TYPE_TILE?'active':''}' type='button' title="Tile View">
 									<i class="glyphicon glyphicon-th-large"></i>
 								</button>
 							</div>
@@ -405,6 +403,7 @@ TODO:
 						var searchResultsPerPage = jQuery('#${SearchFormResultsPerPageID}');
 						var searchSortedBy = jQuery('#${SearchFormSortedByID}');
 						var searchSortOrder = jQuery('#${SearchFormSortOrderID}');
+						var searchViewType = jQuery('#${SearchFormViewTypeID}');
 						var resultsPerPage = jQuery('#${ResultsControlResultsPerPageID}');
 						var sortedBy = jQuery('#${ResultsControlSortedByID}');
 						var sortAscending = jQuery('#${ResultsControlSortAscending}');
@@ -431,16 +430,12 @@ TODO:
 							searchForm.submit();
 						});
 						listViewButton.click(function(e){
-							tileViewButton.removeClass('active');
-							listViewButton.addClass('active');
-							resultsTileView.removeClass('active');
-							resultsListView.addClass('active');
+							searchViewType.val("${VIEW_TYPE_LIST}");
+							searchForm.submit();
 						});
 						tileViewButton.click(function(e){
-							listViewButton.removeClass('active');
-							tileViewButton.addClass('active');
-							resultsListView.removeClass('active');
-							resultsTileView.addClass('active');
+							searchViewType.val("${VIEW_TYPE_TILE}");
+							searchForm.submit();
 						});
 					});
 				</script>
@@ -464,12 +459,12 @@ TODO:
 		</div>
 		<!-- Display Results -->
 		<div class="tab-content SimpleSearchResults">
-			<div role="tabpanel" class="tab-pane active" id="ResultsListView">
+			<div role="tabpanel" class="tab-pane ${viewType!=VIEW_TYPE_TILE?'active':''}" id="ResultsListView">
 				<jsp:include page="/ubc/statspace/components/simple-search/results-list-view.jsp">
 					<jsp:param name="resultsVar" value="results" />
 				</jsp:include>
 			</div>
-			<div role="tabpanel" class="tab-pane" id="ResultsTileView">
+			<div role="tabpanel" class="tab-pane ${viewType==VIEW_TYPE_TILE?'active':''}" id="ResultsTileView">
 				<jsp:include page="/ubc/statspace/components/simple-search/results-tile-view.jsp">
 					<jsp:param name="resultsVar" value="results" />
 				</jsp:include>
