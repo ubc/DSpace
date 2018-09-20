@@ -82,6 +82,10 @@ public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcesso
 
 	public static final int PAGINATION_RANGE = 3;
 	public static final int MAX_RESULTS_PER_PAGE = 100;
+
+	public static final String VIEW_TYPE_LIST = "list";
+	public static final String VIEW_TYPE_TILE = "tile";
+
     
     public synchronized void init()
     {
@@ -282,6 +286,7 @@ public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcesso
         request.setAttribute("etal", etal);
 
         String query = queryArgs.getQuery();
+		if (query == null) query = "";
         request.setAttribute("query", query);
         request.setAttribute("queryArgs", queryArgs);
         List<DiscoverySearchFilter> availableFilters = discoveryConfiguration
@@ -468,12 +473,11 @@ public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcesso
 			}
 			// pagination
 			request.setAttribute("numResults", qResults.getTotalSearchResults());
-			request.setAttribute("numCollections", resultsCollections.length);
-			request.setAttribute("numCommunities", resultsCommunities.length);
 			request.setAttribute("results", results);
 			request.setAttribute("queryStr", query);
 
-			setPaginationAttributes(request, scope, appliedFilters, queryArgs, qResults);
+			String searchScope = scope!=null?scope.getHandle():"";
+			setPaginationAttributes(request, searchScope, appliedFilters, queryArgs, qResults);
 
 			// params for 'sorted by' dropdown
 			String sortedBy = queryArgs.getSortField();
@@ -487,6 +491,13 @@ public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcesso
 			setAdvancedFilterAttributes(request, availableFilters);
 			// request filters
 			setResultFilterAttributes(request, availableFacet, qResults, appliedFilterQueries);
+			// autocomplete for filters
+			String autocompleteURL = "/json/discovery/autocomplete?query="+ URLEncoder.encode(query,"UTF-8") + getFiltersAsURLParams(appliedFilters).replaceAll("&amp;","&");
+			request.setAttribute("autocompleteURL", autocompleteURL);
+			request.setAttribute("searchScope", searchScope);
+			// whether we should be in list view or tile view
+			String viewType = getViewType(request);
+			request.setAttribute("viewType", viewType);
 
 			// params for 'results per page' dropdown
 			List<Integer> resultsPerPageOptions = new ArrayList<Integer>();
@@ -593,7 +604,7 @@ public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcesso
 	 * @param pageLast - we only show a sliding range to the user, this is the largest page number we'll show to the user
 	 * @throws UnsupportedEncodingException 
 	 */
-	private void setPaginationAttributes(HttpServletRequest request, DSpaceObject scope, List<String[]> appliedFilters,
+	private void setPaginationAttributes(HttpServletRequest request, String searchScope, List<String[]> appliedFilters,
 			DiscoverQuery qArgs, DiscoverResult qResults)
 		throws UnsupportedEncodingException
 	{
@@ -608,23 +619,13 @@ public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcesso
 
 		String query = qArgs.getQuery();
 		if (query == null) query = "";
-		String searchScope = scope!=null?scope.getHandle():"";
 		int rpp          = qArgs.getMaxResults();
 		int etAl         = ((Integer) request.getAttribute("etal")).intValue();
 		String sortedBy = qArgs.getSortField();
 		String order = qArgs.getSortOrder().toString();
-		String httpFilters ="";
-		if (appliedFilters != null && appliedFilters.size() >0 )
-		{
-			int idx = 1;
-			for (String[] filter : appliedFilters)
-			{
-				httpFilters += "&amp;filter_field_"+idx+"="+URLEncoder.encode(filter[0],"UTF-8");
-				httpFilters += "&amp;filter_type_"+idx+"="+URLEncoder.encode(filter[1],"UTF-8");
-				httpFilters += "&amp;filter_value_"+idx+"="+URLEncoder.encode(filter[2],"UTF-8");
-				idx++;
-			}
-		}
+		String httpFilters = getFiltersAsURLParams(appliedFilters);
+		String viewType = getViewType(request);
+
 		// create the URLs accessing the previous and next search result pages
 		String baseURL =  request.getContextPath()
 				+ (!searchScope.equals("") ? "/handle/" + searchScope : "")
@@ -635,6 +636,7 @@ public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcesso
 				+ "&amp;order=" + order
 				+ "&amp;rpp=" + rpp
 				+ "&amp;etal=" + etAl
+				+ "&amp;viewType=" + viewType
 				+ "&amp;start=";
 		
 		// previous page from current
@@ -666,6 +668,42 @@ public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcesso
 		paginationInfo.setPageRangeStart(pageRangeStart);
 		paginationInfo.setPageRangeEnd(pageRangeEnd);
 		request.setAttribute("pagination", paginationInfo);
+	}
+
+	/**
+	 * Get the string that indicates whether user is in list view or tile view.
+	 * @param request
+	 * @return 
+	 */
+	private String getViewType(HttpServletRequest request) {
+		String viewType = request.getParameter("viewType");
+		if (viewType != null && viewType.equalsIgnoreCase(VIEW_TYPE_TILE))
+			viewType = VIEW_TYPE_TILE;
+		else
+			viewType = VIEW_TYPE_LIST;
+		return viewType;
+	}
+
+	/**
+	 * For encoding the currently applied search filters into url params.
+	 * @param appliedFilters
+	 * @return
+	 * @throws UnsupportedEncodingException 
+	 */
+	private String getFiltersAsURLParams(List<String[]> appliedFilters) throws UnsupportedEncodingException {
+		String httpFilters = "";
+		if (appliedFilters != null && appliedFilters.size() >0 )
+		{
+			int idx = 1;
+			for (String[] filter : appliedFilters)
+			{
+				httpFilters += "&amp;filter_field_"+idx+"="+URLEncoder.encode(filter[0],"UTF-8");
+				httpFilters += "&amp;filter_type_"+idx+"="+URLEncoder.encode(filter[1],"UTF-8");
+				httpFilters += "&amp;filter_value_"+idx+"="+URLEncoder.encode(filter[2],"UTF-8");
+				idx++;
+			}
+		}
+		return httpFilters;
 	}
 
     /**

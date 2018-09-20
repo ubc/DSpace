@@ -21,12 +21,6 @@
 <dspace:layout titlekey="jsp.search.title">
 
 <!-- Big Search Box -->
-<%--
-TODO:
-2. Autocomplete for search
-3. Persist list/tile view selection
-4. Higher resolution UBC logo placeholder
---%>
 <div class="row SimpleSearchBigSearchRow">
 	<div class="col-sm-12 SimpleSearchBigSearchBox">
 		<!-- Main Search Box -->
@@ -34,6 +28,9 @@ TODO:
 		<c:set var="SearchFormResultsPerPageID" value="SearchFormResultsPerPage" />
 		<c:set var="SearchFormSortedByID" value="SearchFormSortedBy" />
 		<c:set var="SearchFormSortOrderID" value="SearchFormSortOrder" />
+		<c:set var="SearchFormViewTypeID" value="SearchFormViewType" />
+		<c:set var="VIEW_TYPE_TILE" value="tile" />
+		<c:set var="VIEW_TYPE_LIST" value="list" />
 		<form id='${SearchFormID}' action="simple-search" method="get" class='form-horizontal'>
 			<div class="form-group">
 				<label for="query" class="col-sm-2 SimpleSearchBigLabel control-label">
@@ -50,10 +47,22 @@ TODO:
 					<c:set var='AddFilterToggleID' value='AddFilterToggle'/>
 					<c:set var='AddFilterSectionID' value='AddFilterSection'/>
 					<c:set var='ClearAllFiltersButtonID' value='ClearAllFilters'/>
+					<c:set var='DidYouMeanButtonID' value='DidYouMean' />
 					<div class='SimpleSearchAddFilterToggle'>
 						<button type='button' class='pull-right btn btn-link' id='${AddFilterToggleID}'>
 							<small>Advanced Search</small>
 						</button>
+						<!-- "Did You Mean", DSpace will suggest search terms when it thinks you've made a typo -->
+						<c:if test='${!empty spellcheck}'>
+							<p class='h4 SimpleSearchDidYouMean'>
+								<em>
+								<fmt:message key="jsp.search.didyoumean">
+									<fmt:param><a id="${DidYouMeanButtonID}" role='button'>${spellcheck}</a></fmt:param>
+								</fmt:message>
+								</em>
+							</p>
+						</c:if>
+						<!-- "Clear All Filters" button -->
 						<c:if test='${!empty appliedFilters}'>
 							<button id='${ClearAllFiltersButtonID}' type='button' class='pull-left btn btn-default btn-xs' style=''>
 								<span class='glyphicon glyphicon-remove'></span> Clear All Filters
@@ -63,13 +72,13 @@ TODO:
 					<div id='${AddFilterSectionID}' class='SimpleSearchAddFilter hidden'>
 						<div class='form-inline'>
 							<label>Filter</label>
-							<select class='form-control input-sm' name='filtername' disabled required>
+							<select class='form-control input-sm' id='filtername' name='filtername' disabled required>
 								<option class='hidden' selected disabled>- Select Field -</option>
 								<c:forEach items='${filterNameOptions}' var='filterNameOption'>
 									<option value="${filterNameOption}"><fmt:message key="jsp.search.filter.${filterNameOption}"/></option>
 								</c:forEach>
 							</select>
-							<select class='form-control input-sm' name='filtertype' disabled required>
+							<select class='form-control input-sm' id='filtertype' name='filtertype' disabled required>
 								<%-- Defaulting to 'Select Operation' increases the size of the field to the point that it forces the following form inputs to wrap around on sm sizes,
 									 if we default to the first option, this wraparound deson't happen. Not sure what's a good way to solve this. --%>
 								<!--<option class='hidden' selected disabled>- Select Operation -</option>-->
@@ -80,8 +89,42 @@ TODO:
 							<input class='form-control input-sm' type="text" id="filterquery" name="filterquery" placeholder='Filter Term' disabled required />
 							<button class='btn btn-default btn-sm'><span class='glyphicon glyphicon-plus'></span> <fmt:message key="jsp.search.filter.add"/></button>
 						</div>
+						<!-- Autocomplete for filters -->
+						<script>
+							jQuery(function() {
+								jQuery( "#filterquery" ).autocomplete({
+									source: function( request, response ) {
+										jQuery.ajax({
+											url: "<c:url value='${autocompleteURL}' />",
+											dataType: "json",
+											cache: false,
+											data: {
+												auto_idx: jQuery("#filtername").val(),
+												auto_query: request.term,
+												auto_sort: 'count',
+												auto_type: jQuery("#filtertype").val(),
+												location: "${searchScope}"
+											},
+											success: function( data ) {
+												response( jQuery.map( data.autocomplete, function( item ) {
+													var tmp_val = item.authorityKey;
+													if (tmp_val == null || tmp_val == '')
+													{
+														tmp_val = item.displayedValue;
+													}
+													return {
+														label: item.displayedValue + " (" + item.count + ")",
+														value: tmp_val
+													};
+												}));			
+											}
+										});
+									}
+								});
+							});
+						</script>
 					</div>
-					<!-- Show/Hide Advanced Search -->
+					<!-- JS for: Show/Hide Advanced Search, Did You Mean -->
 					<script>
 						// need to disable inputs so they don't get submitted, otherwise,
 						// dspace API gets confused by the empty fields
@@ -101,6 +144,15 @@ TODO:
 							toggle.click(function() {
 								if (section.hasClass('hidden')) showSection();
 								else hideSection();
+							});
+						});
+						// replace search term with the suggested fix and resubmit form
+						jQuery(function() {
+							var didYouMeanButton = jQuery('#${DidYouMeanButtonID}');
+							didYouMeanButton.click(function() {
+								var searchForm = jQuery('#${SearchFormID}');
+								searchForm.find('#query').val("${spellcheck}");
+								searchForm.submit();
 							});
 						});
 					</script>
@@ -209,14 +261,16 @@ TODO:
 			</script>
 			<!-- Preserve existing search settings -->
 			<div class='form-group hidden'>
-				<input type="text" value="${resultsPerPage}" name="rpp" id='${SearchFormResultsPerPageID}' />
-				<input type="text" value="${sortedBy}" name="sort_by" id='${SearchFormSortedByID}' />
-				<input type="text" value="${sortOrder}" name="order" id='${SearchFormSortOrderID}' />
+				<input type="hidden" value="${resultsPerPage}" name="rpp" id='${SearchFormResultsPerPageID}' />
+				<input type="hidden" value="${sortedBy}" name="sort_by" id='${SearchFormSortedByID}' />
+				<input type="hidden" value="${sortOrder}" name="order" id='${SearchFormSortOrderID}' />
+				<input type="hidden" value="${viewType}" name="viewType" id='${SearchFormViewTypeID}' />
 			</div>
 		</form>
 	</div>
 </div>
 
+<!-- Everything Below The Search Box -->
 <div class="row">
 	<!-- Side Filters -->
 	<div class="col-sm-3 SimpleSearchSidebar">
@@ -332,10 +386,10 @@ TODO:
 							<c:set var='TileViewButtonID' value='TileViewButton' />
 							<label>View</label>
 							<div class="btn-group">
-								<button id='${ListViewButtonID}' class='btn btn-default active' type='button' title="List View">
+								<button id='${ListViewButtonID}' class='btn btn-default ${viewType!=VIEW_TYPE_TILE?'active':''}' type='button' title="List View">
 									<i class="glyphicon glyphicon-th-list"></i>
 								</button>
-								<button id='${TileViewButtonID}' class='btn btn-default' type='button' title="Tile View">
+								<button id='${TileViewButtonID}' class='btn btn-default ${viewType==VIEW_TYPE_TILE?'active':''}' type='button' title="Tile View">
 									<i class="glyphicon glyphicon-th-large"></i>
 								</button>
 							</div>
@@ -349,6 +403,7 @@ TODO:
 						var searchResultsPerPage = jQuery('#${SearchFormResultsPerPageID}');
 						var searchSortedBy = jQuery('#${SearchFormSortedByID}');
 						var searchSortOrder = jQuery('#${SearchFormSortOrderID}');
+						var searchViewType = jQuery('#${SearchFormViewTypeID}');
 						var resultsPerPage = jQuery('#${ResultsControlResultsPerPageID}');
 						var sortedBy = jQuery('#${ResultsControlSortedByID}');
 						var sortAscending = jQuery('#${ResultsControlSortAscending}');
@@ -375,16 +430,12 @@ TODO:
 							searchForm.submit();
 						});
 						listViewButton.click(function(e){
-							tileViewButton.removeClass('active');
-							listViewButton.addClass('active');
-							resultsTileView.removeClass('active');
-							resultsListView.addClass('active');
+							searchViewType.val("${VIEW_TYPE_LIST}");
+							searchForm.submit();
 						});
 						tileViewButton.click(function(e){
-							listViewButton.removeClass('active');
-							tileViewButton.addClass('active');
-							resultsListView.removeClass('active');
-							resultsTileView.addClass('active');
+							searchViewType.val("${VIEW_TYPE_TILE}");
+							searchForm.submit();
 						});
 					});
 				</script>
@@ -408,12 +459,12 @@ TODO:
 		</div>
 		<!-- Display Results -->
 		<div class="tab-content SimpleSearchResults">
-			<div role="tabpanel" class="tab-pane active" id="ResultsListView">
+			<div role="tabpanel" class="tab-pane ${viewType!=VIEW_TYPE_TILE?'active':''}" id="ResultsListView">
 				<jsp:include page="/ubc/statspace/components/simple-search/results-list-view.jsp">
 					<jsp:param name="resultsVar" value="results" />
 				</jsp:include>
 			</div>
-			<div role="tabpanel" class="tab-pane" id="ResultsTileView">
+			<div role="tabpanel" class="tab-pane ${viewType==VIEW_TYPE_TILE?'active':''}" id="ResultsTileView">
 				<jsp:include page="/ubc/statspace/components/simple-search/results-tile-view.jsp">
 					<jsp:param name="resultsVar" value="results" />
 				</jsp:include>

@@ -80,12 +80,10 @@
 				jQuery(function() {
 					var buttonIcon = jQuery('#${resultItemCollapseID}-btn span');
 					jQuery('#${resultItemCollapseID}').on('show.bs.collapse', function () {
-						buttonIcon.removeClass('glyphicon-plus');
-						buttonIcon.addClass('glyphicon-minus');
+						buttonIcon.switchClass('glyphicon-plus', 'glyphicon-minus')
 					});
 					jQuery('#${resultItemCollapseID}').on('hide.bs.collapse', function () {
-						buttonIcon.removeClass('glyphicon-minus');
-						buttonIcon.addClass('glyphicon-plus');
+						buttonIcon.switchClass('glyphicon-minus', 'glyphicon-plus')
 					});
 				});
 			</script>
