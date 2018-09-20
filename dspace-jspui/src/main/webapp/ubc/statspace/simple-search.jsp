@@ -50,10 +50,22 @@ TODO:
 					<c:set var='AddFilterToggleID' value='AddFilterToggle'/>
 					<c:set var='AddFilterSectionID' value='AddFilterSection'/>
 					<c:set var='ClearAllFiltersButtonID' value='ClearAllFilters'/>
+					<c:set var='DidYouMeanButtonID' value='DidYouMean' />
 					<div class='SimpleSearchAddFilterToggle'>
 						<button type='button' class='pull-right btn btn-link' id='${AddFilterToggleID}'>
 							<small>Advanced Search</small>
 						</button>
+						<!-- "Did You Mean", DSpace will suggest search terms when it thinks you've made a typo -->
+						<c:if test='${!empty spellcheck}'>
+							<p class='h4 SimpleSearchDidYouMean'>
+								<em>
+								<fmt:message key="jsp.search.didyoumean">
+									<fmt:param><a id="${DidYouMeanButtonID}" role='button'>${spellcheck}</a></fmt:param>
+								</fmt:message>
+								</em>
+							</p>
+						</c:if>
+						<!-- "Clear All Filters" button -->
 						<c:if test='${!empty appliedFilters}'>
 							<button id='${ClearAllFiltersButtonID}' type='button' class='pull-left btn btn-default btn-xs' style=''>
 								<span class='glyphicon glyphicon-remove'></span> Clear All Filters
@@ -81,7 +93,7 @@ TODO:
 							<button class='btn btn-default btn-sm'><span class='glyphicon glyphicon-plus'></span> <fmt:message key="jsp.search.filter.add"/></button>
 						</div>
 					</div>
-					<!-- Show/Hide Advanced Search -->
+					<!-- JS for: Show/Hide Advanced Search, Did You Mean -->
 					<script>
 						// need to disable inputs so they don't get submitted, otherwise,
 						// dspace API gets confused by the empty fields
@@ -101,6 +113,15 @@ TODO:
 							toggle.click(function() {
 								if (section.hasClass('hidden')) showSection();
 								else hideSection();
+							});
+						});
+						// replace search term with the suggested fix and resubmit form
+						jQuery(function() {
+							var didYouMeanButton = jQuery('#${DidYouMeanButtonID}');
+							didYouMeanButton.click(function() {
+								var searchForm = jQuery('#${SearchFormID}');
+								searchForm.find('#query').val("${spellcheck}");
+								searchForm.submit();
 							});
 						});
 					</script>
@@ -217,6 +238,7 @@ TODO:
 	</div>
 </div>
 
+<!-- Everything Below The Search Box -->
 <div class="row">
 	<!-- Side Filters -->
 	<div class="col-sm-3 SimpleSearchSidebar">

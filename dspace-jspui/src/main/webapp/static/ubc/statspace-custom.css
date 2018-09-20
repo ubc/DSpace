@@ -112,6 +112,10 @@ label.SimpleSearchBigLabel {
 .SimpleSearchResultControlsSeparator {
 	margin-top: 0.5em;
 }
+.SimpleSearchDidYouMean {
+	margin-top: 0;
+	padding-top: 0.5em;
+}
 
 /* Make shared height search results gallery boxes */
 .discovery-result-results div.searchResultsWrap {
