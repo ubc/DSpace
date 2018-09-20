@@ -75,13 +75,13 @@ TODO:
 					<div id='${AddFilterSectionID}' class='SimpleSearchAddFilter hidden'>
 						<div class='form-inline'>
 							<label>Filter</label>
-							<select class='form-control input-sm' name='filtername' disabled required>
+							<select class='form-control input-sm' id='filtername' name='filtername' disabled required>
 								<option class='hidden' selected disabled>- Select Field -</option>
 								<c:forEach items='${filterNameOptions}' var='filterNameOption'>
 									<option value="${filterNameOption}"><fmt:message key="jsp.search.filter.${filterNameOption}"/></option>
 								</c:forEach>
 							</select>
-							<select class='form-control input-sm' name='filtertype' disabled required>
+							<select class='form-control input-sm' id='filtertype' name='filtertype' disabled required>
 								<%-- Defaulting to 'Select Operation' increases the size of the field to the point that it forces the following form inputs to wrap around on sm sizes,
 									 if we default to the first option, this wraparound deson't happen. Not sure what's a good way to solve this. --%>
 								<!--<option class='hidden' selected disabled>- Select Operation -</option>-->
@@ -92,6 +92,40 @@ TODO:
 							<input class='form-control input-sm' type="text" id="filterquery" name="filterquery" placeholder='Filter Term' disabled required />
 							<button class='btn btn-default btn-sm'><span class='glyphicon glyphicon-plus'></span> <fmt:message key="jsp.search.filter.add"/></button>
 						</div>
+						<!-- Autocomplete for filters -->
+						<script>
+							jQuery(function() {
+								jQuery( "#filterquery" ).autocomplete({
+									source: function( request, response ) {
+										jQuery.ajax({
+											url: "<c:url value='${autocompleteURL}' />",
+											dataType: "json",
+											cache: false,
+											data: {
+												auto_idx: jQuery("#filtername").val(),
+												auto_query: request.term,
+												auto_sort: 'count',
+												auto_type: jQuery("#filtertype").val(),
+												location: "${searchScope}"
+											},
+											success: function( data ) {
+												response( jQuery.map( data.autocomplete, function( item ) {
+													var tmp_val = item.authorityKey;
+													if (tmp_val == null || tmp_val == '')
+													{
+														tmp_val = item.displayedValue;
+													}
+													return {
+														label: item.displayedValue + " (" + item.count + ")",
+														value: tmp_val
+													};
+												}));			
+											}
+										});
+									}
+								});
+							});
+						</script>
 					</div>
 					<!-- JS for: Show/Hide Advanced Search, Did You Mean -->
 					<script>
