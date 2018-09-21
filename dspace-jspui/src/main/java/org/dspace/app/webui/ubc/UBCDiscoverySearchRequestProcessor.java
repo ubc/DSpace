@@ -61,6 +61,8 @@ import org.dspace.discovery.configuration.DiscoverySearchFilter;
 import org.dspace.discovery.configuration.DiscoverySearchFilterFacet;
 import org.dspace.discovery.configuration.DiscoverySortFieldConfiguration;
 import org.dspace.app.webui.ubc.retriever.ItemRetriever;
+import org.dspace.app.webui.ubc.statspace.SubjectEntry;
+import org.dspace.app.webui.ubc.statspace.SubjectsTreeParser;
 import org.dspace.app.webui.ubc.statspace.search.PaginationInfo;
 import org.dspace.discovery.DiscoverResult.FacetResult;
 import org.dspace.sort.SortOption;
@@ -586,6 +588,19 @@ public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcesso
 					facetNameToResults.put(facetName, facetResults);
 					break;
 				}
+			}
+			if (facetName.equals("subject")) {
+				List<String> subjects = new ArrayList<String>();
+				Map<String, FacetResult> subjectToFacetResults = new HashMap<String, FacetResult>();
+				for (FacetResult result : facetResults)
+				{
+					subjects.add(result.getDisplayedValue());
+					subjectToFacetResults.put(result.getDisplayedValue(), result);
+				}
+				SubjectsTreeParser subjectsTreeParser = new SubjectsTreeParser(subjects);
+				List<SubjectEntry> subjectsTree = subjectsTreeParser.getDepthFirstFlatTree();
+				request.setAttribute("filterResultsSubjects", subjectsTree);
+				request.setAttribute("filterResultsSubjectToFacetResults", subjectToFacetResults);
 			}
 		}
 		request.setAttribute("facetNameToResults", facetNameToResults);
