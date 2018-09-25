@@ -44,6 +44,10 @@ public class SubjectEntry
 	public int getLevel() { return level; }
 	public String getLabel() { return label; }
 	public String getValue() { return value; }
+
+	/** True if there are subtopics under this subject */
+	public boolean getHasSubjects() { return !subjects.isEmpty(); }
 	
 	public boolean hasSubject(String value) { return subjects.containsKey(value); };
+
 }

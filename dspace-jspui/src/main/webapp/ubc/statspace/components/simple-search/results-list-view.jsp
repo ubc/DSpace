@@ -38,7 +38,7 @@
 			<p>
 				<button class="btn btn-default btn-xs" type="button" id="${resultItemCollapseID}-btn"
 					data-toggle="collapse" data-target="#${resultItemCollapseID}" aria-expanded="false" aria-controls="collapseExample">
-					<span class="glyphicon glyphicon-plus"></span> Details
+					<span class="glyphicon glyphicon-chevron-down"></span> Details
 				</button>
 			</p>
 			<div id="${resultItemCollapseID}" class="collapse">
@@ -68,10 +68,10 @@
 				jQuery(function() {
 					var buttonIcon = jQuery('#${resultItemCollapseID}-btn span');
 					jQuery('#${resultItemCollapseID}').on('show.bs.collapse', function () {
-						buttonIcon.switchClass('glyphicon-plus', 'glyphicon-minus')
+						buttonIcon.switchClass('glyphicon-chevron-down', 'glyphicon-chevron-up')
 					});
 					jQuery('#${resultItemCollapseID}').on('hide.bs.collapse', function () {
-						buttonIcon.switchClass('glyphicon-minus', 'glyphicon-plus')
+						buttonIcon.switchClass('glyphicon-chevron-up', 'glyphicon-chevron-down')
 					});
 				});
 			</script>
