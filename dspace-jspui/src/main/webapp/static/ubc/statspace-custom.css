@@ -79,10 +79,6 @@ label.SimpleSearchBigLabel {
 .SimpleSearchResultFilters .panel a {
 	display: inline-block;
 	width: 100%;
-	color: black;
-}
-.SimpleSearchResultFilters .panel a:hover {
-	text-decoration: none;
 }
 .SimpleSearchResultControls {
 	padding: 0.5em;
@@ -117,10 +113,11 @@ label.SimpleSearchBigLabel {
 	border-bottom: 1px solid gainsboro;
 }
 ul.FilterResultsSubjects {
-	padding: 0 0.5em;
+	padding: 0 0.4em;
 }
 ul.FilterResultsSubjects span.pull-right {
-	padding: 0 0.5em;
+	padding: 0;
+	padding-left: 0.5em;
 }
 ul.FilterResultsSubjects li a.SubjectLink {
 /*ul.FilterResultsSubjects .ToggleCollapsibleButton span.glyphicon {*/
@@ -142,6 +139,12 @@ ul.FilterResultsSubjects ul.ToggleCollapsible {
 }
 ul.FilterResultsSubjects ul.ToggleCollapsible li {
 	margin-left: 1em;
+}
+a.FilterResultsHeadingLink {
+	color: black;
+}
+a.FilterResultsHeadingLink:hover {
+	text-decoration: none;
 }
 
 /* Make shared height search results gallery boxes */

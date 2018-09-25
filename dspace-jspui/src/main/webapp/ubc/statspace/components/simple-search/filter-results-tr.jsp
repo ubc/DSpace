@@ -11,5 +11,5 @@
 			${param.label}
 		</a>
 	</td>
-	<td class='text-info'>${param.count}</td>
+	<td class='text-right'>${param.count}</td>
 </tr>

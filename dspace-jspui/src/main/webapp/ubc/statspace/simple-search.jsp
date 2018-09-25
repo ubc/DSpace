@@ -284,7 +284,7 @@
 				<c:set var='FacetCollapseToggleID' value='${facet.key}_facet_collapse_toggle_id' />	
 				<c:set var='FacetCollapseHeadingID' value='${facet.key}_facet_collapse_heading_id' />	
 				<div class='panel panel-default'>
-					<a role="button" id='${FacetCollapseToggleID}'>
+					<a role="button" id='${FacetCollapseToggleID}' class='FilterResultsHeadingLink'>
 						<div class='panel-heading FilterResultsHeading' id='${FacetCollapseHeadingID}'>
 							<small><span class='glyphicon glyphicon-chevron-down'></span></small>
 							<fmt:message key="jsp.search.facet.refine.${facet.key}" />
