@@ -13,7 +13,7 @@ import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.log4j.Logger;
 import org.dspace.app.util.DCInput;
 import org.dspace.app.util.SubmissionInfo;
-import org.dspace.app.webui.ubc.statspace.SubjectsJson;
+import org.dspace.app.webui.ubc.statspace.SubjectsTreeParser;
 import org.dspace.content.DCDate;
 import org.dspace.content.DCPersonName;
 import org.dspace.content.Item;
@@ -184,7 +184,7 @@ public class FieldInfo {
 	 */
 	public String getOptionsJsonString()
 	{
-		SubjectsJson subjects = new SubjectsJson(input.getPairs());
+		SubjectsTreeParser subjects = new SubjectsTreeParser(input.getPairs());
 		return subjects.getTreeJson();
 	}
 

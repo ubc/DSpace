@@ -284,29 +284,37 @@
 				<c:set var='FacetCollapseToggleID' value='${facet.key}_facet_collapse_toggle_id' />	
 				<c:set var='FacetCollapseHeadingID' value='${facet.key}_facet_collapse_heading_id' />	
 				<div class='panel panel-default'>
-					<a role="button" id='${FacetCollapseToggleID}'>
-						<div class='panel-heading' id='${FacetCollapseHeadingID}'>
-							<span class='glyphicon glyphicon-chevron-down'></span>
+					<a role="button" id='${FacetCollapseToggleID}' class='FilterResultsHeadingLink'>
+						<div class='panel-heading FilterResultsHeading' id='${FacetCollapseHeadingID}'>
+							<small><span class='glyphicon glyphicon-chevron-down'></span></small>
 							<fmt:message key="jsp.search.facet.refine.${facet.key}" />
 						</div>
 					</a>
-					<table id='${FacetCollapseID}' class='table table-condensed table-hover hidden'>
-						<tbody>
-							<c:forEach items='${facet.value}' var='facetResult'>
-								<c:set var="FacetResultURL" 
-								  value="${pagination.baseURL}0&amp;filtername=${facet.key}&amp;filterquery=${facetResult.asFilterQuery}&amp;filtertype=${facetResult.filterType}"/>
-								<tr>
-									<td>
-										<a href='${FacetResultURL}'
-										   title='<fmt:message key="jsp.search.facet.narrow"><fmt:param>${facetResult.displayedValue}</fmt:param></fmt:message>'>
-											${facetResult.displayedValue}
-										</a>
-									</td>
-									<td class='text-info'>${facetResult.count}</td>
-								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
+					<c:choose>
+						<c:when test='${facet.key == "subject"}'>
+							<c:set var="facet" value="${facet}" scope="request" />
+							<jsp:include page="/ubc/statspace/components/simple-search/filter-results-subjects.jsp">
+								<jsp:param name="facetVar" value="facet" />
+								<jsp:param name="collapseID" value="${FacetCollapseID}" />
+							</jsp:include>
+						</c:when>
+						<c:otherwise>
+							<table id='${FacetCollapseID}' class='table table-condensed table-hover hidden'>
+								<tbody>
+									<c:forEach items='${facet.value}' var='facetResult'>
+										<jsp:include page="/ubc/statspace/components/simple-search/filter-results-tr.jsp">
+											<jsp:param name="baseURL" value="${pagination.baseURL}" />
+											<jsp:param name="filterName" value="${facet.key}" />
+											<jsp:param name="filterQuery" value="${facetResult.asFilterQuery}" />
+											<jsp:param name="filterType" value="${facetResult.filterType}" />
+											<jsp:param name="label" value="${facetResult.displayedValue}" />
+											<jsp:param name="count" value="${facetResult.count}" />
+										</jsp:include>
+									</c:forEach>
+								</tbody>
+							</table>
+						</c:otherwise>
+					</c:choose>
 				</div>	
 				<script>
 					// swap the indicator icon when showing and hiding content

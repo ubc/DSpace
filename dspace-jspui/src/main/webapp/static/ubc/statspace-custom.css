@@ -67,9 +67,6 @@ label.SimpleSearchBigLabel {
 .SimpleSearchResultFilters {
 	padding-bottom: 1em;
 }
-.SimpleSearchResultFilters .panel > .table > tbody:first-child > tr:first-child td {
-	border-top: 1px solid #ddd;
-}
 .SimpleSearchResultFilters h3 {
 	margin-top: 0.5em;
 }
@@ -82,10 +79,6 @@ label.SimpleSearchBigLabel {
 .SimpleSearchResultFilters .panel a {
 	display: inline-block;
 	width: 100%;
-	color: black;
-}
-.SimpleSearchResultFilters .panel a:hover {
-	text-decoration: none;
 }
 .SimpleSearchResultControls {
 	padding: 0.5em;
@@ -115,6 +108,43 @@ label.SimpleSearchBigLabel {
 .SimpleSearchDidYouMean {
 	margin-top: 0;
 	padding-top: 0.5em;
+}
+.FilterResultsHeading {
+	border-bottom: 1px solid gainsboro;
+}
+ul.FilterResultsSubjects {
+	padding: 0 0.4em;
+}
+ul.FilterResultsSubjects span.pull-right {
+	padding: 0;
+	padding-left: 0.5em;
+}
+ul.FilterResultsSubjects li a.SubjectLink {
+/*ul.FilterResultsSubjects .ToggleCollapsibleButton span.glyphicon {*/
+	display: inline;
+}
+ul.FilterResultsSubjects li {
+	padding-top: 0.5em;
+	margin-bottom: 0.5em;
+	border-top: 1px solid gainsboro;
+}
+ul.FilterResultsSubjects > li:first-child {
+	border-top: none;
+}
+ul.FilterResultsSubjects li:last-child {
+	margin-bottom: 0;
+}
+ul.FilterResultsSubjects ul.ToggleCollapsible {
+	margin-top: 0.5em;
+}
+ul.FilterResultsSubjects ul.ToggleCollapsible li {
+	margin-left: 1em;
+}
+a.FilterResultsHeadingLink {
+	color: black;
+}
+a.FilterResultsHeadingLink:hover {
+	text-decoration: none;
 }
 
 /* Make shared height search results gallery boxes */
