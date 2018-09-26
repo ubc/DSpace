@@ -7,7 +7,7 @@
 	<div class="col-md-3">
 		<div class="input-group">
 			<input class="form-control" type="password" name="password"
-				   id="tnewpassword" aria-describedby="passwordFeedback" />
+				   id="tnewpassword" aria-describedby="passwordFeedback" pattern=".{0}|.{8,}" ${param.required?'required':''} title="Passwords must be at least 8 characters long."/>
 			<a id="showHidePassword" class="input-group-addon">
 				<i class="glyphicon glyphicon-eye-open"></i>
 			</a>
