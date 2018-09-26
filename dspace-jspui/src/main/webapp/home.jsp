@@ -47,28 +47,6 @@
 	    
             <div class="col-md-4 intro-sidebar">
 	    
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">
-                            <i class="glyphicon glyphicon-search"></i>Search for Materials
-                        </h3>
-                    </div>
-                    <div class="panel-body">
-						<%-- Search Box --%>
-						<form method="get" action="<%= request.getContextPath() %>/simple-search">
-							<div class="input-group">
-								<input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
-								<span class="input-group-btn">
-									<button type="submit" class="btn btn-primary">
-										<span class="glyphicon glyphicon-search"></span>
-									</button>
-								</span>
-							</div>
-						</form>
-					</div>
-				</div>
-
-
 		<div class="panel panel-info" >
 		    <div class="panel-heading">
                 <h3 class="panel-title"><i class="glyphicon glyphicon-open"></i> Contribute Materials</h3>
