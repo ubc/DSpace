@@ -290,31 +290,20 @@
 							<fmt:message key="jsp.search.facet.refine.${facet.key}" />
 						</div>
 					</a>
-					<c:choose>
-						<c:when test='${facet.key == "subject"}'>
-							<c:set var="facet" value="${facet}" scope="request" />
-							<jsp:include page="/ubc/statspace/components/simple-search/filter-results-subjects.jsp">
-								<jsp:param name="facetVar" value="facet" />
-								<jsp:param name="collapseID" value="${FacetCollapseID}" />
-							</jsp:include>
-						</c:when>
-						<c:otherwise>
-							<table id='${FacetCollapseID}' class='table table-condensed table-hover hidden'>
-								<tbody>
-									<c:forEach items='${facet.value}' var='facetResult'>
-										<jsp:include page="/ubc/statspace/components/simple-search/filter-results-tr.jsp">
-											<jsp:param name="baseURL" value="${pagination.baseURL}" />
-											<jsp:param name="filterName" value="${facet.key}" />
-											<jsp:param name="filterQuery" value="${facetResult.asFilterQuery}" />
-											<jsp:param name="filterType" value="${facetResult.filterType}" />
-											<jsp:param name="label" value="${facetResult.displayedValue}" />
-											<jsp:param name="count" value="${facetResult.count}" />
-										</jsp:include>
-									</c:forEach>
-								</tbody>
-							</table>
-						</c:otherwise>
-					</c:choose>
+					<table id='${FacetCollapseID}' class='table table-condensed table-hover hidden'>
+						<tbody>
+							<c:forEach items='${facet.value}' var='facetResult'>
+								<jsp:include page="/ubc/statspace/components/simple-search/filter-results-tr.jsp">
+									<jsp:param name="baseURL" value="${pagination.baseURL}" />
+									<jsp:param name="filterName" value="${facet.key}" />
+									<jsp:param name="filterQuery" value="${facetResult.asFilterQuery}" />
+									<jsp:param name="filterType" value="${facetResult.filterType}" />
+									<jsp:param name="label" value="${facetResult.displayedValue}" />
+									<jsp:param name="count" value="${facetResult.count}" />
+								</jsp:include>
+							</c:forEach>
+						</tbody>
+					</table>
 				</div>	
 				<script>
 					// swap the indicator icon when showing and hiding content

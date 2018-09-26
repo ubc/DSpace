@@ -14,7 +14,7 @@
  <!-- the mapping for handle "default".                                    -->
 
  <form-map>
-   <name-map collection-handle="default" form-name="statspace" /> 
+   <name-map collection-handle="default" form-name="biospace" /> 
  </form-map>
 
   
@@ -36,7 +36,7 @@
 
  <form-definitions>
 
-   <form name="statspace">
+   <form name="biospace">
      <page number="1">
        
        <!-- Author(s) -->
