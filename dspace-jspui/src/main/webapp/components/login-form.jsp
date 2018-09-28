@@ -20,7 +20,7 @@
 		<div class="form-group">
             <label class="col-md-offset-3 col-md-2 control-label" for="tlogin_email"><fmt:message key="jsp.components.login-form.email"/></label>
             <div class="col-md-3">
-            	<input class="form-control" type="text" name="login_email" id="tlogin_email" tabindex="1" />
+            	<input class="form-control" type="text" name="login_email" id="tlogin_email" tabindex="1" value='${email}' />
             </div>
         </div>
         <div class="form-group">

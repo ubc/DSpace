@@ -18,6 +18,8 @@ import org.dspace.app.util.SubmissionInfo;
 import org.dspace.app.util.Util;
 import org.dspace.authorize.AuthorizeException;
 import org.dspace.content.Collection;
+import org.dspace.content.DCDate;
+import org.dspace.content.Item;
 import org.dspace.content.WorkspaceItem;
 import org.dspace.core.Context;
 import org.dspace.submit.AbstractProcessingStep;
@@ -105,6 +107,13 @@ public class SelectCollectionStep extends AbstractProcessingStep
 
             // update Submission Information with this Workspace Item
             subInfo.setSubmissionItem(wi);
+
+			// record the date&time submission started
+			Item item = wi.getItem();
+			// add the new time submitted
+			DCDate date = DCDate.getCurrent();
+			item.addMetadata("dc", "date", "issued", Item.ANY, date.toString());
+			item.update();
 
             // commit changes to database
             context.commit();

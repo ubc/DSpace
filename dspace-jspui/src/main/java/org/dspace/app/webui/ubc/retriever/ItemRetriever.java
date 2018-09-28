@@ -47,6 +47,7 @@ public class ItemRetriever {
 	private String whatWeLearned = "";
 	private String dateCreated = "";
 	private String dateSubmitted = "";
+	private String dateStarted = "";
 	private String license = "";
 	private String packageZipUrl = "";
 	private boolean isRestricted = false;
@@ -100,12 +101,10 @@ public class ItemRetriever {
 		license = getSingleValue("dc.rights");
 		isRestricted = UBCAccessChecker.isRestricted(item);
 
+		dateStarted = getSingleValue("dc.date.issued");
+		dateStarted = toReadableDate(dateStarted);
 		dateSubmitted = getSingleValue("dc.date.submitted");
-		if (!dateSubmitted.isEmpty()) {
-			DCDate tmpDate = new DCDate(dateSubmitted);
-			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm a");
-			dateSubmitted = dateFormat.format(tmpDate.toDate());
-		}
+		dateSubmitted = toReadableDate(dateSubmitted);
 
 		initStringList("dcterms.type", resourceTypes);
 		initStringList("dcterms.requires", prereqs);
@@ -125,6 +124,13 @@ public class ItemRetriever {
 		for (String val : result.getValues()) {
 			list.add(val);
 		}
+	}
+
+	private String toReadableDate(String storedDate) {
+		if (storedDate.isEmpty()) return "";
+		DCDate tmpDate = new DCDate(storedDate);
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm a");
+		return dateFormat.format(tmpDate.toDate());
 	}
 
 	public List<BitstreamResult> getFiles() {
@@ -153,6 +159,9 @@ public class ItemRetriever {
 	}
 	public String getDateSubmitted() {
 		return dateSubmitted;
+	}
+	public String getDateStarted() {
+		return dateStarted;
 	}
 	public String getLicense() {
 		return license;

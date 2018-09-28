@@ -25,3 +25,8 @@ pre.pre-horiz-scroll
 .editMetadataRemoveEntryButton {
 	float: none;
 }
+
+/* MyDSpace */
+.MyDSpaceActionButtons {
+	min-width: 7.5em;
+}

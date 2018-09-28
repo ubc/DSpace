@@ -25,8 +25,8 @@
 
 <%@ page contentType="text/html;charset=UTF-8" %>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"
-    prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 	
 <%@ taglib uri="http://www.dspace.org/dspace-tags.tld" prefix="dspace" %>
 
@@ -89,7 +89,9 @@
         again into the second box.  It should be at least six characters long.</p> --%>
 		<p class="alert"><fmt:message key="jsp.register.registration-form.instruct4"/></p>
         
-		<dspace:include page="/components/password-field.jsp" />
+		<jsp:include page="/components/password-field.jsp">
+			<jsp:param name="required" value="true" />
+		</jsp:include>
        
 <%
     }
