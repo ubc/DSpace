@@ -145,6 +145,14 @@
 								if (section.hasClass('hidden')) showSection();
 								else hideSection();
 							});
+							// if the advanced search section is open but values weren't entered, DSpace will error out,
+							// so we should hide the advanced search section when the user hasn't completed anything
+							var searchForm = jQuery('#${SearchFormID}');
+							searchForm.submit(function() {
+								section.find('select, input').each(function() {
+									if (!jQuery(this).val()) hideSection();
+								});
+							});
 						});
 						// replace search term with the suggested fix and resubmit form
 						jQuery(function() {

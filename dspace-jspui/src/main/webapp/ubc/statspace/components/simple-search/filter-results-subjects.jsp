@@ -36,14 +36,11 @@
 <script>
 	jQuery(function() {
 		var collapsibleElems = jQuery('.ToggleCollapsible');
-		console.log(collapsibleElems);
 		collapsibleElems.parent().children('span.pull-right').click(function() {
 			var button = jQuery(this);
 			var parent = button.parent();
 			button.find('.ToggleCollapsibleButton span').toggleClass('glyphicon-chevron-down glyphicon-chevron-up');
 			parent.children('ul.ToggleCollapsible').toggleClass('hidden');
-			console.log(this);
-			console.log("clicked");
 		});
 	});
 </script>
