@@ -105,6 +105,9 @@ public class PasswordServlet extends DSpaceServlet
         // If we reach here, supplied email/password was duff.
         log.info(LogManager.getHeader(context, "failed_login",
                 "email=" + email + ", result=" + String.valueOf(status)));
+
+		request.setAttribute("email", email);
+		
         JSPManager.showJSP(request, response, jsp);
     }
 }
