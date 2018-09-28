@@ -12,10 +12,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -31,6 +32,7 @@ import org.dspace.app.itemimport.BatchUpload;
 import org.dspace.app.itemimport.ItemImport;
 import org.dspace.app.util.SubmissionConfigReader;
 import org.dspace.app.util.SubmissionConfig;
+import org.dspace.app.webui.ubc.retriever.ItemRetriever;
 import org.dspace.app.webui.util.UIUtil;
 import org.dspace.authorize.AuthorizeException;
 import org.dspace.content.Collection;
@@ -847,8 +849,18 @@ public class MyDSpaceServlet extends DSpaceServlet
         request.setAttribute("export.archives", exportArchives);
         request.setAttribute("import.uploads", importUploads);
 
+		// Start custom section
+		Map<Integer, ItemRetriever> workspaceIDtoRetrievers = new LinkedHashMap<Integer, ItemRetriever>();
+		for (WorkspaceItem workspaceItem : workspaceItems)
+		{
+			ItemRetriever retriever = new ItemRetriever(context, request, workspaceItem.getItem());
+			workspaceIDtoRetrievers.put(workspaceItem.getID(), retriever);
+		}
+        request.setAttribute("WorkspaceItems", workspaceIDtoRetrievers);
+		request.setAttribute("MAIN_PAGE", MAIN_PAGE);
+
         // Forward to main mydspace page
-        JSPManager.showJSP(request, response, "/mydspace/main.jsp");
+        JSPManager.showJSP(request, response, "/ubc/mydspace/main.jsp");
     }
 
     /**
@@ -901,4 +913,5 @@ public class MyDSpaceServlet extends DSpaceServlet
 
         JSPManager.showJSP(request, response, "/mydspace/own-submissions.jsp");
     }
+
 }
