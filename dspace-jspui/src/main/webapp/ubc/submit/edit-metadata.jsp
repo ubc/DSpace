@@ -74,17 +74,14 @@
 								<div id="${fieldWrapperID}" class='form-inline editMetadataRemovableField'>
 									<div class="input-group">
 										<div>
-											<c:set var="firstNameID" value="${field.inputID}_first${!nameStatus.first && field.hasAddMore ? '_'.concat(nameStatus.index) : ''}" />
-											<c:set var="lastNameID" value="${field.inputID}_last${!nameStatus.first && field.hasAddMore ? '_'.concat(nameStatus.index) : ''}" />
-											<input type='text' class='form-control' id='${firstNameID}' name='${firstNameID}' placeholder='Last Name' value='${name.firstNames}'
+											<input type='text' class='form-control' name='${field.inputID}_last' placeholder='Last Name' value='${name.lastName}'
 												   <c:if test='${field.isReadOnly}'>readonly</c:if>>
-											<input type='text' class='form-control' id='${lastNameID}' name='${lastNameID}' placeholder='First Name' value='${name.lastName}'
+											<input type='text' class='form-control' name='${field.inputID}_first' placeholder='First Name' value='${name.firstNames}'
 												   <c:if test='${field.isReadOnly}'>readonly</c:if>>
 										</div>
 									</div>
 									<c:if test="${field.hasAddMore}">
 										<jsp:include page="/ubc/submit/components/remove-entry-button.jsp">
-											<jsp:param name="buttonID" value="${fieldWrapperID}_remove" />
 											<jsp:param name="hide" value="${nameStatus.first}" />
 										</jsp:include>
 									</c:if>
@@ -96,11 +93,9 @@
 							<c:forEach items="${field.values}" var="value" varStatus="valueStatus">
 								<c:set var="fieldWrapperID" value="${field.inputWrapperID}_${valueStatus.index}" />
 								<div id="${fieldWrapperID}" class='editMetadataRemovableField'>
-									<c:set var="fieldID" value="${field.inputID}${!valueStatus.first && field.hasAddMore ? '_'.concat(valueStatus.index) : ''}" />
-									<input type="text" class="form-control" value="${value}" id="${fieldID}" name="${fieldID}" <c:if test='${field.isReadOnly}'>readonly</c:if>>
+									<input type="text" class="form-control" value="${value}" name="${field.inputID}" <c:if test='${field.isReadOnly}'>readonly</c:if>>
 									<c:if test="${field.hasAddMore}">
 										<jsp:include page="/ubc/submit/components/remove-entry-button.jsp">
-											<jsp:param name="buttonID" value="${fieldWrapperID}_remove" />
 											<jsp:param name="hide" value="${valueStatus.first}" />
 										</jsp:include>
 									</c:if>
@@ -468,69 +463,11 @@
 					</div>
 					<c:if test="${field.hasAddMore}">
 						<script>
-							// Add More & Remove scripting
+							// "Add More" & "Remove" button scripting
 							jQuery(function() {
-								// Because of the way DSpace rely on sequentially numbering repeated fields, if you have
-								// say fields 1,2,3,4, and you remove field 2, it'll also remove fields 3 and 4 cause
-								// it stops after seeing that 2 is gone. The proper way to fix this is to use form arrays,
-								// but I don't have the time required to fix the api, so this is a workaround to renumber 
-								// the fields to make sure they're sequential. 
-								function getIndex(elementID) {
-									var index = elementID.match(/\d+/g);
-									// dspace cannot handle elements numbered with 0, it expects the first element
-									// to not be numbered, so have to compensate here. Assume that if we didn't
-									// find a number, it's the first element.
-									if (index === null) index = 0;
-									index = parseInt(index, 10);
-									return index;
-								}
-								function incrementFieldID(fieldID) {
-									var prevIndex = getIndex(fieldID);
-									if (fieldID.match("_"+prevIndex))
-										return fieldID.replace("_"+prevIndex, "_"+(prevIndex+1));
-									// special case if starting from element 0, since it isn't numbered
-									return fieldID+"_"+(prevIndex+1);
-								}
-								function decrementFieldID(fieldID) {
-									var fieldIndex = getIndex(fieldID);
-									// strip off numbering if we want element 0
-									if (fieldIndex == 1) return fieldID.replace("_"+fieldIndex,"");
-									// normal case, just decrement the index
-									else if (fieldIndex > 1) return fieldID.replace("_"+fieldIndex,"_"+(fieldIndex-1));
-									// something messed up if we reach this case, don't do anything
-									else return fieldID;
-								}
-								// update the index on the wrapper, input, buttons, etc fields as appropriate
-								function updateFieldIDs(field, isIncrement) {
-									var operation = function(i, fieldID) {
-										if (isIncrement) return incrementFieldID(fieldID);
-										return decrementFieldID(fieldID);
-									};
-									field.prop("id", operation);
-									field.find("input").prop("id", operation);
-									field.find("input").prop("name", operation);
-									field.find("button").prop("id", operation);
-								}
-								function incrementFieldIDs(field) {
-									updateFieldIDs(field, true);
-								}
-								function decrementFieldIDs(field) {
-									updateFieldIDs(field, false);
-								}
-								function renumberFields(removedElementID) {
-									var nextElementID = incrementFieldID(removedElementID);
-									var nextElement = jQuery("#"+nextElementID);
-									while (nextElement.length) {
-										decrementFieldIDs(nextElement);
-										nextElementID = incrementFieldID(nextElementID);
-										nextElement = jQuery("#"+nextElementID);
-									}
-								}
 								// remove a repeated element
 								function removeElement(element) {
-									var removedElementID = element.prop("id");
 									element.remove();
-									renumberFields(removedElementID);
 								}
 								// make the jsp generated pre-existing remove buttons functional
 								jQuery("div[id^='${field.inputWrapperID}']").find("button").click(function() {
@@ -540,7 +477,6 @@
 									var lastFieldWrapperID = "div[id^='${field.inputWrapperID}']:last"; 
 									var clone = jQuery(lastFieldWrapperID).clone();
 
-									incrementFieldIDs(clone);
 									clone.find("input").prop("value", "");
 									clone.find("button").removeClass("hidden");
 									jQuery(lastFieldWrapperID).after(clone);

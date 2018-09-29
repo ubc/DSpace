@@ -9,6 +9,7 @@ package org.dspace.submit.step;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -944,65 +945,14 @@ public class DescribeStep extends AbstractProcessingStep
     protected List<String> getRepeatedParameter(HttpServletRequest request,
             String metadataField, String param)
     {
-        List<String> vals = new LinkedList<String>();
-
-        int i = 1;    //start index at the first of the previously entered values
-        boolean foundLast = false;
-
-        // Iterate through the values in the form.
-        while (!foundLast)
-        {
-            String s = null;
-
-            //First, add the previously entered values.
-            // This ensures we preserve the order that these values were entered
-            s = request.getParameter(param + "_" + i);
-
-            // If there are no more previously entered values,
-            // see if there's a new value entered in textbox
-            if (s==null)
-            {
-                s = request.getParameter(param);
-                //this will be the last value added
-                foundLast = true;
-            }
-
-            // We're only going to add non-null values
-            if (s != null)
-            {
-                boolean addValue = true;
-
-                // Check to make sure that this value was not selected to be
-                // removed.
-                // (This is for the "remove multiple" option available in
-                // Manakin)
-                String[] selected = request.getParameterValues(metadataField
-                        + "_selected");
-
-                if (selected != null)
-                {
-                    for (int j = 0; j < selected.length; j++)
-                    {
-                        if (selected[j].equals(metadataField + "_" + i))
-                        {
-                            addValue = false;
-                        }
-                    }
-                }
-
-                if (addValue)
-                {
-                    vals.add(s.trim());
-                }
-            }
-
-            i++;
-        }
-
-        log.debug("getRepeatedParameter: metadataField=" + metadataField
-                + " param=" + metadataField + ", return count = "+vals.size());
-
-        return vals;
+		// With the edit-metadata.jsp overhaul, we can use this far simpler
+		// way to deal with repeatable values
+		String[] params = request.getParameterValues(param);
+		if (params != null)
+		{
+			return Arrays.asList(params);
+		}
+		return new LinkedList<String>();
     }
 
     /**
