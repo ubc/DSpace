@@ -194,14 +194,14 @@
 				</div>
 			</c:forEach>
 			<script>
-				// TODO: This is almost identical to edit-metadata.jsp's renumbering script, should merge them together into one
 				jQuery(function() {
 					var searchForm = jQuery('#${SearchFormID}');
 					// Because of the way DSpace rely on sequentially numbering repeated fields, if you have
 					// say fields 1,2,3,4, and you remove field 2, it'll also remove fields 3 and 4 cause
 					// it stops after seeing that 2 is gone. The proper way to fix this is to use form arrays,
 					// but I don't have the time required to fix the api, so this is a workaround to renumber 
-					// the fields to make sure they're sequential. 
+					// the fields to make sure they're sequential. UPDATE: This behaviour was fixed in
+					// edit-metadata.jsp but hasn't been patched in search yet.
 					function getIndex(elementID) {
 						var index = elementID.match(/\d+/g);
 						// dspace cannot handle elements numbered with 0, it expects the first element
