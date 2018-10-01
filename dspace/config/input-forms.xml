@@ -45,10 +45,9 @@
          <dc-element>contributor</dc-element>
          <dc-qualifier>author</dc-qualifier>
          <repeatable>true</repeatable>
-         <label>Creator(s)</label>
+         <label>Contributor(s)</label>
          <input-type>name</input-type>
-         <hint>Enter the name(s) of the creator(s) of this item.</hint>
-         <required>You must enter the creator of the item</required>
+         <required>You must enter at least one contributor.</required>
        </field>
        
        <!-- Title -->
@@ -57,9 +56,8 @@
          <dc-element>title</dc-element>
          <dc-qualifier></dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Title</label>
+         <label>Resource Title</label>
          <input-type>onebox</input-type>
-         <hint>Enter the main title of the item.</hint>
          <required>You must enter a main title for this item.</required>
        </field>
        
@@ -156,28 +154,6 @@
          <label>Pre-requisite Knowledge</label>
          <input-type>onebox</input-type>
 		 <hint>Please list one prerequisite at a time (press the "Add More" button to add more entries). Some examples of pre-requisites are "familiarity with information flow in biology", "Mendelian genetics", "mitosis", etc.</hint>
-       </field>  
-
-       <!-- Related Materials -->  
-       <field>
-         <dc-schema>dcterms</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Related Materials</label>
-         <input-type>onebox</input-type>
-		 <hint>Please list one related material at a time (press the "Add More" button to add more entries).</hint>
-       </field>
-
-	   <!-- Suggested Use(s) and Tips -->
-       <field>
-         <dc-schema>dcterms</dc-schema>
-         <dc-element>instructionalMethod</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Suggested Uses, Tips and Discoveries</label>
-         <input-type>textarea</input-type>
-         <hint>Information that will help others to use this material. Also includes lessons you've learned from using this material in practice, e.g.: what worked, what didn't, what was particularly difficult, etc.</hint>
        </field>  
 
        <!-- Date -->
