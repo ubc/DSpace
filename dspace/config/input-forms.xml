@@ -1180,8 +1180,16 @@
 
    <value-pairs value-pairs-name="biospace_subjects">
      <pair>
-       <displayed-value>Cell Molecular Biochemistry</displayed-value>
-       <stored-value>Cell Molecular Biochemistry</stored-value>
+       <displayed-value>Biochemistry</displayed-value>
+       <stored-value>Biochemistry</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Biomath &amp; Bioinformatics</displayed-value>
+       <stored-value>Biomath &amp; Bioinformatics</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Cell Molecular Biology</displayed-value>
+       <stored-value>Cell Molecular Biology</stored-value>
      </pair>
      <pair>
        <displayed-value>Ecology</displayed-value>
@@ -1196,24 +1204,20 @@
        <stored-value>Genetics</stored-value>
      </pair>
      <pair>
-       <displayed-value>BioMath &amp; BioInformatics</displayed-value>
-       <stored-value>BioMath &amp; BioInformatics</stored-value>
-     </pair>
-     <pair>
-       <displayed-value>Physiology &amp; Anatomy</displayed-value>
-       <stored-value>Physiology &amp; Anatomy</stored-value>
+       <displayed-value>Lab Skills</displayed-value>
+       <stored-value>Lab Skills</stored-value>
      </pair>
      <pair>
        <displayed-value>Organismal Biology</displayed-value>
        <stored-value>Organismal Biology</stored-value>
      </pair>
      <pair>
-       <displayed-value>Laboratory Techniques</displayed-value>
-       <stored-value>Laboratory Techniques</stored-value>
+       <displayed-value>Physiology &amp; Anatomy</displayed-value>
+       <stored-value>Physiology &amp; Anatomy</stored-value>
      </pair>
      <pair>
-       <displayed-value>Process of Science Skills</displayed-value>
-       <stored-value>Process of Science Skills</stored-value>
+       <displayed-value>Science Skills</displayed-value>
+       <stored-value>Science Skills</stored-value>
      </pair>
      <pair>
        <displayed-value>Other</displayed-value>
