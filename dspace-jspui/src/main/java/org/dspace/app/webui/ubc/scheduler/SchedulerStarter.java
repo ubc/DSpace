@@ -57,7 +57,7 @@ public class SchedulerStarter extends HttpServlet
 	 */
 	private void runUpdateSolrJob() throws SchedulerException {
 		JobKey jobKey = new JobKey("SolrIndexJob");
-		JobDetail job = newJob(UpdateSolrIndexJob.class)
+		JobDetail job = newJob(StartupJob.class)
 				.withIdentity(jobKey)
 				.storeDurably() // required when not using a trigger
 				.build();
