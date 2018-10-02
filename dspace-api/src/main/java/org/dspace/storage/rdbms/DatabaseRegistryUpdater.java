@@ -46,7 +46,7 @@ public class DatabaseRegistryUpdater implements FlywayCallback
     /**
      * Method to actually update our registries from latest configs
      */
-    private void updateRegistries()
+    public void updateRegistries()
     {
         Context context = null;
         try
@@ -68,6 +68,8 @@ public class DatabaseRegistryUpdater implements FlywayCallback
             MetadataImporter.loadRegistry(base + "dcterms-types.xml", true);
             MetadataImporter.loadRegistry(base + "eperson-types.xml", true);
             MetadataImporter.loadRegistry(base + "sword-metadata.xml", true);
+			log.info("Updating Custom UBC Registry");
+            MetadataImporter.loadRegistry(base + "ubc.xml", true);
 
             // Check if XML Workflow is enabled in workflow.cfg
             if (ConfigurationManager.getProperty("workflow", "workflow.framework").equals("xmlworkflow"))
