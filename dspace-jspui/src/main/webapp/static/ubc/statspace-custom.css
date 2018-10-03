@@ -20,6 +20,9 @@ and lacks some bootstrap 3 features. */
 .editMetadataTripleLevelDropdown select {
 	margin-bottom: 0.5em;
 }
+.EditMetadataLearningObjectivesStem {
+	margin-top: 0.5em;
+}
 
 /* Simple Search */
 label.SimpleSearchBigLabel {
