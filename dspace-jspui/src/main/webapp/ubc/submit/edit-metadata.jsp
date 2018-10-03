@@ -118,7 +118,8 @@
 						<%-- DROPDOWN input type --%>
 						<c:when test="${field.inputType == field.INPUT_TYPE_DROPDOWN}">
 							<div id="${field.inputWrapperID}">
-								<select class="form-control" name="${field.inputID}" <c:if test='${field.isRepeatable}'>multiple</c:if> <c:if test='${field.isReadOnly}'>disabled</c:if>>
+								<select class="form-control" name="${field.inputID}" <c:if test='${field.isRepeatable}'>multiple size='${field.numOptions}'</c:if>
+										<c:if test='${field.isReadOnly}'>disabled</c:if>>
 									<c:forEach items="${field.options}" var="option">
 										<option value="${option.value}" <c:if test='${field.values.contains(option.value)}'>selected</c:if>>${option.key}</option>
 									</c:forEach>

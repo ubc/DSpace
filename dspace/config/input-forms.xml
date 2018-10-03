@@ -105,7 +105,7 @@
 		 <!-- <repeatable>true</repeatable> -->
          <label>Subject</label>
          <input-type value-pairs-name="biospace_subjects">dropdown</input-type>
-		 <hint>Please select a subject tag that describes the primary topic for this item.</hint>
+		 <hint>Please select a subject tag that describes the primary topic for this item (hold Ctrl/Cmd while clicking to select multiple subjects).</hint>
 		 <required>Please choose a subject.</required>
          <repeatable>true</repeatable>
        </field>
@@ -202,7 +202,6 @@
          <repeatable>false</repeatable>
          <label>Language</label>
          <input-type value-pairs-name="common_iso_languages">dropdown</input-type>
-         <hint>Select the language of the main content of the item.</hint>
        </field>
 
      </page>
@@ -1064,8 +1063,16 @@
 
    <value-pairs value-pairs-name="resource_type" dc-term="relation">
      <pair>
-       <displayed-value>Activities</displayed-value>
-       <stored-value>Activities</stored-value>
+       <displayed-value>Activities (General)</displayed-value>
+       <stored-value>Activities (General)</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Activities (In Class)</displayed-value>
+       <stored-value>Activities (In Class)</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Activities (Reflective)</displayed-value>
+       <stored-value>Activities (Reflective)</stored-value>
      </pair>
      <pair>
        <displayed-value>Audiofile</displayed-value>
@@ -1076,6 +1083,10 @@
        <stored-value>Case Studies</stored-value>
      </pair>
      <pair>
+       <displayed-value>Exam Wrapper</displayed-value>
+       <stored-value>Exam Wrapper</stored-value>
+     </pair>
+     <pair>
    	   <displayed-value>Labs/Tutorials</displayed-value>
        <stored-value>Labs/Tutorials</stored-value>
      </pair>
@@ -1084,20 +1095,24 @@
        <stored-value>Lecture Slides</stored-value>
      </pair>
      <pair>
-       <displayed-value>Notes</displayed-value>
-       <stored-value>Notes</stored-value>
-     </pair>
-     <pair>
        <displayed-value>Pencast</displayed-value>
        <stored-value>Pencast</stored-value>
      </pair>
      <pair>
-       <displayed-value>Questions (Exams/Homework)</displayed-value>
-       <stored-value>Questions (Exams/Homework)</stored-value>
+       <displayed-value>Questions (Exams)</displayed-value>
+       <stored-value>Questions (Exams)</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Questions (Homework)</displayed-value>
+       <stored-value>Questions (Homework)</stored-value>
      </pair>
      <pair>
        <displayed-value>Questions (Personal Response/Clickers)</displayed-value>
        <stored-value>Questions (Personal Response/Clickers)</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Study Material</displayed-value>
+       <stored-value>Study Material</stored-value>
      </pair>
      <pair>
        <displayed-value>Videos</displayed-value>

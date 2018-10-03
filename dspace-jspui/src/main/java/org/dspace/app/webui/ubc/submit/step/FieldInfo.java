@@ -194,6 +194,8 @@ public class FieldInfo {
 	public boolean getIsRepeatable() { return input.isRepeatable(); }
 	public boolean getIsVisible() { return isVisible; }
 
+	public int getNumOptions() { return options.size(); }
+
 	public String getHint() { return input.getHints(); }
 	public String getInputID() { return fieldID; }
 	public String getFormGroupID() { return fieldID + "_form_group"; }
