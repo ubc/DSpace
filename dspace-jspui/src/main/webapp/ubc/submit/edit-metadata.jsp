@@ -517,22 +517,27 @@
 	</div>
 </form>
 
-<!-- BioSpace, when "Other" is selected as the subject, show the custom subject field. -->
+<!-- BioSpace, when "Other" is selected as the subject or resource type, show the associated custom entry field. -->
 <script>
 jQuery(document).ready(function() {
-	var subjectOtherFormGroup = jQuery('#dc_subject_other_form_group');
-	var subjectSelect = jQuery('#dc_subject_wrapper select');
-	var showHideSubjectOther = function() {
-		var selectedVals = subjectSelect.val();
-		if (selectedVals != null && selectedVals.indexOf("Other") >= 0) {
-			subjectOtherFormGroup.show("highlight", 1000);
-		}
-		else {
-			subjectOtherFormGroup.hide("blind", "fast");
-		}
-	};
-	showHideSubjectOther();
-	subjectSelect.change(showHideSubjectOther);
+	function showHideOther(formGroupElem, inputElem) {
+		var showHide = function() {
+			console.log(this);
+			var selectedVals = inputElem.val();
+			console.log(selectedVals);
+			if (selectedVals != null && selectedVals.indexOf("Other") >= 0) {
+				formGroupElem.show("highlight", 1000);
+			}
+			else {
+				formGroupElem.hide("blind", "fast");
+			}
+		};
+		showHide();
+		inputElem.change(showHide);
+	}
+
+	showHideOther(jQuery('#dc_subject_other_form_group'), jQuery('#dc_subject_wrapper select'));
+	showHideOther(jQuery('#ubc_resourceTypeOther_form_group'), jQuery('#dcterms_type_wrapper select'));
 });
 </script>
 

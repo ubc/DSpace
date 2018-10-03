@@ -93,7 +93,6 @@ public class ItemRetriever {
 			subjects.add(subjectResult);
 		}
 
-
 		title = getSingleValue("dc.title");
 		summary = getSingleValue("dc.description.abstract");
 		description = getSingleValue("dc.description");
@@ -114,6 +113,14 @@ public class ItemRetriever {
 		initStringList("dcterms.relation", relatedMaterials);
 		initStringList("dcterms.isFormatOf", alternativeLanguages);
 		initStringList("dcterms.subject", keywords);
+
+		// resource types "Other" allows a user entered value, check if user entered a value and if so, add it in
+		int resourceTypeOtherIndex = resourceTypes.indexOf("Other");
+		if (resourceTypeOtherIndex >= 0) {
+			String resourceTypeOther = getSingleValue("ubc.resourceTypeOther");
+			if (!resourceTypeOther.isEmpty())
+				resourceTypes.set(resourceTypeOtherIndex, "Other (" + resourceTypeOther + ")");
+		}
 	}
 
 	private String getSingleValue(String field) {

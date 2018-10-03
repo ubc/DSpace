@@ -86,6 +86,17 @@
          <required>You must choose one or multiple resource types</required>
        </field>
 
+	   <!-- If user selects "Other" as Resource Type, let them enter their own resource type -->
+       <field>
+         <dc-schema>ubc</dc-schema>
+         <dc-element>resourceTypeOther</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Resource Type (Other)</label>
+         <input-type>onebox</input-type>
+		 <hint>Please enter a custom resource type tag.</hint>
+       </field>
+
        <!-- Subject -->
        <field>
          <dc-schema>dc</dc-schema>
