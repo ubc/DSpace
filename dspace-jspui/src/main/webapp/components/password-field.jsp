@@ -2,8 +2,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <div class="form-group">
-	<label class="col-md-offset-2 col-md-2 control-label" for="tpassword">
-		<fmt:message key="jsp.register.edit-profile.pswd.field"/></label>
+	<label class="col-md-offset-3 col-md-2 control-label" for="tpassword">
+		<fmt:message key="jsp.register.edit-profile.pswd.field"/>${param.required?'*':''}</label>
 	<div class="col-md-3">
 		<div class="input-group">
 			<input class="form-control" type="password" name="password"
