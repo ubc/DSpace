@@ -84,7 +84,7 @@
 %>
         <%-- <p><strong>Optionally</strong>, you can choose a new password and enter it into the box below, and confirm it by typing it
         again into the second box for verification.  It should be at least six characters long.</p> --%>
-		<h3 class="text-center"><fmt:message key="jsp.register.edit-profile.info5"/></h3>
+		<div class="row"><h3 class="text-center col-md-offset-2 col-md-6"><fmt:message key="jsp.register.edit-profile.info5"/></h3></div>
 		<dspace:include page="/components/password-field.jsp" />
 <%
   }
