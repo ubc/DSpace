@@ -153,7 +153,7 @@
          <repeatable>true</repeatable>
 		 <label>Keywords/Keyphrases</label>
          <input-type>onebox</input-type>
-		 <hint>Please enter keywords for this resource. Users searching for these keywords will see this resource in their search results.</hint>
+		 <hint>Please enter keywords or phrases to make finding this resource easier. Please list one keyword/phrase at a time (press the "Add More" button to add more entries).</hint>
        </field>
 
        <!-- Prerequisite Knowledge -->
@@ -164,8 +164,20 @@
          <repeatable>true</repeatable>
          <label>Pre-requisite Knowledge</label>
          <input-type>onebox</input-type>
-		 <hint>Please list one prerequisite at a time (press the "Add More" button to add more entries). Some examples of pre-requisites are "familiarity with information flow in biology", "Mendelian genetics", "mitosis", etc.</hint>
+		 <hint>Please enter concepts students should be familiar with or courses they should have completed, e.g. "BIOL 112", "familiarity with information flow in biology", "Mendelian genetics", "mitosis", etc. Please list one prerequisite at a time (press the "Add More" button to add more entries).</hint>
        </field>  
+
+	   <!-- Time Estimate -->
+       <field>
+         <dc-schema>dcterms</dc-schema>
+         <dc-element>temporal</dc-element>
+         <dc-qualifier></dc-qualifier>
+		 <!-- <repeatable>true</repeatable> -->
+         <label>Time Estimate</label>
+         <input-type value-pairs-name="biospace_time_estimate">dropdown</input-type>
+		 <hint>Please estimate the workload on students in terms of time (if the resource has activities with different time estimates, hold Ctrl/Cmd while clicking to select multiple estimates).</hint>
+         <repeatable>true</repeatable>
+       </field>
 
        <!-- Date -->
        <field>
@@ -1224,6 +1236,25 @@
      <pair>
        <displayed-value>Other</displayed-value>
        <stored-value>Other</stored-value>
+     </pair>
+   </value-pairs>
+
+   <value-pairs value-pairs-name="biospace_time_estimate">
+     <pair>
+	   <displayed-value>Short (&lt;10 minutes)</displayed-value>
+       <stored-value>Short (&lt;10 minutes)</stored-value>
+     </pair>
+     <pair>
+	   <displayed-value>Short (10-30 minutes)</displayed-value>
+       <stored-value>Short (10-30 minutes)</stored-value>
+     </pair>
+     <pair>
+	   <displayed-value>Short (30-50 minutes)</displayed-value>
+       <stored-value>Short (30-50 minutes)</stored-value>
+     </pair>
+     <pair>
+	   <displayed-value>Multi-part/Multi-day</displayed-value>
+       <stored-value>Multi-part/Multi-day</stored-value>
      </pair>
    </value-pairs>
 
