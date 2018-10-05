@@ -82,32 +82,15 @@
                
                <li class="<%= currentPage.endsWith("/")? "active" : "" %>"><a href="<%= request.getContextPath() %>/"><span class="glyphicon glyphicon-home"></span></a></li>
                
-               <li class="<%= currentPage.endsWith("/mydspace")? "active" : "" %>"><a href="<%= request.getContextPath() %>/mydspace"> <fmt:message key="jsp.layout.navbar-default.users"/></a></li>
+               <li class="<%= currentPage.endsWith("/mydspace")? "active" : "" %>"><a href="<%= request.getContextPath() %>/mydspace"><span class="glyphicon glyphicon-folder-open"></span> <fmt:message key="jsp.layout.navbar-default.users"/></a></li>
 
-               <li class="dropdown">
-                   <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="jsp.layout.navbar-default.browse"/> <b class="caret"></b></a>
-                   <ul class="dropdown-menu">
-                       <li><a href="<%= request.getContextPath() %>/simple-search?query="><fmt:message key="jsp.layout.navbar-default.advanced"/></a></li>
-				       <li class="divider"></li>
-                       <li class="dropdown-header"><fmt:message key="jsp.layout.navbar-default.browseitemsby"/></li>
-				       <%-- Insert the dynamic browse indices here --%>
-				       <% for (int i = 0; i < bis.length; i++) {
-						   BrowseIndex bix = bis[i];
-						   String key = "browse.menu." + bix.getName();
-					   %>
-				       <li><a href="<%= request.getContextPath() %>/browse?type=<%= bix.getName() %>"><fmt:message key="<%= key %>"/></a></li>
-                       <% } %>
-                       <%-- End of dynamic browse indices --%>
-                   </ul>
-               </li>
-               
            <% } else { %>
                <%-- <div class="row">
                    <h3>Welcome to the soft launch of StatSpace!<br> Feel free to explore this preliminary version and learn more about future versions.</h3>
                </div> --%>
                <li class="<%= currentPage.endsWith("/")? "active" : "" %>"><a href="<%= request.getContextPath() %>/"><span class="glyphicon glyphicon-home"></span> <fmt:message key="jsp.layout.navbar-default.home"/></a></li>
-	           <li class="<%= currentPage.endsWith("/about.jsp")? "active" : "" %>"><a href="<%= request.getContextPath() %>/demo/about.jsp"><span class="glyphicon glyphicon-book"></span> About</a></li>
 	   <% } %>
+	           <li class="<%= currentPage.endsWith("/about.jsp")? "active" : "" %>"><a href="<%= request.getContextPath() %>/demo/about.jsp"><span class="glyphicon glyphicon-book"></span> About</a></li>
        </ul>
 
  <% if (supportedLocales != null && supportedLocales.length > 1)
