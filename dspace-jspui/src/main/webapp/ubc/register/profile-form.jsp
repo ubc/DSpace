@@ -32,26 +32,15 @@
 <%@ page import="org.dspace.content.Metadatum" %>
 <%@ page import="org.dspace.core.Utils" %>
 
-<h3 class='text-center'>Request Instructor Access (Optional)</h3>
-<p>Some StatSpace materials are available only for instructors to use in teaching their courses or assessing their students. We are committed to upholding the integrity of our instructor-only resources, and thus a simple vetting process is needed for access to certain material.</p>
-<p>If you are an individual who is employed at an educational institution with a role related to statistics education, we would be happy to grant you access after we verify your information. We recognize there are individuals in other roles that make valuable contributions to statistics education. If you would like access to our instructor-only material, please fill in your information below and provide any details you feel we may need to approve your request in the Additional Information field.</p>
-<p>We may contact your institution to verify the information provided. Please note this process may take several days.</p>
-<div>
-	<label>
-		<input type='checkbox' name='requestInstructorAccess' ${user.hasRequestedInstructorAccess ? "checked disabled" : ""}>
-		If I am granted instructor-only access, I agree that I will not share instructor-only material or my username/password with others.
-	</label>
-</div>
-
-<h3 class='text-center'>Personal Information</h3>
+<div class="row"><h3 class='col-md-offset-2 col-md-6 text-center'>Personal Information</h3></div>
 	<div class="form-group">
 		<label class="col-md-offset-2 col-md-2 control-label" for="first_name"><fmt:message key="jsp.register.profile-form.fname.field"/></label>
-        <div class="col-md-4"><input class="form-control" type="text" name="first_name" id="tfirst_name" size="40" value="${user.firstName}"/></div>
+        <div class="col-md-4"><input class="form-control" type="text" name="first_name" id="tfirst_name" size="40" value="${user.firstName}" required/></div>
 	</div>
 	<div class="form-group">
         <%-- <td align="right" class="standard"><label for="tlast_name"><strong>Last name*:</strong></label></td> --%>
 		<label class="col-md-offset-2 col-md-2 control-label" for="tlast_name"><fmt:message key="jsp.register.profile-form.lname.field"/></label>
-        <div class="col-md-4"><input class="form-control" type="text" name="last_name" id="tlast_name" size="40" value="${user.lastName}" /></div>
+        <div class="col-md-4"><input class="form-control" type="text" name="last_name" id="tlast_name" size="40" value="${user.lastName}" required /></div>
     </div>
 	<div class="form-group">
 		<label class="col-md-offset-2 col-md-2 control-label" for="trole"><fmt:message key="jsp.register.profile-form.role.field"/></label>
@@ -70,7 +59,46 @@
 		<label class="col-md-offset-2 col-md-2 control-label" for="tphone"><fmt:message key="jsp.register.profile-form.phone.field"/></label>
         <div class="col-md-4"><input class="form-control" type="text" name="phone" id="tphone" size="40" maxlength="32" value="${user.phone}"/></div>
     </div>
-<h3 class='text-center'>Institution Information</h3>
+
+<div class="row">
+	<div class="col-md-offset-2 col-md-6">
+		<h3 class='text-center'>Request Instructor Access (Optional)</h3>
+		<p>Some StatSpace materials are available only for instructors to use in teaching their courses or assessing their students. We are committed to upholding the integrity of our instructor-only resources, and thus a simple vetting process is needed for access to certain material.</p>
+		<p>If you are an individual who is employed at an educational institution with a role related to statistics education, we would be happy to grant you access after we verify your information. We recognize there are individuals in other roles that make valuable contributions to statistics education. If you would like access to our instructor-only material, please fill in your information below and provide any details you feel we may need to approve your request in the Additional Information field.</p>
+		<p>We may contact your institution to verify the information provided. Please note this process may take several days.</p>
+		<div>
+			<label>
+				<input type='checkbox' id="RequestInstructorAccessCheckbox" name='requestInstructorAccess' ${user.hasRequestedInstructorAccess ? "checked disabled" : ""}>
+				If I am granted instructor-only access, I agree that I will not share instructor-only material or my username/password with others.
+			</label>
+		</div>
+	</div>
+	<script>
+		jQuery(function(){
+			var checkbox = jQuery('#RequestInstructorAccessCheckbox');
+			var instructorFieldset = jQuery('#InstructorInformationFieldset');
+			function toggleInstructorFieldset() {
+				if (checkbox.prop('checked')) {
+					console.log("checked");
+					instructorFieldset.prop('disabled', false);
+					instructorFieldset.removeClass("fadedSection");
+				}
+				else {
+					console.log("not checked");
+					instructorFieldset.prop('disabled', true);
+					instructorFieldset.addClass("fadedSection");
+				}
+			}
+			checkbox.change(function() {
+				toggleInstructorFieldset();
+			});
+			toggleInstructorFieldset()
+		});
+	</script>
+</div>
+
+<fieldset id="InstructorInformationFieldset" disabled class="fadedSection">
+	<div class="row"><h3 class=' col-md-offset-2 col-md-6 text-center'>Instructor Information</h3></div>
 	<div class="form-group">
 		<c:set var="institutionTypeUniversity" value="College or University" />
 		<c:set var="institutionTypeSecondary" value="Secondary School" />
@@ -115,37 +143,4 @@
         <div class="col-md-4"><textarea class="form-control" name="additional" id="tadditional">${user.additionalInfo}</textarea></div>
 		<span class="help-block"><fmt:message key="jsp.register.profile-form.additional.help"/></span>
     </div>
-	<%--
-    <div class="form-group">
-		<label class="col-md-offset-2 col-md-2 control-label" for="tlanguage"><strong><fmt:message key="jsp.register.profile-form.language.field"/></strong></label>
- 		<div class="col-md-4">
-        <select class="form-control" name="language" id="tlanguage">
-<%
-		Locale[] supportedLocales = I18nUtil.getSupportedLocales();
-		EPerson epersonForm = (EPerson) request.getAttribute("eperson");
-        String language = epersonForm.getMetadata("language");
-        if (language == null) language = "";
-
-        for (int i = supportedLocales.length-1; i >= 0; i--)
-        {
-        	String lang = supportedLocales[i].toString();
-        	String selected = "";
-        	
-        	if (language.equals(""))
-        	{ if(lang.equals(I18nUtil.getSupportedLocale(request.getLocale()).getLanguage()))
-        		{
-        			selected = "selected=\"selected\"";
-        		}
-        	}
-        	else if (lang.equals(language))
-        	{ selected = "selected=\"selected\"";}
-%>
-           <option <%= selected %>
-                value="<%= lang %>"><%= supportedLocales[i].getDisplayName(UIUtil.getSessionLocale(request)) %></option>
-<%
-        }
-%>
-        </select>
-        </div>
-     </div>
-	--%>
+</fieldset>
