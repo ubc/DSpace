@@ -129,7 +129,7 @@
          <repeatable>false</repeatable>
          <label>Description</label>
          <input-type>onebox</input-type>
-         <hint>Please provide a one or two sentence description of this resource.</hint>
+         <hint>Please provide a one or two sentence description of this resource. e.g. "This video describes the process of gel electrophoresis and principles underlying it."</hint>
          <required>Please enter a short description.</required>
        </field>
 
@@ -141,7 +141,7 @@
          <repeatable>true</repeatable>
          <label>Learning Objectives</label>
          <input-type>onebox</input-type>
-		 <hint>Please list one objective at a time (press the "Add More" button to add more entries).</hint>
+		 <hint>Please list one objective at a time (press the "Add More" button to add more entries). Use action words such as "Explain", "Compare", "Predict", "Design".</hint>
          <required>Please enter learning objectives for this item.</required>
        </field>
         
@@ -162,7 +162,7 @@
          <dc-element>requires</dc-element>
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
-         <label>Pre-requisite Knowledge</label>
+         <label>Pre-requisites</label>
          <input-type>onebox</input-type>
 		 <hint>Please enter concepts students should be familiar with or courses they should have completed, e.g. "BIOL 112", "familiarity with information flow in biology", "Mendelian genetics", "mitosis", etc. Please list one prerequisite at a time (press the "Add More" button to add more entries).</hint>
        </field>  
@@ -1131,10 +1131,6 @@
        <stored-value>Videos</stored-value>
      </pair>
      <pair>
-       <displayed-value>WeBWorK</displayed-value>
-       <stored-value>WeBWorK</stored-value>
-     </pair>
-     <pair>
        <displayed-value>Web Visualization (Applet)</displayed-value>
        <stored-value>Web Visualization (Applet)</stored-value>
      </pair>
@@ -1202,8 +1198,8 @@
        <stored-value>Biomath &amp; Bioinformatics</stored-value>
      </pair>
      <pair>
-       <displayed-value>Cell Molecular Biology</displayed-value>
-       <stored-value>Cell Molecular Biology</stored-value>
+       <displayed-value>Cell &amp; Molecular Biology</displayed-value>
+       <stored-value>Cell &amp; Molecular Biology</stored-value>
      </pair>
      <pair>
        <displayed-value>Ecology</displayed-value>

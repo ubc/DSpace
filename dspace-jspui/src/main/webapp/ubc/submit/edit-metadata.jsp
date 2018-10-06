@@ -59,7 +59,7 @@
 				<div class="col-sm-10">
 					<c:if test="${field.hasAddMore && !field.isReadOnly}">
 						<c:if test='${field.inputID == "dcterms_coverage"}'><%-- text on top of Add More button for Learning Objectives --%>
-							<p class="EditMetadataLearningObjectivesStem"><strong>After completing this activity, students should be able to...</strong></p>
+							<p class="EditMetadataLearningObjectivesStem"><strong>After completing this activity, students should be able to... <span class="text-muted">(e.g. Compare and contrast between bacterial and eukaryotic cells.)</span></strong></p>
 						</c:if>
 						<button id="${field.inputAddMoreButtonID}" class="btn btn-default" type="button">
 							<span class="glyphicon glyphicon-plus"></span> Add More
