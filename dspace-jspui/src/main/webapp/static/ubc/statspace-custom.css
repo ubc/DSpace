@@ -33,7 +33,7 @@ label.SimpleSearchBigLabel {
 	opacity: 0.4;
 }
 .SimpleSearchResultListItem .media-object {
-	width: 82px;
+	width: 100px;
 }
 .SimpleSearchResultListItem {
 	padding-top: 0.5em;
@@ -235,7 +235,7 @@ span.label.labelLarge {
 }
 /* Display item title thumbnail */
 .displayItemTitleThumbnail {
-	max-width: 100px;
+	max-width: 128px;
 	margin-bottom: 1em;
 }
 /* Display item tabs bar */
