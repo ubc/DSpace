@@ -54,8 +54,8 @@
 	<p><a href="/">Home</a> <span class="text-muted">&raquo; About</span></p>
 
 	<h1>About StatSpace</h1>
-	<p>This preliminary version of StatSpace allows you to explore and use resources through the featured StatSpace material, linked from the home page.   The current resources are web visualizations, videos, WebWorK questions and clicker questions.  We are currently working on implementing the following StatSpace functionalities:  search, evaluate and, for those of you who have resources to share, upload.</p>    
-	<div class="panel panel-success" >
+	<p>This version of StatSpace allows you to explore and use resources such as web visualizations, videos, WebWorK questions and clicker questions.  We are currently working on implementing the following StatSpace functionalities:  evaluate and, for those of you who have resources to share, upload.</p>    
+	<div class="panel panel-info" >
 		<div class="panel-heading">
 			<h3 class="panel-title"><i class="glyphicon glyphicon-send"></i> Contact us</h3>
 		</div>
@@ -100,7 +100,7 @@
             </div>
 
             <div class="col-md-4 text-center">
-                <p class="text-left"><strong>Bruce Dunham, Senior Instructor:</strong> Bruce is a Senior Instructor in the Department of Statistics at UBC and has taught a wide range of introductory statistics courses both at UBC and in the UK.  Currently he is the President-Elect of the Statistical Society of Canada’s Statistics Education Section and Chair of the Statistics Sub-committee of the British Columbia Committee on the Undergraduate Programs in Mathematics and Statistics.  In 2012 Bruce commenced a project developing statistics questions for the on-line homework system WeBWorK, and that work has continued during the FLIS project. Bruce has also assisted in testing and assessing many of the new resources created through the FLIS project, helping in facilitating interviews and focus groups during which student volunteers interacted with prototype resources.</p> 		
+                <p class="text-left"><strong>Bruce Dunham, Professor of Teaching:</strong> Bruce is a Senior Instructor in the Department of Statistics at UBC and has taught a wide range of introductory statistics courses both at UBC and in the UK.  Currently he is the President-Elect of the Statistical Society of Canada’s Statistics Education Section and Chair of the Statistics Sub-committee of the British Columbia Committee on the Undergraduate Programs in Mathematics and Statistics.  In 2012 Bruce commenced a project developing statistics questions for the on-line homework system WeBWorK, and that work has continued during the FLIS project. Bruce has also assisted in testing and assessing many of the new resources created through the FLIS project, helping in facilitating interviews and focus groups during which student volunteers interacted with prototype resources.</p> 		
             </div>
 
             <div class="col-md-4 text-center">
@@ -121,8 +121,15 @@
                 <p class="text-left"><strong>Gillian Gerhard, Senior Educational Consultant:</strong> Gillian is a Senior Educational Consultant in the Centre for Teaching, Learning and Technology (CTLT), with a background in Mechanical Engineering and a PhD in Curriculum and Pedagogy.  During this project’s development, Gillian worked as a Strategist, Teaching and Learning Initiatives in Skylight at the Science Dean’s Office and as Science Faculty Liaison for CTLT.    She guided the development and implementation of FLIS, as well as other faculty-led strategic teaching and learning enhancement projects in Science. </p> 		
             </div>
         </div>
-        <h4>CREDIT FUNDING</h4>
 
-        <p>StatSpace was developed as part of the UBC Flexible Learning Introductory Statistics Project funded by The University of British Columbia’s Teaching and Learning Enhancement Fund, The Faculty of Medicine, The Faculty of Science, and The Faculty of Arts.</p>
+        <div class="row featured-items">
+            <div class="col-md-4 text-center">
+				<p class='text-left'><strong>Caitlin Donnelly:</strong> Caitlin is an Instructional Designer and Program Administrator with UBC Skylight, with a background in Biology.  Caitlin works with faculty and students to assess the resources created through the FLIS project, and provides project management support for the development of StatSpace.</p>
+			</div>
+		</div>
+
+        <h4>FLIS Thanks the Following</h4>
+
+        <p>StatSpace was developed as part of the UBC Flexible Learning Introductory Statistics Project funded by The University of British Columbia’s Teaching and Learning Enhancement Fund, The Faculty of Medicine, The Faculty of Science, and The Faculty of Arts. Additional support has been provided by the 	Statistical Society of Canada, UBC’s Centre for Teaching, Learning and Technology, and UBC 	Faculty of Science’s Skylight.</p>
 
 </dspace:layout>
