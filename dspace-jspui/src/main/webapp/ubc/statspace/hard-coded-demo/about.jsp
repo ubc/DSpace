@@ -60,9 +60,14 @@
 			<h3 class="panel-title"><i class="glyphicon glyphicon-send"></i> Contact us</h3>
 		</div>
 		<div class="panel-body">
-			<p>
-		If you encounter any technical difficulties, please email <u>lt.support@science.ubc.ca</u>, and if you would like more information about the UBC Statistics Flexible Learning Project or would like to learn more about the StatSpace project, please email <u>statspace@stat.ubc.ca</u>.
-			</p>
+			<ul>
+				<li>
+					Email <a href='mailto:lt.support@science.ubc.ca'>lt.support@science.ubc.ca</a> for technical difficulties.
+				</li>
+				<li>
+					Email <a href='mailto:statspace@stat.ubc.ca'>statspace@stat.ubc.ca</a> for more information about the UBC Statistics Flexible Learning project or the StatSpace project.
+				</li>
+			</ul>
 		</div>
 	</div>
 
