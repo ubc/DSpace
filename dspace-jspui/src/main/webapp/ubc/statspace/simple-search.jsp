@@ -362,10 +362,9 @@
 			<div class='row text-center'>
 				<c:set var="ResultsControlResultsPerPageID" value="ResultsControlResultsPerPage" />
 				<c:set var="ResultsControlSortedByID" value="ResultsControlSortedBy" />
-				<c:set var="ResultsControlSortAscending" value="ResultsControlSortAscending" />
-				<c:set var="ResultsControlSortDescending" value="ResultsControlSortOrder" />
-				<c:set var="SearchSortAscending" value="ASC" />
-				<c:set var="SearchSortDescending" value="DESC" />
+				<c:set var="ResultsControlSort" value="ResultsControlSort" />
+				<c:set var="SearchSortAscending" value="asc" />
+				<c:set var="SearchSortDescending" value="desc" />
 				<form class='form-inline center-block col-sm-12'>
 					<div class='SimpleSearchResultControls'>
 						<!-- Results Count -->
@@ -396,14 +395,9 @@
 						<div class="clearfix visible-sm-block SimpleSearchResultControlsSeparator"></div>
 						<div class='form-group'>
 							<label>Order</label>
-							<div class="btn-group">
-								<button id='${ResultsControlSortAscending}' type="button" class="btn btn-default ${isSortedAscending ? 'active':''}" title='Ascending'>
-									<span class='glyphicon glyphicon-sort-by-attributes'></span>
-								</button>
-								<button id='${ResultsControlSortDescending}' type="button" class="btn btn-default ${!isSortedAscending ? 'active':''}" title='Descending'>
-									<span class='glyphicon glyphicon-sort-by-attributes-alt'></span>
-								</button>
-							</div>
+							<button id='${ResultsControlSort}' type="button" class="btn btn-default" title='Swap Sort Order'>
+								<span class='glyphicon glyphicon-sort'></span>
+							</button>
 						</div>
 						<!-- List vs Thumbnail view -->
 						<div class="form-group">
@@ -431,10 +425,7 @@
 						var searchViewType = jQuery('#${SearchFormViewTypeID}');
 						var resultsPerPage = jQuery('#${ResultsControlResultsPerPageID}');
 						var sortedBy = jQuery('#${ResultsControlSortedByID}');
-						var sortAscending = jQuery('#${ResultsControlSortAscending}');
-						var sortDescending = jQuery('#${ResultsControlSortDescending}');
-						var resultsListView = jQuery('#ResultsListView');
-						var resultsTileView = jQuery('#ResultsTileView');
+						var sort = jQuery('#${ResultsControlSort}');
 						var listViewButton = jQuery('#${ListViewButtonID}');
 						var tileViewButton = jQuery('#${TileViewButtonID}');
 						// copy changes over to the main search form and then do a submit in order to preserve search settings
@@ -446,12 +437,14 @@
 							searchSortedBy.val(sortedBy.val());
 							searchForm.submit();
 						});
-						sortAscending.click(function(e) {
-							searchSortOrder.val('${SearchSortAscending}');
-							searchForm.submit();
-						});
-						sortDescending.click(function(e) {
-							searchSortOrder.val('${SearchSortDescending}');
+						sort.click(function(e) {
+							console.log(searchSortOrder.val());
+							if (searchSortOrder.val() == "${SearchSortAscending}") {
+								searchSortOrder.val('${SearchSortDescending}');
+							}
+							else {
+								searchSortOrder.val('${SearchSortAscending}');
+							}
 							searchForm.submit();
 						});
 						listViewButton.click(function(e){
