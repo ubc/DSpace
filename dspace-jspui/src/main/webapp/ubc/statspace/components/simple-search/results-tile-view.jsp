@@ -53,6 +53,15 @@
 								</c:forEach>
 							</ul>
 						</c:if>
+						<strong>Author:</strong>
+						<ul class='list-inline'>
+							<c:forEach items="${result.authors}" var="author">
+								<jsp:include page="/ubc/statspace/components/simple-search/tag-list-item.jsp">
+									<jsp:param name="listItem" value="${author}" />
+									<jsp:param name="searchFilterName" value="author" />
+								</jsp:include>
+							</c:forEach>
+						</ul>
 					</small>
 				</div>
 			</div>

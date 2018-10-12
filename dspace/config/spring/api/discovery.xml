@@ -110,6 +110,7 @@
                 <ref bean="searchFilterResourceType" />
                 <ref bean="searchFilterKeyword" />
                 <ref bean="searchFilterSubject" />
+                <ref bean="searchFilterLanguage" />
 				<!-- <ref bean="searchFilterIssued" /> -->
                 <ref bean="searchFilterCreated" />
                 <ref bean="searchFilterSubmitted" />
@@ -216,6 +217,7 @@
                 <ref bean="searchFilterResourceType" />
                 <ref bean="searchFilterAuthor" />
                 <ref bean="searchFilterKeyword" />
+                <ref bean="searchFilterLanguage" />
 				<!-- <ref bean="searchFilterIssued" /> -->
             </list>
         </property>
@@ -229,6 +231,7 @@
                 <ref bean="searchFilterSubject" />
                 <ref bean="searchFilterResourceType" />
                 <ref bean="searchFilterKeyword" />
+                <ref bean="searchFilterLanguage" />
 				<!-- <ref bean="searchFilterIssued" /> -->
                 <ref bean="searchFilterCreated" />
                 <ref bean="searchFilterSubmitted" />
@@ -484,6 +487,17 @@
         </property>
     </bean>
 
+    <bean id="searchFilterLanguage" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="language"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.language.iso</value>
+            </list>
+        </property>
+        <property name="facetLimit" value="5"/>
+        <property name="sortOrder" value="VALUE"/>
+    </bean>
+
     <!--Sort properties-->
     <bean id="sortTitle" class="org.dspace.discovery.configuration.DiscoverySortFieldConfiguration">
         <property name="metadataField" value="dc.title"/>
@@ -496,6 +510,10 @@
     
     <bean id="sortAuthor" class="org.dspace.discovery.configuration.DiscoverySortFieldConfiguration">
         <property name="metadataField" value="dc.contributor.author"/>
+    </bean>
+
+    <bean id="sortLanguage" class="org.dspace.discovery.configuration.DiscoverySortFieldConfiguration">
+        <property name="metadataField" value="dc.language.iso"/>
     </bean>
 
 </beans>

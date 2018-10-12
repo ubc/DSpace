@@ -7,7 +7,7 @@
 <dspace:layout locbar="nolink" title="Error - Zip File Not Generated Yet">
 	<div class="alert alert-danger" role="alert">
 		<h4 class="text-center">
-			Sorry, we haven't generated the zip package for this submission yet, please try again later!
+			This resource is probably a recent contribution, and we haven’t generated the zip package yet – please try again later.
 		</h4>
 		<p class="text-center">Error - Zip File Not Generated Yet</p>
 	</div>

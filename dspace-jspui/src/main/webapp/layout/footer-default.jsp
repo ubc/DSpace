@@ -54,7 +54,7 @@
                             <span class="ubc7-address-city">Vancouver</span>, <span class="ubc7-address-province" title="British Columbia">British Columbia</span> <span class="ubc7-address-country">Canada</span> <span class="ubc7-address-postal">V6T 1Z3</span>
                         </div>
 						<div id="ubc7-address-web">Web <a href="http://www.biology.ubc.ca/">http://www.biology.ubc.ca/</a></div>
-                	    <div id="ubc7-address-email">E-mail lt.support@science.ubc.ca</div>
+						<div id="ubc7-address-email">Email <u>lt.support@science.ubc.ca</u> for technical difficulties.</div>
                 	</div>
                     <div class="col-md-4">
                         <div id="ubc7-signature">

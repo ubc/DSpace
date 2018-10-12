@@ -163,11 +163,9 @@
 	</c:if>
 	<!-- Title & Summary Section -->
 	<div class='media'>
-		<c:if test="${not empty itemRetriever.thumbnail}">
-			<div class='media-left'>
-				<img class='media-object displayItemTitleThumbnail' src='${itemRetriever.thumbnail}' alt='thumbnail'>
-			</div>
-		</c:if>
+		<div class='media-left ${itemRetriever.hasPlaceholderThumbnail?'fadedSection':''}'>
+			<img class='media-object displayItemTitleThumbnail' src='${itemRetriever.thumbnail}' alt='thumbnail'>
+		</div>
 		<div class='media-body'>
 			<h1 class="marginTopNone">${itemRetriever.title}</h1> 
 			<p>${itemRetriever.summary}</p>

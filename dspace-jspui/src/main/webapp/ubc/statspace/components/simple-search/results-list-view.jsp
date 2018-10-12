@@ -21,7 +21,7 @@
 					<jsp:param name="retrieverVar" value="result" />
 				</jsp:include>
 				<c:set var="resultItemCollapseID" value="result-item-collapse-${resultStatus.index}"></c:set>
-				<!-- List Resource Types -->
+					<!-- List Resource Types -->
 					<ul class='list-inline'>
 						<li><strong>Resource Type:</strong></li>
 						<c:forEach items="${result.resourceTypes}" var="type">
@@ -43,6 +43,16 @@
 							</c:forEach>
 						</ul>
 					</c:if>
+					<!-- Author -->
+					<ul class='list-inline'>
+						<li><strong>Author:</strong></li>
+						<c:forEach items="${result.authors}" var="author">
+							<jsp:include page="/ubc/statspace/components/simple-search/tag-list-item.jsp">
+								<jsp:param name="listItem" value="${author}" />
+								<jsp:param name="searchFilterName" value="author" />
+							</jsp:include>
+						</c:forEach>
+					</ul>
 				</small>
 			</div>
 			<!-- Information hidden away until user expands it -->
@@ -56,15 +66,6 @@
 			<div id="${resultItemCollapseID}" class="collapse">
 				<p>${result.summary}</p>
 				<small>
-					<ul class='list-inline'>
-						<li><strong>Author:</strong></li>
-						<c:forEach items="${result.authors}" var="author">
-							<jsp:include page="/ubc/statspace/components/simple-search/tag-list-item.jsp">
-								<jsp:param name="listItem" value="${author}" />
-								<jsp:param name="searchFilterName" value="author" />
-							</jsp:include>
-						</c:forEach>
-					</ul>
 					<ul class='list-inline'>
 						<li><strong>License:</strong></li>
 						<li>${result.license}</li>

@@ -548,7 +548,8 @@ public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcesso
 		}
 
 		List<String> filterTypeOptions = new ArrayList<String>(Arrays.asList(
-			"contains","equals","authority","notequals","notcontains","notauthority"
+			//"contains","equals","authority","notequals","notcontains","notauthority"
+			"equals","contains","notequals","notcontains"
 		));
 
 		request.setAttribute("filterNameOptions", filterNameOptions);

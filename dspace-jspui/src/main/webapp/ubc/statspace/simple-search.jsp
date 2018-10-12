@@ -92,35 +92,43 @@
 						<!-- Autocomplete for filters -->
 						<script>
 							jQuery(function() {
-								jQuery( "#filterquery" ).autocomplete({
-									source: function( request, response ) {
-										jQuery.ajax({
-											url: "<c:url value='${autocompleteURL}' />",
-											dataType: "json",
-											cache: false,
-											data: {
-												auto_idx: jQuery("#filtername").val(),
-												auto_query: request.term,
-												auto_sort: 'count',
-												auto_type: jQuery("#filtertype").val(),
-												location: "${searchScope}"
-											},
-											success: function( data ) {
-												response( jQuery.map( data.autocomplete, function( item ) {
-													var tmp_val = item.authorityKey;
-													if (tmp_val == null || tmp_val == '')
-													{
-														tmp_val = item.displayedValue;
-													}
-													return {
-														label: item.displayedValue + " (" + item.count + ")",
-														value: tmp_val
-													};
-												}));			
-											}
-										});
-									}
-								});
+								function autocomplete(queryElem, nameElem, typeElem) {
+									queryElem.autocomplete({
+										source: function( request, response ) {
+											jQuery.ajax({
+												url: "<c:url value='${autocompleteURL}' />",
+												dataType: "json",
+												cache: false,
+												data: {
+													auto_idx: nameElem.val(),
+													auto_query: request.term,
+													auto_sort: 'count',
+													auto_type: typeElem.val(),
+													location: "${searchScope}"
+												},
+												success: function( data ) {
+													response( jQuery.map( data.autocomplete, function( item ) {
+														var tmp_val = item.authorityKey;
+														if (tmp_val == null || tmp_val == '')
+														{
+															tmp_val = item.displayedValue;
+														}
+														return {
+															label: item.displayedValue + " (" + item.count + ")",
+															value: tmp_val
+														};
+													}));			
+												}
+											});
+										}
+									});
+								}
+								autocomplete(jQuery('#filterquery'), jQuery("#filtername"), jQuery("#filtertype"));
+								<c:forEach items='${appliedFilters}' var='filter' varStatus='loop'>
+									var test=jQuery('#filterquery_${loop.index+1}');
+									console.log(test.val());
+									autocomplete(jQuery('#filterquery_${loop.index+1}'), jQuery("#filtername_${loop.index+1}"), jQuery("#filtertype_${loop.index+1}"));
+								</c:forEach>
 							});
 						</script>
 					</div>
@@ -172,21 +180,22 @@
 				<div class='form-group form-group-sm ${AppliedFilterClass}' id='${AppliedFilterClass}_${filterLoop.index}'>
 					<div class='form-inline col-sm-10 col-sm-offset-2'>
 						<label>Filter</label>
-						<select class='form-control' name='filter_field_${filterLoop.index+1}'>
+						<select class='form-control' name='filter_field_${filterLoop.index+1}' id="filtername_${filterLoop.index+1}">
 							<c:forEach items='${filterNameOptions}' var='filterNameOption'>
 								<option value="${filterNameOption}" ${filter[0] == filterNameOption?'selected':''}>
 									<fmt:message key="jsp.search.filter.${filterNameOption}"/>
 								</option>
 							</c:forEach>
 						</select>
-						<select class='form-control' name='filter_type_${filterLoop.index+1}'>
+						<select class='form-control' name='filter_type_${filterLoop.index+1}' id="filtertype_${filterLoop.index+1}">
 							<c:forEach items='${filterTypeOptions}' var='filterTypeOption'>
 								<option value="${filterTypeOption}" ${filter[1] == filterTypeOption?'selected':''}>
 									<fmt:message key="jsp.search.filter.op.${filterTypeOption}"/>
 								</option>
 							</c:forEach>
 						</select>
-						<input class='form-control' size='35' style='max-width: 100%;' type='text' name='filter_value_${filterLoop.index+1}' value='${filter[2]}' required />
+						<input class='form-control' size='35' style='max-width: 100%;' type='text' id="filterquery_${filterLoop.index+1}" name='filter_value_${filterLoop.index+1}'
+							   value='${filter[2]}' required />
 						<button id="filter_remove_${filterLoop.index+1}" type="button" class="close editMetadataRemoveEntryButton" aria-label="Remove">
 							<span class="glyphicon">&times;</span>
 						</button>
@@ -342,10 +351,9 @@
 			<div class='row text-center'>
 				<c:set var="ResultsControlResultsPerPageID" value="ResultsControlResultsPerPage" />
 				<c:set var="ResultsControlSortedByID" value="ResultsControlSortedBy" />
-				<c:set var="ResultsControlSortAscending" value="ResultsControlSortAscending" />
-				<c:set var="ResultsControlSortDescending" value="ResultsControlSortOrder" />
-				<c:set var="SearchSortAscending" value="ASC" />
-				<c:set var="SearchSortDescending" value="DESC" />
+				<c:set var="ResultsControlSort" value="ResultsControlSort" />
+				<c:set var="SearchSortAscending" value="asc" />
+				<c:set var="SearchSortDescending" value="desc" />
 				<form class='form-inline center-block col-sm-12'>
 					<div class='SimpleSearchResultControls'>
 						<!-- Results Count -->
@@ -376,14 +384,9 @@
 						<div class="clearfix visible-sm-block SimpleSearchResultControlsSeparator"></div>
 						<div class='form-group'>
 							<label>Order</label>
-							<div class="btn-group">
-								<button id='${ResultsControlSortAscending}' type="button" class="btn btn-default ${isSortedAscending ? 'active':''}" title='Ascending'>
-									<span class='glyphicon glyphicon-sort-by-attributes'></span>
-								</button>
-								<button id='${ResultsControlSortDescending}' type="button" class="btn btn-default ${!isSortedAscending ? 'active':''}" title='Descending'>
-									<span class='glyphicon glyphicon-sort-by-attributes-alt'></span>
-								</button>
-							</div>
+							<button id='${ResultsControlSort}' type="button" class="btn btn-default" title='Swap Sort Order'>
+								<span class='glyphicon glyphicon-sort'></span>
+							</button>
 						</div>
 						<!-- List vs Thumbnail view -->
 						<div class="form-group">
@@ -411,10 +414,7 @@
 						var searchViewType = jQuery('#${SearchFormViewTypeID}');
 						var resultsPerPage = jQuery('#${ResultsControlResultsPerPageID}');
 						var sortedBy = jQuery('#${ResultsControlSortedByID}');
-						var sortAscending = jQuery('#${ResultsControlSortAscending}');
-						var sortDescending = jQuery('#${ResultsControlSortDescending}');
-						var resultsListView = jQuery('#ResultsListView');
-						var resultsTileView = jQuery('#ResultsTileView');
+						var sort = jQuery('#${ResultsControlSort}');
 						var listViewButton = jQuery('#${ListViewButtonID}');
 						var tileViewButton = jQuery('#${TileViewButtonID}');
 						// copy changes over to the main search form and then do a submit in order to preserve search settings
@@ -426,12 +426,14 @@
 							searchSortedBy.val(sortedBy.val());
 							searchForm.submit();
 						});
-						sortAscending.click(function(e) {
-							searchSortOrder.val('${SearchSortAscending}');
-							searchForm.submit();
-						});
-						sortDescending.click(function(e) {
-							searchSortOrder.val('${SearchSortDescending}');
+						sort.click(function(e) {
+							console.log(searchSortOrder.val());
+							if (searchSortOrder.val() == "${SearchSortAscending}") {
+								searchSortOrder.val('${SearchSortDescending}');
+							}
+							else {
+								searchSortOrder.val('${SearchSortAscending}');
+							}
 							searchForm.submit();
 						});
 						listViewButton.click(function(e){
