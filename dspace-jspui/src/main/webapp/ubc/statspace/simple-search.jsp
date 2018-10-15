@@ -180,21 +180,21 @@
 				<div class='form-group form-group-sm ${AppliedFilterClass}' id='${AppliedFilterClass}_${filterLoop.index}'>
 					<div class='form-inline col-sm-10 col-sm-offset-2'>
 						<label>Filter</label>
-						<select class='form-control' name='filter_field_${filterLoop.index+1}' id="filtername_${filterLoop.index+1}">
+						<select class='form-control' name='filtername' id="filtername_${filterLoop.index+1}">
 							<c:forEach items='${filterNameOptions}' var='filterNameOption'>
 								<option value="${filterNameOption}" ${filter[0] == filterNameOption?'selected':''}>
 									<fmt:message key="jsp.search.filter.${filterNameOption}"/>
 								</option>
 							</c:forEach>
 						</select>
-						<select class='form-control' name='filter_type_${filterLoop.index+1}' id="filtertype_${filterLoop.index+1}">
+						<select class='form-control' name='filtertype' id="filtertype_${filterLoop.index+1}">
 							<c:forEach items='${filterTypeOptions}' var='filterTypeOption'>
 								<option value="${filterTypeOption}" ${filter[1] == filterTypeOption?'selected':''}>
 									<fmt:message key="jsp.search.filter.op.${filterTypeOption}"/>
 								</option>
 							</c:forEach>
 						</select>
-						<input class='form-control' size='35' style='max-width: 100%;' type='text' id="filterquery_${filterLoop.index+1}" name='filter_value_${filterLoop.index+1}'
+						<input class='form-control' size='35' style='max-width: 100%;' type='text' id="filterquery_${filterLoop.index+1}" name='filterquery'
 							   value='${filter[2]}' required />
 						<button id="filter_remove_${filterLoop.index+1}" type="button" class="close editMetadataRemoveEntryButton" aria-label="Remove">
 							<span class="glyphicon">&times;</span>
@@ -203,70 +203,15 @@
 				</div>
 			</c:forEach>
 			<script>
+				// Functionality for remove individual filters or all filters
 				jQuery(function() {
 					var searchForm = jQuery('#${SearchFormID}');
-					// Because of the way DSpace rely on sequentially numbering repeated fields, if you have
-					// say fields 1,2,3,4, and you remove field 2, it'll also remove fields 3 and 4 cause
-					// it stops after seeing that 2 is gone. The proper way to fix this is to use form arrays,
-					// but I don't have the time required to fix the api, so this is a workaround to renumber 
-					// the fields to make sure they're sequential. UPDATE: This behaviour was fixed in
-					// edit-metadata.jsp but hasn't been patched in search yet.
-					function getIndex(elementID) {
-						var index = elementID.match(/\d+/g);
-						// dspace cannot handle elements numbered with 0, it expects the first element
-						// to not be numbered, so have to compensate here. Assume that if we didn't
-						// find a number, it's the first element.
-						if (index === null) index = 0;
-						index = parseInt(index, 10);
-						return index;
-					}
-					function incrementFieldID(fieldID) {
-						var prevIndex = getIndex(fieldID);
-						if (fieldID.match("_"+prevIndex))
-							return fieldID.replace("_"+prevIndex, "_"+(prevIndex+1));
-						// special case if starting from element 0, since it isn't numbered
-						return fieldID+"_"+(prevIndex+1);
-					}
-					function decrementFieldID(fieldID) {
-						var fieldIndex = getIndex(fieldID);
-						// normal case, just decrement the index
-						if (fieldIndex > 0) return fieldID.replace("_"+fieldIndex,"_"+(fieldIndex-1));
-						// something messed up if we reach this case, don't do anything
-						else return fieldID;
-					}
-					// update the index on the wrapper, input, buttons, etc fields as appropriate
-					function updateFieldIDs(field, isIncrement) {
-						var operation = function(i, fieldID) {
-							if (isIncrement) return incrementFieldID(fieldID);
-							return decrementFieldID(fieldID);
-						};
-						field.prop("id", operation);
-						field.find("select").prop("name", operation);
-						field.find("input").prop("name", operation);
-						field.find("button").prop("id", operation);
-					}
-					function incrementFieldIDs(field) {
-						updateFieldIDs(field, true);
-					}
-					function decrementFieldIDs(field) {
-						updateFieldIDs(field, false);
-					}
-					function renumberFields(removedElementID) {
-						var nextElementID = incrementFieldID(removedElementID);
-						var nextElement = jQuery("#"+nextElementID);
-						while (nextElement.length) {
-							decrementFieldIDs(nextElement);
-							nextElementID = incrementFieldID(nextElementID);
-							nextElement = jQuery("#"+nextElementID);
-						}
-					}
 					var removeButtons = jQuery('.${AppliedFilterClass} button');
 					var canSubmit = true;
 					removeButtons.click(function() {
 						var elemToRemove = jQuery(this).parent().parent();
 						var elemToRemoveID = elemToRemove.prop('id');
 						elemToRemove.remove();
-						renumberFields(elemToRemoveID);
 						if (canSubmit) searchForm.submit();
 					});
 					var clearAllFiltersButton = jQuery('#${ClearAllFiltersButtonID}');
