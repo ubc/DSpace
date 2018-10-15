@@ -567,29 +567,31 @@ public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcesso
 	{
 		if (facetsConf == null) return;
 		if (qResults == null) return;
-		List<DiscoverySearchFilterFacet> facetsToShow = new ArrayList<DiscoverySearchFilterFacet>();
 		Map<String, List<FacetResult>> facetNameToResults = new LinkedHashMap<String, List<FacetResult>>();
-		Map<String, Boolean> showFacets = new HashMap<String, Boolean>();
+		Map<String, Boolean> appliedFiltersMap = new HashMap<String, Boolean>();
 			
 		for (DiscoverySearchFilterFacet facetConf : facetsConf)
 		{
 			String facetName = facetConf.getIndexFieldName();
 			List<FacetResult> facetResults = qResults.getFacetResult(facetName);
+			// guessing weird workaround for some stupid behaviour around year?! idk, so not touching it.
 			if (facetResults.size() == 0)
 			{
 				facetResults = qResults.getFacetResult(facetName+".year");
 				if (facetResults.size() == 0) continue;
 			}
-			boolean showFacet = false;
+			// there's options available for filtering, make it available to the jsp
+			facetNameToResults.put(facetName, facetResults);
+			// find out what filters are currently in use, so we can hide them
 			for (FacetResult fvalue : facetResults)
 			{ 
-				if(!appliedFilterQueries.contains(facetName+"::"+fvalue.getFilterType()+"::"+fvalue.getAsFilterQuery()))
+				String filterKey = facetName+"::"+fvalue.getFilterType()+"::"+fvalue.getAsFilterQuery();
+				if(appliedFilterQueries.contains(filterKey))
 				{
-					facetsToShow.add(facetConf);
-					facetNameToResults.put(facetName, facetResults);
-					break;
+					appliedFiltersMap.put(filterKey, Boolean.TRUE);
 				}
 			}
+			// statspace subject tree display needs additional parameters
 			if (facetName.equals("subject")) {
 				List<String> subjects = new ArrayList<String>();
 				Map<String, FacetResult> subjectToFacetResults = new HashMap<String, FacetResult>();
@@ -605,6 +607,7 @@ public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcesso
 			}
 		}
 		request.setAttribute("facetNameToResults", facetNameToResults);
+		request.setAttribute("appliedFiltersMap", appliedFiltersMap);
 	}
 
 	/**

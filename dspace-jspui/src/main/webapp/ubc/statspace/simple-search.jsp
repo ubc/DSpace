@@ -264,6 +264,7 @@
 							<table id='${FacetCollapseID}' class='table table-condensed table-hover hidden'>
 								<tbody>
 									<c:forEach items='${facet.value}' var='facetResult'>
+										<c:set var="filterKey" value="${facet.key}::${facetResult.filterType}::${facetResult.asFilterQuery}"/>
 										<jsp:include page="/ubc/statspace/components/simple-search/filter-results-tr.jsp">
 											<jsp:param name="baseURL" value="${pagination.baseURL}" />
 											<jsp:param name="filterName" value="${facet.key}" />
@@ -271,6 +272,7 @@
 											<jsp:param name="filterType" value="${facetResult.filterType}" />
 											<jsp:param name="label" value="${facetResult.displayedValue}" />
 											<jsp:param name="count" value="${facetResult.count}" />
+											<jsp:param name="isInUse" value="${appliedFiltersMap[filterKey]}" />
 										</jsp:include>
 									</c:forEach>
 								</tbody>
