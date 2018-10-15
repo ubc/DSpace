@@ -713,9 +713,9 @@ public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcesso
 			int idx = 1;
 			for (String[] filter : appliedFilters)
 			{
-				httpFilters += "&amp;filter_field_"+idx+"="+URLEncoder.encode(filter[0],"UTF-8");
-				httpFilters += "&amp;filter_type_"+idx+"="+URLEncoder.encode(filter[1],"UTF-8");
-				httpFilters += "&amp;filter_value_"+idx+"="+URLEncoder.encode(filter[2],"UTF-8");
+				httpFilters += "&amp;filtername="+URLEncoder.encode(filter[0],"UTF-8");
+				httpFilters += "&amp;filtertype="+URLEncoder.encode(filter[1],"UTF-8");
+				httpFilters += "&amp;filterquery="+URLEncoder.encode(filter[2],"UTF-8");
 				idx++;
 			}
 		}

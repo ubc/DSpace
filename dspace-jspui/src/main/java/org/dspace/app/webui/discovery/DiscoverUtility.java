@@ -9,6 +9,7 @@ package org.dspace.app.webui.discovery;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -677,40 +678,18 @@ public class DiscoverUtility
 
     public static List<String[]> getFilters(HttpServletRequest request)
     {
-        String submit = UIUtil.getSubmitButton(request, "submit");
-        int ignore = -1;
-        if (submit.startsWith("submit_filter_remove_"))
-        {
-            ignore = Integer.parseInt(submit.substring("submit_filter_remove_".length()));
-        }
-        List<String[]> appliedFilters = new ArrayList<String[]>();
-        
         List<String> filterValue = new ArrayList<String>();
         List<String> filterOp = new ArrayList<String>();
         List<String> filterField = new ArrayList<String>();
-        for (int idx = 1; ; idx++)
-        {
-            String op = request.getParameter("filter_type_"+idx);
-            if (StringUtils.isBlank(op))
-            {
-                break;
-            }
-            else if (idx != ignore)
-            {
-                filterOp.add(op);
-                filterField.add(request.getParameter("filter_field_"+idx));
-                filterValue.add(request.getParameter("filter_value_"+idx));
-            }
-        }
         
-        String op = request.getParameter("filtertype");
-        if (StringUtils.isNotBlank(op))
-        {
-            filterOp.add(op);
-            filterField.add(request.getParameter("filtername"));
-            filterValue.add(request.getParameter("filterquery"));
-        }
+		String[] values = request.getParameterValues("filterquery");
+		if (values != null) filterValue.addAll(Arrays.asList(values));
+		values = request.getParameterValues("filtertype");
+		if (values != null) filterOp.addAll(Arrays.asList(values));
+		values = request.getParameterValues("filtername");
+		if (values != null) filterField.addAll(Arrays.asList(values));
         
+        List<String[]> appliedFilters = new ArrayList<String[]>();
         for (int idx = 0; idx < filterOp.size(); idx++)
         {
             appliedFilters.add(new String[] { filterField.get(idx),
