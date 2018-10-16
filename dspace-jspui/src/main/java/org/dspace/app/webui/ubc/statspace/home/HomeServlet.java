@@ -13,6 +13,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
+import java.util.ResourceBundle;
 import java.util.Set;
 import java.util.logging.Level;
 import javax.servlet.ServletException;
@@ -33,6 +34,7 @@ import org.dspace.content.Item;
 import org.dspace.content.ItemIterator;
 import org.dspace.core.Context;
 import org.dspace.core.LogManager;
+import org.dspace.core.NewsManager;
 import org.dspace.core.PluginManager;
 import org.dspace.plugin.SiteHomeProcessor;
 import org.postgresql.util.PSQLException;
@@ -81,7 +83,12 @@ public class HomeServlet extends DSpaceServlet {
 				log.error(ex);
 				throw new ServletException(ex);
 			}
+
 			setFeaturedArticlesAttribute(context, request);
+
+			ResourceBundle msgs = ResourceBundle.getBundle("Messages", sessionLocale);
+			String homeIntro = NewsManager.readNewsFile(msgs.getString("news-top.html"));
+			request.setAttribute("homeIntro", homeIntro);
 
 			// Show home page JSP
 			JSPManager.showJSP(request, response, "/home.jsp");

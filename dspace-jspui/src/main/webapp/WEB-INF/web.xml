@@ -901,6 +901,15 @@
 		<url-pattern>/approve-user-servlet</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>contact-servlet</servlet-name>
+		<servlet-class>org.dspace.app.webui.ubc.statspace.home.ContactPageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>contact-servlet</servlet-name>
+		<url-pattern>/contact</url-pattern>
+	</servlet-mapping>
+
     <servlet>
         <servlet-name>ubc-file-upload</servlet-name>
         <servlet-class>org.dspace.app.webui.ubc.importer.ImportCommunitiesCollectionsServlet</servlet-class>

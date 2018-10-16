@@ -49,14 +49,18 @@
 
         <%-- <h1>News Editor</h1> --%>
       <h1><fmt:message key="jsp.dspace-admin.news-main.heading"/>
-      <dspace:popup page="<%= LocaleSupport.getLocalizedMessage(pageContext, \"help.site-admin\") + \"#editnews\"%>"><fmt:message key="jsp.help"/></dspace:popup>
+      <%-- <dspace:popup page="<%= LocaleSupport.getLocalizedMessage(pageContext, \"help.site-admin\") + \"#editnews\"%>"><fmt:message key="jsp.help"/></dspace:popup> --%>
 	  </h1>
 			
-		<form action="<%= request.getContextPath() %>/dspace-admin/news-edit" method="post">			
-			<select class="form-control" name="position" size="5">
-				<option value="<fmt:message key="news-top.html"/>"><fmt:message key="jsp.dspace-admin.news-main.news.top"/></option>
-				<option value="<fmt:message key="news-side.html"/>"><fmt:message key="jsp.dspace-admin.news-main.news.sidebar"/></option>
-			</select>
-			<input class="btn btn-primary" type="submit" name="submit_edit" value="<fmt:message key="jsp.dspace-admin.general.edit"/>" />
- 		</form>		
+	  <form action="<%= request.getContextPath() %>/dspace-admin/news-edit" method="post">			
+		  <div class="form-group">
+			  <label for="position">Select Blurb</label>
+			  <select class="form-control" name="position">
+				  <option value="<fmt:message key="news-top.html"/>"><fmt:message key="jsp.dspace-admin.news-main.news.top"/></option>
+				  <option value="<fmt:message key="news-contact.html"/>"><fmt:message key="jsp.dspace-admin.news-main.news.contact"/></option>
+				  <%-- Not currently using sidebar <option value="<fmt:message key="news-side.html"/>"><fmt:message key="jsp.dspace-admin.news-main.news.sidebar"/></option> --%>
+			  </select>
+		  </div>
+		  <input class="btn btn-primary" type="submit" name="submit_edit" value="<fmt:message key="jsp.dspace-admin.general.edit"/>" />
+	  </form>		
 </dspace:layout>

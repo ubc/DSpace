@@ -90,7 +90,7 @@
                </div> --%>
                <li class="<%= currentPage.endsWith("/")? "active" : "" %>"><a href="<%= request.getContextPath() %>/"><span class="glyphicon glyphicon-home"></span> <fmt:message key="jsp.layout.navbar-default.home"/></a></li>
 	   <% } %>
-	           <li class="<%= currentPage.endsWith("/about.jsp")? "active" : "" %>"><a href="<%= request.getContextPath() %>/demo/about.jsp"><span class="glyphicon glyphicon-book"></span> About</a></li>
+	           <li class="<%= currentPage.endsWith("/contact")? "active" : "" %>"><a href="<%= request.getContextPath() %>/contact"><span class="glyphicon glyphicon-earphone"></span> Contact Us</a></li>
        </ul>
 
  <% if (supportedLocales != null && supportedLocales.length > 1)

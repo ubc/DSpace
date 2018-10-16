@@ -18,6 +18,7 @@
 			<list>
 				<value>news-top.html</value>
 				<value>news-side.html</value>
+				<value>news-contact.html</value>
 			</list>
 		</property>	
 	</bean>
