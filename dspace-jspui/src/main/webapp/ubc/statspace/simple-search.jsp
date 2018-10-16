@@ -125,8 +125,6 @@
 								}
 								autocomplete(jQuery('#filterquery'), jQuery("#filtername"), jQuery("#filtertype"));
 								<c:forEach items='${appliedFilters}' var='filter' varStatus='loop'>
-									var test=jQuery('#filterquery_${loop.index+1}');
-									console.log(test.val());
 									autocomplete(jQuery('#filterquery_${loop.index+1}'), jQuery("#filtername_${loop.index+1}"), jQuery("#filtertype_${loop.index+1}"));
 								</c:forEach>
 							});
@@ -385,7 +383,6 @@
 							searchForm.submit();
 						});
 						sort.click(function(e) {
-							console.log(searchSortOrder.val());
 							if (searchSortOrder.val() == "${SearchSortAscending}") {
 								searchSortOrder.val('${SearchSortDescending}');
 							}
