@@ -20,220 +20,218 @@
 
 <dspace:layout titlekey="jsp.search.title">
 
-<!-- Big Search Box -->
-<div class="row SimpleSearchBigSearchRow">
-	<div class="col-sm-12 SimpleSearchBigSearchBox">
-		<!-- Main Search Box -->
-		<c:set var="SearchFormID" value="SearchForm" />
-		<c:set var="SearchFormResultsPerPageID" value="SearchFormResultsPerPage" />
-		<c:set var="SearchFormSortedByID" value="SearchFormSortedBy" />
-		<c:set var="SearchFormSortOrderID" value="SearchFormSortOrder" />
-		<c:set var="SearchFormViewTypeID" value="SearchFormViewType" />
-		<c:set var="VIEW_TYPE_TILE" value="tile" />
-		<c:set var="VIEW_TYPE_LIST" value="list" />
-		<form id='${SearchFormID}' action="simple-search" method="get" class='form-horizontal'>
-			<div class="form-group">
-				<label for="query" class="col-sm-2 SimpleSearchBigLabel control-label">
-					<h1><fmt:message key="jsp.search.title"/></h1>
-				</label>
-				<div class="col-sm-10 col-md-9 col-lg-8">
-					<div class="input-group">
-						<input class="form-control input-lg" type="text" id="query" name="query" value="${queryStr}"/>
-						<span class="input-group-btn">
-							<input class="btn btn-primary btn-lg" type="submit" id="main-query-submit" value="<fmt:message key="jsp.general.go"/>" />
-						</span>
-					</div>
-					<!-- Advanced Filters -->
-					<c:set var='AddFilterToggleID' value='AddFilterToggle'/>
-					<c:set var='AddFilterSectionID' value='AddFilterSection'/>
-					<c:set var='ClearAllFiltersButtonID' value='ClearAllFilters'/>
-					<c:set var='DidYouMeanButtonID' value='DidYouMean' />
-					<div class='SimpleSearchAddFilterToggle'>
-						<button type='button' class='pull-right btn btn-link' id='${AddFilterToggleID}'>
-							<small>Advanced Search</small>
-						</button>
-						<!-- "Did You Mean", DSpace will suggest search terms when it thinks you've made a typo -->
-						<c:if test='${!empty spellcheck}'>
-							<p class='h4 SimpleSearchDidYouMean'>
-								<em>
-								<fmt:message key="jsp.search.didyoumean">
-									<fmt:param><a id="${DidYouMeanButtonID}" role='button'>${spellcheck}</a></fmt:param>
-								</fmt:message>
-								</em>
-							</p>
-						</c:if>
-						<!-- "Clear All Filters" button -->
-						<c:if test='${!empty appliedFilters}'>
-							<button id='${ClearAllFiltersButtonID}' type='button' class='pull-left btn btn-default btn-xs' style=''>
-								<span class='glyphicon glyphicon-remove'></span> Clear All Filters
-							</button>
-						</c:if>
-					</div>
-					<div id='${AddFilterSectionID}' class='SimpleSearchAddFilter hidden'>
-						<div class='form-inline'>
-							<label>Filter</label>
-							<select class='form-control input-sm' id='filtername' name='filtername' disabled required>
-								<option class='hidden' selected disabled>- Select Field -</option>
-								<c:forEach items='${filterNameOptions}' var='filterNameOption'>
-									<option value="${filterNameOption}"><fmt:message key="jsp.search.filter.${filterNameOption}"/></option>
-								</c:forEach>
-							</select>
-							<select class='form-control input-sm' id='filtertype' name='filtertype' disabled required>
-								<%-- Defaulting to 'Select Operation' increases the size of the field to the point that it forces the following form inputs to wrap around on sm sizes,
-									 if we default to the first option, this wraparound deson't happen. Not sure what's a good way to solve this. --%>
-								<!--<option class='hidden' selected disabled>- Select Operation -</option>-->
-								<c:forEach items='${filterTypeOptions}' var='filterTypeOption'>
-									<option value="${filterTypeOption}"><fmt:message key="jsp.search.filter.op.${filterTypeOption}"/></option>
-								</c:forEach>
-							</select>
-							<input class='form-control input-sm' type="text" id="filterquery" name="filterquery" placeholder='Filter Term' disabled required />
-							<button class='btn btn-default btn-sm'><span class='glyphicon glyphicon-plus'></span> <fmt:message key="jsp.search.filter.add"/></button>
+<div class="row">
+	<!-- Side Bar -->
+	<div class="col-sm-4">
+		<!-- Search Box -->
+		<div class="SimpleSearchBigSearchBox">
+			<!-- Main Search Box -->
+			<c:set var="SearchFormID" value="SearchForm" />
+			<c:set var="SearchFormResultsPerPageID" value="SearchFormResultsPerPage" />
+			<c:set var="SearchFormSortedByID" value="SearchFormSortedBy" />
+			<c:set var="SearchFormSortOrderID" value="SearchFormSortOrder" />
+			<c:set var="SearchFormViewTypeID" value="SearchFormViewType" />
+			<c:set var="VIEW_TYPE_TILE" value="tile" />
+			<c:set var="VIEW_TYPE_LIST" value="list" />
+			<form id='${SearchFormID}' action="simple-search" method="get" class=''>
+				<div class="form-group">
+					<label for="query" class="SimpleSearchBigLabel control-label">
+						<h2><fmt:message key="jsp.search.title"/></h2>
+					</label>
+					<div class="">
+						<div class="input-group">
+							<input class="form-control input-sm" type="text" id="query" name="query" value="${queryStr}"/>
+							<span class="input-group-btn">
+								<input class="btn btn-primary btn-sm" type="submit" id="main-query-submit" value="<fmt:message key="jsp.general.go"/>" />
+							</span>
 						</div>
-						<!-- Autocomplete for filters -->
+						<!-- Advanced Filters -->
+						<c:set var='AddFilterToggleID' value='AddFilterToggle'/>
+						<c:set var='AddFilterSectionID' value='AddFilterSection'/>
+						<c:set var='ClearAllFiltersButtonID' value='ClearAllFilters'/>
+						<c:set var='DidYouMeanButtonID' value='DidYouMean' />
+						<div class='SimpleSearchAddFilterToggle'>
+							<button type='button' class='pull-right btn btn-link' id='${AddFilterToggleID}'>
+								<small>Advanced Search</small>
+							</button>
+							<!-- "Did You Mean", DSpace will suggest search terms when it thinks you've made a typo -->
+							<c:if test='${!empty spellcheck}'>
+								<p class='h4 SimpleSearchDidYouMean'>
+									<em>
+									<fmt:message key="jsp.search.didyoumean">
+										<fmt:param><a id="${DidYouMeanButtonID}" role='button'>${spellcheck}</a></fmt:param>
+									</fmt:message>
+									</em>
+								</p>
+							</c:if>
+							<!-- "Clear All Filters" button -->
+							<c:if test='${!empty appliedFilters}'>
+								<button id='${ClearAllFiltersButtonID}' type='button' class='pull-left btn btn-default btn-xs hidden-sm' style=''>
+									<span class='glyphicon glyphicon-remove'></span> Clear All Filters
+								</button>
+							</c:if>
+						</div>
+						<div id='${AddFilterSectionID}' class='SimpleSearchAddFilter hidden'>
+							<div class=''>
+								<label>Filter</label>
+								<select class='form-control input-sm' id='filtername' name='filtername' disabled required>
+									<option class='hidden' selected disabled>- Select Field -</option>
+									<c:forEach items='${filterNameOptions}' var='filterNameOption'>
+										<option value="${filterNameOption}"><fmt:message key="jsp.search.filter.${filterNameOption}"/></option>
+									</c:forEach>
+								</select>
+								<select class='form-control input-sm' id='filtertype' name='filtertype' disabled required>
+									<%-- Defaulting to 'Select Operation' increases the size of the field to the point that it forces the following form inputs to wrap around on sm sizes,
+										 if we default to the first option, this wraparound deson't happen. Not sure what's a good way to solve this. --%>
+									<!--<option class='hidden' selected disabled>- Select Operation -</option>-->
+									<c:forEach items='${filterTypeOptions}' var='filterTypeOption'>
+										<option value="${filterTypeOption}"><fmt:message key="jsp.search.filter.op.${filterTypeOption}"/></option>
+									</c:forEach>
+								</select>
+								<input class='form-control input-sm' type="text" id="filterquery" name="filterquery" placeholder='Filter Term' disabled required />
+								<button class='btn btn-default btn-sm'><span class='glyphicon glyphicon-plus'></span> <fmt:message key="jsp.search.filter.add"/></button>
+							</div>
+							<!-- Autocomplete for filters -->
+							<script>
+								jQuery(function() {
+									function autocomplete(queryElem, nameElem, typeElem) {
+										queryElem.autocomplete({
+											source: function( request, response ) {
+												jQuery.ajax({
+													url: "<c:url value='${autocompleteURL}' />",
+													dataType: "json",
+													cache: false,
+													data: {
+														auto_idx: nameElem.val(),
+														auto_query: request.term,
+														auto_sort: 'count',
+														auto_type: typeElem.val(),
+														location: "${searchScope}"
+													},
+													success: function( data ) {
+														response( jQuery.map( data.autocomplete, function( item ) {
+															var tmp_val = item.authorityKey;
+															if (tmp_val == null || tmp_val == '')
+															{
+																tmp_val = item.displayedValue;
+															}
+															return {
+																label: item.displayedValue + " (" + item.count + ")",
+																value: tmp_val
+															};
+														}));			
+													}
+												});
+											}
+										});
+									}
+									autocomplete(jQuery('#filterquery'), jQuery("#filtername"), jQuery("#filtertype"));
+									<c:forEach items='${appliedFilters}' var='filter' varStatus='loop'>
+										autocomplete(jQuery('#filterquery_${loop.index+1}'), jQuery("#filtername_${loop.index+1}"), jQuery("#filtertype_${loop.index+1}"));
+									</c:forEach>
+								});
+							</script>
+						</div>
+						<!-- JS for: Show/Hide Advanced Search, Did You Mean -->
 						<script>
+							// need to disable inputs so they don't get submitted, otherwise,
+							// dspace API gets confused by the empty fields
 							jQuery(function() {
-								function autocomplete(queryElem, nameElem, typeElem) {
-									queryElem.autocomplete({
-										source: function( request, response ) {
-											jQuery.ajax({
-												url: "<c:url value='${autocompleteURL}' />",
-												dataType: "json",
-												cache: false,
-												data: {
-													auto_idx: nameElem.val(),
-													auto_query: request.term,
-													auto_sort: 'count',
-													auto_type: typeElem.val(),
-													location: "${searchScope}"
-												},
-												success: function( data ) {
-													response( jQuery.map( data.autocomplete, function( item ) {
-														var tmp_val = item.authorityKey;
-														if (tmp_val == null || tmp_val == '')
-														{
-															tmp_val = item.displayedValue;
-														}
-														return {
-															label: item.displayedValue + " (" + item.count + ")",
-															value: tmp_val
-														};
-													}));			
-												}
-											});
-										}
-									});
+								var toggle = jQuery('#${AddFilterToggleID}');
+								var section = jQuery('#${AddFilterSectionID}');
+								function hideSection() {
+									section.find('select').prop('disabled', true);
+									section.find('input').prop('disabled', true);
+									section.addClass('hidden');
+								};
+								function showSection() {
+									section.find('select').prop('disabled', false);
+									section.find('input').prop('disabled', false);
+									section.removeClass('hidden');
 								}
-								autocomplete(jQuery('#filterquery'), jQuery("#filtername"), jQuery("#filtertype"));
-								<c:forEach items='${appliedFilters}' var='filter' varStatus='loop'>
-									autocomplete(jQuery('#filterquery_${loop.index+1}'), jQuery("#filtername_${loop.index+1}"), jQuery("#filtertype_${loop.index+1}"));
-								</c:forEach>
+								toggle.click(function() {
+									if (section.hasClass('hidden')) showSection();
+									else hideSection();
+								});
+								// if the advanced search section is open but values weren't entered, DSpace will error out,
+								// so we should hide the advanced search section when the user hasn't completed anything
+								var searchForm = jQuery('#${SearchFormID}');
+								searchForm.submit(function() {
+									section.find('select, input').each(function() {
+										if (!jQuery(this).val()) hideSection();
+									});
+								});
+							});
+							// replace search term with the suggested fix and resubmit form
+							jQuery(function() {
+								var didYouMeanButton = jQuery('#${DidYouMeanButtonID}');
+								didYouMeanButton.click(function() {
+									var searchForm = jQuery('#${SearchFormID}');
+									searchForm.find('#query').val("${spellcheck}");
+									searchForm.submit();
+								});
 							});
 						</script>
 					</div>
-					<!-- JS for: Show/Hide Advanced Search, Did You Mean -->
-					<script>
-						// need to disable inputs so they don't get submitted, otherwise,
-						// dspace API gets confused by the empty fields
-						jQuery(function() {
-							var toggle = jQuery('#${AddFilterToggleID}');
-							var section = jQuery('#${AddFilterSectionID}');
-							function hideSection() {
-								section.find('select').prop('disabled', true);
-								section.find('input').prop('disabled', true);
-								section.addClass('hidden');
-							};
-							function showSection() {
-								section.find('select').prop('disabled', false);
-								section.find('input').prop('disabled', false);
-								section.removeClass('hidden');
-							}
-							toggle.click(function() {
-								if (section.hasClass('hidden')) showSection();
-								else hideSection();
-							});
-							// if the advanced search section is open but values weren't entered, DSpace will error out,
-							// so we should hide the advanced search section when the user hasn't completed anything
-							var searchForm = jQuery('#${SearchFormID}');
-							searchForm.submit(function() {
-								section.find('select, input').each(function() {
-									if (!jQuery(this).val()) hideSection();
-								});
-							});
-						});
-						// replace search term with the suggested fix and resubmit form
-						jQuery(function() {
-							var didYouMeanButton = jQuery('#${DidYouMeanButtonID}');
-							didYouMeanButton.click(function() {
-								var searchForm = jQuery('#${SearchFormID}');
-								searchForm.find('#query').val("${spellcheck}");
-								searchForm.submit();
-							});
-						});
-					</script>
 				</div>
-			</div>
-			<!-- List Applied Filters -->
-			<c:set var='AppliedFilterClass' value='AppliedFilterFormGroup' />
-			<c:forEach items='${appliedFilters}' var='filter' varStatus='filterLoop'>
-				<div class='form-group form-group-sm ${AppliedFilterClass}' id='${AppliedFilterClass}_${filterLoop.index}'>
-					<div class='form-inline col-sm-10 col-sm-offset-2'>
-						<label>Filter</label>
-						<select class='form-control' name='filtername' id="filtername_${filterLoop.index+1}">
-							<c:forEach items='${filterNameOptions}' var='filterNameOption'>
-								<option value="${filterNameOption}" ${filter[0] == filterNameOption?'selected':''}>
-									<fmt:message key="jsp.search.filter.${filterNameOption}"/>
-								</option>
-							</c:forEach>
-						</select>
-						<select class='form-control' name='filtertype' id="filtertype_${filterLoop.index+1}">
-							<c:forEach items='${filterTypeOptions}' var='filterTypeOption'>
-								<option value="${filterTypeOption}" ${filter[1] == filterTypeOption?'selected':''}>
-									<fmt:message key="jsp.search.filter.op.${filterTypeOption}"/>
-								</option>
-							</c:forEach>
-						</select>
-						<input class='form-control' size='35' style='max-width: 100%;' type='text' id="filterquery_${filterLoop.index+1}" name='filterquery'
-							   value='${filter[2]}' required />
-						<button id="filter_remove_${filterLoop.index+1}" type="button" class="close editMetadataRemoveEntryButton" aria-label="Remove">
-							<span class="glyphicon">&times;</span>
-						</button>
+				<!-- List Applied Filters -->
+				<c:set var='AppliedFilterClass' value='AppliedFilterFormGroup' />
+				<c:forEach items='${appliedFilters}' var='filter' varStatus='filterLoop'>
+					<div class=''>
+						<div class='form-group form-group-sm ${AppliedFilterClass}' id='${AppliedFilterClass}_${filterLoop.index}'>
+							<label>Filter</label>
+							<select class='form-control' name='filtername' id="filtername_${filterLoop.index+1}">
+								<c:forEach items='${filterNameOptions}' var='filterNameOption'>
+									<option value="${filterNameOption}" ${filter[0] == filterNameOption?'selected':''}>
+										<fmt:message key="jsp.search.filter.${filterNameOption}"/>
+									</option>
+								</c:forEach>
+							</select>
+							<select class='form-control' name='filtertype' id="filtertype_${filterLoop.index+1}">
+								<c:forEach items='${filterTypeOptions}' var='filterTypeOption'>
+									<option value="${filterTypeOption}" ${filter[1] == filterTypeOption?'selected':''}>
+										<fmt:message key="jsp.search.filter.op.${filterTypeOption}"/>
+									</option>
+								</c:forEach>
+							</select>
+							<input class='form-control' type='text' id="filterquery_${filterLoop.index+1}" name='filterquery'
+								   value='${filter[2]}' required />
+							<button id="filter_remove_${filterLoop.index+1}" type="button" class="close editMetadataRemoveEntryButton" aria-label="Remove">
+								<span class="glyphicon">&times;</span>
+							</button>
+						</div>
 					</div>
+				</c:forEach>
+				<script>
+					// Functionality for remove individual filters or all filters
+					jQuery(function() {
+						var searchForm = jQuery('#${SearchFormID}');
+						var removeButtons = jQuery('.${AppliedFilterClass} button');
+						var canSubmit = true;
+						removeButtons.click(function() {
+							var elemToRemove = jQuery(this).parent().parent();
+							var elemToRemoveID = elemToRemove.prop('id');
+							elemToRemove.remove();
+							if (canSubmit) searchForm.submit();
+						});
+						var clearAllFiltersButton = jQuery('#${ClearAllFiltersButtonID}');
+						clearAllFiltersButton.click(function() {
+							jQuery('.${AppliedFilterClass}').remove();
+							searchForm.submit();
+						});
+					});
+				</script>
+				<!-- Preserve existing search settings -->
+				<div class='form-group hidden'>
+					<input type="hidden" value="${resultsPerPage}" name="rpp" id='${SearchFormResultsPerPageID}' />
+					<input type="hidden" value="${sortedBy}" name="sort_by" id='${SearchFormSortedByID}' />
+					<input type="hidden" value="${sortOrder}" name="order" id='${SearchFormSortOrderID}' />
+					<input type="hidden" value="${viewType}" name="viewType" id='${SearchFormViewTypeID}' />
 				</div>
-			</c:forEach>
-			<script>
-				// Functionality for remove individual filters or all filters
-				jQuery(function() {
-					var searchForm = jQuery('#${SearchFormID}');
-					var removeButtons = jQuery('.${AppliedFilterClass} button');
-					var canSubmit = true;
-					removeButtons.click(function() {
-						var elemToRemove = jQuery(this).parent().parent();
-						var elemToRemoveID = elemToRemove.prop('id');
-						elemToRemove.remove();
-						if (canSubmit) searchForm.submit();
-					});
-					var clearAllFiltersButton = jQuery('#${ClearAllFiltersButtonID}');
-					clearAllFiltersButton.click(function() {
-						jQuery('.${AppliedFilterClass}').remove();
-						searchForm.submit();
-					});
-				});
-			</script>
-			<!-- Preserve existing search settings -->
-			<div class='form-group hidden'>
-				<input type="hidden" value="${resultsPerPage}" name="rpp" id='${SearchFormResultsPerPageID}' />
-				<input type="hidden" value="${sortedBy}" name="sort_by" id='${SearchFormSortedByID}' />
-				<input type="hidden" value="${sortOrder}" name="order" id='${SearchFormSortOrderID}' />
-				<input type="hidden" value="${viewType}" name="viewType" id='${SearchFormViewTypeID}' />
-			</div>
-		</form>
-	</div>
-</div>
+			</form>
+		</div>
 
-<!-- Everything Below The Search Box -->
-<div class="row">
-	<!-- Side Filters -->
-	<div class="col-sm-3 SimpleSearchSidebar">
+		<!-- Filter Results Box -->
 		<div class="SimpleSearchResultFilters" id='SimpleSearchResultFilters'>
 			<h3><fmt:message key="jsp.search.facet.refine" /></h3>
 			<c:if test='${empty facetNameToResults}'>
@@ -288,9 +286,31 @@
 				</script>
 			</c:forEach>
 		</div>
+
+		<hr />
+
+		<!-- Explore Topics -->
+		<div class='hidden-xs'>
+			<h3>Explore Other Topics</h3>
+			<c:forEach items="${subjects}" var="subject" varStatus="loopStatus">
+				<div class='homePageSubject'>
+					<a href='<c:url value='${subject.searchURL}'/>'>
+						<div class='media'>
+							<div class='media-left'>
+								<img src='<c:url value="${subject.icon}" />' />
+							</div>
+							<div class='media-body' style='vertical-align:middle;'>
+								<p class='media-heading'>${subject.name}</p>
+							</div>
+						</div>
+					</a>
+				</div>
+			</c:forEach>
+		</div>
+		
 	</div>
 	<!-- Results Display -->
-	<div class="col-sm-9">
+	<div class="col-sm-8">
 		<!-- Controls for Displaying Results -->
 		<div class=''>
 			<div class='row text-center'>

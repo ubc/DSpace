@@ -25,10 +25,7 @@ and lacks some bootstrap 3 features. */
 }
 
 /* Simple Search */
-label.SimpleSearchBigLabel {
-	padding-top: 2px !important;
-}
-.SimpleSearchBigLabel h1{
+.SimpleSearchBigLabel h2 {
 	margin-top: 0;
 	padding-top: 0;
 }
@@ -36,7 +33,7 @@ label.SimpleSearchBigLabel {
 	opacity: 0.4;
 }
 .SimpleSearchResultListItem .media-object {
-	width: 100px;
+	width: 120px;
 }
 .SimpleSearchResultListItem {
 	padding-top: 0.5em;
@@ -47,11 +44,9 @@ label.SimpleSearchBigLabel {
 .SimpleSearchResultListItem:hover {
 	border-top-color: gainsboro;
 	border-bottom-color: gainsboro;
-}
+} 
 .SimpleSearchBigSearchBox {
-	padding-top: 2em;
-	padding-bottom: 0.5em;
-	margin-bottom: 0.8em;
+	/*margin-bottom: 2.5em;*/
 }
 .SimpleSearchBigSearchBox .form-group {
 	margin-bottom: 0;
@@ -60,18 +55,18 @@ label.SimpleSearchBigLabel {
 	margin-top: 0;
 	margin-bottom: 0;
 }
-.SimpleSearchSidebar {
-	background: #f9f9f9;
-	border: 1px solid gainsboro;
-}
 .SimpleSearchResults {
 	margin-bottom: 0.5em;
 }
 .SimpleSearchResultFilters {
+	margin-top: 1em;
+	background: #f9f9f9;
+	border: 1px solid gainsboro;
+	padding: 0.5em;
 	padding-bottom: 1em;
 }
 .SimpleSearchResultFilters h3 {
-	margin-top: 0.5em;
+	margin-top: 0em;
 }
 .SimpleSearchResultFilters .panel {
 	margin-bottom: 0.5em;
@@ -90,6 +85,9 @@ label.SimpleSearchBigLabel {
 }
 .SimpleSearchResultControls label {
 	margin-left: 0.6em;
+}
+.SimpleSearchAddFilterToggle {
+	margin-bottom: 2.5em;
 }
 .SimpleSearchAddFilterToggle .btn-link {
 	padding: 0.2em 0.5em;

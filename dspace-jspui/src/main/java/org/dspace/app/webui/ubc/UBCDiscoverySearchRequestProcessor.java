@@ -34,6 +34,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.dspace.app.bulkedit.DSpaceCSV;
 import org.dspace.app.bulkedit.MetadataExport;
+import org.dspace.app.util.DCInputsReaderException;
 import org.dspace.app.util.OpenSearch;
 import org.dspace.app.util.SyndicationFeed;
 import org.dspace.app.webui.discovery.DiscoverUtility;
@@ -63,6 +64,7 @@ import org.dspace.discovery.configuration.DiscoverySortFieldConfiguration;
 import org.dspace.app.webui.ubc.retriever.ItemRetriever;
 import org.dspace.app.webui.ubc.statspace.SubjectEntry;
 import org.dspace.app.webui.ubc.statspace.SubjectsTreeParser;
+import org.dspace.app.webui.ubc.statspace.home.SubjectInfo;
 import org.dspace.app.webui.ubc.statspace.search.PaginationInfo;
 import org.dspace.discovery.DiscoverResult.FacetResult;
 import org.dspace.sort.SortOption;
@@ -303,7 +305,7 @@ public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcesso
             appliedFilterQueries.add(filter[0] + "::" + filter[1] + "::"
                     + filter[2]);
         }
-        request.setAttribute("appliedFilterQueries", appliedFilterQueries);
+        //request.setAttribute("appliedFilterQueries", appliedFilterQueries);
         List<DSpaceObject> scopes = new ArrayList<DSpaceObject>();
         if (scope == null)
         {
@@ -500,6 +502,16 @@ public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcesso
 			// whether we should be in list view or tile view
 			String viewType = getViewType(request);
 			request.setAttribute("viewType", viewType);
+			// subjects list for Explore Topcis
+			try {
+				request.setAttribute("subjects", SubjectInfo.getSubjects());
+			} catch (DCInputsReaderException ex) {
+				log.error(ex);
+				throw new ServletException(ex);
+			} catch (UnsupportedEncodingException ex) {
+				log.error(ex);
+				throw new ServletException(ex);
+			}
 
 			// params for 'results per page' dropdown
 			List<Integer> resultsPerPageOptions = new ArrayList<Integer>();
