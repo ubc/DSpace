@@ -580,17 +580,16 @@ public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcesso
 				facetResults = qResults.getFacetResult(facetName+".year");
 				if (facetResults.size() == 0) continue;
 			}
-			// there's options available for filtering, make it available to the jsp
-			facetNameToResults.put(facetName, facetResults);
+			int numNotInUse = 0;
 			// find out what filters are currently in use, so we can hide them
 			for (FacetResult fvalue : facetResults)
 			{ 
 				String filterKey = facetName+"::"+fvalue.getFilterType()+"::"+fvalue.getAsFilterQuery();
-				if(appliedFilterQueries.contains(filterKey))
-				{
-					appliedFiltersMap.put(filterKey, Boolean.TRUE);
-				}
+				if(appliedFilterQueries.contains(filterKey)) appliedFiltersMap.put(filterKey, Boolean.TRUE);
+				else numNotInUse += 1;
 			}
+			// there's options available for filtering, make it available to the jsp
+			if (numNotInUse > 0) facetNameToResults.put(facetName, facetResults);
 			// statspace subject tree display needs additional parameters
 			if (facetName.equals("subject")) {
 				List<String> subjects = new ArrayList<String>();
