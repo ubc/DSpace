@@ -250,7 +250,7 @@
 			<tr>
 				<th><!--<fmt:message key="jsp.mydspace.main.actions"/>--></th>
 				<th><fmt:message key="jsp.mydspace.main.title"/></th>
-				<th><fmt:message key="jsp.mydspace.main.subto"/></th>
+				<%-- "Submitted To", not necessary as we're only using one collection. <th><fmt:message key="jsp.mydspace.main.subto"/></th> --%>
 				<th><fmt:message key="jsp.mydspace.main.started"/></th>
 				<th><!--<fmt:message key="jsp.actions.remove"/>--></th>
 			</tr>
@@ -274,10 +274,12 @@
 							<em class='text-muted'><fmt:message key="jsp.general.untitled" /></em>
 						</c:if>
 					</td>
+					<%--
 					<!-- Submitted To -->
 					<td>
 						Some Collection
 					</td>
+					--%>
 					<!-- Date Submission Started -->
 					<td>
 						${workspaceItem.value.dateStarted}

@@ -125,8 +125,6 @@
 								}
 								autocomplete(jQuery('#filterquery'), jQuery("#filtername"), jQuery("#filtertype"));
 								<c:forEach items='${appliedFilters}' var='filter' varStatus='loop'>
-									var test=jQuery('#filterquery_${loop.index+1}');
-									console.log(test.val());
 									autocomplete(jQuery('#filterquery_${loop.index+1}'), jQuery("#filtername_${loop.index+1}"), jQuery("#filtertype_${loop.index+1}"));
 								</c:forEach>
 							});
@@ -255,6 +253,7 @@
 					<table id='${FacetCollapseID}' class='table table-condensed table-hover hidden'>
 						<tbody>
 							<c:forEach items='${facet.value}' var='facetResult'>
+								<c:set var="filterKey" value="${facet.key}::${facetResult.filterType}::${facetResult.asFilterQuery}"/>
 								<jsp:include page="/ubc/statspace/components/simple-search/filter-results-tr.jsp">
 									<jsp:param name="baseURL" value="${pagination.baseURL}" />
 									<jsp:param name="filterName" value="${facet.key}" />
@@ -262,6 +261,7 @@
 									<jsp:param name="filterType" value="${facetResult.filterType}" />
 									<jsp:param name="label" value="${facetResult.displayedValue}" />
 									<jsp:param name="count" value="${facetResult.count}" />
+									<jsp:param name="isInUse" value="${appliedFiltersMap[filterKey]}" />
 								</jsp:include>
 							</c:forEach>
 						</tbody>
@@ -372,7 +372,6 @@
 							searchForm.submit();
 						});
 						sort.click(function(e) {
-							console.log(searchSortOrder.val());
 							if (searchSortOrder.val() == "${SearchSortAscending}") {
 								searchSortOrder.val('${SearchSortDescending}');
 							}
