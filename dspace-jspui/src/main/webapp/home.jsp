@@ -57,7 +57,7 @@
 						<div class="panel panel-default">
 							<div class="panel-body">
 								<div class="media">
-									<div class="media-left">
+									<div class="media-left ${featuredArticle.hasPlaceholderThumbnail?'fadedSection':''}">
 										<a href="${featuredArticle.url}" title="${featuredArticle.title}">
 											<img class="media-object" src="${featuredArticle.thumbnail}">
 										</a>
