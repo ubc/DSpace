@@ -1,0 +1,36 @@
+# E-mail sent to commenters and curators when a comment is deleted.
+#
+# Parameters: {0} name of the site / app name
+#             {1} commenter's name
+#             {2} resource name
+#             {3} comment title
+#             {4} comment details
+#             {5} comment date
+#             {6} delete reason
+#             {7} reply-to email
+#             {8} sender email
+#             {9} policy url
+#
+Subject: Re: your recent comment on {0}
+
+Dear {1},
+
+Please be advised that your comment on the {0} resource, {2}, has been deleted.
+
+Date: {5}
+{3}
+
+{4}
+
+This comment was deleted because:
+{6}  
+
+Thank you for your interest in {0}.
+
+Sincerely, 
+
+The {0} curator
+
+==
+Please note that this e-mail was automatically generated.  Replies should be directed to {7}, as replies sent to {8} cannot be answered.
+For more information on the {0} commenting policy, please see {9}

@@ -13,6 +13,7 @@ import java.io.StringWriter;
 import java.net.URLEncoder;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Locale;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -57,6 +58,7 @@ import org.jdom.output.XMLOutputter;
 
 import org.dspace.app.itemexport.ItemExport;
 import org.dspace.ubc.UBCAccessChecker;
+import org.dspace.ubc.content.Comment;
 import org.dspace.app.webui.ubc.retriever.ItemRetriever;
 
 /**
@@ -565,9 +567,29 @@ public class HandleServlet extends DSpaceServlet
 		//JSPManager.showJSP(request, response, "/display-item.jsp");
 
 		ItemRetriever itemRetriever = new ItemRetriever(context, request, item);
+        boolean commentingEnabled = ConfigurationManager.getBooleanProperty("commenting.enabled", true);
+        request.setAttribute("commenting", Boolean.valueOf(commentingEnabled));
 		request.setAttribute("itemRetriever", itemRetriever);
 		request.setAttribute("licenseInfo", itemRetriever.getLicenseInfo());
 		request.setAttribute("hasAdminAccess", accessChecker.hasAdminAccess());
+        request.setAttribute("canLeaveComment", accessChecker.isLoggedIn() &&
+            Integer.valueOf(ConfigurationManager.getIntProperty("commenting.max-comment-per-item", 10000)) > itemRetriever.getActiveCommentCount());
+        request.setAttribute("canDeleteComment", accessChecker.hasCuratorAccess());
+        request.setAttribute("commentPerPage",
+            Integer.valueOf(ConfigurationManager.getIntProperty("commenting.comment-per-page", 5)));
+        request.setAttribute("maxTitleLength",
+            Integer.valueOf(ConfigurationManager.getIntProperty("commenting.title.max-length", 120)));
+        request.setAttribute("maxDetailLength",
+            Integer.valueOf(ConfigurationManager.getIntProperty("commenting.detail.max-length", 10000)));
+        request.setAttribute("canCommentWithRealName",
+            Boolean.valueOf(Comment.canCommentWithRealName(context, context.getCurrentUser())));
+        request.setAttribute("commentingAnonymousDisplayName", context.getCurrentUser() == null? "Anonymous User" : Comment.generateAnonymousDisplayName(context, context.getCurrentUser()));
+        request.setAttribute("commentingRealDisplayName", context.getCurrentUser() == null? "Anonymous User" : Comment.generateRealDisplayName(context, context.getCurrentUser()));
+        if (commentingEnabled) {
+            Locale locale = UIUtil.getSessionLocale(request);
+            request.setAttribute("ratingDescriptionMap", Comment.getRatingDescription(locale));
+        }
+
         JSPManager.showJSP(request, response, "/ubc/statspace/display-item.jsp");
     }
     

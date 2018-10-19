@@ -30,6 +30,7 @@ public class HardCodedContentServlet extends DSpaceServlet {
 			"/WV-ConfidenceIntervals.jsp",
 			"/WebWork_Questions.jsp",
 			"/about.jsp",
+			"/commenting-policy.jsp",
 			"/copyright.jsp",
 			"/iClicker-example.jsp",
 			"/iClicker-example-2-ConfidenceIntervals.jsp",

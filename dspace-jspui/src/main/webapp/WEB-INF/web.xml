@@ -871,10 +871,11 @@
 
   <jsp-config>
   <!-- JSTL Format tag, for i18n -->
-  <taglib>
+  <!-- commented out. use container's build-in JSTL format -->
+  <!-- <taglib>
     <taglib-uri>http://java.sun.com/jsp/jstl/fmt</taglib-uri>
     <taglib-location>/WEB-INF/fmt.tld</taglib-location>
-  </taglib>
+  </taglib> -->
   
   <!-- DSpace JSP Tag Library -->
   <taglib>
@@ -936,6 +937,15 @@
 		<servlet-name>zip-package-servlet</servlet-name>
 		<url-pattern>/zippackage/*</url-pattern>
 	</servlet-mapping>
+
+    <servlet>
+        <servlet-name>item-comment-servlet</servlet-name>
+        <servlet-class>org.dspace.app.webui.ubc.statspace.ItemCommentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>item-comment-servlet</servlet-name>
+        <url-pattern>/itemcomment/*</url-pattern>
+    </servlet-mapping>
 
     <!-- Quartz Scheduler for periodic thumbnail generation -->
     <servlet>

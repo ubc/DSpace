@@ -372,3 +372,223 @@ a.resourceLink:hover span.labelResource {
 	padding-left: 0.5em;
 	padding-right: 0.5em;
 }
+
+
+/* Comments */
+.commentBlock {
+	background: white;
+}
+
+.commentRow {
+	padding-top: 30px;
+}
+
+.commentBlockHeader {
+    position: relative;
+}
+
+.commentsActionButtons {
+    padding-top: 10px;
+}
+
+.commentUser {
+	font-size:1.25em;
+}
+
+.commentUserName {
+	font-size:0.8em;
+	padding-left: 5px;
+	color: #555;
+}
+
+.commentActionPanel {
+    text-align: right;
+    font-size: 0.9em;
+}
+
+.commentDeleteIcon {
+	padding-left: 2px;
+	color: red;
+	cursor: pointer;
+}
+
+.starRating {
+	font-size: 0.9em;
+	color: orange;
+}
+
+.starRatingClickable {
+    cursor: pointer;
+}
+
+.starRatingAvg {
+	font-size: 0.8em;
+	color: orange;
+}
+
+.commentTitle {
+    padding-left: 5px;
+    line-height: 30px;
+	font-weight: bold;
+	font-size:1em;
+	color: black;
+}
+
+.commentTimestamp {
+    padding-left: 5px;
+	font-size: 0.8em;
+	color: #555;
+}
+
+.commentBody {
+	padding-top: 5px;
+}
+
+.commentEmptyBody {
+    font-style: italic;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+#leaveCommentModal .modal-body input[type=text] {
+	width: 90%;
+}
+
+#leaveCommentModal .modal-body input[type=checkbox] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+#leaveCommentModal .modal-body label {
+    display: inline-block;
+    font-weight: normal;
+}
+
+#leaveCommentModal .modal-body textarea {
+	width: 90%;
+	height: 250px;
+	resize: none;
+}
+
+#leaveCommentModal #commentDisplayName {
+    font-size: 1.2em;
+    padding-left: 10px;
+}
+
+#leaveCommentModal .length-warning-msg {
+    font-size: 0.8em;
+    margin-left: 2px;
+    min-height: 2em;
+}
+
+#leaveCommentModal .starRatingSelect {
+    font-size: 0.8em;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+#leaveCommentModal .starRatingSelect .glyphicon {
+    font-size: 2em;
+    color: orange;
+}
+
+#leaveCommentModal .starRatingSelect #ratingDescription {
+    display: inline-block;
+    vertical-align: bottom;
+    line-height: normal;
+}
+
+.glyphicon-refresh-animate {
+    -animation: spin .7s infinite linear;
+    -webkit-animation: spin2 .7s infinite linear;
+}
+
+.glyphicon-half-star {
+    position: relative;
+}
+.glyphicon-half-star:before {
+    position: relative;
+    z-index: 9;
+    width: 45%;
+    display: block;
+    overflow: hidden;
+}
+.glyphicon-half-star:after {
+    content: '\e007';
+    position: absolute;
+    z-index: 8;
+    top: 0;
+    left: 0;
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
+}
+
+#submitCommentMessage {
+}
+
+#submitCommentMessage #submitCommentMessage-Spinner {
+	margin-right: 10px;
+}
+
+#submitCommentMessage #submitCommentMessage-Msg {
+	line-height:32px;
+	font-size:1.25em;
+}
+
+.rating-stats-header {
+}
+
+.rating-stats-title {
+    padding-top: 10px;
+}
+
+.rating-stats-avg-rating {
+    font-size: 2.5em;
+    color: orange;
+}
+
+.rating-bar-row {
+    font-size: 0.7em;
+    vertical-align: middle;
+}
+
+.rating-bar-label {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.rating-bar-label .glyphicon-star {
+    color: orange;
+    padding-left: 5px;
+}
+
+.rating-bar-background {
+    background: #cccccc;
+    display: inline-block;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    height: 12px;
+    overflow: hidden;
+    vertical-align: middle;
+    padding: 0px;
+}
+
+.rating-bar {
+    background: orange;
+    display: block;
+    height: 12px;
+    padding: 0px;
+}
+
+.rating-bar-count {
+    text-align: right;
+    padding: 0px;
+}

@@ -27,6 +27,7 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <%@ taglib uri="http://www.dspace.org/dspace-tags.tld" prefix="dspace" %>
 
@@ -46,6 +47,12 @@
 <%@page import="org.dspace.core.Constants"%>
 <%@page import="org.dspace.eperson.EPerson"%>
 <%@page import="org.dspace.versioning.VersionHistory"%>
+
+<% // disable browser cache for this page
+   response.setHeader("Pragma", "no-cache");
+   response.setHeader("Cache-Control", "no-cache");
+   response.setDateHeader("Expires", 0);
+%>
 
 <%
     // Attributes
@@ -168,6 +175,26 @@
 		</div>
 		<div class='media-body'>
 			<h1 class="marginTopNone">${itemRetriever.title}</h1> 
+            <c:if test="${itemRetriever.avgRating gt 0 && commenting}">
+                <fmt:formatNumber value="${itemRetriever.avgRating}" pattern="0.0" var="roundedAvgRating"/>
+                <span class="starRating">
+                    <c:forEach begin="1" end="${(roundedAvgRating - (roundedAvgRating mod 1))}">
+                        <span class="glyphicon glyphicon-star"></span>
+                    </c:forEach>
+                    <c:choose>
+                        <c:when test="${(roundedAvgRating * 10) mod 10 ge 5}">
+                            <span class="glyphicon glyphicon-star glyphicon-half-star"></span>
+                        </c:when>
+                        <c:otherwise>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                        </c:otherwise>
+                    </c:choose>
+                    <c:forEach begin="1" end="${5 - (roundedAvgRating - (roundedAvgRating mod 1)) - 1}">
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                    </c:forEach>
+                    (${itemRetriever.activeRatingCount})
+                </span>
+            </c:if>
 			<p>${itemRetriever.summary}</p>
 		</div>
 	</div>
@@ -319,6 +346,26 @@
         }
     }
 %>
+
+    <c:if test="${commenting}">
+        <fmt:parseNumber var="commentPage" value="${param.commentPage}" integerOnly="true"/>
+
+        <jsp:include page="/ubc/statspace/components/display-item/comments-view.jsp">
+            <jsp:param name="itemVar" value="item" />
+            <jsp:param name="retrieverVar" value="itemRetriever" />
+            <jsp:param name="canLeaveCommentVar" value="canLeaveComment" />
+            <jsp:param name="canDeleteCommentVar" value="canDeleteComment" />
+            <jsp:param name="commentPerPageVar" value="commentPerPage" />
+            <jsp:param name="commentPageVar" value="${commentPage}" />
+            <jsp:param name="maxTitleLengthVar" value="maxTitleLength" />
+            <jsp:param name="maxDetailLengthVar" value="maxDetailLength" />
+            <jsp:param name="canCommentWithRealNameVar" value="canCommentWithRealName" />
+            <jsp:param name="commentingAnonymousDisplayNameVar" value="commentingAnonymousDisplayName" />
+            <jsp:param name="commentingRealDisplayNameVar" value="commentingRealDisplayName" />
+            <jsp:param name="ratingDescriptionMapVar" value="ratingDescriptionMap" />
+        </jsp:include>
+    </c:if>
+
     <%-- Create Commons Link --%>
 <%
     if (cc_url != null)

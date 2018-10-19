@@ -23,4 +23,16 @@
 		<scope_note>If user can't find a resource type that fit their submission, they may specify a custom resource type.</scope_note>
 	</dc-type>
 
+    <dc-type>
+		<schema>ubc</schema>
+		<element>avgRating</element>
+		<scope_note>Average rating of the item</scope_note>
+	</dc-type>
+
+    <dc-type>
+		<schema>ubc</schema>
+		<element>comments</element>
+		<scope_note>Commenting and Rating</scope_note>
+	</dc-type>
+
 </dspace-dc-types>

@@ -197,8 +197,11 @@ public class UBCAccessChecker {
 	 * @throws SQLException 
 	 */
 	private boolean isInGroup(String groupName) throws SQLException {
-		EPerson user = context.getCurrentUser();
-		Pattern regex = Pattern.compile(groupName, Pattern.CASE_INSENSITIVE);
+        return this.isInGroup(context.getCurrentUser(), groupName);
+	}
+
+    public boolean isInGroup(EPerson user, String groupName) throws SQLException {
+        Pattern regex = Pattern.compile(groupName, Pattern.CASE_INSENSITIVE);
 		Group[] groups = Group.allMemberGroups(context, user);
 		for (Group g : groups) {
 			String name = g.getName();
@@ -208,13 +211,13 @@ public class UBCAccessChecker {
 			}
 		}
 		return false;
-	}
+    }
 
 	/**
 	 * True if there's a user currently logged in, false otherwise.
 	 * @return 
 	 */
-	private boolean isLoggedIn() {
+	public boolean isLoggedIn() {
 		EPerson user = context.getCurrentUser();
 		if (user == null) return false; // no user logged in
 		return true;
