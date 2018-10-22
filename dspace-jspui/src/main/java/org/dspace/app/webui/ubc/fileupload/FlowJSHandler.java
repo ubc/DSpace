@@ -1,4 +1,4 @@
-package org.dspace.app.webui.ubc.importer;
+package org.dspace.app.webui.ubc.fileupload;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -38,8 +38,7 @@ public class FlowJSHandler
 	public FlowJSHandler(HttpServletRequest request) throws FileSizeLimitExceededException
 	{
 		this.request = request;
-		log.debug("Flow Constructor");
-		log.debug("Flow Constructor flowId: " + request.getParameter("flowIdentifier"));
+		log.debug("FlowJS Constructor flowId: " + request.getParameter("flowIdentifier"));
 		if (request.getParameter("flowIdentifier") != null)
 			isFlowJSRequest = true;
 		if (isFlowJSRequest())
@@ -55,7 +54,7 @@ public class FlowJSHandler
 		if (!isFlowJSRequest()) return;
 		
 		String filePath = getFilePath();
-		log.debug("File Path: " + filePath);
+		log.debug("FlowJS Process Chunk File Path: " + filePath);
 		RandomAccessFile raf = new RandomAccessFile(filePath, "rw");
 		//Seek to position
 		raf.seek((flowChunkNumber - 1) * flowChunkSize);
