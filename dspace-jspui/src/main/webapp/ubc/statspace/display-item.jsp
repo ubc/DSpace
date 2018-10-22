@@ -178,18 +178,18 @@
             <c:if test="${itemRetriever.avgRating gt 0 && commenting}">
                 <fmt:formatNumber value="${itemRetriever.avgRating}" pattern="0.0" var="roundedAvgRating"/>
                 <span class="starRating">
+                    <c:set var="starDisplayed" value="${0}" />
                     <c:forEach begin="1" end="${(roundedAvgRating - (roundedAvgRating mod 1))}">
                         <span class="glyphicon glyphicon-star"></span>
+                        <c:set var="starDisplayed" value="${starDisplayed+1}" />
                     </c:forEach>
                     <c:choose>
                         <c:when test="${(roundedAvgRating * 10) mod 10 ge 5}">
                             <span class="glyphicon glyphicon-star glyphicon-half-star"></span>
+                            <c:set var="starDisplayed" value="${starDisplayed+1}" />
                         </c:when>
-                        <c:otherwise>
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                        </c:otherwise>
                     </c:choose>
-                    <c:forEach begin="1" end="${5 - (roundedAvgRating - (roundedAvgRating mod 1)) - 1}">
+                    <c:forEach begin="1" end="${5 - starDisplayed}">
                         <span class="glyphicon glyphicon-star-empty"></span>
                     </c:forEach>
                     (${itemRetriever.activeRatingCount})
