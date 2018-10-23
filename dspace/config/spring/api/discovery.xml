@@ -127,6 +127,7 @@
                         <ref bean="sortTitle" />
                         <ref bean="sortAuthor" />
 						<!-- <ref bean="sortDateIssued" /> -->
+                        <ref bean="sortRating" />
                     </list>
                 </property>
             </bean>
@@ -251,6 +252,7 @@
                         <ref bean="sortTitle" />
                         <ref bean="sortAuthor" />
 						<!-- <ref bean="sortDateIssued" /> -->
+                        <ref bean="sortRating" />
                     </list>
                 </property>
             </bean>
@@ -500,6 +502,10 @@
 
     <bean id="sortLanguage" class="org.dspace.discovery.configuration.DiscoverySortFieldConfiguration">
         <property name="metadataField" value="dc.language.iso"/>
+    </bean>
+
+    <bean id="sortRating" class="org.dspace.discovery.configuration.DiscoverySortFieldConfiguration">
+        <property name="metadataField" value="ubc.avgRating"/>
     </bean>
 
 </beans>
