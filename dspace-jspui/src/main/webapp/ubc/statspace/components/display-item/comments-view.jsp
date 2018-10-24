@@ -92,12 +92,14 @@
                                 <input type="radio" id="annonymousCommentYes" name="annonymousComment" value="1" checked="checked"/> Display my comment anonymously
                             </label>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-8">
                             <label for="annonymousCommentNo" class="radio-inline">
                                 <input type="radio" id="annonymousCommentNo" name="annonymousComment" value="0"/> Display my comment with real name
                             </label>
+                            <div>
+                                <small>By selecting this option, you agree that your real name will be visible to anyone who accesses this page</small>
+                            </div>
                         </div>
-                        <div class="col-sm-4">&nbsp;</div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
@@ -116,6 +118,9 @@
                         <h4>Rating:</h4>
                     </div>
                     <div class="col-sm-5">
+                        <div>
+                            <small>Would you recommend this resource for teaching and learning?</small>
+                        </div>
                         <div class="starRatingSelect">
                             <span class="glyphicon glyphicon-star-empty starRatingClickable" data-rating="1"></span>
                             <span class="glyphicon glyphicon-star-empty starRatingClickable" data-rating="2"></span>
@@ -407,14 +412,17 @@
         <div class="col-sm-12">
             <div class="col-md-4">
                 <h3><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
-                    <c:choose>
-                        <c:when test="${canDeleteComment}">
-                            Comments (<c:out value="${itemRetriever.activeCommentCount}"/> / <c:out value="${fn:length(itemRetriever.comments)}"/>)
-                        </c:when>
-                        <c:otherwise>
-                            Comments (<c:out value="${fn:length(itemRetriever.comments)}"/>)
-                        </c:otherwise>
-                    </c:choose>
+                    Comments
+                    <small>
+                        <c:choose>
+                            <c:when test="${canDeleteComment}">
+                                (<c:out value="${itemRetriever.activeCommentCount}"/>&nbsp;/&nbsp;<c:out value="${fn:length(itemRetriever.comments)}"/>&nbsp;reviews)
+                            </c:when>
+                            <c:otherwise>
+                                (<c:out value="${fn:length(itemRetriever.comments)}"/>&nbsp;reviews)
+                            </c:otherwise>
+                        </c:choose>
+                    </small>
                 </h3>
             </div>
             <div class="col-md-4">
@@ -460,6 +468,9 @@
                         <span class="glyphicon glyphicon-pencil"></span>
                         Leave a comment
                     </button>
+                </c:if>
+                <c:if test="${!canLeaveComment}">
+                    <small><a href="/password-login">To leave a comment, please log in</a></small>
                 </c:if>
             </div>
         </div>
@@ -508,8 +519,12 @@
                             </span>
                         </c:if>
                         <span class="commentTitle"><c:out value="${theComment.title}"/></span>
-                        <fmt:formatDate value="${theComment.created}" pattern="MMM dd, yyyy" var="formattedCreateDate"/>
-                        <span class="commentTimestamp"><c:out value="${formattedCreateDate}"/></span>
+                        <span class="commentTimestamp"><script>document.write(new Date("${theComment.created}").toLocaleDateString('en-US', {month: "short", day: "2-digit", year: "numeric"}));</script></span>
+                        <c:if test="${canDeleteComment}">
+                            <c:if test="${theComment.status != 'ACTIVE'}">
+                                <span class="commentBody">&nbsp;(deleted)</span>
+                            </c:if>
+                        </c:if>
                     </div>
                 </div>
                 <div class="row">
