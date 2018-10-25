@@ -197,7 +197,7 @@
             </c:if>
 			<p>${itemRetriever.summary}</p>
 			<c:if test='${!empty itemRetriever.resourceURL}'>
-				<div class='panel panel-default' title="This resource's primary content is not in StatSpace, but located externally, please visit the link to see the content.">
+				<div class='panel panel-default' title="This resource's primary content is not in <fmt:message key='jsp.layout.header-default.alt' />, but located externally, please visit the link to see the content.">
 					<div class="panel-body">
 						<strong>Resource URL: <a href="${itemRetriever.resourceURL}">${itemRetriever.resourceURL}</a></strong>
 					</div>
