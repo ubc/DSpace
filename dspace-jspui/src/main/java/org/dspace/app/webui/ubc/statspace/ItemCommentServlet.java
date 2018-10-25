@@ -233,7 +233,8 @@ public class ItemCommentServlet extends DSpaceServlet {
 
         try {
             SimpleDateFormat dateformat = new SimpleDateFormat("MMM dd, yyyy");
-            email.addArgument(ConfigurationManager.getProperty("dspace.name")); // app name
+            email.addArgument(I18nUtil.getMessage("commenting.delete.email.app-name")); // app name
+            // email.addArgument(ConfigurationManager.getProperty("dspace.name")); // app name
             email.addArgument(commenter.getFullName());
             email.addArgument(item.getName()); // resource name
             email.addArgument(comment.getTitle());
