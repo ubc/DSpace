@@ -964,7 +964,7 @@ public class MyDSpaceServlet extends DSpaceServlet
         request.setAttribute("user", context.getCurrentUser());
         request.setAttribute("items", items);
 
-        JSPManager.showJSP(request, response, "/mydspace/own-submissions.jsp");
+        JSPManager.showJSP(request, response, "/ubc/mydspace/own-submissions.jsp");
     }
 
     /**

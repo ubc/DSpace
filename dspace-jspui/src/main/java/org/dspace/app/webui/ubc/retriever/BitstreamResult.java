@@ -85,4 +85,7 @@ public class BitstreamResult {
 		return bitstream.getFormat().getMIMEType();
 	}
 	
+	public Bitstream getBitstream() {
+		return bitstream;
+	}
 }

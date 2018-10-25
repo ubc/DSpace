@@ -28,7 +28,7 @@ import org.dspace.app.webui.util.JSPManager;
 import org.dspace.app.webui.util.FileUploadRequest;
 import org.dspace.app.itemimport.BTEBatchImportService;
 import org.dspace.app.itemimport.ItemImport;
-import org.dspace.app.webui.ubc.importer.FlowJSHandler;
+import org.dspace.app.webui.ubc.fileupload.FlowJSHandler;
 import org.dspace.authorize.AuthorizeException;
 import org.dspace.content.Collection;
 import org.dspace.core.*;

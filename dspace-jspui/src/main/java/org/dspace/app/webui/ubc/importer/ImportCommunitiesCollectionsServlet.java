@@ -5,6 +5,7 @@
  */
 package org.dspace.app.webui.ubc.importer;
 
+import org.dspace.app.webui.ubc.fileupload.FlowJSHandler;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
