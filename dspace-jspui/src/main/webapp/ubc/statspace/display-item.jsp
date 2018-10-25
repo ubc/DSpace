@@ -196,6 +196,13 @@
                 </span>
             </c:if>
 			<p>${itemRetriever.summary}</p>
+			<c:if test='${!empty itemRetriever.resourceURL}'>
+				<div class='panel panel-default' title="This resource's primary content is not in StatSpace, but located externally, please visit the link to see the content.">
+					<div class="panel-body">
+						<strong>Resource URL: <a href="${itemRetriever.resourceURL}">${itemRetriever.resourceURL}</a></strong>
+					</div>
+				</div>
+			</c:if>
 		</div>
 	</div>
 	<!-- Tabs Bar -->
@@ -211,7 +218,7 @@
 			</a>
 		</li>
 		<li role="presentation">
-			<a href="<c:url value='${itemRetriever.packageZipUrl}' />">
+			<a href="<c:url value='${itemRetriever.packageZipURL}' />">
 				<i class="glyphicon glyphicon-save-file"></i> Download All Files
 			</a>
 		</li>

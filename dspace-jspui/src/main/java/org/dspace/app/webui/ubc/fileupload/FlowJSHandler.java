@@ -19,11 +19,12 @@ public class FlowJSHandler
 {
     private static Logger log = Logger.getLogger(FlowJSHandler.class);
 
-	private static String TMP_DIR =
+	private static long MAX_FILE_SIZE = ConfigurationManager.getLongProperty("upload.max");
+
+	public static String TMP_DIR =
 		(ConfigurationManager.getProperty("upload.temp.dir") != null) ?
 			ConfigurationManager.getProperty("upload.temp.dir") :
 			System.getProperty("java.io.tmpdir"); 
-	private static long MAX_FILE_SIZE = ConfigurationManager.getLongProperty("upload.max");
 
 	private HttpServletRequest request;
 	private boolean isFlowJSRequest = false;
@@ -33,6 +34,7 @@ public class FlowJSHandler
 	private int flowChunkSize;
 	private int flowTotalChunks;
 	private long flowTotalSize;
+	private String flowFilename;
 	private String flowIdentifier;
 
 	public FlowJSHandler(HttpServletRequest request) throws FileSizeLimitExceededException
@@ -100,6 +102,11 @@ public class FlowJSHandler
 		return file;
 	}
 
+	public String getFilename()
+	{
+		return flowFilename;
+	}
+
 	private String getFilePath()
 	{
 		return TMP_DIR + File.separator + flowIdentifier;
@@ -111,6 +118,7 @@ public class FlowJSHandler
 		this.flowChunkSize   = Integer.parseInt(request.getParameter("flowChunkSize"));
 		this.flowTotalChunks = Integer.parseInt(request.getParameter("flowTotalChunks"));
 		this.flowTotalSize   = Long.parseLong(request.getParameter("flowTotalSize"));
+		this.flowFilename    = request.getParameter("flowFilename");
 		this.flowIdentifier  = request.getParameter("flowIdentifier");
 	}
 	

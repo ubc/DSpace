@@ -154,11 +154,13 @@ public class UploadStep extends AbstractProcessingStep
                 return status;
             }
         }
+
+		// should always let the user go back
+		if (buttonPressed.equalsIgnoreCase(PREVIOUS_BUTTON)) return STATUS_COMPLETE;
         
         // if user pressed jump-to button in process bar,
         // return success (so that jump will occur)
-        if (buttonPressed.startsWith(PROGRESS_BAR_PREFIX) || 
-        		buttonPressed.startsWith(PREVIOUS_BUTTON))
+        if (buttonPressed.startsWith(PROGRESS_BAR_PREFIX))
         {
             // check if a file is required to be uploaded
             if (fileRequired && !item.hasUploadedFiles())
@@ -320,7 +322,7 @@ public class UploadStep extends AbstractProcessingStep
         // Going on with descriptions from the simple upload
         String fileDescription = request.getParameter("description");
 
-        if (fileDescription != null && fileDescription.length() >= 0)
+        if (fileDescription != null && !fileDescription.isEmpty())
         {
             // save this file description
             int status = processSaveFileDescription(context, request, response,

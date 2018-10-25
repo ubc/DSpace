@@ -16,7 +16,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import org.apache.log4j.Logger;
-import org.dspace.app.webui.ubc.packager.ItemPackager;
 import org.dspace.app.webui.ubc.license.UBCLicenseInfo;
 import org.dspace.app.webui.ubc.license.UBCLicenseUtil;
 
@@ -53,7 +52,8 @@ public class ItemRetriever {
 	private String dateSubmitted = "";
 	private String dateStarted = "";
 	private String license = "";
-	private String packageZipUrl = "";
+	private String packageZipURL = "";
+	private String resourceURL = ""; // if this item is about a resource located at some url, store that url here
 	private boolean isRestricted = false;
 	private boolean hasPlaceholderThumbnail = true;
 	private List<SubjectResult> subjects = new ArrayList<>();
@@ -75,7 +75,7 @@ public class ItemRetriever {
 		metadataRetriever = new ItemMetadataRetriever(item);
 		bitstreamRetriever = new ItemBitstreamRetriever(context, request, item);
 		initMetadata(context);
-		packageZipUrl = "/zippackage/" + item.getID();
+		packageZipURL = "/zippackage/" + item.getID();
 	}
 
 	private void initMetadata(Context context) throws SQLException, UnsupportedEncodingException {
@@ -108,6 +108,7 @@ public class ItemRetriever {
 		dateCreated = getSingleValue("dc.date.created");
 		license = getSingleValue("dc.rights");
 		isRestricted = UBCAccessChecker.isRestricted(item);
+		resourceURL = getSingleValue("dc.relation.uri");
 
 		dateStarted = getSingleValue("dc.date.issued");
 		dateStarted = toReadableDate(dateStarted);
@@ -222,9 +223,12 @@ public class ItemRetriever {
 	public String getLicense() {
 		return license;
 	}
-	public String getPackageZipUrl() {
-		return packageZipUrl;
+	public String getPackageZipURL() {
+		return packageZipURL;
 	}
+	public String getResourceURL() {
+		return resourceURL;
+	} 
 	public UBCLicenseInfo getLicenseInfo() {
 		return UBCLicenseUtil.getLicense(license);
 	}
@@ -273,5 +277,8 @@ public class ItemRetriever {
     public int getActiveRatingCount() {
         return activeRatingCount;
     }
+	public Item getItem() {
+		return item;
+	}
 	
 }

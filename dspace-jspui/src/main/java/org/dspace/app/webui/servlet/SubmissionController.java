@@ -16,8 +16,6 @@ import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.sql.SQLException;
 import java.util.Enumeration;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -30,7 +28,6 @@ import org.dspace.app.util.SubmissionInfo;
 import org.dspace.app.util.SubmissionStepConfig;
 import org.dspace.app.webui.submit.JSPStepManager;
 import org.dspace.app.webui.util.FileUploadRequest;
-import org.dspace.app.webui.util.JSONUploadResponse;
 import org.dspace.app.webui.util.JSPManager;
 import org.dspace.app.webui.util.UIUtil;
 import org.dspace.authorize.AuthorizeException;
@@ -43,9 +40,7 @@ import org.dspace.core.LogManager;
 import org.dspace.workflow.WorkflowItem;
 import org.dspace.submit.AbstractProcessingStep;
 
-import com.google.gson.Gson;
-import java.util.Collections;
-import javax.servlet.http.HttpSession;
+import org.dspace.app.webui.ubc.fileupload.FlowJSHandler;
 import org.dspace.submit.step.UploadStep;
 
 /**
@@ -238,9 +233,77 @@ public class SubmissionController extends DSpaceServlet
         //need to find out what type of form we are dealing with
         String contentType = request.getContentType();
 
+		try {
+			FlowJSHandler uploadHandler;
+			uploadHandler = new FlowJSHandler(request);
+			if (uploadHandler.isFlowJSRequest()) 
+			{
+				log.debug("FlowJS request handling");
+				uploadHandler.processChunk();
+				if (uploadHandler.isComplete()) 
+				{
+					// We got the complete file. Assemble it and store
+					// it in the repository.
+					File completedFile = uploadHandler.getFile();
+
+					String fileName = uploadHandler.getFilename();
+					String filePath = FlowJSHandler.TMP_DIR + File.separator + fileName;
+					
+					// safely store the file in the repository
+					InputStream fileInputStream = new BufferedInputStream(new FileInputStream(completedFile));
+					SubmissionInfo si = getSubmissionInfo(context, request);
+					UploadStep us = new UploadStep();
+					request.setAttribute(fileName + "-path", filePath);
+					request.setAttribute(fileName + "-inputstream", fileInputStream);
+					request.setAttribute(fileName + "-description", request.getParameter("description"));
+					int uploadResult = us.processUploadFile(context, request, response, si);
+
+					// cleanup our temporary file
+					if (!completedFile.delete()) log.error("Unable to delete temporary file " + filePath);
+
+					if (uploadResult != UploadStep.STATUS_COMPLETE &&
+						uploadResult != UploadStep.STATUS_UNKNOWN_FORMAT)
+					{
+						String errMsg = "Unable to save file to submission";
+						log.error(errMsg);
+						response.setContentType("application/json");
+						response.setCharacterEncoding("UTF-8");
+						response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+						response.getWriter().write("{\"error\":\""+errMsg+"\"}");
+						return;
+					}
+					int bitstreamID = si.getBitstream().getID();
+					context.commit();
+					response.setContentType("application/json");
+					response.setCharacterEncoding("UTF-8");
+					response.getWriter().write("{\"success\":\"true\",\"bitstreamID\":"+bitstreamID+"}");
+					return;
+				}
+				response.setContentType("text/plain"); // avoid the unable to parse xml error msgs in javascript console
+				return;
+			}
+		} catch (FileSizeLimitExceededException ex) {
+			log.error(ex);
+			String retMsg = "File size too large: " + ex.getMessage();
+			response.setContentType("application/json");
+			response.setCharacterEncoding("UTF-8");
+			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+			response.getWriter().write("{\"error\":\""+retMsg+"\"}");
+			return;
+		}
+		/*if ((contentType != null)
+				&& (contentType.indexOf("multipart/form-data") != -1))
+		{
+			try {
+				request = wrapMultipartRequest(request);
+			} catch (FileSizeLimitExceededException ex) {
+				log.error(ex);
+			}
+		}*/
+
         // if multipart form, we have to wrap the multipart request
         // in order to be able to retrieve request parameters, etc.
-        if ((contentType != null)
+        /*if ((contentType != null)
                 && (contentType.indexOf("multipart/form-data") != -1))
         {
             try
@@ -341,7 +404,7 @@ public class SubmissionController extends DSpaceServlet
             
             //also, upload any files and save their contents to Request (for later processing by UploadStep)
             uploadFiles(context, request);
-        }
+        }*/
         
         // Reload submission info from request parameters
         SubmissionInfo subInfo = getSubmissionInfo(context, request);
@@ -658,7 +721,6 @@ public class SubmissionController extends DSpaceServlet
         // If so, go backwards one step
         else if (currentStepNum > FIRST_STEP)
         {
-            
             currentStepConfig = getPreviousVisibleStep(request, subInfo);
             
             if(currentStepConfig != null)
@@ -790,7 +852,7 @@ public class SubmissionController extends DSpaceServlet
             }
             
             if (result != AbstractProcessingStep.STATUS_COMPLETE
-                    && currStepAndPage != stepAndPageReached)
+                    && currStepAndPage != stepAndPageReached && nextStep >= currStep)
             {
                 doStep(context, request, response, subInfo, currStep);
             }
