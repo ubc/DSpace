@@ -2,6 +2,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
+<%@ taglib uri="http://www.dspace.org/dspace-tags.tld" prefix="dspace" %>
+
 <c:set var="item" value="${requestScope[param.itemVar]}"></c:set>
 <c:set var="itemRetriever" value="${requestScope[param.retrieverVar]}"></c:set>
 <c:set var="canLeaveComment" value="${requestScope[param.canLeaveCommentVar]}"></c:set>
@@ -519,7 +521,7 @@
                             </span>
                         </c:if>
                         <span class="commentTitle"><c:out value="${theComment.title}"/></span>
-                        <span class="commentTimestamp"><script>document.write(new Date("${theComment.created}").toLocaleDateString('en-US', {month: "short", day: "2-digit", year: "numeric"}));</script></span>
+                        <span class="commentTimestamp"><dspace:date date="${theComment.createdDc}" notime="true" clientLocalTime="true" /></span>
                         <c:if test="${canDeleteComment}">
                             <c:if test="${theComment.status != 'ACTIVE'}">
                                 <span class="commentBody">&nbsp;(deleted)</span>
