@@ -2,6 +2,7 @@ package org.dspace.app.webui.ubc.submit.step;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -10,8 +11,11 @@ import org.dspace.app.util.DCInput;
 import org.dspace.app.util.DCInputSet;
 import org.dspace.app.util.SubmissionInfo;
 import org.dspace.app.webui.servlet.SubmissionController;
+import org.dspace.app.webui.ubc.retriever.ItemRetriever;
 import org.dspace.content.Item;
+import org.dspace.content.ItemIterator;
 import org.dspace.core.Context;
+import org.dspace.eperson.EPerson;
 
 public class DescribeStepInfo
 {
@@ -21,6 +25,7 @@ public class DescribeStepInfo
 	private boolean isFirstStep = false;
 	private int pageNum = 0;
 	private List<FieldInfo> fields = new ArrayList<FieldInfo>();
+	private List<Item> submitterItems = new ArrayList<Item>();
 
 	public DescribeStepInfo(Context context, HttpServletRequest request, DCInputSet inputSet)
 			throws SQLException, ServletException
@@ -66,11 +71,30 @@ public class DescribeStepInfo
 
 		// for deciding what control buttons to enable
 		isFirstStep = SubmissionController.isFirstStep(request, si);
+
+		// get all of this submitter's previous submitted & archived items
+		setSubmitterItems(context, si);
 	}
 
 	public List<FieldInfo> getFields() { return fields; }
+	public List<Item> getSubmitterItems() { return submitterItems; }
+
+	public String getRELATED_RESOURCE_HEADER() { return ItemRetriever.RELATED_RESOURCE_HEADER; };
 
 	public boolean getHasValidationErrors() { return hasValidationErrors; }
 	public boolean getIsFirstStep() { return isFirstStep; }
 	public int getPageNum() { return pageNum; }
+
+	private void setSubmitterItems(Context context, SubmissionInfo subInfo) throws SQLException
+	{
+		submitterItems.clear();
+		EPerson submitter = subInfo.getSubmissionItem().getSubmitter();
+		ItemIterator iter = Item.findBySubmitter(context, submitter);
+		while (iter.hasNext())
+		{
+			Item item = iter.next();
+			submitterItems.add(item);
+		}
+		Collections.sort(submitterItems, new ItemSortByName());
+	}
 }

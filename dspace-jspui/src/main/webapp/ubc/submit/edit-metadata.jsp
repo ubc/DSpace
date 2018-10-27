@@ -24,7 +24,8 @@
 <%@ page import="org.dspace.submit.AbstractProcessingStep" %>
 
 <%@ taglib uri="http://www.dspace.org/dspace-tags.tld" prefix="dspace" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 
@@ -80,7 +81,7 @@
 												   <c:if test='${field.isReadOnly}'>readonly</c:if>>
 										</div>
 									</div>
-									<c:if test="${field.hasAddMore}">
+									<c:if test="${field.isRepeatable}">
 										<jsp:include page="/ubc/submit/components/remove-entry-button.jsp">
 											<jsp:param name="hide" value="${nameStatus.first}" />
 										</jsp:include>
@@ -94,12 +95,100 @@
 								<c:set var="fieldWrapperID" value="${field.inputWrapperID}_${valueStatus.index}" />
 								<div id="${fieldWrapperID}" class='editMetadataRemovableField'>
 									<input type="text" class="form-control" value="${value}" name="${field.inputID}" <c:if test='${field.isReadOnly}'>readonly</c:if>>
-									<c:if test="${field.hasAddMore}">
+									<c:if test="${field.isRepeatable}">
 										<jsp:include page="/ubc/submit/components/remove-entry-button.jsp">
 											<jsp:param name="hide" value="${valueStatus.first}" />
 										</jsp:include>
 									</c:if>
 								</div>
+							</c:forEach>
+						</c:when>
+						<%-- RELATED RESOURCES input type --%>
+						<c:when test="${field.inputType == field.INPUT_TYPE_RELATED_RESOURCES}">
+							<c:set var="addMySubmissionsBtnID" value="${field.inputID}_addMySubmissionsBtn" />
+							<c:set var="mySubmissionsSelectTplID" value="${field.inputID}_mySubmissionsSelectTplID" />
+							<div id="tmpdropdownid" class="btn-group">
+								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<span class='glyphicon glyphicon-plus'></span> Add Resource <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<li><a id="${addMySubmissionsBtnID}" href="#">My Submissions</a></li>
+									<li><a id="${field.inputAddMoreButtonID}" href="#">Other</a></li>
+								</ul>
+							</div>
+							<script>
+								jQuery(function(){
+									jQuery('#${field.inputAddMoreButtonID}').click(function(e){
+										// bootstrap only lets us use links for dropdown menu items, so have to prevent the default link action on click
+										e.preventDefault();
+									})
+									var mySubmissionsBtn = jQuery('#${addMySubmissionsBtnID}');
+									mySubmissionsBtn.click(function(e) {
+										e.preventDefault();
+										var lastFieldWrapperID = "div[id^='${field.inputWrapperID}']:last"; 
+										var clone = jQuery('#${mySubmissionsSelectTplID}').parent().clone();
+
+										clone.removeClass("hidden");
+										clone.find("select").attr("disabled", false);
+										jQuery(lastFieldWrapperID).after(clone);
+										// make the newly added remove button functional
+										clone.find("button").click(function() {
+											clone.remove();
+										});
+									});
+								});
+							</script>
+							<!-- Template for selecting one of the user's own submissions-->
+							<div class='editMetadataRemovableField hidden'>
+								<select id='${mySubmissionsSelectTplID}' name="${field.inputID}" class='form-control' disabled >
+									<option value=''>-- Select a Submission --</option>
+									<c:forEach items='${stepInfo.submitterItems}' var='submitterItem'>
+										<option value='${stepInfo.RELATED_RESOURCE_HEADER}${submitterItem.ID}'>${submitterItem.name}</option>
+									</c:forEach>
+								</select>
+								<c:if test="${field.isRepeatable}">
+									<jsp:include page="/ubc/submit/components/remove-entry-button.jsp">
+										<jsp:param name="hide" value="false" />
+									</jsp:include>
+								</c:if>
+							</div>
+							<!-- Template for a regular free form entry --> 
+							<div id="${field.inputWrapperID}_tmpl" class='editMetadataRemovableField hidden'>
+								<input type="text" class="form-control" value="" name="${field.inputID}" <c:if test='${field.isReadOnly}'>readonly</c:if>>
+								<c:if test="${field.isRepeatable}">
+									<jsp:include page="/ubc/submit/components/remove-entry-button.jsp">
+										<jsp:param name="hide" value="true" />
+									</jsp:include>
+								</c:if>
+							</div>
+							<!-- Restore existing resources -->
+							<c:forEach items="${field.values}" var="value" varStatus="valueStatus">
+								<c:if test='${!empty value}'>
+									<c:set var="hasResourceID" value="${fn:startsWith(value, stepInfo.RELATED_RESOURCE_HEADER)}" />
+									<c:set var="fieldWrapperID" value="${field.inputWrapperID}_${valueStatus.index}" />
+									<c:if test='${!hasResourceID}'>
+										<div id="${fieldWrapperID}" class='editMetadataRemovableField'>
+											<input type="text" class="form-control tinyMCEInput" value="${value}" name="${field.inputID}" <c:if test='${field.isReadOnly}'>readonly</c:if>>
+											<c:if test="${field.isRepeatable}">
+												<jsp:include page="/ubc/submit/components/remove-entry-button.jsp" />
+											</c:if>
+										</div>
+									</c:if>
+									<c:if test='${hasResourceID}'>
+										<div id="${fieldWrapperID}" class='editMetadataRemovableField'>
+											<select id='${mySubmissionsSelectTplID}' name="${field.inputID}" class='form-control' autocomplete='off'>
+												<option value=''>-- Select a Submission --</option>
+												<c:forEach items='${stepInfo.submitterItems}' var='submitterItem'>
+													<c:set var='optionVal' value='${stepInfo.RELATED_RESOURCE_HEADER}${submitterItem.ID}' />
+													<option value='${optionVal}' ${value == optionVal ? 'selected':''}>${submitterItem.name}</option>
+												</c:forEach>
+											</select>
+											<c:if test="${field.isRepeatable}">
+												<jsp:include page="/ubc/submit/components/remove-entry-button.jsp" />
+											</c:if>
+										</div>
+									</c:if>
+								</c:if>
 							</c:forEach>
 						</c:when>
 						<%-- TEXTAREA input type --%>
@@ -282,6 +371,7 @@
 								});
 							</script>
 						</c:when>
+						<%-- TRIPLE LEVEL DROPDOWN for StatSpace's subjects tree --%>
 						<c:when test="${field.inputType == field.INPUT_TYPE_TRIPLE_LEVEL_DROPDOWN}">
 							<c:set var="subjectsLevel1ID" value="${field.inputID}_level_1"/>
 							<c:set var="subjectsLevel2ID" value="${field.inputID}_level_2"/>
@@ -461,7 +551,7 @@
 					<div class="help-block">
 						<p>${field.hint}</p>
 					</div>
-					<c:if test="${field.hasAddMore}">
+					<c:if test="${field.isRepeatable}">
 						<script>
 							// "Add More" & "Remove" button scripting
 							jQuery(function() {
@@ -477,8 +567,10 @@
 									var lastFieldWrapperID = "div[id^='${field.inputWrapperID}']:last"; 
 									var clone = jQuery(lastFieldWrapperID).clone();
 
+									clone.prop('id', "");
 									clone.find("input").prop("value", "");
 									clone.find("button").removeClass("hidden");
+									clone.removeClass('hidden');
 									jQuery(lastFieldWrapperID).after(clone);
 									// make the newly added remove button functional
 									clone.find("button").click(function() {

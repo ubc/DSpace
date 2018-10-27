@@ -194,7 +194,7 @@
          <repeatable>true</repeatable>
          <label>Related Materials</label>
          <input-type>onebox</input-type>
-		 <hint>Please list one related material at a time (press the "Add More" button to add more entries).</hint>
+		 <hint>Please list one related material at a time (press the "Add Resource" button to add more entries).</hint>
        </field>
 
 	   <!-- Suggested Use(s) and Tips -->

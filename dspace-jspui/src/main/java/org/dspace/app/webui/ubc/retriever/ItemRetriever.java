@@ -36,6 +36,8 @@ public class ItemRetriever {
     /** log4j logger */
     private static Logger log = Logger.getLogger(ItemMetadataRetriever.class);
 
+	public static final String RELATED_RESOURCE_HEADER = "----- RELATED RESOURCE ITEM ID: ";
+
 	private Item item;
 	private HttpServletRequest request;
 
@@ -65,6 +67,7 @@ public class ItemRetriever {
 	private List<String> relatedMaterials = new ArrayList<>();
 	private List<String> alternativeLanguages = new ArrayList<>();
     private List<Comment> comments = new ArrayList<>();
+	private List<RelatedResource> relatedResources = new ArrayList<>();
     private double avgRating;
     private int activeCommentCount;
     private int activeRatingCount;
@@ -119,8 +122,22 @@ public class ItemRetriever {
 		initStringList("dcterms.requires", prereqs);
 		initStringList("dcterms.coverage", objectives);
 		initStringList("dc.contributor.author", authors);
-		initStringList("dcterms.relation", relatedMaterials);
 		initStringList("dcterms.isFormatOf", alternativeLanguages);
+
+		initStringList("dcterms.relation", relatedMaterials);
+		for (int i = 0; i < relatedMaterials.size(); i++)
+		{
+			String material = relatedMaterials.get(i);
+			if (material.startsWith(RELATED_RESOURCE_HEADER))
+			{
+				String itemIDStr = material.replace(RELATED_RESOURCE_HEADER, "");
+				int itemID = Integer.parseInt(itemIDStr);
+				Item relatedItem = Item.find(context, itemID);
+				RelatedResource resource = new RelatedResource(context, request, relatedItem);
+				relatedResources.add(resource);
+				relatedMaterials.set(i, "<a href='"+resource.getURL()+"'>"+ resource.getTitle() +"</a>");
+			}
+		}
 
         UBCAccessChecker curatorCheck = new UBCAccessChecker(context);
         if (curatorCheck.hasCuratorAccess()) {
@@ -268,6 +285,9 @@ public class ItemRetriever {
     public List<Comment> getComments() {
         return comments;
     }
+	public List<RelatedResource> getRelatedResources() {
+		return relatedResources;
+	}
     public double getAvgRating() {
         return avgRating;
     }
