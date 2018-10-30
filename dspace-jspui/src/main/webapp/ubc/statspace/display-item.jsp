@@ -192,7 +192,9 @@
                     <c:forEach begin="1" end="${5 - starDisplayed}">
                         <span class="glyphicon glyphicon-star-empty"></span>
                     </c:forEach>
+                    <a href="#commentBlock">
                     (${itemRetriever.activeRatingCount})
+                    </a>
                 </span>
             </c:if>
 			<p>${itemRetriever.summary}</p>

@@ -415,16 +415,6 @@
             <div class="col-md-4">
                 <h3><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
                     Comments
-                    <small>
-                        <c:choose>
-                            <c:when test="${canDeleteComment}">
-                                (<c:out value="${itemRetriever.activeCommentCount}"/>&nbsp;/&nbsp;<c:out value="${fn:length(itemRetriever.comments)}"/>&nbsp;reviews)
-                            </c:when>
-                            <c:otherwise>
-                                (<c:out value="${fn:length(itemRetriever.comments)}"/>&nbsp;reviews)
-                            </c:otherwise>
-                        </c:choose>
-                    </small>
                 </h3>
             </div>
             <div class="col-md-4">
@@ -486,6 +476,31 @@
             <div class="col-sm-12 commentEmptyBody">
                 No comments
             </div>
+        </div>
+    </c:if>
+
+    <c:if test="${fn:length(itemRetriever.comments) ge 1}">
+        <div class="row">
+            <div class="col-sm-2">
+                <small>
+                    <c:choose>
+                        <c:when test="${canDeleteComment}">
+                            <c:out value="${itemRetriever.activeCommentCount}"/>&nbsp;/&nbsp;<c:out value="${fn:length(itemRetriever.comments)}"/>
+                        </c:when>
+                        <c:otherwise>
+                            <c:out value="${fn:length(itemRetriever.comments)}"/>
+                        </c:otherwise>
+                    </c:choose>
+
+                    <c:if test="${fn:length(itemRetriever.comments) eq 1}">
+                        review
+                    </c:if>
+                    <c:if test="${fn:length(itemRetriever.comments) gt 1}">
+                        reviews
+                    </c:if>
+                </small>
+            </div>
+            <div class="col-sm-10">&nbsp;</div>
         </div>
     </c:if>
 
