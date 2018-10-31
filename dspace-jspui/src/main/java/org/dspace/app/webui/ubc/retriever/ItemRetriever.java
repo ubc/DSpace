@@ -7,7 +7,6 @@ package org.dspace.app.webui.ubc.retriever;
 
 import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -50,9 +49,10 @@ public class ItemRetriever {
 	private String thumbnail = "";
 	private String url = "";
 	private String whatWeLearned = "";
-	private String dateCreated = "";
-	private String dateSubmitted = "";
-	private String dateStarted = "";
+	private DCDate dateCreated;
+	private DCDate dateSubmitted;
+	private DCDate dateStarted;
+	private DCDate dateApproved;
 	private String license = "";
 	private String packageZipURL = "";
 	private String resourceURL = ""; // if this item is about a resource located at some url, store that url here
@@ -108,15 +108,14 @@ public class ItemRetriever {
 		summary = getSingleValue("dc.description.abstract");
 		description = getSingleValue("dc.description");
 		whatWeLearned = getSingleValue("dcterms.instructionalMethod");
-		dateCreated = getSingleValue("dc.date.created");
+		dateCreated = getDCDate("dc.date.created");
 		license = getSingleValue("dc.rights");
 		isRestricted = UBCAccessChecker.isRestricted(item);
 		resourceURL = getSingleValue("dc.relation.uri");
 
-		dateStarted = getSingleValue("dc.date.issued");
-		dateStarted = toReadableDate(dateStarted);
-		dateSubmitted = getSingleValue("dc.date.submitted");
-		dateSubmitted = toReadableDate(dateSubmitted);
+		dateStarted = getDCDate("dc.date.issued");
+		dateSubmitted = getDCDate("dc.date.submitted");
+		dateApproved = getDCDate("dc.date.accessioned");
 
 		initStringList("dcterms.type", resourceTypes);
 		initStringList("dcterms.requires", prereqs);
@@ -179,11 +178,12 @@ public class ItemRetriever {
 		}
 	}
 
-	private String toReadableDate(String storedDate) {
-		if (storedDate.isEmpty()) return "";
-		DCDate tmpDate = new DCDate(storedDate);
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm a");
-		return dateFormat.format(tmpDate.toDate());
+	private DCDate getDCDate(String field) {
+		String storedDate = getSingleValue(field);
+		DCDate date = new DCDate(storedDate);
+		// for some reason, empty dates give you the string "null" instead of an empty string or even just null?!
+		if (date.toString().equals("null")) return null;
+		return date;
 	}
 
     private void initCommentList(String field, Context context, List<Comment> list) {
@@ -228,14 +228,17 @@ public class ItemRetriever {
 	public String getWhatWeLearned() {
 		return whatWeLearned;
 	}
-	public String getDateCreated() {
+	public DCDate getDateCreated() {
 		return dateCreated;
 	}
-	public String getDateSubmitted() {
+	public DCDate getDateSubmitted() {
 		return dateSubmitted;
 	}
-	public String getDateStarted() {
+	public DCDate getDateStarted() {
 		return dateStarted;
+	}
+	public DCDate getDateApproved() {
+		return dateApproved;
 	}
 	public String getLicense() {
 		return license;

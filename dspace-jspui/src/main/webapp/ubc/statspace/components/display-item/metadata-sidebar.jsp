@@ -1,4 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+<%@ taglib uri="http://www.dspace.org/dspace-tags.tld" prefix="dspace" %>
 
 <c:set var="itemRetriever" value="${requestScope[param.retrieverVar]}"></c:set>
 
@@ -66,12 +69,16 @@
 </c:if>
 <!-- Author, Dates, Access -->
 <c:if test='${!empty itemRetriever.dateCreated}'>
-	<h5 class="text-center">Date Created</h5>
-	<p class='text-center'><small>${itemRetriever.dateCreated}</small></p>
+	<div title='Date copyrighted/created.'>
+		<h5 class="text-center">Date Created</h5>
+		<p class='text-center'><small><dspace:date date="${itemRetriever.dateCreated}" notime="true" clientLocalTime="true" /></small></p>
+	</div>
 </c:if>
-<c:if test='${!empty itemRetriever.dateSubmitted}'>
-	<h5 class="text-center">Date Submitted</h5>
-	<p class='text-center'><small>${itemRetriever.dateSubmitted}</small></p>
+<c:if test='${!empty itemRetriever.dateApproved}'>
+	<div title='Date accepted into <fmt:message key="jsp.layout.header-default.alt" />.'>
+		<h5 class="text-center">Date Approved</h5>
+		<p class='text-center'><small><dspace:date date="${itemRetriever.dateApproved}" clientLocalTime="true" /></small></p>
+	</div>
 </c:if>
 <c:if test='${!empty itemRetriever.dateSubmitted}'>
 	<h5 class="text-center">Access</h5>

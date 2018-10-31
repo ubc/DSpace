@@ -1,6 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
+<%@ taglib uri="http://www.dspace.org/dspace-tags.tld" prefix="dspace" %>
+
 <c:set var="results" value="${requestScope[param.resultsVar]}"></c:set>
 <c:set var="commentingEnabled" value="${requestScope[param.commentingEnabledVar]}"></c:set>
 
@@ -81,7 +83,7 @@
 						<li>${result.license}</li>
 						<c:if test='${!empty result.dateCreated}'>
 							<li><strong>Created:</strong></li>
-							<li>${result.dateCreated}</li>
+							<li><c:if test='${!empty itemRetriever.dateCreated}'><dspace:date date="${itemRetriever.dateCreated}" notime="true" clientLocalTime="true" /></c:if></li>
 						</c:if>
 					</ul>
 				</small>
