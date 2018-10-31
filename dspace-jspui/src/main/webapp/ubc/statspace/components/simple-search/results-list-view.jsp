@@ -15,7 +15,7 @@
 			<h4 class="media-heading">
 				<a href="${result.url}">${result.title}</a>
 			</h4>
-            <c:if test="${result.avgRating gt 0 && commentingEnabled}">
+            <c:if test="${commentingEnabled && result.activeRatingCount gt 0}">
                 <fmt:formatNumber value="${result.avgRating}" pattern="0.0" var="roundedAvgRating"/>
                 <span class="starRating">
                     <c:set var="starDisplayed" value="${0}" />
@@ -33,6 +33,7 @@
                         <span class="glyphicon glyphicon-star-empty"></span>
                     </c:forEach>
                 </span>
+                <small>(<c:out value="${result.activeRatingCount}"/>)</small>
             </c:if>
 			<!-- Information that is always visible -->
 			<div>

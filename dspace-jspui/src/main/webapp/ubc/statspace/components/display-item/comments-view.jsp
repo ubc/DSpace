@@ -479,25 +479,26 @@
         </div>
     </c:if>
 
-    <c:if test="${fn:length(itemRetriever.comments) ge 1}">
+    <c:if test="${fn:length(itemRetriever.comments) ge 1 or itemRetriever.activeRatingCount ge 1}">
         <div class="row">
             <div class="col-sm-2">
                 <small>
+                    <c:set var="reviewStr" value="review"/>
+                    <c:set var="ratingStr" value="rating"/>
+                    <c:if test="${fn:length(itemRetriever.comments) ne 1}">
+                        <c:set var="reviewStr" value="${reviewStr}s"/>
+                    </c:if>
+                    <c:if test="${itemRetriever.activeRatingCount ne 1}">
+                        <c:set var="ratingStr" value="${ratingStr}s"/>
+                    </c:if>
                     <c:choose>
                         <c:when test="${canDeleteComment}">
-                            <c:out value="${itemRetriever.activeCommentCount}"/>&nbsp;/&nbsp;<c:out value="${fn:length(itemRetriever.comments)}"/>
+                            <c:out value="${itemRetriever.activeRatingCount}"/>&nbsp;<c:out value="${ratingStr}"/>,&nbsp;<c:out value="${itemRetriever.activeCommentCount}"/>&nbsp;/&nbsp;<c:out value="${fn:length(itemRetriever.comments)}"/>&nbsp;<c:out value="${reviewStr}"/>
                         </c:when>
                         <c:otherwise>
-                            <c:out value="${fn:length(itemRetriever.comments)}"/>
+                            <c:out value="${itemRetriever.activeRatingCount}"/>&nbsp;<c:out value="${ratingStr}"/>,&nbsp;<c:out value="${fn:length(itemRetriever.comments)}"/>&nbsp;<c:out value="${reviewStr}"/>
                         </c:otherwise>
                     </c:choose>
-
-                    <c:if test="${fn:length(itemRetriever.comments) eq 1}">
-                        review
-                    </c:if>
-                    <c:if test="${fn:length(itemRetriever.comments) gt 1}">
-                        reviews
-                    </c:if>
                 </small>
             </div>
             <div class="col-sm-10">&nbsp;</div>
