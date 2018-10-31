@@ -175,7 +175,7 @@
 		</div>
 		<div class='media-body'>
 			<h1 class="marginTopNone">${itemRetriever.title}</h1> 
-            <c:if test="${itemRetriever.avgRating gt 0 && commenting}">
+            <c:if test="${commenting && itemRetriever.activeRatingCount gt 0}">
                 <fmt:formatNumber value="${itemRetriever.avgRating}" pattern="0.0" var="roundedAvgRating"/>
                 <span class="starRating">
                     <c:set var="starDisplayed" value="${0}" />

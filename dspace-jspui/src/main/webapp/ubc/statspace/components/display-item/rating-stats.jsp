@@ -9,18 +9,7 @@
 <div class="rating-stats">
     <div class="row rating-stats-header">
         <div class="col-xs-8 rating-stats-title">
-            <h5>Ratings in detail
-                <small>
-                    <c:choose>
-                        <c:when test="${totalRatingCount gt 1}">
-                            (${totalRatingCount} ratings)
-                        </c:when>
-                        <c:otherwise>
-                            (${totalRatingCount} rating)
-                        </c:otherwise>
-                    </c:choose>
-                </small>
-            </h5>
+            <h5>Ratings in detail</h5>
         </div>
         <div class="col-xs-4 rating-stats-avg-rating">
             <c:choose>
