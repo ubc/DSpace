@@ -493,10 +493,10 @@
                     </c:if>
                     <c:choose>
                         <c:when test="${canDeleteComment}">
-                            <c:out value="${itemRetriever.activeRatingCount}"/>&nbsp;<c:out value="${ratingStr}"/>,&nbsp;<c:out value="${itemRetriever.activeCommentCount}"/>&nbsp;/&nbsp;<c:out value="${fn:length(itemRetriever.comments)}"/>&nbsp;<c:out value="${reviewStr}"/>
+                            <c:out value="${itemRetriever.activeRatingCount}"/>&nbsp;<c:out value="${ratingStr}"/>&nbsp;&#8226;&nbsp;<c:out value="${itemRetriever.activeCommentCount}"/>&nbsp;/&nbsp;<c:out value="${fn:length(itemRetriever.comments)}"/>&nbsp;<c:out value="${reviewStr}"/>
                         </c:when>
                         <c:otherwise>
-                            <c:out value="${itemRetriever.activeRatingCount}"/>&nbsp;<c:out value="${ratingStr}"/>,&nbsp;<c:out value="${fn:length(itemRetriever.comments)}"/>&nbsp;<c:out value="${reviewStr}"/>
+                            <c:out value="${itemRetriever.activeRatingCount}"/>&nbsp;<c:out value="${ratingStr}"/>&nbsp;&#8226;&nbsp;<c:out value="${fn:length(itemRetriever.comments)}"/>&nbsp;<c:out value="${reviewStr}"/>
                         </c:otherwise>
                     </c:choose>
                 </small>
