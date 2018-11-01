@@ -271,7 +271,7 @@ public class MyDSpaceServlet extends DSpaceServlet
 
                 request.setAttribute("workflow.item", workflowItem);
                 JSPManager.showJSP(request, response,
-                        "/mydspace/perform-task.jsp");
+                        "/ubc/mydspace/perform-task.jsp");
                 ok = true;
             }
         }
@@ -404,7 +404,7 @@ public class MyDSpaceServlet extends DSpaceServlet
 
             // Display "perform task" page
             request.setAttribute("workflow.item", workflowItem);
-            JSPManager.showJSP(request, response, "/mydspace/perform-task.jsp");
+            JSPManager.showJSP(request, response, "/ubc/mydspace/perform-task.jsp");
             context.complete();
         }
         else
@@ -591,7 +591,7 @@ public class MyDSpaceServlet extends DSpaceServlet
         else
         {
             request.setAttribute("workflow.item", workflowItem);
-            JSPManager.showJSP(request, response, "/mydspace/perform-task.jsp");
+            JSPManager.showJSP(request, response, "/ubc/mydspace/perform-task.jsp");
         }
     }
 
