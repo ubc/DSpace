@@ -128,6 +128,8 @@
 										var lastFieldWrapperID = "div[id^='${field.inputWrapperID}']:last"; 
 										var clone = jQuery('#${mySubmissionsSelectTplID}').parent().clone();
 
+										// stupid way to maintain unique IDs, just append a 1 to the last id
+										clone.prop('id', clone.prop('id') + '1');
 										clone.removeClass("hidden");
 										clone.find("select").attr("disabled", false);
 										jQuery(lastFieldWrapperID).after(clone);
@@ -567,7 +569,8 @@
 									var lastFieldWrapperID = "div[id^='${field.inputWrapperID}']:last"; 
 									var clone = jQuery(lastFieldWrapperID).clone();
 
-									clone.prop('id', "");
+									// stupid way to maintain unique IDs, just append a 1 to the previous id
+									clone.prop('id', clone.prop('id') + '1');
 									clone.find("input").prop("value", "");
 									clone.find("button").removeClass("hidden");
 									clone.removeClass('hidden');
