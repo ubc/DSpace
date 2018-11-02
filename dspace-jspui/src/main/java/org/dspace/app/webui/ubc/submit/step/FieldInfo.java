@@ -147,6 +147,14 @@ public class FieldInfo {
 		return true;
 	}
 
+	public boolean getHasEditor()
+	{
+		if (getInputType().equals(INPUT_TYPE_RELATED_RESOURCES) ||
+			getInputType().equals(INPUT_TYPE_TEXTAREA))
+			return true;
+		return false;
+	}
+
 	/**
 	 * Only useful for name fields, stuff the field value into a DCPersonName so
 	 * it'll split it into first and last name for us.

@@ -1,5 +1,6 @@
 package org.dspace.app.webui.ubc.submit.step;
 
+import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -12,6 +13,7 @@ import org.dspace.app.util.DCInputSet;
 import org.dspace.app.util.SubmissionInfo;
 import org.dspace.app.webui.servlet.SubmissionController;
 import org.dspace.app.webui.ubc.retriever.ItemRetriever;
+import org.dspace.app.webui.ubc.retriever.RelatedResource;
 import org.dspace.content.Item;
 import org.dspace.content.ItemIterator;
 import org.dspace.core.Context;
@@ -25,10 +27,10 @@ public class DescribeStepInfo
 	private boolean isFirstStep = false;
 	private int pageNum = 0;
 	private List<FieldInfo> fields = new ArrayList<FieldInfo>();
-	private List<Item> submitterItems = new ArrayList<Item>();
+	private List<RelatedResource> submitterItems = new ArrayList<RelatedResource>();
 
 	public DescribeStepInfo(Context context, HttpServletRequest request, DCInputSet inputSet)
-			throws SQLException, ServletException
+			throws SQLException, ServletException, UnsupportedEncodingException
 	{
 		SubmissionInfo si = SubmissionController.getSubmissionInfo(context, request);
 		Item item = si.getSubmissionItem().getItem();
@@ -73,11 +75,11 @@ public class DescribeStepInfo
 		isFirstStep = SubmissionController.isFirstStep(request, si);
 
 		// get all of this submitter's previous submitted & archived items
-		setSubmitterItems(context, si);
+		setSubmitterItems(context, request, si);
 	}
 
 	public List<FieldInfo> getFields() { return fields; }
-	public List<Item> getSubmitterItems() { return submitterItems; }
+	public List<RelatedResource> getSubmitterItems() { return submitterItems; }
 
 	public String getRELATED_RESOURCE_HEADER() { return ItemRetriever.RELATED_RESOURCE_HEADER; };
 
@@ -85,7 +87,7 @@ public class DescribeStepInfo
 	public boolean getIsFirstStep() { return isFirstStep; }
 	public int getPageNum() { return pageNum; }
 
-	private void setSubmitterItems(Context context, SubmissionInfo subInfo) throws SQLException
+	private void setSubmitterItems(Context context, HttpServletRequest request, SubmissionInfo subInfo) throws SQLException, UnsupportedEncodingException
 	{
 		submitterItems.clear();
 		EPerson submitter = subInfo.getSubmissionItem().getSubmitter();
@@ -93,8 +95,9 @@ public class DescribeStepInfo
 		while (iter.hasNext())
 		{
 			Item item = iter.next();
-			submitterItems.add(item);
+			RelatedResource retriever = new RelatedResource(context, request, item);
+			submitterItems.add(retriever);
 		}
-		Collections.sort(submitterItems, new ItemSortByName());
+		Collections.sort(submitterItems, new RelatedResourceComparator());
 	}
 }

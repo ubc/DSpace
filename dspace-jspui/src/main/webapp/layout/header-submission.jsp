@@ -122,7 +122,7 @@
 			},
 			toolbar: 'undo redo styleselect bold italic alignleft aligncenter alignright bullist numlist outdent indent link code'
 		});
-		tinymce.init({
+		var tinymceConfigInput = {
 			selector: 'input.tinyMCEInput',
 			browser_spellcheck: true,
 			menubar: false,
@@ -137,7 +137,8 @@
 				'link': '<c:url value="/static/ubc/lib/tinymce/plugins/link/plugin.min.js" />',
 			},
 			toolbar: 'undo redo bold italic link code'
-		});
+		};
+		tinymce.init(tinymceConfigInput);
 	</script>
 
     <%--Gooogle Analytics recording.--%>

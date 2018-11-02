@@ -126,7 +126,7 @@
 									mySubmissionsBtn.click(function(e) {
 										e.preventDefault();
 										var lastFieldWrapperID = "div[id^='${field.inputWrapperID}']:last"; 
-										var clone = jQuery('#${mySubmissionsSelectTplID}').parent().clone();
+										var clone = jQuery('#${mySubmissionsSelectTplID}').parent().parent().clone();
 
 										// stupid way to maintain unique IDs, just append a 1 to the last id
 										clone.prop('id', clone.prop('id') + '1');
@@ -141,54 +141,45 @@
 								});
 							</script>
 							<!-- Template for selecting one of the user's own submissions-->
-							<div class='editMetadataRemovableField hidden'>
-								<select id='${mySubmissionsSelectTplID}' name="${field.inputID}" class='form-control' disabled >
-									<option value=''>-- Select a Submission --</option>
-									<c:forEach items='${stepInfo.submitterItems}' var='submitterItem'>
-										<option value='${stepInfo.RELATED_RESOURCE_HEADER}${submitterItem.ID}'>${submitterItem.name}</option>
-									</c:forEach>
-								</select>
-								<c:if test="${field.isRepeatable}">
-									<jsp:include page="/ubc/submit/components/remove-entry-button.jsp">
-										<jsp:param name="hide" value="false" />
-									</jsp:include>
-								</c:if>
-							</div>
+							<jsp:include page="/ubc/submit/components/related-resource-own-submission.jsp">
+								<jsp:param name="isHidden" value="true" />
+								<jsp:param name="selectID" value="${mySubmissionsSelectTplID}" />
+								<jsp:param name="selectName" value="${field.inputID}" />
+								<jsp:param name="hasRemoveBtn" value="${field.isRepeatable}" />
+							</jsp:include>
 							<!-- Template for a regular free form entry --> 
-							<div id="${field.inputWrapperID}_tmpl" class='editMetadataRemovableField hidden'>
-								<input type="text" class="form-control" value="" name="${field.inputID}" <c:if test='${field.isReadOnly}'>readonly</c:if>>
-								<c:if test="${field.isRepeatable}">
-									<jsp:include page="/ubc/submit/components/remove-entry-button.jsp">
-										<jsp:param name="hide" value="true" />
-									</jsp:include>
-								</c:if>
-							</div>
+							<jsp:include page="/ubc/submit/components/related-material-other.jsp">
+								<jsp:param name="isHidden" value="true" />
+								<jsp:param name="hasEditor" value="false" />
+								<jsp:param name="wrapperID" value="${field.inputWrapperID}_tmpl" />
+								<jsp:param name="inputName" value="${field.inputID}" />
+								<jsp:param name="isReadOnly" value="${field.isReadOnly}" />
+								<jsp:param name="hasRemoveBtn" value="${field.isRepeatable}" />
+							</jsp:include>
 							<!-- Restore existing resources -->
 							<c:forEach items="${field.values}" var="value" varStatus="valueStatus">
 								<c:if test='${!empty value}'>
 									<c:set var="hasResourceID" value="${fn:startsWith(value, stepInfo.RELATED_RESOURCE_HEADER)}" />
 									<c:set var="fieldWrapperID" value="${field.inputWrapperID}_${valueStatus.index}" />
-									<c:if test='${!hasResourceID}'>
-										<div id="${fieldWrapperID}" class='editMetadataRemovableField'>
-											<input type="text" class="form-control tinyMCEInput" value="${value}" name="${field.inputID}" <c:if test='${field.isReadOnly}'>readonly</c:if>>
-											<c:if test="${field.isRepeatable}">
-												<jsp:include page="/ubc/submit/components/remove-entry-button.jsp" />
-											</c:if>
-										</div>
-									</c:if>
 									<c:if test='${hasResourceID}'>
-										<div id="${fieldWrapperID}" class='editMetadataRemovableField'>
-											<select id='${mySubmissionsSelectTplID}' name="${field.inputID}" class='form-control' autocomplete='off'>
-												<option value=''>-- Select a Submission --</option>
-												<c:forEach items='${stepInfo.submitterItems}' var='submitterItem'>
-													<c:set var='optionVal' value='${stepInfo.RELATED_RESOURCE_HEADER}${submitterItem.ID}' />
-													<option value='${optionVal}' ${value == optionVal ? 'selected':''}>${submitterItem.name}</option>
-												</c:forEach>
-											</select>
-											<c:if test="${field.isRepeatable}">
-												<jsp:include page="/ubc/submit/components/remove-entry-button.jsp" />
-											</c:if>
-										</div>
+										<jsp:include page="/ubc/submit/components/related-resource-own-submission.jsp">
+											<jsp:param name="isHidden" value="false" />
+											<jsp:param name="wrapperID" value="${fieldWrapperID}" />
+											<jsp:param name="selectName" value="${field.inputID}" />
+											<jsp:param name="hasRemoveBtn" value="${field.isRepeatable}" />
+											<jsp:param name="selectedVal" value="${value}" />
+										</jsp:include>
+									</c:if>
+									<c:if test='${!hasResourceID}'>
+										<jsp:include page="/ubc/submit/components/related-material-other.jsp">
+											<jsp:param name="isHidden" value="false" />
+											<jsp:param name="hasEditor" value="${field.hasEditor}" />
+											<jsp:param name="wrapperID" value="${fieldWrapperID}" />
+											<jsp:param name="inputName" value="${field.inputID}" />
+											<jsp:param name="isReadOnly" value="${field.isReadOnly}" />
+											<jsp:param name="hasRemoveBtn" value="${field.isRepeatable}" />
+											<jsp:param name="inputVal" value="${value}" />
+										</jsp:include>
 									</c:if>
 								</c:if>
 							</c:forEach>
@@ -566,17 +557,23 @@
 									removeElement(jQuery(this).parent());
 								}); 
 								jQuery("#${field.inputAddMoreButtonID}").click(function() {
-									var lastFieldWrapperID = "div[id^='${field.inputWrapperID}']:last"; 
-									var clone = jQuery(lastFieldWrapperID).clone();
+									var firstFieldWrapper= jQuery("div[id^='${field.inputWrapperID}']:first"); 
+									var lastFieldWrapper= jQuery("div[id^='${field.inputWrapperID}']:last"); 
+									var clone = firstFieldWrapper.clone();
 
 									// stupid way to maintain unique IDs, just append a 1 to the previous id
-									clone.prop('id', clone.prop('id') + '1');
+									clone.prop('id', lastFieldWrapper.prop('id') + '1');
 									clone.find("input").prop("value", "");
 									clone.find("button").removeClass("hidden");
 									clone.removeClass('hidden');
-									jQuery(lastFieldWrapperID).after(clone);
+									lastFieldWrapper.after(clone);
+									<c:if test='${field.hasEditor}'>
+									// initialize tinyMCE editor for the newly inserted input element
+									tinymceConfigInput.selector = "#" + clone.prop('id') + ' input';
+									tinymce.init(tinymceConfigInput);
+									</c:if>
 									// make the newly added remove button functional
-									clone.find("button").click(function() {
+									clone.find("button.close").click(function() {
 										removeElement(clone);
 									});
 								});

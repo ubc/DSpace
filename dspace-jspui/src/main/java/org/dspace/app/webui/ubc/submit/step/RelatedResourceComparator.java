@@ -6,17 +6,17 @@
 package org.dspace.app.webui.ubc.submit.step;
 
 import java.util.Comparator;
-import org.dspace.content.Item;
+import org.dspace.app.webui.ubc.retriever.RelatedResource;
 
 /**
  *
  * @author john
  */
-public class ItemSortByName implements Comparator<Item>
+public class RelatedResourceComparator implements Comparator<RelatedResource>
 {
 	@Override
-	public int compare(Item a, Item b)
+	public int compare(RelatedResource a, RelatedResource b)
 	{
-		return a.getName().compareToIgnoreCase(b.getName());
+		return a.getTitle().compareToIgnoreCase(b.getTitle());
 	}
 }
