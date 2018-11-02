@@ -78,7 +78,16 @@ public class ItemPackager
 		context.turnOffAuthorisationSystem();
 		this.context = context;
 	}
-	
+
+	public void close()
+	{
+		try {
+			context.complete();
+		} catch (SQLException ex) {
+			log.error(ex);
+		}
+	}
+
 	/**
 	 * Returns the full path to the item's zip package on the filesystem,
 	 * you should make sure the user can access restricted files before offering

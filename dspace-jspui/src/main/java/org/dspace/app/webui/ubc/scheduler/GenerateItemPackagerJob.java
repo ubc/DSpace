@@ -30,6 +30,7 @@ public class GenerateItemPackagerJob implements Job
 		try {
 			ItemPackager itemPackager = new ItemPackager();
 			itemPackager.packageAllItems();
+			itemPackager.close();
 		} catch (SQLException | IOException | AuthorizeException ex) {
 			log.error(ex);
 		}
