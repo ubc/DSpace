@@ -175,8 +175,9 @@
 		</div>
 		<div class='media-body'>
 			<h1 class="marginTopNone">${itemRetriever.title}</h1> 
-            <c:if test="${commenting && itemRetriever.activeRatingCount gt 0}">
+            <c:if test="${commenting}">
                 <fmt:formatNumber value="${itemRetriever.avgRating}" pattern="0.0" var="roundedAvgRating"/>
+                <a href="#commentBlock" style="text-decoration:none;">
                 <span class="starRating">
                     <c:set var="starDisplayed" value="${0}" />
                     <c:forEach begin="1" end="${(roundedAvgRating - (roundedAvgRating mod 1))}">
@@ -192,10 +193,9 @@
                     <c:forEach begin="1" end="${5 - starDisplayed}">
                         <span class="glyphicon glyphicon-star-empty"></span>
                     </c:forEach>
-                    <a href="#commentBlock">
                     (${itemRetriever.activeRatingCount})
-                    </a>
                 </span>
+                </a>
             </c:if>
 			<p>${itemRetriever.summary}</p>
 		</div>
