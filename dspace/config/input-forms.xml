@@ -194,7 +194,7 @@
          <repeatable>true</repeatable>
          <label>Related Materials</label>
          <input-type>onebox</input-type>
-		 <hint>Please list one related material at a time (press the "Add Resource" button to add more entries).</hint>
+		 <hint>Please list one related material at a time (press the "Add Resource" button to add more entries). You can create a link to another resource that you previously submitted to StatSpace. For example, if this resource is part of a series of resources, each dealing with a different  topic (chapters in a book, lecture slides, or tutorials), you may want to link this resource to the next resource in the series. You may also wish to link to versions of your resource that are available in other languages.</hint>
        </field>
 
 	   <!-- Suggested Use(s) and Tips -->

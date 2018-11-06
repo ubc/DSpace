@@ -19,6 +19,7 @@ import org.dspace.core.Context;
 public class RelatedResource {
 
 	private int ID;
+	private Item item;
 	private String title = "";
 	private String summary = "";
 	private String thumbnail = "";
@@ -31,6 +32,7 @@ public class RelatedResource {
 
 	public RelatedResource(Context context, HttpServletRequest request, Item item) throws SQLException, UnsupportedEncodingException
 	{
+		this.item = item;
 		ID = item.getID();
 		metadataRetriever = new ItemMetadataRetriever(item);
 		bitstreamRetriever = new ItemBitstreamRetriever(context, request, item);
@@ -59,6 +61,9 @@ public class RelatedResource {
 
 	public int getID() {
 		return ID;
+	}
+	public Item getItem() {
+		return item;
 	}
 	public String getTitle() {
 		return title;

@@ -112,7 +112,11 @@
 									<span class='glyphicon glyphicon-plus'></span> Add Resource <span class="caret"></span>
 								</button>
 								<ul class="dropdown-menu">
-									<li><a id="${addMySubmissionsBtnID}" href="#">My Submissions</a></li>
+									<li  <c:if test='${empty stepInfo.submitterItems}'>title='No approved submissions found.'</c:if> >
+										<a id="${addMySubmissionsBtnID}" href="#"
+											<c:if test='${empty stepInfo.submitterItems}'>class='btn disabled'</c:if> >
+											My Submissions</a>
+									</li>
 									<li><a id="${field.inputAddMoreButtonID}" href="#">Other</a></li>
 								</ul>
 							</div>
@@ -132,6 +136,7 @@
 										clone.prop('id', clone.prop('id') + '1');
 										clone.removeClass("hidden");
 										clone.find("select").attr("disabled", false);
+										clone.find("input").attr("disabled", false);
 										jQuery(lastFieldWrapperID).after(clone);
 										// make the newly added remove button functional
 										clone.find("button").click(function() {

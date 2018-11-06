@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.log4j.Logger;
 import org.dspace.app.webui.ubc.license.UBCLicenseInfo;
 import org.dspace.app.webui.ubc.license.UBCLicenseUtil;
+import org.dspace.ubc.RelatedResourceManager;
 
 import org.dspace.content.Item;
 
@@ -35,7 +36,7 @@ public class ItemRetriever {
     /** log4j logger */
     private static Logger log = Logger.getLogger(ItemMetadataRetriever.class);
 
-	public static final String RELATED_RESOURCE_HEADER = "----- RELATED RESOURCE ITEM ID: ";
+	public static final String RELATED_RESOURCE_HEADER = RelatedResourceManager.HEADER;
 
 	private Item item;
 	private HttpServletRequest request;
@@ -123,20 +124,7 @@ public class ItemRetriever {
 		initStringList("dc.contributor.author", authors);
 		initStringList("dcterms.isFormatOf", alternativeLanguages);
 
-		initStringList("dcterms.relation", relatedMaterials);
-		for (int i = 0; i < relatedMaterials.size(); i++)
-		{
-			String material = relatedMaterials.get(i);
-			if (material.startsWith(RELATED_RESOURCE_HEADER))
-			{
-				String itemIDStr = material.replace(RELATED_RESOURCE_HEADER, "");
-				int itemID = Integer.parseInt(itemIDStr);
-				Item relatedItem = Item.find(context, itemID);
-				RelatedResource resource = new RelatedResource(context, request, relatedItem);
-				relatedResources.add(resource);
-				relatedMaterials.set(i, "<a href='"+resource.getURL()+"'>"+ resource.getTitle() +"</a>");
-			}
-		}
+		initRelatedMaterials(context);
 
         UBCAccessChecker curatorCheck = new UBCAccessChecker(context);
         if (curatorCheck.hasCuratorAccess()) {
@@ -173,9 +161,7 @@ public class ItemRetriever {
 
 	private void initStringList(String field, List<String> list) {
 		MetadataResult result = metadataRetriever.getField(field);
-		for (String val : result.getValues()) {
-			list.add(val);
-		}
+		list.addAll(result.getValues());
 	}
 
 	private DCDate getDCDate(String field) {
@@ -206,6 +192,35 @@ public class ItemRetriever {
             }
         });
     }
+
+	private void initRelatedMaterials(Context context) throws SQLException, UnsupportedEncodingException {
+		initStringList("dcterms.relation", relatedMaterials);
+		for (int i = 0; i < relatedMaterials.size(); i++)
+		{
+			String material = relatedMaterials.get(i);
+			if (material.startsWith(RELATED_RESOURCE_HEADER))
+			{
+				String itemIDStr = material.replace(RELATED_RESOURCE_HEADER, "");
+				int itemID = Integer.parseInt(itemIDStr);
+				Item relatedItem = Item.find(context, itemID);
+				if (relatedItem == null)
+				{
+					relatedMaterials.remove(i);
+					continue;
+				}
+				RelatedResource resource = new RelatedResource(context, request, relatedItem);
+				relatedResources.add(resource);
+				relatedMaterials.set(i, "<a href='"+resource.getURL()+"'>"+ resource.getTitle() +"</a>");
+			}
+		}
+		RelatedResourceManager relatedResourceManager = new RelatedResourceManager(context, item);
+		List<Item> relatedItems = relatedResourceManager.getMyBidirectionalMetadataItems();
+		for (Item relatedItem : relatedItems)
+		{
+			RelatedResource resource = new RelatedResource(context, request, relatedItem);
+			relatedResources.add(resource);
+		}
+	}
 
 	public List<BitstreamResult> getFiles() {
 		return files;

@@ -1,10 +1,12 @@
 package org.dspace.app.webui.ubc.submit.step;
 
+import org.dspace.ubc.RelatedResourceManager;
 import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.log4j.Logger;
@@ -28,6 +30,7 @@ public class DescribeStepInfo
 	private int pageNum = 0;
 	private List<FieldInfo> fields = new ArrayList<FieldInfo>();
 	private List<RelatedResource> submitterItems = new ArrayList<RelatedResource>();
+	private Map<String, Boolean> bidirectionalLinksMap;
 
 	public DescribeStepInfo(Context context, HttpServletRequest request, DCInputSet inputSet)
 			throws SQLException, ServletException, UnsupportedEncodingException
@@ -76,10 +79,14 @@ public class DescribeStepInfo
 
 		// get all of this submitter's previous submitted & archived items
 		setSubmitterItems(context, request, si);
+		// determine if stored values in related materials is a bidirectional link
+		setBidirectionalLinksMap(context, request, si);
 	}
 
 	public List<FieldInfo> getFields() { return fields; }
 	public List<RelatedResource> getSubmitterItems() { return submitterItems; }
+
+	public Map<String, Boolean> getBidirectionalLinksMap() { log.debug("STEPINFO BIDIRECTIONAL: " + bidirectionalLinksMap.size()); return bidirectionalLinksMap; }
 
 	public String getRELATED_RESOURCE_HEADER() { return ItemRetriever.RELATED_RESOURCE_HEADER; };
 
@@ -100,4 +107,10 @@ public class DescribeStepInfo
 		}
 		Collections.sort(submitterItems, new RelatedResourceComparator());
 	}
+	private void setBidirectionalLinksMap(Context context, HttpServletRequest request, SubmissionInfo subInfo) throws SQLException, UnsupportedEncodingException
+	{
+		RelatedResourceManager relatedResource = new RelatedResourceManager(context, subInfo.getSubmissionItem().getItem());
+		bidirectionalLinksMap = relatedResource.getBidirectionalLinksMap();
+	}
+
 }

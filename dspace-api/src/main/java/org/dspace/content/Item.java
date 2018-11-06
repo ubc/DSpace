@@ -39,6 +39,7 @@ import org.dspace.identifier.IdentifierService;
 import org.dspace.storage.rdbms.DatabaseManager;
 import org.dspace.storage.rdbms.TableRow;
 import org.dspace.storage.rdbms.TableRowIterator;
+import org.dspace.ubc.RelatedResourceManager;
 import org.dspace.utils.DSpace;
 import org.dspace.versioning.VersioningService;
 import org.dspace.workflow.WorkflowItem;
@@ -1268,6 +1269,10 @@ public class Item extends DSpaceObject
         // metadata but when getting to the point of removing the bundles we get an exception
         // leaving the database in an inconsistent state
         AuthorizeManager.authorizeAction(ourContext, this, Constants.REMOVE);
+
+		// remove related resource links
+		RelatedResourceManager relatedResourceManager = new RelatedResourceManager(ourContext, this);
+		relatedResourceManager.cleanUpBidirectionalLinks();
 
         ourContext.addEvent(new Event(Event.DELETE, Constants.ITEM, getID(), 
                 getHandle(), getIdentifiers(ourContext)));
