@@ -33,6 +33,7 @@
 
 
 <%@ taglib uri="http://www.dspace.org/dspace-tags.tld" prefix="dspace" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <%
@@ -65,8 +66,8 @@
 <%-- ====================================================== --%>
 <div class="col-md-10">
                                     <div class="row">
-                                        <span class="metadataFieldLabel col-md-2"><%= (subInfo.getSubmissionItem().hasMultipleFiles() ? LocaleSupport.getLocalizedMessage(pageContext, "jsp.submit.review.upload1") : LocaleSupport.getLocalizedMessage(pageContext, "jsp.submit.review.upload2")) %></span>
-                                        <span class="metadataFieldValue col-md-10">
+                                        <span class="metadataFieldLabel col-md-4 text-right"><%= (subInfo.getSubmissionItem().hasMultipleFiles() ? LocaleSupport.getLocalizedMessage(pageContext, "jsp.submit.review.upload1") : LocaleSupport.getLocalizedMessage(pageContext, "jsp.submit.review.upload2")) %></span>
+                                        <span class="metadataFieldValue col-md-8">
 <%
     Bitstream[] bitstreams = item.getNonInternalBitstreams();
 
@@ -163,3 +164,16 @@ List<ResourcePolicy> rpolicies = AuthorizeManager.findPoliciesByDSOAndType(conte
     }
 %>
                   </div>
+
+<div class="row">
+	<div class="col-md-10">
+		<div class="row">
+			<div class="col-md-4 text-right">
+				Resource URL
+			</div>
+			<div class="col-md-8">
+				<a href="${itemRetriever.resourceURL}">${itemRetriever.resourceURL}</a>
+			</div>
+		</div>
+	</div>
+</div>

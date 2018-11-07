@@ -34,6 +34,7 @@
 <%@ page import="org.dspace.core.Utils" %>
 
 <%@ taglib uri="http://www.dspace.org/dspace-tags.tld" prefix="dspace" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <%
@@ -53,7 +54,7 @@
 %>
           
 <dspace:layout locbar="off" navbar="off" titlekey="jsp.submit.review.title" style="submission" nocache="true">
-
+	
     <form action="<%= request.getContextPath() %>/submit" method="post" onkeydown="return disableEnterKey(event);">
    
         <jsp:include page="/submit/progressbar.jsp" />
@@ -81,11 +82,15 @@
 			//finally get the path to the review JSP (the value)
 			String reviewJSP = (String) reviewJSPs.get(stepAndPage);
 	%>
-		    <div class="well row">
-				<%--Load the review JSP and pass it step & page info--%>
-				<jsp:include page="<%=reviewJSP%>">
-					<jsp:param name="submission.jump" value="<%=stepAndPage%>" />	
-				</jsp:include>
+		    <div class="row">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<%--Load the review JSP and pass it step & page info--%>
+						<jsp:include page="<%=reviewJSP%>">
+							<jsp:param name="submission.jump" value="<%=stepAndPage%>" />	
+						</jsp:include>
+					</div>
+				</div>
 			</div>	
 <%
     }

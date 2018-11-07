@@ -43,6 +43,7 @@
 
 
 <%@ taglib uri="http://www.dspace.org/dspace-tags.tld" prefix="dspace" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <%
@@ -116,6 +117,10 @@
           Metadatum[] values;
           StringBuffer row = new StringBuffer();
           
+			if (inputs[z].getLabel().equals("Related Materials"))
+			{
+				continue;
+			}
           row.append("<div class=\"row metadataVerifyRow\">");
           row.append("<div class=\"metadataFieldLabel col-md-4\">");
           row.append(inputs[z].getLabel());
@@ -139,6 +144,7 @@
              boolean isAuthorityControlled = mam.isAuthorityControlled(inputs[z].getSchema(),
                                                     inputs[z].getElement(),inputs[z].getQualifier());
 
+			 boolean hasRenderedRelatedMaterials = false;
              for (int i = 0; i < values.length; i++)
              {
                 boolean newline = true;
@@ -224,6 +230,20 @@
             layoutSection(request, out, inputSet, subInfo, item, pageNum, pageContext);
 %>
 </div>
+
 <div class="col-md-2">
      <input class="btn btn-default" type="submit" name="submit_jump_<%=stepJump%>" value="<fmt:message key="jsp.submit.review.button.correct"/>" />
+</div>
+
+<div class="col-md-10">
+	<div class="col-md-4 text-right">
+		Related Materials
+	</div>
+	<div class="col-md-8">
+		<ul>
+			<c:forEach items="${itemRetriever.relatedMaterials}" var="prereq">
+				<li>${prereq}</li>
+			</c:forEach>
+		</ul>
+	</div>
 </div>
