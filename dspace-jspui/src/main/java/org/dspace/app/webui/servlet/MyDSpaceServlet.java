@@ -33,7 +33,7 @@ import org.dspace.app.itemimport.BatchUpload;
 import org.dspace.app.itemimport.ItemImport;
 import org.dspace.app.util.SubmissionConfigReader;
 import org.dspace.app.util.SubmissionConfig;
-import org.dspace.app.webui.ubc.statspace.ApproveUserUtil;
+import org.dspace.app.webui.ubc.statspace.curation.ApproveUserUtil;
 import org.dspace.ubc.UBCAccessChecker;
 import org.dspace.app.webui.ubc.retriever.EPersonRetriever;
 import org.dspace.app.webui.ubc.retriever.ItemRetriever;

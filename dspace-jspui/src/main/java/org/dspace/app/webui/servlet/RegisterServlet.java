@@ -28,7 +28,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Hashtable;
-import org.dspace.app.webui.ubc.statspace.ApproveUserUtil;
+import org.dspace.app.webui.ubc.statspace.curation.ApproveUserUtil;
 
 /**
  * Servlet for handling user registration and forgotten passwords.

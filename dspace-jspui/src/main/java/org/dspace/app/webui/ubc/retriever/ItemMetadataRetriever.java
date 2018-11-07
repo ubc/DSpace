@@ -11,6 +11,7 @@ import org.apache.log4j.Logger;
 import org.dspace.content.Metadatum;
 import org.dspace.content.Item;
 import org.dspace.core.I18nUtil;
+import org.dspace.ubc.MetadataFieldSplitter;
 
 public class ItemMetadataRetriever
 {
@@ -33,20 +34,10 @@ public class ItemMetadataRetriever
 		MetadataResult result = new MetadataResult("");
 
 		// Try to parse the field into its components.
-		String[] eq = field.split("\\.");
-		if (eq.length <= 1) {
-			throw new IllegalArgumentException("Metadata field is not in a recognizable metadata registry entry string.");
-		}
-		String schema = eq[0];
-		String element = eq[1];
-		String qualifier = null;
-		if (eq.length > 2)
-		{
-			qualifier = eq[2];
-		}
+		MetadataFieldSplitter splitter = new MetadataFieldSplitter(field);
 
 		// Retrieve the metadata based on the field components.
-		Metadatum[] values = item.getMetadata(schema, element, qualifier, Item.ANY);
+		Metadatum[] values = item.getMetadata(splitter.schema, splitter.element, splitter.qualifier, Item.ANY);
 		// Try to retrieve the human readable metadata label
 		String label = field; // defaults to metadata registry if unable to localize
 		// Don't need i18n support so skipped checking for it

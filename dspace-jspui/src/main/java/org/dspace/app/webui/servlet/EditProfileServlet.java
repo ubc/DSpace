@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.dspace.app.webui.ubc.retriever.EPersonRetriever;
-import org.dspace.app.webui.ubc.statspace.ApproveUserUtil;
+import org.dspace.app.webui.ubc.statspace.curation.ApproveUserUtil;
 import org.dspace.app.webui.util.JSPManager;
 import org.dspace.authorize.AuthorizeException;
 import org.dspace.core.Context;
