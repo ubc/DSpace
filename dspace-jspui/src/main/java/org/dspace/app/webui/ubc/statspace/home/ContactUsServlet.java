@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.dspace.app.webui.ubc.statspace.home;
 
 import java.io.IOException;
@@ -17,12 +12,9 @@ import org.dspace.app.webui.util.JSPManager;
 import org.dspace.core.Context;
 import org.dspace.core.NewsManager;
 
-/**
- *
- * @author john
- */
-public class ContactPageServlet extends DSpaceServlet {
-    private static Logger log = Logger.getLogger(HomeServlet.class);
+public class ContactUsServlet extends DSpaceServlet
+{
+    private static Logger log = Logger.getLogger(ContactUsServlet.class);
 	
     protected void doDSGet(Context context, HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException
@@ -32,6 +24,6 @@ public class ContactPageServlet extends DSpaceServlet {
 		String content = NewsManager.readNewsFile(msgs.getString("news-contact.html"));
 		request.setAttribute("content", content);
 
-		JSPManager.showJSP(request, response, "/ubc/biospace/contact.jsp");
+		JSPManager.showJSP(request, response, "/ubc/biospace/contact-us.jsp");
 	}
 }

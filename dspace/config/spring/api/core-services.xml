@@ -19,6 +19,7 @@
 				<value>news-top.html</value>
 				<value>news-side.html</value>
 				<value>news-contact.html</value>
+				<value>news-submit.html</value>
 			</list>
 		</property>	
 	</bean>

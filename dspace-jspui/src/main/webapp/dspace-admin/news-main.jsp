@@ -58,6 +58,7 @@
 			  <select class="form-control" name="position">
 				  <option value="<fmt:message key="news-top.html"/>"><fmt:message key="jsp.dspace-admin.news-main.news.top"/></option>
 				  <option value="<fmt:message key="news-contact.html"/>"><fmt:message key="jsp.dspace-admin.news-main.news.contact"/></option>
+				  <option value="<fmt:message key="news-submit.html"/>"><fmt:message key="jsp.dspace-admin.news-main.news.submit"/></option>
 				  <%-- Not currently using sidebar <option value="<fmt:message key="news-side.html"/>"><fmt:message key="jsp.dspace-admin.news-main.news.sidebar"/></option> --%>
 			  </select>
 		  </div>
