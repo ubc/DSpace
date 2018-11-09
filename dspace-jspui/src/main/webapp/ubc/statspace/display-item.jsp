@@ -175,8 +175,9 @@
 		</div>
 		<div class='media-body'>
 			<h1 class="marginTopNone">${itemRetriever.title}</h1> 
-            <c:if test="${itemRetriever.avgRating gt 0 && commenting}">
+            <c:if test="${commenting}">
                 <fmt:formatNumber value="${itemRetriever.avgRating}" pattern="0.0" var="roundedAvgRating"/>
+                <a href="#commentBlock" style="text-decoration:none;">
                 <span class="starRating">
                     <c:set var="starDisplayed" value="${0}" />
                     <c:forEach begin="1" end="${(roundedAvgRating - (roundedAvgRating mod 1))}">
@@ -194,6 +195,7 @@
                     </c:forEach>
                     (${itemRetriever.activeRatingCount})
                 </span>
+                </a>
             </c:if>
 			<p>${itemRetriever.summary}</p>
 			<c:if test='${!empty itemRetriever.resourceURL}'>
@@ -264,6 +266,35 @@
 						<h3 class="displayItemSectionHeader">Suggested Uses, Tips and Discoveries</h3>
 						<div>
 							${itemRetriever.whatWeLearned}
+						</div>
+					</c:if>
+					<c:if test="${!empty itemRetriever.relatedResources}">
+						<h3 class="displayItemSectionHeader">Related Resources</h3>
+						<div class="row discovery-result-results">
+							<div class="col-md-12 searchResultsWrap">
+							<c:forEach items="${itemRetriever.relatedResources}" var="resource">
+								<div class="col-md-4 col-sm-6 col-xs-12">
+									<div class='panel panel-default'>
+										<div class='panel-body'>
+											<a class="center-block searchResultThumbnail img-rounded ${resource.hasPlaceholderThumbnail ? "SimpleSearchPlaceholderThumbnail":""}" href="${result.url}" 
+											   style='background: center / contain no-repeat url(${resource.thumbnail});'>
+												<div class="text-center searchResultThumbnailPlaceholder">
+												</div>
+											</a>
+
+											<div class="caption">
+												<h4 class="text-center">
+													<a href="${resource.URL}">${resource.title}</a>
+												</h4>
+												<p class='text-center'>
+													${resource.summary}
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</c:forEach>
+							</div>
 						</div>
 					</c:if>
 				</div>

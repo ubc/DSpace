@@ -147,7 +147,7 @@
                 <td headers="t2" class="<%= row %>RowEvenCol"><%= Utils.addEntities(title) %></td>
                 <td headers="t3" class="<%= row %>RowOddCol"><%= owned[i].getCollection().getMetadata("name") %></td>
                 <td headers="t4" class="<%= row %>RowEvenCol"><a href="mailto:<%= submitter.getEmail() %>"><%= Utils.addEntities(submitter.getFullName()) %></a></td>
-				<td>${itemRetriever.dateSubmitted}</td>
+				<td><c:if test='${!empty itemRetriever.dateSubmitted}'><dspace:date date="${itemRetriever.dateSubmitted}" clientLocalTime="true" /></c:if></td>
                 <!-- <td headers="t5" class="<%= row %>RowOddCol"></td> -->
                 <td headers="t5" class="<%= row %>RowEvenCol">
                      <form action="<%= request.getContextPath() %>/mydspace" method="post">
@@ -217,7 +217,7 @@
                     <td headers="t7" class="<%= row %>RowEvenCol"><%= Utils.addEntities(title) %></td>
                     <td headers="t8" class="<%= row %>RowOddCol"><%= pooled[i].getCollection().getMetadata("name") %></td>
                     <td headers="t9" class="<%= row %>RowEvenCol"><a href="mailto:<%= submitter.getEmail() %>"><%= Utils.addEntities(submitter.getFullName()) %></a></td>
-					<td>${itemRetriever.dateSubmitted}</td>
+					<td><c:if test='${!empty itemRetriever.dateSubmitted}'><dspace:date date="${itemRetriever.dateSubmitted}" clientLocalTime="true" /></c:if></td>
                     <td class="<%= row %>RowOddCol">
                         <form action="<%= request.getContextPath() %>/mydspace" method="post">
                             <input type="hidden" name="step" value="<%= MyDSpaceServlet.MAIN_PAGE %>" />
@@ -282,7 +282,9 @@
 					--%>
 					<!-- Date Submission Started -->
 					<td>
-						${workspaceItem.value.dateStarted}
+						<c:if test='${!empty workspaceItem.value.dateStarted}'>
+							<dspace:date date="${workspaceItem.value.dateStarted}" clientLocalTime="true" />
+						</c:if>
 					</td>
 					<!-- Remove Button -->
 					<td class='text-center'>
@@ -621,6 +623,10 @@
 		</script>
 	</c:if>
 	
+	<c:if test="${hasCuratorAccess}">
+		<jsp:include page="/ubc/mydspace/components/featured-articles.jsp" />
+	</c:if>
+
 	<script>
 		function showMoreClicked(index){
 			$('#moreinfo_'+index).toggle( "slow", function() {

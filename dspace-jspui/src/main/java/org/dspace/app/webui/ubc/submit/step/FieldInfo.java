@@ -36,6 +36,7 @@ public class FieldInfo {
 	public static final String INPUT_TYPE_TWOBOX = "twobox";
 	public static final String INPUT_TYPE_LIST = "list";
 	public static final String INPUT_TYPE_TRIPLE_LEVEL_DROPDOWN = "triple_level_dropdown";
+	public static final String INPUT_TYPE_RELATED_RESOURCES = "related_resources";
 
 	private DCInput input;
 	private boolean isVisible = true;
@@ -102,6 +103,10 @@ public class FieldInfo {
 			}
 			if (isTripleLevelDropdown) inputType = INPUT_TYPE_TRIPLE_LEVEL_DROPDOWN;
 		}
+		else if (fieldID.contains("dcterms_relation") && inputType.equals(INPUT_TYPE_ONEBOX))
+		{
+			inputType = INPUT_TYPE_RELATED_RESOURCES;
+		}
 	}
 
 	private void setIsVisible()
@@ -127,13 +132,27 @@ public class FieldInfo {
 		}
 	}
 
+	/**
+	 * Returns true if we should generate the "Add More" button on the edit-metadata page.
+	 * @return 
+	 */
 	public boolean getHasAddMore()
 	{
 		if (!getIsRepeatable()) return false;
 		// dropdowns don't need "Add More" repeatables since <select>
 		// elements already has multi-select ability
 		if (getInputType().equals(INPUT_TYPE_DROPDOWN)) return false;
+		// statspace's related resources will have their own repeatable handling
+		if (getInputType().equals(INPUT_TYPE_RELATED_RESOURCES)) return false;
 		return true;
+	}
+
+	public boolean getHasEditor()
+	{
+		if (getInputType().equals(INPUT_TYPE_RELATED_RESOURCES) ||
+			getInputType().equals(INPUT_TYPE_TEXTAREA))
+			return true;
+		return false;
 	}
 
 	/**
@@ -215,4 +234,5 @@ public class FieldInfo {
 	public String getINPUT_TYPE_TWOBOX()	{ return INPUT_TYPE_TWOBOX; }
 	public String getINPUT_TYPE_LIST()		{ return INPUT_TYPE_LIST; }
 	public String getINPUT_TYPE_TRIPLE_LEVEL_DROPDOWN()	{ return INPUT_TYPE_TRIPLE_LEVEL_DROPDOWN; }
+	public String getINPUT_TYPE_RELATED_RESOURCES()	{ return INPUT_TYPE_RELATED_RESOURCES; }
 }

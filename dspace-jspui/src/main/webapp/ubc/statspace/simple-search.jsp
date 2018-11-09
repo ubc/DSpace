@@ -433,11 +433,13 @@
 			<div role="tabpanel" class="tab-pane ${viewType!=VIEW_TYPE_TILE?'active':''}" id="ResultsListView">
 				<jsp:include page="/ubc/statspace/components/simple-search/results-list-view.jsp">
 					<jsp:param name="resultsVar" value="results" />
+                    <jsp:param name="commentingEnabledVar" value="commentingEnabled" />
 				</jsp:include>
 			</div>
 			<div role="tabpanel" class="tab-pane ${viewType==VIEW_TYPE_TILE?'active':''}" id="ResultsTileView">
 				<jsp:include page="/ubc/statspace/components/simple-search/results-tile-view.jsp">
 					<jsp:param name="resultsVar" value="results" />
+                    <jsp:param name="commentingEnabledVar" value="commentingEnabled" />
 				</jsp:include>
 			</div>
 		</div>

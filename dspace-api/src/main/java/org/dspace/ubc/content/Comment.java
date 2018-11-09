@@ -14,6 +14,7 @@ import com.google.gson.annotations.Expose;
 import org.apache.log4j.Logger;
 
 import org.dspace.authorize.AuthorizeException;
+import org.dspace.content.DCDate;
 import org.dspace.content.Item;
 import org.dspace.content.Metadatum;
 import org.dspace.core.Context;
@@ -225,6 +226,10 @@ public class Comment
 
     public void setCreated(Date created) {
         this.created = created;
+    }
+
+    public DCDate getCreatedDc() {
+        return new DCDate(this.created);
     }
 
     public int getRating() {

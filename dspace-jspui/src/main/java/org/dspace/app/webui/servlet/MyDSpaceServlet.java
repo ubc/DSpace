@@ -33,10 +33,11 @@ import org.dspace.app.itemimport.BatchUpload;
 import org.dspace.app.itemimport.ItemImport;
 import org.dspace.app.util.SubmissionConfigReader;
 import org.dspace.app.util.SubmissionConfig;
-import org.dspace.app.webui.ubc.statspace.ApproveUserUtil;
+import org.dspace.app.webui.ubc.statspace.curation.ApproveUserUtil;
 import org.dspace.ubc.UBCAccessChecker;
 import org.dspace.app.webui.ubc.retriever.EPersonRetriever;
 import org.dspace.app.webui.ubc.retriever.ItemRetriever;
+import org.dspace.app.webui.ubc.statspace.curation.FeaturedArticleManager;
 import org.dspace.app.webui.util.UIUtil;
 import org.dspace.authorize.AuthorizeException;
 import org.dspace.content.Collection;
@@ -271,7 +272,7 @@ public class MyDSpaceServlet extends DSpaceServlet
 
                 request.setAttribute("workflow.item", workflowItem);
                 JSPManager.showJSP(request, response,
-                        "/mydspace/perform-task.jsp");
+                        "/ubc/mydspace/perform-task.jsp");
                 ok = true;
             }
         }
@@ -404,7 +405,7 @@ public class MyDSpaceServlet extends DSpaceServlet
 
             // Display "perform task" page
             request.setAttribute("workflow.item", workflowItem);
-            JSPManager.showJSP(request, response, "/mydspace/perform-task.jsp");
+            JSPManager.showJSP(request, response, "/ubc/mydspace/perform-task.jsp");
             context.complete();
         }
         else
@@ -591,7 +592,7 @@ public class MyDSpaceServlet extends DSpaceServlet
         else
         {
             request.setAttribute("workflow.item", workflowItem);
-            JSPManager.showJSP(request, response, "/mydspace/perform-task.jsp");
+            JSPManager.showJSP(request, response, "/ubc/mydspace/perform-task.jsp");
         }
     }
 
@@ -900,6 +901,9 @@ public class MyDSpaceServlet extends DSpaceServlet
 		request.setAttribute("usersForApproval", usersForApproval);
 		request.setAttribute("userApprovalActionGrant", ApproveUserUtil.ACTION_GRANT);
 		request.setAttribute("userApprovalActionDeny", ApproveUserUtil.ACTION_DENY);
+		// Featured Articles stuff
+		FeaturedArticleManager featuredArticleManager = new FeaturedArticleManager(context, request);
+		featuredArticleManager.setJSPAtrributes();
 
 		request.setAttribute("context", context);
 

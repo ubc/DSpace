@@ -1,6 +1,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+<%@ taglib uri="http://www.dspace.org/dspace-tags.tld" prefix="dspace" %>
 
 <c:set var="results" value="${requestScope[param.resultsVar]}"></c:set>
+<c:set var="commentingEnabled" value="${requestScope[param.commentingEnabledVar]}"></c:set>
 
 <c:forEach items="${results}" var="result" varStatus="resultStatus">
 	<div class="media SimpleSearchResultListItem">
@@ -13,6 +17,26 @@
 			<h4 class="media-heading">
 				<a href="${result.url}">${result.title}</a>
 			</h4>
+            <c:if test="${commentingEnabled && result.activeRatingCount gt 0}">
+                <fmt:formatNumber value="${result.avgRating}" pattern="0.0" var="roundedAvgRating"/>
+                <span class="starRating">
+                    <c:set var="starDisplayed" value="${0}" />
+                    <c:forEach begin="1" end="${(roundedAvgRating - (roundedAvgRating mod 1))}">
+                        <span class="glyphicon glyphicon-star"></span>
+                        <c:set var="starDisplayed" value="${starDisplayed+1}" />
+                    </c:forEach>
+                    <c:choose>
+                        <c:when test="${(roundedAvgRating * 10) mod 10 ge 5}">
+                            <span class="glyphicon glyphicon-star glyphicon-half-star"></span>
+                            <c:set var="starDisplayed" value="${starDisplayed+1}" />
+                        </c:when>
+                    </c:choose>
+                    <c:forEach begin="1" end="${5 - starDisplayed}">
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                    </c:forEach>
+                </span>
+                <small>(<c:out value="${result.activeRatingCount}"/>)</small>
+            </c:if>
 			<!-- Information that is always visible -->
 			<div>
 				<small>
@@ -71,7 +95,7 @@
 						<li>${result.license}</li>
 						<c:if test='${!empty result.dateCreated}'>
 							<li><strong>Created:</strong></li>
-							<li>${result.dateCreated}</li>
+							<li><c:if test='${!empty itemRetriever.dateCreated}'><dspace:date date="${itemRetriever.dateCreated}" notime="true" clientLocalTime="true" /></c:if></li>
 						</c:if>
 					</ul>
 				</small>

@@ -73,6 +73,12 @@ public class DSpaceServlet extends HttpServlet
         processRequest(request, response);
     }
 
+    protected void doDelete(HttpServletRequest request,
+            HttpServletResponse response) throws ServletException, IOException
+    {
+        processRequest(request, response);
+    }
+
     /**
      * Process an incoming request
      * 
@@ -114,6 +120,10 @@ public class DSpaceServlet extends HttpServlet
             {
                 doDSPost(context, request, response);
             }
+			else if (request.getMethod().equals("DELETE"))
+			{
+				doDSDelete(context, request, response);
+			}
             else
             {
                 doDSGet(context, request, response);
@@ -211,5 +221,14 @@ public class DSpaceServlet extends HttpServlet
         // If this is not overridden, we invoke the raw HttpServlet "doGet" to
         // indicate that POST is not supported by this servlet.
         super.doGet(request, response);
+    }
+
+    protected void doDSDelete(Context context, HttpServletRequest request,
+            HttpServletResponse response) throws ServletException, IOException,
+            SQLException, AuthorizeException
+    {
+        // If this is not overridden, we invoke the raw HttpServlet "doGet" to
+        // indicate that POST is not supported by this servlet.
+        super.doDelete(request, response);
     }
 }

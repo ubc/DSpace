@@ -1,4 +1,4 @@
-package org.dspace.app.webui.ubc.statspace;
+package org.dspace.app.webui.ubc.statspace.curation;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

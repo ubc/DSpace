@@ -7,7 +7,6 @@ package org.dspace.app.webui.ubc.retriever;
 
 import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -18,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.log4j.Logger;
 import org.dspace.app.webui.ubc.license.UBCLicenseInfo;
 import org.dspace.app.webui.ubc.license.UBCLicenseUtil;
+import org.dspace.ubc.RelatedResourceManager;
 
 import org.dspace.content.Item;
 
@@ -36,6 +36,8 @@ public class ItemRetriever {
     /** log4j logger */
     private static Logger log = Logger.getLogger(ItemMetadataRetriever.class);
 
+	public static final String RELATED_RESOURCE_HEADER = RelatedResourceManager.HEADER;
+
 	private Item item;
 	private HttpServletRequest request;
 
@@ -48,9 +50,10 @@ public class ItemRetriever {
 	private String thumbnail = "";
 	private String url = "";
 	private String whatWeLearned = "";
-	private String dateCreated = "";
-	private String dateSubmitted = "";
-	private String dateStarted = "";
+	private DCDate dateCreated;
+	private DCDate dateSubmitted;
+	private DCDate dateStarted;
+	private DCDate dateApproved;
 	private String license = "";
 	private String packageZipURL = "";
 	private String resourceURL = ""; // if this item is about a resource located at some url, store that url here
@@ -66,6 +69,7 @@ public class ItemRetriever {
 	private List<String> alternativeLanguages = new ArrayList<>();
 	private List<String> keywords = new ArrayList<>();
     private List<Comment> comments = new ArrayList<>();
+	private List<RelatedResource> relatedResources = new ArrayList<>();
     private double avgRating;
     private int activeCommentCount;
     private int activeRatingCount;
@@ -105,21 +109,19 @@ public class ItemRetriever {
 		summary = getSingleValue("dc.description.abstract");
 		description = getSingleValue("dc.description");
 		whatWeLearned = getSingleValue("dcterms.instructionalMethod");
-		dateCreated = getSingleValue("dc.date.created");
+		dateCreated = getDCDate("dc.date.created");
 		license = getSingleValue("dc.rights");
 		isRestricted = UBCAccessChecker.isRestricted(item);
 		resourceURL = getSingleValue("dc.relation.uri");
 
-		dateStarted = getSingleValue("dc.date.issued");
-		dateStarted = toReadableDate(dateStarted);
-		dateSubmitted = getSingleValue("dc.date.submitted");
-		dateSubmitted = toReadableDate(dateSubmitted);
+		dateStarted = getDCDate("dc.date.issued");
+		dateSubmitted = getDCDate("dc.date.submitted");
+		dateApproved = getDCDate("dc.date.accessioned");
 
 		initStringList("dcterms.type", resourceTypes);
 		initStringList("dcterms.requires", prereqs);
 		initStringList("dcterms.coverage", objectives);
 		initStringList("dc.contributor.author", authors);
-		initStringList("dcterms.relation", relatedMaterials);
 		initStringList("dcterms.isFormatOf", alternativeLanguages);
 		initStringList("dcterms.subject", keywords);
 
@@ -130,6 +132,8 @@ public class ItemRetriever {
 			if (!resourceTypeOther.isEmpty())
 				resourceTypes.set(resourceTypeOtherIndex, "Other (" + resourceTypeOther + ")");
 		}
+
+		initRelatedMaterials(context);
 
         UBCAccessChecker curatorCheck = new UBCAccessChecker(context);
         if (curatorCheck.hasCuratorAccess()) {
@@ -166,16 +170,15 @@ public class ItemRetriever {
 
 	private void initStringList(String field, List<String> list) {
 		MetadataResult result = metadataRetriever.getField(field);
-		for (String val : result.getValues()) {
-			list.add(val);
-		}
+		list.addAll(result.getValues());
 	}
 
-	private String toReadableDate(String storedDate) {
-		if (storedDate.isEmpty()) return "";
-		DCDate tmpDate = new DCDate(storedDate);
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm a");
-		return dateFormat.format(tmpDate.toDate());
+	private DCDate getDCDate(String field) {
+		String storedDate = getSingleValue(field);
+		DCDate date = new DCDate(storedDate);
+		// for some reason, empty dates give you the string "null" instead of an empty string or even just null?!
+		if (date.toString().equals("null")) return null;
+		return date;
 	}
 
     private void initCommentList(String field, Context context, List<Comment> list) {
@@ -199,6 +202,35 @@ public class ItemRetriever {
         });
     }
 
+	private void initRelatedMaterials(Context context) throws SQLException, UnsupportedEncodingException {
+		initStringList("dcterms.relation", relatedMaterials);
+		for (int i = 0; i < relatedMaterials.size(); i++)
+		{
+			String material = relatedMaterials.get(i);
+			if (material.startsWith(RELATED_RESOURCE_HEADER))
+			{
+				String itemIDStr = material.replace(RELATED_RESOURCE_HEADER, "");
+				int itemID = Integer.parseInt(itemIDStr);
+				Item relatedItem = Item.find(context, itemID);
+				if (relatedItem == null)
+				{
+					relatedMaterials.remove(i);
+					continue;
+				}
+				RelatedResource resource = new RelatedResource(context, request, relatedItem);
+				relatedResources.add(resource);
+				relatedMaterials.set(i, "<a href='"+resource.getURL()+"'>"+ resource.getTitle() +"</a>");
+			}
+		}
+		RelatedResourceManager relatedResourceManager = new RelatedResourceManager(context, item);
+		List<Item> relatedItems = relatedResourceManager.getMyBidirectionalMetadataItems();
+		for (Item relatedItem : relatedItems)
+		{
+			RelatedResource resource = new RelatedResource(context, request, relatedItem);
+			relatedResources.add(resource);
+		}
+	}
+
 	public List<BitstreamResult> getFiles() {
 		return files;
 	}
@@ -220,14 +252,17 @@ public class ItemRetriever {
 	public String getWhatWeLearned() {
 		return whatWeLearned;
 	}
-	public String getDateCreated() {
+	public DCDate getDateCreated() {
 		return dateCreated;
 	}
-	public String getDateSubmitted() {
+	public DCDate getDateSubmitted() {
 		return dateSubmitted;
 	}
-	public String getDateStarted() {
+	public DCDate getDateStarted() {
 		return dateStarted;
+	}
+	public DCDate getDateApproved() {
+		return dateApproved;
 	}
 	public String getLicense() {
 		return license;
@@ -280,6 +315,9 @@ public class ItemRetriever {
     public List<Comment> getComments() {
         return comments;
     }
+	public List<RelatedResource> getRelatedResources() {
+		return relatedResources;
+	}
     public double getAvgRating() {
         return avgRating;
     }

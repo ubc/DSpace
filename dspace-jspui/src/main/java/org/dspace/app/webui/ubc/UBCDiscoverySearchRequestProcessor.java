@@ -477,6 +477,7 @@ public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcesso
 			}
 			// pagination
 			request.setAttribute("numResults", qResults.getTotalSearchResults());
+			request.setAttribute("commentingEnabled", ConfigurationManager.getBooleanProperty("commenting.enabled", true));
 			request.setAttribute("results", results);
 			request.setAttribute("queryStr", query);
 

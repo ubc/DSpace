@@ -156,6 +156,8 @@
 		 <hint>Please enter keywords or phrases to make finding this resource easier. Please list one keyword/phrase at a time (press the "Add More" button to add more entries).</hint>
        </field>
 
+	   Optional: If you know of other related resources that are already available on BioSpace, you can list them here. For example, for a video on "iron exchange chromatography”, you could list a related video on “column chromatography.” Alternatively you can also list external links (URLs) to related resources that are not on BioSpace.
+
        <!-- Prerequisite Knowledge -->
        <field>
          <dc-schema>dcterms</dc-schema>
@@ -166,6 +168,17 @@
          <input-type>onebox</input-type>
 		 <hint>Please enter concepts students should be familiar with or courses they should have completed, e.g. "BIOL 112", "familiarity with information flow in biology", "Mendelian genetics", "mitosis", etc. Please list one prerequisite at a time (press the "Add More" button to add more entries).</hint>
        </field>  
+
+       <!-- Related Materials -->  
+       <field>
+         <dc-schema>dcterms</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Related Materials</label>
+         <input-type>onebox</input-type>
+		 <hint>Optional: You can create a link to another resource that you previously submitted to StatSpace. Alternatively you can also list external links (URLs) to related resources that are not on BioSpace. For example, for a video on "iron exchange chromatography", you could list a related video on "column chromatography".</hint>
+       </field>
 
 	   <!-- Time Estimate -->
        <field>

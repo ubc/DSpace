@@ -16,6 +16,18 @@ and lacks some bootstrap 3 features. */
 	background: #f2dede;
 }
 
+/* Override default bootstrap setting where links are printed in print view */
+@media print {
+  a[href]:after {
+    content: none
+  }
+}
+
+/* Home Page */
+.featured-articles .media img {
+	height: 120px;
+}
+
 /* Edit Metadata / Describe Step */
 .editMetadataTripleLevelDropdown select {
 	margin-bottom: 0.5em;

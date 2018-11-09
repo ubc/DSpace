@@ -632,7 +632,7 @@ public class SubmissionController extends DSpaceServlet
             {
                 request.setAttribute("workflow.item", subInfo.getSubmissionItem());
                 JSPManager.showJSP(request, response,
-                        "/mydspace/perform-task.jsp");
+                        "/ubc/mydspace/perform-task.jsp");
             }
             else
             {
@@ -906,7 +906,7 @@ public class SubmissionController extends DSpaceServlet
             if (result == AbstractProcessingStep.STATUS_COMPLETE)
             {
                 request.setAttribute("workflow.item", subInfo.getSubmissionItem());
-                JSPManager.showJSP(request, response, "/mydspace/perform-task.jsp");                
+                JSPManager.showJSP(request, response, "/ubc/mydspace/perform-task.jsp");                
             }
             else
             {

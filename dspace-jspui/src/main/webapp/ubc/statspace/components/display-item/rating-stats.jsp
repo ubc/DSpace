@@ -9,7 +9,7 @@
 <div class="rating-stats">
     <div class="row rating-stats-header">
         <div class="col-xs-8 rating-stats-title">
-            <h5>Ratings in detail (${totalRatingCount})</h5>
+            <h5>Ratings in detail</h5>
         </div>
         <div class="col-xs-4 rating-stats-avg-rating">
             <c:choose>
@@ -20,6 +20,12 @@
                     &nbsp;
                 </c:otherwise>
             </c:choose>
+        </div>
+    </div>
+
+    <div class="row rating-stats-header">
+        <div class="col-xs-12">
+            <small>Would you recommend this resource for teaching and learning?</small>
         </div>
     </div>
 

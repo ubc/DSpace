@@ -25,6 +25,7 @@ import org.dspace.app.util.SubmissionStepConfig;
 import org.dspace.app.webui.servlet.SubmissionController;
 import org.dspace.app.webui.submit.JSPStep;
 import org.dspace.app.webui.submit.JSPStepManager;
+import org.dspace.app.webui.ubc.retriever.ItemRetriever;
 import org.dspace.app.webui.util.JSPManager;
 import org.dspace.app.webui.util.UIUtil;
 import org.dspace.authorize.AuthorizeException;
@@ -175,6 +176,9 @@ public class JSPVerifyStep extends JSPStep
 
         // save our data to review to request for the Verify JSP
         request.setAttribute("submission.review", reviewData);
+
+		ItemRetriever itemRetriever = new ItemRetriever(context, request, subInfo.getSubmissionItem().getItem());
+		request.setAttribute("itemRetriever", itemRetriever);
 
         // forward to verify JSP
         JSPStepManager.showJSP(request, response, subInfo, VERIFY_JSP);

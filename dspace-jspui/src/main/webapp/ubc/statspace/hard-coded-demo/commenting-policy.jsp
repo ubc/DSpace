@@ -45,7 +45,7 @@
     }
 %>
 
-<dspace:layout locbar="nolink" titlekey="jsp.about.title" feedData="<%= feedData %>">
+<dspace:layout locbar="nolink" titlekey="jsp.commenting-policy.title" feedData="<%= feedData %>">
 
     <div class="row landing-page">
         <div class="col-md-12"> <br><br>

@@ -540,6 +540,30 @@ public class DCDate
         }
     }
 
+    public String getJSDateFormatOptions(boolean showTime) {
+        String options = "year: \"numeric\"";
+
+        // display date and time
+        if (showTime && granularity == DateGran.TIME)
+        {
+            options = options + ", month: \"short\", day: \"2-digit\", hour: \"numeric\", minute: \"numeric\", second: \"numeric\"";
+        }
+        else if (granularity == DateGran.YEAR)
+        {
+            // no change
+        }
+        else if (granularity == DateGran.MONTH)
+        {
+            options = options + ", month: \"short\"";
+        }
+        else
+        {
+            options = options + ", month: \"short\", day: \"2-digit\"";
+        }
+        options = "{" + options + "}";
+        return options;
+    }
+
     /**
       * Test if the requested level of granularity is within that of the date.
       *

@@ -2,6 +2,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
+<%@ taglib uri="http://www.dspace.org/dspace-tags.tld" prefix="dspace" %>
+
 <c:set var="item" value="${requestScope[param.itemVar]}"></c:set>
 <c:set var="itemRetriever" value="${requestScope[param.retrieverVar]}"></c:set>
 <c:set var="canLeaveComment" value="${requestScope[param.canLeaveCommentVar]}"></c:set>
@@ -92,12 +94,14 @@
                                 <input type="radio" id="annonymousCommentYes" name="annonymousComment" value="1" checked="checked"/> Display my comment anonymously
                             </label>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-8">
                             <label for="annonymousCommentNo" class="radio-inline">
                                 <input type="radio" id="annonymousCommentNo" name="annonymousComment" value="0"/> Display my comment with real name
                             </label>
+                            <div>
+                                <small>By selecting this option, you agree that your real name will be visible to anyone who accesses this page</small>
+                            </div>
                         </div>
-                        <div class="col-sm-4">&nbsp;</div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
@@ -116,6 +120,9 @@
                         <h4>Rating:</h4>
                     </div>
                     <div class="col-sm-5">
+                        <div>
+                            <small>Would you recommend this resource for teaching and learning?</small>
+                        </div>
                         <div class="starRatingSelect">
                             <span class="glyphicon glyphicon-star-empty starRatingClickable" data-rating="1"></span>
                             <span class="glyphicon glyphicon-star-empty starRatingClickable" data-rating="2"></span>
@@ -407,14 +414,7 @@
         <div class="col-sm-12">
             <div class="col-md-4">
                 <h3><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
-                    <c:choose>
-                        <c:when test="${canDeleteComment}">
-                            Comments (<c:out value="${itemRetriever.activeCommentCount}"/> / <c:out value="${fn:length(itemRetriever.comments)}"/>)
-                        </c:when>
-                        <c:otherwise>
-                            Comments (<c:out value="${fn:length(itemRetriever.comments)}"/>)
-                        </c:otherwise>
-                    </c:choose>
+                    Comments
                 </h3>
             </div>
             <div class="col-md-4">
@@ -461,6 +461,9 @@
                         Leave a comment
                     </button>
                 </c:if>
+                <c:if test="${!canLeaveComment}">
+                    <small><a href="/password-login">To leave a comment, please log in</a></small>
+                </c:if>
             </div>
         </div>
         <div class="col-sm-12">
@@ -473,6 +476,32 @@
             <div class="col-sm-12 commentEmptyBody">
                 No comments
             </div>
+        </div>
+    </c:if>
+
+    <c:if test="${fn:length(itemRetriever.comments) ge 1 or itemRetriever.activeRatingCount ge 1}">
+        <div class="row">
+            <div class="col-sm-2">
+                <small>
+                    <c:set var="reviewStr" value="review"/>
+                    <c:set var="ratingStr" value="rating"/>
+                    <c:if test="${fn:length(itemRetriever.comments) ne 1}">
+                        <c:set var="reviewStr" value="${reviewStr}s"/>
+                    </c:if>
+                    <c:if test="${itemRetriever.activeRatingCount ne 1}">
+                        <c:set var="ratingStr" value="${ratingStr}s"/>
+                    </c:if>
+                    <c:choose>
+                        <c:when test="${canDeleteComment}">
+                            <c:out value="${itemRetriever.activeRatingCount}"/>&nbsp;<c:out value="${ratingStr}"/>&nbsp;&#8226;&nbsp;<c:out value="${itemRetriever.activeCommentCount}"/>&nbsp;/&nbsp;<c:out value="${fn:length(itemRetriever.comments)}"/>&nbsp;<c:out value="${reviewStr}"/>
+                        </c:when>
+                        <c:otherwise>
+                            <c:out value="${itemRetriever.activeRatingCount}"/>&nbsp;<c:out value="${ratingStr}"/>&nbsp;&#8226;&nbsp;<c:out value="${fn:length(itemRetriever.comments)}"/>&nbsp;<c:out value="${reviewStr}"/>
+                        </c:otherwise>
+                    </c:choose>
+                </small>
+            </div>
+            <div class="col-sm-10">&nbsp;</div>
         </div>
     </c:if>
 
@@ -508,8 +537,12 @@
                             </span>
                         </c:if>
                         <span class="commentTitle"><c:out value="${theComment.title}"/></span>
-                        <fmt:formatDate value="${theComment.created}" pattern="MMM dd, yyyy" var="formattedCreateDate"/>
-                        <span class="commentTimestamp"><c:out value="${formattedCreateDate}"/></span>
+                        <span class="commentTimestamp"><dspace:date date="${theComment.createdDc}" notime="true" clientLocalTime="true" /></span>
+                        <c:if test="${canDeleteComment}">
+                            <c:if test="${theComment.status != 'ACTIVE'}">
+                                <span class="commentBody">&nbsp;(deleted)</span>
+                            </c:if>
+                        </c:if>
                     </div>
                 </div>
                 <div class="row">
