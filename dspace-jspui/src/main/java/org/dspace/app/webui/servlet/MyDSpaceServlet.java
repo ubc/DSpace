@@ -37,6 +37,7 @@ import org.dspace.app.webui.ubc.statspace.curation.ApproveUserUtil;
 import org.dspace.ubc.UBCAccessChecker;
 import org.dspace.app.webui.ubc.retriever.EPersonRetriever;
 import org.dspace.app.webui.ubc.retriever.ItemRetriever;
+import org.dspace.app.webui.ubc.statspace.curation.FeaturedArticleManager;
 import org.dspace.app.webui.util.UIUtil;
 import org.dspace.authorize.AuthorizeException;
 import org.dspace.content.Collection;
@@ -900,6 +901,9 @@ public class MyDSpaceServlet extends DSpaceServlet
 		request.setAttribute("usersForApproval", usersForApproval);
 		request.setAttribute("userApprovalActionGrant", ApproveUserUtil.ACTION_GRANT);
 		request.setAttribute("userApprovalActionDeny", ApproveUserUtil.ACTION_DENY);
+		// Featured Articles stuff
+		FeaturedArticleManager featuredArticleManager = new FeaturedArticleManager(context, request);
+		featuredArticleManager.setJSPAtrributes();
 
 		request.setAttribute("context", context);
 

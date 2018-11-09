@@ -35,4 +35,10 @@
 		<scope_note>Commenting and Rating</scope_note>
 	</dc-type>
 
+	<dc-type>
+		<schema>ubc</schema>
+		<element>featuredArticle</element>
+		<scope_note>Resources in the repository to be highlighted, this is usually in a section on the home page.</scope_note>
+	</dc-type>
+
 </dspace-dc-types>

@@ -623,6 +623,10 @@
 		</script>
 	</c:if>
 	
+	<c:if test="${hasCuratorAccess}">
+		<jsp:include page="/ubc/mydspace/components/featured-articles.jsp" />
+	</c:if>
+
 	<script>
 		function showMoreClicked(index){
 			$('#moreinfo_'+index).toggle( "slow", function() {

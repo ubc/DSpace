@@ -724,6 +724,14 @@
         <url-pattern>/approve-user-servlet</url-pattern>
     </servlet-mapping>
     <servlet>
+        <servlet-name>featured-article-servlet</servlet-name>
+        <servlet-class>org.dspace.app.webui.ubc.statspace.curation.FeaturedArticleServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>featured-article-servlet</servlet-name>
+        <url-pattern>/featured-article</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>ubc-file-upload</servlet-name>
         <servlet-class>org.dspace.app.webui.ubc.importer.ImportCommunitiesCollectionsServlet</servlet-class>
     </servlet>
