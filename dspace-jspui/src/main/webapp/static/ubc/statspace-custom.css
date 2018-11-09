@@ -23,6 +23,10 @@ and lacks some bootstrap 3 features. */
   }
 }
 
+/* Home Page */
+.featured-articles .media img {
+	height: 120px;
+}
 
 /* Edit Metadata / Describe Step */
 .editMetadataTripleLevelDropdown select {

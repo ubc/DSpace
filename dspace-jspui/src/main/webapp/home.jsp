@@ -140,4 +140,6 @@
                     </div>
                 </div>
             </div>
+
+			<jsp:include page="/ubc/statspace/components/home/featured-articles.jsp" />
 </dspace:layout>

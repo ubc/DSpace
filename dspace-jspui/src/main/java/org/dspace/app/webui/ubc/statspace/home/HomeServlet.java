@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.jsp.jstl.core.Config;
 import org.apache.log4j.Logger;
 import org.dspace.app.webui.servlet.DSpaceServlet;
+import org.dspace.app.webui.ubc.statspace.curation.FeaturedArticleManager;
 import org.dspace.app.webui.util.JSPManager;
 import org.dspace.app.webui.util.UIUtil;
 import org.dspace.authorize.AuthorizeException;
@@ -54,6 +55,9 @@ public class HomeServlet extends DSpaceServlet {
 				log.error("caught exception: ", e);
 				throw new ServletException(e);
 			}
+
+			FeaturedArticleManager featuredArticleManager = new FeaturedArticleManager(context, request);
+			request.setAttribute("featuredArticles", featuredArticleManager.getAllArticles());
 			
 			// Show home page JSP
 			JSPManager.showJSP(request, response, "/home.jsp");

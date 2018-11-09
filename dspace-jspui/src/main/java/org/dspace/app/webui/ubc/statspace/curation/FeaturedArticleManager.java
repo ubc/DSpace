@@ -49,8 +49,26 @@ public class FeaturedArticleManager
 		this.request = request;
 	}
 
+
 	/**
-	 * Get all featured articles from a collection.
+	 * Get all featured articles from all collections.
+	 * @return
+	 * @throws SQLException
+	 * @throws UnsupportedEncodingException 
+	 */
+	public List<ItemRetriever> getAllArticles() throws SQLException, UnsupportedEncodingException
+	{
+		List<ItemRetriever> articles = new ArrayList<ItemRetriever>();
+		List<Collection> collections = getAllCollections();
+		for (Collection collection : collections)
+		{
+			articles.addAll(getArticles(collection));
+		}
+		return articles;
+	}
+
+	/**
+	 * Get featured articles from a collection identified by an ID string.
 	 * 
 	 * @param collection
 	 * @return
@@ -60,6 +78,18 @@ public class FeaturedArticleManager
 	public List<ItemRetriever> getArticles(String collectionIDStr) throws SQLException, UnsupportedEncodingException
 	{
 		Collection collection = getCollectionFromIDStr(collectionIDStr);
+		return getArticles(collection);
+	}
+
+	/**
+	 * Get featured articles from a Collection.
+	 * @param collection
+	 * @return
+	 * @throws SQLException
+	 * @throws UnsupportedEncodingException 
+	 */
+	public List<ItemRetriever> getArticles(Collection collection) throws SQLException, UnsupportedEncodingException
+	{
 		List<Item> items = getItems(collection);
 		List<ItemRetriever> articles = new ArrayList<ItemRetriever>();
 		for (Item item : items)

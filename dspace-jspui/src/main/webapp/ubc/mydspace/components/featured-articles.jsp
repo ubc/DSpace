@@ -39,7 +39,7 @@
 		<table class='form-group table' id='${articleListID}'>
 			<thead>
 				<tr>
-					<th>Article</th>
+					<th>Article <span class="label label-info noArticles" style="display: none;">None Currently Featured</span></th>
 					<th></th>
 				</tr>
 			</thead>
@@ -86,10 +86,12 @@
 					var actionData = {
 						"${featuredArticleParamCollection}": collection.val()
 					};
+					articleList.find("span.noArticles").hide();
 					jQuery.get(apiURL, actionData)
 						.done(function(articles) {
 							console.log("Yay!");
 							console.log(articles);
+							if (articles.length == 0) articleList.find("span.noArticles").show();
 							// remove all existing rows except for the template
 							articleList.find("tbody tr:gt(0)").remove();
 							// update with the new rows
