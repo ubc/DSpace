@@ -276,6 +276,7 @@ public class ItemRetriever {
 	}
 	public List<String> getKeywords() {
 		return keywords;
+	}
     public List<Comment> getComments() {
         return comments;
     }
