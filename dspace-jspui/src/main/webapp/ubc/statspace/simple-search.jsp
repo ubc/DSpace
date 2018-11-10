@@ -233,7 +233,23 @@
 
 		<!-- Filter Results Box -->
 		<div class="SimpleSearchResultFilters" id='SimpleSearchResultFilters'>
-			<h3><fmt:message key="jsp.search.facet.refine" /></h3>
+			<h3 class="hidden-xs"><fmt:message key="jsp.search.facet.refine" /></h3>
+			<h3 class="visible-xs-block">
+				<a role="button" id="mobileResultFilterToggle" class="FilterResultsHeadingLink visible-xs-inline">
+					<span class='glyphicon glyphicon-chevron-down'></span> <fmt:message key="jsp.search.facet.refine" />
+				</a>
+			</h3>
+			<script>
+				jQuery(function() {
+					var toggle = jQuery('#mobileResultFilterToggle');
+					var resultFilters = jQuery('#SimpleSearchResultFilters');
+					toggle.click(function() {
+						resultFilters.find('div.panel').toggleClass('hidden-xs');
+						toggle.find('span.glyphicon').toggleClass('glyphicon-chevron-up glyphicon-chevron-down');
+					});
+				});
+			</script>
+
 			<c:if test='${empty facetNameToResults}'>
 				<h5 class='text-info text-center'>No Filters Available</h4>
 			</c:if>
@@ -241,7 +257,7 @@
 				<c:set var='FacetCollapseID' value='${facet.key}_facet_collapse_id' />	
 				<c:set var='FacetCollapseToggleID' value='${facet.key}_facet_collapse_toggle_id' />	
 				<c:set var='FacetCollapseHeadingID' value='${facet.key}_facet_collapse_heading_id' />	
-				<div class='panel panel-default'>
+				<div class='panel panel-default hidden-xs'>
 					<a role="button" id='${FacetCollapseToggleID}' class='FilterResultsHeadingLink'>
 						<div class='panel-heading FilterResultsHeading' id='${FacetCollapseHeadingID}'>
 							<small><span class='glyphicon glyphicon-chevron-down'></span></small>

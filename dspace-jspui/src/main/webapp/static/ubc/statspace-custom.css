@@ -75,10 +75,12 @@ and lacks some bootstrap 3 features. */
 	background: #f9f9f9;
 	border: 1px solid gainsboro;
 	padding: 0.5em;
-	padding-bottom: 1em;
 }
 .SimpleSearchResultFilters h3 {
 	margin-top: 0em;
+}
+.SimpleSearchResultFilters h3 span.glyphicon {
+	font-size: 0.8em;
 }
 .SimpleSearchResultFilters .panel {
 	margin-bottom: 0.5em;

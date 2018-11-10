@@ -160,6 +160,7 @@ public class EditProfileServlet extends DSpaceServlet
         String language = request.getParameter("language");
         String institutionType = request.getParameter("institution_type");
         String institutionUrl = request.getParameter("institution_url");
+        String institutionEmail = request.getParameter("institution_email");
         String institutionAddress = request.getParameter("institution_address");
         String supervisorContact = request.getParameter("supervisor_contact");
 		String additionalInfo = request.getParameter("additional");
@@ -188,6 +189,9 @@ public class EditProfileServlet extends DSpaceServlet
 
         eperson.clearMetadata("eperson", EPersonRetriever.INSTITUTION_ELEMENT, EPersonRetriever.URL_QUALIFIER, "*");
         eperson.addMetadata("eperson", EPersonRetriever.INSTITUTION_ELEMENT, EPersonRetriever.URL_QUALIFIER, "*", institutionUrl);
+
+        eperson.clearMetadata("eperson", EPersonRetriever.INSTITUTION_ELEMENT, EPersonRetriever.EMAIL_QUALIFIER, "*");
+        eperson.addMetadata("eperson", EPersonRetriever.INSTITUTION_ELEMENT, EPersonRetriever.EMAIL_QUALIFIER, "*", institutionEmail);
 
         eperson.clearMetadata("eperson", EPersonRetriever.SUPERVISOR_ELEMENT, null, "*");
         eperson.addMetadata("eperson", EPersonRetriever.SUPERVISOR_ELEMENT, null, "*", supervisorContact);

@@ -131,6 +131,10 @@
 		<span class="help-block"><fmt:message key="jsp.register.profile-form.institutionurl.help"/></span>
     </div>
 	<div class="form-group">
+		<label class="col-md-offset-2 col-md-2 control-label" for="tinstitution_email"><fmt:message key="jsp.register.profile-form.institutionemail.field"/></label>
+        <div class="col-md-4"><input class="form-control" type="text" name="institution_email" id="tinstitution_email" size="40" value="${user.institutionEmail}"/></div>
+    </div>
+	<div class="form-group">
 		<label class="col-md-offset-2 col-md-2 control-label" for="tsupervisor_contact"><fmt:message key="jsp.register.profile-form.supervisorcontact.field"/></label>
         <div class="col-md-4"><input class="form-control" type="text" name="supervisor_contact" id="tsupervisor_contact" size="40" value="${user.supervisorContact}"/></div>
 		<span class="help-block"><fmt:message key="jsp.register.profile-form.supervisorcontact.help"/></span>

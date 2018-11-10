@@ -20,6 +20,7 @@ public class EPersonRetriever {
 	public final static String ADDRESS_QUALIFIER = "address";
 	public final static String TYPE_QUALIFIER = "type";
 	public final static String URL_QUALIFIER = "url";
+	public final static String EMAIL_QUALIFIER = "email";
 
 	public EPerson user;
 
@@ -87,6 +88,11 @@ public class EPersonRetriever {
 	public String getInstitutionUrl() {
 		if (user == null) return "";
 		return getMetadata(INSTITUTION_ELEMENT, URL_QUALIFIER);
+	}
+
+	public String getInstitutionEmail() {
+		if (user == null) return "";
+		return getMetadata(INSTITUTION_ELEMENT, EMAIL_QUALIFIER);
 	}
 
 	public String getSupervisorContact() {
