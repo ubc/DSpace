@@ -325,7 +325,7 @@
 						<span><strong>${numResults}</strong> Results</span>
 						<!-- Results Per Page -->
 						<div class='form-group'>
-							<select id="${ResultsControlResultsPerPageID}" name="rpp" class='form-control'>
+							<select id="${ResultsControlResultsPerPageID}" name="rpp" class='form-control input-sm'>
 								<c:forEach items="${resultsPerPageOptions}" var="resultsPerPageOption">
 									<option value='${resultsPerPageOption}' ${resultsPerPage == resultsPerPageOption? "selected":""}>${resultsPerPageOption} per page</option>
 								</c:forEach>
@@ -334,7 +334,7 @@
 						<!-- Sorting Controls -->
 						<div class='form-group'>
 							<c:if test='${!empty sortOptions}'>
-								<select id="${ResultsControlSortedByID}" name="sort_by" class='form-control'>
+								<select id="${ResultsControlSortedByID}" name="sort_by" class='form-control input-sm'>
 								   <option value="score"><fmt:message key="search.results.sort-by"/> <fmt:message key="search.sort-by.relevance"/></option>
 									<c:forEach items='${sortOptions}' var='sortOption'>
 										<option value='${sortOption}' ${sortedBy == sortOption ? "selected" : ""}>
@@ -349,7 +349,7 @@
 						<div class="clearfix visible-sm-block SimpleSearchResultControlsSeparator"></div>
 						<div class='form-group'>
 							<label>Order</label>
-							<button id='${ResultsControlSort}' type="button" class="btn btn-default" title='Swap Sort Order'>
+							<button id='${ResultsControlSort}' type="button" class="btn btn-default btn-sm" title='Swap Sort Order'>
 								<span class='glyphicon glyphicon-sort'></span>
 							</button>
 						</div>
@@ -359,10 +359,10 @@
 							<c:set var='TileViewButtonID' value='TileViewButton' />
 							<label>View</label>
 							<div class="btn-group">
-								<button id='${ListViewButtonID}' class='btn btn-default ${viewType!=VIEW_TYPE_TILE?'active':''}' type='button' title="List View">
+								<button id='${ListViewButtonID}' class='btn btn-default ${viewType!=VIEW_TYPE_TILE?'active':''} btn-sm' type='button' title="List View">
 									<i class="glyphicon glyphicon-th-list"></i>
 								</button>
-								<button id='${TileViewButtonID}' class='btn btn-default ${viewType==VIEW_TYPE_TILE?'active':''}' type='button' title="Tile View">
+								<button id='${TileViewButtonID}' class='btn btn-default ${viewType==VIEW_TYPE_TILE?'active':''} btn-sm' type='button' title="Tile View">
 									<i class="glyphicon glyphicon-th-large"></i>
 								</button>
 							</div>

@@ -121,7 +121,7 @@
 				'link': '<c:url value="/static/ubc/lib/tinymce/plugins/link/plugin.min.js" />',
 				'lists': '<c:url value="/static/ubc/lib/tinymce/plugins/lists/plugin.min.js" />',
 			},
-			toolbar: 'undo redo styleselect bold italic alignleft aligncenter alignright bullist numlist outdent indent link code'
+			toolbar: 'undo redo styleselect fontsizeselect bold italic alignleft aligncenter alignright bullist numlist outdent indent link code'
 		});
 		var tinymceConfigInput = {
 			selector: 'input.tinyMCEInput',

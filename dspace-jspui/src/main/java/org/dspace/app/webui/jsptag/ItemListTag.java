@@ -96,7 +96,7 @@ public class ItemListTag extends TagSupport
     private static final String DEFAULT_LIST_WIDTHS;
 
     /** The default field which is bound to the browse by date */
-    private static String dateField = "dc.date.issued";
+    private static String dateField = "dc.date.created";
 
     /** The default field which is bound to the browse by title */
     private static String titleField = "dc.title";
@@ -115,12 +115,12 @@ public class ItemListTag extends TagSupport
 
         if (showThumbs)
         {
-            DEFAULT_LIST_FIELDS = "thumbnail, dc.date.issued(date), dc.title, dc.contributor.*";
+            DEFAULT_LIST_FIELDS = "thumbnail, dc.date.created(date), dc.title, dc.contributor.*";
             DEFAULT_LIST_WIDTHS = "*, 130, 60%, 40%";
         }
         else
         {
-            DEFAULT_LIST_FIELDS = "dc.date.issued(date), dc.title, dc.contributor.*";
+            DEFAULT_LIST_FIELDS = "dc.date.created(date), dc.title, dc.contributor.*";
             DEFAULT_LIST_WIDTHS = "130, 60%, 40%";
         }
 

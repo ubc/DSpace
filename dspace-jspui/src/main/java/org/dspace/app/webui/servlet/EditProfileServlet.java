@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.dspace.app.webui.ubc.retriever.EPersonRetriever;
+import org.dspace.app.webui.ubc.statspace.BlurbManager;
 import org.dspace.app.webui.ubc.statspace.curation.ApproveUserUtil;
 import org.dspace.app.webui.util.JSPManager;
 import org.dspace.authorize.AuthorizeException;
@@ -49,6 +50,7 @@ public class EditProfileServlet extends DSpaceServlet
         EPerson eperson = context.getCurrentUser();
         request.setAttribute("eperson", eperson);
 		request.setAttribute("user", new EPersonRetriever(eperson));
+		request.setAttribute("instructorAccessBlurb", BlurbManager.getBlurb(request, BlurbManager.INSTRUCTOR_ACCESS));
 
         JSPManager.showJSP(request, response, EDIT_PROFILE_JSP);
     }
@@ -69,6 +71,8 @@ public class EditProfileServlet extends DSpaceServlet
         }
 		// check for request to be added to instructor access
 		updateUserRequestInstructorAccess(context, eperson, request);
+
+		request.setAttribute("instructorAccessBlurb", BlurbManager.getBlurb(request, BlurbManager.INSTRUCTOR_ACCESS));
 
         // Set the user profile info
         boolean ok = updateUserProfile(eperson, request);

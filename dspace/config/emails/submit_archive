@@ -4,13 +4,13 @@
 # {1}  Name of collection
 # {2}  handle 
 #
-Subject: BioSpace: Submission Approved and Archived 
+Subject: BioSpace: Submission Approved
 
 You submitted: {0}
 
 To collection: {1}
 
-Your submission has been accepted and archived in BioSpace,
+Your submission has been approved in BioSpace,
 and it has been assigned the following identifier:
 {2}
 

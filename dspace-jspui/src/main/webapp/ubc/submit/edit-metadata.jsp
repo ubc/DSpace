@@ -35,10 +35,10 @@
 	<h1><fmt:message key="jsp.submit.edit-metadata.heading"/></h1>
 	<c:choose>
 		<c:when test="${stepInfo.pageNum <= 1}">
-			<p><fmt:message key="jsp.submit.edit-metadata.info1"/></p>
+			<div><fmt:message key="jsp.submit.edit-metadata.info1"/></div>
 		</c:when>
 		<c:otherwise>
-			<p><fmt:message key="jsp.submit.edit-metadata.info2"/></p>
+			<div><fmt:message key="jsp.submit.edit-metadata.info2"/></div>
 		</c:otherwise>
 	</c:choose>
 	<c:if test='${stepInfo.hasValidationErrors}'>
