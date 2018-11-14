@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 import java.util.Locale;
-import java.util.ResourceBundle;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,14 +16,13 @@ import javax.servlet.jsp.jstl.core.Config;
 import org.apache.log4j.Logger;
 import org.dspace.app.util.DCInputsReaderException;
 import org.dspace.app.webui.servlet.DSpaceServlet;
-import org.dspace.app.webui.ubc.statspace.BlurbManager;
+import org.dspace.app.webui.ubc.statspace.curation.BlurbManager;
 import org.dspace.app.webui.ubc.statspace.curation.FeaturedArticleManager;
 import org.dspace.app.webui.util.JSPManager;
 import org.dspace.app.webui.util.UIUtil;
 import org.dspace.authorize.AuthorizeException;
 import org.dspace.core.Context;
 import org.dspace.core.LogManager;
-import org.dspace.core.NewsManager;
 import org.dspace.core.PluginManager;
 import org.dspace.plugin.SiteHomeProcessor;
 
@@ -73,7 +71,8 @@ public class HomeServlet extends DSpaceServlet {
 				throw new ServletException(ex);
 			}
 
-			request.setAttribute("homeIntro", BlurbManager.getBlurb(request, BlurbManager.HOME_PAGE));
+			BlurbManager blurb = new BlurbManager(context);
+			request.setAttribute("homeIntro", blurb.getBlurb(BlurbManager.HOME_PAGE));
 
 			FeaturedArticleManager featuredArticleManager = new FeaturedArticleManager(context, request);
 			request.setAttribute("featuredArticles", featuredArticleManager.getAllArticles());

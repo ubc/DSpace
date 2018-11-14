@@ -28,8 +28,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Hashtable;
-import org.dspace.app.webui.ubc.statspace.BlurbManager;
-import org.dspace.app.webui.ubc.statspace.curation.ApproveUserUtil;
+import org.dspace.app.webui.ubc.statspace.curation.BlurbManager;
 
 /**
  * Servlet for handling user registration and forgotten passwords.
@@ -127,7 +126,8 @@ public class RegisterServlet extends DSpaceServlet
             // And the token
             request.setAttribute("token", token);
 
-			request.setAttribute("instructorAccessBlurb", BlurbManager.getBlurb(request, BlurbManager.INSTRUCTOR_ACCESS));
+			BlurbManager blurb = new BlurbManager(context);
+			request.setAttribute("instructorAccessBlurb", blurb.getBlurb(BlurbManager.INSTRUCTOR_ACCESS));
 
             if (registering && (email != null))
             {

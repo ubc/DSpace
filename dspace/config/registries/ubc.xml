@@ -41,4 +41,9 @@
 		<scope_note>Resources in the repository to be highlighted, this is usually in a section on the home page.</scope_note>
 	</dc-type>
 
+	<dc-type>
+		<schema>ubc</schema>
+		<element>blurbs</element>
+		<scope_note>Text blurbs for display in various areas. Meant as a replacement for DSpace's news system, which loses data due to the docker build process.</scope_note>
+	</dc-type>
 </dspace-dc-types>

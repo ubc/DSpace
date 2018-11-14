@@ -178,7 +178,7 @@
     </servlet>
     <servlet>
         <servlet-name>edit-news</servlet-name>
-        <servlet-class>org.dspace.app.webui.servlet.admin.NewsEditServlet</servlet-class>
+        <servlet-class>org.dspace.app.webui.ubc.statspace.curation.BlurbEditServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>edit-license</servlet-name>

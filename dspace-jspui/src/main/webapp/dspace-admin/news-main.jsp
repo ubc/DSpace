@@ -18,6 +18,7 @@
 
 <%@ page contentType="text/html;charset=UTF-8" %>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"   %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"
     prefix="fmt" %>
 
@@ -56,11 +57,9 @@
 		  <div class="form-group">
 			  <label for="position">Select Blurb</label>
 			  <select class="form-control" name="position">
-				  <option value="<fmt:message key="news-top.html"/>"><fmt:message key="jsp.dspace-admin.news-main.news.top"/></option>
-				  <option value="<fmt:message key="news-contact.html"/>"><fmt:message key="jsp.dspace-admin.news-main.news.contact"/></option>
-				  <option value="<fmt:message key="news-submit.html"/>"><fmt:message key="jsp.dspace-admin.news-main.news.submit"/></option>
-				  <option value="<fmt:message key="news-instructor-access.html"/>"><fmt:message key="jsp.dspace-admin.news-main.news.instructor-acccess"/></option>
-				  <%-- Not currently using sidebar <option value="<fmt:message key="news-side.html"/>"><fmt:message key="jsp.dspace-admin.news-main.news.sidebar"/></option> --%>
+				  <c:forEach items='${blurbTypes}' var='blurbType'>
+					  <option value="${blurbType}">${blurbType}</option>
+				  </c:forEach>
 			  </select>
 		  </div>
 		  <input class="btn btn-primary" type="submit" name="submit_edit" value="<fmt:message key="jsp.dspace-admin.general.edit"/>" />
