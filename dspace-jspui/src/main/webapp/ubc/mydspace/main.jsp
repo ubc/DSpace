@@ -534,12 +534,12 @@
 							<strong>Error: </strong> <span id="UsersForApprovalErrorMsg-${userForApproval.ID}"></span>
 						</li>
 						<li>
-							<button id="UsersForApprovalGrant-${userForApproval.ID}" class="btn btn-default btn-success UsersForApprovalGrant">
+							<button id="UsersForApprovalGrant-${userForApproval.ID}" class="btn btn-success UsersForApprovalGrant">
 								<span class="glyphicon glyphicon-ok"></span>
 								Grant Instructor Permission</button>
 						</li>
 						<li>
-							<button id="UsersForApprovalDeny-${userForApproval.ID}" class="btn btn-default btn-danger UsersForApprovalDeny">
+							<button id="UsersForApprovalDeny-${userForApproval.ID}" class="btn btn-danger UsersForApprovalDeny">
 								<span class="glyphicon glyphicon-remove"></span>
 								Deny Instructor Permission</button>
 						</li>
