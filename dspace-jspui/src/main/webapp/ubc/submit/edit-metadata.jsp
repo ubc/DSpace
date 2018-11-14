@@ -75,9 +75,9 @@
 								<div id="${fieldWrapperID}" class='form-inline editMetadataRemovableField'>
 									<div class="input-group">
 										<div>
-											<input type='text' class='form-control' name='${field.inputID}_last' placeholder='Last Name' value='${name.lastName}'
+											<input type='text' class='form-control' name='${field.inputID}_last' placeholder='Last Name' value='${fn:escapeXml(name.lastName)}'
 												   <c:if test='${field.isReadOnly}'>readonly</c:if>>
-											<input type='text' class='form-control' name='${field.inputID}_first' placeholder='First Name' value='${name.firstNames}'
+											<input type='text' class='form-control' name='${field.inputID}_first' placeholder='First Name' value='${fn:escapeXml(name.firstNames)}'
 												   <c:if test='${field.isReadOnly}'>readonly</c:if>>
 										</div>
 									</div>
@@ -94,7 +94,7 @@
 							<c:forEach items="${field.values}" var="value" varStatus="valueStatus">
 								<c:set var="fieldWrapperID" value="${field.inputWrapperID}_${valueStatus.index}" />
 								<div id="${fieldWrapperID}" class='editMetadataRemovableField'>
-									<input type="text" class="form-control" value="${value}" name="${field.inputID}" <c:if test='${field.isReadOnly}'>readonly</c:if>>
+									<input type="text" class="form-control" value="${fn:escapeXml(value)}" name="${field.inputID}" <c:if test='${field.isReadOnly}'>readonly</c:if>>
 									<c:if test="${field.isRepeatable}">
 										<jsp:include page="/ubc/submit/components/remove-entry-button.jsp">
 											<jsp:param name="hide" value="${valueStatus.first}" />
