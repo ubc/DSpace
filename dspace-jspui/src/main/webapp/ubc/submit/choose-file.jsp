@@ -37,9 +37,9 @@
             <fmt:message key="jsp.submit.choose-file.heading"/>
         </h1>
 		<!-- General instructions -->
-		<p>
+		<div>
             <fmt:message key="jsp.submit.choose-file.info1"/>
-        </p>
+        </div>
 		<c:if test='${!empty error}'>
 			<div class="alert alert-danger" role="alert">
 				<strong><span class="glyphicon glyphicon-warning-sign"></span> Error</strong>

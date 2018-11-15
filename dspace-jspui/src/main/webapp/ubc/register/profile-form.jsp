@@ -64,7 +64,7 @@
 	<div class="col-md-offset-2 col-md-6">
 		<h3 class='text-center'>Request Instructor Access (Optional)</h3>
 		<p>Some StatSpace materials are available only for instructors to use in teaching their courses or assessing their students. We are committed to upholding the integrity of our instructor-only resources, and thus a simple vetting process is needed for access to certain material.</p>
-		<p>If you are an individual who is employed at an educational institution with a role related to statistics education, we would be happy to grant you access after we verify your information. We recognize there are individuals in other roles that make valuable contributions to statistics education. If you would like access to our instructor-only material, please fill in your information below and provide any details you feel we may need to approve your request in the Additional Information field.</p>
+		<p>If you are an individual who is employed at an educational institution with a role related to statistics education, we would be happy to grant you access after we verify your information. We recognize that there are individuals in other roles that who make valuable contributions to statistics education. If you would like access to our instructor-only material, please fill in your information below and provide any details you feel we may need to approve your request in the Additional Information field.</p>
 		<p>We may contact your institution to verify the information provided. Please note this process may take several days.</p>
 		<div>
 			<label>
