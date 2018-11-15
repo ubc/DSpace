@@ -159,13 +159,17 @@ public class ItemCommentServlet extends DSpaceServlet {
 
     private Comment payloadToComment(Context context, EPerson commenter, JsonObject data) throws SQLException {
         int commenterId = commenter.getID();
-        int rating = data.get("rating").getAsInt();
-        if (rating < 0) {
-            rating = 0;
-        }
-        if (rating > 5) {
-            rating = 5;
-        }
+		int rating = 0;
+		if (data.has("rating"))
+		{
+			rating = data.get("rating").getAsInt();
+			if (rating < 0) {
+				rating = 0;
+			}
+			if (rating > 5) {
+				rating = 5;
+			}
+		}
         String title = data.get("title").getAsString();
         if (title == null) {
             title = "";

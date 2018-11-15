@@ -115,6 +115,7 @@
                         <span class="commentDisplayName" id="commentDisplayName">${commentingAnonymousDisplayName}</span>
                     </div>
                 </div>
+				<!--
                 <div class="row">
                     <div class="col-sm-2">
                         <h4>Rating:</h4>
@@ -139,6 +140,7 @@
                         </label>
                     </div>
                 </div>
+				-->
                 <div class="row">
                     <div class="col-sm-2">
                         <h4>Title:</h4>

@@ -6,6 +6,7 @@
 <c:set var="itemRetriever" value="${requestScope[param.retrieverVar]}"></c:set>
 <c:set var="ratingDescriptionMap" value="${requestScope[param.ratingDescriptionMapVar]}"></c:set>
 
+<%-- 
 <div class="rating-stats">
     <div class="row rating-stats-header">
         <div class="col-xs-8 rating-stats-title">
@@ -43,3 +44,4 @@
         </div>
     </c:forEach>
 </div>
+--%>

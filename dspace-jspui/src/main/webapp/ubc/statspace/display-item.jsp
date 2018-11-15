@@ -176,6 +176,7 @@
 		<div class='media-body'>
 			<h1 class="marginTopNone">${itemRetriever.title}</h1> 
             <c:if test="${commenting}">
+				<%--
                 <fmt:formatNumber value="${itemRetriever.avgRating}" pattern="0.0" var="roundedAvgRating"/>
                 <a href="#commentBlock" style="text-decoration:none;">
                 <span class="starRating">
@@ -196,6 +197,7 @@
                     (${itemRetriever.activeRatingCount})
                 </span>
                 </a>
+				--%>
             </c:if>
 			<p>${itemRetriever.summary}</p>
 			<c:if test='${!empty itemRetriever.resourceURL}'>

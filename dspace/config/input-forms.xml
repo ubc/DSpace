@@ -175,7 +175,7 @@
          <repeatable>true</repeatable>
          <label>Related Materials</label>
          <input-type>onebox</input-type>
-		 <hint>Optional: You can create a link to another resource that you previously submitted to StatSpace. Alternatively you can also list external links (URLs) to related resources that are not on BioSpace. For example, for a video on "iron exchange chromatography", you could list a related video on "column chromatography".</hint>
+		 <hint>Optional: You can link to a similar resource you previously posted on BioSpace, or enter external links (URLs) to another related resource. For example, if you are submitting a video on "iron exchange chromatography", you could link to a related video on "column chromatography".</hint>
        </field>
 
 	   <!-- Time Estimate -->

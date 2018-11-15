@@ -128,7 +128,7 @@
                         <ref bean="sortTitle" />
                         <ref bean="sortAuthor" />
 						<!-- <ref bean="sortDateIssued" /> -->
-                        <ref bean="sortRating" />
+						<!-- <ref bean="sortRating" /> -->
                     </list>
                 </property>
             </bean>
@@ -255,7 +255,7 @@
                         <ref bean="sortTitle" />
                         <ref bean="sortAuthor" />
 						<!-- <ref bean="sortDateIssued" /> -->
-                        <ref bean="sortRating" />
+						<!-- <ref bean="sortRating" /> -->
                     </list>
                 </property>
             </bean>
