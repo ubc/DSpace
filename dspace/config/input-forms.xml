@@ -81,7 +81,7 @@
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Resource Type</label>
-         <hint>Select the resource type(s) of the main content of the item (hold Ctrl/Cmd while clicking to select multiple subjects).</hint>
+         <hint>Select the resource type(s) of the main content of the item (hold Ctrl/Cmd while clicking to select multiple resource types).</hint>
          <input-type value-pairs-name="resource_type">dropdown</input-type>
          <required>You must choose one or multiple resource types</required>
        </field>
