@@ -123,7 +123,7 @@ public class UBCAccessChecker {
 	 * @return True if the user can access restricted materials.
 	 */
 	public boolean hasRestrictedAccess() throws SQLException {
-		if (hasNonAnonymousAccess()) return true;
+		if (hasInstructorAccess()) return true;
 		return false;
 	}
 
