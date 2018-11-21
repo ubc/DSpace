@@ -279,7 +279,13 @@ public class JSPUploadStep extends JSPStep
 		ItemRetriever retriever = new ItemRetriever(context, request, subInfo.getSubmissionItem().getItem());
 		setAccessRestrictionAttributes(context, request, retriever);
 		request.setAttribute("files", retriever.getFiles());
-		request.setAttribute("url", retriever.getResourceURL());
+		// need to make sure to preserve the url the user entered, otherwise, it will
+		// be lost if on clicking "Next", the file upload processing throws an error
+		String url = request.getParameter("url");
+		if (url != null && !url.isEmpty())
+			request.setAttribute("url", url);
+		else
+			request.setAttribute("url", retriever.getResourceURL());
 
         JSPStepManager.showJSP(request, response, subInfo, CHOOSE_FILE_JSP);
     }
