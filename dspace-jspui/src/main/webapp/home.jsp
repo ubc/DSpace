@@ -27,9 +27,9 @@
 		
                 <div class="jumbotron">
                     <h1><i class="glyphicon glyphicon-stats"></i> StatSpace</h1>
-                    <h2>Find and share vetted learning materials for teaching introductory statistics in any discipline</h2>
+                    <h2>Find and share vetted learning resources for teaching introductory statistics in any discipline</h2>
 		    
-                    <p>StatSpace brings together high-quality open education materials vetted by instructors from UBC and around the world, with the goal of supporting cooperation among statistics instruction experts and sharing resources that address common cross-disciplinary challenges of teaching in this area.</p>
+                    <p>StatSpace brings together high-quality open education resources vetted by instructors from UBC and around the world, with the goal of supporting cooperation among statistics instruction experts and sharing resources that address common cross-disciplinary challenges of teaching in this area.</p>
                 </div>
 		
                 <div class="row after-jumbotron">
@@ -39,7 +39,7 @@
                     </div>    
                     <div class="col-md-6">
                         <h4>Copyright</h4>
-                        <p>Understand how content copyright works for the materials available in StatSpace. <a href="<c:url value='/demo/copyright.jsp' />">More &raquo;</a></p>                        
+                        <p>Understand how content copyright works for the resources available in StatSpace. <a href="<c:url value='/demo/copyright.jsp' />">More &raquo;</a></p>                        
                     </div>
                 </div>
 		
@@ -49,11 +49,11 @@
 	    
 		<div class="panel panel-info" >
 		    <div class="panel-heading">
-                <h3 class="panel-title"><i class="glyphicon glyphicon-open"></i> Contribute Materials</h3>
+                <h3 class="panel-title"><i class="glyphicon glyphicon-open"></i> Contribute Resources</h3>
 		    </div>
 		    <div class="panel-body">
-			 <p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
-			 <p>Contributing material requires StatSpace registration and signing in.  In this current pilot stage, contributing also requires approval from <a href='mailto:statspace@stat.ubc.ca'>statspace@stat.ubc.ca</a>.</p>
+			 <p>Easily share introductory statistics resources&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
+			 <p>Contributing resources requires StatSpace registration and signing in.  In this current pilot stage, contributing also requires approval from <a href='mailto:statspace@stat.ubc.ca'>statspace@stat.ubc.ca</a>.</p>
 		    </div>
 		</div>
         
@@ -71,7 +71,7 @@
                 <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-comment"></i> &nbsp;Evaluate what you use</a></h3>
 		      </div>
 		      <div class="panel-body">
-			     <p>Evaluate the introductory statistics material in StatSpace by giving <strong>detailed private feedback</strong> for any resources you use, to help other educators improve their designs.</p>
+			     <p>Evaluate the introductory statistics resource in StatSpace by giving <strong>detailed private feedback</strong> for any resources you use, to help other educators improve their designs.</p>
 		      </div>
             </div>
 	    -->
@@ -80,7 +80,7 @@
 	
             <div class="row">
                 <div class="col-md-12">
-                    <h3 class="featured-heading">Featured StatSpace materials</h3>
+                    <h3 class="featured-heading">Featured StatSpace Resources</h3>
                 </div>
             </div>
 	

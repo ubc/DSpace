@@ -213,7 +213,7 @@
          <dc-schema>dcterms</dc-schema>
          <dc-element>accessRights</dc-element>
          <dc-qualifier></dc-qualifier>
-         <label>Access Restriction</label>
+         <label>Access</label>
          <hint>You may make this entire submission instructor-only, only instructors will know this submission exists. Alternatively, if you choose to let everyone access this submission, you may configure individual files to be instructor-only in the Upload step.</hint>
          <input-type value-pairs-name="access_restriction">dropdown</input-type>
          <required>You must choose an access level.</required>

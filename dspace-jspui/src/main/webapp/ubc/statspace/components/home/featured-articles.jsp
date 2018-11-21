@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <c:if test='${!empty featuredArticles}'>
-	<h2 class='text-center'>Featured Articles</h2>
+	<h2 class='text-center'>Featured Resources</h2>
 	<div class="row">
 		<div class="col-xs-offset-1 col-xs-10">
 			<div class="featured-articles">

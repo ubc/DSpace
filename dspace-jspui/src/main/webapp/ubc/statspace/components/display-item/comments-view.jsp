@@ -38,7 +38,7 @@
 <script>
     function apiCreateNewComment(payload) {
         return $.ajax({
-            url: '/itemcomment',
+            url: '<c:url value="/itemcomment" />',
             contentType: "application/json; charset=utf-8",
             dataType: 'json',
             type: 'POST',
@@ -50,7 +50,7 @@
 
     function apiDeleteComment(payload) {
         return $.ajax({
-            url: '/itemcomment',
+            url: '<c:url value="/itemcomment" />',
             contentType: "application/json; charset=utf-8",
             dataType: 'json',
             type: 'POST',
