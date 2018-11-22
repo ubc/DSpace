@@ -68,10 +68,10 @@
 				var articleAddFail = jQuery('#${articleAddFailID}');
 				var articleTemplate = jQuery('#${articleTemplateID}');
 				function removeArticle(event) {
-					var article = jQuery(event.target).parent().parent();
+					var article = jQuery(this).parent().parent();
 					var actionData = {
 						"${featuredArticleParamCollection}": collection.val(),
-						"${featuredArticleParamRemove}": event.target.value
+						"${featuredArticleParamRemove}": this.value
 					};
 					jQuery.ajax({url: apiURL +'?'+ jQuery.param(actionData), type: 'DELETE'})
 						.done(function(resp){
@@ -89,14 +89,11 @@
 					articleList.find("span.noArticles").hide();
 					jQuery.get(apiURL, actionData)
 						.done(function(articles) {
-							console.log("Yay!");
-							console.log(articles);
 							if (articles.length == 0) articleList.find("span.noArticles").show();
 							// remove all existing rows except for the template
 							articleList.find("tbody tr:gt(0)").remove();
 							// update with the new rows
 							articles.forEach(function(article) {
-								console.log(article);
 								var clone = articleTemplate.clone();
 								clone.removeAttr('id');
 								clone.find('a').attr('href', article.URL)
