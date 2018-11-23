@@ -111,7 +111,7 @@
 </c:if>
 <!-- Author, Dates, Access -->
 <c:if test='${!empty itemRetriever.dateCreated}'>
-	<div title='Date copyrighted/created.'>
+	<div title='Date resource was created/copyrighted.'>
 		<h5 class="text-center">Date Created</h5>
 		<p class='text-center'><small><dspace:date date="${itemRetriever.dateCreated}" notime="true" clientLocalTime="true" /></small></p>
 	</div>

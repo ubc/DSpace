@@ -162,7 +162,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-12 text-right small">
-                    <a href="/demo/commenting-policy.jsp" target="_blank">Commenting policy&nbsp;<span class="glyphicon glyphicon-new-window"></span></a>&nbsp;&nbsp;
+                    <a href="<c:url value='/commenting-policy'/>" target="_blank">Commenting policy&nbsp;<span class="glyphicon glyphicon-new-window"></span></a>&nbsp;&nbsp;
                 </div>
             </div>
             <div class="modal-footer">
@@ -420,6 +420,7 @@
                 </h3>
             </div>
             <div class="col-md-4">
+			<%--
                 <c:set var="num5Star" value="${0}"/>
                 <c:set var="num4Star" value="${0}"/>
                 <c:set var="num3Star" value="${0}"/>
@@ -455,6 +456,7 @@
                     <jsp:param name="retrieverVar" value="itemRetriever" />
                     <jsp:param name="ratingDescriptionMapVar" value="ratingDescriptionMap" />
                 </jsp:include>
+			--%>
             </div>
             <div class="col-md-4 commentsActionButtons text-right">
                 <c:if test="${canLeaveComment}">
@@ -495,10 +497,10 @@
                     </c:if>
                     <c:choose>
                         <c:when test="${canDeleteComment}">
-                            <c:out value="${itemRetriever.activeRatingCount}"/>&nbsp;<c:out value="${ratingStr}"/>&nbsp;&#8226;&nbsp;<c:out value="${itemRetriever.activeCommentCount}"/>&nbsp;/&nbsp;<c:out value="${fn:length(itemRetriever.comments)}"/>&nbsp;<c:out value="${reviewStr}"/>
+                            <%--<c:out value="${itemRetriever.activeRatingCount}"/>&nbsp;<c:out value="${ratingStr}"/>&nbsp;&#8226;&nbsp;--%><c:out value="${itemRetriever.activeCommentCount}"/>&nbsp;/&nbsp;<c:out value="${fn:length(itemRetriever.comments)}"/>&nbsp;<c:out value="${reviewStr}"/>
                         </c:when>
                         <c:otherwise>
-                            <c:out value="${itemRetriever.activeRatingCount}"/>&nbsp;<c:out value="${ratingStr}"/>&nbsp;&#8226;&nbsp;<c:out value="${fn:length(itemRetriever.comments)}"/>&nbsp;<c:out value="${reviewStr}"/>
+                            <%--<c:out value="${itemRetriever.activeRatingCount}"/>&nbsp;<c:out value="${ratingStr}"/>&nbsp;&#8226;&nbsp;--%><c:out value="${fn:length(itemRetriever.comments)}"/>&nbsp;<c:out value="${reviewStr}"/>
                         </c:otherwise>
                     </c:choose>
                 </small>
@@ -528,6 +530,7 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
+						<%--
                         <c:if test="${theComment.rating gt 0}">
                             <span class="starRating">
                                 <c:forEach begin="1" end="${theComment.rating}">
@@ -538,6 +541,7 @@
                                 </c:forEach>
                             </span>
                         </c:if>
+						--%>
                         <span class="commentTitle"><c:out value="${theComment.title}"/></span>
                         <span class="commentTimestamp"><dspace:date date="${theComment.createdDc}" notime="true" clientLocalTime="true" /></span>
                         <c:if test="${canDeleteComment}">

@@ -25,8 +25,9 @@ public class BlurbManager {
 	public static final String HOME_PAGE = "Home Page";
 	public static final String HOW_TO_SUBMIT = "How to Submit";
 	public static final String INSTRUCTOR_ACCESS = "Instructor Access";
+	public static final String COMMENTING_POLICY = "Commenting Policy";
 
-	public static final List<String> BLURB_TYPES = new ArrayList<String>(Arrays.asList(CONTACT_US, HOME_PAGE, HOW_TO_SUBMIT, INSTRUCTOR_ACCESS));
+	public static final List<String> BLURB_TYPES = new ArrayList<String>(Arrays.asList(CONTACT_US, HOME_PAGE, HOW_TO_SUBMIT, INSTRUCTOR_ACCESS, COMMENTING_POLICY));
 
 	public static final String FIELD_BLURBS = "ubc.blurbs";
 	

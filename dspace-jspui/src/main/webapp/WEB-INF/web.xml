@@ -740,6 +740,14 @@
         <url-pattern>/contact</url-pattern>
     </servlet-mapping>
     <servlet>
+        <servlet-name>commenting-policy-servlet</servlet-name>
+        <servlet-class>org.dspace.app.webui.ubc.statspace.CommentingPolicyServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>commenting-policy-servlet</servlet-name>
+        <url-pattern>/commenting-policy</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>submit-servlet</servlet-name>
         <servlet-class>org.dspace.app.webui.ubc.statspace.home.HowToSubmitServlet</servlet-class>
     </servlet>
