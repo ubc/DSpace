@@ -608,13 +608,13 @@
 						});
 				}
 				jQuery(".UsersForApprovalGrant").click( function(e) {
-					execAction(getUserId(e.target.id), "${userApprovalActionGrant}",
+					execAction(getUserId(this.id), "${userApprovalActionGrant}",
 						"Granting Instructor Permission",
 						"Instructor Permission Granted!"
 					);
 				});
 				jQuery(".UsersForApprovalDeny").click( function(e) {
-					execAction(getUserId(e.target.id), "${userApprovalActionDeny}",
+					execAction(getUserId(this.id), "${userApprovalActionDeny}",
 						"Denying Instructor Permission",
 						"Instructor Permission Denied!"
 					);
