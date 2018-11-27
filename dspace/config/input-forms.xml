@@ -89,20 +89,19 @@
          <hint>Enter the name of the publisher of the previously issued instance of this item.</hint>
          <required></required>
        </field>
-       
-       <!-- Creation Date -->
+
+	   <!-- Language Selection -->
        <field>
          <dc-schema>dc</dc-schema>
-         <dc-element>date</dc-element>
-         <dc-qualifier>created</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Creation Date</label>
-         <input-type>date</input-type>
-         <hint>If you know when this item was created, please give the date. You
-         can leave out the day and/or month if they aren't
-		 applicable.</hint>
+         <dc-element>language</dc-element>
+         <dc-qualifier>iso</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Language</label>
+         <input-type value-pairs-name="common_iso_languages">dropdown</input-type>
+         <hint>Select the language of the main content of the item (hold Ctrl/Cmd while clicking to select multiple languages).</hint>
+         <required>Please select a language.</required>
        </field>
-         
+
        <!-- Resource Type -->
        <field>
          <dc-schema>dcterms</dc-schema>
@@ -138,6 +137,29 @@
 		 <hint>Please enter a custom subject tag.</hint>
        </field>
 
+       <!-- Prerequisite Knowledge -->
+       <field>
+         <dc-schema>dcterms</dc-schema>
+         <dc-element>requires</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Pre-requisite Knowledge</label>
+         <input-type>onebox</input-type>
+		 <hint>Please list one prerequisite at a time (press the "Add More" button to add more entries). Some examples of pre-requisites are "familiarity with interpreting histograms" and "central limit theorem".</hint>
+       </field>  
+
+       <!-- Learning Objectives -->  
+       <field>
+         <dc-schema>dcterms</dc-schema>
+         <dc-element>coverage</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Learning Objectives</label>
+         <input-type>onebox</input-type>
+		 <hint>Please list one objective at a time (press the "Add More" button to add more entries).</hint>
+         <required>Please enter learning objectives for this item.</required>
+       </field>
+
        <!-- Description - About This Resource -->
        <field>
          <dc-schema>dc</dc-schema>
@@ -161,29 +183,6 @@
          <input-type>onebox</input-type>
          <hint>Please provide a one line summary of the above description that would be most useful for someone browsing your resource. This is used as the short blurb shown in search results. E.g.: "This web visualization demonstrates the concept of a sampling distribution of an estimate, using the example of a mean of a Normally distributed variable."</hint>
          <required>Please enter a short summary.</required>
-       </field>
-
-       <!-- Prerequisite Knowledge -->
-       <field>
-         <dc-schema>dcterms</dc-schema>
-         <dc-element>requires</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Pre-requisite Knowledge</label>
-         <input-type>onebox</input-type>
-		 <hint>Please list one prerequisite at a time (press the "Add More" button to add more entries). Some examples of pre-requisites are "familiarity with interpreting histograms" and "central limit theorem".</hint>
-       </field>  
-
-       <!-- Learning Objectives -->  
-       <field>
-         <dc-schema>dcterms</dc-schema>
-         <dc-element>coverage</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Learning Objectives</label>
-         <input-type>onebox</input-type>
-		 <hint>Please list one objective at a time (press the "Add More" button to add more entries).</hint>
-         <required>Please enter learning objectives for this item.</required>
        </field>
 
        <!-- Related Materials -->  
@@ -218,30 +217,20 @@
          <input-type value-pairs-name="access_restriction">dropdown</input-type>
          <required>You must choose an access level.</required>
        </field>
-
-	   <!-- Language Selection -->
+       
+       <!-- Creation Date -->
        <field>
          <dc-schema>dc</dc-schema>
-         <dc-element>language</dc-element>
-         <dc-qualifier>iso</dc-qualifier>
+         <dc-element>date</dc-element>
+         <dc-qualifier>created</dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Language</label>
-         <input-type value-pairs-name="common_iso_languages">dropdown</input-type>
-         <hint>Select the language of the main content of the item.</hint>
-         <required>Please select a language.</required>
+         <label>Creation Date</label>
+         <input-type>date</input-type>
+         <hint>If you know when this item was created, please give the date. You
+         can leave out the day and/or month if they aren't
+		 applicable.</hint>
        </field>
-
-	 <!-- Alternative Language Versions -->
-       <field>
-         <dc-schema>dcterms</dc-schema>
-         <dc-element>isFormatOf</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Available in Alternative Languages</label>
-         <input-type>onebox</input-type>
-		 <hint>If this resource is available in other languages, please list the languages here.</hint>
-       </field>
-
+         
      </page>
    </form>
  </form-definitions>

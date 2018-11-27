@@ -61,7 +61,8 @@
 					<!-- File Selection Area -->
 					<div id='dropTarget' class='text-center well well-lg'>
 						<h3>
-							<span class='btn btn-primary' id='browseButton'>Browse</span> or drag &amp; drop files here.
+							<span class='btn btn-primary' id='browseButton'>Browse</span> or drag &amp; drop at least one file here. <br />
+							The first file that you upload will serve as the thumbnail image.
 						</h3>
 					</div>
 					<!-- File Upload Status Display Area -->
