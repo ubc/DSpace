@@ -43,7 +43,10 @@ public class BlurbManager {
 		// This'll work for now cause we have only 1 community at the moment.
 		Community[] communities = Community.findAllTop(context);
 		// FIXME: IF THERE ARE MULTIPLE COMMUNITIES, WE MIGHT NOT PICK THE RIGHT ONE
-		community = communities[0];
+		if (communities.length > 0)
+			community = communities[0];
+		else
+			log.error("No communities have been created yet, no blurbs available.");
 	}
 
 	public List<String> getBlurbTypes()
@@ -63,6 +66,11 @@ public class BlurbManager {
 
 	public void saveBlurb(String blurbType, String blurb) throws SQLException, AuthorizeException
 	{
+		if (community == null)
+		{
+			log.error("No communities have been created yet, cannot save blurbs.");
+			return;
+		}
 		JsonObject blurbs = getSavedBlurbs();
 		blurbs.addProperty(blurbType, blurb);
 		context.turnOffAuthorisationSystem();
@@ -80,6 +88,11 @@ public class BlurbManager {
 	private JsonObject getSavedBlurbs()
 	{
 		JsonObject blurbs = new JsonObject();
+		if (community == null)
+		{
+			log.error("No communities found, cannot get blurbs.");
+			return blurbs;
+		}
 
 		Metadatum[] savedVals = community.getMetadataByMetadataString(FIELD_BLURBS);
 		if (savedVals.length == 0) return blurbs;
