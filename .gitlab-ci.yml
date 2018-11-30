@@ -63,7 +63,7 @@ production_bio:
     url: http://biospace.elearning.ubc.ca
   when: manual
   only:
-    - biospace
+    - /^biospace-\d\d\d\d\.\d\d\.\d\d$/
 staging:
   stage: staging
   variables:
