@@ -570,6 +570,7 @@ public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcesso
 		if (qResults == null) return;
 		Map<String, List<FacetResult>> facetNameToResults = new LinkedHashMap<String, List<FacetResult>>();
 		Map<String, Boolean> appliedFiltersMap = new HashMap<String, Boolean>();
+		Map<String, String> langIsoToNameMap = new HashMap<String, String>();
 			
 		for (DiscoverySearchFilterFacet facetConf : facetsConf)
 		{
@@ -582,12 +583,23 @@ public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcesso
 				if (facetResults.size() == 0) continue;
 			}
 			int numNotInUse = 0;
-			// find out what filters are currently in use, so we can hide them
 			for (FacetResult fvalue : facetResults)
 			{ 
+				// find out what filters are currently in use, so we can hide them
 				String filterKey = facetName+"::"+fvalue.getFilterType()+"::"+fvalue.getAsFilterQuery();
-				if(appliedFilterQueries.contains(filterKey)) appliedFiltersMap.put(filterKey, Boolean.TRUE);
-				else numNotInUse += 1;
+				if(appliedFilterQueries.contains(filterKey))
+				{
+					appliedFiltersMap.put(filterKey, Boolean.TRUE);
+				} else {
+					numNotInUse += 1;
+				}
+				// translate the language iso code to readable description
+				if (facetName.equals("language") &&
+					fvalue.getDisplayedValue() != null &&
+					langIsoToNameMap.get(fvalue.getDisplayedValue()) == null)
+				{
+					langIsoToNameMap.put(fvalue.getDisplayedValue(), convertLanguageIso(fvalue.getDisplayedValue()));
+				}
 			}
 			// there's options available for filtering, make it available to the jsp
 			if (numNotInUse > 0) facetNameToResults.put(facetName, facetResults);
@@ -608,6 +620,7 @@ public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcesso
 		}
 		request.setAttribute("facetNameToResults", facetNameToResults);
 		request.setAttribute("appliedFiltersMap", appliedFiltersMap);
+		request.setAttribute("langIsoToNameMap", langIsoToNameMap);
 	}
 
 	/**
@@ -723,6 +736,19 @@ public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcesso
 			}
 		}
 		return httpFilters;
+	}
+
+
+	private String convertLanguageIso(String iso) {
+		if (iso == null || "".equals(iso)) {
+			return iso;
+		}
+		Locale loc = new Locale(iso);
+		String name = loc.getDisplayLanguage();
+		if ("".equals(name)) {
+			return iso;
+		}
+		return name;
 	}
 
     /**
