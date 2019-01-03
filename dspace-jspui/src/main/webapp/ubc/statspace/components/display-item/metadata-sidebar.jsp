@@ -45,7 +45,7 @@
 <c:if test="${!empty itemRetriever.relatedMaterials}">
 	<div class='panel panel-default'>
 		<div class='panel-heading'>
-			<h4 class="panel-title"><span class='glyphicon glyphicon-link'></span> Related Material</h4>
+			<h4 class="panel-title"><span class='glyphicon glyphicon-link'></span> Related Resource</h4>
 		</div>
 		<ul class='list-group'>
 			<c:forEach items="${itemRetriever.relatedMaterials}" var="prereq">

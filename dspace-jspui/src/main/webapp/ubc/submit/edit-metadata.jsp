@@ -117,7 +117,7 @@
 											<c:if test='${empty stepInfo.submitterItems}'>class='btn disabled'</c:if> >
 											My Submissions</a>
 									</li>
-									<li><a id="${field.inputAddMoreButtonID}" href="#">Other</a></li>
+									<li><a id="${field.inputAddMoreButtonID}" href="#">Other Related Resources</a></li>
 								</ul>
 							</div>
 							<script>

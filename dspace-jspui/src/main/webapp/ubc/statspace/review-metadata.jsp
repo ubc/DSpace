@@ -117,7 +117,7 @@
           Metadatum[] values;
           StringBuffer row = new StringBuffer();
           
-			if (inputs[z].getLabel().equals("Related Materials"))
+			if (inputs[z].getLabel().equals("Related Resources"))
 			{
 				continue;
 			}
@@ -237,7 +237,7 @@
 
 <div class="col-md-10">
 	<div class="col-md-4 text-right">
-		Related Materials
+		Related Resources
 	</div>
 	<div class="col-md-8">
 		<ul>

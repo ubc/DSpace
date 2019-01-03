@@ -48,7 +48,6 @@
 
     <%-- <h1>Edit Your Profile</h1> --%>
 	<h1><fmt:message key="jsp.register.edit-profile.title"/>
-	<dspace:popup page="<%= LocaleSupport.getLocalizedMessage(pageContext, \"help.index\") + \"#editprofile\"%>"><fmt:message key="jsp.morehelp"/></dspace:popup>
 	</h1>
     
 <%

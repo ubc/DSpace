@@ -30,16 +30,14 @@
                     <h2>Find and share vetted learning resources for teaching introductory statistics in any discipline</h2>
 		    
                     <p>StatSpace brings together high-quality open education resources vetted by instructors from UBC and around the world, with the goal of supporting cooperation among statistics instruction experts and sharing resources that address common cross-disciplinary challenges of teaching in this area.</p>
-                </div>
-		
-                <div class="row after-jumbotron">
-                    <div class="col-md-6">
-                        <h4>About Us</h4>
-                        <p>Learn about StatSpace and how open education resouces help teaching and learning. <a href="<c:url value='/demo/about.jsp' />">More &raquo;</a></p>
-                    </div>    
-                    <div class="col-md-6">
-                        <h4>Copyright</h4>
-                        <p>Understand how content copyright works for the resources available in StatSpace. <a href="<c:url value='/demo/copyright.jsp' />">More &raquo;</a></p>                        
+                    <ul>
+                        <li>Use the search feature and featured resources to explore
+                        <li>Contribute open introductory statistics resources, including simulations, videos, data sets, and more&nbsp;<sup>*</sup>
+                        <li>Comment on resources to share meaningful feedback with other educators
+                        <li>Register and request instructor access, to view instructor-only resources
+                    </ul>
+                    <div class="text-left small">
+                        <sup>*</sup>&nbsp;To contribute resources, please register and sign in.  In this current pilot stage, contributing also requires approval from <a href="mailto:statspace@stat.ubc.ca">statspace@stat.ubc.ca</a>.
                     </div>
                 </div>
 		
@@ -49,11 +47,10 @@
 	    
 		<div class="panel panel-info" >
 		    <div class="panel-heading">
-                <h3 class="panel-title"><i class="glyphicon glyphicon-open"></i> Contribute Resources</h3>
+                <h3 class="panel-title">Copyright</h3>
 		    </div>
 		    <div class="panel-body">
-			 <p>Easily share introductory statistics resources&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
-			 <p>Contributing resources requires StatSpace registration and signing in.  In this current pilot stage, contributing also requires approval from <a href='mailto:statspace@stat.ubc.ca'>statspace@stat.ubc.ca</a>.</p>
+			 <p>Understand how content copyright works for the resources available in StatSpace. <a href="<c:url value='/demo/copyright.jsp' />">More &raquo;</a></p>
 		    </div>
 		</div>
         

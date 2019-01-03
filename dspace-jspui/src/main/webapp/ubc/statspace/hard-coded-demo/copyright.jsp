@@ -50,86 +50,38 @@
 	<p><a href="/">Home</a> <span class="text-muted">&raquo; Copyright Resources</span></p>
 
 	<div class="row">  
-	    <div class="col-md-8">
+	    <div class="col-md-12">
 	    
 		<h1>Copyright Resources</h1>
 		<div class="row descriptions">
 	       <div class="col-md-12">
-		      <h2>Curating</h2>
-		      <p>These are the links for copyright resources regarding curating: </p>
-		      <ul>
-                  <li>Copyright &amp; Permissions&colon; <a href="http://wiki.ubc.ca/Library:OERR/User_Guides/Copyright_Permissions/Curated_Content">Copyright and Curated Content in Open Education Resource Repositories<span class="glyphicon glyphicon-new-window"></span></a></li>
-                  <li>Finding &amp; Using Open Education Resources&colon; <a href="http://wiki.ubc.ca/Library:OERR/User_Guides/Curating/Finding">Finding Open Education Resources<span class="glyphicon glyphicon-new-window"></span></a></li>
-		          <li>Assessing &amp; Using Open Education Resources&colon; <a href="http://wiki.ubc.ca/Library:OERR/User_Guides/Curating/Assessing">Assessing Open Education Resources<span class="glyphicon glyphicon-new-window"></span></a></li>
-		      </ul>
-		
-		      <h2>Creating</h2>
-              <p>These are the links for copyright resources regarding creating</p>
-		      <ul>
-		          <li>Copyright &amp; Permissions&colon; <a href="http://wiki.ubc.ca/Library:OERR/User_Guides/Copyright_Permissions/Self_Created_Content">Self-Created Content for Open Education Repositories<span class="glyphicon glyphicon-new-window"></span></a></li>
-                  <li>Copyright &amp; Permissions&colon; <a href="http://wiki.ubc.ca/Library:OERR/User_Guides/Copyright_Permissions/Seeking_Permission">Seeking Permission for Copyright Content<span class="glyphicon glyphicon-new-window"></span></a></li>
-		          <li>Finding &amp; Using Open Education Resources&colon; <a href="http://wiki.ubc.ca/Library:OERR/User_Guides/Curating/Define">What are Open Education Resources<span class="glyphicon glyphicon-new-window"></span></a></li>
+              <h2>Information for StatSpace contributors</h2>
+              <p>If you wish to contribute resources to StatSpace, you will have the option to add <a href="https://creativecommons.org/share-your-work/licensing-types-examples/">Creative Commons</a> License to your resources.  <b>Creative Commons licenses govern what people who read your work may then do with it.</b></p>
+              <p>License Types&colon;</p>
+              <ul>
+                  <li>Creative Commons Attribution 4.0 International (CC BY 4.0)
+                  <li>Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+                  <li>Creative Commons Attribution-ShareAlike 4.0 International (CC-BY-SA 4.0)
+                  <li>Creative Commons Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0)
+                  <li>Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
+                  <li>Creative Commons Attribution NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)
+                  <li>Creative Commons Zero (CC0)
+                  <li>Public Domain (Public Domain)
+              </ul>
+
+              <h2>Information for StatSpace users</h2>
+              <p>If you wish to use resources that have been posted to StatSpace, please check the bottom of the resource page to see whether a Creative Commons License has been applied to the resource.  You can click on the license to learn more about what you may do with the resource.</p>
+
+              <h2>UBC Library guides to copyright and permissions</h2>
+              <p>For more information on how content copyright works for the resources available in StatSpace, please refer to these user guides, provided by the UBC Library&colon;</p>
+              <ul>
+                  <li>Copyright &amp; Permissions&colon; <a href="http://wiki.ubc.ca/Library:OERR/User_Guides/Copyright_Permissions/Curated_Content">Copyright and Curated Content in Open Education Resource Repositories&nbsp;<span class="glyphicon glyphicon-new-window"></span></a></li>
+                  <li>Copyright &amp; Permissions&colon; <a href="https://wiki.ubc.ca/Library:OERR/User_Guides/Copyright_Permissions/Self_Created_Content">Self-created content for open education repositories&nbsp;<span class="glyphicon glyphicon-new-window"></span></a></li>
+		          <li>Finding &amp; Using Open Education Resources&colon; <a href="https://wiki.ubc.ca/Library:OERR/User_Guides/Curating/Define">What are open education resources?&nbsp;<span class="glyphicon glyphicon-new-window"></span></a></li>
 		      </ul>
 	       </div>	
 	   </div>
 		</div> 
-	    
-	    
-	    <div class="col-md-4 value-prop">
-            
-        <div class="panel panel-info">
-		    <div class="panel-heading">
-			<h3 class="panel-title">
-				<i class="glyphicon glyphicon-search"></i>&nbsp; Search for materials
-			</h3>
-		    </div>
-		    <div class="panel-body">
-			<p>Search our high-quality archive of <strong>100+ curated introductory statistics materials</strong>.</p>
-			<label>Search StatSpace now:</label>
-			<%-- Search Box --%>
-			<form method="get" action="<%= request.getContextPath() %>/simple-search">
-			    <div class="input-group">
-				<input type="text" class="form-control" placeholder="Enter keywords" name="query" id="tequery"/>
-				<span class="input-group-btn">
-				    <button type="submit" class="btn btn-primary">
-					<span class="glyphicon glyphicon-search"></span>
-				    </button>
-				</span>
-			    </div>
-			</form>
-		    </div>
-		</div>
-            
-        <div class="panel panel-info">
-		    <div class="panel-heading">
-                <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-open"></i>&nbsp; Contribute materials</a></h3>
-		    </div>
-		    <div class="panel-body">
-			<p>Easily share introductory statistics material&mdash;including <strong>copyright-cleared simulations, video, data sets</strong>, and more&mdash;with other educators and get meaningful feedback.</p>
-		    </div>
-		</div>
-	      
-		<!-- Hide evaluations as not implemented yet
-		<div class="panel panel-info">
-		    <div class="panel-heading">
-                <h3 class="panel-title"><a href="/register"><i class="glyphicon glyphicon-comment"></i> &nbsp;Evaluate what you use</a></h3>
-		    </div>
-		    <div class="panel-body">
-			<p>Evaluate the introductory statistics material in StatSpace by giving <strong>detailed private feedback</strong> for any resources you use, to help other educators improve their designs.</p>
-		    </div>
-		</div>
-  		-->
-            
-        <div class="panel panel-info" >
-            <div class="panel-heading">
-                <h3 class="panel-title"><a href="https://ubc.ca1.qualtrics.com/jfe/form/SV_6J4ans7VBN2hpt3"><i class="glyphicon glyphicon-open"></i>&nbsp;Survey</a></h3>
-            </div>
-            <div class="panel-body">
-                <p>When you have explored StatSpace, we would appreciate your opinion, via a brief <a href="https://ubc.ca1.qualtrics.com/jfe/form/SV_6J4ans7VBN2hpt3">survey</a>.<span class="glyphicon glyphicon-new-window"></span></p>
-            </div>
-        </div>    
-	    
-	    </div>			
 	</div>
 
     </div>

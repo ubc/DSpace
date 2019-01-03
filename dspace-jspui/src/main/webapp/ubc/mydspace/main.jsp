@@ -82,7 +82,6 @@
 	<div class="panel panel-primary">
         <div class="panel-heading">
                     <fmt:message key="jsp.mydspace"/>: <%= Utils.addEntities(user.getFullName()) %>
-	                <span class="pull-right"><dspace:popup page="<%= LocaleSupport.getLocalizedMessage(pageContext, \"help.index\") + \"#mydspace\"%>"><fmt:message key="jsp.help"/></dspace:popup></span>
         </div>         
 
 		<div class="panel-body">
@@ -370,7 +369,7 @@
         String row = "even";
 %>
     <h3><fmt:message key="jsp.mydspace.main.heading5"/></h3>
-
+    <p>If you have any questions about your submissions, please contact <a href="mailto:statspace@stat.ubc.ca">statspace@stat.ubc.ca</a>.
     <table class="table" align="center" summary="Table listing submissions in workflow process">
         <tr>
             <th id="t14" class="oddRowOddCol"><fmt:message key="jsp.mydspace.main.elem1"/></th>

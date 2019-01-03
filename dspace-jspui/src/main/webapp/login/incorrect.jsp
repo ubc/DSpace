@@ -29,7 +29,6 @@
 
                 <%-- <h1>Log In to DSpace</h1> --%>
                 <h1><fmt:message key="jsp.login.incorrect.heading"/>
-                <dspace:popup page="<%= LocaleSupport.getLocalizedMessage(pageContext, \"help.index\") + \"#login\"%>"><fmt:message key="jsp.help"/></dspace:popup>
                 </h1>
 
                 
@@ -42,7 +41,6 @@
 
 	<div class="panel panel-primary">
         <div class="panel-heading"><fmt:message key="jsp.login.password.heading"/>
-        <span class="pull-right"><dspace:popup page="<%= LocaleSupport.getLocalizedMessage(pageContext, \"help.index\") + \"#login\"%>"><fmt:message key="jsp.help"/></dspace:popup></span>
         </div>
     <dspace:include page="/components/login-form.jsp" />
     </div>

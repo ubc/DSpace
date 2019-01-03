@@ -47,8 +47,8 @@
          <repeatable>true</repeatable>
          <label>Creator(s)</label>
          <input-type>name</input-type>
-         <hint>Enter the name(s) of the creator(s) of this item.</hint>
-         <required>You must enter the creator of the item</required>
+         <hint>Enter the name(s) of the creator(s) of this resource.</hint>
+         <required>You must enter the creator of the resource</required>
        </field>
        
        <!-- Title -->
@@ -59,8 +59,8 @@
          <repeatable>false</repeatable>
          <label>Title</label>
          <input-type>onebox</input-type>
-         <hint>Enter the main title of the item.</hint>
-         <required>You must enter a main title for this item.</required>
+         <hint>Enter the main title of the resource.</hint>
+         <required>You must enter a main title for this resource.</required>
        </field>
        
        <!-- Date -->
@@ -86,7 +86,7 @@
          <label>Publisher</label>
          <input-type>onebox</input-type>
          <visibility>workflow</visibility>
-         <hint>Enter the name of the publisher of the previously issued instance of this item.</hint>
+         <hint>Enter the name of the publisher of the previously issued instance of this resource.</hint>
          <required></required>
        </field>
 
@@ -98,7 +98,7 @@
          <repeatable>true</repeatable>
          <label>Language</label>
          <input-type value-pairs-name="common_iso_languages">dropdown</input-type>
-         <hint>Select the language of the main content of the item (hold Ctrl/Cmd while clicking to select multiple languages).</hint>
+         <hint>Select the language(s) of the files associated with this resource.  If you select more than one language, you may also wish to indicate or explain this under 'Description'.</hint>
          <required>Please select a language.</required>
        </field>
 
@@ -109,7 +109,7 @@
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Resource Type</label>
-         <hint>Select the resource type(s) of the main content of the item (hold Ctrl/Cmd while clicking to select multiple resource types).</hint>
+         <hint>Select the resource type(s) of the main content of the resource (hold Ctrl/Cmd while clicking to select multiple resource types).</hint>
          <input-type value-pairs-name="resource_type">dropdown</input-type>
          <required>You must choose one or multiple resource types</required>
        </field>
@@ -122,7 +122,7 @@
 		 <!-- <repeatable>true</repeatable> -->
          <label>Subject</label>
          <input-type value-pairs-name="statspace_subjects">dropdown</input-type>
-		 <hint>Please select a subject tag that describes the primary topic for this item.</hint>
+		 <hint>Please select a subject tag that describes the primary topic for this resource.</hint>
 		 <required>Please choose a subject.</required>
        </field>
          
@@ -143,9 +143,9 @@
          <dc-element>requires</dc-element>
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
-         <label>Pre-requisite Knowledge</label>
+         <label>Prerequisite Knowledge</label>
          <input-type>onebox</input-type>
-		 <hint>Please list one prerequisite at a time (press the "Add More" button to add more entries). Some examples of pre-requisites are "familiarity with interpreting histograms" and "central limit theorem".</hint>
+		 <hint>Please list one prerequisite at a time (press the "Add More" button to add more entries). Some examples of prerequisites are "familiarity with interpreting histograms" and "central limit theorem".</hint>
        </field>  
 
        <!-- Learning Objectives -->  
@@ -157,7 +157,7 @@
          <label>Learning Objectives</label>
          <input-type>onebox</input-type>
 		 <hint>Please list one objective at a time (press the "Add More" button to add more entries).</hint>
-         <required>Please enter learning objectives for this item.</required>
+         <required>Please enter learning objectives for this resource.</required>
        </field>
 
        <!-- Description - About This Resource -->
@@ -168,7 +168,7 @@
          <repeatable>false</repeatable>
          <label>Description</label>
          <input-type>textarea</input-type>
-		 <hint>Describe this item in detail: Overarching aims for the resource; Expand on the learning outcomes and topics addressed; Mention data sets used or studies referred to; Whether the resource forms part of a larger set of related resources.
+		 <hint>Describe this resource in detail: Overarching aims for the resource; Expand on the learning outcomes and topics addressed; Mention data sets used or studies referred to; whether the resource forms part of a larger set of related resources.
 		 </hint>
          <required>Please enter a detailed description.</required>
        </field>
@@ -191,9 +191,9 @@
          <dc-element>relation</dc-element>
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
-         <label>Related Materials</label>
+         <label>Related Resources</label>
          <input-type>onebox</input-type>
-		 <hint>Please list one related material at a time (press the "Add Resource" button to add more entries). You can create a link to another resource that you previously submitted to StatSpace. For example, if this resource is part of a series of resources, each dealing with a different  topic (chapters in a book, lecture slides, or tutorials), you may want to link this resource to the next resource in the series. You may also wish to link to versions of your resource that are available in other languages.</hint>
+		 <hint>Please list one related resource at a time (press the "Add Resource" button to add 	more entries). &lt;p&gt;&lt;b&gt;My Submissions:&lt;/b&gt; this will create a link to an approved resource that you previously submitted to StatSpace.  One use of this feature is to link a series of resources, each dealing with a different topic (chapters in a book, lecture slides, or tutorials); you may want to link this resource to the next resource in the series.  You may also wish to link to versions of your resource that are available in other languages.  Link(s) will appear at the bottom of the generated resource page. &lt;u&gt;For more information, please hover your mouse over the information icon.&lt;/u&gt; &lt;/p&gt;&lt;p&gt; &lt;b&gt;Other Related Resources:&lt;/b&gt; this will create a link to an external resource, or to a StatSpace resource submitted by another contributor.  This link will appear in the side bar.&lt;/p&gt;</hint>
        </field>
 
 	   <!-- Suggested Use(s) and Tips -->
@@ -204,7 +204,7 @@
          <repeatable>false</repeatable>
          <label>Suggested Uses, Tips and Discoveries</label>
          <input-type>textarea</input-type>
-         <hint>Information that will help others to use this material. Also includes lessons you've learned from using this material in practice, e.g.: what worked, what didn't, what was particularly difficult, etc.</hint>
+         <hint>Include information that will help others to use this material.  Also include lessons you've learned from using this material in practice, e.g.: what worked, what didn't, or what was particularly difficult.</hint>
        </field>  
         
 	   <!-- Access Restriction -->
@@ -213,7 +213,7 @@
          <dc-element>accessRights</dc-element>
          <dc-qualifier></dc-qualifier>
          <label>Access</label>
-         <hint>You may make this entire submission instructor-only, only instructors will know this submission exists. Alternatively, if you choose to let everyone access this submission, you may configure individual files to be instructor-only in the Upload step.</hint>
+         <hint>You may make this entire submission accessible only to instructors; only instructors will know that this submission exists.  Alternatively, if you choose to let everyone access this submission, in the Upload step you may configure individual files to be accessible only to instructors.</hint>
          <input-type value-pairs-name="access_restriction">dropdown</input-type>
          <required>You must choose an access level.</required>
        </field>
@@ -226,7 +226,7 @@
          <repeatable>false</repeatable>
          <label>Creation Date</label>
          <input-type>date</input-type>
-         <hint>If you know when this item was created, please give the date. You
+         <hint>If you know when this resource was created, please give the date. You
          can leave out the day and/or month if they aren't
 		 applicable.</hint>
        </field>

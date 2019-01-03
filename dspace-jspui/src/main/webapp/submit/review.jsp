@@ -60,7 +60,6 @@
         <jsp:include page="/submit/progressbar.jsp" />
 
         <h1><fmt:message key="jsp.submit.review.heading"/>
-        <dspace:popup page="<%= LocaleSupport.getLocalizedMessage(pageContext, \"help.index\") + \"#verify\"%>"><fmt:message key="jsp.morehelp"/></dspace:popup>
         </h1>
 
         <p><fmt:message key="jsp.submit.review.info1"/></p>

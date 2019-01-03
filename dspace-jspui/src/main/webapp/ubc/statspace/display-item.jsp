@@ -235,7 +235,7 @@
 					<!-- Pre-Reqs -->
 					<c:if test="${!empty itemRetriever.prereqs}">
 						<h3 class='displayItemSectionHeader'>
-							Pre-requisite Knowledge
+							Prerequisite Knowledge
 						</h3> 
 						<ul>
 							<c:forEach items="${itemRetriever.prereqs}" var="prereq">
