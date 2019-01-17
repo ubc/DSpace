@@ -47,7 +47,7 @@ production:
     url: http://statspace.elearning.ubc.ca
   when: manual
   only:
-    - statspace
+    - /^statspace-\d\d\d\d-\d\d-\d\d$/
 staging:
   stage: staging
   variables:
