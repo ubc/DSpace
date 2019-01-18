@@ -75,68 +75,6 @@
                 </div>
             </div>
 	
-            <div class="row">
-                <div class="col-md-12">
-                    <h3 class="featured-heading">Featured StatSpace Resources</h3>
-                </div>
-            </div>
-	
-            <div class="row featured-items">
-                <div class="col-md-4 text-center">
-                    <h4>Simulation</h4>
-                    <div class="thumbnail">
-                        <img src="http://www.zoology.ubc.ca/~whitlock/kingfisher/Common/Images/fish.svg" class="sim-image" width="250">
-                        <div class="caption">
-                            <h5>Web Visualization: Sampling from a Normal distribution</h5>
-                            <p class="text-left"><strong>About:</strong> This web visualization demonstrates the concept of a sampling distribution of an estimate, using the example of a mean of a Normally distributed variable. It also reinforces the idea of a histogram.</p>
-                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Sampling distributions - Sample mean <br>&bull; Exploratory data analysis/Classifying data - Graphical representations - Histograms</p> 
-                            <p class="see-more"><a href="<c:url value='/demo/sim-example.jsp' />" class="btn btn-primary">Read more &raquo;</a></p>
-                        </div>
-                    </div>
-                </div>
-	    
-                <div class="col-md-4 text-center">
-                    <h4>Video</h4>
-                    <div class="thumbnail video-iframe">
-                        <iframe src="https://player.vimeo.com/video/196027417?byline=0&portrait=0" width="300" height="169" frameborder="0" ></iframe>
-                        <div class="caption">
-                            <h5>Video: Sampling distribution of the mean</h5>
-                            <p class="text-left"><strong>About:</strong> This video explores the concept of a sampling distribution of the mean. It highlights how we can draw conclusions about a population mean based on a sample mean by understanding how sample means behave when we know the true values of the population.</p>
-                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Sampling distribution -  Sample mean</p>
-                            <br>
-                            <p class="see-more"><a href="<c:url value='/demo/video-example.jsp' />" class="btn btn-primary">Read more &raquo;</a></p>
-                        </div>     
-                    </div>
-                </div>
-                <div class="col-md-4 text-center">
-                    <h4>WeBWorK Questions</h4>
-                    <div class="thumbnail">
-                            <img src="image/webwork_homepage.JPG"  class="sim-image-large">
-                        <div class="caption">
-                            <br>
-                            <h5>WeBWorK Web Application</h5>
-                            <p class="text-left"><strong>About:</strong> WeBWorK is a free on-line individualized assessment tool that provides students with automatic feedback on their work and is used at over 700 institutions globally. </p>
-                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Normal distribution, Histograms, Sampling variability, Sampling from a Normal distribution</p><br><br>
-                            <p class="see-more"><a href="<c:url value='/demo/WebWork_Questions.jsp' />" class="btn btn-primary">Read more &raquo;</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-            <div class="row featured-items">
-                <div class="col-md-4 text-center">
-                    <h4>iClicker</h4>
-                    <div class="thumbnail">
-                        <img src="image/iClicker_home_image.JPG" class="sim-image-large" width="220">
-                        <div class="caption">
-                            <h5>Interactive engagement (clicker) questions: Sampling distributions of means</h5>
-                            <p class="text-left"><strong>About:</strong> With a personal response system, students can answer questions and instructors can monitor understanding in real time. Turn the classroom into a conversation and allow students to participate with smartphones, laptops, tablets, or clickers.</p>
-                            <p class="text-left"><strong>Topics:</strong> <br>&bull; Probability -- Laws, theory -- Central Limit Theorem <br>&bull; Sampling distributions -- Sample mean</p> 
-                            <p class="see-more"><a href="<c:url value='/demo/iClicker-example.jsp' />" class="btn btn-primary">Read more &raquo;</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
 			<jsp:include page="/ubc/statspace/components/home/featured-articles.jsp" />
 </dspace:layout>
