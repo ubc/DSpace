@@ -167,7 +167,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCloseCommentsDialog">Close</button>
-                <button type="button" class="btn btn-primary" id="btnSubmitComments">Submit comments</button>
+                <button type="button" class="btn btn-primary" id="btnSubmitComments" disabled>Submit comments</button>
             </div>
         </div>
     </div>
@@ -219,27 +219,28 @@
         });
         setRatingStar();
         // opt-out from rating
-        $('#leaveCommentModal').find('#optOutRating').click(function() {
-            if ($(this).is(':checked')) {
-                $star_rating.siblings('input.rating-value').val('0');
-                setRatingStar();
-                $('#inputCommentDetail').attr('placeholder', 'Please provide details here');
-                $star_rating.each(function() {
-                    $(this)
-                        .removeClass('glyphicon-star').removeClass('starRatingClickable')
-                        .addClass('glyphicon-star-empty').addClass('text-muted');
-                });
-            } else {
-                $star_rating.siblings('input.rating-value').val('5');
-                $('#inputCommentDetail').attr('placeholder', '(Optional) Please provide details here');
-                $star_rating.each(function() {
-                    $(this)
-                        .removeClass('glyphicon-star-empty').removeClass('text-muted')
-                        .addClass('starRatingClickable').addClass('glyphicon-star');
-                });
-                setRatingStar();
-            }
-        });
+        // $('#leaveCommentModal').find('#optOutRating').click(function() {
+        //     if ($(this).is(':checked')) {
+        //         $star_rating.siblings('input.rating-value').val('0');
+        //         setRatingStar();
+        //         $('#inputCommentDetail').attr('placeholder', 'Please provide details here');
+        //         $star_rating.each(function() {
+        //             $(this)
+        //                 .removeClass('glyphicon-star').removeClass('starRatingClickable')
+        //                 .addClass('glyphicon-star-empty').addClass('text-muted');
+        //         });
+        //     } else {
+        //         $star_rating.siblings('input.rating-value').val('5');
+        //         $('#inputCommentDetail').attr('placeholder', '(Optional) Please provide details here');
+        //         $star_rating.each(function() {
+        //             $(this)
+        //                 .removeClass('glyphicon-star-empty').removeClass('text-muted')
+        //                 .addClass('starRatingClickable').addClass('glyphicon-star');
+        //         });
+        //         setRatingStar();
+        //     }
+        // });
+        $('#inputCommentDetail').attr('placeholder', 'Please provide details here');
 
         function getRatingStar() {
             return $('#leaveCommentModal').find('input#commentRating').val();
@@ -271,14 +272,8 @@
         // check and validate required fields
         function validateFields() {
             var valid = true;
-            if ($('#optOutRating').is(':checked')) {
-                if ($.trim(getCommentDetail()).length == 0) {
-                    valid = false;
-                }
-            } else {
-                if (parseInt(getRatingStar()) == 0) {
-                    valid = false;
-                }
+            if ($.trim(getCommentDetail()).length == 0) {
+                valid = false;
             }
             return valid;
         }
@@ -290,6 +285,9 @@
         });
 
         $('#leaveCommentModal').find('button#btnSubmitComments').click(function() {
+            if (!confirm('Once submitted, the comment will become publicly available and you must contact the BioSpace Curator to make any changes')) {
+                return;
+            }
             $('#leaveCommentModal').modal('hide');
             $('#submitCommentMessage').find('#submitCommentMessage-Msg').html('Submitting...');
             $('#submitResultModal').modal('toggle');
