@@ -276,7 +276,7 @@
 								<div class="col-md-4 col-sm-6 col-xs-12">
 									<div class='panel panel-default'>
 										<div class='panel-body'>
-											<a class="center-block searchResultThumbnail img-rounded ${resource.hasPlaceholderThumbnail ? "SimpleSearchPlaceholderThumbnail":""}" href="${result.url}" 
+											<a class="center-block searchResultThumbnail img-rounded ${resource.hasPlaceholderThumbnail ? "SimpleSearchPlaceholderThumbnail":""}" href="${resource.URL}"
 											   style='background: center / contain no-repeat url(${resource.thumbnail});'>
 												<div class="text-center searchResultThumbnailPlaceholder">
 												</div>
