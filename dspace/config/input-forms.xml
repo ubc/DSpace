@@ -1082,6 +1082,86 @@
 		<stored-value>Bayesian Inference >>> Other</stored-value>
 	</pair>
 
+	<pair>
+		<displayed-value>Software >>> R</displayed-value>
+		<stored-value>Software >>> R</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Software >>> R Commander</displayed-value>
+		<stored-value>Software >>> R Commander</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Software >>> R Studio</displayed-value>
+		<stored-value>Software >>> R Studio</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Software >>> BMDP</displayed-value>
+		<stored-value>Software >>> BMDP</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Software >>> iNZight</displayed-value>
+		<stored-value>Software >>> iNZight</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Software >>> JMP</displayed-value>
+		<stored-value>Software >>> JMP</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Software >>> Maple</displayed-value>
+		<stored-value>Software >>> Maple</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Software >>> Matlab</displayed-value>
+		<stored-value>Software >>> Matlab</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Software >>> Minitab</displayed-value>
+		<stored-value>Software >>> Minitab</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Software >>> Python</displayed-value>
+		<stored-value>Software >>> Python</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Software >>> SAS</displayed-value>
+		<stored-value>Software >>> SAS</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Software >>> SPSS</displayed-value>
+		<stored-value>Software >>> SPSS</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Software >>> SQL</displayed-value>
+		<stored-value>Software >>> SQL</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Software >>> Stata</displayed-value>
+		<stored-value>Software >>> Stata</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Software >>> Statistica</displayed-value>
+		<stored-value>Software >>> Statistica</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Software >>> Other</displayed-value>
+		<stored-value>Software >>> Other</stored-value>
+	</pair>
+
     <pair>
         <displayed-value>Other</displayed-value>
         <stored-value>Other</stored-value>
