@@ -1088,8 +1088,18 @@
 	</pair>
 
 	<pair>
+		<displayed-value>Software >>> R >>> Getting Started</displayed-value>
+		<stored-value>Software >>> R >>> Getting Started</stored-value>
+	</pair>
+
+	<pair>
 		<displayed-value>Software >>> R Commander</displayed-value>
 		<stored-value>Software >>> R Commander</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Software >>> R Commander >>> Getting Started</displayed-value>
+		<stored-value>Software >>> R Commander >>> Getting Started</stored-value>
 	</pair>
 
 	<pair>
@@ -1098,8 +1108,18 @@
 	</pair>
 
 	<pair>
+		<displayed-value>Software >>> R Studio >>> Getting Started</displayed-value>
+		<stored-value>Software >>> R Studio >>> Getting Started</stored-value>
+	</pair>
+
+	<pair>
 		<displayed-value>Software >>> BMDP</displayed-value>
 		<stored-value>Software >>> BMDP</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Software >>> BMDP >>> Getting Started</displayed-value>
+		<stored-value>Software >>> BMDP >>> Getting Started</stored-value>
 	</pair>
 
 	<pair>
@@ -1108,8 +1128,18 @@
 	</pair>
 
 	<pair>
+		<displayed-value>Software >>> iNZight >>> Getting Started</displayed-value>
+		<stored-value>Software >>> iNZight >>> Getting Started</stored-value>
+	</pair>
+
+	<pair>
 		<displayed-value>Software >>> JMP</displayed-value>
 		<stored-value>Software >>> JMP</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Software >>> JMP >>> Getting Started</displayed-value>
+		<stored-value>Software >>> JMP >>> Getting Started</stored-value>
 	</pair>
 
 	<pair>
@@ -1118,8 +1148,18 @@
 	</pair>
 
 	<pair>
+		<displayed-value>Software >>> Maple >>> Getting Started</displayed-value>
+		<stored-value>Software >>> Maple >>> Getting Started</stored-value>
+	</pair>
+
+	<pair>
 		<displayed-value>Software >>> Matlab</displayed-value>
 		<stored-value>Software >>> Matlab</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Software >>> Matlab >>> Getting Started</displayed-value>
+		<stored-value>Software >>> Matlab >>> Getting Started</stored-value>
 	</pair>
 
 	<pair>
@@ -1128,8 +1168,18 @@
 	</pair>
 
 	<pair>
+		<displayed-value>Software >>> Minitab >>> Getting Started</displayed-value>
+		<stored-value>Software >>> Minitab >>> Getting Started</stored-value>
+	</pair>
+
+	<pair>
 		<displayed-value>Software >>> Python</displayed-value>
 		<stored-value>Software >>> Python</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Software >>> Python >>> Getting Started</displayed-value>
+		<stored-value>Software >>> Python >>> Getting Started</stored-value>
 	</pair>
 
 	<pair>
@@ -1138,8 +1188,18 @@
 	</pair>
 
 	<pair>
+		<displayed-value>Software >>> SAS >>> Getting Started</displayed-value>
+		<stored-value>Software >>> SAS >>> Getting Started</stored-value>
+	</pair>
+
+	<pair>
 		<displayed-value>Software >>> SPSS</displayed-value>
 		<stored-value>Software >>> SPSS</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Software >>> SPSS >>> Getting Started</displayed-value>
+		<stored-value>Software >>> SPSS >>> Getting Started</stored-value>
 	</pair>
 
 	<pair>
@@ -1148,13 +1208,28 @@
 	</pair>
 
 	<pair>
+		<displayed-value>Software >>> SQL >>> Getting Started</displayed-value>
+		<stored-value>Software >>> SQL >>> Getting Started</stored-value>
+	</pair>
+
+	<pair>
 		<displayed-value>Software >>> Stata</displayed-value>
 		<stored-value>Software >>> Stata</stored-value>
 	</pair>
 
 	<pair>
+		<displayed-value>Software >>> Stata >>> Getting Started</displayed-value>
+		<stored-value>Software >>> Stata >>> Getting Started</stored-value>
+	</pair>
+
+	<pair>
 		<displayed-value>Software >>> Statistica</displayed-value>
 		<stored-value>Software >>> Statistica</stored-value>
+	</pair>
+
+	<pair>
+		<displayed-value>Software >>> Statistica >>> Getting Started</displayed-value>
+		<stored-value>Software >>> Statistica >>> Getting Started</stored-value>
 	</pair>
 
 	<pair>
