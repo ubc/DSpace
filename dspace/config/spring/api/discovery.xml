@@ -405,7 +405,7 @@
                 <value>dc.creator</value>
             </list>
         </property>
-        <property name="facetLimit" value="5"/>
+        <property name="facetLimit" value="999"/>
         <property name="sortOrder" value="COUNT"/>
     </bean>
 
@@ -416,7 +416,7 @@
                 <value>dcterms.type</value>
             </list>
         </property>
-        <property name="facetLimit" value="5"/>
+        <property name="facetLimit" value="999"/>
         <property name="sortOrder" value="COUNT"/>
     </bean>
 
@@ -482,7 +482,7 @@
                 <value>dc.language.iso</value>
             </list>
         </property>
-        <property name="facetLimit" value="5"/>
+        <property name="facetLimit" value="999"/>
         <property name="sortOrder" value="VALUE"/>
     </bean>
 
