@@ -114,6 +114,8 @@
 			plugins: "autolink link lists code",
 			min_height: 200,
 			link_assume_external_targets: true,
+            relative_urls: false,
+            remove_script_host: false,
 			external_plugins: {
 				'autolink': '<c:url value="/static/ubc/lib/tinymce/plugins/autolink/plugin.min.js" />',
 				'code': '<c:url value="/static/ubc/lib/tinymce/plugins/code/plugin.min.js" />', // be able to edit raw html for power users
@@ -131,6 +133,8 @@
 			forced_root_block: false,
 			plugins: "autolink link code",
 			link_assume_external_targets: true,
+			relative_urls: false,
+			remove_script_host: false,
 			external_plugins: {
 				'autolink': '<c:url value="/static/ubc/lib/tinymce/plugins/autolink/plugin.min.js" />',
 				'code': '<c:url value="/static/ubc/lib/tinymce/plugins/code/plugin.min.js" />', // be able to edit raw html for power users
