@@ -18,6 +18,7 @@ services:
       - POSTGRES_USER=statspacedev
     volumes:
       - ./volumes/app/assetstore:/dspace/assetstore
+      - ./volumes/app/solr/statistics/data:/dspace/solr/statistics/data
     ports:
       - 8080:8080
     depends_on:
