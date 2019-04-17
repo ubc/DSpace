@@ -406,7 +406,7 @@
             </list>
         </property>
         <property name="facetLimit" value="999"/>
-        <property name="sortOrder" value="COUNT"/>
+        <property name="sortOrder" value="VALUE"/>
     </bean>
 
     <bean id="searchFilterResourceType" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
@@ -417,7 +417,7 @@
             </list>
         </property>
         <property name="facetLimit" value="999"/>
-        <property name="sortOrder" value="COUNT"/>
+        <property name="sortOrder" value="VALUE"/>
     </bean>
 
     <bean id="searchFilterSubject" class="org.dspace.discovery.configuration.HierarchicalSidebarFacetConfiguration">
@@ -428,7 +428,7 @@
             </list>
         </property>
 		<property name="facetLimit" value="999"/>
-        <property name="sortOrder" value="COUNT"/>
+        <property name="sortOrder" value="VALUE"/>
 		<property name="splitter" value=" >>> "/>
 		<property name="skipFirstNodeLevel" value="false"/>
     </bean>
