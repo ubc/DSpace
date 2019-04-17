@@ -170,7 +170,7 @@ public class SolrLogger
 
         DatabaseReader service = null;
         // Get the db file for the location
-        String dbPath = ConfigurationManager.getProperty("usage-statistics.dbfile");
+        String dbPath = ConfigurationManager.getProperty("usage-statistics", "dbfile");
         if (dbPath != null) {
             try {
                 File dbFile = new File(dbPath);
@@ -190,7 +190,7 @@ public class SolrLogger
         }
         else
         {
-            log.error("The required 'dbfile' configuration is missing in solr-statistics.cfg!");
+            log.error("The required 'dbfile' configuration is missing in usage-statistics.cfg!");
         }
         locationService = service;
 
@@ -250,7 +250,6 @@ public class SolrLogger
             }
 
             doc1.addField("statistics_type", StatisticsType.VIEW.text());
-
 
             solr.add(doc1);
             //commits are executed automatically using the solr autocommit

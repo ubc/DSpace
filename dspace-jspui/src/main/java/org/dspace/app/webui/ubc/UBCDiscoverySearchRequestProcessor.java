@@ -68,6 +68,9 @@ import org.dspace.app.webui.ubc.statspace.home.SubjectInfo;
 import org.dspace.app.webui.ubc.statspace.search.PaginationInfo;
 import org.dspace.discovery.DiscoverResult.FacetResult;
 import org.dspace.sort.SortOption;
+import org.dspace.usage.UsageEvent;
+import org.dspace.usage.UsageSearchEvent;
+import org.dspace.utils.DSpace;
 import org.w3c.dom.Document;
 
 public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcessor
@@ -233,7 +236,32 @@ public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcesso
         }
         return labelMap;
     }
-    
+
+    protected void logSearch(Context context, HttpServletRequest request, String query, int start, DSpaceObject scope) {
+        UsageSearchEvent searchEvent = new UsageSearchEvent(
+                UsageEvent.Action.SEARCH,
+                request,
+                context,
+                null, Arrays.asList(query), scope);
+
+
+        if(!StringUtils.isBlank(request.getParameter("rpp"))){
+            searchEvent.setRpp(Integer.parseInt(request.getParameter("rpp")));
+        }
+        if(!StringUtils.isBlank(request.getParameter("sort_by"))){
+            searchEvent.setSortBy(request.getParameter("sort_by"));
+        }
+        if(!StringUtils.isBlank(request.getParameter("order"))){
+            searchEvent.setSortOrder(request.getParameter("order"));
+        }
+        if(!StringUtils.isBlank(request.getParameter("start"))){
+            searchEvent.setPage(start);
+        }
+
+        //Fire our event
+        new DSpace().getEventService().fireEvent(searchEvent);
+    }
+
     public void doSimpleSearch(Context context, HttpServletRequest request,
             HttpServletResponse response) throws SearchProcessorException,
             IOException, ServletException, UnsupportedEncodingException
@@ -430,6 +458,9 @@ public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcesso
 
             // pageFirst = max(1,pageCurrent-PAGINATION_RANGE)
             long pageFirst = ((pageCurrent - PAGINATION_RANGE) > 1) ? (pageCurrent - PAGINATION_RANGE) : 1;
+
+            //Fire an event to log our search
+            logSearch(context, request, query, (int)pageCurrent, scope);
 
             // Pass the results to the display JSP
             request.setAttribute("items", resultsItems);
