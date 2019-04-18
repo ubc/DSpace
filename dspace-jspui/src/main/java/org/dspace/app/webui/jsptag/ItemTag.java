@@ -9,6 +9,7 @@ package org.dspace.app.webui.jsptag;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.URL;
 import java.net.URLEncoder;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -50,6 +51,9 @@ import org.dspace.core.Context;
 import org.dspace.core.I18nUtil;
 import org.dspace.core.PluginManager;
 import org.dspace.core.Utils;
+
+import org.dspace.app.webui.ubc.retriever.ItemRetriever;
+import org.apache.commons.lang.StringEscapeUtils;
 
 /**
  * <P>
@@ -628,6 +632,7 @@ public class ItemTag extends TagSupport
         out.println("</table><br/>");
 
         listBitstreams();
+        listResourceUrl(context);
 
         if (ConfigurationManager
                 .getBooleanProperty("webui.licence_bundle.show"))
@@ -702,6 +707,7 @@ public class ItemTag extends TagSupport
         out.println("</table></div><br/>");
 
         listBitstreams();
+        listResourceUrl(context);
 
         if (ConfigurationManager
                 .getBooleanProperty("webui.licence_bundle.show"))
@@ -1047,6 +1053,43 @@ public class ItemTag extends TagSupport
         }
 
         out.println("</div>");
+    }
+
+    private void listResourceUrl(Context context)
+    {
+        try {
+            JspWriter out = pageContext.getOut();
+            HttpServletRequest request = (HttpServletRequest) pageContext
+                    .getRequest();
+            ItemRetriever retriever = new ItemRetriever(context, request, item);
+
+            if (retriever.getResourceURL() != null && retriever.getResourceURL().length() > 0) {
+                out.println("<div class=\"panel panel-info\">");
+                out.println("<div class=\"panel-heading\">"
+                        + LocaleSupport.getLocalizedMessage(pageContext,
+                                "metadata.dc.relation.uri")
+                        + "</div>");
+                out.println("<table class=\"table panel-body\">");
+                out.println("<tr>");
+                out.println("<td class=\"standard\">");
+                // make sure the url is valid
+                String uri = "";
+                try {
+                    uri = new URL(retriever.getResourceURL()).toURI().toString();
+                } catch (Exception e) { /* ignore */ }
+                if (uri != null && uri.length() > 0) {
+                    out.println("<a target=\"_blank\" href=\"" + uri + "\">" + StringEscapeUtils.escapeHtml(uri) + "</a>");
+                } else {
+                    out.print("<strong>Invalid URL entered</strong>: " + StringEscapeUtils.escapeHtml(retriever.getResourceURL()));
+                }
+                out.println("</td>");
+                out.println("</tr>");
+                out.println("</table>");
+                out.println("</div>");
+            }
+        } catch (Exception e) {
+            // ignore any error
+        }
     }
 
     private void getThumbSettings()
