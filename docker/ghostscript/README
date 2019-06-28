@@ -1,1 +1,0 @@
-The Docker container runs Debian Jessie, which comes with ghostscript 9.06. This version has an issue where it'll fail to parse PDFs created by Microsoft's Print to PDF feature. This issue was fixed in later versions. This directory contains ghostscript 9.20 packages that comes from Debian Stretch, to be installed over the old ghostscript 9.06 in the container.
