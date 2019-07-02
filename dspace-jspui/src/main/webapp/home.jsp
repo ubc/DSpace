@@ -37,7 +37,7 @@
                         <li>Register and request instructor access, to view instructor-only resources
                     </ul>
                     <div class="text-left small">
-                        <sup>*</sup>&nbsp;To contribute resources, please register and sign in.  In this current pilot stage, contributing also requires approval from <a href="mailto:statspace@stat.ubc.ca">statspace@stat.ubc.ca</a>.
+                        <sup>*</sup>&nbsp;To contribute resources, please register and sign in.  In this current pilot stage, contributing also requires approval from <a href="mailto:statspace@stat.ubc.ca">statspace@stat.ubc.ca</a>.  Please read more about the <a href="https://www.stat.ubc.ca/statspace-how-contribute" target="_blank">contribution process</a>. <span class="glyphicon glyphicon-new-window"></span>
                     </div>
                 </div>
 		
