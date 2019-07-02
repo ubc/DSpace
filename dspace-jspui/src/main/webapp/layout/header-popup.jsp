@@ -43,7 +43,7 @@
         <meta name="Generator" content="DSpace" />
         <link rel="stylesheet" href="<%= request.getContextPath() %>/styles.css" type="text/css" />
         <link rel="stylesheet" href="<%= request.getContextPath() %>/print.css" media="print" type="text/css" />
-        <link rel="shortcut icon" href="<%= request.getContextPath() %>/favicon.ico" type="image/x-icon"/>
+        <link rel="shortcut icon" href="//cdn.ubc.ca/clf/7.0.4/img/favicon.ico" />
 <%
     if (extraHeadData != null)
         { %>

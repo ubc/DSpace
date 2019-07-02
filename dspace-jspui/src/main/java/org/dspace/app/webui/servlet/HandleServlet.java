@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.net.URLEncoder;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -522,6 +523,15 @@ public class HandleServlet extends DSpaceServlet
 
             // Get the collections within the community
             Collection[] collections = community.getCollections();
+			ArrayList<Collection> nonEmptyCollections = new ArrayList<Collection>();
+			ArrayList<Collection> emptyCollections = new ArrayList<Collection>();
+			for (Collection collection : collections)
+			{
+				if (collection.countItems() > 0)
+					nonEmptyCollections.add(collection);
+				else
+					emptyCollections.add(collection);
+			}
 
             // get any subcommunities of the community
             Community[] subcommunities = community.getSubcommunities();
@@ -563,8 +573,10 @@ public class HandleServlet extends DSpaceServlet
             // Forward to community home page
             request.setAttribute("community", community);
             request.setAttribute("collections", collections);
+            request.setAttribute("nonEmptyCollections", nonEmptyCollections);
+            request.setAttribute("emptyCollections", emptyCollections);
             request.setAttribute("subcommunities", subcommunities);
-            JSPManager.showJSP(request, response, "/community-home.jsp");
+            JSPManager.showJSP(request, response, "/ubc/community-home.jsp");
         }
     }
 

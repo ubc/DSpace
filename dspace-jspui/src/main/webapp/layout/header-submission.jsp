@@ -50,7 +50,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="Generator" content="<%= generator %>" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" href="<%= request.getContextPath() %>/favicon.ico" type="image/x-icon"/>
+        <link rel="shortcut icon" href="//cdn.ubc.ca/clf/7.0.4/img/favicon.ico" />
 	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/jquery-ui-1.10.3.custom/redmond/jquery-ui-1.10.3.custom.css" type="text/css" />
 	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/bootstrap/bootstrap.min.css" type="text/css" />
 	    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/bootstrap/bootstrap-theme.min.css" type="text/css" />
@@ -129,6 +129,9 @@
 		});
 	</script>
 
+	<!-- Gives us the convenience of more modern CSS without interfering with the ancient bootstrap -->
+	<link href="https://unpkg.com/basscss@8.0.2/css/basscss.min.css" rel="stylesheet">
+	
     <%--Gooogle Analytics recording.--%>
     <%
     if (analyticsKey != null && analyticsKey.length() > 0)
