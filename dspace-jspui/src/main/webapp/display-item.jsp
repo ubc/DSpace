@@ -187,8 +187,21 @@
     }
 
     String displayStyle = (displayAll ? "full" : "");
+	pageContext.setAttribute("displayAll", displayAll);
 %>
+	<!-- additional show full/simple item record buttons -->
     <dspace:item-preview item="<%= item %>" />
+	<c:if test='${displayAll}'>
+		<a class="btn btn-default mb3" href="<c:url value='?mode=simple' />">
+			<fmt:message key="jsp.display-item.text1"/>
+		</a>
+	</c:if>
+	<c:if test='${!displayAll}'>
+		<a class="btn btn-default mb3" href="<c:url value='?mode=full' />">
+			<fmt:message key="jsp.display-item.text2"/>
+		</a>
+	</c:if>
+
     <dspace:item item="<%= item %>" collections="<%= collections %>" style="<%= displayStyle %>" />
 <div class="container row">
 <%

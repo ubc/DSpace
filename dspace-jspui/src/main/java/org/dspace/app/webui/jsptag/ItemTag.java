@@ -412,6 +412,7 @@ public class ItemTag extends TagSupport
             boolean isResolver = false;
             boolean isNoBreakLine = false;
             boolean isDisplay = false;
+			boolean isHtml = false;
 
             String style = null;
             Matcher fieldStyleMatcher = fieldStylePatter.matcher(field);
@@ -439,6 +440,7 @@ public class ItemTag extends TagSupport
 				isNoBreakLine = style.contains("nobreakline");
 				isDisplay = style.equals("inputform");
                 isResolver = style.contains("resolver") || urn2baseurl.keySet().contains(style);
+				isHtml = style.contains("html");
                 field = field.replaceAll("\\("+style+"\\)", "");
             } 
 
@@ -612,6 +614,10 @@ public class ItemTag extends TagSupport
 	                    				+ URLEncoder.encode(value, "UTF-8") + "\">" + Utils.addEntities(values[j].value)
 	                    				+ "</a>");
 	                    }
+						else if (isHtml)
+						{
+							out.print(values[j].value);
+						}
                         else
                         {
                             out.print(Utils.addEntities(values[j].value));
