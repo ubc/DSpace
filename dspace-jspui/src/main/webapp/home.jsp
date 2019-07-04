@@ -20,6 +20,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ taglib uri="http://www.dspace.org/dspace-tags.tld" prefix="dspace" %>
 
@@ -60,8 +61,84 @@
 
 <dspace:layout locbar="nolink" titlekey="jsp.home.title" feedData="<%= feedData %>">
 
-	<div>
-		${homeBlurb}
+	<div class='flex mb2'>
+		<!-- blurbs sidebar -->
+		<div class='flex-none pr2'>
+			<ul class="nav nav-pills nav-stacked">
+				<li>
+					<a href="<c:url value='/blurb?blurb=About' />">About</a>
+				</li>
+				<li>
+					<a href="<c:url value='/blurb?blurb=Access' />">Access</a>
+				</li>
+				<li>
+					<a href="<c:url value='/blurb?blurb=Contact Us' />">Contact Us</a>
+				</li>
+				<li>
+					<a href="<c:url value='/blurb?blurb=Copyright and Licensing' />">Copyright and Licensing</a>
+				</li>
+				<li>
+					<a href="<c:url value='/blurb?blurb=Information for Contributors' />">Information for Contributors</a>
+				</li>
+				<li>
+					<a href="<c:url value='/blurb?blurb=Resources' />">Resources</a>
+				</li>
+			</ul>
+		</div>
+		<!-- main content -->
+		<div class='flex-auto'>
+			<div>
+				${homeBlurb}
+			</div>
+			<!-- Communities Listing -->
+			<div>
+				<%
+				if (communities != null && communities.length != 0)
+				{
+				%>
+					<div class="col-md-4">		
+							   <h3><fmt:message key="jsp.home.com1"/></h3>
+								<p><fmt:message key="jsp.home.com2"/></p>
+								<div class="list-group">
+				<%
+					boolean showLogos = ConfigurationManager.getBooleanProperty("jspui.home-page.logos", true);
+					for (int i = 0; i < communities.length; i++)
+					{
+				%><div class="list-group-item row">
+				<%  
+						Bitstream logo = communities[i].getLogo();
+						if (showLogos && logo != null) { %>
+					<div class="col-md-3">
+						<img alt="Logo" class="img-responsive" src="<%= request.getContextPath() %>/retrieve/<%= logo.getID() %>" /> 
+					</div>
+					<div class="col-md-9">
+				<% } else { %>
+					<div class="col-md-12">
+				<% }  %>		
+						<h4 class="list-group-item-heading"><a href="<%= request.getContextPath() %>/handle/<%= communities[i].getHandle() %>"><%= communities[i].getMetadata("name") %></a>
+				<%
+						if (ConfigurationManager.getBooleanProperty("webui.strengths.show"))
+						{
+				%>
+						<span class="badge pull-right"><%= ic.getCount(communities[i]) %></span>
+				<%
+						}
+
+				%>
+						</h4>
+						<p><%= communities[i].getMetadata("short_description") %></p>
+					</div>
+				</div>                            
+				<%
+					}
+				%>
+					</div>
+					</div>
+				<%
+				}
+				%>
+			</div>
+		</div>
 	</div>
 
 <div class="row">
@@ -155,51 +232,6 @@ if (submissions != null && submissions.count() > 0)
 %>
 </div>
 <div class="container row">
-<%
-if (communities != null && communities.length != 0)
-{
-%>
-	<div class="col-md-4">		
-               <h3><fmt:message key="jsp.home.com1"/></h3>
-                <p><fmt:message key="jsp.home.com2"/></p>
-				<div class="list-group">
-<%
-	boolean showLogos = ConfigurationManager.getBooleanProperty("jspui.home-page.logos", true);
-    for (int i = 0; i < communities.length; i++)
-    {
-%><div class="list-group-item row">
-<%  
-		Bitstream logo = communities[i].getLogo();
-		if (showLogos && logo != null) { %>
-	<div class="col-md-3">
-        <img alt="Logo" class="img-responsive" src="<%= request.getContextPath() %>/retrieve/<%= logo.getID() %>" /> 
-	</div>
-	<div class="col-md-9">
-<% } else { %>
-	<div class="col-md-12">
-<% }  %>		
-		<h4 class="list-group-item-heading"><a href="<%= request.getContextPath() %>/handle/<%= communities[i].getHandle() %>"><%= communities[i].getMetadata("name") %></a>
-<%
-        if (ConfigurationManager.getBooleanProperty("webui.strengths.show"))
-        {
-%>
-		<span class="badge pull-right"><%= ic.getCount(communities[i]) %></span>
-<%
-        }
-
-%>
-		</h4>
-		<p><%= communities[i].getMetadata("short_description") %></p>
-    </div>
-</div>                            
-<%
-    }
-%>
-	</div>
-	</div>
-<%
-}
-%>
 	<%
     	int discovery_panel_cols = 8;
     	int discovery_facet_cols = 4;
