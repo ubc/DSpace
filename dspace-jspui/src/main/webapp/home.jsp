@@ -93,7 +93,7 @@
 			<!-- Communities Listing -->
 			<div class='sm-flex flex-wrap content-stretch'>
 				<c:forEach items='${communities}' var='community'>
-					<a class='xs-col-12 sm-col-6 md-col-4 lg-col-3 p2 flex flex-column justify-between homeCommunityBox'
+					<a class='xs-col-12 sm-col-6 md-col-4 lg-col-3 p2 mb3 flex flex-column homeCommunityBox'
 					   href="<c:url value='/handle/${community.handle}'/>">
 						<div class="center">
 							<c:if test='${empty community.logo}'>
