@@ -90,6 +90,7 @@
 
 	<!-- Gives us the convenience of more modern CSS without interfering with the ancient bootstrap -->
 	<link href="https://unpkg.com/basscss@8.0.2/css/basscss.min.css" rel="stylesheet">
+	<link href="https://unpkg.com/basscss-border-colors@2.1.0/css/border-colors.css" rel="stylesheet">
 	
     <%--Gooogle Analytics recording.--%>
     <%
