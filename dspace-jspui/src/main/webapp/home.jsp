@@ -87,7 +87,7 @@
 		</div>
 		<!-- main content -->
 		<div class='flex-auto'>
-			<div>
+			<div class='mb3'>
 				${homeBlurb}
 			</div>
 			<!-- Communities Listing -->

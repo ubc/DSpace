@@ -80,6 +80,7 @@
 			<label for="tdescription" class="col-md-2"><fmt:message key="jsp.submit.change-file-description.filedescr"/></label>
             <span class="col-md-10"><input class="form-control" type="text" name="description" id="tdescription" size="50" value="<%= currentDesc %>" /></span>
 		</div>
+		<%-- CWSEISpace doesn't want to see per file restrictions
 		<div class="row">
 			<label for="trestrictedaccess" class="col-md-2" title='<fmt:message key="jsp.submit.upload-file-list.tooltip.restricted"/>'>
 				<fmt:message key="ubc-access-checker.permission.restricted"/>:</label>
@@ -91,11 +92,12 @@
 				</span>
 			</c:if>
 		</div>
+		--%>
 
         <%-- Hidden fields needed for SubmissionController servlet to know which step is next--%>
         <%= SubmissionController.getSubmissionParameters(context, request) %>
      
-		<input class="btn btn-primary col-md-2 col-md-offset-5" type="submit" name="submit" value="<fmt:message key="jsp.submit.general.submit"/>" />
+		<input class="btn btn-primary col-md-2 col-md-offset-5 mt3" type="submit" name="submit" value="<fmt:message key="jsp.submit.general.submit"/>" />
     </form>
 
 </dspace:layout>

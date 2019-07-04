@@ -622,8 +622,10 @@ public class JSPUploadStep extends JSPStep
 		// Don't allow marking individual file restrictions if the entire item
 		// is already restricted.
 		ItemRetriever retriever = new ItemRetriever(context, request, item);
-		request.setAttribute("disablePerFileRestriction",
-				retriever.getIsRestricted());
+		//request.setAttribute("disablePerFileRestriction",
+		//		retriever.getIsRestricted());
+		// CWSEISpace doesn't want to be able to set per file restrictions, so just hide it all
+		request.setAttribute("disablePerFileRestriction", true);
 	}
 
     /**

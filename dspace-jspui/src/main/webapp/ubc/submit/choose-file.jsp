@@ -421,11 +421,13 @@
       
                 <div class="resumable-files">
 					<div>
+						<%-- CWSEISpace doesn't want to see per file restrictions
 						<c:if test="${disablePerFileRestriction}">
 							<p>
 								<i class="glyphicon glyphicon-lock text-danger"></i> <fmt:message key="jsp.submit.upload-file-list.tooltip.item-restricted-access" />
 							</p>
 						</c:if>
+						--%>
 					</div>
                     <div class="panel panel-default">
                         <div class="panel-heading">
