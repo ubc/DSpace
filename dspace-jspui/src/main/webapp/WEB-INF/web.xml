@@ -224,7 +224,7 @@
   
   <servlet>
     <servlet-name>edit-news</servlet-name>
-    <servlet-class>org.dspace.app.webui.servlet.admin.NewsEditServlet</servlet-class>
+    <servlet-class>org.dspace.app.webui.ubc.blurb.BlurbEditServlet</servlet-class>
   </servlet>
 
   <servlet>
@@ -858,6 +858,14 @@
     <servlet-mapping>
         <servlet-name>ubc-file-upload</servlet-name>
         <url-pattern>/dspace-admin/import-communities-collections</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>blurb-servlet</servlet-name>
+        <servlet-class>org.dspace.app.webui.ubc.blurb.BlurbServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>blurb-servlet</servlet-name>
+        <url-pattern>/blurb</url-pattern>
     </servlet-mapping>
     <!-- Quartz Scheduler for periodic thumbnail generation -->
     <servlet>

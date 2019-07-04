@@ -39,6 +39,7 @@
 <%@ page import="org.dspace.core.LogManager" %>
 <%@ page import="org.dspace.core.PluginManager" %>
 <%@ page import="org.dspace.plugin.SiteHomeProcessor" %>
+<%@ page import="org.dspace.app.webui.ubc.blurb.BlurbManager" %>
 
 <%
     Context context = null;
@@ -66,6 +67,8 @@
             throw new ServletException(e);
         }
         
+		BlurbManager blurbManager = new BlurbManager(context);
+		request.setAttribute("homeBlurb", blurbManager.getBlurb(BlurbManager.HOME_PAGE));
         // Show home page JSP
         JSPManager.showJSP(request, response, "/home.jsp");
     }
