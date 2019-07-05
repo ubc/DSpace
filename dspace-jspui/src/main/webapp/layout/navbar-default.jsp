@@ -13,6 +13,7 @@
 
 <%@page import="org.apache.commons.lang.StringUtils"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%@ page contentType="text/html;charset=UTF-8" %>
 
@@ -112,7 +113,34 @@
 
             </ul>
           </li>
-          <li class="<%= ( currentPage.endsWith( "/help" ) ? "active" : "" ) %>"><dspace:popup page="<%= LocaleSupport.getLocalizedMessage(pageContext, \"help.index\") %>"><fmt:message key="jsp.layout.navbar-default.help"/></dspace:popup></li>
+          <%-- <li class="<%= ( currentPage.endsWith( "/help" ) ? "active" : "" ) %>"><dspace:popup page="<%= LocaleSupport.getLocalizedMessage(pageContext, \"help.index\") %>"><fmt:message key="jsp.layout.navbar-default.help"/></dspace:popup></li> --%>
+		  <%-- Replace Help with About --%>
+		  <li class="dropdown">
+			  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				  About
+				  <b class="caret"></b>
+			  </a>
+			  <ul class="dropdown-menu">
+				  <li>
+					  <a href="<c:url value='/blurb?blurb=About' />">About</a>
+				  </li>
+				  <li>
+					  <a href="<c:url value='/blurb?blurb=Access' />">Access</a>
+				  </li>
+				  <li>
+					  <a href="<c:url value='/blurb?blurb=Contact Us' />">Contact Us</a>
+				  </li>
+				  <li>
+					  <a href="<c:url value='/blurb?blurb=Copyright and Licensing' />">Copyright and Licensing</a>
+				  </li>
+				  <li>
+					  <a href="<c:url value='/blurb?blurb=Information for Contributors' />">Information for Contributors</a>
+				  </li>
+				  <li>
+					  <a href="<c:url value='/blurb?blurb=Resources' />">Resources</a>
+				  </li>
+			  </ul>
+		  </li>
        </ul>
 
  <% if (supportedLocales != null && supportedLocales.length > 1)
