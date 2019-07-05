@@ -24,8 +24,8 @@
 <%@ page import="org.dspace.app.webui.util.UIUtil" %>
 <%@ page import="org.dspace.content.Collection" %>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"
-    prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 	
 <%@ taglib uri="http://www.dspace.org/dspace-tags.tld" prefix="dspace" %>
 
@@ -67,17 +67,66 @@
 <%
 		}
 %>            
-            
+		
+		<%-- Select Community First --%>
+		<div class='input-group mb2'>
+			<label for="selectCommunity" class="input-group-addon">
+				Community
+			</label>
+			<select id='selectCommunity' class='form-control' required>
+				<c:forEach var='entry' items='${communityCollections}'>
+					<option value='${entry.key.ID}'>${entry.key.name}</option>
+				</c:forEach>
+			</select>
+		</div>
+		<%-- Select Collection --%>
+		<c:forEach var='entry' items='${communityCollections}'>
+			<div class='input-group collectionGroup' id='collectionGroup_${entry.key.ID}'>
+				<label for="selectCollections_${entry.key.ID}" class="input-group-addon">
+					Collection
+				</label>
+				<select id='selectCollections_${entry.key.ID}' name='collection' class='form-control' required disabled>
+					<c:forEach var='collection' items='${entry.value}'>
+						<option value='${collection.ID}'>${collection.name}</option>
+					</c:forEach>
+				</select>
+			</div>
+		</c:forEach>
+		<%-- Show/Hide collection depending on community selected --%>
+		<script>
+			jQuery(function() {
+				var collectionGroups = jQuery('.collectionGroup');
+				var communityField = jQuery('#selectCommunity');
+				function showCollection(commId) {
+					var groupToShow = jQuery('#collectionGroup_' + commId);
+					// hide and disable all the collections
+					collectionGroups.hide();
+					collectionGroups.find('select').prop('disabled', true)
+					// show and enable the one we want
+					groupToShow.show();
+					groupToShow.find('select').removeAttr('disabled');
+				}
+
+				communityField.change(function() {
+					showCollection(communityField.val());
+				});
+				// initialization
+				showCollection(communityField.val());
+			})
+		</script>
+
+		<%--
 					<div class="input-group">
 					<label for="tcollection" class="input-group-addon">
 						<fmt:message key="jsp.submit.select-collection.collection"/>
 					</label>
           <dspace:selectcollection klass="form-control" id="tcollection" collection="-1" name="collection"/>
 					</div><br/>
+		--%>
             <%-- Hidden fields needed for SubmissionController servlet to know which step is next--%>
             <%= SubmissionController.getSubmissionParameters(context, request) %>
 
-				<div class="row">
+				<div class="row mt3">
 					<div class="col-md-4 pull-right btn-group">
 						<input class="btn btn-default col-md-6" type="submit" name="<%=AbstractProcessingStep.CANCEL_BUTTON%>" value="<fmt:message key="jsp.submit.select-collection.cancel"/>" />
 						<input class="btn btn-primary col-md-6" type="submit" name="<%=AbstractProcessingStep.NEXT_BUTTON%>" value="<fmt:message key="jsp.submit.general.next"/>" />
