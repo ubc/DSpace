@@ -12,6 +12,7 @@
   --%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%@ page contentType="text/html;charset=UTF-8" %>
 
@@ -38,17 +39,16 @@
 </div>
 </main>
             <%-- Page footer --%>
-             <footer class="navbar navbar-inverse navbar-bottom">
-             <div id="designedby" class="container text-muted">
-             <fmt:message key="jsp.layout.footer-default.theme-by"/> <a href="http://www.cineca.it"><img
-                                    src="<%= request.getContextPath() %>/image/logo-cineca-small.png"
-                                    alt="Logo CINECA" /></a>
-			<div id="footer_feedback" class="pull-right">                                    
-                                <p class="text-muted"><fmt:message key="jsp.layout.footer-default.text"/>&nbsp;-
-                                <a target="_blank" href="<%= request.getContextPath() %>/feedback"><fmt:message key="jsp.layout.footer-default.feedback"/></a>
-                                <a href="<%= request.getContextPath() %>/htmlmap"></a></p>
-                                </div>
-			</div>
-    </footer>
+		 <footer class="ubcFooter py4">
+			 <div class='container'>
+				 <p>
+					 <strong>Carl Wieman Science Education Initiative</strong>
+				 </p>
+				 <p>Web <a href="http://www.cwsei.ubc.ca/" style='color: white;'>http://www.cwsei.ubc.ca/</a></p>
+				 <a href="http://www.ubc.ca/" title="The University of British Columbia">
+					 <img src="<c:url value='/static/ubc/images/ubc-signature.png' />" style='margin-left: -20px; height: 100px'/>
+				 </a>
+			 </div>
+		</footer>
     </body>
 </html>

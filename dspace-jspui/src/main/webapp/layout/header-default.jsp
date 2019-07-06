@@ -89,8 +89,8 @@
     <script type="text/javascript" src="<%= request.getContextPath() %>/static/js/choice-support.js"> </script>
 
 	<!-- Gives us the convenience of more modern CSS without interfering with the ancient bootstrap -->
-	<link href="https://unpkg.com/basscss@8.0.2/css/basscss.min.css" rel="stylesheet">
-	<link href="https://unpkg.com/basscss-border-colors@2.1.0/css/border-colors.css" rel="stylesheet">
+	<link href="<c:url value='/static/ubc/lib/basscss/basscss.min.css' />" rel="stylesheet">
+	<link href="<c:url value='/static/ubc/lib/basscss/border-colors.css' />" rel="stylesheet">
 	
     <%--Gooogle Analytics recording.--%>
     <%
@@ -127,9 +127,10 @@
 
     <%-- HACK: leftmargin, topmargin: for non-CSS compliant Microsoft IE browser --%>
     <%-- HACK: marginwidth, marginheight: for non-CSS compliant Netscape browser --%>
-    <body class="undernavigation">
+    <body>
 <a class="sr-only" href="#content">Skip navigation</a>
-<header class="navbar navbar-inverse navbar-fixed-top">    
+<dspace:include page="/layout/ubc-banner.jsp" />
+<header class="navbar navbar-inverse">    
     <%
     if (!navbar.equals("off"))
     {

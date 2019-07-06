@@ -41,3 +41,29 @@ pre.pre-horiz-scroll
 	max-height: 80px;
 	margin: 0 auto;
 }
+
+/* Override Stock Navbar */
+.navbar-inverse {
+	background: #002145;
+	border-radius: 0;
+	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)
+}
+.navbar-inverse .navbar-nav > li > a {
+	color: white;
+}
+.navbar-inverse .navbar-nav > li.active > a {
+	background: #004694;
+}
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li.active > a:hover {
+	background: #0059bb;
+}
+
+/* UBC Banner & footer */
+.ubcBanner a:hover {
+	text-decoration: none;
+}
+.ubcFooter {
+	color: white;
+	background: #002145;
+	box-shadow: 0 50vh 0 50vh #002145;
+}
