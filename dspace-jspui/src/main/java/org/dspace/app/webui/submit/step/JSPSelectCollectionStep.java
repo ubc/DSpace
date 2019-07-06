@@ -12,9 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
+import java.util.LinkedHashMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -25,12 +23,10 @@ import org.apache.log4j.Logger;
 import org.dspace.app.util.SubmissionInfo;
 import org.dspace.app.webui.submit.JSPStep;
 import org.dspace.app.webui.submit.JSPStepManager;
-import org.dspace.app.webui.ubc.comparator.CommunityComparator;
 import org.dspace.app.webui.util.JSPManager;
 import org.dspace.app.webui.util.UIUtil;
 import org.dspace.authorize.AuthorizeException;
 import org.dspace.content.Collection;
-import org.dspace.content.Collection.CollectionComparator;
 import org.dspace.content.Community;
 import org.dspace.core.Constants;
 import org.dspace.core.Context;
@@ -158,7 +154,7 @@ public class JSPSelectCollectionStep extends JSPStep
             }
 
 			// To split up collection selection into two steps, select community and then collection, we need to know what collections belong to which communities
-			Map<Community, List<Collection>> communityCollections = new TreeMap<Community, List<Collection>>(new CommunityComparator());
+			Map<Community, List<Collection>> communityCollections = new LinkedHashMap<Community, List<Collection>>();
 			for (Collection collection : collections)
 			{
 				for (Community community : collection.getCommunities())
