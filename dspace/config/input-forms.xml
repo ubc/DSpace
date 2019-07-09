@@ -97,9 +97,9 @@
           <repeatable>false</repeatable>
         </field>
         <field>
-          <dc-schema>dcterms</dc-schema>
-          <dc-element>type</dc-element>
-          <dc-qualifier>category</dc-qualifier>
+          <dc-schema>ubc</dc-schema>
+          <dc-element>itemType</dc-element>
+          <dc-qualifier></dc-qualifier>
           <label>Item Type</label>
           <hint>Please select a category that best describes this item or set of items.</hint>
           <input-type value-pairs-name="Category">dropdown</input-type>
@@ -107,18 +107,18 @@
           <required>Please select a type.</required>
         </field>
         <field>
-          <dc-schema>schema</dc-schema>
-          <dc-element>accessibility</dc-element>
-          <dc-qualifier>Feature</dc-qualifier>
+          <dc-schema>ubc</dc-schema>
+          <dc-element>accessibilityFeature</dc-element>
+          <dc-qualifier></dc-qualifier>
           <label>Accessibility Features</label>
           <hint>Select all accessibility features that apply for this item. If unknown, please select "unknown".</hint>
           <input-type value-pairs-name="Accessibility Features">dropdown</input-type>
           <repeatable>true</repeatable>
         </field>
         <field>
-          <dc-schema>schema</dc-schema>
-          <dc-element>accessibility</dc-element>
-          <dc-qualifier>Hazard</dc-qualifier>
+          <dc-schema>ubc</dc-schema>
+          <dc-element>accessibilityHazard</dc-element>
+          <dc-qualifier></dc-qualifier>
           <label>Accessibility Hazards</label>
           <hint>Select all accessibility hazards that apply for this item. If unknown, please select "unknown".</hint>
           <input-type value-pairs-name="Accessibility Hazards">dropdown</input-type>
@@ -208,9 +208,9 @@
           <repeatable>false</repeatable>
         </field>
         <field>
-          <dc-schema>dcterms</dc-schema>
-          <dc-element>type</dc-element>
-          <dc-qualifier>category</dc-qualifier>
+          <dc-schema>ubc</dc-schema>
+          <dc-element>itemType</dc-element>
+          <dc-qualifier></dc-qualifier>
           <label>Item Type</label>
           <hint>Please select a category that best describes this item or set of items.</hint>
           <input-type value-pairs-name="Category">dropdown</input-type>
@@ -218,18 +218,18 @@
           <required>Please select a type.</required>
         </field>
         <field>
-          <dc-schema>schema</dc-schema>
-          <dc-element>accessibility</dc-element>
-          <dc-qualifier>Feature</dc-qualifier>
+          <dc-schema>ubc</dc-schema>
+          <dc-element>accessibilityFeature</dc-element>
+          <dc-qualifier></dc-qualifier>
           <label>Accessibility Features</label>
           <hint>Select all accessibility features that apply for this item. If unknown, please select "unknown".</hint>
           <input-type value-pairs-name="Accessibility Features">dropdown</input-type>
           <repeatable>true</repeatable>
         </field>
         <field>
-          <dc-schema>schema</dc-schema>
-          <dc-element>accessibility</dc-element>
-          <dc-qualifier>Hazard</dc-qualifier>
+          <dc-schema>ubc</dc-schema>
+          <dc-element>accessibilityHazard</dc-element>
+          <dc-qualifier></dc-qualifier>
           <label>Accessibility Hazards</label>
           <hint>Select all accessibility hazards that apply for this item. If unknown, please select "unknown".</hint>
           <input-type value-pairs-name="Accessibility Hazards">dropdown</input-type>
@@ -319,9 +319,9 @@
           <repeatable>false</repeatable>
         </field>
         <field>
-          <dc-schema>dcterms</dc-schema>
-          <dc-element>type</dc-element>
-          <dc-qualifier>category</dc-qualifier>
+          <dc-schema>ubc</dc-schema>
+          <dc-element>itemType</dc-element>
+          <dc-qualifier></dc-qualifier>
           <label>Item Type</label>
           <hint>Please select a category that best describes this item or set of items.</hint>
           <input-type value-pairs-name="Category">dropdown</input-type>
@@ -329,18 +329,18 @@
           <required>Please select a type.</required>
         </field>
         <field>
-          <dc-schema>schema</dc-schema>
-          <dc-element>accessibility</dc-element>
-          <dc-qualifier>Feature</dc-qualifier>
+          <dc-schema>ubc</dc-schema>
+          <dc-element>accessibilityFeature</dc-element>
+          <dc-qualifier></dc-qualifier>
           <label>Accessibility Features</label>
           <hint>Select all accessibility features that apply for this item. If unknown, please select "unknown".</hint>
           <input-type value-pairs-name="Accessibility Features">dropdown</input-type>
           <repeatable>true</repeatable>
         </field>
         <field>
-          <dc-schema>schema</dc-schema>
-          <dc-element>accessibility</dc-element>
-          <dc-qualifier>Hazard</dc-qualifier>
+          <dc-schema>ubc</dc-schema>
+          <dc-element>accessibilityHazard</dc-element>
+          <dc-qualifier></dc-qualifier>
           <label>Accessibility Hazards</label>
           <hint>Select all accessibility hazards that apply for this item. If unknown, please select "unknown".</hint>
           <input-type value-pairs-name="Accessibility Hazards">dropdown</input-type>
@@ -430,9 +430,9 @@
           <repeatable>false</repeatable>
         </field>
         <field>
-          <dc-schema>dcterms</dc-schema>
-          <dc-element>type</dc-element>
-          <dc-qualifier>category</dc-qualifier>
+          <dc-schema>ubc</dc-schema>
+          <dc-element>itemType</dc-element>
+          <dc-qualifier></dc-qualifier>
           <label>Item Type</label>
           <hint>Please select a category that best describes this item or set of items.</hint>
           <input-type value-pairs-name="Category">dropdown</input-type>
@@ -440,18 +440,18 @@
           <required>Please select a type.</required>
         </field>
         <field>
-          <dc-schema>schema</dc-schema>
-          <dc-element>accessibility</dc-element>
-          <dc-qualifier>Feature</dc-qualifier>
+          <dc-schema>ubc</dc-schema>
+          <dc-element>accessibilityFeature</dc-element>
+          <dc-qualifier></dc-qualifier>
           <label>Accessibility Features</label>
           <hint>Select all accessibility features that apply for this item. If unknown, please select "unknown".</hint>
           <input-type value-pairs-name="Accessibility Features">dropdown</input-type>
           <repeatable>true</repeatable>
         </field>
         <field>
-          <dc-schema>schema</dc-schema>
-          <dc-element>accessibility</dc-element>
-          <dc-qualifier>Hazard</dc-qualifier>
+          <dc-schema>ubc</dc-schema>
+          <dc-element>accessibilityHazard</dc-element>
+          <dc-qualifier></dc-qualifier>
           <label>Accessibility Hazards</label>
           <hint>Select all accessibility hazards that apply for this item. If unknown, please select "unknown".</hint>
           <input-type value-pairs-name="Accessibility Hazards">dropdown</input-type>
@@ -541,9 +541,9 @@
           <repeatable>false</repeatable>
         </field>
         <field>
-          <dc-schema>dcterms</dc-schema>
-          <dc-element>type</dc-element>
-          <dc-qualifier>category</dc-qualifier>
+          <dc-schema>ubc</dc-schema>
+          <dc-element>itemType</dc-element>
+          <dc-qualifier></dc-qualifier>
           <label>Item Type</label>
           <hint>Please select a category that best describes this item or set of items.</hint>
           <input-type value-pairs-name="Category">dropdown</input-type>
@@ -551,18 +551,18 @@
           <required>Please select a type.</required>
         </field>
         <field>
-          <dc-schema>schema</dc-schema>
-          <dc-element>accessibility</dc-element>
-          <dc-qualifier>Feature</dc-qualifier>
+          <dc-schema>ubc</dc-schema>
+          <dc-element>accessibilityFeature</dc-element>
+          <dc-qualifier></dc-qualifier>
           <label>Accessibility Features</label>
           <hint>Select all accessibility features that apply for this item. If unknown, please select "unknown".</hint>
           <input-type value-pairs-name="Accessibility Features">dropdown</input-type>
           <repeatable>true</repeatable>
         </field>
         <field>
-          <dc-schema>schema</dc-schema>
-          <dc-element>accessibility</dc-element>
-          <dc-qualifier>Hazard</dc-qualifier>
+          <dc-schema>ubc</dc-schema>
+          <dc-element>accessibilityHazard</dc-element>
+          <dc-qualifier></dc-qualifier>
           <label>Accessibility Hazards</label>
           <hint>Select all accessibility hazards that apply for this item. If unknown, please select "unknown".</hint>
           <input-type value-pairs-name="Accessibility Hazards">dropdown</input-type>
@@ -652,9 +652,9 @@
           <repeatable>false</repeatable>
         </field>
         <field>
-          <dc-schema>dcterms</dc-schema>
-          <dc-element>type</dc-element>
-          <dc-qualifier>category</dc-qualifier>
+          <dc-schema>ubc</dc-schema>
+          <dc-element>itemType</dc-element>
+          <dc-qualifier></dc-qualifier>
           <label>Item Type</label>
           <hint>Please select a category that best describes this item or set of items.</hint>
           <input-type value-pairs-name="Category">dropdown</input-type>
@@ -662,18 +662,18 @@
           <required>Please select a type.</required>
         </field>
         <field>
-          <dc-schema>schema</dc-schema>
-          <dc-element>accessibility</dc-element>
-          <dc-qualifier>Feature</dc-qualifier>
+          <dc-schema>ubc</dc-schema>
+          <dc-element>accessibilityFeature</dc-element>
+          <dc-qualifier></dc-qualifier>
           <label>Accessibility Features</label>
           <hint>Select all accessibility features that apply for this item. If unknown, please select "unknown".</hint>
           <input-type value-pairs-name="Accessibility Features">dropdown</input-type>
           <repeatable>true</repeatable>
         </field>
         <field>
-          <dc-schema>schema</dc-schema>
-          <dc-element>accessibility</dc-element>
-          <dc-qualifier>Hazard</dc-qualifier>
+          <dc-schema>ubc</dc-schema>
+          <dc-element>accessibilityHazard</dc-element>
+          <dc-qualifier></dc-qualifier>
           <label>Accessibility Hazards</label>
           <hint>Select all accessibility hazards that apply for this item. If unknown, please select "unknown".</hint>
           <input-type value-pairs-name="Accessibility Hazards">dropdown</input-type>
@@ -763,9 +763,9 @@
           <repeatable>false</repeatable>
         </field>
         <field>
-          <dc-schema>dcterms</dc-schema>
-          <dc-element>type</dc-element>
-          <dc-qualifier>category</dc-qualifier>
+          <dc-schema>ubc</dc-schema>
+          <dc-element>itemType</dc-element>
+          <dc-qualifier></dc-qualifier>
           <label>Item Type</label>
           <hint>Please select a category that best describes this item or set of items.</hint>
           <input-type value-pairs-name="Category">dropdown</input-type>
@@ -773,18 +773,18 @@
           <required>Please select a type.</required>
         </field>
         <field>
-          <dc-schema>schema</dc-schema>
-          <dc-element>accessibility</dc-element>
-          <dc-qualifier>Feature</dc-qualifier>
+          <dc-schema>ubc</dc-schema>
+          <dc-element>accessibilityFeature</dc-element>
+          <dc-qualifier></dc-qualifier>
           <label>Accessibility Features</label>
           <hint>Select all accessibility features that apply for this item. If unknown, please select "unknown".</hint>
           <input-type value-pairs-name="Accessibility Features">dropdown</input-type>
           <repeatable>true</repeatable>
         </field>
         <field>
-          <dc-schema>schema</dc-schema>
-          <dc-element>accessibility</dc-element>
-          <dc-qualifier>Hazard</dc-qualifier>
+          <dc-schema>ubc</dc-schema>
+          <dc-element>accessibilityHazard</dc-element>
+          <dc-qualifier></dc-qualifier>
           <label>Accessibility Hazards</label>
           <hint>Select all accessibility hazards that apply for this item. If unknown, please select "unknown".</hint>
           <input-type value-pairs-name="Accessibility Hazards">dropdown</input-type>
@@ -874,9 +874,9 @@
           <repeatable>false</repeatable>
         </field>
         <field>
-          <dc-schema>dcterms</dc-schema>
-          <dc-element>type</dc-element>
-          <dc-qualifier>category</dc-qualifier>
+          <dc-schema>ubc</dc-schema>
+          <dc-element>itemType</dc-element>
+          <dc-qualifier></dc-qualifier>
           <label>Item Type</label>
           <hint>Please select a category that best describes this item or set of items.</hint>
           <input-type value-pairs-name="Category">dropdown</input-type>
@@ -884,18 +884,18 @@
           <required>Please select a type.</required>
         </field>
         <field>
-          <dc-schema>schema</dc-schema>
-          <dc-element>accessibility</dc-element>
-          <dc-qualifier>Feature</dc-qualifier>
+          <dc-schema>ubc</dc-schema>
+          <dc-element>accessibilityFeature</dc-element>
+          <dc-qualifier></dc-qualifier>
           <label>Accessibility Features</label>
           <hint>Select all accessibility features that apply for this item. If unknown, please select "unknown".</hint>
           <input-type value-pairs-name="Accessibility Features">dropdown</input-type>
           <repeatable>true</repeatable>
         </field>
         <field>
-          <dc-schema>schema</dc-schema>
-          <dc-element>accessibility</dc-element>
-          <dc-qualifier>Hazard</dc-qualifier>
+          <dc-schema>ubc</dc-schema>
+          <dc-element>accessibilityHazard</dc-element>
+          <dc-qualifier></dc-qualifier>
           <label>Accessibility Hazards</label>
           <hint>Select all accessibility hazards that apply for this item. If unknown, please select "unknown".</hint>
           <input-type value-pairs-name="Accessibility Hazards">dropdown</input-type>

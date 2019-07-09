@@ -29,4 +29,64 @@
 		<scope_note>Text blurbs for display in various areas. Meant as a replacement for DSpace's news system, which loses data due to the docker build process.</scope_note>
 	</dc-type>
 
+	<dc-type>
+		<schema>ubc</schema>
+		<element>itemType</element>
+		<scope_note>This item describes the learning object. A local controlled vocabulary is assigned and includes: Assignments/Homework, Concept/Clicker Questions, Course Calendar, Course Data, Course Logistics, Demos &amp; Simulation, Exams, In-Class Activities, Instructor Reflection, Lab/Field Activities, Learning Goals/Objectives, Lecture Notes, Other(solutions,etc), Overview, Resources, Student Difficulties, Ungraded Assessment Tools</scope_note>
+	</dc-type>
+
+	<dc-type>
+		<schema>ubc</schema>
+		<element>accessibilityFeature</element>
+		<scope_note>
+			Content features of the resource, such as accessible media, supported enhancements for accessibility and alternatives. Expected Values:
+			alternativeText
+			annotations
+			audioDescription
+			bookmarks
+			braille
+			captions
+			ChemML
+			describedMath
+			displayTransformability
+			highContrastAudio
+			highContrastDisplay
+			index
+			largePrint
+			latex
+			longDescription
+			MathML
+			none
+			printPageNumbers
+			readingOrder
+			rubyAnnotations
+			signLanguage
+			structuralNavigation
+			synchronizedAudioText
+			tableOfContents
+			taggedPDF
+			tactileGraphic
+			tactileObject
+			timingControl
+			transcript
+			ttsMarkup
+			unlocked
+		</scope_note>
+	</dc-type>
+	<dc-type>
+		<schema>ubc</schema>
+		<element>accessibilityHazard</element>
+		<scope_note>
+			A characteristic of the described resource that is physiologically dangerous to some users. Expected Values:
+			flashing
+			noFlashingHazard
+			motionSimulation
+			noMotionSimulationHazard
+			sound
+			noSoundHazard
+			unknown
+			none
+		</scope_note>
+	</dc-type>
+
 </dspace-dc-types>
