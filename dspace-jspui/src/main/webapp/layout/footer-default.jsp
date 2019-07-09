@@ -46,7 +46,7 @@
 				 </p>
 				 <p>Web <a href="http://www.cwsei.ubc.ca/" style='color: white;'>http://www.cwsei.ubc.ca/</a></p>
 				 <a href="http://www.ubc.ca/" title="The University of British Columbia">
-					 <img src="<c:url value='/static/ubc/images/ubc-signature.png' />" style='margin-left: -20px; height: 100px'/>
+					 <img src="<c:url value='/static/ubc/images/ubc-signature-white.png' />" style='margin-left: -20px; height: 100px'/>
 				 </a>
 			 </div>
 		</footer>
