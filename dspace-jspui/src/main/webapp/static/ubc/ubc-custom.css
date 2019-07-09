@@ -49,6 +49,32 @@ pre.pre-horiz-scroll
 	margin: 0 auto;
 }
 
+/* home page recent submissions carousel override */
+.carousel-inner h4 {
+	max-height: 1.35em;
+	overflow: hidden;
+	overflow-wrap: anywhere;
+	word-break: break-all;
+}
+.carousel-indicators {
+	bottom: 10px;
+}
+.carousel-indicators li {
+	border-color: #333;
+}
+.carousel-indicators li.active {
+	background: #333;
+}
+.recentSubmissionOverflow {
+	height: 40px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	overflow-wrap: anywhere;
+}
+.recentSubmissionOverflow p {
+	text-overflow: ellipsis;
+}
+
 /* Override Stock Navbar */
 .navbar-inverse {
 	background: #002145;

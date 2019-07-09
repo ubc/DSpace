@@ -38,6 +38,7 @@
 <%@ page import="org.dspace.browse.ItemCounter" %>
 <%@ page import="org.dspace.content.Metadatum" %>
 <%@ page import="org.dspace.content.Item" %>
+<%@ page import="org.apache.commons.lang.StringUtils"%>
 
 <%
     Community[] communities = (Community[]) request.getAttribute("communities");
@@ -115,6 +116,43 @@
 		</div>
 	</div>
 
+	<!-- Recent Submissions -->
+	<c:set var='submissions' value="${requestScope['recent.submissions']}" />
+	<c:if test="${submissions != null && submissions.count() > 0}">
+		<div class="clearfix">
+			<h4 class="center"><fmt:message key="jsp.collection-home.recentsub"/></h4>
+			<div id="recent-submissions-carousel" class="carousel slide border border-silver sm-col-12 md-col-10 lg-col-8 mx-auto">
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner">
+					<c:forEach items='${submissions.recentSubmissions}' var='submission' varStatus='status'>
+						<div style="padding-bottom: 50px; height: 125px;" class="item ${status.first?'active':''} center">
+							<div style='padding-left: 80px; padding-right: 80px; display: inline-block;'>
+								<h4><a href="<c:url value='/handle/${submission.handle}'/>">${submission.name}</a></h4>
+								<div class='recentSubmissionOverflow'>${submission.getMetadata('dc.description')}</div>
+							</div>
+						</div>
+					</c:forEach>
+				</div>
+					
+				<!-- Controls -->
+				<a class="left carousel-control" href="#recent-submissions-carousel" data-slide="prev" style="background: transparent; color: black">
+					<span class="icon-prev"></span>
+				</a>
+				<a class="right carousel-control" href="#recent-submissions-carousel" data-slide="next" style="background: transparent; color: black">
+					<span class="icon-next"></span>
+				</a>
+					
+				<ol class="carousel-indicators">
+					<li data-target="#recent-submissions-carousel" data-slide-to="0" class="active"></li>
+					<c:forEach var='i' begin='1' end='${submissions.count()-1}'>
+						<li data-target="#recent-submissions-carousel" data-slide-to="${i}"></li>
+					</c:forEach>
+				</ol>
+			</div>
+		</div>
+	</c:if>
+
+<%-- Stock Recent Submissions & Discovery section, not using
 <div class="row">
 <%
 if (submissions != null && submissions.count() > 0)
@@ -216,6 +254,7 @@ if (submissions != null && submissions.count() > 0)
 <div class="row">
 	<%@ include file="discovery/static-tagcloud-facet.jsp" %>
 </div>
+--%>
 	
 </div>
 </dspace:layout>
