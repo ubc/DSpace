@@ -95,9 +95,9 @@
         <!--Which sidebar facets are to be displayed-->
         <property name="sidebarFacets">
             <list>
+                <ref bean="searchFilterItemType" />
                 <ref bean="searchFilterAuthor" />
                 <ref bean="searchFilterSubject" />
-                <ref bean="searchFilterIssued" />
             </list>
         </property>
         <!-- Set TagCloud configuration per discovery configuration -->
@@ -105,6 +105,7 @@
         <!--The search filters which can be used on the discovery search page-->
         <property name="searchFilters">
             <list>
+                <ref bean="searchFilterItemType" />
                 <ref bean="searchFilterTitle" />
                 <ref bean="searchFilterAuthor" />
                 <ref bean="searchFilterSubject" />
@@ -201,6 +202,7 @@
         <!--Which sidebar facets are to be displayed (same as defaultConfiguration above)-->
         <property name="sidebarFacets">
             <list>
+                <ref bean="searchFilterItemType" />
                 <ref bean="searchFilterAuthor" />
                 <ref bean="searchFilterSubject" />
                 <ref bean="searchFilterIssued" />
@@ -211,6 +213,7 @@
         <!--The search filters which can be used on the discovery search page (same as defaultConfiguration above)-->
         <property name="searchFilters">
             <list>
+                <ref bean="searchFilterItemType" />
                 <ref bean="searchFilterTitle" />
                 <ref bean="searchFilterAuthor" />
                 <ref bean="searchFilterSubject" />
@@ -393,6 +396,17 @@
         <property name="facetLimit" value="10"/>
         <property name="sortOrder" value="COUNT"/>
         <property name="splitter" value="::"/>
+    </bean>
+
+    <bean id="searchFilterItemType" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="itemType"/>
+        <property name="metadataFields">
+            <list>
+                <value>ubc.itemType</value>
+            </list>
+        </property>
+        <property name="facetLimit" value="10"/>
+        <property name="sortOrder" value="COUNT"/>
     </bean>
 
     <bean id="searchFilterIssued" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
