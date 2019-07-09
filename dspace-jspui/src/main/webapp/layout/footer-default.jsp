@@ -38,17 +38,32 @@
 %>
 </div>
 </main>
-            <%-- Page footer --%>
-		 <footer class="ubcFooter py4">
-			 <div class='container'>
-				 <p>
-					 <strong>Carl Wieman Science Education Initiative</strong>
-				 </p>
-				 <p>Web <a href="http://www.cwsei.ubc.ca/" style='color: white;'>http://www.cwsei.ubc.ca/</a></p>
-				 <a href="http://www.ubc.ca/" title="The University of British Columbia">
-					 <img src="<c:url value='/static/ubc/images/ubc-signature-white.png' />" style='margin-left: -20px; height: 100px'/>
-				 </a>
-			 </div>
+		<%-- Page footer --%>
+		<footer class="ubcFooter py4">
+			<div class='container'>
+				<div class='clearfix'>
+					<div class='sm-col col-sm-6'>
+						<p>
+							<strong>SEI Materials Archive</strong>
+						</p>
+						<p>
+							Skylight and CWSEI, Earth Sciences Building, 2178-2207 Main Mall <br/>
+							Vancouver , British Columbia Canada V6T 1Z4
+						</p>
+						<p>Tel 604.822.4691</p>
+						<p>
+							Email <a style='color: white;' href='mailto:lt.support@science.ubc.ca'>lt.support@science.ubc.ca</a> for technical difficulties <br/>
+							Email <a style='color: white;' href='mailto:warcode@science.ubc.ca'>warcode@science.ubc.ca</a> for SEI matters
+						</p>
+						<p>Web <a href="http://www.cwsei.ubc.ca/" style='color: white;'>http://www.cwsei.ubc.ca/</a></p>
+					</div>
+					<div class='sm-col col-sm-6 xs-hide'>
+						<a href="http://www.ubc.ca/" title="The University of British Columbia">
+							<img src="<c:url value='/static/ubc/images/ubc-signature-white.png' />" style='margin-top: -15px; height: 70px'/>
+						</a>
+					</div>
+				</div>
+			</div>
 		</footer>
     </body>
 </html>
