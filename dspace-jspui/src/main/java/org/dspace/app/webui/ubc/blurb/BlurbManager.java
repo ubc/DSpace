@@ -30,8 +30,9 @@ public class BlurbManager {
 	public static final String HOME_PAGE = "Home Page";
 	public static final String CONTRIBUTORS = "Information for Contributors";
 	public static final String RESOURCES = "Resources";
+	public static final String TERMS_OF_USE = "Terms of Use";
 
-	public static final List<String> BLURB_TYPES = new ArrayList<String>(Arrays.asList(ABOUT, ACCESS, CONTACT_US, COPYRIGHT, HOME_PAGE, CONTRIBUTORS, RESOURCES));
+	public static final List<String> BLURB_TYPES = new ArrayList<String>(Arrays.asList(ABOUT, ACCESS, CONTACT_US, COPYRIGHT, HOME_PAGE, CONTRIBUTORS, RESOURCES, TERMS_OF_USE));
 
 	public static final String FIELD_BLURBS = "ubc.blurbs";
 	

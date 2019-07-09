@@ -84,6 +84,9 @@
 				<li>
 					<a href="<c:url value='/blurb?blurb=Resources' />">Resources</a>
 				</li>
+				<li>
+					<a href="<c:url value='/blurb?blurb=Terms of Use' />">Terms of Use</a>
+				</li>
 			</ul>
 		</div>
 		<!-- main content -->

@@ -20,7 +20,7 @@
 				<img src='<c:url value="/static/ubc/images/ubc-crest.png"/>'  class='mr2' style='height: 40px' />
 			</div>
 			<div>
-				<span style='position: relative; top: -6px; font-size: 1em;font-family:"Whitney"'>The University of British Columbia</span>
+				<span style='position: relative; top: -3px; font-size: 1em;font-family:"Whitney"'>The University of British Columbia</span>
 				<p class="bold" style="font-family:'Whitney'; font-size: 1.1em;">SEI MATERIALS ARCHIVE</p>
 			</div>
 		</div>
