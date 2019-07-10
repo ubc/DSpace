@@ -116,7 +116,7 @@
             }
 %>
 		<small><fmt:message key="jsp.collection-home.heading1"/></small>
-      <a class="statisticsLink btn btn-info" href="<%= request.getContextPath() %>/handle/<%= collection.getHandle() %>/statistics"><fmt:message key="jsp.collection-home.display-statistics"/></a>
+      <%-- <a class="statisticsLink btn btn-info" href="<%= request.getContextPath() %>/handle/<%= collection.getHandle() %>/statistics"><fmt:message key="jsp.collection-home.display-statistics"/></a> --%>
       </h2></div>
 <%  if (logo != null) { %>
         <div class="col-md-4">
@@ -159,6 +159,7 @@
 			<input class="btn btn-success col-md-12" type="submit" name="submit" value="<fmt:message key="jsp.collection-home.submit.button"/>" />
           </form>
 <%  } %>
+<%--
         <form class="well" method="get" action="">
 <%  if (loggedIn && subscribed)
     { %>
@@ -202,8 +203,9 @@
     }
 %>
         </form>
+--%>
 
-<div class="row">
+<div class="row mb4">
 	<%@ include file="discovery/static-tagcloud-facet.jsp" %>
 </div>
 
