@@ -42,6 +42,7 @@ import java.net.URLEncoder;
 import java.sql.SQLException;
 import java.util.StringTokenizer;
 import org.dspace.content.authority.MetadataAuthorityManager;
+import org.dspace.ubc.MetadataFieldSplitter;
 
 /**
  * Tag for display a list of items
@@ -347,7 +348,7 @@ public class BrowseListTag extends TagSupport
 
             for (int colIdx = 0; colIdx < fieldArr.length; colIdx++)
             {
-                String field = fieldArr[colIdx].toLowerCase().trim();
+                String field = fieldArr[colIdx].trim();
                 cOddOrEven[colIdx] = (((colIdx + 1) % 2) == 0 ? "Odd" : "Even");
 
                 // find out if the field is a date
@@ -437,34 +438,16 @@ public class BrowseListTag extends TagSupport
                 {
                     String field = fieldArr[colIdx];
 
-                    // get the schema and the element qualifier pair
-                    // (Note, the schema is not used for anything yet)
-                    // (second note, I hate this bit of code.  There must be
-                    // a much more elegant way of doing this.  Tomcat has
-                    // some weird problems with variations on this code that
-                    // I tried, which is why it has ended up the way it is)
-                    StringTokenizer eq = new StringTokenizer(field, ".");
-
-                    String[] tokens = { "", "", "" };
-                    int k = 0;
-                    while(eq.hasMoreTokens())
-                    {
-                        tokens[k] = eq.nextToken().toLowerCase().trim();
-                        k++;
-                    }
-                    String schema = tokens[0];
-                    String element = tokens[1];
-                    String qualifier = tokens[2];
+					MetadataFieldSplitter fieldSplitter = new MetadataFieldSplitter(field);
+                    String schema = fieldSplitter.schema;
+                    String element = fieldSplitter.element;
+                    String qualifier = fieldSplitter.qualifier;
 
                     // first get hold of the relevant metadata for this column
                     Metadatum[] metadataArray;
-                    if (qualifier.equals("*"))
+                    if ("*".equals(qualifier))
                     {
                         metadataArray = items[i].getMetadata(schema, element, Item.ANY, Item.ANY);
-                    }
-                    else if (qualifier.equals(""))
-                    {
-                        metadataArray = items[i].getMetadata(schema, element, null, Item.ANY);
                     }
                     else
                     {
