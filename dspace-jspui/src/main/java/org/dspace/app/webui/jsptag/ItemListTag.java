@@ -314,7 +314,7 @@ public class ItemListTag extends TagSupport
 
             for (int colIdx = 0; colIdx < fieldArr.length; colIdx++)
             {
-                String field = fieldArr[colIdx].toLowerCase().trim();
+                String field = fieldArr[colIdx].trim();
                 cOddOrEven[colIdx] = (((colIdx + 1) % 2) == 0 ? "Odd" : "Even");
 
                 // find out if the field is a date
@@ -414,7 +414,7 @@ public class ItemListTag extends TagSupport
                     int k = 0;
                     while(eq.hasMoreTokens())
                     {
-                        tokens[k] = eq.nextToken().toLowerCase().trim();
+                        tokens[k] = eq.nextToken().trim();
                         k++;
                     }
                     String schema = tokens[0];
