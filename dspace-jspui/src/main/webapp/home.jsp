@@ -30,6 +30,7 @@
 <%@ page import="javax.servlet.jsp.jstl.core.*" %>
 <%@ page import="javax.servlet.jsp.jstl.fmt.LocaleSupport" %>
 <%@ page import="org.dspace.core.I18nUtil" %>
+<%@ page import="org.dspace.core.Context" %>
 <%@ page import="org.dspace.app.webui.util.UIUtil" %>
 <%@ page import="org.dspace.app.webui.components.RecentSubmissions" %>
 <%@ page import="org.dspace.content.Community" %>
@@ -39,6 +40,7 @@
 <%@ page import="org.dspace.content.Metadatum" %>
 <%@ page import="org.dspace.content.Item" %>
 <%@ page import="org.apache.commons.lang.StringUtils"%>
+<%@ page import="org.dspace.app.webui.servlet.MyDSpaceServlet" %>
 
 <%
     Community[] communities = (Community[]) request.getAttribute("communities");
@@ -55,7 +57,9 @@
         feedData = "ALL:" + ConfigurationManager.getProperty("webui.feed.formats");
     }
     
-    ItemCounter ic = new ItemCounter(UIUtil.obtainContext(request));
+	Context context = UIUtil.obtainContext(request);
+	request.setAttribute("context", context);
+    ItemCounter ic = new ItemCounter(context);
 
     RecentSubmissions submissions = (RecentSubmissions) request.getAttribute("recent.submissions");
 %>
@@ -91,8 +95,22 @@
 		</div>
 		<!-- main content -->
 		<div class='flex-auto'>
-			<div class='mb3'>
+			<div class='mb3 clearfix'>
+				<div class='sm-col sm-col-9'>
 				${homeBlurb}
+				</div>
+				<div class='sm-col sm-col-3 center'>
+					<%-- show sign in or submit button depending on if the user is logged in --%>
+					<c:if test='${!empty context.currentUser}'>
+						<form action="<c:url value='/mydspace'/>" method="post">
+							<input type="hidden" name="step" value="<%= MyDSpaceServlet.MAIN_PAGE %>" />
+							<button class="btn btn-primary" type="submit" name="submit_new" value="<fmt:message key="jsp.mydspace.main.start.button"/>">Start Submission</button>
+						</form>
+					</c:if>
+					<c:if test='${empty context.currentUser}'>
+						<a href="<c:url value='/mydspace'/>" class='btn btn-primary'>Sign in</a>
+					</c:if>
+				</div>
 			</div>
 			<!-- Communities Listing -->
 			<div class='sm-flex flex-wrap content-stretch'>
