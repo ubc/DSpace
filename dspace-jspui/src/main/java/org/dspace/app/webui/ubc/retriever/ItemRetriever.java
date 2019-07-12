@@ -48,6 +48,7 @@ public class ItemRetriever {
 	private DCDate dateSubmitted;
 	private DCDate dateStarted;
 	private String license = "";
+	private String collectionName = "";
 	private boolean isRestricted = false;
 	private List<SubjectResult> subjects = new ArrayList<>();
 	private List<BitstreamResult> files;
@@ -153,6 +154,13 @@ public class ItemRetriever {
 	public String getLicense() {
 		return license;
 	}
+	public String getCollectionName() throws SQLException {
+		if (collectionName.isEmpty() && item.getOwningCollection() != null)
+		{
+			collectionName = item.getOwningCollection().getName();
+		}
+		return collectionName;
+	}
 	public UBCLicenseInfo getLicenseInfo() {
 		return UBCLicenseUtil.getLicense(license);
 	}
@@ -180,5 +188,7 @@ public class ItemRetriever {
 	public List<String> getAlternativeLanguages() {
 		return alternativeLanguages;
 	}
-	
+	public void setCollectionName(String name) {
+		collectionName = name;
+	}
 }

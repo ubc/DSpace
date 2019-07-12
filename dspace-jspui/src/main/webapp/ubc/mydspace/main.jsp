@@ -79,7 +79,7 @@
 	<div class="panel panel-primary">
         <div class="panel-heading">
                     <fmt:message key="jsp.mydspace"/>: <%= Utils.addEntities(user.getFullName()) %>
-	                <span class="pull-right"><dspace:popup page="<%= LocaleSupport.getLocalizedMessage(pageContext, \"help.index\") + \"#mydspace\"%>"><fmt:message key="jsp.help"/></dspace:popup></span>
+	                <%-- <span class="pull-right"><dspace:popup page="<%= LocaleSupport.getLocalizedMessage(pageContext, \"help.index\") + \"#mydspace\"%>"><fmt:message key="jsp.help"/></dspace:popup></span> --%>
         </div>         
 
 		<div class="panel-body">
@@ -263,11 +263,13 @@
 					</td>
 					<!-- Submitted To -->
 					<td>
-						Some Collection
+						${workspaceItem.value.collectionName}
 					</td>
 					<!-- Date Submission Started -->
 					<td>
-						${workspaceItem.value.dateStarted}
+						<c:if test='${!empty workspaceItem.value.dateStarted}'>
+							<dspace:date date="${workspaceItem.value.dateStarted}" clientLocalTime="true" />
+						</c:if>
 					</td>
 					<!-- Remove Button -->
 					<td class='text-center'>

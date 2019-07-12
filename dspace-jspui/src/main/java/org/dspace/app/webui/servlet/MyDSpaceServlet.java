@@ -854,6 +854,7 @@ public class MyDSpaceServlet extends DSpaceServlet
 		for (WorkspaceItem workspaceItem : workspaceItems)
 		{
 			ItemRetriever retriever = new ItemRetriever(context, request, workspaceItem.getItem());
+			retriever.setCollectionName(workspaceItem.getCollection().getName());
 			workspaceIDtoRetrievers.put(workspaceItem.getID(), retriever);
 		}
         request.setAttribute("WorkspaceItems", workspaceIDtoRetrievers);
