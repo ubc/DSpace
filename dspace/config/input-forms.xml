@@ -11,7 +11,7 @@
     <name-map community-name="Computer Science" form-name="Computer Science"/>
     <name-map community-name="Life Sciences" form-name="Life Sciences"/>
     <name-map community-name="Chemistry" form-name="Chemistry"/>
-	<name-map community-name="Earth, Ocean, Atmospheric, &amp; Environmental Science" form-name="EOAES"/>
+	<name-map community-name="Earth, Ocean, &amp; Atmospheric Sciences" form-name="EOAES"/>
   </form-map>
   <form-definitions>
 
@@ -1194,8 +1194,8 @@
         <stored-value>Software Practices</stored-value>
       </pair>
       <pair>
-        <displayed-value>Sortware Engineering</displayed-value>
-        <stored-value>Sortware Engineering</stored-value>
+        <displayed-value>Software Engineering</displayed-value>
+        <stored-value>Software Engineering</stored-value>
       </pair>
       <pair>
         <displayed-value>Teaching STEM</displayed-value>
@@ -1825,6 +1825,10 @@
 
     <value-pairs value-pairs-name="Accessibility Features" dc-term="identifier">
       <pair>
+        <displayed-value>unknown</displayed-value>
+        <stored-value>unknown</stored-value>
+      </pair>
+      <pair>
         <displayed-value>describedMath</displayed-value>
         <stored-value>describedMath</stored-value>
       </pair>
@@ -1920,13 +1924,13 @@
         <displayed-value>none</displayed-value>
         <stored-value>none</stored-value>
       </pair>
+    </value-pairs>
+
+    <value-pairs value-pairs-name="Accessibility Hazards" dc-term="identifier">
       <pair>
         <displayed-value>unknown</displayed-value>
         <stored-value>unknown</stored-value>
       </pair>
-    </value-pairs>
-
-    <value-pairs value-pairs-name="Accessibility Hazards" dc-term="identifier">
       <pair>
         <displayed-value>flashing</displayed-value>
         <stored-value>flashing</stored-value>
@@ -1942,10 +1946,6 @@
       <pair>
         <displayed-value>none</displayed-value>
         <stored-value>none</stored-value>
-      </pair>
-      <pair>
-        <displayed-value>unknown</displayed-value>
-        <stored-value>unknown</stored-value>
       </pair>
     </value-pairs>
 
