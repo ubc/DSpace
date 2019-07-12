@@ -108,8 +108,10 @@
 				'code': '<c:url value="/static/ubc/lib/tinymce/plugins/code/plugin.min.js" />', // be able to edit raw html for power users
 				'link': '<c:url value="/static/ubc/lib/tinymce/plugins/link/plugin.min.js" />',
 				'lists': '<c:url value="/static/ubc/lib/tinymce/plugins/lists/plugin.min.js" />',
+				'colorpicker': '<c:url value="/static/ubc/lib/tinymce/plugins/colorpicker/plugin.min.js" />', // dependency on textcolor,
+				'textcolor': '<c:url value="/static/ubc/lib/tinymce/plugins/textcolor/plugin.min.js" />'
 			},
-			toolbar: 'undo redo styleselect bold italic alignleft aligncenter alignright bullist numlist outdent indent link code'
+			toolbar: 'undo redo styleselect bold italic alignleft aligncenter alignright bullist numlist outdent indent link code forecolor backcolor'
 		});
 		tinymce.init({
 			selector: 'input.tinyMCEInput',
