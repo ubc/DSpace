@@ -25,6 +25,8 @@ public class UBCAccessChecker {
 	public final static String ACCESS_RESTRICTED = I18nUtil.getMessage("ubc-access-checker.permission.restricted");
 	public final static String GROUP_NAME_INSTRUCTOR = "Instructor";
 	public final static String GROUP_NAME_CURATOR = "curator";
+	// people in this group should be denied restricted access
+	public final static String GROUP_NAME_DENY_RESTRICTED = "group3_student";
 
 	private Context context;
 
@@ -123,6 +125,7 @@ public class UBCAccessChecker {
 	 * @return True if the user can access restricted materials.
 	 */
 	public boolean hasRestrictedAccess() throws SQLException {
+		if (isInGroup(GROUP_NAME_DENY_RESTRICTED)) return false;
 		if (hasNonAnonymousAccess()) return true;
 		return false;
 	}
