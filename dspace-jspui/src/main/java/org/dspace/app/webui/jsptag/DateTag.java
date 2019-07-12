@@ -8,6 +8,7 @@
 package org.dspace.app.webui.jsptag;
 
 import java.io.IOException;
+import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspException;
@@ -30,6 +31,8 @@ public class DateTag extends TagSupport
 
     /** Display the time? */
     private boolean displayTime = true;
+
+    private boolean clientLocalTime = false;
 
     private static final long serialVersionUID = 6665825578727713535L;
 
@@ -76,17 +79,45 @@ public class DateTag extends TagSupport
         displayTime = false;
     }
 
+    public String getClientLocalTime()
+    {
+        return this.clientLocalTime ? "true" : "false";
+    }
+
+    public void setClientLocalTime(String dummy)
+    {
+        this.clientLocalTime = true;
+    }
+
     public int doStartTag() throws JspException
     {
-        String toDisplay = UIUtil.displayDate(date, displayTime, true, (HttpServletRequest)pageContext.getRequest());
+        // if no day/time defined, force server side formatting even specified for clientLocalTime
+        if (!this.clientLocalTime || this.date.getDay() == -1) {
+            String toDisplay = UIUtil.displayDate(date, displayTime, true, (HttpServletRequest)pageContext.getRequest());
 
-        try
-        {
-            pageContext.getOut().print(toDisplay);
-        }
-        catch (IOException ie)
-        {
-            throw new JspException(ie);
+            try
+            {
+                pageContext.getOut().print(toDisplay);
+            }
+            catch (IOException ie)
+            {
+                throw new JspException(ie);
+            }
+        } else {
+            Locale locale = UIUtil.getSessionLocale((HttpServletRequest)pageContext.getRequest());
+            String lang = locale.getLanguage().isEmpty()? "en" : locale.getLanguage();
+            String options = this.date.getJSDateFormatOptions(this.displayTime);
+
+            String script = "<script>document.write(new Date(\"" + this.date.toString() +
+                "\").toLocaleDateString('" + lang + "', " + options + "));</script>";
+            try
+            {
+                pageContext.getOut().print(script);
+            }
+            catch (IOException ie)
+            {
+                throw new JspException(ie);
+            }
         }
 
         return SKIP_BODY;

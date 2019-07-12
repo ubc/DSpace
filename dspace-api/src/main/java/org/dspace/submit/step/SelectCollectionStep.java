@@ -112,7 +112,7 @@ public class SelectCollectionStep extends AbstractProcessingStep
 			Item item = wi.getItem();
 			// add the new time submitted
 			DCDate date = DCDate.getCurrent();
-			item.addMetadata("dc", "date", "issued", Item.ANY, date.toString());
+			item.addMetadata("dc", "date", "created", Item.ANY, date.toString());
 			item.update();
 
             // commit changes to database

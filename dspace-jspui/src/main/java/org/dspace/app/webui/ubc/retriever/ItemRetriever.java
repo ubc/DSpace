@@ -44,9 +44,9 @@ public class ItemRetriever {
 	private String thumbnail = "";
 	private String url = "";
 	private String whatWeLearned = "";
-	private String dateCreated = "";
-	private String dateSubmitted = "";
-	private String dateStarted = "";
+	private DCDate dateCreated;
+	private DCDate dateSubmitted;
+	private DCDate dateStarted;
 	private String license = "";
 	private boolean isRestricted = false;
 	private List<SubjectResult> subjects = new ArrayList<>();
@@ -85,14 +85,12 @@ public class ItemRetriever {
 		summary = getSingleValue("dc.description.abstract");
 		description = getSingleValue("dc.description");
 		whatWeLearned = getSingleValue("dcterms.instructionalMethod");
-		dateCreated = getSingleValue("dc.date.created");
+		dateCreated = getDCDate("dc.date.issued");
 		license = getSingleValue("dc.rights");
 		isRestricted = UBCAccessChecker.isRestricted(item);
 
-		dateStarted = getSingleValue("dc.date.issued");
-		dateStarted = toReadableDate(dateStarted);
-		dateSubmitted = getSingleValue("dc.date.submitted");
-		dateSubmitted = toReadableDate(dateSubmitted);
+		dateStarted = getDCDate("dc.date.created");
+		dateSubmitted = getDCDate("dc.date.submitted");
 
 		initStringList("dcterms.type", resourceTypes);
 		initStringList("dcterms.requires", prereqs);
@@ -114,11 +112,12 @@ public class ItemRetriever {
 		}
 	}
 
-	private String toReadableDate(String storedDate) {
-		if (storedDate.isEmpty()) return "";
-		DCDate tmpDate = new DCDate(storedDate);
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm a");
-		return dateFormat.format(tmpDate.toDate());
+	private DCDate getDCDate(String field) {
+		String storedDate = getSingleValue(field);
+		DCDate date = new DCDate(storedDate);
+		// for some reason, empty dates give you the string "null" instead of an empty string or even just null?!
+		if (date.toString().equals("null")) return null;
+		return date;
 	}
 
 	public List<BitstreamResult> getFiles() {
@@ -142,13 +141,13 @@ public class ItemRetriever {
 	public String getWhatWeLearned() {
 		return whatWeLearned;
 	}
-	public String getDateCreated() {
+	public DCDate getDateCreated() {
 		return dateCreated;
 	}
-	public String getDateSubmitted() {
+	public DCDate getDateSubmitted() {
 		return dateSubmitted;
 	}
-	public String getDateStarted() {
+	public DCDate getDateStarted() {
 		return dateStarted;
 	}
 	public String getLicense() {
