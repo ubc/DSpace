@@ -376,7 +376,7 @@
         
 		<div class="submitFormHelp">
             <fmt:message key="jsp.submit.choose-file.info6"/>
-            <dspace:popup page="<%= LocaleSupport.getLocalizedMessage(pageContext, \"help.formats\")%>"><fmt:message key="jsp.submit.choose-file.info7"/></dspace:popup>
+            <%-- <dspace:popup page="<%= LocaleSupport.getLocalizedMessage(pageContext, \"help.formats\")%>"><fmt:message key="jsp.submit.choose-file.info7"/></dspace:popup> --%>
         </div>
 		<br/>
         

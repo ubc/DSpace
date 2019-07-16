@@ -117,10 +117,10 @@
 	{
 		String key = "browse.menu." + bis[i].getName();
 %>
-	<form method="get" action="<%= request.getContextPath() %>/handle/<%= community.getHandle() %>/browse">
+	<form method="get" action="<%= request.getContextPath() %>/handle/<%= community.getHandle() %>/browse" class='inline-block mr2'>
 		<input type="hidden" name="type" value="<%= bis[i].getName() %>"/>
 		<%-- <input type="hidden" name="community" value="<%= community.getHandle() %>" /> --%>
-		<input class="btn btn-default col-md-3" type="submit" name="submit_browse" value="<fmt:message key="<%= key %>"/>"/>
+		<input class="btn btn-default" type="submit" name="submit_browse" value="<fmt:message key="<%= key %>"/>"/>
 	</form>
 <%	
 	}
@@ -128,6 +128,12 @@
 			
 	</div>
 </div>
+
+<form action="<c:url value='/mydspace'/>" method="post">
+	<input type="hidden" name="step" value="<%= MyDSpaceServlet.MAIN_PAGE %>" />
+	<button class="btn btn-success col-md-12" type="submit" name="submit_new" value="<fmt:message key="jsp.mydspace.main.start.button"/>">
+		<fmt:message key="jsp.mydspace.main.start.button"/></button>
+</form>
 
 <div class="row">
 	<%@ include file="/discovery/static-tagcloud-facet.jsp" %>

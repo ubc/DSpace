@@ -111,7 +111,7 @@
           <dc-element>accessibilityFeature</dc-element>
           <dc-qualifier></dc-qualifier>
           <label>Accessibility Features</label>
-          <hint>Select all accessibility features that apply for this item. If unknown, please select "unknown".</hint>
+		  <hint>Select all accessibility features that apply for this item. If unknown, please select "unknown". For more detail: https://www.w3.org/wiki/WebSchemas/Accessibility</hint>
           <input-type value-pairs-name="Accessibility Features">dropdown</input-type>
           <repeatable>true</repeatable>
         </field>
@@ -120,7 +120,7 @@
           <dc-element>accessibilityHazard</dc-element>
           <dc-qualifier></dc-qualifier>
           <label>Accessibility Hazards</label>
-          <hint>Select all accessibility hazards that apply for this item. If unknown, please select "unknown".</hint>
+          <hint>Select all accessibility hazards that apply for this item. If unknown, please select "unknown". For more detail: https://www.w3.org/wiki/WebSchemas/Accessibility</hint>
           <input-type value-pairs-name="Accessibility Hazards">dropdown</input-type>
           <repeatable>true</repeatable>
         </field>
@@ -222,7 +222,7 @@
           <dc-element>accessibilityFeature</dc-element>
           <dc-qualifier></dc-qualifier>
           <label>Accessibility Features</label>
-          <hint>Select all accessibility features that apply for this item. If unknown, please select "unknown".</hint>
+          <hint>Select all accessibility features that apply for this item. If unknown, please select "unknown". For more detail: https://www.w3.org/wiki/WebSchemas/Accessibility</hint>
           <input-type value-pairs-name="Accessibility Features">dropdown</input-type>
           <repeatable>true</repeatable>
         </field>
@@ -231,7 +231,7 @@
           <dc-element>accessibilityHazard</dc-element>
           <dc-qualifier></dc-qualifier>
           <label>Accessibility Hazards</label>
-          <hint>Select all accessibility hazards that apply for this item. If unknown, please select "unknown".</hint>
+          <hint>Select all accessibility hazards that apply for this item. If unknown, please select "unknown". For more detail: https://www.w3.org/wiki/WebSchemas/Accessibility</hint>
           <input-type value-pairs-name="Accessibility Hazards">dropdown</input-type>
           <repeatable>true</repeatable>
         </field>
@@ -333,7 +333,7 @@
           <dc-element>accessibilityFeature</dc-element>
           <dc-qualifier></dc-qualifier>
           <label>Accessibility Features</label>
-          <hint>Select all accessibility features that apply for this item. If unknown, please select "unknown".</hint>
+          <hint>Select all accessibility features that apply for this item. If unknown, please select "unknown". For more detail: https://www.w3.org/wiki/WebSchemas/Accessibility</hint>
           <input-type value-pairs-name="Accessibility Features">dropdown</input-type>
           <repeatable>true</repeatable>
         </field>
@@ -342,7 +342,7 @@
           <dc-element>accessibilityHazard</dc-element>
           <dc-qualifier></dc-qualifier>
           <label>Accessibility Hazards</label>
-          <hint>Select all accessibility hazards that apply for this item. If unknown, please select "unknown".</hint>
+          <hint>Select all accessibility hazards that apply for this item. If unknown, please select "unknown". For more detail: https://www.w3.org/wiki/WebSchemas/Accessibility</hint>
           <input-type value-pairs-name="Accessibility Hazards">dropdown</input-type>
           <repeatable>true</repeatable>
         </field>
@@ -444,7 +444,7 @@
           <dc-element>accessibilityFeature</dc-element>
           <dc-qualifier></dc-qualifier>
           <label>Accessibility Features</label>
-          <hint>Select all accessibility features that apply for this item. If unknown, please select "unknown".</hint>
+          <hint>Select all accessibility features that apply for this item. If unknown, please select "unknown". For more detail: https://www.w3.org/wiki/WebSchemas/Accessibility</hint>
           <input-type value-pairs-name="Accessibility Features">dropdown</input-type>
           <repeatable>true</repeatable>
         </field>
@@ -453,7 +453,7 @@
           <dc-element>accessibilityHazard</dc-element>
           <dc-qualifier></dc-qualifier>
           <label>Accessibility Hazards</label>
-          <hint>Select all accessibility hazards that apply for this item. If unknown, please select "unknown".</hint>
+          <hint>Select all accessibility hazards that apply for this item. If unknown, please select "unknown". For more detail: https://www.w3.org/wiki/WebSchemas/Accessibility</hint>
           <input-type value-pairs-name="Accessibility Hazards">dropdown</input-type>
           <repeatable>true</repeatable>
         </field>
@@ -555,7 +555,7 @@
           <dc-element>accessibilityFeature</dc-element>
           <dc-qualifier></dc-qualifier>
           <label>Accessibility Features</label>
-          <hint>Select all accessibility features that apply for this item. If unknown, please select "unknown".</hint>
+          <hint>Select all accessibility features that apply for this item. If unknown, please select "unknown". For more detail: https://www.w3.org/wiki/WebSchemas/Accessibility</hint>
           <input-type value-pairs-name="Accessibility Features">dropdown</input-type>
           <repeatable>true</repeatable>
         </field>
@@ -564,7 +564,7 @@
           <dc-element>accessibilityHazard</dc-element>
           <dc-qualifier></dc-qualifier>
           <label>Accessibility Hazards</label>
-          <hint>Select all accessibility hazards that apply for this item. If unknown, please select "unknown".</hint>
+          <hint>Select all accessibility hazards that apply for this item. If unknown, please select "unknown". For more detail: https://www.w3.org/wiki/WebSchemas/Accessibility</hint>
           <input-type value-pairs-name="Accessibility Hazards">dropdown</input-type>
           <repeatable>true</repeatable>
         </field>
@@ -666,7 +666,7 @@
           <dc-element>accessibilityFeature</dc-element>
           <dc-qualifier></dc-qualifier>
           <label>Accessibility Features</label>
-          <hint>Select all accessibility features that apply for this item. If unknown, please select "unknown".</hint>
+          <hint>Select all accessibility features that apply for this item. If unknown, please select "unknown". For more detail: https://www.w3.org/wiki/WebSchemas/Accessibility</hint>
           <input-type value-pairs-name="Accessibility Features">dropdown</input-type>
           <repeatable>true</repeatable>
         </field>
@@ -675,7 +675,7 @@
           <dc-element>accessibilityHazard</dc-element>
           <dc-qualifier></dc-qualifier>
           <label>Accessibility Hazards</label>
-          <hint>Select all accessibility hazards that apply for this item. If unknown, please select "unknown".</hint>
+          <hint>Select all accessibility hazards that apply for this item. If unknown, please select "unknown". For more detail: https://www.w3.org/wiki/WebSchemas/Accessibility</hint>
           <input-type value-pairs-name="Accessibility Hazards">dropdown</input-type>
           <repeatable>true</repeatable>
         </field>
@@ -777,7 +777,7 @@
           <dc-element>accessibilityFeature</dc-element>
           <dc-qualifier></dc-qualifier>
           <label>Accessibility Features</label>
-          <hint>Select all accessibility features that apply for this item. If unknown, please select "unknown".</hint>
+          <hint>Select all accessibility features that apply for this item. If unknown, please select "unknown". For more detail: https://www.w3.org/wiki/WebSchemas/Accessibility</hint>
           <input-type value-pairs-name="Accessibility Features">dropdown</input-type>
           <repeatable>true</repeatable>
         </field>
@@ -786,7 +786,7 @@
           <dc-element>accessibilityHazard</dc-element>
           <dc-qualifier></dc-qualifier>
           <label>Accessibility Hazards</label>
-          <hint>Select all accessibility hazards that apply for this item. If unknown, please select "unknown".</hint>
+          <hint>Select all accessibility hazards that apply for this item. If unknown, please select "unknown". For more detail: https://www.w3.org/wiki/WebSchemas/Accessibility</hint>
           <input-type value-pairs-name="Accessibility Hazards">dropdown</input-type>
           <repeatable>true</repeatable>
         </field>
@@ -888,7 +888,7 @@
           <dc-element>accessibilityFeature</dc-element>
           <dc-qualifier></dc-qualifier>
           <label>Accessibility Features</label>
-          <hint>Select all accessibility features that apply for this item. If unknown, please select "unknown".</hint>
+          <hint>Select all accessibility features that apply for this item. If unknown, please select "unknown". For more detail: https://www.w3.org/wiki/WebSchemas/Accessibility</hint>
           <input-type value-pairs-name="Accessibility Features">dropdown</input-type>
           <repeatable>true</repeatable>
         </field>
@@ -897,7 +897,7 @@
           <dc-element>accessibilityHazard</dc-element>
           <dc-qualifier></dc-qualifier>
           <label>Accessibility Hazards</label>
-          <hint>Select all accessibility hazards that apply for this item. If unknown, please select "unknown".</hint>
+          <hint>Select all accessibility hazards that apply for this item. If unknown, please select "unknown". For more detail: https://www.w3.org/wiki/WebSchemas/Accessibility</hint>
           <input-type value-pairs-name="Accessibility Hazards">dropdown</input-type>
           <repeatable>true</repeatable>
         </field>
