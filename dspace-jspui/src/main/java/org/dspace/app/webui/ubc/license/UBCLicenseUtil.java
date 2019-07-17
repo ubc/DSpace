@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import org.apache.log4j.Logger;
 import org.dspace.authorize.AuthorizeException;
 import org.dspace.content.Item;
 
@@ -14,6 +15,8 @@ import org.dspace.content.Item;
  * Build and provides information on all licenses. 
  */
 public class UBCLicenseUtil {
+    private static Logger log = Logger.getLogger(UBCLicenseUtil.class);
+
 	public static String CCBY = "CC BY 4.0";
 	public static String CCBYNC = "CC BY-NC 4.0";
 	public static String CCBYSA = "CC BY-SA 4.0";
@@ -29,14 +32,23 @@ public class UBCLicenseUtil {
 	// preserves the order in which we should present the licenses to the user
 	private static List<String> LICENSE_ORDER = Arrays.asList(
 		CCBYNC, CCBY, CCBYSA, CCBYND, CCBYNCSA, CCBYNCND, CC0, POLICY81);
-	private static Map<String,String> BADGE_URLS = initBadgeUrls();
+	private static List<String> LICENSE_ORDER_RESTRICTED = Arrays.asList(
+		POLICY81, CCBYNC, CCBY, CCBYSA, CCBYND, CCBYNCSA, CCBYNCND, CC0);
 	private static Map<String,String> FULLNAMES = initFullnames();
 	private static Map<String,String> LICENSE_URLS = initLicenseUrls();
-	private static List<UBCLicenseInfo> LICENSE_LIST = initLicenseList();
-	private static Map<String,UBCLicenseInfo> LICENSE_BY_SHORTNAME =
-			initLicenseMappedByShortName();
+	private static Map<String,String> BADGE_URLS = initBadgeUrls();
+
+	private List<UBCLicenseInfo> licenseList;
+	private Map<String,UBCLicenseInfo> licenseByShortname;
+
+	private boolean isRestricted;
  
-	public UBCLicenseUtil() {}
+	public UBCLicenseUtil(boolean isRestricted)
+	{
+		this.isRestricted = isRestricted;
+		licenseList = initLicenseList();
+		licenseByShortname = initLicenseMappedByShortName();
+	}
 
 	/**
 	 * Get a map of the licenses where the keys are the license short names.
@@ -45,7 +57,7 @@ public class UBCLicenseUtil {
 	 */
 	public Map<String,UBCLicenseInfo> getLicenses()
 	{
-		return UBCLicenseUtil.getLicenseByShortName();
+		return getLicenseByShortName();
 	}
 
 	/**
@@ -69,10 +81,10 @@ public class UBCLicenseUtil {
 	 * @param license
 	 * @return 
 	 */
-	public static UBCLicenseInfo getLicense(String license)
+	public UBCLicenseInfo getLicense(String license)
 	{
 		if (isValidLicense(license))
-			return LICENSE_BY_SHORTNAME.get(license);
+			return licenseByShortname.get(license);
 		return null;
 	}
 
@@ -82,18 +94,18 @@ public class UBCLicenseUtil {
 	 * given in LICENSE_ORDER.
 	 * @return 
 	 */
-	public static Map<String,UBCLicenseInfo> getLicenseByShortName()
+	public Map<String,UBCLicenseInfo> getLicenseByShortName()
 	{
-		return LICENSE_BY_SHORTNAME;
+		return licenseByShortname;
 	}
 
 	/**
 	 * Get the list of licenses that we know about.
 	 * @return 
 	 */
-	public static List<UBCLicenseInfo> getLicenseList()
+	public List<UBCLicenseInfo> getLicenseList()
 	{
-		return LICENSE_LIST;
+		return licenseList;
 	}
 
 	/**
@@ -112,7 +124,7 @@ public class UBCLicenseUtil {
 	 * @param license the short name for this license
 	 * @return the url to the badge or null if license is invalid
 	 */
-	public static String getBadge(String license)
+	public String getBadge(String license)
 	{
 		return BADGE_URLS.get(license);
 	}
@@ -122,7 +134,7 @@ public class UBCLicenseUtil {
 	 * @param license the short name for this license
 	 * @return the full name of this license
 	 */
-	public static String getFullName(String license)
+	public String getFullName(String license)
 	{
 		return FULLNAMES.get(license);
 	}
@@ -137,12 +149,15 @@ public class UBCLicenseUtil {
 		return LICENSE_URLS.get(license);
 	}
 
-	private static List<UBCLicenseInfo> initLicenseList()
+	private List<UBCLicenseInfo> initLicenseList()
 	{
 		List<UBCLicenseInfo> ret = new ArrayList<UBCLicenseInfo>();
 		String fullName, licenseUrl, badgeUrl;
-		for (String licenseName : LICENSE_ORDER)
+		List<String> licenseOrder = LICENSE_ORDER;
+		if (isRestricted) licenseOrder = LICENSE_ORDER_RESTRICTED;
+		for (String licenseName : licenseOrder)
 		{
+			log.debug(licenseName);
 			fullName = getFullName(licenseName);
 			licenseUrl = getLicenseUrl(licenseName);
 			badgeUrl = getBadge(licenseName);
@@ -215,12 +230,12 @@ public class UBCLicenseUtil {
 	 * are the UBCLicenseInfo.
 	 * @return 
 	 */
-	private static Map<String, UBCLicenseInfo> initLicenseMappedByShortName()
+	private Map<String, UBCLicenseInfo> initLicenseMappedByShortName()
 	{
 		// using a LinkedHashMap to preserve the order that the licenses are 
 		// supposed to be presented to the user.
 		Map<String, UBCLicenseInfo> ret = new LinkedHashMap<String, UBCLicenseInfo>();
-		for (UBCLicenseInfo info : LICENSE_LIST)
+		for (UBCLicenseInfo info : licenseList)
 		{
 			ret.put(info.getShortName(), info);
 		}

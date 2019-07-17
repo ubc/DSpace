@@ -162,7 +162,8 @@ public class ItemRetriever {
 		return collectionName;
 	}
 	public UBCLicenseInfo getLicenseInfo() {
-		return UBCLicenseUtil.getLicense(license);
+		UBCLicenseUtil licenseUtil = new UBCLicenseUtil(isRestricted);
+		return licenseUtil.getLicense(license);
 	}
 	public boolean getIsRestricted() {
 		return isRestricted;

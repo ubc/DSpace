@@ -27,6 +27,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 import org.dspace.app.webui.ubc.retriever.ItemRetriever;
+import org.dspace.ubc.UBCAccessChecker;
 
 
 /**
@@ -102,18 +103,21 @@ public class JSPUBCLicenseStep extends JSPStep
         // Do we already have a CC license?
         Item item = subInfo.getSubmissionItem().getItem();
 		ItemRetriever itemRetriever = new ItemRetriever(context, request, item);
+
+		boolean isRestricted = UBCAccessChecker.isRestricted(subInfo.getSubmissionItem().getItem());
+		request.setAttribute("isRestricted", isRestricted);
+
+		UBCLicenseUtil licenseUtil = new UBCLicenseUtil(isRestricted);
 		// default to the recommended license, which is the first item
-		UBCLicenseInfo licenseInfo = UBCLicenseUtil.getLicenseList().get(0);
+		UBCLicenseInfo licenseInfo = licenseUtil.getLicenseList().get(0);
 		// load the assigned license if there's already one
 		if (!itemRetriever.getLicense().isEmpty())
 			licenseInfo = itemRetriever.getLicenseInfo();
 		request.setAttribute("existingLicense", licenseInfo);
 
-		UBCLicenseUtil licenseUtil = new UBCLicenseUtil();
 		request.setAttribute("licenseUtil", licenseUtil);
         
         JSPStepManager.showJSP(request, response, subInfo, CC_LICENSE_JSP);
-
     }
 
     /**
