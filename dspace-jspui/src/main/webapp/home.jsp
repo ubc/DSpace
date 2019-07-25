@@ -138,6 +138,7 @@
 	</div>
 
 	<!-- Recent Submissions -->
+	<%-- 
 	<c:set var='submissions' value="${requestScope['recent.submissions']}" />
 	<c:if test="${submissions != null && submissions.count() > 0}">
 		<div class="clearfix">
@@ -172,6 +173,7 @@
 			</div>
 		</div>
 	</c:if>
+	--%>
 
 <%-- Stock Recent Submissions & Discovery section, not using
 <div class="row">
