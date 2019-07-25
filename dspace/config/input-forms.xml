@@ -51,7 +51,7 @@
           <dc-element>subject</dc-element>
           <dc-qualifier></dc-qualifier>
           <label>Subject</label>
-          <hint>Select a keyword from the list provided. If no keyword is appropriate, please select "Other" and enter one in the box below.</hint>
+          <hint>Select one or more keywords from the list provided. Hold down ctrl key to select more than one subject. If no keyword is appropriate, please select "Other" and enter one in the box below.</hint>
           <input-type value-pairs-name="Physics and Astronomy - subjects">dropdown</input-type>
           <repeatable>true</repeatable>
           <required>Please select a keyword.</required>
@@ -162,7 +162,7 @@
           <dc-element>subject</dc-element>
           <dc-qualifier></dc-qualifier>
           <label>Subject</label>
-          <hint>Select a keyword from the list provided. If no keyword is appropriate, please select "Other" and enter one in the box below.</hint>
+          <hint>Select one or more keywords from the list provided. Hold down ctrl key to select more than one subject. If no keyword is appropriate, please select "Other" and enter one in the box below.</hint>
           <input-type value-pairs-name="Life Sciences - subjects">dropdown</input-type>
           <repeatable>true</repeatable>
           <required>Please select a keyword.</required>
@@ -273,7 +273,7 @@
           <dc-element>subject</dc-element>
           <dc-qualifier></dc-qualifier>
           <label>Subject</label>
-          <hint>Select a keyword from the list provided. If no keyword is appropriate, please select "Other" and enter one in the box below.</hint>
+          <hint>Select one or more keywords from the list provided. Hold down ctrl key to select more than one subject. If no keyword is appropriate, please select "Other" and enter one in the box below.</hint>
           <input-type value-pairs-name="Computer Science - subjects">dropdown</input-type>
           <repeatable>true</repeatable>
           <required>Please select a keyword.</required>
@@ -384,7 +384,7 @@
           <dc-element>subject</dc-element>
           <dc-qualifier></dc-qualifier>
           <label>Subject</label>
-          <hint>Select a keyword from the list provided. If no keyword is appropriate, please select "Other" and enter one in the box below.</hint>
+          <hint>Select one or more keywords from the list provided. Hold down ctrl key to select more than one subject. If no keyword is appropriate, please select "Other" and enter one in the box below.</hint>
           <input-type value-pairs-name="Statistics - subjects">dropdown</input-type>
           <repeatable>true</repeatable>
           <required>Please select a keyword.</required>
@@ -495,7 +495,7 @@
           <dc-element>subject</dc-element>
           <dc-qualifier></dc-qualifier>
           <label>Subject</label>
-          <hint>Select a keyword from the list provided. If no keyword is appropriate, please select "Other" and enter one in the box below.</hint>
+          <hint>Select one or more keywords from the list provided. Hold down ctrl key to select more than one subject. If no keyword is appropriate, please select "Other" and enter one in the box below.</hint>
           <input-type value-pairs-name="General and Integrated Sciences - subjects">dropdown</input-type>
           <repeatable>true</repeatable>
           <required>Please select a keyword.</required>
@@ -606,7 +606,7 @@
           <dc-element>subject</dc-element>
           <dc-qualifier></dc-qualifier>
           <label>Subject</label>
-          <hint>Select a keyword from the list provided. If no keyword is appropriate, please select "Other" and enter one in the box below.</hint>
+          <hint>Select one or more keywords from the list provided. Hold down ctrl key to select more than one subject. If no keyword is appropriate, please select "Other" and enter one in the box below.</hint>
           <input-type value-pairs-name="Chemistry - subjects">dropdown</input-type>
           <repeatable>true</repeatable>
           <required>Please select a keyword.</required>
@@ -717,7 +717,7 @@
           <dc-element>subject</dc-element>
           <dc-qualifier></dc-qualifier>
           <label>Subject</label>
-          <hint>Select a keyword from the list provided. If no keyword is appropriate, please select "Other" and enter one in the box below.</hint>
+          <hint>Select one or more keywords from the list provided. Hold down ctrl key to select more than one subject. If no keyword is appropriate, please select "Other" and enter one in the box below.</hint>
           <input-type value-pairs-name="Math - subjects">dropdown</input-type>
           <repeatable>true</repeatable>
           <required>Please select a keyword.</required>
@@ -828,7 +828,7 @@
           <dc-element>subject</dc-element>
           <dc-qualifier></dc-qualifier>
           <label>Subject</label>
-          <hint>Select a keyword from the list provided. If no keyword is appropriate, please select "Other" and enter one in the box below.</hint>
+          <hint>Select one or more keywords from the list provided. Hold down ctrl key to select more than one subject. If no keyword is appropriate, please select "Other" and enter one in the box below.</hint>
           <input-type value-pairs-name="EOAES - subjects">dropdown</input-type>
           <repeatable>true</repeatable>
           <required>Please select a keyword.</required>
