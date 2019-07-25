@@ -433,19 +433,22 @@
     	if (bix.isMetadataIndex())
     	{
     %>
-	<dspace:browselist browseInfo="<%= bi %>" emphcolumn="<%= bix.getMetadata() %>" />
+	<dspace:browselist browseInfo="<%= bi %>" emphcolumn="" />
+	<%-- <dspace:browselist browseInfo="<%= bi %>" emphcolumn="<%= bix.getMetadata() %>" /> --%>
     <%
         }
         else if (withdrawn || privateitems)
         {
     %>
-    <dspace:browselist browseInfo="<%= bi %>" emphcolumn="<%= bix.getSortOption().getMetadata() %>" linkToEdit="true" disableCrossLinks="true" />
+    <dspace:browselist browseInfo="<%= bi %>" emphcolumn="" linkToEdit="true" disableCrossLinks="true" />
+    <%-- <dspace:browselist browseInfo="<%= bi %>" emphcolumn="<%= bix.getSortOption().getMetadata() %>" linkToEdit="true" disableCrossLinks="true" /> --%>
 	<%
     	}
     	else
     	{
 	%>
-	<dspace:browselist browseInfo="<%= bi %>" emphcolumn="<%= bix.getSortOption().getMetadata() %>" />
+	<dspace:browselist browseInfo="<%= bi %>" emphcolumn="" />
+	<%-- <dspace:browselist browseInfo="<%= bi %>" emphcolumn="<%= bix.getSortOption().getMetadata() %>" /> --%>
 	<%
     	}
 	%>

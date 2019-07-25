@@ -270,13 +270,15 @@
       if (bix.isMetadataIndex())
       {
 %>
-      <dspace:browselist browseInfo="<%= bi %>" emphcolumn="<%= bix.getMetadata() %>" />
+      <dspace:browselist browseInfo="<%= bi %>" emphcolumn="" />
+      <%-- <dspace:browselist browseInfo="<%= bi %>" emphcolumn="<%= bix.getMetadata() %>" /> --%>
 <%
       }
       else
       {
 %>
-      <dspace:browselist browseInfo="<%= bi %>" emphcolumn="<%= bix.getSortOption().getMetadata() %>" />
+      <dspace:browselist browseInfo="<%= bi %>" emphcolumn="" />
+      <%-- <dspace:browselist browseInfo="<%= bi %>" emphcolumn="<%= bix.getSortOption().getMetadata() %>" /> --%>
 <%
       }
 %>
