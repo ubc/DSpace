@@ -33,7 +33,7 @@ public class UBCLicenseUtil {
 	private static List<String> LICENSE_ORDER = Arrays.asList(
 		CCBYNC, CCBY, CCBYSA, CCBYND, CCBYNCSA, CCBYNCND, CC0, POLICY81);
 	private static List<String> LICENSE_ORDER_RESTRICTED = Arrays.asList(
-		POLICY81, CCBYNC, CCBY, CCBYSA, CCBYND, CCBYNCSA, CCBYNCND, CC0);
+		POLICY81);
 	private static Map<String,String> FULLNAMES = initFullnames();
 	private static Map<String,String> LICENSE_URLS = initLicenseUrls();
 	private static Map<String,String> BADGE_URLS = initBadgeUrls();
