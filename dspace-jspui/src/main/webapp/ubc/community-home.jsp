@@ -88,6 +88,10 @@
 			<small><fmt:message key="jsp.community-home.heading1"/></small>
 			<%-- <a class="statisticsLink btn btn-info" href="<%= request.getContextPath() %>/handle/<%= community.getHandle() %>/statistics"><fmt:message key="jsp.community-home.display-statistics"/></a> --%>
 			</h2>
+				
+			<% if (StringUtils.isNotBlank(intro)) { %>
+			<%= intro %>
+			<% } %>
 		</div>
 	<%  if (logo != null) { %>
 		 <div class="col-md-4">
@@ -95,10 +99,6 @@
 		 </div> 
 	<% } %>
 	</div>
-
-	<% if (StringUtils.isNotBlank(intro)) { %>
-	  <%= intro %>
-	<% } %>
 </div>
 <p class="copyrightText"><%= copyright %></p>
 	<div class="row">
@@ -200,7 +200,7 @@
 
 <c:if test='${!empty collections}'>
 	<h3><fmt:message key="jsp.community-home.heading2"/></h3>
-	<div class="col-md-6">
+	<div class="col-md-12">
 		<!-- Always visible non-empty collections -->
 		<div class="list-group">
 			<c:forEach items='${nonEmptyCollections}' var='collection'>

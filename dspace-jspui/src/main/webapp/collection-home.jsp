@@ -117,17 +117,17 @@
 %>
 		<small><fmt:message key="jsp.collection-home.heading1"/></small>
       <%-- <a class="statisticsLink btn btn-info" href="<%= request.getContextPath() %>/handle/<%= collection.getHandle() %>/statistics"><fmt:message key="jsp.collection-home.display-statistics"/></a> --%>
-      </h2></div>
+			</h2>
+			<% if (StringUtils.isNotBlank(intro)) { %>
+				<%= intro %>
+			<% 	} %>
+		</div>
 <%  if (logo != null) { %>
         <div class="col-md-4">
         	<img class="img-responsive pull-right" alt="Logo" src="<%= request.getContextPath() %>/retrieve/<%= logo.getID() %>" />
         </div>
 <% 	} %>
 	</div>
-<%
-	if (StringUtils.isNotBlank(intro)) { %>
-	<%= intro %>
-<% 	} %>
   </div>
   <p class="copyrightText"><%= copyright %></p>
   
