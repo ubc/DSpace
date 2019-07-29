@@ -50,12 +50,14 @@
     String topNews = NewsManager.readNewsFile(LocaleSupport.getLocalizedMessage(pageContext, "news-top.html"));
     String sideNews = NewsManager.readNewsFile(LocaleSupport.getLocalizedMessage(pageContext, "news-side.html"));
 
+	/*
     boolean feedEnabled = ConfigurationManager.getBooleanProperty("webui.feed.enable");
     String feedData = "NONE";
     if (feedEnabled)
     {
         feedData = "ALL:" + ConfigurationManager.getProperty("webui.feed.formats");
     }
+	*/
     
 	Context context = UIUtil.obtainContext(request);
 	request.setAttribute("context", context);
@@ -64,7 +66,8 @@
     RecentSubmissions submissions = (RecentSubmissions) request.getAttribute("recent.submissions");
 %>
 
-<dspace:layout locbar="nolink" titlekey="jsp.home.title" feedData="<%= feedData %>">
+<dspace:layout locbar="nolink" titlekey="jsp.home.title">
+<%-- <dspace:layout locbar="nolink" titlekey="jsp.home.title" feedData="<%= feedData %>"> --%>
 
 	<div class='flex mb2'>
 		<!-- blurbs sidebar -->

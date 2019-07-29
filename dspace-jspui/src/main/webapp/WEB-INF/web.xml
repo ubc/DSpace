@@ -867,6 +867,14 @@
         <servlet-name>blurb-servlet</servlet-name>
         <url-pattern>/blurb</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>home-servlet</servlet-name>
+        <servlet-class>org.dspace.app.webui.ubc.HomeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>home-servlet</servlet-name>
+        <url-pattern/>
+    </servlet-mapping>
     <!-- Quartz Scheduler for periodic thumbnail generation -->
     <servlet>
         <servlet-name>SchedulerStarter</servlet-name>
