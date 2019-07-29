@@ -626,7 +626,7 @@
                     <%
                         }
                     %>   
-                        <input class="btn btn-primary col-md-<%= 12 / (col + 2) %>" type="submit" name="<%=UploadStep.SUBMIT_UPLOAD_BUTTON%>" value="<fmt:message key="jsp.submit.general.next"/>" />
+                        <input class="btn btn-primary col-md-<%= 12 / (col + 2) %>" type="submit" name="<%=UploadStep.SUBMIT_SKIP_BUTTON%>" value="<fmt:message key="jsp.submit.general.next"/>" />
             </div> 
         </div>
     </form>

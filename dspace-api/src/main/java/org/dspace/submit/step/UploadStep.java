@@ -156,8 +156,9 @@ public class UploadStep extends AbstractProcessingStep
         
         // if user pressed jump-to button in process bar,
         // return success (so that jump will occur)
-        if (buttonPressed.startsWith(PROGRESS_BAR_PREFIX) || 
-        		buttonPressed.startsWith(PREVIOUS_BUTTON))
+		if (buttonPressed.startsWith(PROGRESS_BAR_PREFIX) ||
+				buttonPressed.startsWith(PREVIOUS_BUTTON) ||
+				buttonPressed.startsWith(SUBMIT_SKIP_BUTTON))
         {
             // check if a file is required to be uploaded
             if (fileRequired && !item.hasUploadedFiles())

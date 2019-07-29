@@ -228,7 +228,7 @@ public class JSPUploadStep extends JSPStep
         }
 
         
-        if (buttonPressed.equalsIgnoreCase(UploadStep.SUBMIT_SKIP_BUTTON) ||
+        if (buttonPressed.equalsIgnoreCase(UploadStep.SUBMIT_SKIP_BUTTON) && !fileRequired ||
             (buttonPressed.equalsIgnoreCase(UploadStep.SUBMIT_UPLOAD_BUTTON) && !fileRequired))
         {
             Bundle[] bundles = subInfo.getSubmissionItem().getItem()
