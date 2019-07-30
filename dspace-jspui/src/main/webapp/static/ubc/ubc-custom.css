@@ -91,6 +91,11 @@ pre.pre-horiz-scroll
 	background: #0059bb;
 }
 
+/* table word wrap/title wrap */
+.table td {
+	hyphens: auto;
+}
+
 /* UBC Banner & footer */
 .ubcBanner a {
 	color: #002145;

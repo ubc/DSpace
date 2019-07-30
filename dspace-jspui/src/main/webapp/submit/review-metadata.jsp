@@ -184,6 +184,10 @@
                         }
                    }
                 }
+				else if (inputs[z].getElement().equals("description"))
+				{ // hack to show description without escaping the html
+                   row.append(values[i].value);
+				}
                 else
                 {
                    row.append(Utils.addEntities(values[i].value));

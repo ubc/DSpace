@@ -598,7 +598,7 @@ public class BrowseListTag extends TagSupport
                     }
 
                     String id = "t" + Integer.toString(colIdx + 1);
-                    out.print("<td headers=\"" + id + "\" class=\""
+                    out.print("<td lang='en' headers=\"" + id + "\" class=\""
                     		+ rOddOrEven + "Row" + cOddOrEven[colIdx] + "Col" + markClass + "\" " + extras + ">"
                     	+ (emph[colIdx] ? "<strong>" : "") + metadata + (emph[colIdx] ? "</strong>" : "")
                     	+ "</td>");
