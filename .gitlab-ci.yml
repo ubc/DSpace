@@ -63,7 +63,7 @@ production_cwsei:
     url: http://cwseispace.elearning.ubc.ca
   when: manual
   only:
-    - cwseispace
+    - /^cwseispace-\d\d\d\d-\d\d-\d\d$/
 staging:
   stage: staging
   variables:
