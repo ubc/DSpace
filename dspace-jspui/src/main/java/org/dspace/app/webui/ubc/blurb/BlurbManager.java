@@ -53,6 +53,7 @@ public class BlurbManager {
 			user = EPerson.create(context);
 			user.setEmail(BLURB_STORAGE_EMAIL);
 			user.update();
+			context.commit();
 		}
 		storage = user;
 		context.restoreAuthSystemState();
