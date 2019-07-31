@@ -46,10 +46,10 @@ public class UBCAccessChecker {
 		if (restriction.isEmpty()) restriction = ACCESS_EVERYONE;
 		log.debug("Item Restriction Is: " + restriction);
 
-		if (restriction.equalsIgnoreCase(ACCESS_EVERYONE)) {
-			return false;
+		if (restriction.equalsIgnoreCase(ACCESS_RESTRICTED)) {
+			return true;
 		}
-		return true;
+		return false;
 	}
 
 	/**
@@ -61,7 +61,7 @@ public class UBCAccessChecker {
 	public static boolean isRestricted(Item item, Bitstream file) {
 		if (UBCAccessChecker.isRestricted(item)) return true;
 		String accessRight = file.getAccessRights();
-		if (accessRight.equals(ACCESS_RESTRICTED)) {
+		if (accessRight.equalsIgnoreCase(ACCESS_RESTRICTED)) {
 			return true;
 		}
 		return false;
