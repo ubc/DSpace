@@ -129,7 +129,7 @@
     <%-- HACK: marginwidth, marginheight: for non-CSS compliant Netscape browser --%>
     <body>
 <a class="sr-only" href="#content">Skip navigation</a>
-<dspace:include page="/layout/ubc-banner.jsp" />
+<jsp:include page="/layout/ubc-banner.jsp" />
 <header class="navbar navbar-inverse">    
     <%
     if (!navbar.equals("off"))

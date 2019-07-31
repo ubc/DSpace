@@ -12,6 +12,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
+import org.apache.log4j.Logger;
 
 /**
  * Simple include tag that can include locally-modified JSPs
@@ -21,6 +22,8 @@ import javax.servlet.jsp.tagext.TagSupport;
  */
 public class IncludeTag extends TagSupport
 {
+    public static final Logger log = Logger.getLogger(IncludeTag.class);
+
     /** Path of default JSP version */
     private String page;
 
@@ -53,7 +56,9 @@ public class IncludeTag extends TagSupport
         }
         catch (IOException ie)
         {
-            throw new JspException(ie);
+			log.error(ie);
+			// TODO: figure out why verf keeps throwing an exception here and then we can uncomment it out again
+            //throw new JspException(ie);
         }
         catch (ServletException se)
         {
