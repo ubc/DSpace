@@ -1750,8 +1750,8 @@
 
     <value-pairs value-pairs-name="Category" dc-term="identifier">
       <pair>
-        <displayed-value>Assignments/Homework</displayed-value>
-        <stored-value>Assignments/Homework</stored-value>
+        <displayed-value>Assignments/ Homework</displayed-value>
+        <stored-value>Assignments/ Homework</stored-value>
       </pair>
       <pair>
         <displayed-value>Concept/Clicker Questions</displayed-value>
