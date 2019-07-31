@@ -3,7 +3,7 @@
 POSTGRES_DB_HOST=${POSTGRES_DB_HOST:-postgres}
 POSTGRES_DB_PORT=${POSTGRES_DB_PORT:-5432}
 
-export PATH=$PATH:/dsapce/bin
+#export PATH=$PATH:/dspace/bin
 
 # Create an configure database
 if [ -n $POSTGRES_DB_HOST -a -n $POSTGRES_DB_PORT ]; then
@@ -30,7 +30,7 @@ if [ -n "$DSPACE_WEBAPPS" ]; then
 fi
 
 # recreate indexes
-dspace index-lucene-init
+#dspace index-lucene-init
 
 # Start Tomcat
 exec catalina.sh run

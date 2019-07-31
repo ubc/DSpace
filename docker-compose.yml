@@ -11,8 +11,8 @@ services:
       - 5432:5432
 
   # DSpace
-  statspace:
-    image: ubcctlt/dspace:statspace
+  seispace:
+    image: ubcctlt/dspace:cwseispace
     environment:
       - POSTGRES_SCHEMA=statspacedev
       - POSTGRES_USER=statspacedev
