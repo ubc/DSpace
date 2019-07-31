@@ -97,4 +97,27 @@
 			The year the item was issued
 		</scope_note>
 	</dc-type>
+
+	<dc-type>
+		<schema>ubc</schema>
+		<element>affiliation</element>
+		<scope_note>
+		</scope_note>
+	</dc-type>
+
+	<dc-type>
+		<schema>ubc</schema>
+		<element>rightsNotice</element>
+		<scope_note>
+		</scope_note>
+	</dc-type>
+
+	<dc-type>
+		<schema>ubc</schema>
+		<element>course</element>
+		<scope_note>
+			Defines the course to which it is attached
+		</scope_note>
+	</dc-type>
+
 </dspace-dc-types>
