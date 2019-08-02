@@ -143,15 +143,15 @@
 										<!-- These are the actual fields read & stored on form submit -->
 										<!-- Year -->
 										<input type='text' pattern="[1-2]\d\d\d" maxlength="4" size="8" id='${fieldNameYear}' name='${fieldNameYear}' 
-											   <c:if test='${field.isReadOnly}'>readonly</c:if>
+											   <c:if test='${field.isReadOnly}'>readonly</c:if> title="Must be a 4 digit year"
 											   value='<c:if test='${field.date.year > 0}'>${field.date.year}</c:if>' class="text-center form-control" placeholder="Year" />
 										<!-- Month -->
 										<input type='text' pattern="[1-9]|[0][1-9]|[1][0-2]" maxlength="2" size="5" id='${fieldNameMonth}' name='${fieldNameMonth}'
-											   <c:if test='${field.isReadOnly}'>readonly</c:if>
+											   <c:if test='${field.isReadOnly}'>readonly</c:if> title="Must be a valid month from 1 to 12"
 											   value='<c:if test='${field.date.month > 0}'>${field.date.month}</c:if>' class="text-center form-control" placeholder="Month" />
 										<!-- Day -->
 										<input type='text' pattern="[1-9]|[0][1-9]|[1-2]\d|[3][0-1]" maxlength="2" size="5" id='${fieldNameDay}' name='${fieldNameDay}' 
-											   <c:if test='${field.isReadOnly}'>readonly</c:if>
+											   <c:if test='${field.isReadOnly}'>readonly</c:if> title="Must be a valid date from 1 to 31"
 											   value='<c:if test='${field.date.day > 0}'>${field.date.day}</c:if>' class="text-center form-control" placeholder="Day" />
 									</div>
 								</div>
