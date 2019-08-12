@@ -41,6 +41,9 @@
     String dsVersion = Util.getSourceVersion();
     String generator = dsVersion == null ? "DSpace" : "DSpace "+dsVersion;
     String analyticsKey = ConfigurationManager.getProperty("jspui.google.analytics.key");
+
+	request.setAttribute("navbarOff", navbar.equals("off"));
+	request.setAttribute("locbarOn", locbar);
 %>
 
 <!DOCTYPE html>
@@ -131,26 +134,15 @@
 <a class="sr-only" href="#content">Skip navigation</a>
 <jsp:include page="/layout/ubc-banner.jsp" />
 <header class="navbar navbar-inverse">    
-    <%
-    if (!navbar.equals("off"))
-    {
-%>
-            <div class="container">
-                <dspace:include page="<%= navbar %>" />
-            </div>
-<%
-    }
-    else
-    {
-    	%>
-        <div class="container">
-            <dspace:include page="/layout/navbar-minimal.jsp" />
-        </div>
-<%    	
-    }
-%>
+	<div class="container">
+		<c:if test="${!navbarOff}">
+			<jsp:include page="${requestScope['dspace.layout.navbar']}" />
+		</c:if>
+		<c:if test="${navbarOff}">
+            <jsp:include page="/layout/navbar-minimal.jsp" />
+		</c:if>
+	</div>
 </header>
-
 <main id="content" role="main">
 	<%--
 <div class="container banner">
@@ -166,21 +158,16 @@
 <br/>
 	--%>
                 <%-- Location bar --%>
-<%
-    if (locbar)
-    {
-%>
-<div class="container">
-                <dspace:include page="/layout/location-bar.jsp" />
-</div>                
-<%
-    }
-%>
+<c:if test="${locbar}">
+	<div class="container">
+		<jsp:include page="/layout/location-bar.jsp" />
+	</div>                
+</c:if>
 
 
         <%-- Page contents --%>
 <div class="container">
-<% if (request.getAttribute("dspace.layout.sidebar") != null) { %>
-	<div class="row">
-		<div class="col-md-9">
-<% } %>		
+	<c:if test="${requestScope['dspace.layout.sidebar'] != null}">
+		<div class="row">
+			<div class="col-md-9">
+	</c:if>

@@ -57,8 +57,7 @@ public class IncludeTag extends TagSupport
         catch (IOException ie)
         {
 			log.error(ie);
-			// TODO: figure out why verf keeps throwing an exception here and then we can uncomment it out again
-            //throw new JspException(ie);
+            throw new JspException(ie);
         }
         catch (ServletException se)
         {
