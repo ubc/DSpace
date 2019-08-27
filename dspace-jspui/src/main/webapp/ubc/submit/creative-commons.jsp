@@ -121,7 +121,7 @@ know what step the submission is on.
 		<div class="btn-group col-sm-offset-4 col-sm-8 col-md-offset-6 col-md-6">
 			<input class="btn btn-default col-md-offset-3 col-md-3 col-sm-4" type="submit" name="<%=AbstractProcessingStep.PREVIOUS_BUTTON%>" value="<fmt:message key="jsp.submit.general.previous"/>" formnovalidate />
 			<input class="btn btn-default col-md-3 col-sm-4" type="submit" name="<%=AbstractProcessingStep.CANCEL_BUTTON%>" value="<fmt:message key="jsp.submit.general.cancel-or-save.button"/>" formnovalidate />
-			<input class="btn btn-primary col-md-3 col-sm-4" id="nextStepButton" type="submit" name="<%=AbstractProcessingStep.NEXT_BUTTON%>" value="<fmt:message key="jsp.submit.general.next"/>" />
+			<input class="btn btn-primary col-md-3 col-sm-4" id="nextStepButton" type="submit" name="<%=AbstractProcessingStep.NEXT_BUTTON%>" value="<fmt:message key="jsp.submit.general.submit"/>" />
 		</div>
     </form>
 

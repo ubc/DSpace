@@ -153,7 +153,7 @@
          <repeatable>true</repeatable>
 		 <label>Keywords/Keyphrases</label>
          <input-type>onebox</input-type>
-		 <hint>Please enter keywords or phrases to make finding this resource easier. Please list one keyword/phrase at a time (press the "Add More" button to add more entries).</hint>
+		 <hint>Please enter keywords to make finding your resource easier for others, including:&lt;ul&gt; &lt;li&gt;the UBC course(s) it was originally developed for (in the format “BIOL 121” with a space between BIOL and the course number) and&lt;/li&gt; &lt;li&gt;additional keywords or phrases that are relevant to the content and will be useful search terms (e.g. “chromosomes; DNA replication”).&lt;/li&gt; &lt;/ul&gt;Please list one keyword/phrase at a time (press the "Add More" button to add more entries).</hint>
        </field>
 
        <!-- Prerequisite Knowledge -->
@@ -175,7 +175,7 @@
          <repeatable>true</repeatable>
          <label>Related Materials</label>
          <input-type>onebox</input-type>
-		 <hint>Optional: You can link to a similar resource you previously posted on BioSpace, or enter external links (URLs) to another related resource. For example, if you are submitting a video on "iron exchange chromatography", you could link to a related video on "column chromatography".</hint>
+		 <hint>Optional: You can link to a similar resource you previously posted on BioSpace, or enter external links (URLs) to another related resource. For example, if you are submitting a video on "ion exchange chromatography", you could link to a related video on "column chromatography".</hint>
        </field>
 
 	   <!-- Time Estimate -->

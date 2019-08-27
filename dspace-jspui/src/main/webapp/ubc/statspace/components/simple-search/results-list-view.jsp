@@ -69,7 +69,7 @@
 					</c:if>
 					<!-- Author -->
 					<ul class='list-inline'>
-						<li><strong>Author:</strong></li>
+						<li><strong>Contributor:</strong></li>
 						<c:forEach items="${result.authors}" var="author">
 							<jsp:include page="/ubc/statspace/components/simple-search/tag-list-item.jsp">
 								<jsp:param name="listItem" value="${author}" />
