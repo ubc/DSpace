@@ -13,6 +13,7 @@
 --%>
 
 <%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page import="org.apache.commons.lang.StringUtils" %>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -177,29 +178,24 @@
 				<!-- List Applied Filters -->
 				<c:set var='AppliedFilterClass' value='AppliedFilterFormGroup' />
 				<c:forEach items='${appliedFilters}' var='filter' varStatus='filterLoop'>
-					<div class=''>
-						<div class='form-group form-group-sm ${AppliedFilterClass}' id='${AppliedFilterClass}_${filterLoop.index}'>
-							<label>Filter</label>
-							<select class='form-control' name='filtername' id="filtername_${filterLoop.index+1}">
-								<c:forEach items='${filterNameOptions}' var='filterNameOption'>
-									<option value="${filterNameOption}" ${filter[0] == filterNameOption?'selected':''}>
-										<fmt:message key="jsp.search.filter.${filterNameOption}"/>
-									</option>
-								</c:forEach>
-							</select>
-							<select class='form-control' name='filtertype' id="filtertype_${filterLoop.index+1}">
-								<c:forEach items='${filterTypeOptions}' var='filterTypeOption'>
-									<option value="${filterTypeOption}" ${filter[1] == filterTypeOption?'selected':''}>
-										<fmt:message key="jsp.search.filter.op.${filterTypeOption}"/>
-									</option>
-								</c:forEach>
-							</select>
-							<input class='form-control' type='text' id="filterquery_${filterLoop.index+1}" name='filterquery'
-								   value='${filter[2]}' required />
-							<button id="filter_remove_${filterLoop.index+1}" type="button" class="close editMetadataRemoveEntryButton" aria-label="Remove">
-								<span class="glyphicon">&times;</span>
-							</button>
-						</div>
+					<div class='form-group form-group-sm ${AppliedFilterClass}' id='${AppliedFilterClass}_${filterLoop.index}'>
+						<span class="label label-primary">
+							<c:forEach items='${filterNameOptions}' var='filterNameOption'>
+								<c:if test="${filter[0] == filterNameOption}">
+									<fmt:message key="jsp.search.filter.${filterNameOption}"/>
+									<input type="hidden" name='filtername' id="filtername_${filterLoop.index+1}" value="${filterNameOption}"/>
+								</c:if>
+							</c:forEach>
+							<c:forEach items='${filterTypeOptions}' var='filterTypeOption'>
+								<c:if test="${filter[1] == filterTypeOption}">
+									<fmt:message key="jsp.search.filter.op.${filterTypeOption}"/>
+									<input type="hidden" name='filtertype' id="filtertype_${filterLoop.index+1}" value="${filterTypeOption}"/>
+								</c:if>
+							</c:forEach>
+							<c:out value="${StringUtils.abbreviate(filter[2], 30)}"/>
+							<input type="hidden" name='filterquery' value="${filter[2]}"/>
+							<button id="filter_remove_${filterLoop.index+1}" type="button" class="editMetadataRemoveEntryButton"><span class="glyphicon glyphicon-remove"></span></button>
+						</span>
 					</div>
 				</c:forEach>
 				<script>

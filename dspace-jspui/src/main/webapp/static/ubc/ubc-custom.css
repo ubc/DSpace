@@ -24,6 +24,11 @@ pre.pre-horiz-scroll
 }
 .editMetadataRemoveEntryButton {
 	float: none;
+	-webkit-appearance: none;
+	padding: 0;
+	cursor: pointer;
+	background: transparent;
+	border: 0;
 }
 
 /* MyDSpace */
