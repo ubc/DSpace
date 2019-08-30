@@ -73,7 +73,7 @@
 						<div class='form-inline'>
 							<label>Filter</label>
 							<select class='form-control input-sm' id='filtername' name='filtername' disabled required>
-								<option class='hidden' selected disabled>- Select Field -</option>
+								<option class='hidden' value="" selected disabled>- Select Field -</option>
 								<c:forEach items='${filterNameOptions}' var='filterNameOption'>
 									<option value="${filterNameOption}"><fmt:message key="jsp.search.filter.${filterNameOption}"/></option>
 								</c:forEach>
