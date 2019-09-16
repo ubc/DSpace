@@ -54,6 +54,20 @@
 				<div>
 					<!-- List Resource Types -->
 					<small>
+						<c:choose>
+							<c:when test="${result.visitCount == 1}">
+								<div class="text-muted">
+									<fmt:formatNumber pattern="#,##0" value="${result.visitCount}" /> view
+									<p/>
+								</div>
+							</c:when>
+							<c:when test="${result.visitCount > 1}">
+								<div class="text-muted">
+									<fmt:formatNumber pattern="#,##0" value="${result.visitCount}" /> views
+									<p/>
+								</div>
+							</c:when>
+						</c:choose>
 						<strong>Resource Type:</strong>
 						<ul class='list-inline'>
 							<c:forEach items="${result.resourceTypes}" var="type">

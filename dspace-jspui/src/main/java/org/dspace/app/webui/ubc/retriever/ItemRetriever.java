@@ -26,6 +26,12 @@ import org.dspace.content.DCDate;
 import org.dspace.core.Context;
 import org.dspace.ubc.content.Comment;
 
+import org.dspace.core.Constants;
+import org.dspace.statistics.Dataset;
+import org.dspace.statistics.content.StatisticsTable;
+import org.dspace.statistics.content.DatasetDSpaceObjectGenerator;
+import org.dspace.statistics.content.StatisticsDataVisits;
+
 /**
  * JSP helper for getting all metadata and files associated with an item.
  * Basically a unifier for ItemBitstreamRetriever and ItemMetadataRetriever.
@@ -68,11 +74,12 @@ public class ItemRetriever {
 	private List<String> relatedMaterials = new ArrayList<>();
 	private List<String> alternativeLanguages = new ArrayList<>();
 	private List<String> keywords = new ArrayList<>();
-    private List<Comment> comments = new ArrayList<>();
+	private List<Comment> comments = new ArrayList<>();
 	private List<RelatedResource> relatedResources = new ArrayList<>();
-    private double avgRating;
-    private int activeCommentCount;
-    private int activeRatingCount;
+	private double avgRating;
+	private int activeCommentCount;
+	private int activeRatingCount;
+	private int visitCount;
 
 	public ItemRetriever(Context context, HttpServletRequest request, Item item) throws SQLException, UnsupportedEncodingException {
 		this.item = item;
@@ -135,23 +142,44 @@ public class ItemRetriever {
 
 		initRelatedMaterials(context);
 
-        UBCAccessChecker curatorCheck = new UBCAccessChecker(context);
-        if (curatorCheck.hasCuratorAccess()) {
-            initCommentList("ubc.comments", context, comments);
-        } else {
-            initCommentList("ubc.comments", context, comments, true);
-        }
-        avgRating = getDoubleValue("ubc.avgRating");
-        activeCommentCount = 0;
-        activeRatingCount = 0;
-        for (Comment c : comments) {
-            if (c.getStatus() == Comment.Status.ACTIVE) {
-                activeCommentCount++;
-                if (c.getRating() > 0) {
-                    activeRatingCount++;
-                }
-            }
-        }
+		UBCAccessChecker curatorCheck = new UBCAccessChecker(context);
+		if (curatorCheck.hasCuratorAccess()) {
+			initCommentList("ubc.comments", context, comments);
+		} else {
+			initCommentList("ubc.comments", context, comments, true);
+		}
+		avgRating = getDoubleValue("ubc.avgRating");
+		activeCommentCount = 0;
+		activeRatingCount = 0;
+		for (Comment c : comments) {
+			if (c.getStatus() == Comment.Status.ACTIVE) {
+				activeCommentCount++;
+				if (c.getRating() > 0) {
+					activeRatingCount++;
+				}
+			}
+		}
+
+		this.visitCount = 0;
+		StatisticsTable statisticsTable = new StatisticsTable(new StatisticsDataVisits(this.item));
+		statisticsTable.setTitle("Visits");
+
+		DatasetDSpaceObjectGenerator dsoAxis = new DatasetDSpaceObjectGenerator();
+		dsoAxis.addDsoChild(Constants.ITEM, 10, false, -1);
+		statisticsTable.addDatasetGenerator(dsoAxis);
+		try {
+			Dataset dataSet = statisticsTable.getDataset(context);
+			if (dataSet != null) {
+				int numRow = dataSet.getNbRows();
+				int numCol = dataSet.getNbCols();
+				if (numRow == 1 && numCol == 1) {
+					String[][] matrix = dataSet.getMatrix();
+					this.visitCount = Integer.parseInt(matrix[0][0]);
+				}
+			}
+		} catch (Exception e) {
+			// ignore
+		}
 	}
 
 	private String getSingleValue(String field) {
@@ -318,17 +346,20 @@ public class ItemRetriever {
 	public List<RelatedResource> getRelatedResources() {
 		return relatedResources;
 	}
-    public double getAvgRating() {
-        return avgRating;
-    }
-    public int getActiveCommentCount() {
-        return activeCommentCount;
-    }
-    public int getActiveRatingCount() {
-        return activeRatingCount;
-    }
+	public double getAvgRating() {
+		return avgRating;
+	}
+	public int getActiveCommentCount() {
+		return activeCommentCount;
+	}
+	public int getActiveRatingCount() {
+		return activeRatingCount;
+	}
+	public int getVisitCount() {
+		return visitCount;
+	}
 	public Item getItem() {
 		return item;
 	}
-	
+
 }

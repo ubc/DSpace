@@ -41,6 +41,20 @@
 			<div>
 				<small>
 				<c:set var="result" value="${result}" scope="request"></c:set>
+				<c:choose>
+					<c:when test="${result.visitCount == 1}">
+						<div class="text-muted">
+							<fmt:formatNumber pattern="#,##0" value="${result.visitCount}" /> view
+							<p/>
+						</div>
+					</c:when>
+					<c:when test="${result.visitCount > 1}">
+						<div class="text-muted">
+							<fmt:formatNumber pattern="#,##0" value="${result.visitCount}" /> views
+							<p/>
+						</div>
+					</c:when>
+				</c:choose>
 				<jsp:include page="/ubc/statspace/components/simple-search/subject-list.jsp">
 					<jsp:param name="retrieverVar" value="result" />
 				</jsp:include>
