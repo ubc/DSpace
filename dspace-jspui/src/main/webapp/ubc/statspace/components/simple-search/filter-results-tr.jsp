@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>  
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <c:set var="FacetResultURL" 
@@ -9,7 +10,7 @@
 		<td>
 			<a href='${FacetResultURL}'
 			   title='<fmt:message key="jsp.search.facet.narrow"><fmt:param>${param.label}</fmt:param></fmt:message>'>
-				${param.label}
+				${fn:escapeXml(param.label)}
 			</a>
 		</td>
 		<td class='text-right'>${param.count}</td>

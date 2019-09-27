@@ -17,6 +17,7 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>  
 <%@ taglib uri="http://www.dspace.org/dspace-tags.tld" prefix="dspace" %>
 
 <dspace:layout titlekey="jsp.search.title">
@@ -41,7 +42,7 @@
 					</label>
 					<div class="">
 						<div class="input-group">
-							<input class="form-control input-sm" type="text" id="query" name="query" value="${queryStr}"/>
+							<input class="form-control input-sm" type="text" id="query" name="query" value="${fn:escapeXml(queryStr)}"/>
 							<span class="input-group-btn">
 								<input class="btn btn-primary btn-sm" type="submit" id="main-query-submit" value="<fmt:message key="jsp.general.go"/>" />
 							</span>
@@ -193,7 +194,7 @@
 								</c:if>
 							</c:forEach>
 							<c:out value="${StringUtils.abbreviate(filter[2], 30)}"/>
-							<input type="hidden" name='filterquery' value="${filter[2]}"/>
+							<input type="hidden" name='filterquery' value="${fn:escapeXml(filter[2])}"/>
 							<button id="filter_remove_${filterLoop.index+1}" type="button" class="editMetadataRemoveEntryButton"><span class="glyphicon glyphicon-remove"></span></button>
 						</span>
 					</div>

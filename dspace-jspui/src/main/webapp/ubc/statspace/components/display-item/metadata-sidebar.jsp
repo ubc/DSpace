@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>  
 
 <%@ taglib uri="http://www.dspace.org/dspace-tags.tld" prefix="dspace" %>
 
@@ -12,33 +13,14 @@
 	</div>
 	<ul class='list-group'> 
 		<c:forEach items="${itemRetriever.authors}" var="author" varStatus="loop">
-			<li class='list-group-item'>${author}</li>
+			<li class='list-group-item'>${fn:escapeXml(author)}</li>
 		</c:forEach>
 	</ul> 
 </div>
 <!-- Subjects -->
-<c:if test='${!empty itemRetriever.subjects}'>
-	<div class='panel panel-default'>
-		<div class='panel-heading'>
-			<h4 class="panel-title"><span class='glyphicon glyphicon-tag'></span> Subjects</h4>
-		</div>
-		<ul class='list-group'>
-			<c:forEach items="${itemRetriever.subjects}" var="subject" varStatus="loopStatus">
-				<li class='list-group-item'>
-					<c:url value="/simple-search" var="url">
-						<c:param name="filtername" value="subject" />
-						<c:param name="filterquery" value="${subject.subject}" />
-						<c:param name="filtertype" value="equals" />
-					</c:url>
-
-					<a class="resourceLink" href="${url}" target="_blank" title="${subject.subject}">
-						${subject.subject}
-					</a>
-				</li>
-			</c:forEach>
-		</ul>
-	</div>
-</c:if>
+<jsp:include page="/ubc/statspace/components/display-item/subjects-list.jsp">
+	<jsp:param name="retrieverVar" value="itemRetriever" />
+</jsp:include>
 <!-- Keywords -->
 <c:if test='${!empty itemRetriever.keywords}'>
 	<div class='panel panel-default'>

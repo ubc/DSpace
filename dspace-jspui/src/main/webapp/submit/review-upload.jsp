@@ -84,7 +84,7 @@
 	            downloadLink = "html/db-id/" + item.getID();
 	        }
 %>
-	                                            <a href="<%= request.getContextPath() %>/<%= downloadLink %>/<%= UIUtil.encodeBitstreamName(bitstreams[i].getName()) %>" target="_blank"><%= bitstreams[i].getName() %></a> - <%= bitstreams[i].getFormatDescription() %>
+	                                            <a href="<%= request.getContextPath() %>/<%= downloadLink %>/<%= UIUtil.encodeBitstreamName(bitstreams[i].getName()) %>" target="_blank"><%= Utils.addEntities(bitstreams[i].getName()) %></a> - <%= Utils.addEntities(bitstreams[i].getFormatDescription()) %>
 <%
 	        switch (format.getSupportLevel())
 	        {

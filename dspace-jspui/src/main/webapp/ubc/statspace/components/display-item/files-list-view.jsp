@@ -1,11 +1,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>  
 
 <c:set var="itemRetriever" value="${requestScope[param.retrieverVar]}"></c:set>
 
 <c:forEach items="${itemRetriever.files}" var="result">
 	<div class="panel panel-warning">
 		<div class="panel-heading">
-			<h3 class="panel-title file-title-overflow">
+			<h3 class="panel-title file-title-overflow" title="${fn:escapeXml(result.name)}">
 				<c:choose>
 					<c:when test="${result.isPlayableVideo}">
 						<span class="glyphicon glyphicon-film"></span>
@@ -20,7 +21,7 @@
 						<span class="glyphicon glyphicon-file"></span>
 					</c:otherwise>
 				</c:choose>
-				<a href="${result.link}">${result.name}</a>
+				<a href="${result.link}">${fn:escapeXml(result.name)}</a>
 				<c:choose>
 					<c:when test="${result.isRestricted}">
 						<i class="glyphicon glyphicon-lock restrictionIconColorInstructorOnly pull-right" title='<fmt:message key="jsp.submit.upload-file-list.tooltip.restricted"/>'></i>
@@ -37,7 +38,7 @@
 					  result.isPlayableVideo}">
 			<div class="panel-body text-center">
 				<c:if test="${!empty result.description}">
-					<p>${result.description}</p>
+					<p>${fn:escapeXml(result.description)}</p>
 				</c:if>
 				<c:if test="${!empty result.thumbnail}">
 					<a href="${result.link}">
@@ -63,7 +64,7 @@
 			</div>
 		</c:if>
 		<div class="panel-footer">
-			<a class="btn btn-primary" href="${result.link}?forcedownload" title="Download" download="${result.name}"><i class="glyphicon glyphicon-download"></i> Download</a>
+			<a class="btn btn-primary" href="${result.link}?forcedownload" title="Download" download="${fn:escapeXml(result.name)}"><i class="glyphicon glyphicon-download"></i> Download</a>
 			<span class="label label-info">${result.size}</span>
 		</div>
 	</div>

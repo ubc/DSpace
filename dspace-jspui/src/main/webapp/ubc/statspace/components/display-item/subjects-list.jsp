@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>  
 
 <c:set var="itemRetriever" value="${requestScope[param.retrieverVar]}"></c:set>
 
@@ -26,18 +27,18 @@
 				</c:url>
 
 				<a href="${urlLevel1}" target="_blank">
-					${subject.level1}
+					${fn:escapeXml(subject.level1)}
 				</a>
 				<c:if test="${not empty subject.level2}">
 					<i class="glyphicon glyphicon-chevron-right subjectsListArrow"></i>
 					<a href="${urlLevel2}" target="_blank">
-						${subject.level2}
+						${fn:escapeXml(subject.level2)}
 					</a>
 				</c:if>
 				<c:if test="${not empty subject.level3}">
 					<i class="glyphicon glyphicon-chevron-right subjectsListArrow"></i>
 					<a href="${urlLevel3}" target="_blank">
-						${subject.level3}
+						${fn:escapeXml(subject.level3)}
 					</a>
 				</c:if>
 			</c:forEach>
