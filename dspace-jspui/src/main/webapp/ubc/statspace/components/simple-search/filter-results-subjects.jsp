@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>  
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <c:set var="facet" value="${requestScope[param.facetVar]}" />
@@ -25,7 +26,7 @@
 		<c:if test='${subject.hasSubjects}'></c:if>
 	</span>
 	<a href='${FacetResultURL}' title='<fmt:message key="jsp.search.facet.narrow"><fmt:param>${subject.label}</fmt:param></fmt:message>' class="SubjectLink">
-		${subject.label}
+		${fn:escapeXml(subject.label)}
 	</a>
 	<c:if test='${subject.hasSubjects}'><ul class='ToggleCollapsible list-unstyled hidden'></c:if>
 	<c:if test='${!subject.hasSubjects}'></li></c:if>

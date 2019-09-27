@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>  
 
 <c:set var="results" value="${requestScope[param.resultsVar]}"></c:set>
 <c:set var="commentingEnabled" value="${requestScope[param.commentingEnabledVar]}"></c:set>
@@ -67,7 +68,7 @@
 						<ul class='list-inline'>
 							<c:forEach items="${result.authors}" var="author">
 								<jsp:include page="/ubc/statspace/components/simple-search/tag-list-item.jsp">
-									<jsp:param name="listItem" value="${author}" />
+									<jsp:param name="listItem" value="${fn:escapeXml(author)}" />
 									<jsp:param name="searchFilterName" value="author" />
 								</jsp:include>
 							</c:forEach>

@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>  
 
 <c:set var="itemRetriever" value="${requestScope[param.retrieverVar]}"></c:set>
 
@@ -9,7 +10,7 @@
 			<!-- File Name -->
 			<div class="panel-heading">
 				<a href="${result.link}">
-					<h3 class="panel-title fileTileTitle" title="${result.name}">
+					<h3 class="panel-title fileTileTitle" title="${fn:escapeXml(result.name)}">
 							<c:choose>
 								<c:when test="${result.isPlayableVideo}">
 									<span class="glyphicon glyphicon-film"></span>
@@ -24,7 +25,7 @@
 									<span class="glyphicon glyphicon-file"></span>
 								</c:otherwise>
 							</c:choose>
-							${result.name}
+							${fn:escapeXml(result.name)}
 					</h3>
 				</a>
 			</div>
@@ -48,12 +49,12 @@
 					</jsp:include>
 				</c:when>
 				<c:when test="${!empty result.thumbnail}">
-					<a href="${result.link}" <c:if test="${!empty result.description}">- ${result.description}</c:if>">
+					<a href="${result.link}" <c:if test="${!empty result.description}">- ${fn:escapeXml(result.description)}</c:if>">
 						<img src="${result.thumbnail}" class="center-block thumbnail">
 					</a>
 				</c:when>
 				<c:otherwise>
-					<a href="${result.link}" <c:if test="${!empty result.description}">- ${result.description}</c:if>">
+					<a href="${result.link}" <c:if test="${!empty result.description}">- ${fn:escapeXml(result.description)}</c:if>">
 						<div class="fileTilePlaceholder">
 							<i class="glyphicon glyphicon-file"></i>
 						</div>
@@ -63,7 +64,7 @@
 			</div>
 			<!-- Download button -->
 			<div class="panel-footer">
-				<a class="btn btn-primary" href="${result.link}?forcedownload" title="Download" download="${result.name}"><i class="glyphicon glyphicon-save"></i> Download</a>
+				<a class="btn btn-primary" href="${result.link}?forcedownload" title="Download" download="${fn:escapeXml(result.name)}"><i class="glyphicon glyphicon-save"></i> Download</a>
 				<span class="label label-info">${result.size}</span>
 				<span class="fileTileRestriction">
 				<c:choose>
