@@ -61,7 +61,7 @@
 								<p class='h4 SimpleSearchDidYouMean'>
 									<em>
 									<fmt:message key="jsp.search.didyoumean">
-										<fmt:param><a id="${DidYouMeanButtonID}" role='button'>${spellcheck}</a></fmt:param>
+										<fmt:param><a id="${DidYouMeanButtonID}" role='button'>${fn:escapeXml(spellcheck)}</a></fmt:param>
 									</fmt:message>
 									</em>
 								</p>
@@ -169,7 +169,7 @@
 								var didYouMeanButton = jQuery('#${DidYouMeanButtonID}');
 								didYouMeanButton.click(function() {
 									var searchForm = jQuery('#${SearchFormID}');
-									searchForm.find('#query').val("${spellcheck}");
+									searchForm.find('#query').val("${fn:escapeXml(spellcheck)}");
 									searchForm.submit();
 								});
 							});
