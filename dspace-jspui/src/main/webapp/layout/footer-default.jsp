@@ -47,11 +47,11 @@
                             <strong>UBC BioSpace</strong>
                         </div>
                 	    <div class="ubc7-address-street">Biology Program<br>
-							2604-2146 Health Sciences Mall<br>
-							DH Copp Building<br>
+							1103-6270 University Boulevard<br>
+							Biological Sciences Building, UBC<br>
 						</div>
                         <div class="ubc7-address-location">
-                            <span class="ubc7-address-city">Vancouver</span>, <span class="ubc7-address-province" title="British Columbia">British Columbia</span> <span class="ubc7-address-country">Canada</span> <span class="ubc7-address-postal">V6T 1Z3</span>
+                            <span class="ubc7-address-city">Vancouver</span>, <span class="ubc7-address-province" title="British Columbia">British Columbia</span> <span class="ubc7-address-country">Canada</span> <span class="ubc7-address-postal">V6T 1Z4</span>
                         </div>
 						<div id="ubc7-address-web">Web <a href="http://www.biology.ubc.ca/">http://www.biology.ubc.ca/</a></div>
 						<div id="ubc7-address-email">Email <u>lt.support@science.ubc.ca</u> for technical difficulties.</div>
