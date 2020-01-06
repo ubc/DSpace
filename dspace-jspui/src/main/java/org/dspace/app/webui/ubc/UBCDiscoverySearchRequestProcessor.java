@@ -236,28 +236,32 @@ public class UBCDiscoverySearchRequestProcessor implements SearchRequestProcesso
     }
 
     protected void logSearch(Context context, HttpServletRequest request, String query, int start, DSpaceObject scope) {
-        UsageSearchEvent searchEvent = new UsageSearchEvent(
-                UsageEvent.Action.SEARCH,
-                request,
-                context,
-                null, Arrays.asList(query), scope);
+        try {
+            UsageSearchEvent searchEvent = new UsageSearchEvent(
+                    UsageEvent.Action.SEARCH,
+                    request,
+                    context,
+                    null, Arrays.asList(query), scope);
 
 
-        if(!StringUtils.isBlank(request.getParameter("rpp"))){
-            searchEvent.setRpp(Integer.parseInt(request.getParameter("rpp")));
-        }
-        if(!StringUtils.isBlank(request.getParameter("sort_by"))){
-            searchEvent.setSortBy(request.getParameter("sort_by"));
-        }
-        if(!StringUtils.isBlank(request.getParameter("order"))){
-            searchEvent.setSortOrder(request.getParameter("order"));
-        }
-        if(!StringUtils.isBlank(request.getParameter("start"))){
-            searchEvent.setPage(start);
-        }
+            if(!StringUtils.isBlank(request.getParameter("rpp"))){
+                searchEvent.setRpp(Integer.parseInt(request.getParameter("rpp")));
+            }
+            if(!StringUtils.isBlank(request.getParameter("sort_by"))){
+                searchEvent.setSortBy(request.getParameter("sort_by"));
+            }
+            if(!StringUtils.isBlank(request.getParameter("order"))){
+                searchEvent.setSortOrder(request.getParameter("order"));
+            }
+            if(!StringUtils.isBlank(request.getParameter("start"))){
+                searchEvent.setPage(start);
+            }
 
-        //Fire our event
-        new DSpace().getEventService().fireEvent(searchEvent);
+            //Fire our event
+            new DSpace().getEventService().fireEvent(searchEvent);
+        } catch (Exception e) {
+            // not action. just skip logging if there is any error
+        }
     }
 
     public void doSimpleSearch(Context context, HttpServletRequest request,
