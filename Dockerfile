@@ -41,7 +41,7 @@ RUN echo "Debian GNU/Linux 9 (stretch) image. (`uname -rsv`)" >> /root/.built &&
     echo "- with DSpace $DSPACE_VERSION on Tomcat $TOMCAT_VERSION"  >> /root/.built
 
 # Download IP geolocation database
-RUN wget https://geolite.maxmind.com/download/geoip/database/GeoLite2-City.tar.gz -O /tmp/GeoLite2-City.tar.gz && \
+RUN wget "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-City&license_key=rbEuXivCNymNtqNp&suffix=tar.gz" -O /tmp/GeoLite2-City.tar.gz && \
     mkdir /tmp/geolite2 && \
     tar xzvf /tmp/GeoLite2-City.tar.gz -C /tmp/geolite2 --strip-components 1 && \
     cp /tmp/geolite2/GeoLite2-City.mmdb $DSPACE_HOME/config && \
