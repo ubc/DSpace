@@ -17,6 +17,7 @@
     prefix="fmt" %>
 	
 <%@ page import="java.io.PrintWriter" %>
+<%@ page import="org.apache.commons.lang.StringEscapeUtils" %>
 
 <%@ page isErrorPage="true" %>
 
@@ -38,19 +39,21 @@
         <%-- <a href="<%= request.getContextPath() %>/">Go to the DSpace home page</a> --%>
         <a href="<%= request.getContextPath() %>/"><fmt:message key="jsp.general.gohome"/></a>
     </p>
-        <!--
-    <%
+
+    <%--
     Throwable ex = (Throwable) request.getAttribute("javax.servlet.error.exception");
     if(ex == null) out.println("No stack trace available<br/>");
     else {
                 for(Throwable t = ex ; t!=null; t = t.getCause())
                 {
-                    out.println(t.getMessage());
+                    out.println(StringEscapeUtils.escapeHtml(t.getMessage()));
                     out.println("=============================================");
-                    t.printStackTrace(new PrintWriter(out));
+                    for (StackTraceElement e : t.getStackTrace()) {
+                        out.println(StringEscapeUtils.escapeHtml(e.toString()));
+                    }
                     out.println("\n\n\n");
                 }
         }
-        %>
-      -->
+    --%>
+
 </dspace:layout>
