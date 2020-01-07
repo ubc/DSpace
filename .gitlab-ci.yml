@@ -13,6 +13,7 @@ variables:
   DEPLOYMENT_MANIFEST: ctlt/statspace
   image__tag: $CI_COMMIT_REF_SLUG
   # Build
+  CI_REGISTRY: docker.io
   CI_REGISTRY_IMAGE: ubcctlt/dspace
   # GitHub integration
   GITHUB_REPO: ubc/dspace
