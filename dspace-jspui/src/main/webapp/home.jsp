@@ -36,6 +36,11 @@
                         <li>Comment on resources to share meaningful feedback with other educators
                         <li>Register and request instructor access, to view instructor-only resources
                     </ul>
+                    <p/>
+                    <div>
+                        <button><a href="<%= request.getContextPath() %>/simple-search"><span class="glyphicon glyphicon-globe"></span> Browse StatSpace</a></button>
+                    </div>
+                    <p/>
                     <div class="text-left small">
                         <sup>*</sup>&nbsp;To contribute resources, please register and sign in.  In this current pilot stage, contributing also requires approval from <a href="mailto:statspace@stat.ubc.ca">statspace@stat.ubc.ca</a>.  Please read more about the <a href="https://www.stat.ubc.ca/statspace-how-contribute" target="_blank">contribution process</a>. <span class="glyphicon glyphicon-new-window"></span>
                     </div>

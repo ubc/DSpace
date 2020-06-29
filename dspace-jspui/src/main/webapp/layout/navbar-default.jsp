@@ -124,6 +124,9 @@
  
        <div class="nav navbar-nav navbar-right">
 		<ul class="nav navbar-nav navbar-right">
+			<li>
+				<a href="<%= request.getContextPath() %>/simple-search"><span class="glyphicon glyphicon-globe"></span> Browse</a>
+			</li>
          <%
     if (user != null)
     {
